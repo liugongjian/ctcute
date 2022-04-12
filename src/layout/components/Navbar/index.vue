@@ -27,11 +27,11 @@ import Hamburger from '@/components/Hamburger/index.vue'
   }
 })
 export default class extends Vue {
-  private toggleSideBar () {
+  private toggleSideBar() {
     AppModule.ToggleSideBar(false)
   }
 
-  private async logout () {
+  private async logout() {
     // await UserModule.LogOut()
     this.$router.push(`/login?redirect=${this.$route.fullPath}`)
   }

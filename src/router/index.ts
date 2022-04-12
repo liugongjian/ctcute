@@ -15,9 +15,7 @@ export const constantRoutes: RouteConfig[] = [
     path: '/home',
     component: Layout,
     meta: {
-      id: '20210424150201002000',
       title: '首页',
-      code: '001000000',
       icon: 'home',
       only: true,
       alwaysShow: false
@@ -28,9 +26,7 @@ export const constantRoutes: RouteConfig[] = [
         component: Home,
         name: 'home',
         meta: {
-          id: '20210424150201002001',
           title: '首页',
-          code: '001001000',
           icon: 'home',
           activeMenu: '/home',
           breadcrumb: false
@@ -42,9 +38,7 @@ export const constantRoutes: RouteConfig[] = [
     path: '/about',
     component: Layout,
     meta: {
-      id: '20210424150201003000',
       title: '关于',
-      code: '002000000',
       icon: 'home',
       only: true,
       alwaysShow: false
@@ -55,12 +49,32 @@ export const constantRoutes: RouteConfig[] = [
         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
         name: 'about',
         meta: {
-          id: '20210424150201003001',
           title: '关于',
-          code: '002001000',
           icon: 'home',
           activeMenu: '/about',
           breadcrumb: false
+        }
+      }
+    ]
+  },
+  {
+    path: '/page',
+    component: Layout,
+    meta: {
+      title: '页面规范',
+      icon: 'home',
+      alwaysShow: true,
+      breadcrumb: true
+    },
+    children: [
+      {
+        path: 'simple-form',
+        component: () => import(/* webpackChunkName: "page" */ '../views/page/SimpleForm.vue'),
+        name: 'simple-form',
+        meta: {
+          title: '简单表单',
+          icon: 'home',
+          activeMenu: '/page'
         }
       }
     ]

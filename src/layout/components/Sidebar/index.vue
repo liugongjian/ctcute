@@ -34,7 +34,7 @@ import variables from '@/assets/css/_variables.scss'
   }
 })
 export default class extends Vue {
-  get activeMenu (): string {
+  get activeMenu(): string {
     const route = this.$route
     const { meta, path } = route
     // if set path, the sidebar will highlight the path you set
@@ -44,19 +44,19 @@ export default class extends Vue {
     return path
   }
 
-  get sidebar (): any {
+  get sidebar(): any {
     return AppModule.sidebar
   }
 
-  get routes (): unknown {
+  get routes(): unknown {
     return (this.$router as any).options.routes
   }
 
-  get variables (): unknown {
+  get variables(): unknown {
     return variables
   }
 
-  get isCollapse (): unknown {
+  get isCollapse(): unknown {
     return !this.sidebar.opened
   }
 }

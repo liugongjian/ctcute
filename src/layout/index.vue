@@ -38,7 +38,7 @@ import ResizeMixin from './mixin/resize'
   }
 })
 export default class extends mixins(ResizeMixin) {
-  get classObj (): unknown {
+  get classObj(): unknown {
     return {
       hideSidebar: !this.sidebar.opened,
       openSidebar: this.sidebar.opened,
@@ -47,7 +47,7 @@ export default class extends mixins(ResizeMixin) {
     }
   }
 
-  private handleClickOutside () {
+  private handleClickOutside() {
     AppModule.CloseSideBar(false)
   }
 }

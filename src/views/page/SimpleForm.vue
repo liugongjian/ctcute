@@ -1,16 +1,23 @@
 <template>
   <div>
-    <!-- <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="活动名称" prop="name">
-        <el-input v-model="ruleForm.name"></el-input>
+    <el-form :model="form" ref="simpleForm" label-width="120px" class="simple-form">
+      <el-form-item label="策略名称" prop="name">
+        <el-input
+          v-model="form.name"
+          placeholder="请输入策略名称"
+        />
       </el-form-item>
-      <el-form-item label="活动区域" prop="region">
-        <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
-          <el-option label="区域一" value="shanghai"></el-option>
-          <el-option label="区域二" value="beijing"></el-option>
-        </el-select>
+      <el-form-item label="备注" prop="remark">
+        <el-input
+          v-model="form.remark"
+          placeholder="请输入备注信息"
+          type="textarea"
+          :rows="3"
+          maxlength="128"
+          show-word-limit
+        />
       </el-form-item>
-    </el-form> -->
+    </el-form>
   </div>
 </template>
 <script lang="ts">
@@ -20,7 +27,10 @@ import { Component, Vue } from 'vue-property-decorator'
   name: 'PlayerDebug'
 })
 export default class extends Vue {
-
+  private form = {
+    name: null,
+    remark: null
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -1,53 +1,44 @@
 /* Variables */
 
-// Base color
+/* Base color */
 $primary: #fa8334;
 $success: #52c41a;
-$warning: #ff9d3b;
+$warning: #fa8334;
 $danger: #f5212d;
-$info: #4a89dc;
+$info: #1890ff;
 
-$blue:#324157;
-$light-blue:#3A71A8;
-$red:#C03639;
-$white: #FFFFFF;
-$pink: #E65D6E;
-$green: #30B08F;
-$tiffany: #4AB7BD;
-$yellow:#FEC171;
-$panGreen: #30B08F;
-$textGrey: #888888;
-$textLightGrey: #ccc;
+/* Text */
+$text: rgba(0, 0, 0, 65%);
+$textGrey: rgba(0, 0, 0, 45%);
+$textLightGrey: rgba(0, 0, 0, 35%);
 $textYellow: #aa4a0b;
-$text: #333333;
 
-// Sidebar
-$sideBarWidth: 210px;
-$subMenuBg:#1f2d3d;
-$subMenuHover:#001528;
-$subMenuActiveText:#f4f4f5;
-$menuBg:#304156;
-$menuText:#bfcbd9;
-$menuActiveText:#409EFF; // Also see settings.sidebarTextTheme
+/* Body */
+$bodyBg: #f2f2f2;
 
-// Login page
-$lightGray: #eee;
-$darkGray:#889aa4;
-$loginBg: #fff;
-$loginCursorColor: #ccc;
+/* Header */
+$headerHeight: 50px;
+$headerBg: #424550;
 
-$--color-info-lighter: #eee;
-
+/* Border */
+$border: #ddd;
 $borderGrey: #eee;
 
-// The :export directive is the magic sauce for webpack
-// https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
+/* Sidebar */
+$sideBarWidth: 230px;
+$sideBarBg: #fff;
+$menuBg:#fff;
+$menuText: $text;
+$menuActiveText:#000;
+$subMenuBg:#fff;
+$subMenuHover:#f2f2f2;
+$subMenuActiveText:#000;
+
+/* The :export directive is the magic sauce for webpack
+ * https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
+  */
 :export {
   menuBg: $menuBg;
   menuText: $menuText;
   menuActiveText: $menuActiveText;
 }
-
-
-$dashboardGreen: #7CC96F;
-$dashboardRed: #E56161;

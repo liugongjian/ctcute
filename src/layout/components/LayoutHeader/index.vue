@@ -1,0 +1,60 @@
+<template>
+  <header class="layout-header">
+    <div class="layout-header__logo">
+      <!-- 天翼云LOGO -->
+      <img class="layout-header__logo--ct" src="./images/ct-logo.svg" />
+      <!-- 项目LOGO -->
+      <div class="layout-header__logo--project">
+        <img src="./images/cute-design.svg" />
+      </div>
+    </div>
+  </header>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
+  name: 'LayoutHeader'
+})
+export default class extends Vue {
+
+}
+</script>
+
+<style lang="scss" scoped>
+  .layout-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    height: $headerHeight;
+    display: flex;
+    justify-content: space-between;
+    background: #424550;
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      padding-left: 28px;
+
+      &--ct {
+        height: 27px;
+      }
+
+      &--project {
+        display: flex;
+        align-items: center;
+        margin-left: 15px;
+        padding-left: 15px;
+        border-left: 1px solid #979797;
+
+        img {
+          height: 18px;
+          margin-top: 3px; // 因包含字母g，向下偏移3个像素，让视觉水平居中
+        }
+      }
+    }
+  }
+</style>

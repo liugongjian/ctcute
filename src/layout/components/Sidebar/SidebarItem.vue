@@ -12,10 +12,6 @@
           :index="resolvePath(theOnlyOneChild.path)"
           :class="{'submenu-title-noDropdown': isFirstLevel}"
         >
-          <svg-icon
-            v-if="theOnlyOneChild.meta.icon"
-            :name="theOnlyOneChild.meta.icon"
-          />
           <span
             v-if="theOnlyOneChild.meta.title"
             slot="title"
@@ -29,10 +25,6 @@
       popper-append-to-body
     >
       <template slot="title">
-        <svg-icon
-          v-if="item.meta && item.meta.icon"
-          :name="item.meta.icon"
-        />
         <span
           v-if="item.meta && item.meta.title"
           slot="title"
@@ -56,7 +48,7 @@
 <script lang="ts">
 import path from 'path'
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { Route, RouteConfig } from 'vue-router'
+import { RouteConfig } from 'vue-router'
 import { isExternal } from '@/utils/validate'
 import SidebarItemLink from './SidebarItemLink.vue'
 
@@ -118,47 +110,17 @@ export default class extends Vue {
 
 <style lang="scss">
 .el-submenu.is-active > .el-submenu__title {
-  color: $subMenuActiveText !important;
+  color: $subMenuActiveText;
 }
 
-.full-mode {
-  .nest-menu .el-submenu>.el-submenu__title,
-  .el-submenu .el-menu-item {
-    min-width: $sideBarWidth !important;
-    background-color: $subMenuBg !important;
+.el-submenu > .el-submenu__title,
+.el-submenu .el-menu-item {
+  min-width: $sideBarWidth;
+  background-color: $subMenuBg;
 
-    &:hover {
-      background-color: $subMenuHover !important;
-    }
-  }
-}
-
-.simple-mode {
-  &.first-level {
-    .submenu-title-noDropdown {
-      padding: 0 !important;
-      position: relative;
-
-      .el-tooltip {
-        padding: 0 !important;
-      }
-    }
-
-    .el-submenu {
-      overflow: hidden;
-
-      &>.el-submenu__title {
-        padding: 0px !important;
-
-        .el-submenu__icon-arrow {
-          display: none;
-        }
-
-        &>span {
-          visibility: hidden;
-        }
-      }
-    }
+  &.is-active,
+  &:hover {
+    background-color: $subMenuHover !important;
   }
 }
 </style>

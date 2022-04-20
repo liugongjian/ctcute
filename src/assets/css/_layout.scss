@@ -1,0 +1,50 @@
+.app-wrapper {
+  @include clearfix;
+
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/* 侧边栏样式 */
+.layout-sidebar {
+  transition: width 0.28s;
+  width: $sideBarWidth;
+  height: 100%;
+  position: fixed;
+  font-size: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: $headerHeight;
+  background: $sideBarBg;
+  z-index: 10;
+  overflow: hidden;
+
+  .scrollbar-wrapper {
+    overflow-x: hidden !important;
+  }
+
+  .el-scrollbar__view {
+    height: 100%;
+  }
+
+  .el-scrollbar__bar {
+    &.is-vertical {
+      right: 0;
+    }
+
+    &.is-horizontal {
+      display: none;
+    }
+  }
+}
+
+/* 主容器样式 */
+.main-container {
+  position: relative;
+  min-height: 100%;
+  transition: margin-left 0.28s;
+  margin-left: $sideBarWidth;
+  margin-top: $headerHeight;
+}

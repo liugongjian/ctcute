@@ -1,9 +1,4 @@
-.el-pagination {
-  margin-top: 8px;
-  padding-top: 8px;
-  text-align: right;
-}
-
+/* Button */
 .el-button + .el-dropdown {
   margin-left: 10px;
 }
@@ -12,51 +7,10 @@
   padding: 10px;
 }
 
-.el-input-group__append, .el-input-group__prepend {
-  color: inherit;
-}
-
-.el-table__header-wrapper {
-  background-color: #f3f3f3;
-}
-
-.el-table .el-table__header tr, .el-table .el-table__header th {
-  background-color: #f3f3f3;
-}
-
-.el-table th.el-table-column--selection > .cell {
-  padding-left: 14px;
-}
-
-.el-alert--info.is-light {
-  border: 1px solid $info;
-  background: #edf5ff;
-}
-
-.el-page-header {
-  margin-bottom: 15px;
-}
-.el-page-header__left {
-  margin-right: 0;
-  .el-icon-back:hover {
-    color: $primary;
-  }
-  &::after {
-    display: none;
-  }
-}
-.el-page-header__title {
-  display: none;
-}
-
+/* Form */
 .el-form-item__label {
   padding-right: 25px;
   color: $textGrey;
-}
-
-.el-tabs__content .el-form,
-.el-card__body .el-form {
-  margin-top: 20px;
 }
 
 .el-form-item {
@@ -67,18 +21,34 @@
   padding-top: 3px;
 }
 
+/* Textarea */
+.el-textarea .el-input__count {
+  color: $textGrey;
+  line-height: 150%;
+}
+
+/* Radio */
+.el-radio-button__orig-radio:checked + .el-radio-button__inner {
+  color: $primary;
+  background-color: rgba(250, 131, 52, 8%);
+}
+
+/* Checkbox */
 .el-checkbox-group + .el-form-item__error {
   padding-top: 0;
 }
 
+/* Datepicker */
 .el-date-editor .el-range-separator {
   width: 40px;
 }
 
+/* Tree */
 .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
   background: #f3f3f3;
 }
 
+/* Dialog */
 .el-dialog__footer {
   margin-top: -30px;
 }
@@ -87,43 +57,34 @@
   color: $textGrey;
 }
 
-.el-select-group__title  {
-  color: #bbb;
-}
-
-.el-popover {
-  font-size: 14px;
-  color: $textGrey;
-  line-height: 1.5em;
-}
-
-.el-message {
-  min-width: auto;
-}
-
-.el-date-picker .has-records {
-  position: relative;
-  &:after {
-    content: ' ';
-    background: $success;
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    border-radius: 100px;
-    bottom: 5px;
-    left: 50%;
-    margin-left: -3px;
-  }
-}
-
-.el-dialog {
-  z-index: 100;
-}
-
-.ie .el-dialog.is-fullscreen {
-  overflow: visible;
-}
-
+/* Descriptions */
 .el-descriptions td {
   padding: 10px 0;
+}
+
+/* Table */
+.el-table__header-wrapper {
+  background-color: #f3f3f3;
+}
+
+.el-table .el-table__header tr,
+.el-table .el-table__header th {
+  background-color: #f3f3f3;
+}
+
+.el-table th.el-table-column--selection > .cell {
+  padding-left: 14px;
+}
+
+/* Alert */
+.el-alert--info.is-light {
+  border: 1px solid $info;
+  background: #edf5ff;
+}
+
+/* Pagination */
+.el-pagination {
+  margin-top: 8px;
+  padding-top: 8px;
+  text-align: right;
 }

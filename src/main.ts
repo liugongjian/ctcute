@@ -2,15 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
 import ElementUI from 'element-ui'
 import SvgIcon from 'vue-svgicon'
 import './assets/icons/components'
-
-// import './api/index.js'
-
 import './assets/css/element-variables.scss'
 import './assets/css/index.scss'
+import '@/permission'
 
 Vue.use(ElementUI)
 Vue.use(SvgIcon, {

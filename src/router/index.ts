@@ -7,31 +7,9 @@ Vue.use(Router)
 export const constantRoutes: RouteConfig[] = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/page/form',
     meta: { hidden: true }
   }
-  // {
-  //   path: '/page',
-  //   component: Layout,
-  //   meta: {
-  //     title: '页面规范',
-  //     icon: 'home',
-  //     alwaysShow: true,
-  //     breadcrumb: true
-  //   },
-  //   children: [
-  //     {
-  //       path: 'form',
-  //       component: () => import(/* webpackChunkName: "page" */ '../views/page/Form.vue'),
-  //       name: 'form',
-  //       meta: {
-  //         title: '表单',
-  //         icon: 'home',
-  //         activeMenu: '/page'
-  //       }
-  //     }
-  //   ]
-  // }
 ]
 
 export const asyncRoutes: RouteConfig[] = [

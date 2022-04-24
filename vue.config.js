@@ -14,48 +14,13 @@ module.exports = {
       errors: true
     },
     proxy: {
-      '/ctyun/': {
-        target: 'https://www.ctyun.cn/',
+      '/iam/': {
+        target: 'https://iam-test.ctcdn.cn/',
         secure: false,
         changeOrigin: true
       },
-      '/layout/': {
-        target: 'https://www.ctyun.cn/',
-        secure: false,
-        changeOrigin: true
-      },
-      '/gw': {
-        target: 'https://www.ctyun.cn',
-        secure: false,
-        changeOrigin: true
-      },
-      '/ctyun/signin': {
-        target: 'https://www.ctyun.cn/',
-        secure: false,
-        changeOrigin: true
-      },
-      '/services/user/ImageCode': {
-        target: 'https://www.ctyun.cn/',
-        secure: false,
-        changeOrigin: true
-      },
-      '/record2/': {
-        target: 'https://www.ctyun.cn/',
-        secure: false,
-        changeOrigin: true
-      },
-      '/ctyunfile/': {
-        target: 'https://www.ctyun.cn/',
-        secure: false,
-        changeOrigin: true
-      },
-      '/cloudapp/': {
-        target: 'https://www.ctyun.cn/',
-        secure: false,
-        changeOrigin: true
-      },
-      '/v1': {
-        target: 'http://localhost:8000',
+      '/v1/': {
+        target: 'http://local.ctcdn.cn:3000/',
         changeOrigin: true,
         secure: false
       }

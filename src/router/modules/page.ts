@@ -1,35 +1,32 @@
-import { RouteConfig } from 'vue-router'
 import Layout from '@/layout/index.vue'
 
-const pageRoutes: RouteConfig = {
-  path: '/page',
+const pageRoutes = [{
+  path: '/page/form',
   component: Layout,
-  redirect: 'noredirect',
-  name: 'Page',
+  name: 'Form',
   meta: {
     title: 'Form 表单',
-    alwaysShow: true,
     breadcrumb: true
   },
   children: [
     {
-      path: 'form',
-      component: () => import(/* webpackChunkName: "page" */ '@/views/page/Form.vue'),
-      name: 'Form',
+      path: 'simple-form',
+      component: () => import(/* webpackChunkName: "form" */ '@/views/page/SimpleForm.vue'),
+      name: 'SimpleForm',
       meta: {
         title: 'Form 基础表单',
         breadcrumb: true
       }
     }, {
-      path: 'form2',
-      component: () => import(/* webpackChunkName: "page" */ '@/views/page/Form.vue'),
-      name: 'Form',
+      path: 'pro-form',
+      component: () => import(/* webpackChunkName: "form" */ '@/views/page/SimpleForm.vue'),
+      name: 'ProForm',
       meta: {
         title: 'ProForm 复杂表单',
         breadcrumb: true
       }
     }
   ]
-}
+}]
 
 export default pageRoutes

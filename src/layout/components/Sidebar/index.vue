@@ -1,5 +1,6 @@
 <template>
   <el-scrollbar wrap-class="scrollbar-wrapper">
+    <div class="layout-sidebar__title">{{ title }}</div>
     <el-menu
       :default-active="activeMenu"
       :background-color="variables.menuBg"
@@ -10,7 +11,7 @@
       mode="vertical"
     >
       <sidebar-item
-        v-for="route in routes"
+        v-for="route in currentRoutes"
         :key="route.path"
         :item="route"
         :base-path="route.path"
@@ -20,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import { PermissionModule } from '@/store/modules/permission'
 import { AppModule } from '@/store/modules/app'
 import SidebarItem from './SidebarItem.vue'
@@ -33,7 +34,13 @@ import variables from '@/assets/css/_variables.scss'
   }
 })
 export default class extends Vue {
-  get activeMenu(): string {
+  @Prop()
+  private routes
+
+  @Prop()
+  private title
+
+  private get activeMenu(): string {
     const route = this.$route
     const { meta, path } = route
     // if set path, the sidebar will highlight the path you set
@@ -43,15 +50,15 @@ export default class extends Vue {
     return path
   }
 
-  get sidebar(): any {
+  private get sidebar(): any {
     return AppModule.sidebar
   }
 
-  get routes(): unknown {
-    return PermissionModule.routes
+  private get currentRoutes(): any {
+    return this.routes || PermissionModule.routes
   }
 
-  get variables(): unknown {
+  private get variables(): any {
     return variables
   }
 }

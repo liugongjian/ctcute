@@ -7,13 +7,13 @@ Vue.use(Router)
 export const constantRoutes: RouteConfig[] = [
   {
     path: '/',
-    redirect: '/page/form',
+    redirect: '/page/form/simple-form',
     meta: { hidden: true }
   }
 ]
 
 export const asyncRoutes: RouteConfig[] = [
-  pageRoutes
+  ...pageRoutes
 ]
 
 const router = new Router({

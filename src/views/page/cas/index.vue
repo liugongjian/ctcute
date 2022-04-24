@@ -5,7 +5,7 @@
       <el-button @click="logout">退出登录</el-button>
     </div>
     <div v-else>
-      <el-alert type="info">当前Demo不支持自动后自动跳转回当前页面，请手动返回当前页面查看登录状态。<br /><br />请添加本地HOST：127.0.0.1 local.ctcdn.cn</el-alert>
+      <el-alert type="info">当前Demo不支持自动后自动跳转回当前页面，请手动返回当前页面查看登录状态。<br /><br />请添加本地HOST：127.0.0.1 local.ctcdn.cn<br /><br />本地需要通过local.ctcdn.cn域名访问</el-alert>
       <div class="login-btn"><el-button type="primary" @click="login">登录CDN IAM</el-button></div>
     </div>
   </el-card>

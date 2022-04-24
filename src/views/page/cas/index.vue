@@ -6,7 +6,7 @@
     </div>
     <div v-else>
       <el-alert type="info">当前Demo不支持自动后自动跳转回当前页面，请手动返回当前页面查看登录状态。<br /><br />请添加本地HOST：127.0.0.1 local.ctcdn.cn</el-alert>
-      <p><el-button type="primary" @click="login">登录CDN IAM</el-button></p>
+      <div class="login-btn"><el-button type="primary" @click="login">登录CDN IAM</el-button></div>
     </div>
   </el-card>
 </template>
@@ -32,5 +32,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-
+  .login-btn {
+    margin-top: 15px;
+  }
 </style>

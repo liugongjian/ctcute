@@ -8,12 +8,26 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {
+    port: 443,
     open: true,
     overlay: {
       warnings: false,
       errors: true
     },
     proxy: {
+      '/iam/gw/': {
+        target: 'https://iam-test.ctcdn.cn/',
+        secure: false,
+        changeOrigin: true,
+        bypass: (req) => {
+          if (req.headers && req.headers.referer) {
+            const url = new URL(req.headers.referer)
+            url.host = 'iam-test.ctcdn.cn'
+            url.port = ''
+            req.headers.referer = url.href
+          }
+        }
+      },
       '/iam/': {
         target: 'https://iam-test.ctcdn.cn/',
         secure: false,

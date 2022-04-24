@@ -3,13 +3,15 @@ import Vuex from 'vuex'
 import { IAppState } from './modules/app'
 import { ITagsViewState } from './modules/tags-view'
 import { IPermissionState } from './modules/permission'
+import { ICasState } from './modules/cas'
 
 Vue.use(Vuex)
 
 export interface IRootState {
   app: IAppState
   permission: IPermissionState
-  tagsView: ITagsViewState
+  tagsView: ITagsViewState,
+  cas: ICasState
 }
 
 // Declare empty store first, dynamically register all modules later.

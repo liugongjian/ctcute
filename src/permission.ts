@@ -30,7 +30,6 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
           PermissionModule.dynamicRoutes.forEach(route => {
             router.addRoute(route)
           })
-          console.log(router.options)
           // Hack: ensure addRoutes is complete
           // Set the replace: true, so the navigation will not leave a history record
           next({ ...to, replace: true })
@@ -59,4 +58,5 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
 router.afterEach((to: Route) => {
   // set page title
   document.title = getPageTitle(to.meta.title)
+  console.log(to)
 })

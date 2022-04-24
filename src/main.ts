@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import SvgIcon from 'vue-svgicon'
+import { initCas } from '@/models/Cas'
 import './assets/icons/components'
 import './assets/css/element-variables.scss'
 import './assets/css/index.scss'
@@ -18,8 +19,13 @@ Vue.use(SvgIcon, {
 
 Vue.config.productionTip = false
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+/**
+ * 先判断用户是否登录
+ */
+initCas('#container').then(() => {
+  new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount('#app')
+})

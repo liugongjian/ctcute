@@ -1,5 +1,3 @@
-import { PermissionModule } from '@/store/modules/permission'
-
 export class BaseCas {
   /* 框架DOM，用于挂载统一页面框架 */
   public container: HTMLElement
@@ -31,20 +29,14 @@ export class BaseCas {
    * 初始化页面框架
    */
   public init() {
+    this.setContainerId()
     this.casLayout.consoleContainer.init()
   }
 
   /**
    * 更新菜单
    */
-  public updateMenu() {
-    console.log('updateMenu')
-  }
-
-  /**
-   * 获取路由表
-   */
-  public getRoutes() {
-    return PermissionModule.dynamicRoutes
+  public updateMenu(routes) {
+    console.log('updateMenu', routes)
   }
 }

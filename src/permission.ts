@@ -58,5 +58,4 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
 router.afterEach((to: Route) => {
   // set page title
   document.title = getPageTitle(to.meta.title)
-  console.log(to)
 })

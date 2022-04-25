@@ -20,7 +20,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { CasModule } from '@/store/modules/cas'
-import axios from 'axios'
+import { getMenu } from '@/api/cas'
 
 @Component({
   name: 'Cas'
@@ -34,10 +34,17 @@ export default class extends Vue {
   }
 
   private async renderMenu() {
-    const res: any = await axios.get('/iam/gw/workspace/menu/GetTree?workspaceId=10000000&domain=cutedesign.test')
-    this.menuItems = res.data.data.items
-    this.activedMenu = this.menuItems[0].id
-    // CasModule.UpdateMenu(this.menu)
+    const params = {
+      workspaceId: '10000000',
+      domain: 'cutedesign.test'
+    }
+    const res: any = await getMenu(params)
+    if (res.data) {
+      this.menuItems = res.data.items
+      this.activedMenu = this.menuItems[0].id
+      // 使用IAM配置的菜单更新左侧二级菜单
+      // CasModule.UpdateMenu(this.menu)
+    }
   }
 
   private login() {

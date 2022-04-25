@@ -5,19 +5,14 @@ export class CdnCas extends BaseCas {
   public containerId = 'iam-console-container'
   public casLayout = AlogicLayout
 
-  // constructor(container) {
-  //   super(container)
-  // }
-
   /**
    * 更新菜单
    */
-  public updateMenu(routes) {
-    console.log(routes)
+  public updateMenu(items) {
     const mainMenuPromise = new Promise(resolve => {
       resolve({
         title: settings.title,
-        list: this.generateMenu(routes)
+        list: items
       })
     })
     this.casLayout.consoleContainer.updateMenu({
@@ -26,7 +21,15 @@ export class CdnCas extends BaseCas {
   }
 
   /**
-   * 生产菜单数据
+   * 使用路由表更新菜单
+   */
+  public updateMenuByRoute(routes) {
+    const items = this.generateMenu(routes)
+    this.updateMenu(items)
+  }
+
+  /**
+   * 构造菜单数据
    * @param routes 路由表
    * @param parentPath
    * @returns 菜单数组

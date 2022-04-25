@@ -37,8 +37,13 @@ class Cas extends VuexModule implements ICasState {
   }
 
   @Action
-  public UpdateMenu(routes) {
-    this.cas && this.cas.updateMenu(routes)
+  public UpdateMenu(items) {
+    this.cas && this.cas.updateMenu(items)
+  }
+
+  @Action
+  public UpdateMenuByRoute(routes) {
+    this.cas && this.cas.updateMenuByRoute(routes)
   }
 }
 

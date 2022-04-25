@@ -36,7 +36,14 @@ export class BaseCas {
   /**
    * 更新菜单
    */
-  public updateMenu(routes) {
-    console.log('updateMenu', routes)
+  public updateMenu(items) {
+    console.log('updateMenu', items)
+  }
+
+  /**
+   * 使用路由表更新菜单
+   */
+  public updateMenuByRoute(routes) {
+    console.log('updateMenuByRoute', routes)
   }
 }

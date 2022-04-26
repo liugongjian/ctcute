@@ -4,7 +4,7 @@
       <p>你好！{{ userInfo.name }} ({{ userInfo.loginId }}) <el-button class="logout-btn" size="mini" @click="logout">退出登录</el-button></p>
       <p>登录时间: {{ userInfo.loginTime }}</p>
       <hr>
-      <p>通过CDN IAM配置的菜单：</p>
+      <h3>通过CDN IAM配置的菜单：</h3>
       <el-menu mode="horizontal" :default-active="activedMenu">
         <el-submenu v-for="item in menuItems" :key="item.id" :index="item.id">
           <template slot="title">{{ item.name }}</template>

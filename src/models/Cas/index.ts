@@ -25,6 +25,7 @@ export const initCas = async(containerId) => {
   try {
     const container = document.querySelector(containerId)
     const cas = createCas(container)
+    if (!cas) return
     const auth = await cas.auth()
     if (auth.isLoggedIn) {
       cas.init()

@@ -5,13 +5,13 @@
     <div v-else>
       <el-alert type="info">
         <h3>天翼云单点登录</h3>
-        <p>本地需要通过local.ctyun.cn域名访问</p>
+        <p>本地需要通过local.ctyun.cn域名访问此页</p>
         <p>请添加本地HOST：127.0.0.1 local.ctyun.cn</p>
       </el-alert>
       <br>
       <el-alert type="info">
         <h3>CDN IAM单点登录</h3>
-        <p>本地需要通过local.ctcdn.cn域名访问</p>
+        <p>本地需要通过local.ctcdn.cn域名访问此页</p>
         <p>请添加本地HOST：127.0.0.1 local.ctcdn.cn</p>
       </el-alert>
     </div>

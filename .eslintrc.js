@@ -7,7 +7,7 @@ module.exports = {
     es6: true // 支持 es6 语法
   },
   extends: [
-    'plugin:vue/essential',
+    'plugin:vue/recommended',
     '@vue/standard',
     '@vue/typescript/recommended'
   ],
@@ -37,7 +37,6 @@ module.exports = {
     'vue/singleline-html-element-content-newline': 'off',
     'vue/max-attributes-per-line': 'off',
     'vue/multi-word-component-names': 'off',
-    'vue/mustache-interpolation-spacing': 'error',
     'keyword-spacing': 'off',
     '@typescript-eslint/keyword-spacing': ['error'],
     '@typescript-eslint/no-unused-vars': ['error'],

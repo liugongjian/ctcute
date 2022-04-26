@@ -1,4 +1,6 @@
 export class BaseCas {
+  /* 单点登录类型，目前包含天翼云和CDN IAM */
+  public type: string
   /* 框架DOM，用于挂载统一页面框架 */
   public container: HTMLElement
   /* 框架ID */

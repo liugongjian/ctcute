@@ -2,6 +2,7 @@ import { BaseCas } from './BaseCas'
 import settings from '@/settings'
 
 export class CdnCas extends BaseCas {
+  public type = 'ctcdn'
   public containerId = 'iam-console-container'
   public casLayout = AlogicLayout
   public casConsole = AlogicLayout.consoleContainer

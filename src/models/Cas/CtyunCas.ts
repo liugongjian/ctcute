@@ -2,6 +2,7 @@ import { BaseCas } from './BaseCas'
 import settings from '@/settings'
 import router from '@/router'
 export class CtyunCas extends BaseCas {
+  public type = 'ctyun'
   public containerId = 'ctcloud-console'
   public casLayout = CtcloudLayout
   public casConsole = CtcloudLayout.consoleLayout

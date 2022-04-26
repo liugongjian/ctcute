@@ -14,6 +14,9 @@ module.exports = {
       errors: true
     },
     proxy: {
+      /**
+       * CDN单点登录
+       */
       '/iam/gw/': {
         target: 'https://iam-test.ctcdn.cn/',
         secure: false,
@@ -32,6 +35,22 @@ module.exports = {
         secure: false,
         changeOrigin: true
       },
+      /**
+       * 天翼云单点登录
+       */
+      '/layout/': {
+        target: 'https://www.ctyun.cn/',
+        secure: false,
+        changeOrigin: true
+      },
+      '/gw/': {
+        target: 'https://www.ctyun.cn/',
+        secure: false,
+        changeOrigin: true
+      },
+      /**
+       * Node.js接口
+       */
       '/v1/': {
         target: 'http://local.ctcdn.cn:3000/',
         changeOrigin: true,

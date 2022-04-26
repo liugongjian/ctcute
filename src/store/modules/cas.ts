@@ -45,6 +45,11 @@ class Cas extends VuexModule implements ICasState {
   public UpdateMenuByRoute(routes) {
     this.cas && this.cas.updateMenuByRoute(routes)
   }
+
+  @Action
+  public ActiveMenu(route) {
+    this.cas && this.cas.activeMenu(route)
+  }
 }
 
 export const CasModule = getModule(Cas)

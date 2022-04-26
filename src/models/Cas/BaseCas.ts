@@ -5,6 +5,7 @@ export class BaseCas {
   public containerId: string
   /* Cas Layout对象 */
   public casLayout: any
+  public casConsole: any
 
   constructor(container) {
     this.container = container
@@ -22,7 +23,7 @@ export class BaseCas {
    * @returns 用户信息Promise
    */
   public auth() {
-    return this.casLayout.authCurrentPromise
+    console.log('auth')
   }
 
   /**
@@ -30,20 +31,40 @@ export class BaseCas {
    */
   public init() {
     this.setContainerId()
-    this.casLayout.consoleContainer.init()
+    this.casConsole.init()
   }
 
   /**
-   * 更新菜单
+   * 更新左侧二级菜单
    */
   public updateMenu(items) {
-    console.log('updateMenu', items)
+    console.log(items)
   }
 
   /**
-   * 使用路由表更新菜单
+   * 使用路由表更新左侧二级菜单
    */
   public updateMenuByRoute(routes) {
-    console.log('updateMenuByRoute', routes)
+    const items = this.generateRouteMenu(routes)
+    this.updateMenu(items)
+  }
+
+  /**
+   * 构造菜单数据
+   * @param routes 路由表
+   * @param parentPath
+   * @returns 菜单数组
+   */
+  protected generateRouteMenu(routes, parentPath = ''): Array<any> {
+    console.log(routes, parentPath)
+    return []
+  }
+
+  /**
+   * 高亮左侧菜单
+   * @param route 路由对象
+   */
+  public activeMenu(route) {
+    console.log(route)
   }
 }

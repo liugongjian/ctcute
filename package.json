@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --fix --mode local",
+    "serve:https": "vue-cli-service serve --fix --mode local --https",
     "build": "vue-cli-service build --mode prod",
     "build-test": "vue-cli-service build --mode test",
     "test:unit": "vue-cli-service test:unit",

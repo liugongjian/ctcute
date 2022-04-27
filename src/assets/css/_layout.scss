@@ -2,7 +2,6 @@
   @include clearfix;
 
   position: relative;
-  height: 100%;
   width: 100%;
 }
 
@@ -13,10 +12,9 @@
   height: 100%;
   position: fixed;
   font-size: 0;
-  top: 0;
+  top: $headerHeight;
   bottom: 0;
   left: 0;
-  padding-top: $headerHeight;
   background: $sideBarBg;
   z-index: 10;
   overflow: hidden;
@@ -45,6 +43,32 @@
       display: none;
     }
   }
+
+  .el-menu {
+    border: none;
+  }
+
+  .el-menu-item,
+  .el-submenu__title {
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .el-submenu.is-active > .el-submenu__title {
+    color: $subMenuActiveText;
+  }
+
+  .el-menu-item,
+  .el-submenu > .el-submenu__title,
+  .el-submenu .el-menu-item {
+    min-width: $sideBarWidth;
+    background-color: $subMenuBg;
+
+    &.is-active,
+    &:hover {
+      background-color: $subMenuHover !important;
+    }
+  }
 }
 
 /* 主容器样式 */
@@ -53,5 +77,16 @@
   min-height: 100%;
   transition: margin-left 0.28s;
   margin-left: $sideBarWidth;
-  margin-top: $headerHeight;
+  padding: $headerHeight 15px 15px;
+
+  .navbar {
+    margin-top: 15px;
+  }
+
+  .app-main > .el-card.is-always-shadow {
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    color: inherit;
+  }
 }

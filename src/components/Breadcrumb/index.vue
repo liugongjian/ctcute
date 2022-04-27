@@ -88,29 +88,5 @@ export default class extends Vue {
 .app-breadcrumb.el-breadcrumb {
   margin: 5px 0 15px;
   display: inline-block;
-
-  ::v-deep {
-    .el-breadcrumb__inner.is-link,
-    .el-breadcrumb__inner a,
-    .el-breadcrumb__inner {
-      color: $textGrey;
-      font-weight: normal;
-
-      &:hover {
-        color: $textGrey;
-      }
-    }
-
-    .el-breadcrumb__inner a:hover {
-      color: $primary;
-    }
-
-    .el-breadcrumb__item:last-child {
-      .el-breadcrumb__inner {
-        color: $text;
-        font-weight: bold;
-      }
-    }
-  }
 }
 </style>

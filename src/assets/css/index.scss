@@ -8,7 +8,6 @@
 
 /* Global scss */
 body {
-  height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, arial, STHeiTi, sans-serif;
@@ -16,15 +15,6 @@ body {
   background: $bodyBg;
   padding: 0;
   margin: 0;
-}
-
-html {
-  height: 100%;
-  width: 100%;
-}
-
-#app {
-  height: 100%;
 }
 
 *,

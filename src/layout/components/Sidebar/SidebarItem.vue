@@ -107,24 +107,6 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss">
-.el-submenu.is-active > .el-submenu__title {
-  color: $subMenuActiveText;
-}
-
-.el-submenu > .el-submenu__title,
-.el-submenu .el-menu-item {
-  min-width: $sideBarWidth;
-  background-color: $subMenuBg;
-
-  &.is-active,
-  &:hover {
-    background-color: $subMenuHover !important;
-  }
-}
-</style>
-
 <style lang="scss" scoped>
 .svg-icon {
   margin-right: 16px;

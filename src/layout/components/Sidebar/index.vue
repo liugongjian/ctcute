@@ -63,15 +63,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.el-scrollbar {
-  height: 100%;
-}
-
-.el-menu {
-  border: none;
-  height: 100%;
-  width: 100% !important;
-}
-</style>

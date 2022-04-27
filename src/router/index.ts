@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router, { RouteConfig } from 'vue-router'
 import pageRoutes from '@/router/modules/page'
+import uiRoutes from '@/router/modules/ui'
 
 Vue.use(Router)
 
@@ -13,7 +14,8 @@ export const constantRoutes: RouteConfig[] = [
 ]
 
 export const asyncRoutes: RouteConfig[] = [
-  ...pageRoutes
+  ...pageRoutes,
+  ...uiRoutes
 ]
 
 const router = new Router({

@@ -1,6 +1,6 @@
 <template>
   <el-card>
-    <el-form :model="form" :rules="rules" ref="simpleForm" label-width="130px" class="simple-form">
+    <el-form ref="simpleForm" :model="form" :rules="rules" label-width="130px" class="simple-form">
       <el-form-item label="策略名称" prop="name">
         <el-input
           v-model="form.name"

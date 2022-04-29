@@ -25,6 +25,12 @@
   padding-top: 3px;
 }
 
+/* Input */
+.el-input__prefix {
+  display: flex;
+  align-items: center;
+}
+
 /* Textarea */
 .el-textarea .el-input__count {
   color: $textGrey;

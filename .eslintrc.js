@@ -37,6 +37,7 @@ module.exports = {
     'vue/singleline-html-element-content-newline': 'off',
     'vue/max-attributes-per-line': 'off',
     'vue/multi-word-component-names': 'off',
+    'vue/html-self-closing': 'off',
     'keyword-spacing': 'off',
     '@typescript-eslint/keyword-spacing': ['error'],
     '@typescript-eslint/no-unused-vars': ['error'],

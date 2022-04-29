@@ -8,14 +8,19 @@
         <img src="./images/cute-design.svg" />
       </div>
     </div>
+    <header-nav />
   </header>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import HeaderNav from './HeaderNav.vue'
 
 @Component({
-  name: 'LayoutHeader'
+  name: 'LayoutHeader',
+  components: {
+    HeaderNav
+  }
 })
 export default class extends Vue {
 

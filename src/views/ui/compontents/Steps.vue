@@ -10,6 +10,9 @@ import { Component, Vue } from 'vue-property-decorator'
   name: 'UiSteps'
 })
 export default class extends Vue {
-  public static title = 'Steps 步骤条'
+  public static title = {
+    zh: '步骤条',
+    en: 'Steps'
+  }
 }
 </script>

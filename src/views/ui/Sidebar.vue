@@ -11,7 +11,7 @@
       mode="vertical"
     >
       <el-menu-item v-for="component in componentList" :key="component.name" :index="component.name" @click="changeHash(component.name)">
-        {{ component.title }}
+        {{ component.title.en }} {{ component.title.zh }}
       </el-menu-item>
     </el-menu>
   </el-scrollbar>

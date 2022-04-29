@@ -17,6 +17,9 @@ import { Component, Vue } from 'vue-property-decorator'
   name: 'UiBreakcrumb'
 })
 export default class extends Vue {
-  public static title = 'Breadcrumb 面包屑'
+  public static title = {
+    zh: '面包屑',
+    en: 'Breadcrumb'
+  }
 }
 </script>

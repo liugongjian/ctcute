@@ -3,7 +3,7 @@
     <sidebar class="layout-sidebar" :component-list="componentList" :current-id="currentId" />
     <div ref="uiContainer" class="ui__container">
       <div v-for="component in componentList" :key="component.name" class="ui__component">
-        <h1 :id="component.name">{{ renderTitle(component.title) }}</h1>
+        <h1 :id="component.name">{{ component.title.en }} / {{ component.title.zh }}</h1>
         <component :is="component.name" class="ui__component__body" />
       </div>
     </div>
@@ -35,14 +35,6 @@ export default class extends Vue {
 
   private beforeDestroy() {
     document.removeEventListener('scroll', this.findCurrentTitle)
-  }
-
-  /**
-   * 将标题中的空格转换成斜杠
-   */
-  private renderTitle(title) {
-    const titleArray = title.split(' ')
-    return titleArray.join(' / ')
   }
 
   /**

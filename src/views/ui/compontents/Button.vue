@@ -60,7 +60,10 @@ import { Component, Vue } from 'vue-property-decorator'
   name: 'UiButton'
 })
 export default class extends Vue {
-  public static title = 'Button 按钮'
+  public static title = {
+    zh: '按钮',
+    en: 'Button'
+  }
 }
 </script>
 <style lang="scss" scoped>

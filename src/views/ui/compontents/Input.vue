@@ -10,6 +10,9 @@ import { Component, Vue } from 'vue-property-decorator'
   name: 'UiInput'
 })
 export default class extends Vue {
-  public static title = 'Input 输入框'
+  public static title = {
+    zh: '输入框',
+    en: 'Input'
+  }
 }
 </script>

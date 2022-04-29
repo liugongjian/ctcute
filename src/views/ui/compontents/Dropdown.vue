@@ -10,6 +10,9 @@ import { Component, Vue } from 'vue-property-decorator'
   name: 'UiDropdown'
 })
 export default class extends Vue {
-  public static title = 'Dropdown 下拉菜单'
+  public static title = {
+    zh: '下拉菜单',
+    en: 'Dropdown'
+  }
 }
 </script>

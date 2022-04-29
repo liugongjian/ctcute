@@ -10,6 +10,9 @@ import { Component, Vue } from 'vue-property-decorator'
   name: 'UiPagination'
 })
 export default class extends Vue {
-  public static title = 'Pagination 分页器'
+  public static title = {
+    zh: '分页器',
+    en: 'Pagination'
+  }
 }
 </script>

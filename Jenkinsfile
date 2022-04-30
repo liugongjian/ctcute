@@ -21,7 +21,7 @@ pipeline {
 
         //  定义名字
         DEPLOYMENT_NAME = "ipa-web-backend"
-        SERVICE_TARGET_PORT = 8080          // 程序启用的端口号
+        SERVICE_TARGET_PORT = 80         // 程序启用的端口号
 
         // 执行条件（通用）
         DEV_BRANCH = "develop" // 对应你的需求，“开发环境基于develop分支构建”

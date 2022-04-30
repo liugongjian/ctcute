@@ -37,9 +37,10 @@ spec:
         - image: {{imageUrl}}
           imagePullPolicy: IfNotPresent
           name: {{DEPLOYMENT_NAME}}
-      hostAliases:
+        hostAliases:
         - ip: "36.111.140.220"
           hostnames:
+            - "iam-test.ctcdn.cn"
             - "portal-iam-test.ctyuncdn.cn"
             - "portal-iam-online.ctyuncdn.cn"
             - "eapd.develop.ctcdn.cn"

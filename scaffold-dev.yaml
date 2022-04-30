@@ -8,7 +8,7 @@ spec:
   ports:
   - name: http
     port: 80
-    targetPort: 8047
+    targetPort: 80
   selector:
     app: scaffold
 ---
@@ -33,4 +33,20 @@ spec:
         imagePullPolicy: IfNotPresent
         name: scaffold
         ports:
-        - containerPort: 8047
+        volumeMounts:
+          - name: config-volume
+            mountPath: /etc/nginx/conf.d
+      volumes:
+        - name: config-volume
+          configMap:
+            name: scaffold
+      hostAliases:
+      - ip: "36.111.140.220"
+        hostnames:
+          - "iam-test.ctcdn.cn"
+          - "portal-iam-test.ctyuncdn.cn"
+          - "portal-iam-online.ctyuncdn.cn"
+          - "eapd.develop.ctcdn.cn"
+      - ip: "219.147.102.17"
+        hostnames:
+          - "www.ctyun.cn"

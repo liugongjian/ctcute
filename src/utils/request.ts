@@ -1,7 +1,9 @@
 import axios from 'axios'
+import settings from '@/settings'
 
 /** 创建axios实例 */
 const service = axios.create({
+  baseURL: settings.apiBaseUrl,
   timeout: 5 * 3600 * 1000
 })
 

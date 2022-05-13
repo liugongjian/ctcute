@@ -55,6 +55,15 @@ module.exports = {
         target: 'http://local.ctcdn.cn:3000/',
         changeOrigin: true,
         secure: false
+      },
+      /**
+       * Mock接口
+       */
+      '/mock/175/': {
+        target: 'https://yapi.ctcdn.cn/',
+        https: true,
+        changeOrigin: true,
+        secure: false
       }
     },
     historyApiFallback: true,
@@ -67,6 +76,13 @@ module.exports = {
         path.resolve(__dirname, 'src/assets/css/_variables.scss'),
         path.resolve(__dirname, 'src/assets/css/_mixins.scss')
       ]
+    }
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        sassOptions: { outputStyle: 'expanded' }
+      }
     }
   }
 }

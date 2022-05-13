@@ -1,4 +1,17 @@
 /* Button */
+@mixin Button_disabled($type,$bgColor,$bdColor,$color){
+  .el-button--#{$type}.is-plain.is-disabled,.el-button--#{$type}.is-disabled{
+    background-color: $bgColor;
+    border: 1px solid $bdColor;
+    color:  $color;
+    &:hover,&:focus,&:active{
+      background-color: $bgColor;
+      border: 1px solid $bdColor;
+      color: $color;
+    }
+  }
+}
+
 .el-button + .el-dropdown {
   margin-left: 8px;
 }
@@ -10,7 +23,12 @@
 .el-button-rect {
   padding: 10px;
 }
-
+@include Button_disabled(primary,$bgColor,$bdColor,$color);
+@include Button_disabled(danger,$bgColor,$bdColor,$color);
+@include Button_disabled(default,#fff, rgba(0,0,0,0.15), rgba(0,0,0,0.30));
+.el-button.is-loading:before {
+  background: transparent
+}
 /* Form */
 .el-form-item__label {
   padding-right: 25px;
@@ -30,7 +48,9 @@
   display: flex;
   align-items: center;
 }
-
+.el-input-number__increase,.el-input-number__decrease{
+  background-color:$inputBgColor ;
+}
 /* Textarea */
 .el-textarea .el-input__count {
   color: $textGrey;
@@ -96,7 +116,7 @@
 .el-pagination {
   margin-top: 8px;
   padding-top: 8px;
-  text-align: right;
+  // text-align: right;
 }
 
 /* Breadcrumb */
@@ -121,4 +141,46 @@
     color: $textHead;
     font-weight: bold;
   }
+}
+
+/* steps */
+@mixin Steps($class,$stopBorderColor,$stopColor,$stopsBgColor){
+  .el-step__head.#{$class}{
+    border-color:$stopBorderColor;
+    color: $stopColor;
+    .el-step__icon.is-text{
+      background-color: $stopsBgColor;
+    }
+  }
+}
+@include Steps(is-success,$stopBorderColor,$stopBorderColor,$stopColor);
+@include Steps(is-process,$stopBorderColor,$stopColor,$stopBorderColor);
+.el-step.is-horizontal .el-step__line{
+  left: 30px;
+  right: 10px;
+}
+@mixin Font-size(){
+  
+}
+.el-steps.max.el-steps--horizontal{
+  .el-step__line{
+    top: 15px;
+    left: 38px;
+  }
+  .el-step__icon.is-text{
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
+
+/* select */
+.el-input.el-input--suffix{
+  width: 300px;
+}
+.el-tag.el-tag--info {
+
+  background: #F1F1F1;
+border-radius: 2px;
+  color: rgba(0,0,0,0.65);
 }

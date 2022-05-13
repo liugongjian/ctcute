@@ -12,7 +12,12 @@ $--border-color-light: $border;
 $--border-color-lighter: $borderGrey;
 $--table-border: 1px solid $borderGrey;
 $--input-border: 1px solid $border;
-
+$--border-radius-base:2px;
+$--color-info:#fff;
+$--color-success: rgba(0,0,0,0.65);
+$--background-color-base: #F8F8F8;
+// $--color-success:#fa8334;
+// $--color-text-primary:#ffff;
 /* Icon font path, required */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 

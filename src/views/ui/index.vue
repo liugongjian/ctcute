@@ -97,6 +97,11 @@ export default class extends Vue {
         border: 0;
       }
     }
+    .sub-steps {
+      margin: 24px 0;
+      padding-bottom: 24px;
+      border-bottom: 1px solid $border;
+    }
   }
 }
 </style>

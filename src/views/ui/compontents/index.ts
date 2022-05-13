@@ -7,7 +7,13 @@ const componentsList = [
   require('./Pagination.vue'),
   require('./Steps.vue'),
   require('./Input.vue'),
-  require('./Dropdown.vue')
+  require('./Select.vue'),
+  require('./Radio.vue'),
+  require('./Checkbox.vue'),
+  require('./Rate.vue'),
+  require('./Slider.vue'),
+  require('./Upload.vue')
+
 ]
 
 const _components = {}

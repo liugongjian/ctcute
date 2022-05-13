@@ -35,6 +35,21 @@ $subMenuBg:#fff;
 $subMenuHover:#f2f2f2;
 $subMenuActiveText:#000;
 
+/* Button:disabled*/ 
+$bgColor:#F8F8F8;
+$bdColor:#DDDDDD;
+$color:rgba(0,0,0,0.30);
+
+/* Pagination*/ 
+$pageBackground:transparent;
+
+/* steps */
+$stopBorderColor:#fa8334;
+$stopColor:#ffffff;
+
+/* input */
+$inputBgColor:#ffffff;
+
 /* The :export directive is the magic sauce for webpack
  * https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
   */

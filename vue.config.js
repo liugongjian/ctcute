@@ -68,5 +68,12 @@ module.exports = {
         path.resolve(__dirname, 'src/assets/css/_mixins.scss')
       ]
     }
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        sassOptions: { outputStyle: 'expanded' }
+      }
+    }
   }
 }

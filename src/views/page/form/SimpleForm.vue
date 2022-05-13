@@ -91,7 +91,7 @@ import { createSimpleForm, getAlertTarget } from '@/api/form'
   name: 'SimpleForm'
 })
 export default class extends Vue {
-  /* 表单对象 */
+  // 表单对象
   private form = {
     name: null,
     remark: null,
@@ -101,10 +101,10 @@ export default class extends Vue {
     longTitle: null
   }
 
-  /* 告警对象下拉框选项 */
+  // 告警对象下拉框选项
   private alertTargetOptions = []
 
-  /* 沉默周期选项 */
+  // 沉默周期选项
   private durationOptions = [
     {
       label: '1分钟',
@@ -120,7 +120,7 @@ export default class extends Vue {
     }
   ]
 
-  /* 告警级别选项 */
+  // 告警级别选项
   private alertLevelOptions = [
     {
       label: '紧急',
@@ -132,7 +132,7 @@ export default class extends Vue {
     }
   ]
 
-  /* 通知对象单选控件选项 */
+  // 通知对象单选控件选项
   private notifyTargetOptions = [
     {
       label: '联系人',
@@ -144,7 +144,7 @@ export default class extends Vue {
     }
   ]
 
-  /* 表单校验规则 */
+  // 表单校验规则
   private rules = {
     name: [
       { required: true, message: '请输入策略名称', trigger: 'blur' }
@@ -160,7 +160,7 @@ export default class extends Vue {
     ]
   }
 
-  /* 表单提交状态 */
+  // 表单提交状态
   private submitting = false
 
   /**

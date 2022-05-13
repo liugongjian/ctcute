@@ -6,12 +6,7 @@ interface ISettings {
   fixedHeader: boolean // If true, will fix the header component
   errorLog: string[] // The env to enable the errorlog component, default 'production' only
   sidebarTextTheme: boolean // If true, will change active text color for sidebar based on theme
-  devServerPort: number // Port number for webpack-dev-server
-  mockServerPort: number // Port number for mock server
-  casLoginUrl: string // 单点登录中台路径
-  mainLoginUrl: string // 主账号登录路径
-  subLoginUrl: string // 子账号登录路径
-  projectPrefix: string // 项目前缀路径
+  apiBaseUrl: string // 接口前缀
 }
 
 // You can customize below settings :)
@@ -23,12 +18,7 @@ const settings: ISettings = {
   showSidebarLogo: false,
   errorLog: ['production'],
   sidebarTextTheme: true,
-  devServerPort: 9527,
-  mockServerPort: 9528,
-  casLoginUrl: '/v1/cas/callback',
-  mainLoginUrl: '/login',
-  subLoginUrl: '/login/subAccount',
-  projectPrefix: '/vss'
+  apiBaseUrl: '/'
 }
 
 export default settings

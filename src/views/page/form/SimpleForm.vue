@@ -202,11 +202,14 @@ export default class extends Vue {
    */
   private async create() {
     try {
+      this.submitting = true
       const res = await createSimpleForm(this.form)
       const data = res.data
       this.$message.success(`创建成功！ID: ${data.id}`)
     } catch (e) {
       this.$message.error('创建失败！')
+    } finally {
+      this.submitting = false
     }
   }
 

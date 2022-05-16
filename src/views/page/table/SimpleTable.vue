@@ -96,7 +96,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { getTable, getHosts } from '@/api/table'
-import { TableData, SimpleTableConditions } from './types/tableData'
+import { TableData, SimpleTableConditions } from './SimpleTable'
 import { status } from '@/dics/table'
 
 @Component({

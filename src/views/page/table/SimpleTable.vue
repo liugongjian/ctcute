@@ -69,16 +69,21 @@
       <el-table-column
         prop="health"
         label="健康状态"
-      />
+      >
+        <template slot-scope="{row}">
+          <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+        </template>
+      </el-table-column>
       <el-table-column
-        prop="action"
+        prop="actions"
         label="操作"
         width="150"
         fixed="right"
+        class-name="actions"
       >
-        <template slot-scope="scope">
-          <el-button type="text" @click="gotoDetail(scope.row)">详情</el-button>
-          <el-button type="text" @click="gotoDashboard(scope.row)">监控指标</el-button>
+        <template slot-scope="{row}">
+          <el-button type="text" @click="gotoDetail(row)">详情</el-button>
+          <el-button type="text" @click="gotoDashboard(row)">监控指标</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -97,12 +102,15 @@
 import { Component, Vue } from 'vue-property-decorator'
 import { getTable, getHosts } from '@/api/table'
 import { TableData, SimpleTableConditions } from './SimpleTable'
-import { status } from '@/dics/table'
+import { STATUS, HEALTH } from '@/dics/table'
 
 @Component({
   name: 'SimpleTable'
 })
 export default class extends Vue {
+  // 健康状态字典
+  private HEALTH = HEALTH
+
   // 搜索信息
   private conditions: SimpleTableConditions = {
     host: '',
@@ -216,18 +224,36 @@ export default class extends Vue {
    * 使用字典格式化实例状态
    */
   private statusFormatter(row) {
-    return status[row.status]
+    return STATUS[row.status]
   }
 }
 </script>
 <style lang="scss" scoped>
-  .simple-form {
-    margin-top: 15px;
-  }
+  .health-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 100%;
 
-  .el-input,
-  .el-select,
-  .el-textarea {
-    width: 400px;
+    &--1 {
+      background: $success;
+    }
+
+    &--2 {
+      background: $warning;
+    }
+
+    &--3 {
+      background: $danger;
+    }
+
+    &--4 {
+      background: $info;
+    }
+
+    &--5 {
+      background: $textLightGrey;
+    }
   }
 </style>

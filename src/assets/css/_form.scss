@@ -1,0 +1,19 @@
+@mixin form {
+  margin-top: 15px;
+
+  .el-input,
+  .el-select,
+  .el-textarea {
+    width: 50%;
+    min-width: 300px;
+  }
+
+  .el-select .el-input.el-input--suffix {
+    width: 100%;
+  }
+}
+
+/* 简单表单 */
+.simple-form {
+  @include form();
+}

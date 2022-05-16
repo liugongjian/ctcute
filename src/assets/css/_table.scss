@@ -1,0 +1,40 @@
+@mixin table {
+  /* 分页 */
+  .el-pagination {
+    text-align: right;
+  }
+}
+
+/* 简单表格 */
+.simple-table {
+  /* 表格工具栏 */
+  .table-tools {
+    display: flex;
+    justify-content: space-between;
+
+    /* 筛选表单 */
+    &__conditions {
+      margin-bottom: 16px;
+
+      .el-form-item {
+        margin-bottom: 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .el-input,
+      .el-select {
+        width: 268px;
+      }
+
+      &__buttons {
+        margin-left: 24px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include table();
+}

@@ -4,7 +4,6 @@
     <h2>不同尺寸</h2>
     <div class="sub-sample">
       <el-button type="primary">默认按钮</el-button>
-      <el-button type="primary" size="medium">中等按钮</el-button>
       <el-button type="primary" size="small">小型按钮</el-button>
       <el-button type="primary" size="mini">超小按钮</el-button>
     </div>

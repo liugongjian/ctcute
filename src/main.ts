@@ -10,7 +10,7 @@ import './assets/css/element-variables.scss'
 import './assets/css/index.scss'
 import '@/permission'
 
-Vue.use(ElementUI)
+Vue.use(ElementUI, { size: 'medium' })
 Vue.use(SvgIcon, {
   tagName: 'svg-icon',
   defaultWidth: '1em',

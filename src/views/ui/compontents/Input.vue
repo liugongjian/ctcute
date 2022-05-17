@@ -4,7 +4,7 @@
       <h3>常规用法</h3>
       <el-input placeholder="请输入"></el-input>
     </div>
-    <div class="routine-input">
+    <div class="sub-input">
       <h3>禁用状态</h3>
       <el-input placeholder="请输入" :disabled="true"> </el-input>
       <el-input type="textarea" :rows="5" placeholder="请输入" :disabled="true"> </el-input>
@@ -29,15 +29,15 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from "vue-property-decorator"
 
 @Component({
-  name: 'UiInput'
+  name: "UiInput",
 })
 export default class extends Vue {
   public static title = {
-    zh: '输入框',
-    en: 'Input'
+    zh: "输入框",
+    en: "Input",
   }
 }
 </script>

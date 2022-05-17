@@ -10,16 +10,16 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import { components, list } from './compontents/index'
-import Sidebar from './Sidebar.vue'
+import { Component, Vue } from "vue-property-decorator"
+import { components, list } from "./compontents/index"
+import Sidebar from "./Sidebar.vue"
 
 @Component({
-  name: 'Ui',
+  name: "Ui",
   components: {
     Sidebar,
-    ...components
-  }
+    ...components,
+  },
 })
 export default class extends Vue {
   private componentList = list
@@ -28,13 +28,13 @@ export default class extends Vue {
 
   private mounted() {
     const uiContainer = this.$refs.uiContainer as HTMLDivElement
-    this.titles = uiContainer.querySelectorAll('h1')
-    document.addEventListener('scroll', this.findCurrentTitle)
+    this.titles = uiContainer.querySelectorAll("h1")
+    document.addEventListener("scroll", this.findCurrentTitle)
     this.findCurrentTitle()
   }
 
   private beforeDestroy() {
-    document.removeEventListener('scroll', this.findCurrentTitle)
+    document.removeEventListener("scroll", this.findCurrentTitle)
   }
 
   /**
@@ -85,7 +85,11 @@ export default class extends Vue {
       font-size: 14px;
       color: $textHead;
     }
-
+    h3 {
+      font-size: 14px;
+      margin-top: 24px;
+      color: $textHead;
+    }
     .sub-sample {
       margin: 24px 0;
       padding-bottom: 24px;

@@ -32,7 +32,9 @@
     </div>
     <h2>按钮布局</h2>
     <div class="sub-sample">
-      <p>两个字的按钮中间需要加入一个空格，按钮之间常规间距为8px，弹窗的确定和取消间距为16px，主按钮一般放在左侧，仅在弹窗下方确定放在取消的右侧。</p>
+      <p>
+        两个字的按钮中间需要加入一个空格，按钮之间常规间距为8px，弹窗的确定和取消间距为16px，主按钮一般放在左侧，仅在弹窗下方确定放在取消的右侧。
+      </p>
       <div class="button-layout">
         <el-button type="primary">主按钮</el-button>
         <el-button>次按钮</el-button>
@@ -54,36 +56,36 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from "vue-property-decorator"
 
 @Component({
-  name: 'UiButton'
+  name: "UiButton",
 })
 export default class extends Vue {
   public static title = {
-    zh: '按钮',
-    en: 'Button'
+    zh: "按钮",
+    en: "Button",
   }
 }
 </script>
 <style lang="scss" scoped>
-  .sub-sample {
-    white-space: nowrap;
+.sub-sample {
+  white-space: nowrap;
 
-    .el-button + .el-button {
-      margin-left: 30px;
-    }
-  }
-
-  .button-layout {
-    display: inline-block;
-
-    .el-button + .el-button {
-      margin-left: 8px;
-    }
-  }
-
-  .button-layout + .button-layout {
+  .el-button + .el-button {
     margin-left: 30px;
   }
+}
+
+.button-layout {
+  display: inline-block;
+
+  .el-button + .el-button {
+    margin-left: 8px;
+  }
+}
+
+.button-layout + .button-layout {
+  margin-left: 30px;
+}
 </style>

@@ -8,15 +8,15 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from "vue-property-decorator"
 
 @Component({
-  name: 'UiCheckbox'
+  name: "UiCheckbox",
 })
 export default class extends Vue {
   public static title = {
-    zh: '多选框',
-    en: 'Checkbox'
+    zh: "多选框",
+    en: "Checkbox",
   }
 }
 </script>

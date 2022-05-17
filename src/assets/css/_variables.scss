@@ -28,27 +28,31 @@ $borderGrey: #eee;
 /* Sidebar */
 $sideBarWidth: 230px;
 $sideBarBg: #fff;
-$menuBg:#fff;
+$menuBg: #fff;
 $menuText: $text;
-$menuActiveText:#000;
-$subMenuBg:#fff;
-$subMenuHover:#f2f2f2;
-$subMenuActiveText:#000;
+$menuActiveText: #000;
+$subMenuBg: #fff;
+$subMenuHover: #f2f2f2;
+$subMenuActiveText: #000;
 
-/* Button:disabled*/ 
-$bgColor:#F8F8F8;
-$bdColor:#DDDDDD;
-$color:rgba(0,0,0,0.30);
+/* Button:disabled*/
+$bgColor: #f8f8f8;
+$bdColor: #dddddd;
+$color: rgba(0, 0, 0, 0.3);
 
-/* Pagination*/ 
-$pageBackground:transparent;
+/* Pagination*/
+$paginationBgColor: #ffffff;
 
 /* steps */
-$stopBorderColor:#fa8334;
-$stopColor:#ffffff;
+$stepsBorderColor: #fa8334;
+$stepsSuccessColor: #fa8334;
+$stepsColor: #ffffff;
 
 /* input */
-$inputBgColor:#ffffff;
+$inputBgColor: #ffffff;
+
+/* Textarea */
+$backgroundColorBase: #f8f8f8;
 
 /* The :export directive is the magic sauce for webpack
  * https://mattferderer.com/use-sass-variables-in-typescript-and-javascript

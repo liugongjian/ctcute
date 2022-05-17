@@ -12,7 +12,17 @@ const componentsList = [
   require('./Checkbox.vue'),
   require('./Rate.vue'),
   require('./Slider.vue'),
-  require('./Upload.vue')
+  require('./Upload.vue'),
+  require('./Switch.vue'),
+  require('./Popover.vue'),
+  require('./Tooltip.vue'),
+  require('./Tabs.vue'),
+  require('./Table.vue'),
+  require('./Alert.vue'),
+  require('./Tag.vue'),
+  // require('./Tree.vue'),
+  // require('./State.vue'),
+  // require('./Notification.vue'),
 
 ]
 

@@ -45,6 +45,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-vue": "^8.5.0",
+    "mockjs": "^1.1.0",
     "path": "^0.12.7",
     "path-to-regexp": "^6.2.0",
     "postcss": "^8.4.12",

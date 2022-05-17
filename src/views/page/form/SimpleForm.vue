@@ -1,5 +1,5 @@
 <template>
-  <el-card>
+  <el-card class="simple-form">
     <el-form ref="simpleForm" :model="form" :rules="rules" label-width="130px" class="simple-form">
       <el-form-item label="策略名称" prop="name">
         <el-input
@@ -86,13 +86,14 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { createSimpleForm, getAlertTarget } from '@/api/form'
+import { SimpleForm } from './SimpleForm'
 
 @Component({
   name: 'SimpleForm'
 })
 export default class extends Vue {
   // 表单对象
-  private form = {
+  private form: SimpleForm = {
     name: null,
     remark: null,
     alertTarget: null,
@@ -221,14 +222,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-  .simple-form {
-    margin-top: 15px;
-  }
-
-  .el-input,
-  .el-select,
-  .el-textarea {
-    width: 400px;
-  }
-</style>

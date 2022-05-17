@@ -1,6 +1,7 @@
 import Layout from '@/layout/index.vue'
 
 const pageRoutes = [
+  // 表单
   {
     path: '/page/form',
     component: Layout,
@@ -29,6 +30,37 @@ const pageRoutes = [
       }
     ]
   },
+  // 表格
+  {
+    path: '/page/table',
+    component: Layout,
+    name: 'Table',
+    meta: {
+      title: 'Table 表格',
+      breadcrumb: true
+    },
+    children: [
+      {
+        path: 'simple-table',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/table/SimpleTable.vue'),
+        name: 'SimpleTable',
+        meta: {
+          title: 'Table 基础表格',
+          breadcrumb: true
+        }
+      },
+      {
+        path: 'pro-table',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/table/SimpleTable.vue'),
+        name: 'ProTable',
+        meta: {
+          title: 'ProTable 复杂表格',
+          breadcrumb: true
+        }
+      }
+    ]
+  },
+  // 其他
   {
     path: '/page/ohter',
     component: Layout,

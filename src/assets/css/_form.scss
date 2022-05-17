@@ -1,0 +1,20 @@
+@mixin form {
+  margin-top: 15px;
+
+  .el-input,
+  .el-select,
+  .el-textarea {
+    width: 50%;
+    max-width: 745px; // 1920页面宽度下，右侧面板50%的像素值
+    min-width: 468px; // 1366页面宽度下，右侧面板50%的像素值
+  }
+
+  .el-select .el-input.el-input--suffix {
+    width: 100%;
+  }
+}
+
+/* 简单表单 */
+.simple-form {
+  @include form();
+}

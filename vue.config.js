@@ -4,7 +4,7 @@ const isHttps = process.argv[process.argv.length - 1] === '--https'
 console.info('是否开启https:', isHttps)
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/apps/scaffold/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {

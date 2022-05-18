@@ -51,18 +51,17 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: "UiTooltip",
+  name: 'UiTooltip'
 })
 export default class extends Vue {
   public static title = {
-    zh: "文字提示",
-    en: "Tooltip",
+    zh: '文字提示',
+    en: 'Tooltip'
   }
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

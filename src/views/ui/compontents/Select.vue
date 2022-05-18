@@ -61,7 +61,7 @@
           </el-date-picker>
         </el-col>
       </el-row>
-      <el-row style="margin-top: 30px">
+      <el-row>
         <el-col :span="6">
           <el-date-picker type="datetime" placeholder="选择时间"> </el-date-picker>
         </el-col>
@@ -71,6 +71,21 @@
         <el-col :span="6">
           <el-date-picker type="datetime" placeholder="选择时间" size="mini"> </el-date-picker>
         </el-col>
+      </el-row>
+    </div>
+    <div class="sub-checkout">
+      <h3>操作已选项</h3>
+      <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
+      <el-row>
+        <el-select value="操作已选项" placeholder="请选择">
+          <el-option label="操作已选项" value="操作已选项"> </el-option>
+        </el-select>
+      </el-row>
+      <el-row>
+        <el-checkbox>未选中项</el-checkbox>
+      </el-row>
+      <el-row>
+        <el-checkbox checked>已选中项</el-checkbox>
       </el-row>
     </div>
   </div>
@@ -90,4 +105,23 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.sub-down {
+  border-bottom: 1px solid #f1f1f1;
+  .el-row {
+    margin: 24px 0;
+  }
+}
+
+.el-select {
+  margin: 10px 0 24px 0;
+}
+.sub-checkout {
+  .el-select {
+    width: 110px;
+    height: 32px;
+  }
+  .el-checkbox.is-checked {
+    margin-top: 24px;
+  }
+}
 </style>

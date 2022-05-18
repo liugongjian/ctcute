@@ -38,7 +38,7 @@
         v-if="!isAffix(selectedTag)"
         @click="closeSelectedTag(selectedTag)"
       >
-        {{2 }}
+        {{ 2 }}
       </li>
       <li @click="closeOthersTags">
         {{ 3 }}

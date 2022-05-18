@@ -29,15 +29,15 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: "UiInput",
+  name: 'UiInput'
 })
 export default class extends Vue {
   public static title = {
-    zh: "输入框",
-    en: "Input",
+    zh: '输入框',
+    en: 'Input'
   }
 }
 </script>

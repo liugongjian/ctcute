@@ -55,15 +55,15 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: "UiButton",
+  name: 'UiButton'
 })
 export default class extends Vue {
   public static title = {
-    zh: "按钮",
-    en: "Button",
+    zh: '按钮',
+    en: 'Button'
   }
 }
 </script>

@@ -64,15 +64,15 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: "UiTabs",
+  name: 'UiTabs'
 })
 export default class extends Vue {
   public static title = {
-    zh: "选项卡",
-    en: "Tabs",
+    zh: '选项卡',
+    en: 'Tabs'
   }
 }
 </script>

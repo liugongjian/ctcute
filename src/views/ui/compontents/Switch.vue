@@ -11,15 +11,15 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: "UiSwitch",
+  name: 'UiSwitch'
 })
 export default class extends Vue {
   public static title = {
-    zh: "开关",
-    en: "Switch",
+    zh: '开关',
+    en: 'Switch'
   }
 }
 </script>

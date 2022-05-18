@@ -35,54 +35,55 @@
             <el-button type="primary" size="mini" @click="visible = false">确定</el-button>
           </div>
 
-          <el-button type="text" slot="reference">编辑</el-button>
+          <el-button slot="reference" type="text">编辑</el-button>
           <span slot="reference" class="sub-text">|</span>
         </el-popover>
-        <el-popover placement="top-start" width="160" v-model="visible" title="标题内容">
+        <el-popover v-model="visible" placement="top-start" width="160" title="标题内容">
           <p>需勾选表格项后进行批量删除文字</p>
           <div style="text-align: right; margin: 0">
             <el-button size="mini" type="text" @click="visible = false">取消</el-button>
             <el-button type="primary" size="mini" @click="visible = false">确定</el-button>
           </div>
 
-          <el-button type="text" slot="reference">删除</el-button>
+          <el-button slot="reference" type="text">删除</el-button>
         </el-popover>
       </el-col>
       <el-col :span="6">
-        <el-popover placement="top-start" width="160" v-model="visible">
+        <el-popover v-model="visible" placement="top-start" width="160">
           <p>需勾选表格项后进行批量删除文字</p>
           <div style="text-align: right; margin: 0">
             <el-button size="mini" type="text" @click="visible = false">取消</el-button>
             <el-button type="primary" size="mini" @click="visible = false">确定</el-button>
           </div>
 
-          <el-button type="text" slot="reference">编辑</el-button>
+          <el-button slot="reference" type="text">编辑</el-button>
           <span slot="reference" class="sub-text">|</span>
         </el-popover>
-        <el-popover placement="top-start" width="160" v-model="visible">
+        <el-popover v-model="visible" placement="top-start" width="160">
           <p>需勾选表格项后进行批量删除文字</p>
           <div style="text-align: right; margin: 0">
             <el-button size="mini" type="text" @click="visible = false">取消</el-button>
             <el-button type="primary" size="mini" @click="visible = false">确定</el-button>
           </div>
 
-          <el-button type="text" slot="reference">删除</el-button>
+          <el-button slot="reference" type="text">删除</el-button>
         </el-popover>
       </el-col>
     </el-row>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: "UiPopover",
+  name: 'UiPopover'
 })
 export default class extends Vue {
   public static title = {
-    zh: "气泡提示",
-    en: "Popover",
+    zh: '气泡提示',
+    en: 'Popover'
   }
+
   public visible = false
 }
 </script>

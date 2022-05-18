@@ -5,12 +5,12 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiNotification'
+  name: 'UiDrawer'
 })
 export default class extends Vue {
   public static title = {
-    zh: '通知提醒框',
-    en: 'Notification'
+    zh: '抽屉',
+    en: 'Drawer'
   }
 }
 </script>

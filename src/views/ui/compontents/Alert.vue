@@ -23,11 +23,10 @@
       <el-alert title="提示文案，常规提示" type="info" show-icon close-text="文字链接"> </el-alert>
     </div>
     <el-row>
-      <el-alert title="您订购的服务还剩23天到期" type="warning" show-icon :closable="false"> </el-alert>
+      <el-alert title="您订购的服务还剩23天到期" type="warning" show-icon> </el-alert>
     </el-row>
     <el-row>
-      <el-alert title="商品正在上架中，已完成13/25，请耐心等待" type="info" show-icon :closable="false">
-      </el-alert>
+      <el-alert title="商品正在上架中，已完成13/25，请耐心等待" type="info" show-icon> </el-alert>
     </el-row>
     <el-row>
       <el-alert title="上架完成，25个商品上架失败" type="error" show-icon> </el-alert>
@@ -44,15 +43,15 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: "UiAlert",
+  name: 'UiAlert'
 })
 export default class extends Vue {
   public static title = {
-    zh: "警告",
-    en: "Alert",
+    zh: '警告',
+    en: 'Alert'
   }
 }
 </script>

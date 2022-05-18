@@ -26,19 +26,23 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: "UiRate",
+  name: 'UiRate'
 })
 export default class extends Vue {
   public static title = {
-    zh: "评分",
-    en: "Rate",
+    zh: '评分',
+    en: 'Rate'
   }
+
   public value = 2.5
   public value1 = 3
 }
 </script>
 <style lang="scss">
+.el-row {
+  margin-top: 24px;
+}
 </style>

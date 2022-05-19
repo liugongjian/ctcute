@@ -3,14 +3,7 @@
     <el-row>
       <el-col :span="5">
         <h3>四层树状菜单标题</h3>
-        <el-tree
-          :data="data.threeFour"
-          node-key="key"
-          draggable
-          :default-expanded-keys="[2]"
-          :default-checked-keys="[2]"
-        >
-        </el-tree>
+        <el-tree :data="data.threeFour" node-key="key" draggable :default-expanded-keys="[2]"> </el-tree>
       </el-col>
       <el-col :span="5">
         <h3>三层树状菜单标题</h3>
@@ -22,13 +15,7 @@
       </el-col>
       <el-col :span="5">
         <h3>三层树状菜单加icon</h3>
-        <el-tree
-          :data="data.threeTree"
-          node-key="id"
-          icon-class="el-icon-edit"
-          :default-expanded-keys="[2, 3]"
-          :default-checked-keys="[5]"
-        >
+        <el-tree :data="data.threeTree" node-key="key" icon-class="el-icon-edit" :default-expanded-keys="[3]">
         </el-tree>
       </el-col>
     </el-row>
@@ -47,13 +34,10 @@ export default class extends Vue {
   }
 
   public data = Data
-  private created() {
-    console.log(Data)
-  }
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .el-col {
   border-right: 1px solid #f1f1f1;
 }

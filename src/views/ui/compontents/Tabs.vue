@@ -2,10 +2,10 @@
   <div>
     <h3>基础样式</h3>
     <el-row>
-      <el-tabs value="frist">
-        <el-tab-pane label="选项一" name="first">选项一</el-tab-pane>
-        <el-tab-pane label="选项二" name="second">选项二</el-tab-pane>
-        <el-tab-pane label="选项三" name="third">选项三</el-tab-pane>
+      <el-tabs>
+        <el-tab-pane label="选项一">选项一</el-tab-pane>
+        <el-tab-pane label="选项二">选项二</el-tab-pane>
+        <el-tab-pane label="选项三">选项三</el-tab-pane>
       </el-tabs>
     </el-row>
     <hr />

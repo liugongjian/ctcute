@@ -21,7 +21,7 @@ const componentsList = [
   require('./Alert.vue'),
   require('./Tag.vue'),
   require('./Tree.vue'),
-  require('./State.vue'),
+  // require('./State.vue'),
   require('./Notification.vue'),
   require('./Progress.vue'),
   require('./Toast.vue'),

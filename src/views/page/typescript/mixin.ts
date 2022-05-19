@@ -1,6 +1,10 @@
 import { Component, Vue } from 'vue-property-decorator'
 @Component
 class TypeScriptDemoMixin extends Vue {
+  public mounted() {
+    console.log('来自mixin的mounted')
+  }
+
   /**
    * 数组求和
    * @param 数字数组

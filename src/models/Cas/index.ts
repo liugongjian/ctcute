@@ -29,8 +29,8 @@ export const initCas = async(containerId) => {
     const auth = await cas.auth()
     if (auth.isLoggedIn) {
       cas.init()
-      CasModule.SetCas(cas)
-      CasModule.SetUserInfo(auth.property)
+      CasModule.setCas(cas)
+      CasModule.setUserInfo(auth.property)
     } else {
       console.log('跳转到登录地址')
     }

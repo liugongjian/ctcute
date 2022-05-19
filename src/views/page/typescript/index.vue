@@ -18,9 +18,9 @@
       <div class="equation">
         {{ algebra.x }} * {{ algebra.y }} = {{ multiplyResult ? multiplyResult : '?' }}
       </div>
-      <div v-if="sumChildResult || multiplyChildResult" class="equation equation__child">
-        <p v-if="sumChildResult">听说子组件的求和结果是: <strong>{{ sumChildResult }}</strong></p>
-        <p v-if="multiplyChildResult">听说子组件的求积结果是: <strong>{{ multiplyChildResult }}</strong></p>
+      <div v-if="childSumResult || childMultiplyResult" class="equation equation__child">
+        <p v-if="childSumResult">听说子组件的求和结果是: <strong>{{ childSumResult }}</strong></p>
+        <p v-if="childMultiplyResult">听说子组件的求积结果是: <strong>{{ childMultiplyResult }}</strong></p>
       </div>
       <TypeScriptDemoChild
         ref="child"
@@ -35,15 +35,17 @@
 <script lang="ts">
 /**
  * TypeScript + Vue 开发实例
- * 本示例涉及到Data, Prop, Computed Property, Methods, 生命周期勾子, Watch, Emit, Mixin, Provide/Inject的用法
+ * 本示例涉及到Data, Prop, Computed Property, Methods, 生命周期勾子, Watch, Emit, Mixin, Provide/Inject, $refs, Vuex的用法
  */
 // 引入Vue TypeScript组件包
 import { Component, Mixins, Provide } from 'vue-property-decorator'
 // 引入类型声明
 import { Algebra } from './TypeScriptDemo'
+// 引入Vuex Module
+import { TsDemoModule } from '@/store/modules/ts-demo'
 // 引入Mixin
 import TypeScriptDemoMixin from './mixin'
-
+// 引入子组件
 import TypeScriptDemoChild from './TypeScriptDemoChild.vue'
 
 @Component({
@@ -78,25 +80,26 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   private multiplyResult: number = null
 
   /* 子组件求和的计算结果 */
-  private sumChildResult: number = null
+  private childSumResult: number = null
 
   /* 子组件求积的计算结果 */
-  private multiplyChildResult: number = null
+  private childMultiplyResult: number = null
 
   /**
    * 将计算结果转为二进制
    * @returns 二进制结果
    * 通过get关键词声明一个计算属性(computed)
    */
-  private get binaryResult(): string {
+  private get binaryResult() {
     return this.sumResult && this.sumResult.toString(2)
   }
 
   /**
-   * 生命周期钩子
-   * Mounted
+   * 生命周期Mounted钩子
+   * mounted在mixin也已声明，这两个方法会自动合并
    */
-  private mounted() {
+  public mounted() {
+    console.log('来自父组件的mounted')
     this.algebra.x = 1
     this.algebra.y = 1
     this.sumAlgebra()
@@ -104,8 +107,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   }
 
   /**
-   * 生命周期钩子
-   * BeforeDestroy
+   * 生命周期BeforeDestroy钩子
    */
   private beforeDestroy() {
     console.log('组件销毁前触发')
@@ -124,26 +126,31 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   }
 
   /**
-   * 执行求和
+   * 执行求和，并将结果存入vuex
    */
   private sumAlgebra() {
     // 调用Mixin中的sum求和方法并赋到this.result上
     const numbers = Object.values(this.algebra)
     this.sumResult = this.sum(numbers)
+    // 将结果存入vuex
+    TsDemoModule.setSumResult(this.sumResult)
   }
 
   /**
    * 由于已在Mixin中实现了sum方法，因此当前组件无需再次声明。
    * 如果在此组件中再次声明，则视为对Mixin中的方法进行重载(override)
+   * 详见src/views/page/typescript/mixin.ts
    */
   // public sum () {}
 
   /**
-   * 执行求积
+   * 执行求积，并将结果存入vuex
    */
   private multiplyAlgebra() {
     const numbers = Object.values(this.algebra)
     this.multiplyResult = this.multiply(numbers)
+    // 将结果存入vuex
+    TsDemoModule.setMultiplyResult(this.multiplyResult)
   }
 
   /**
@@ -173,14 +180,14 @@ export default class extends Mixins(TypeScriptDemoMixin) {
    * 当子组件求和
    */
   private onChildSum(result) {
-    this.sumChildResult = result
+    this.childSumResult = result
   }
 
   /**
    * 当子组件求积
    */
   private onChildMultiply(result) {
-    this.multiplyChildResult = result
+    this.childMultiplyResult = result
   }
 }
 </script>

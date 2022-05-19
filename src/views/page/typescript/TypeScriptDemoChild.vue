@@ -17,6 +17,10 @@
       <div class="equation">
         {{ algebra.x }} * {{ algebra.y }} * {{ algebra.z ? algebra.z : 'Z' }} = {{ multiplyResult ? multiplyResult : '?' }}
       </div>
+      <div v-if="parentSumResult || parentMultiplyResult" class="equation equation__child">
+        <p v-if="parentSumResult">听说父组件的求和结果是: <strong>{{ parentSumResult }}</strong></p>
+        <p v-if="parentMultiplyResult">听说父组件的求积结果是: <strong>{{ parentMultiplyResult }}</strong></p>
+      </div>
     </div>
   </el-card>
 </template>
@@ -25,6 +29,8 @@
 import { Component, Mixins, Prop, Watch, Inject, Emit } from 'vue-property-decorator'
 // 引入类型声明
 import { Algebra } from './TypeScriptDemo'
+// 引入Vuex Module
+import { TsDemoModule } from '@/store/modules/ts-demo'
 // 引入Mixin
 import TypeScriptDemoMixin from './mixin'
 
@@ -67,6 +73,24 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   private multiplyResult: number = null
 
   /**
+   * 父组件求和的计算结果
+   * @returns 计算结果
+   * 通过get关键词声明一个计算属性(computed)
+   */
+  private get parentSumResult() {
+    return TsDemoModule.sumResult
+  }
+
+  /**
+   * 父组件求积的计算结果
+   * @returns 计算结果
+   * 通过get关键词声明一个计算属性(computed)
+   */
+  private get parentMultiplyResult() {
+    return TsDemoModule.multiplyResult
+  }
+
+  /**
    * 通过@Watch 装饰器创建监听器，
    * 参数包含immediate 和 deep，例：
    * @Watch('someObject', {
@@ -92,10 +116,11 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   }
 
   /**
-   * 生命周期钩子
-   * Mounted
+   * 生命周期Mounted钩子
+   * mounted在mixin也已声明，这两个方法会自动合并
    */
-  private mounted() {
+  public mounted() {
+    console.log('来自子组件的mounted')
     this.algebra.x = 2
     this.algebra.y = 2
   }
@@ -168,5 +193,10 @@ export default class extends Mixins(TypeScriptDemoMixin) {
     font-size: 18px;
     background: #fff;
     border: 1px solid $borderGrey; // 颜色变量请从src/assets/css/_variables.scss查找
+
+    &__child {
+      font-size: 12px;
+      color: $textGrey;
+    }
   }
 </style>

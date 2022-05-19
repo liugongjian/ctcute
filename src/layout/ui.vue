@@ -8,10 +8,8 @@
 </template>
 
 <script lang="ts">
-import { Component } from 'vue-property-decorator'
-import { mixins } from 'vue-class-component'
+import { Component, Vue } from 'vue-property-decorator'
 import { AppMain, Navbar, Sidebar, LayoutHeader } from './components'
-import ResizeMixin from './mixin/resize'
 import { CasModule } from '@/store/modules/cas'
 
 @Component({
@@ -23,7 +21,7 @@ import { CasModule } from '@/store/modules/cas'
     LayoutHeader
   }
 })
-export default class extends mixins(ResizeMixin) {
+export default class extends Vue {
   /* 是否为单点登录界面 */
   private get isCas() {
     return !!CasModule.cas

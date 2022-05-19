@@ -23,26 +23,25 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
       if (UserModule.roles.length === 0) {
         try {
           // Note: roles must be a object array! such as: ['admin'] or ['developer', 'editor']
-          await UserModule.GetUserInfo()
+          await UserModule.getUserInfo()
           const roles = UserModule.roles
           // Generate accessible routes map based on role
-          PermissionModule.GenerateRoutes(roles)
+          PermissionModule.generateRoutes(roles)
           // Dynamically add accessible routes
           PermissionModule.dynamicRoutes.forEach(route => {
             router.addRoute(route)
           })
-          CasModule.ActiveMenu(to)
+          CasModule.activeMenu(to)
           // Hack: ensure addRoutes is complete
           // Set the replace: true, so the navigation will not leave a history record
           next({ ...to, replace: true })
         } catch (err) {
           // Remove token and redirect to login page
-          UserModule.ResetToken()
           Message.error(err || 'Has Error')
           next(`/login?redirect=${to.path}`)
         }
       } else {
-        CasModule.ActiveMenu(to)
+        CasModule.activeMenu(to)
         next()
       }
     }

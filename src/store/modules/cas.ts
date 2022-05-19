@@ -2,13 +2,9 @@ import { VuexModule, Module, Mutation, Action, getModule } from 'vuex-module-dec
 import store from '@/store'
 import { BaseCas } from '@/models/Cas/BaseCas'
 
-export enum DeviceType {
-  Mobile,
-  Desktop,
-}
-
 export interface ICasState {
-  cas: BaseCas
+  cas: BaseCas;
+  userInfo: any;
 }
 
 @Module({ dynamic: true, store, name: 'cas' })
@@ -17,37 +13,27 @@ class Cas extends VuexModule implements ICasState {
   public userInfo: any = null
 
   @Mutation
-  private SET_CAS(cas) {
+  public setCas(cas) {
     this.cas = cas
   }
 
   @Mutation
-  private SET_USER_INFO(userInfo) {
+  public setUserInfo(userInfo) {
     this.userInfo = userInfo
   }
 
   @Action
-  public SetCas(cas) {
-    this.SET_CAS(cas)
-  }
-
-  @Action
-  public SetUserInfo(userInfo) {
-    this.SET_USER_INFO(userInfo)
-  }
-
-  @Action
-  public UpdateMenu(items) {
+  public updateMenu(items) {
     this.cas && this.cas.updateMenu(items)
   }
 
   @Action
-  public UpdateMenuByRoute(routes) {
+  public updateMenuByRoute(routes) {
     this.cas && this.cas.updateMenuByRoute(routes)
   }
 
   @Action
-  public ActiveMenu(route) {
+  public activeMenu(route) {
     this.cas && this.cas.activeMenu(route)
   }
 }

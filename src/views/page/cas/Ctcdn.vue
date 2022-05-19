@@ -48,7 +48,7 @@ export default class extends Vue {
       this.menuItems = res.data.items
       this.activedMenu = this.menuItems[0].id
       // 使用IAM配置的菜单更新左侧二级菜单
-      // CasModule.UpdateMenu(this.menu)
+      // CasModule.updateMenu(this.menu)
     }
   }
 

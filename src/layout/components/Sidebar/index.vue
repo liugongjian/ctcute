@@ -23,7 +23,6 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import { PermissionModule } from '@/store/modules/permission'
-import { AppModule } from '@/store/modules/app'
 import SidebarItem from './SidebarItem.vue'
 import variables from '@/assets/css/_variables.scss'
 
@@ -48,10 +47,6 @@ export default class extends Vue {
       return meta.activeMenu
     }
     return path
-  }
-
-  private get sidebar(): any {
-    return AppModule.sidebar
   }
 
   private get currentRoutes(): any {

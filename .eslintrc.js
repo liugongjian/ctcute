@@ -50,6 +50,7 @@ module.exports = {
     'object-curly-spacing': 'off',
     '@typescript-eslint/object-curly-spacing': ['error', 'always'],
     semi: 'off',
-    '@typescript-eslint/semi': ['error', 'never']
+    '@typescript-eslint/semi': ['error', 'never'],
+    'no-undef': 'off'
   }
 }

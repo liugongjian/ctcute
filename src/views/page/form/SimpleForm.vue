@@ -85,15 +85,15 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import * as SimpleForm from '@/types/SimpleForm'
 import { createSimpleForm, getAlertTarget } from '@/api/form'
-import { SimpleForm } from './SimpleForm'
 
 @Component({
   name: 'SimpleForm'
 })
 export default class extends Vue {
   // 表单对象
-  private form: SimpleForm = {
+  private form: SimpleForm.Form = {
     name: null,
     remark: null,
     alertTarget: null,
@@ -103,7 +103,7 @@ export default class extends Vue {
   }
 
   // 告警对象下拉框选项
-  private alertTargetOptions = []
+  private alertTargetOptions: string[] = []
 
   // 沉默周期选项
   private durationOptions = [

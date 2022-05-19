@@ -88,6 +88,15 @@ const pageRoutes = [
           title: 'CAS 单点登录',
           breadcrumb: true
         }
+      },
+      {
+        path: 'ts-demo',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/typescript/index.vue'),
+        name: 'TypeScriptDemo',
+        meta: {
+          title: 'TypeScript Demo',
+          breadcrumb: true
+        }
       }
     ]
   }

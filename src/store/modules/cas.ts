@@ -2,11 +2,6 @@ import { VuexModule, Module, Mutation, Action, getModule } from 'vuex-module-dec
 import store from '@/store'
 import { BaseCas } from '@/models/Cas/BaseCas'
 
-export enum DeviceType {
-  Mobile,
-  Desktop,
-}
-
 export interface ICasState {
   cas: BaseCas
 }

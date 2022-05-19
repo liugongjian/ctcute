@@ -1,0 +1,172 @@
+<template>
+  <el-card class="box-card">
+    <div slot="header">
+      <h3>子组件</h3>
+    </div>
+    <div>
+      <div class="actions">
+        <el-button @click="increase('x')">X加1</el-button>
+        <el-button @click="increase('y')">Y加1</el-button>
+        <el-button @click="sumAlgebra">求和</el-button>
+        <el-button @click="multiplyAlgebra">求积</el-button>
+      </div>
+      <el-alert type="info">Z来自父组件的求和结果</el-alert>
+      <div class="equation">
+        {{ algebra.x }} + {{ algebra.y }} + {{ algebra.z ? algebra.z : 'Z' }} = {{ sumResult ? sumResult : '?' }}
+      </div>
+      <div class="equation">
+        {{ algebra.x }} * {{ algebra.y }} * {{ algebra.z ? algebra.z : 'Z' }} = {{ multiplyResult ? multiplyResult : '?' }}
+      </div>
+    </div>
+  </el-card>
+</template>
+<script lang="ts">
+// 引入Vue TypeScript组件包
+import { Component, Mixins, Prop, Watch, Inject, Emit } from 'vue-property-decorator'
+// 引入类型声明
+import { Algebra } from './TypeScriptDemo'
+// 引入Mixin
+import TypeScriptDemoMixin from './mixin'
+
+@Component({
+  // 组件名称，用于在Vue DevTool Components中显示组件名称
+  name: 'TypeScriptDemoChild'
+})
+/**
+ * 本示例使用了Mixin继承，如无需Mixin则需要在vue-property-decorator组件包里引入Vue，并直接extends Vue
+ * import { Component, Vue } from 'vue-property-decorator'
+ * export default class extends Vue {}
+ */
+export default class extends Mixins(TypeScriptDemoMixin) {
+  /**
+   * 声明Prop参数
+   * 可以使用 readonly 去避免操作改变 props
+   */
+  @Prop({
+    default: 0,
+    required: true
+  })
+  private readonly z: number
+
+  /*
+    Data的声明方式
+    访问修饰符包括private / public / protected
+    如果成员仅在组件内部访问建议使用private，
+    如果成员需要通过$refs被父组件访问，或mixin中需要被继承的组件访问，则需使用public
+  */
+  private algebra: Algebra = {
+    x: 0,
+    y: 0,
+    z: 0
+  }
+
+  /* 求和的计算结果 */
+  private sumResult: number = null
+
+  /* 求积的计算结果 */
+  private multiplyResult: number = null
+
+  /**
+   * 通过@Watch 装饰器创建监听器，
+   * 参数包含immediate 和 deep，例：
+   * @Watch('someObject', {
+   *   immediate: true,
+   *   deep: true
+   * })
+   *
+   * 可以对同一个方法添加多个@Watch 装饰器，监听多个变量执行同一个方法，例：
+   * @Watch('someString')
+   * @Watch('someObject', {
+   *   immediate: true,
+   *   deep: true
+   * })
+   * private onSomethingChanged() {}
+   */
+  @Watch('z', {
+    immediate: true
+  })
+  private onZChanged() {
+    this.algebra.z = this.z
+    this.sumResult = null
+    this.multiplyResult = null
+  }
+
+  /**
+   * 生命周期钩子
+   * Mounted
+   */
+  private mounted() {
+    this.algebra.x = 2
+    this.algebra.y = 2
+  }
+
+  /**
+   * 数字加1
+   * @param algebra 代数对象
+   * 声明一个方法。
+   * 等价JavaScript中的methods: {}声明
+   */
+  private increase(key) {
+    this.algebra[key]++
+    this.sumResult = null
+    this.multiplyResult = null
+  }
+
+  /**
+   * 执行求和
+   * 通过@Emit 将计算结果$emit到父组件
+   */
+  @Emit('on-sum')
+  private sumAlgebra() {
+    // 调用Mixin中的sum求和方法并赋到this.result上
+    const numbers = Object.values(this.algebra)
+    this.sumResult = this.sum(numbers)
+    /**
+     * 为$emit事件添加payload
+     * 等价this.$emit('on-sum', this.sumResult)
+     */
+    return this.sumResult
+  }
+
+  /**
+   * 执行求积
+   * 通过@Emit 将计算结果$emit到父组件
+   */
+  @Emit('on-multiply')
+  private multiplyAlgebra() {
+    if (!this.z) {
+      this.$message.error('先把父组件求和下吧～')
+      return
+    }
+    const numbers = Object.values(this.algebra)
+    this.multiplyResult = this.multiply(numbers)
+    /**
+     * 为$emit事件添加payload
+     * 等价this.$emit('on-sum', this.multiplyResult)
+     */
+    return this.multiplyResult
+  }
+
+  /**
+   * 数组求积
+   * 通过@Inject 注入祖先@Provide 的方法
+   * @param 数字数组
+   * @returns 计算结果
+   */
+  @Inject('multiply')
+  private multiply
+}
+</script>
+<style lang="scss" scoped>
+  .actions {
+    margin-bottom: 8px;
+  }
+
+  .equation {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 18px;
+    background: #fff;
+    border: 1px solid $borderGrey; // 颜色变量请从src/assets/css/_variables.scss查找
+  }
+</style>

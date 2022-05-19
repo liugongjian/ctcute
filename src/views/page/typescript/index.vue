@@ -34,7 +34,7 @@
 </template>
 <script lang="ts">
 /**
- * TypeScript + Vue 开发实例
+ * TypeScript + Vue 开发示例
  * 本示例涉及到Data, Prop, Computed Property, Methods, 生命周期勾子, Watch, Emit, Mixin, Provide/Inject, $refs, Vuex的用法
  */
 // 引入Vue TypeScript组件包

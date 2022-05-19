@@ -85,6 +85,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import * as SimpleForm from '@/types/SimpleForm'
 import { createSimpleForm, getAlertTarget } from '@/api/form'
 
 @Component({

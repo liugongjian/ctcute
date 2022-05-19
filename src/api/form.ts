@@ -1,5 +1,6 @@
 import request from '@/utils/request'
 import { AxiosPromise } from 'axios'
+import * as SimpleForm from '@/types/SimpleForm'
 
 /**
  * 获取获取告警对象

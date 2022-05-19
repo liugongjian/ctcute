@@ -1,5 +1,6 @@
 import request from '@/utils/request'
 import { AxiosPromise } from 'axios'
+import * as SimpleTable from '@/types/SimpleTable'
 
 /**
  * 获取表格数据

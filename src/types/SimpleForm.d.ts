@@ -1,14 +1,12 @@
-declare namespace SimpleForm {
-  type Form = {
-    name: string;
-    remark: string;
-    alertTarget: number;
-    duration: number;
-    notifyTarget: number;
-    longTitle: string;
-  }
+export type Form = {
+  name: string;
+  remark: string;
+  alertTarget: number;
+  duration: number;
+  notifyTarget: number;
+  longTitle: string;
+}
 
-  type Response = {
-    id: number;
-  }
+export type Response = {
+  id: number;
 }

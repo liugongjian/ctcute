@@ -1,7 +1,5 @@
-declare namespace TypeScriptDemo {
-  type Algebra = {
-    x: number;
-    y: number;
-    z?: number;
-  }
+export type Algebra = {
+  x: number;
+  y: number;
+  z?: number;
 }

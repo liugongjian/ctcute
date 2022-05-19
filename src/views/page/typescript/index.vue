@@ -39,6 +39,8 @@
  */
 // 引入Vue TypeScript组件包
 import { Component, Mixins, Provide } from 'vue-property-decorator'
+// 引入TS Type类型
+import { Algebra } from '@/types/TypeScriptDemo'
 // 引入Vuex Module
 import { TsDemoModule } from '@/store/modules/ts-demo'
 // 引入Mixin
@@ -66,7 +68,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
     如果成员仅在组件内部访问建议使用private，
     如果成员需要通过$refs被父组件访问，或mixin中需要被继承的组件访问，则需使用public
   */
-  private algebra: TypeScriptDemo.Algebra = {
+  private algebra: Algebra = {
     x: 0,
     y: 0
   }

@@ -100,6 +100,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import * as SimpleTable from '@/types/SimpleTable'
 import { getTable, getHosts } from '@/api/table'
 import { STATUS, HEALTH } from '@/dics/table'
 

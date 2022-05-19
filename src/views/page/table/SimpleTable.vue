@@ -101,7 +101,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { getTable, getHosts } from '@/api/table'
-import { TableData, SimpleTableConditions } from './SimpleTable'
 import { STATUS, HEALTH } from '@/dics/table'
 
 @Component({
@@ -112,7 +111,7 @@ export default class extends Vue {
   private HEALTH = HEALTH
 
   // 搜索信息
-  private conditions: SimpleTableConditions = {
+  private conditions: SimpleTable.Conditions = {
     host: '',
     name: ''
   }
@@ -131,7 +130,7 @@ export default class extends Vue {
   private loading = false
 
   // 表格数据
-  private tableData: TableData[] = null
+  private tableData: SimpleTable.Host[] = null
 
   /**
    * 页面Mounted
@@ -160,7 +159,7 @@ export default class extends Vue {
     try {
       this.loading = true
       // 分页信息和搜索条件
-      const params = {
+      const params: SimpleTable.TableParams = {
         page: this.pager.page,
         limit: this.pager.limit,
         ...this.conditions
@@ -209,22 +208,22 @@ export default class extends Vue {
   /**
    * 查看详情
    */
-  private gotoDetail(data: TableData) {
+  private gotoDetail(data: SimpleTable.Host) {
     this.$message.success(`前往${data.name}详情页面`)
   }
 
   /**
    * 查看监控指标
    */
-  private gotoDashboard(data: TableData) {
+  private gotoDashboard(data: SimpleTable.Host) {
     this.$message.info(`前往${data.name}监控指标页面`)
   }
 
   /**
    * 使用字典格式化实例状态
    */
-  private statusFormatter(row) {
-    return STATUS[row.status]
+  private statusFormatter(data: SimpleTable.Host) {
+    return STATUS[data.status]
   }
 }
 </script>

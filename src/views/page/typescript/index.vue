@@ -1,7 +1,7 @@
 <template>
   <el-card class="box-card">
     <div slot="header">
-      <h1>根组件</h1>
+      <h2>根组件</h2>
     </div>
     <div>
       <div class="actions">
@@ -10,6 +10,7 @@
         <el-button @click="sumAlgebra">求和</el-button>
         <el-button @click="multiplyAlgebra">求积</el-button>
         <el-button @click="excuteChildSumAlgebra">执行子组件的求和方法</el-button>
+        <TypeScriptDemoRandom v-model="algebra.x" />
       </div>
       <div class="equation">
         {{ algebra.x }} + {{ algebra.y }} = {{ sumResult ? sumResult : '?' }}
@@ -19,26 +20,29 @@
         {{ algebra.x }} * {{ algebra.y }} = {{ multiplyResult ? multiplyResult : '?' }}
       </div>
       <div v-if="childSumResult || childMultiplyResult" class="equation equation__child">
-        <p v-if="childSumResult">听说子组件的求和结果是: <strong>{{ childSumResult }}</strong></p>
-        <p v-if="childMultiplyResult">听说子组件的求积结果是: <strong>{{ childMultiplyResult }}</strong></p>
+        <p v-if="childSumResult">听说子组件的求和结果是: <strong>{{ childSumResult }} (结果来自$emit)</strong></p>
+        <p v-if="childMultiplyResult">听说子组件的求积结果是: <strong>{{ childMultiplyResult }} (结果来自$emit)</strong></p>
       </div>
       <TypeScriptDemoChild
-        ref="child"
+        ref="typeScriptDemoChild"
         class="child"
+        :x.sync="algebra.x"
         :z="sumResult"
         @on-sum="onChildSum"
         @on-multiply="onChildMultiply"
       />
     </div>
+    <div class="tips">本示例涉及到Data, Props, VModel, Computed Property, Methods, Lifecycle Hooks, Watcher, Emit, Mixins, Provide/Inject, Refs, Vuex的用法</div>
   </el-card>
 </template>
 <script lang="ts">
 /**
  * TypeScript + Vue 开发示例
- * 本示例涉及到Data, Prop, Computed Property, Methods, 生命周期勾子, Watch, Emit, Mixin, Provide/Inject, $refs, Vuex的用法
+ * 本示例涉及到Data, Props, VModel, Computed Property, Methods, Lifecycle Hooks, Watcher, Emit, Mixins, Provide/Inject, Refs, Vuex的用法
+ * 详细文档：https://github.com/kaorun343/vue-property-decorator
  */
 // 引入Vue TypeScript组件包
-import { Component, Mixins, Provide } from 'vue-property-decorator'
+import { Component, Mixins, Provide, ProvideReactive, Ref } from 'vue-property-decorator'
 // 引入TS Type类型
 import * as TypeScriptDemo from '@/types/TypeScriptDemo'
 // 引入Vuex Module
@@ -47,13 +51,15 @@ import { TsDemoModule } from '@/store/modules/ts-demo'
 import TypeScriptDemoMixin from './mixin'
 // 引入子组件
 import TypeScriptDemoChild from './TypeScriptDemoChild.vue'
+import TypeScriptDemoRandom from './TypeScriptDemoRandom.vue'
 
 @Component({
   // 组件名称，用于在Vue DevTool Components中显示组件名称
   name: 'TypeScriptDemo',
   // 注册子组件
   components: {
-    TypeScriptDemoChild
+    TypeScriptDemoChild,
+    TypeScriptDemoRandom
   }
 })
 /**
@@ -76,7 +82,12 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   /* 求和的计算结果 */
   private sumResult: number = null
 
-  /* 求积的计算结果 */
+  /**
+   * 求积的计算结果
+   * 并注册一个响应式的Provide
+   * 详见文档：https://github.com/kaorun343/vue-property-decorator#-providereactivekey-string--symbol--injectreactiveoptions--from-injectkey-default-any---injectkey-decorator
+   */
+  @ProvideReactive('multiplyResult')
   private multiplyResult: number = null
 
   /* 子组件求和的计算结果 */
@@ -93,6 +104,12 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   private get binaryResult() {
     return this.sumResult && this.sumResult.toString(2)
   }
+
+  /**
+   * 子组件Ref对象
+   */
+  @Ref('typeScriptDemoChild')
+  private readonly typeScriptDemoChild: TypeScriptDemoChild
 
   /**
    * 生命周期Mounted钩子
@@ -172,8 +189,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
    * 执行子组件的求和方法
    */
   private excuteChildSumAlgebra() {
-    const child: any = this.$refs.child
-    child.sumAlgebra()
+    this.typeScriptDemoChild.sumAlgebra()
   }
 
   /**
@@ -213,5 +229,9 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   .child {
     margin: 40px;
     background: $bgColor;
+  }
+
+  .tips {
+    color: $textGrey;
   }
 </style>

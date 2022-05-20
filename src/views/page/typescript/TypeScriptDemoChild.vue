@@ -56,7 +56,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
    * 通过@PropSync + 父组件.sync修饰符的方式实现双向绑定
    * x是参数名称，parentX是对x值的计算属性(computed property)
    * 详见文档：https://github.com/kaorun343/vue-property-decorator#-propsyncpropname-string-options-propoptions--constructor--constructor---decorator
-   * Vue官方是不建议使用双向绑定的，双向绑定会导致数据变更来源混乱，不利于维护。因此，酌情使用该方法！
+   * Vue官方的.sync使用方法：https://v2.vuejs.org/v2/guide/components-custom-events.html#sync-Modifier
    */
   // @Prop({ default: 0, required: true }) private x: number
   @PropSync('x') private parentX: number

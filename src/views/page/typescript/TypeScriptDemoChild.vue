@@ -9,6 +9,7 @@
         <el-button @click="increase('y')">Y加1</el-button>
         <el-button @click="sumAlgebra">求和</el-button>
         <el-button @click="multiplyAlgebra">求积</el-button>
+        <el-button @click="increaseParentX">父组件X加1</el-button>
       </div>
       <el-alert type="info">Z来自父组件的求和结果</el-alert>
       <div class="equation">
@@ -26,7 +27,7 @@
 </template>
 <script lang="ts">
 // 引入Vue TypeScript组件包
-import { Component, Mixins, Prop, Watch, Inject, Emit } from 'vue-property-decorator'
+import { Component, Mixins, Prop, PropSync, Watch, Inject, Emit } from 'vue-property-decorator'
 // 引入TS Type类型
 import * as TypeScriptDemo from '@/types/TypeScriptDemo'
 // 引入Vuex Module
@@ -35,7 +36,7 @@ import { TsDemoModule } from '@/store/modules/ts-demo'
 import TypeScriptDemoMixin from './mixin'
 
 @Component({
-  // 组件名称，用于在Vue DevTool Components中显示组件名称
+  // 组件名称，可以获得更有语义信息的组件树。用于在Vue DevTool Components中显示组件名称。
   name: 'TypeScriptDemoChild'
 })
 /**
@@ -48,11 +49,16 @@ export default class extends Mixins(TypeScriptDemoMixin) {
    * 声明Prop参数
    * 可以使用 readonly 去避免操作改变 props
    */
-  @Prop({
-    default: 0,
-    required: true
-  })
-  private readonly z: number
+  @Prop({ default: 0, required: true }) private readonly z: number
+
+  /**
+   * 通过@PropSync + 父组件.sync修饰符的方式实现双向绑定
+   * x是参数名称，parentX是对x值的计算属性(computed property)
+   * 详见文档：https://github.com/kaorun343/vue-property-decorator#-propsyncpropname-string-options-propoptions--constructor--constructor---decorator
+   * Vue官方是不建议使用双向绑定的，双向绑定会导致数据变更来源混乱，不利于维护。因此，酌情使用该方法！
+   */
+  // @Prop({ default: 0, required: true }) private x: number
+  @PropSync('x') private parentX: number
 
   /*
     Data的声明方式
@@ -105,6 +111,8 @@ export default class extends Mixins(TypeScriptDemoMixin) {
    *   deep: true
    * })
    * private onSomethingChanged() {}
+   *
+   * 详见文档：https://github.com/kaorun343/vue-property-decorator#-watchpath-string-options-watchoptions---decorator
    */
   @Watch('z', {
     immediate: true
@@ -142,7 +150,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
    * 通过@Emit 将计算结果$emit到父组件
    */
   @Emit('on-sum')
-  private sumAlgebra() {
+  public sumAlgebra() {
     // 调用Mixin中的sum求和方法并赋到this.result上
     const numbers = Object.values(this.algebra)
     this.sumResult = this.sum(numbers)
@@ -180,6 +188,14 @@ export default class extends Mixins(TypeScriptDemoMixin) {
    */
   @Inject('multiply')
   private multiply
+
+  /**
+   * 父组件X值加1
+   */
+  private increaseParentX() {
+    // this.x++
+    this.parentX++
+  }
 }
 </script>
 <style lang="scss" scoped>

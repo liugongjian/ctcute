@@ -1,3 +1,8 @@
+/**
+ * TypeScript + Vuex 需使用vuex-module-decorators组件包
+ * 详见文档：https://github.com/championswimmer/vuex-module-decorators
+ */
+
 import { VuexModule, Module, Mutation, getModule } from 'vuex-module-decorators'
 import store from '@/store'
 

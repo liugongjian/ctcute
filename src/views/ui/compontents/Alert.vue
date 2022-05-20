@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sub-all-alert">
     <h3>常用样式</h3>
     <el-row>
       <el-alert title="提示文案，常规提示" type="info" show-icon :closable="false"> </el-alert>

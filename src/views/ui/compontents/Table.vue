@@ -5,7 +5,7 @@
       一般情况下，表格最左列和最右列距离表格间距24，其他列进行平均排序。在列数较少又要占满整个页面的情况下，直接进行平均排布，最右列不特意靠右。
     </p>
     <h3>基础表格</h3>
-    <div class="table">
+    <div class="sub-table">
       <el-table :data="data.tableData">
         <el-table-column fixed prop="name" label="主机别名" width="180"> </el-table-column>
         <el-table-column prop="status" label="实例状态" width="180"> </el-table-column>
@@ -22,7 +22,7 @@
           </template>
         </el-table-column>
         <el-table-column label="操作" width="180">
-          <template>
+          <template slot="">
             <el-button type="text" size="small">详情</el-button>
             <el-button type="text" size="small">监控指标</el-button>
           </template>
@@ -31,7 +31,7 @@
     </div>
 
     <h3>可多选表格(2个以内操作)</h3>
-    <div class="table">
+    <div class="sub-table">
       <div style="margin-bottom: 20px">
         <el-button type="primary" disabled>主按钮</el-button>
         <el-button disabled>次按钮</el-button>
@@ -53,7 +53,7 @@
           </template>
         </el-table-column>
         <el-table-column label="操作" width="165">
-          <template>
+          <template slot="">
             <el-button type="text" size="small">详情</el-button>
             <el-button type="text" size="small">监控指标</el-button>
           </template>
@@ -62,7 +62,7 @@
     </div>
 
     <h3>可多选表格(3个以上操作)</h3>
-    <div class="table">
+    <div class="sub-table">
       <div style="margin-bottom: 20px">
         <el-select value="" placeholder="操作已选项" style="width: 110px; height: 32px">
           <!-- <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
@@ -87,7 +87,7 @@
           </template>
         </el-table-column>
         <el-table-column label="操作" width="175">
-          <template>
+          <template slot="">
             <el-button type="text" size="small">详情</el-button>
             <el-button type="text" size="small">监控指标</el-button>
           </template>
@@ -96,7 +96,7 @@
     </div>
 
     <h3>展示不全的表格</h3>
-    <div class="table">
+    <div class="sub-table">
       <el-table :data="data.tableData">
         <el-table-column fixed prop="name" label="主机别名" width="190"> </el-table-column>
         <el-table-column prop="status" label="实例状态" width="190"> </el-table-column>
@@ -113,26 +113,28 @@
           </template>
         </el-table-column>
         <el-table-column label="操作" width="185" fixed="right">
-          <template>
+          <template slot="">
             <el-button type="text" size="small">详情</el-button>
             <el-button type="text" size="small">监控指标</el-button>
           </template>
         </el-table-column>
       </el-table>
     </div>
-    <!-- <h3>横向展示列表</h3>
-    <el-table style="width: 100%">
-      <el-table-column prop="数据筛选" label="数据筛选" width="150"> </el-table-column>
-      <el-table-column prop="数据时间字段" label="数据时间字段" width="150"> </el-table-column>
-      <el-table-column prop="主键" label="主键" width="150"> </el-table-column>
-      <el-table-column label="标签">
-        <el-table-column prop="name" label="标签单元" width="120"> </el-table-column>
-        <el-table-column prop="name" label="标签集名称" width="120"> </el-table-column>
-        <el-table-column prop="name" label="标签名称" width="120"> </el-table-column>
-        <el-table-column prop="name" label="规则描述" width="120"> </el-table-column>
-      </el-table-column>
-    </el-table>
-    <h3>纵向展示列表</h3> -->
+    <h3>横向展示列表</h3>
+    <div class="sub-table">
+      <el-table :data="tableData" :span-method="row" border>
+        <el-table-column prop="dataFilter" label="数据筛选" width="230" align="center"> </el-table-column>
+        <el-table-column prop="dataTime" label="数据时间字段" align="center"> </el-table-column>
+        <el-table-column prop="key" label="主键" align="center" width="260"> </el-table-column>
+        <el-table-column label="标签" align="center">
+          <el-table-column label="标签单元" prop="tag1" align="center"> </el-table-column>
+          <el-table-column label="标签集名称" prop="tag2" align="center"> </el-table-column>
+          <el-table-column label="标签名称" prop="tag3" align="center"> </el-table-column>
+          <el-table-column label="规则描述" prop="tag4" align="center" width="230"> </el-table-column>
+        </el-table-column>
+      </el-table>
+    </div>
+
     <h3>小表格</h3>
     <div>
       <el-table :data="data.smallTable">
@@ -163,16 +165,43 @@ import { HEALTH } from '@/dics/table'
   name: 'UiTable'
 })
 export default class extends Vue {
-  public data() {
-    return {
-      data
-    }
-  }
+  private data = data
 
   private HEALTH = HEALTH
+
+  private tableData = [
+    {
+      dataFilter: 'user_age>6 and user_age<=9',
+      dataTime: 'update_time',
+      key: 'city_name, month, user_age',
+      tag1: 'user_age',
+      tag2: '年龄段',
+      tag3: '儿童',
+      tag4: 'user_age>6 and user_age<=9'
+    },
+    {
+      dataFilter: 'user_age>6 and user_age<=9',
+      dataTime: 'update_time',
+      key: 'city_name, month, user_age',
+      tag1: 'user_age',
+      tag2: '年龄段',
+      tag3: '少年',
+      tag4: 'user_age>6 and user_age<=9'
+    }
+  ]
+
   public static title = {
     zh: '表格',
     en: 'Table'
+  }
+
+  private row({ rowIndex, columnIndex }) {
+    if (rowIndex === 0 && columnIndex !== 5 && columnIndex !== 6) {
+      return [2, 1]
+    }
+    if (rowIndex === 1 && columnIndex !== 5 && columnIndex !== 6) {
+      return [0, 0]
+    }
   }
 }
 </script>
@@ -192,7 +221,7 @@ export default class extends Vue {
     }
   }
 }
-.table:not(:last-child) {
+.sub-table:not(:last-child) {
   border-bottom: 1px solid #f1f1f1;
 }
 .sub-index {

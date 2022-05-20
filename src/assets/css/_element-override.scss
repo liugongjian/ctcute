@@ -256,22 +256,28 @@
   $class:类名;
   $bdcolor:边框颜色;
   $iconColor:icon颜色;
+  $bgColor:背景颜色;
 */
-@mixin global-tips($class: info, $bdcolor: #fcc199, $iconColor: #fa8334) {
-  .el-alert--#{$class}.is-light {
-    border: 1px solid $bdcolor;
-    color: rgba(0, 0, 0, 0.65);
-    .el-alert__icon {
-      color: $iconColor;
+@mixin global-tips($class: info, $bdcolor: #fcc199, $iconColor: #fa8334, $bgColor: #fef2ea) {
+  .sub-all-alert {
+    .el-alert--#{$class}.is-light {
+      border: 1px solid $bdcolor;
+      color: rgba(0, 0, 0, 0.65);
+      background-color: $bgColor;
+      .el-alert__icon {
+        color: $iconColor;
+      }
     }
   }
 }
 @include global-tips();
-@include global-tips(success, #a8e18c, #52c41a);
-@include global-tips(warning, #fcd68a, #faad15);
-@include global-tips(error, #ffa4a3, #f5212d);
-.el-alert__closebtn.is-customed {
-  color: #fa8334;
+@include global-tips(success, #a8e18c, #52c41a, #edf9e8);
+@include global-tips(warning, #fcd68a, #faad15, #fef6e7);
+@include global-tips(error, #ffa4a3, #f5212d, #ffecec);
+.sub-all-alert {
+  .el-alert__closebtn.is-customed {
+    color: #fa8334;
+  }
 }
 
 /* Progress  */
@@ -304,5 +310,98 @@
   font-size: 12px;
   &:hover {
     color: #fa8334;
+  }
+}
+
+/* Toast  */
+/* 
+  $class:类名;
+  $iconColor:icon颜色;
+  $iconClass:icon类名;
+*/
+@mixin toast-page($class: success, $iconColor: #52c41a, $iconClass: success) {
+  .el-message.el-message--#{$class}.toast-#{$class} {
+    min-width: 150px;
+    height: 40px;
+    background-color: #ffff;
+    border: none;
+    padding: 8px 12px;
+    box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 0.5);
+    .el-icon-success {
+      color: $iconColor;
+    }
+    .el-message__content {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.65);
+    }
+  }
+}
+@include toast-page();
+@include toast-page(warning, #faad15);
+@include toast-page(error, #f5212d);
+
+/* notification  */
+/* 
+  $class:类名;
+  $iconColor:icon颜色;
+  $iconClass:icon类名;
+*/
+@mixin notification-page($class: error-tips, $iconColor: #f5212d, $iconClass: error) {
+  .el-notification.#{$class}.right {
+    width: 480px;
+    height: 144px;
+    .el-icon-#{$iconClass} {
+      font-size: 14px;
+      color: $iconColor;
+      margin-top: 1px;
+    }
+    .el-notification__title {
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+    .el-notification__content {
+      font-size: 12px;
+    }
+  }
+}
+@include notification-page(ordinary-tips, #1890ff, info);
+@include notification-page(success-tips, #52c41a, success);
+@include notification-page();
+@include notification-page(warning-tips, #faad15, warning);
+.el-notification.routine-tips.right {
+  width: 480px;
+  height: 124px;
+  .el-notification__title {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  .el-notification__content {
+    font-size: 12px;
+  }
+}
+
+/* drawer  */
+.sub-drawer {
+  .sub-content {
+    .el-form {
+      .el-form-item--medium .el-form-item__label {
+        line-height: 30px;
+        font-weight: 400;
+        color: #000;
+        font-size: 12px;
+      }
+    }
+  }
+}
+.el-drawer.rtl.sub-simple {
+  .el-drawer__header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f1f1f1;
+    margin-bottom: 0;
+    &:first-child {
+      color: rgba(0, 0, 0, 0.9);
+      font-size: 16px;
+      font-weight: bold;
+    }
   }
 }

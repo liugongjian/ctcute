@@ -2,7 +2,7 @@
   <div class="sub-tag">
     <el-tag type="info">标签</el-tag>
     <el-tag type="info" closable>标签</el-tag>
-    <el-button class="button-new-tag" size="small">+ New Tag</el-button>
+    <el-button class="button-new-tag" size="small">+ 标签</el-button>
     <el-tag type="danger">red</el-tag>
     <el-tag type="success">green</el-tag>
     <el-tag type="">蓝色</el-tag>
@@ -23,17 +23,19 @@ export default class extends Vue {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .sub-tag {
   margin-top: 24px;
 }
 .el-tag {
   margin-left: 10px;
+  height: 22px;
+  line-height: 20px;
 }
 .button-new-tag {
   margin-left: 10px;
-  height: 32px;
-  line-height: 30px;
+  height: 22px;
+  line-height: 22px;
   padding-top: 0;
   padding-bottom: 0;
 }

@@ -16,11 +16,11 @@
     </div>
     <div class="Stepper-input">
       <h3>步进器</h3>
-      <el-input-number controls-position="right" :min="1" :max="10"></el-input-number>
+      <el-input-number v-model="num" controls-position="right" :min="1" :max="10"></el-input-number>
     </div>
     <div class="Tips-input">
       <h3 class="sub-title">带提示的输入框</h3>
-      <el-autocomplete class="inline-input" placeholder="请输入内容"></el-autocomplete>
+      <el-autocomplete class="inline-input" placeholder="请输入内容" value=""></el-autocomplete>
     </div>
     <div class="text-input">
       <h3>长文本域</h3>
@@ -39,6 +39,8 @@ export default class extends Vue {
     zh: '输入框',
     en: 'Input'
   }
+
+  private num = 1
 }
 </script>
 <style lang="scss" scoped>

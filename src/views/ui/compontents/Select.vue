@@ -19,9 +19,9 @@
     </div>
     <div class="sub-down">
       <h3>多选</h3>
-      <el-select :value="['选项A', '选项B']" multiple placeholder="请选择">
-        <el-option label="选项A" value="选项A"> </el-option>
-        <el-option label="选项B" value="选项B"> </el-option>
+      <el-select v-model="value" multiple placeholder="请选择">
+        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+        </el-option>
       </el-select>
     </div>
     <div class="sub-down">
@@ -101,6 +101,31 @@ export default class extends Vue {
     zh: '选择器',
     en: 'Select'
   }
+
+  private value = []
+
+  private options = [
+    {
+      value: '选项1',
+      label: '选项A'
+    },
+    {
+      value: '选项2',
+      label: '选项B'
+    },
+    {
+      value: '选项3',
+      label: '选项C'
+    },
+    {
+      value: '选项4',
+      label: '选项D'
+    },
+    {
+      value: '选项5',
+      label: '选项E'
+    }
+  ]
 }
 </script>
 
@@ -110,18 +135,15 @@ export default class extends Vue {
   .el-row {
     margin: 24px 0;
   }
+  .el-select {
+    margin: 10px 0 24px 0;
+  }
 }
 
-.el-select {
-  margin: 10px 0 24px 0;
-}
 .sub-checkout {
-  .el-select {
+  ::v-deep .el-input.el-input--medium.el-input--suffix {
     width: 110px;
-    height: 32px;
-  }
-  .el-checkbox.is-checked {
-    margin-top: 24px;
+    font-size: 12px;
   }
 }
 </style>

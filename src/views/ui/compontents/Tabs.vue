@@ -37,18 +37,9 @@
       </el-tabs>
     </el-row>
     <el-row>
-      <el-tabs type="card" editable>
-        <el-tab-pane>
-          <span slot="label">选项一</span>
-          选项一
-        </el-tab-pane>
-        <el-tab-pane>
-          <span slot="label">选项二</span>
-          选项二
-        </el-tab-pane>
-        <el-tab-pane>
-          <span slot="label">选项三</span>
-          选项三
+      <el-tabs v-model="editableTabsValue" type="card" closable @tab-remove="removeTab">
+        <el-tab-pane v-for="item in editableTabs" :key="item.name" :label="item.title" :name="item.name">
+          {{ item.content }}
         </el-tab-pane>
       </el-tabs>
     </el-row>
@@ -73,6 +64,44 @@ export default class extends Vue {
   public static title = {
     zh: '选项卡',
     en: 'Tabs'
+  }
+
+  private editableTabs = [
+    {
+      title: '选项一',
+      name: '1',
+      content: '选项一'
+    },
+    {
+      title: '选项二',
+      name: '2',
+      content: '选项二'
+    },
+    {
+      title: '选项三',
+      name: '3',
+      content: '选项三'
+    }
+  ]
+
+  private editableTabsValue = '1'
+
+  private removeTab(targetName) {
+    const tabs = this.editableTabs
+    let activeName = this.editableTabsValue
+    if (activeName === targetName) {
+      tabs.forEach((tab, index) => {
+        if (tab.name === targetName) {
+          const nextTab = tabs[index + 1] || tabs[index - 1]
+          if (nextTab) {
+            activeName = nextTab.name
+          }
+        }
+      })
+    }
+
+    this.editableTabsValue = activeName
+    this.editableTabs = tabs.filter(tab => tab.name !== targetName)
   }
 }
 </script>

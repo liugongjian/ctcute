@@ -224,6 +224,12 @@ export default class extends Vue {
 .sub-table:not(:last-child) {
   border-bottom: 1px solid #f1f1f1;
 }
+.sub-table {
+  ::v-deep .el-input.el-input--medium.el-input--suffix {
+    width: 110px;
+    font-size: 12px;
+  }
+}
 .sub-index {
   display: inline-block;
   width: 20px;

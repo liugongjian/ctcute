@@ -1,7 +1,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 @Component
 class TypeScriptDemoMixin extends Vue {
-  public mounted() {
+  protected mounted() {
     console.log('来自mixin的mounted')
   }
 
@@ -12,7 +12,7 @@ class TypeScriptDemoMixin extends Vue {
    * 声明一个方法。
    * 等价JavaScript中的methods: {}声明
    */
-  public sum(numbers: number[]): number {
+  protected sum(numbers: number[]): number {
     let result = 0
     result = numbers.reduce((sum, value) => {
       return sum + value

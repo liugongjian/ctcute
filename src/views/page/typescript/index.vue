@@ -32,7 +32,7 @@
         @on-multiply="onChildMultiply"
       />
     </div>
-    <div>本示例涉及到Data, Props, VModel, Computed Property, Methods, Lifecycle Hooks, Watcher, Emit, Mixins, Provide/Inject, Refs, Vuex的用法</div>
+    <div class="tips">本示例涉及到Data, Props, VModel, Computed Property, Methods, Lifecycle Hooks, Watcher, Emit, Mixins, Provide/Inject, Refs, Vuex的用法</div>
   </el-card>
 </template>
 <script lang="ts">
@@ -229,5 +229,9 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   .child {
     margin: 40px;
     background: $bgColor;
+  }
+
+  .tips {
+    color: $textGrey;
   }
 </style>

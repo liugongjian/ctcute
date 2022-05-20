@@ -1,7 +1,7 @@
 <template>
   <el-card class="box-card">
     <div slot="header">
-      <h1>根组件</h1>
+      <h2>根组件</h2>
     </div>
     <div>
       <div class="actions">
@@ -30,12 +30,13 @@
         @on-multiply="onChildMultiply"
       />
     </div>
+    <div>本示例涉及到Data, Props, Computed Property, Methods, Lifecycle Hooks, Watcher, Emit, Mixin, Provide/Inject, Refs, Vuex的用法</div>
   </el-card>
 </template>
 <script lang="ts">
 /**
  * TypeScript + Vue 开发示例
- * 本示例涉及到Data, Prop, Computed Property, Methods, 生命周期勾子, Watch, Emit, Mixin, Provide/Inject, $refs, Vuex的用法
+ * 本示例涉及到Data, Props, Computed Property, Methods, Lifecycle Hooks, Watcher, Emit, Mixin, Provide/Inject, Refs, Vuex的用法
  */
 // 引入Vue TypeScript组件包
 import { Component, Mixins, Provide } from 'vue-property-decorator'

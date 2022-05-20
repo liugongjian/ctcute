@@ -19,15 +19,16 @@
         {{ algebra.x }} * {{ algebra.y }} * {{ algebra.z ? algebra.z : 'Z' }} = {{ multiplyResult ? multiplyResult : '?' }}
       </div>
       <div v-if="parentSumResult || parentMultiplyResult" class="equation equation__child">
-        <p v-if="parentSumResult">听说父组件的求和结果是: <strong>{{ parentSumResult }}</strong></p>
-        <p v-if="parentMultiplyResult">听说父组件的求积结果是: <strong>{{ parentMultiplyResult }}</strong></p>
+        <p v-if="parentSumResult">听说父组件的求和结果是: <strong>{{ parentSumResult }} (结果来自Vuex)</strong></p>
+        <p v-if="parentMultiplyResult">听说父组件的求积结果是: <strong>{{ parentMultiplyResult }} (结果来自Vuex)</strong></p>
+        <p v-if="parentSumResultFromProvide">听说父组件的求积结果是: <strong>{{ parentSumResultFromProvide }} (结果来自Provider)</strong></p>
       </div>
     </div>
   </el-card>
 </template>
 <script lang="ts">
 // 引入Vue TypeScript组件包
-import { Component, Mixins, Prop, PropSync, Watch, Inject, Emit } from 'vue-property-decorator'
+import { Component, Mixins, Prop, PropSync, Watch, Inject, InjectReactive, Emit } from 'vue-property-decorator'
 // 引入TS Type类型
 import * as TypeScriptDemo from '@/types/TypeScriptDemo'
 // 引入Vuex Module
@@ -79,7 +80,13 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   private multiplyResult: number = null
 
   /**
-   * 父组件求和的计算结果
+   * 来自Provide的求积的计算结果
+   */
+  @InjectReactive('multiplyResult')
+  private parentSumResultFromProvide: number
+
+  /**
+   * 来自Vuex的父组件求和的计算结果
    * @returns 计算结果
    * 通过get关键词声明一个计算属性(computed)
    */
@@ -88,7 +95,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   }
 
   /**
-   * 父组件求积的计算结果
+   * 来自Vuex的父组件求积的计算结果
    * @returns 计算结果
    * 通过get关键词声明一个计算属性(computed)
    */

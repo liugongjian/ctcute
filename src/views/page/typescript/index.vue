@@ -20,8 +20,8 @@
         {{ algebra.x }} * {{ algebra.y }} = {{ multiplyResult ? multiplyResult : '?' }}
       </div>
       <div v-if="childSumResult || childMultiplyResult" class="equation equation__child">
-        <p v-if="childSumResult">听说子组件的求和结果是: <strong>{{ childSumResult }}</strong></p>
-        <p v-if="childMultiplyResult">听说子组件的求积结果是: <strong>{{ childMultiplyResult }}</strong></p>
+        <p v-if="childSumResult">听说子组件的求和结果是: <strong>{{ childSumResult }} (结果来自$emit)</strong></p>
+        <p v-if="childMultiplyResult">听说子组件的求积结果是: <strong>{{ childMultiplyResult }} (结果来自$emit)</strong></p>
       </div>
       <TypeScriptDemoChild
         ref="typeScriptDemoChild"
@@ -42,7 +42,7 @@
  * 详细文档：https://github.com/kaorun343/vue-property-decorator
  */
 // 引入Vue TypeScript组件包
-import { Component, Mixins, Provide, Ref } from 'vue-property-decorator'
+import { Component, Mixins, Provide, ProvideReactive, Ref } from 'vue-property-decorator'
 // 引入TS Type类型
 import * as TypeScriptDemo from '@/types/TypeScriptDemo'
 // 引入Vuex Module
@@ -82,7 +82,12 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   /* 求和的计算结果 */
   private sumResult: number = null
 
-  /* 求积的计算结果 */
+  /**
+   * 求积的计算结果
+   * 并注册一个响应式的Provide
+   * 详见文档：https://github.com/kaorun343/vue-property-decorator#-providereactivekey-string--symbol--injectreactiveoptions--from-injectkey-default-any---injectkey-decorator
+   */
+  @ProvideReactive('multiplyResult')
   private multiplyResult: number = null
 
   /* 子组件求和的计算结果 */

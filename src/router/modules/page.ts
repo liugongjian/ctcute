@@ -17,7 +17,8 @@ const pageRoutes = [
         name: 'SimpleForm',
         meta: {
           title: 'Form 基础表单',
-          breadcrumb: true
+          breadcrumb: true,
+          manifest: '@/views/page/form/SimpleForm.json'
         }
       }, {
         path: 'pro-form',
@@ -25,7 +26,8 @@ const pageRoutes = [
         name: 'ProForm',
         meta: {
           title: 'ProForm 复杂表单',
-          breadcrumb: true
+          breadcrumb: true,
+          manifest: '@/views/page/form/SimpleForm.json'
         }
       }
     ]
@@ -46,7 +48,8 @@ const pageRoutes = [
         name: 'SimpleTable',
         meta: {
           title: 'Table 基础表格',
-          breadcrumb: true
+          breadcrumb: true,
+          manifest: '@/views/page/table/SimpleTable.json'
         }
       },
       {
@@ -55,7 +58,8 @@ const pageRoutes = [
         name: 'ProTable',
         meta: {
           title: 'ProTable 复杂表格',
-          breadcrumb: true
+          breadcrumb: true,
+          manifest: '@/views/page/table/SimpleTable.json'
         }
       }
     ]
@@ -95,7 +99,8 @@ const pageRoutes = [
         name: 'TypeScriptDemo',
         meta: {
           title: 'TypeScript Demo',
-          breadcrumb: true
+          breadcrumb: true,
+          manifest: '@/views/page/ts-demo/TypeScriptDemo.json'
         }
       }
     ]

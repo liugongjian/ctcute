@@ -1,0 +1,4 @@
+[
+  "@/views/page/form/SimpleForm.vue",
+  "@/types/SimpleForm.d.ts"
+]

@@ -1,0 +1,7 @@
+[
+  "@/views/page/ts-demo/index.vue",
+  "@/views/page/ts-demo/TypeScriptDemoChild.vue",
+  "@/views/page/ts-demo/TypeScriptDemoRandom.vue",
+  "@/views/page/ts-demo/mixin.ts",
+  "@/types/Code.d.ts"
+]

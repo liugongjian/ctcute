@@ -52,7 +52,7 @@ module.exports = {
        * Node.js接口
        */
       '/v1/': {
-        target: 'http://local.ctcdn.cn:3000/',
+        target: 'http://localhost:7001/',
         changeOrigin: true,
         secure: false
       },

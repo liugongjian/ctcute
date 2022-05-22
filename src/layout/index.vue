@@ -9,6 +9,7 @@
     <sidebar v-if="!isCas" class="layout-sidebar" :title="sidebarTitle" />
     <div class="layout-container">
       <navbar v-if="!isCas" />
+      <code-viewer />
       <app-main />
     </div>
   </div>
@@ -16,7 +17,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { AppMain, Navbar, Sidebar, LayoutHeader } from './components'
+import { AppMain, Navbar, Sidebar, LayoutHeader, CodeViewer } from './components'
 import { CasModule } from '@/store/modules/cas'
 
 @Component({
@@ -25,7 +26,8 @@ import { CasModule } from '@/store/modules/cas'
     AppMain,
     Navbar,
     Sidebar,
-    LayoutHeader
+    LayoutHeader,
+    CodeViewer
   }
 })
 export default class extends Vue {
@@ -34,6 +36,10 @@ export default class extends Vue {
   /* 是否为单点登录界面 */
   private get isCas() {
     return !!CasModule.cas
+  }
+
+  private copy() {
+    console.log(this.$route.meta.manifest)
   }
 }
 </script>

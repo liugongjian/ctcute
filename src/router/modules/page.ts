@@ -91,7 +91,7 @@ const pageRoutes = [
       },
       {
         path: 'ts-demo',
-        component: () => import(/* webpackChunkName: "tsdemo" */ '@/views/page/typescript/index.vue'),
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/ts-demo/index.vue'),
         name: 'TypeScriptDemo',
         meta: {
           title: 'TypeScript Demo',

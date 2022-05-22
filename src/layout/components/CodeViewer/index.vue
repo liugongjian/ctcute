@@ -1,16 +1,19 @@
 <template>
-  <div v-if="manifestPath" class="code" :class="{'opened': isOpen}">
-    <el-button class="code__button" type="primary" @click="toggle"><svg-icon name="code" width="19" height="19" /></el-button>
-    <div v-loading="loading" class="code__container">
-      <div class="code__header">
-        <el-menu :default-active="activeFile" mode="horizontal">
-          <el-menu-item v-for="file in manifest" :key="file" :index="parseFileName(file)" @click="getCode(file)">{{ parseFileName(file) }}</el-menu-item>
-        </el-menu>
-        <el-tooltip content="复制代码">
-          <el-button class="code__header__copy" type="text" @click="copyCode"><svg-icon name="file-copy-fill" width="19" height="19" /></el-button>
-        </el-tooltip>
+  <div v-if="manifestPath">
+    <div v-if="isOpen" class="code__overlay" @click="isOpen = false"></div>
+    <div class="code" :class="{'opened': isOpen}">
+      <el-button class="code__button" type="primary" @click="toggle"><svg-icon name="code" width="19" height="19" /></el-button>
+      <div v-loading="loading" class="code__container">
+        <div class="code__header">
+          <el-menu :default-active="activeFile" mode="horizontal">
+            <el-menu-item v-for="file in manifest" :key="file" :index="parseFileName(file)" @click="getCode(file)">{{ parseFileName(file) }}</el-menu-item>
+          </el-menu>
+          <el-tooltip content="复制代码">
+            <el-button class="code__header__copy" type="text" @click="copyCode"><svg-icon name="file-copy-fill" width="19" height="19" /></el-button>
+          </el-tooltip>
+        </div>
+        <codemirror :value="code" :options="cmOptions" />
       </div>
-      <codemirror :value="code" :options="cmOptions" />
     </div>
   </div>
 </template>
@@ -209,6 +212,15 @@ export default class extends Vue {
           color: $primary;
         }
       }
+    }
+
+    &__overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 99;
     }
 
     &.opened {

@@ -9,7 +9,7 @@
             <el-menu-item v-for="path in manifest" :key="path" :index="path" @click="getCode(path)">{{ parseFileName(path) }}</el-menu-item>
           </el-menu>
           <!-- 更多文件 -->
-          <el-dropdown ref="more" class="code__header__more" @command="handleMoreManifestClick">
+          <el-dropdown v-if="moreManifest" ref="more" class="code__header__more" @command="handleMoreManifestClick">
             <span class="el-dropdown-link">
               <svg-icon name="down-circle-fill" width="17" height="17" />
             </span>
@@ -28,7 +28,7 @@
             <el-button class="code__header__copy" type="text" @click="copyCode"><svg-icon name="file-copy-fill" width="19" height="19" /></el-button>
           </el-tooltip>
         </div>
-        <codemirror :value="code" :options="cmOptions" />
+        <codemirror v-if="code" :value="code" :options="cmOptions" />
       </div>
     </div>
   </div>
@@ -75,7 +75,7 @@ export default class extends Vue {
   }
 
   private get moreManifest() {
-    return this.manifest && this.manifest.slice(this.menuIndex)
+    return this.manifest && this.menuIndex && this.manifest.slice(this.menuIndex)
   }
 
   @Watch('$route.path')
@@ -164,7 +164,10 @@ export default class extends Vue {
         if (rightPos > menuWidth) {
           if (!this.menuIndex) {
             this.menuIndex = i
-            this.more.$el.style.left = li.offsetLeft + 'px'
+            const left = li.offsetLeft
+            this.$nextTick(() => {
+              this.more.$el.style.left = left + 'px'
+            })
           }
           li.style.display = 'none'
         } else {

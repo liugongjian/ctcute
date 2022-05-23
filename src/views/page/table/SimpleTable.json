@@ -1,6 +1,18 @@
 [
-  "@/views/page/table/SimpleTable.vue",
-  "@/types/SimpleTable.d.ts",
-  "@/api/table.ts",
-  "@/dics/table.ts"
+  {
+    "name": "SimpleTable.vue",
+    "path": "@/views/page/table/SimpleTable.vue"
+  }, 
+  {
+    "name": "SimpleTable.d.ts",
+    "path": "@/types/SimpleTable.d.ts"
+  }, 
+  {
+    "name": "api/table.ts",
+    "path": "@/api/table.ts"
+  }, 
+  {
+    "name": "dics/table.ts",
+    "path": "@/dics/table.ts"
+  }
 ]

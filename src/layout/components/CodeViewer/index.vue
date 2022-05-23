@@ -6,7 +6,7 @@
       <div v-loading="loading" class="code__container">
         <div class="code__header">
           <el-menu ref="menu" :default-active="activePath" mode="horizontal">
-            <el-menu-item v-for="path in manifest" :key="path" :index="path" @click="getCode(path)">{{ parseFileName(path) }}</el-menu-item>
+            <el-menu-item v-for="file in manifest" :key="file.path" :index="file.path" @click="getCode(file.path)">{{ file.name }}</el-menu-item>
           </el-menu>
           <!-- 更多文件 -->
           <el-dropdown v-if="moreManifest" ref="more" class="code__header__more" @command="handleMoreManifestClick">
@@ -15,12 +15,12 @@
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item
-                v-for="path in moreManifest"
-                :key="path"
-                :class="{'is-active': path === activePath}"
-                :command="path"
+                v-for="file in moreManifest"
+                :key="file.path"
+                :class="{'is-active': file.path === activePath}"
+                :command="file.path"
               >
-                {{ parseFileName(path) }}
+                {{ file.name }}
               </el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
@@ -114,8 +114,9 @@ export default class extends Vue {
       })
       this.manifest = res.data
       if (this.manifest.length) {
-        this.getCode(this.manifest[0])
-        this.activePath = this.manifest[0]
+        const path = this.manifest[0].path
+        this.getCode(path)
+        this.activePath = path
       }
       this.renderMore()
     } catch (e) {
@@ -181,19 +182,7 @@ export default class extends Vue {
    * 更多文件列表点击
    */
   private handleMoreManifestClick(path) {
-    console.log(path)
     this.getCode(path)
-  }
-
-  /**
-   * 取出显示文件名
-   * @param path 文件路径
-   */
-  private parseFileName(path: string) {
-    if (path) {
-      const res = path.split('/').slice(-1)
-      if (res.length) return res[0]
-    }
   }
 }
 </script>

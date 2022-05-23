@@ -1,6 +1,18 @@
 [
-  "@/views/page/ts-demo/index.vue",
-  "@/views/page/ts-demo/TypeScriptDemoChild.vue",
-  "@/views/page/ts-demo/TypeScriptDemoRandom.vue",
-  "@/views/page/ts-demo/mixin.ts"
+  {
+    "name": "index.vue",
+    "path": "@/views/page/ts-demo/index.vue"
+  }, 
+  {
+    "name": "TypeScriptDemoChild.vue",
+    "path": "@/views/page/ts-demo/TypeScriptDemoChild.vue"
+  }, 
+  {
+    "name": "TypeScriptDemoRandom.vue",
+    "path": "@/views/page/ts-demo/TypeScriptDemoRandom.vue"
+  }, 
+  {
+    "name": "mixin.ts",
+    "path": "@/views/page/ts-demo/mixin.ts"
+  }
 ]

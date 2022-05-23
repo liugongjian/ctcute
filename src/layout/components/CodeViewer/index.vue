@@ -5,9 +5,25 @@
       <el-button class="code__button" type="primary" @click="toggle"><svg-icon name="code" width="19" height="19" /></el-button>
       <div v-loading="loading" class="code__container">
         <div class="code__header">
-          <el-menu :default-active="activeFile" mode="horizontal">
-            <el-menu-item v-for="file in manifest" :key="file" :index="parseFileName(file)" @click="getCode(file)">{{ parseFileName(file) }}</el-menu-item>
+          <el-menu ref="menu" :default-active="activePath" mode="horizontal">
+            <el-menu-item v-for="path in manifest" :key="path" :index="path" @click="getCode(path)">{{ parseFileName(path) }}</el-menu-item>
           </el-menu>
+          <!-- 更多文件 -->
+          <el-dropdown ref="more" class="code__header__more" @command="handleMoreManifestClick">
+            <span class="el-dropdown-link">
+              <svg-icon name="down-circle-fill" width="17" height="17" />
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item
+                v-for="path in moreManifest"
+                :key="path"
+                :class="{'is-active': path === activePath}"
+                :command="path"
+              >
+                {{ parseFileName(path) }}
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
           <el-tooltip content="复制代码">
             <el-button class="code__header__copy" type="text" @click="copyCode"><svg-icon name="file-copy-fill" width="19" height="19" /></el-button>
           </el-tooltip>
@@ -18,7 +34,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator'
+import { Component, Vue, Watch, Ref } from 'vue-property-decorator'
 import { getManifest, getCode } from '@/api/code'
 import * as Code from '@/types/Code'
 import copy from 'copy-to-clipboard'
@@ -46,18 +62,35 @@ export default class extends Vue {
   private isOpen = false
   private manifest: Code.Manifest[] = null
   private code: string = null
-  private activeFile = null
+  private activePath = null
   private loading = false
+  private menuIndex = 0
+
+  @Ref('menu') private menu: any
+
+  @Ref('more') private more: any
 
   private get manifestPath() {
     return this.$route.meta.manifest
   }
 
+  private get moreManifest() {
+    return this.manifest && this.manifest.slice(this.menuIndex)
+  }
+
   @Watch('$route.path')
   private onRouteChange() {
     this.isOpen = false
+    this.reset()
+  }
+
+  /**
+   * 重置
+   */
+  private reset() {
     this.manifest = []
     this.code = null
+    this.menuIndex = 0
   }
 
   /**
@@ -82,12 +115,12 @@ export default class extends Vue {
       this.manifest = res.data
       if (this.manifest.length) {
         this.getCode(this.manifest[0])
-        this.activeFile = this.parseFileName(this.manifest[0])
+        this.activePath = this.manifest[0]
       }
+      this.renderMore()
     } catch (e) {
       console.log(e)
-      this.manifest = []
-      this.code = null
+      this.reset()
     } finally {
       this.loading = false
     }
@@ -99,6 +132,7 @@ export default class extends Vue {
   private async getCode(path) {
     try {
       this.loading = true
+      this.activePath = path
       const res = await getCode({
         path: path
       })
@@ -116,6 +150,36 @@ export default class extends Vue {
   private copyCode() {
     copy(this.code)
     this.$message.success('已复制代码')
+  }
+
+  /**
+   * 渲染文件更多下拉列表
+   */
+  private renderMore() {
+    this.$nextTick(() => {
+      const menuWidth = this.menu.$el.clientWidth
+      for (let i = 0; i < this.menu.$el.children.length; i++) {
+        const li = this.menu.$el.children[i]
+        const rightPos = li.clientWidth + li.offsetLeft
+        if (rightPos > menuWidth) {
+          if (!this.menuIndex) {
+            this.menuIndex = i
+            this.more.$el.style.left = li.offsetLeft + 'px'
+          }
+          li.style.display = 'none'
+        } else {
+          li.style.display = 'block'
+        }
+      }
+    })
+  }
+
+  /**
+   * 更多文件列表点击
+   */
+  private handleMoreManifestClick(path) {
+    console.log(path)
+    this.getCode(path)
   }
 
   /**
@@ -189,16 +253,22 @@ export default class extends Vue {
       overflow: hidden;
       background: #fff;
 
+      &__more {
+        position: absolute;
+        left: calc($width - 70px);
+        top: 20px;
+      }
+
       &__copy {
         position: absolute;
         right: 10px;
-        top: 10px;
+        top: 8px;
       }
 
       .el-menu {
         display: flex;
         flex-wrap: nowrap;
-        width: calc($width - 50px);
+        width: calc($width - 70px);
         overflow: hidden;
       }
 

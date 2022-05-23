@@ -411,3 +411,8 @@
     }
   }
 }
+
+/* Dropdown */
+.el-dropdown-menu__item.is-active {
+  color: $primary;
+}

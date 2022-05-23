@@ -134,7 +134,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
    * 生命周期Mounted钩子
    * mounted在mixin也已声明，这两个方法会自动合并
    */
-  public mounted() {
+  protected mounted() {
     console.log('来自子组件的mounted')
     this.algebra.x = 2
     this.algebra.y = 2

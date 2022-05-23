@@ -1,0 +1,6 @@
+[
+  "@/views/page/table/SimpleTable.vue",
+  "@/types/SimpleTable.d.ts",
+  "@/api/table.ts",
+  "@/dics/table.ts"
+]

@@ -2,8 +2,8 @@
 // Do not modify this file!!!!!!!!!
 
 import 'egg';
-import ExportErrorHandler = require('../../../app/middleware/error-handler');
-import ExportResponseWrapper = require('../../../app/middleware/response-wrapper');
+import ExportErrorHandler from '../../../app/middleware/error-handler';
+import ExportResponseWrapper from '../../../app/middleware/response-wrapper';
 
 declare module 'egg' {
   interface IMiddleware {

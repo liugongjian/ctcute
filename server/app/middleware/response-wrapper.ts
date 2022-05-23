@@ -1,4 +1,4 @@
-module.exports = () => {
+export default () => {
   return async function responseWrapper(ctx, next) {
     await next()
     ctx.body = {

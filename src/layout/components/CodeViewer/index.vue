@@ -40,8 +40,14 @@ import * as Code from '@/types/Code'
 import copy from 'copy-to-clipboard'
 import { codemirror } from 'vue-codemirror'
 import 'codemirror/mode/javascript/javascript.js'
+import 'codemirror/mode/vue/vue.js'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/base16-light.css'
+
+const CM_MODES = {
+  default: 'text/javascript',
+  vue: 'text/x-vue'
+}
 
 @Component({
   name: 'CodeViewer',
@@ -49,11 +55,10 @@ import 'codemirror/theme/base16-light.css'
     codemirror
   }
 })
-
 export default class extends Vue {
   private cmOptions = {
     value: '',
-    mode: 'text/javascript',
+    mode: CM_MODES.default,
     theme: 'base16-light',
     lineNumbers: true,
     readOnly: true
@@ -137,12 +142,30 @@ export default class extends Vue {
       const res = await getCode({
         path: path
       })
+      this.switchCmMode(path)
       this.code = res.data
     } catch (e) {
       console.log(e)
     } finally {
       this.loading = false
     }
+  }
+
+  /**
+   * 切换CodeMirror解析器
+   */
+  private switchCmMode(path) {
+    const index = path.lastIndexOf('.')
+    const ext = path.substr(index + 1)
+    let mode = ''
+    switch (ext) {
+      case 'vue':
+        mode = CM_MODES.vue
+        break
+      default:
+        mode = CM_MODES.default
+    }
+    this.cmOptions.mode = mode
   }
 
   /**

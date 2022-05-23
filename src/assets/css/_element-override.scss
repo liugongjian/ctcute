@@ -118,6 +118,9 @@
 
 .el-table .cell {
   font-size: 12px;
+  span {
+    font-size: 12px;
+  }
 }
 /* Pagination */
 .el-pagination {

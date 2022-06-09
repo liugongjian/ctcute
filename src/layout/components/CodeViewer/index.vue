@@ -1,7 +1,7 @@
 <template>
-  <div v-if="manifestPath">
+  <div v-if="isPage">
     <div v-if="isOpen" class="code__overlay" @click="isOpen = false"></div>
-    <div class="code" :class="{'opened': isOpen}">
+    <div class="code" :class="{ 'opened': isOpen }">
       <el-button class="code__button" type="primary" @click="toggle"><svg-icon name="code" width="19" height="19" /></el-button>
       <div v-loading="loading" class="code__container">
         <div class="code__header">
@@ -17,7 +17,7 @@
               <el-dropdown-item
                 v-for="file in moreManifest"
                 :key="file.path"
-                :class="{'is-active': file.path === activePath}"
+                :class="{ 'is-active': file.path === activePath }"
                 :command="file.path"
               >
                 {{ file.name }}
@@ -75,8 +75,12 @@ export default class extends Vue {
 
   @Ref('more') private more: any
 
-  private get manifestPath() {
-    return this.$route.meta.manifest
+  private get name() {
+    return this.$route.name
+  }
+
+  private get isPage() {
+    return this.$route.path.startsWith('/page/')
   }
 
   private get moreManifest() {
@@ -115,7 +119,7 @@ export default class extends Vue {
     try {
       this.loading = true
       const res = await getManifest({
-        path: this.manifestPath
+        name: this.name
       })
       this.manifest = res.data
       if (this.manifest.length) {

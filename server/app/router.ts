@@ -5,4 +5,5 @@ export default (app: Application) => {
 
   router.get('/v1/code/manifest', controller.code.getManifest)
   router.get('/v1/code', controller.code.getCode)
+  router.get('/v1/codes', controller.code.getCodes)
 }

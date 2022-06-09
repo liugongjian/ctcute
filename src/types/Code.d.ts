@@ -4,7 +4,12 @@ export type Manifest = {
   path: string;
 }
 
-/* 请求类型 */
-export type Params = {
+/* 请求类型: Manifest */
+export type ParamsManifest = {
+  name: string;
+}
+
+/* 请求类型: Code */
+export type ParamsCode = {
   path: string;
 }

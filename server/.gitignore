@@ -11,6 +11,7 @@ logs/
 *.lock
 *.js
 !.autod.conf.js
+.github/
 
 app/**/*.js
 test/**/*.js

@@ -74,6 +74,11 @@ export default class Code extends Service {
     return filePath.replace('@', this.pagePath)
   }
 
+  /**
+   * 获取模版名称和Manifest映射关系
+   * @param manifestList Manifest列表
+   * @returns 映射关系
+   */
   private generateManifestMapping(manifestList) {
     const mapping = {}
     manifestList.forEach(manifestPath => {

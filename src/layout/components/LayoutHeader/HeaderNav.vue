@@ -1,13 +1,7 @@
 <template>
   <div class="layout-header__right">
     <div class="layout-header__search">
-      <el-input
-        v-model="keyword"
-        placeholder="请输入"
-        class="layout-header__search--input"
-      >
-        <svg-icon slot="prefix" name="search" width="16px" height="16px" />
-      </el-input>
+      <Search />
     </div>
     <div class="layout-header__nav">
       <router-link to="/" :class="{'active': currentPath.startsWith('/page')}">页面规范</router-link>
@@ -18,9 +12,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import Search from '../Search/index.vue'
 
 @Component({
-  name: 'LayoutHeaderNav'
+  name: 'LayoutHeaderNav',
+  components: {
+    Search
+  }
 })
 export default class extends Vue {
   private keyword = ''

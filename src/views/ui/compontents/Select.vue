@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sub-select">
     <p>将动作或菜单折叠到下拉菜单中</p>
     <div class="sub-down">
       <h3>常规用法</h3>
@@ -41,7 +41,7 @@
     <div class="sub-down">
       <h3>日期/时间选择</h3>
       <el-row>
-        <el-col :span="6"> <el-date-picker type="date" placeholder="开始日期"> </el-date-picker></el-col>
+        <el-col :span="6"> <el-date-picker type="datetime" placeholder="选择时间"> </el-date-picker></el-col>
         <el-col :span="6">
           <el-date-picker
             type="daterange"
@@ -63,13 +63,27 @@
       </el-row>
       <el-row>
         <el-col :span="6">
-          <el-date-picker type="datetime" placeholder="选择时间"> </el-date-picker>
-        </el-col>
-        <el-col :span="6">
-          <el-date-picker type="date" placeholder="开始日期" size="mini"> </el-date-picker>
-        </el-col>
-        <el-col :span="6">
           <el-date-picker type="datetime" placeholder="选择时间" size="mini"> </el-date-picker>
+        </el-col>
+        <el-col :span="6">
+          <el-date-picker
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            size="mini"
+          >
+          </el-date-picker>
+        </el-col>
+        <el-col :span="6">
+          <el-date-picker
+            type="datetimerange"
+            range-separator="至"
+            start-placeholder="开始日期和时间"
+            end-placeholder="结束日期和时间"
+            size="mini"
+          >
+          </el-date-picker>
         </el-col>
       </el-row>
     </div>

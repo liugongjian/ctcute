@@ -66,7 +66,7 @@ const pageRoutes = [
   },
   // 其他
   {
-    path: '/page/ohter',
+    path: '/page/other',
     component: Layout,
     name: 'Other',
     meta: {

@@ -2,7 +2,7 @@ module.exports = {
   printWidth: 110, // 期待的每行长度，用于处理换行，和 eslint 的 max-len 不太一样，非强制换行
   tabWidth: 2,
   useTabs: false,
-  singleQuote: false,
+  singleQuote: true,
   semi: false,
   trailingComma: 'es5',
   bracketSpacing: true,

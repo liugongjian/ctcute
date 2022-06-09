@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import variables from '@/assets/css/_variables.scss'
 
 @Component({
@@ -33,6 +33,17 @@ export default class extends Vue {
 
   private get variables(): any {
     return variables
+  }
+
+  @Watch('$route.hash')
+  private onHashChanged() {
+    this.changeHash(this.$route.hash.replace('#', ''))
+  }
+
+  private mounted() {
+    if (this.$route.hash) {
+      this.changeHash(this.$route.hash.replace('#', ''))
+    }
   }
 
   /**
@@ -53,6 +64,6 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .el-scrollbar {
-  height: 100%;
+  height: auto;
 }
 </style>

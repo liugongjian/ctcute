@@ -7,13 +7,13 @@
     <h3>基础表格</h3>
     <div class="sub-table">
       <el-table :data="data.tableData">
-        <el-table-column fixed prop="name" label="主机别名" width="180"> </el-table-column>
-        <el-table-column prop="status" label="实例状态" width="180"> </el-table-column>
-        <el-table-column prop="ip" label="IP地址" width="180"> </el-table-column>
-        <el-table-column prop="cpu" label="CUP利用率(%)" width="180"> </el-table-column>
-        <el-table-column prop="memory" label="内存利用率(%)" width="180"> </el-table-column>
-        <el-table-column prop="disk" label="磁盘利用率(%)" width="180"> </el-table-column>
-        <el-table-column prop="healthy" label="健康状态" width="180">
+        <el-table-column fixed prop="name" label="主机别名"> </el-table-column>
+        <el-table-column prop="status" label="实例状态"> </el-table-column>
+        <el-table-column prop="ip" label="IP地址"> </el-table-column>
+        <el-table-column prop="cpu" label="CUP利用率(%)"> </el-table-column>
+        <el-table-column prop="memory" label="内存利用率(%)"> </el-table-column>
+        <el-table-column prop="disk" label="磁盘利用率(%)"> </el-table-column>
+        <el-table-column prop="healthy" label="健康状态">
           <template slot-scope="scope">
             <div>
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
@@ -21,7 +21,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="180">
+        <el-table-column label="操作">
           <template slot="">
             <el-button type="text" size="small">详情</el-button>
             <el-button type="text" size="small">监控指标</el-button>
@@ -38,13 +38,13 @@
       </div>
       <el-table ref="multipleTable" :data="data.tableData" tooltip-effect="dark">
         <el-table-column type="selection" width="55"> </el-table-column>
-        <el-table-column fixed prop="name" label="主机别名" width="100"> </el-table-column>
-        <el-table-column prop="status" label="实例状态" width="185"> </el-table-column>
-        <el-table-column prop="ip" label="IP地址" width="185"> </el-table-column>
-        <el-table-column prop="cpu" label="CUP利用率(%)" width="185"> </el-table-column>
-        <el-table-column prop="memory" label="内存利用率(%)" width="185"> </el-table-column>
-        <el-table-column prop="disk" label="磁盘利用率(%)" width="185"> </el-table-column>
-        <el-table-column prop="healthy" label="健康状态" width="185">
+        <el-table-column fixed prop="name" label="主机别名"> </el-table-column>
+        <el-table-column prop="status" label="实例状态"> </el-table-column>
+        <el-table-column prop="ip" label="IP地址"> </el-table-column>
+        <el-table-column prop="cpu" label="CUP利用率(%)"> </el-table-column>
+        <el-table-column prop="memory" label="内存利用率(%)"> </el-table-column>
+        <el-table-column prop="disk" label="磁盘利用率(%)"> </el-table-column>
+        <el-table-column prop="healthy" label="健康状态">
           <template slot-scope="scope">
             <div>
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
@@ -52,7 +52,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="165">
+        <el-table-column label="操作">
           <template slot="">
             <el-button type="text" size="small">详情</el-button>
             <el-button type="text" size="small">监控指标</el-button>
@@ -72,13 +72,13 @@
 
       <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData">
         <el-table-column type="selection" width="55"> </el-table-column>
-        <el-table-column fixed prop="name" label="主机别名" width="175"> </el-table-column>
-        <el-table-column prop="status" label="实例状态" width="175"> </el-table-column>
-        <el-table-column prop="ip" label="IP地址" width="175"> </el-table-column>
-        <el-table-column prop="cpu" label="CUP利用率(%)" width="175"> </el-table-column>
-        <el-table-column prop="memory" label="内存利用率(%)" width="175"> </el-table-column>
-        <el-table-column prop="disk" label="磁盘利用率(%)" width="175"> </el-table-column>
-        <el-table-column prop="healthy" label="健康状态" width="175">
+        <el-table-column fixed prop="name" label="主机别名"> </el-table-column>
+        <el-table-column prop="status" label="实例状态"> </el-table-column>
+        <el-table-column prop="ip" label="IP地址"> </el-table-column>
+        <el-table-column prop="cpu" label="CUP利用率(%)"> </el-table-column>
+        <el-table-column prop="memory" label="内存利用率(%)"> </el-table-column>
+        <el-table-column prop="disk" label="磁盘利用率(%)"> </el-table-column>
+        <el-table-column prop="healthy" label="健康状态">
           <template slot-scope="scope">
             <div>
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
@@ -86,7 +86,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="175">
+        <el-table-column label="操作">
           <template slot="">
             <el-button type="text" size="small">详情</el-button>
             <el-button type="text" size="small">监控指标</el-button>
@@ -98,13 +98,13 @@
     <h3>展示不全的表格</h3>
     <div class="sub-table">
       <el-table :data="data.tableData">
-        <el-table-column fixed prop="name" label="主机别名" width="190"> </el-table-column>
-        <el-table-column prop="status" label="实例状态" width="190"> </el-table-column>
-        <el-table-column prop="ip" label="IP地址" width="190"> </el-table-column>
-        <el-table-column prop="cpu" label="CUP利用率(%)" width="190"> </el-table-column>
-        <el-table-column prop="memory" label="内存利用率(%)" width="190"> </el-table-column>
-        <el-table-column prop="disk" label="磁盘利用率(%)" width="190"> </el-table-column>
-        <el-table-column prop="healthy" label="健康状态" width="190">
+        <el-table-column fixed prop="name" label="主机别名" width="180"> </el-table-column>
+        <el-table-column prop="status" label="实例状态" width="300"> </el-table-column>
+        <el-table-column prop="ip" label="IP地址" width="300"> </el-table-column>
+        <el-table-column prop="cpu" label="CUP利用率(%)" width="300"> </el-table-column>
+        <el-table-column prop="memory" label="内存利用率(%)" width="300"> </el-table-column>
+        <el-table-column prop="disk" label="磁盘利用率(%)" width="300"> </el-table-column>
+        <el-table-column prop="healthy" label="健康状态" width="300">
           <template slot-scope="scope">
             <div>
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
@@ -208,7 +208,7 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .el-table {
-  width: 65%;
+  // width: 65%;
   margin: 24px 0 24px 0;
   .cell {
     span {

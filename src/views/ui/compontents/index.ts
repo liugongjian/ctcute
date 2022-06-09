@@ -19,13 +19,17 @@ const componentsList = [
   require('./Tabs.vue'),
   require('./Table.vue'),
   require('./Alert.vue'),
+  require('./Contentareatips.vue'),
   require('./Tag.vue'),
   require('./Tree.vue'),
   // require('./State.vue'),
   require('./Notification.vue'),
   require('./Progress.vue'),
   require('./Toast.vue'),
-  require('./Drawer.vue')
+  require('./Drawer.vue'),
+  require('./Transfer.vue'),
+  require('./Collapse.vue'),
+  require('./Timeline.vue')
 ]
 
 const _components = {}

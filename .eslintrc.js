@@ -6,15 +6,12 @@ module.exports = {
     node: true, // 支持 node
     es6: true // 支持 es6 语法
   },
-  extends: [
-    'plugin:vue/recommended',
-    '@vue/standard',
-    '@vue/typescript/recommended'
-  ],
+  extends: ['plugin:vue/recommended', '@vue/standard', '@vue/typescript/recommended'],
   parserOptions: {
     ecmaVersion: '2021'
   },
   rules: {
+    'comma-dangle': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     indent: 'off',
@@ -28,12 +25,12 @@ module.exports = {
     'vue/block-spacing': 'error',
     'vue/brace-style': 'error',
     'vue/camelcase': 'error',
-    'vue/comma-dangle': 'error',
+    'vue/comma-dangle': 'off',
     'vue/component-name-in-template-casing': 'error',
     'vue/eqeqeq': 'error',
     'vue/key-spacing': 'error',
     'vue/match-component-file-name': 'error',
-    'vue/object-curly-spacing': 'error',
+    'vue/object-curly-spacing': 'off',
     'vue/singleline-html-element-content-newline': 'off',
     'vue/max-attributes-per-line': 'off',
     'vue/multi-word-component-names': 'off',
@@ -42,7 +39,10 @@ module.exports = {
     '@typescript-eslint/keyword-spacing': ['error'],
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/type-annotation-spacing': ['error', { before: false, after: true, overrides: { arrow: { before: true, after: true } } }],
+    '@typescript-eslint/type-annotation-spacing': [
+      'error',
+      { before: false, after: true, overrides: { arrow: { before: true, after: true } } }
+    ],
     'space-infix-ops': 'off',
     '@typescript-eslint/space-infix-ops': ['error', { int32Hint: false }],
     'comma-spacing': 'off',

@@ -15,7 +15,8 @@
       <h3>文件上传</h3>
       <div class="sub-upload">
         <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" multiple>
-          <p><i class="el-icon-upload2"></i> <span>添加文件</span></p>
+          <div class="sub-svg-text"><svg-icon name="upload" /><span>添加文件</span></div>
+
           <div class="el-upload__tip">单个文件不超过15M</div>
         </el-upload>
       </div>
@@ -25,7 +26,7 @@
       <el-upload class="upload-demo" drag action="https://jsonplaceholder.typicode.com/posts/" multiple>
         <i class="el-icon-upload"></i>
         <div class="el-upload__text">
-          <h3><em>点击</em>或将文件拖拽到这里上传</h3>
+          <b>点击或将文件拖拽到这里上传</b>
           <p>支持扩展名：.rar .zip .doc .docx .pdf .jpg...</p>
         </div>
       </el-upload>
@@ -46,7 +47,7 @@ export default class extends Vue {
 }
 </script>
 
-<style lang="scss" scoped >
+<style lang="scss" scoped>
 .avatar-uploader .el-upload {
   border: 1px dashed #d9d9d9;
   border-radius: 6px;
@@ -59,6 +60,7 @@ export default class extends Vue {
 }
 .el-upload-dragger .el-icon-upload {
   margin-top: 20px;
+  color: #fa8334;
 }
 .avatar {
   width: 178px;
@@ -70,5 +72,29 @@ export default class extends Vue {
   height: 80px;
   border: 1px solid #dddddd;
   margin: 24px 0 24px 0;
+}
+.el-upload__text {
+  b {
+    font-size: 12px;
+  }
+  p {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.45);
+  }
+}
+.sub-svg-text {
+  margin-bottom: 9px;
+  svg {
+    color: #fa8334;
+    margin-right: 10px;
+  }
+  span {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.9);
+  }
+}
+.el-upload__tip {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
 }
 </style>

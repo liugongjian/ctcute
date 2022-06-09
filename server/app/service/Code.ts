@@ -3,23 +3,18 @@ import fs = require('fs')
 import path = require('path')
 import glob = require('glob')
 
-function generateManifestMapping(manifestList) {
-  const mapping = {}
-  manifestList.forEach(manifestPath => {
-    const name = manifestPath.replace(/(.*\/)*([^.]+).manifest/ig, '$2')
-    mapping[name] = manifestPath
-  })
-  return mapping
-}
-
-const pagePath = path.resolve(__dirname, '../../../src/views/page')
-const manifestList: string[] = glob.sync(`${pagePath}/**/*.manifest`)
-const manifestMapping = generateManifestMapping(manifestList)
-
 /**
  * Code Service
  */
 export default class Code extends Service {
+  // 页面模版路径
+  private pagePath = path.resolve(__dirname, '../../../src')
+
+  // Manifest列表
+  private manifestList: string[] = glob.sync(`${this.pagePath}/views/page/**/*.manifest`)
+
+  // 模版名称和Manifest 映射关系
+  private manifestMapping = this.generateManifestMapping(this.manifestList)
 
   /**
    * 获得代码清单
@@ -28,7 +23,7 @@ export default class Code extends Service {
    */
   public async getManifest(name: string) {
     try {
-      const manifestPath = manifestMapping[name]
+      const manifestPath = this.manifestMapping[name]
       if (manifestPath) {
         const manifest = fs.readFileSync(manifestPath, { encoding: 'utf8' })
         return JSON.parse(manifest)
@@ -64,7 +59,6 @@ export default class Code extends Service {
           code: this.getCode(file.path)
         }
       })
-      console.log(codes)
       return codes
     } catch (e) {
       this.ctx.throw(500, '获取代码失败')
@@ -77,6 +71,15 @@ export default class Code extends Service {
    * @return {string} 完成文件路径
    */
   private replaceAtSymbol(filePath) {
-    return filePath.replace('@', path.resolve(__dirname, '../../../src'))
+    return filePath.replace('@', this.pagePath)
+  }
+
+  private generateManifestMapping(manifestList) {
+    const mapping = {}
+    manifestList.forEach(manifestPath => {
+      const name = manifestPath.replace(/(.*\/)*([^.]+).manifest/ig, '$2')
+      mapping[name] = manifestPath
+    })
+    return mapping
   }
 }

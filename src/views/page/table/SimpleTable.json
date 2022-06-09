@@ -8,11 +8,11 @@
     "path": "@/types/SimpleTable.d.ts"
   }, 
   {
-    "name": "api/table.ts",
-    "path": "@/api/table.ts"
+    "name": "api/simpleTable.ts",
+    "path": "@/api/simpleTable.ts"
   }, 
   {
-    "name": "dics/table.ts",
-    "path": "@/dics/table.ts"
+    "name": "dics/simpleTable.ts",
+    "path": "@/dics/simpleTable.ts"
   }
 ]

@@ -32,7 +32,7 @@
 
     <h3>可多选表格(2个以内操作)</h3>
     <div class="sub-table">
-      <div style="margin-bottom: 20px">
+      <div style="margin-bottom: 20px;">
         <el-button type="primary" disabled>主按钮</el-button>
         <el-button disabled>次按钮</el-button>
       </div>
@@ -63,8 +63,8 @@
 
     <h3>可多选表格(3个以上操作)</h3>
     <div class="sub-table">
-      <div style="margin-bottom: 20px">
-        <el-select value="" placeholder="操作已选项" style="width: 110px; height: 32px">
+      <div style="margin-bottom: 20px;">
+        <el-select value="" placeholder="操作已选项" style="width: 110px; height: 32px;">
           <!-- <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
         </el-option> -->
         </el-select>
@@ -160,7 +160,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import data from '../../../utils/mock'
-import { HEALTH } from '@/dics/table'
+import { HEALTH } from '@/dics/simpleTable'
 @Component({
   name: 'UiTable'
 })
@@ -209,27 +209,32 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .el-table {
   // width: 65%;
-  margin: 24px 0 24px 0;
+  margin: 24px 0;
+
   .cell {
     span {
       font-size: 12px;
     }
-    .el-button--text:last-child::before {
-      content: "|";
+
+    .el-button--text:last-child:before {
+      content: '|';
       color: #dddd;
       margin-right: 10px;
     }
   }
 }
+
 .sub-table:not(:last-child) {
   border-bottom: 1px solid #f1f1f1;
 }
+
 .sub-table {
   ::v-deep .el-input.el-input--medium.el-input--suffix {
     width: 110px;
     font-size: 12px;
   }
 }
+
 .sub-index {
   display: inline-block;
   width: 20px;
@@ -237,49 +242,60 @@ export default class extends Vue {
   background: #f0f2f5;
   text-align: center;
   line-height: 20px;
-  color: #000000;
+  color: #000;
   border-radius: 50%;
   font-size: 12px;
 }
+
 .sub-spot {
   display: inline-block;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   margin-right: 10px;
+
   &--1 {
     background: #52c41a;
   }
+
   &--2 {
     background: #faad15;
   }
+
   &--3 {
     background: #f5212d;
   }
+
   &--4 {
     background: #1890ff;
   }
+
   &--5 {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 30%);
   }
 }
+
 .sub-small-spot {
   display: inline-block;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   margin-right: 10px;
+
   &--6 {
-    background: rgba(115, 222, 179, 0.85);
+    background: rgba(115, 222, 179, 85%);
   }
+
   &--7 {
     background: #ff4948;
   }
+
   &--8 {
     background: #faad15;
   }
+
   &--9 {
-    background: rgba(0, 0, 0, 0.28);
+    background: rgba(0, 0, 0, 28%);
   }
 }
 </style>

@@ -70,7 +70,7 @@
         prop="health"
         label="健康状态"
       >
-        <template slot-scope="{row}">
+        <template slot-scope="{ row }">
           <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
         </template>
       </el-table-column>
@@ -81,7 +81,7 @@
         fixed="right"
         class-name="actions"
       >
-        <template slot-scope="{row}">
+        <template slot-scope="{ row }">
           <el-button type="text" @click="gotoDetail(row)">详情</el-button>
           <el-button type="text" @click="gotoDashboard(row)">监控指标</el-button>
         </template>
@@ -101,8 +101,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import * as SimpleTable from '@/types/SimpleTable'
-import { getTable, getHosts } from '@/api/table'
-import { STATUS, HEALTH } from '@/dics/table'
+import { getTable, getHosts } from '@/api/simpleTable'
+import { STATUS, HEALTH } from '@/dics/simpleTable'
 
 @Component({
   name: 'SimpleTable'

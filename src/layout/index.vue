@@ -1,14 +1,14 @@
 <template>
   <div class="app-wrapper">
-    <layout-header v-if="!isCas" />
+    <layout-header />
     <!--
       传入routes可以指定显示路由表，默认使用全量的路由表。
       本脚手架指定显示了页面规范下的路由表。
       如不需要标题，可直接删除title属性。
     -->
-    <sidebar v-if="!isCas" class="layout-sidebar" :title="sidebarTitle" />
+    <sidebar class="layout-sidebar" :title="sidebarTitle" />
     <div class="layout-container">
-      <navbar v-if="!isCas" />
+      <navbar />
       <code-viewer />
       <app-main />
     </div>
@@ -18,7 +18,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { AppMain, Navbar, Sidebar, LayoutHeader, CodeViewer } from './components'
-import { CasModule } from '@/store/modules/cas'
 
 @Component({
   name: 'Layout',
@@ -32,11 +31,6 @@ import { CasModule } from '@/store/modules/cas'
 })
 export default class extends Vue {
   private sidebarTitle = '页面规范'
-
-  /* 是否为单点登录界面 */
-  private get isCas() {
-    return !!CasModule.cas
-  }
 
   private copy() {
     console.log(this.$route.meta.manifest)

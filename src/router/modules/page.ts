@@ -85,15 +85,6 @@ const pageRoutes = [
         }
       },
       {
-        path: 'cas',
-        component: () => import(/* webpackChunkName: "cas" */ '@/views/page/cas/index.vue'),
-        name: 'Cas',
-        meta: {
-          title: 'CAS 单点登录',
-          breadcrumb: true
-        }
-      },
-      {
         path: 'ts-demo',
         component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/ts-demo/index.vue'),
         name: 'TypeScriptDemo',

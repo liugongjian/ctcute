@@ -3,7 +3,6 @@ import { Message } from 'element-ui'
 import { Route } from 'vue-router'
 import { UserModule } from '@/store/modules/user'
 import { PermissionModule } from '@/store/modules/permission'
-import { CasModule } from '@/store/modules/cas'
 import settings from './settings'
 
 const whiteList = ['/login', '/auth-redirect']
@@ -31,7 +30,6 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
           PermissionModule.dynamicRoutes.forEach(route => {
             router.addRoute(route)
           })
-          CasModule.activeMenu(to)
           // Hack: ensure addRoutes is complete
           // Set the replace: true, so the navigation will not leave a history record
           next({ ...to, replace: true })
@@ -41,7 +39,6 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
           next(`/login?redirect=${to.path}`)
         }
       } else {
-        CasModule.activeMenu(to)
         next()
       }
     }

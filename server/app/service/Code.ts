@@ -1,4 +1,5 @@
 import { Service } from 'egg'
+import { ERROR } from '../dics/error'
 import fs = require('fs')
 import path = require('path')
 import glob = require('glob')
@@ -22,16 +23,16 @@ export default class Code extends Service {
    * @return {string} 清单JSON
    */
   public async getManifest(name: string) {
-    try {
-      const manifestPath = this.manifestMapping[name]
-      if (manifestPath) {
-        const manifest = fs.readFileSync(manifestPath, { encoding: 'utf8' })
+    const manifestPath = this.manifestMapping[name]
+    if (manifestPath) {
+      const manifest = fs.readFileSync(manifestPath, { encoding: 'utf8' })
+      try {
         return JSON.parse(manifest)
-      } else {
-        this.ctx.throw(500, '模块名称不存在')
+      } catch (e) {
+        this.ctx.throw(ERROR.MANIFEST_JSON_ERR.message, ERROR.MANIFEST_JSON_ERR.code)
       }
-    } catch (e) {
-      this.ctx.throw(500, '解析manifest错误，请确认是正确的JSON格式。')
+    } else {
+      this.ctx.throw(ERROR.NAME_NOT_FOUND.message, ERROR.NAME_NOT_FOUND.code)
     }
   }
 
@@ -51,18 +52,14 @@ export default class Code extends Service {
    * @return {string} 代码列表
    */
   public async getCodes(name: string) {
-    try {
-      const manifest = await this.getManifest(name)
-      const codes = manifest.map(file => {
-        return {
-          path: file.path.replace('@/', ''),
-          code: this.getCode(file.path)
-        }
-      })
-      return codes
-    } catch (e) {
-      this.ctx.throw(500, '获取代码失败')
-    }
+    const manifest = await this.getManifest(name)
+    const codes = manifest.map(file => {
+      return {
+        path: file.path.replace('@/', ''),
+        code: this.getCode(file.path)
+      }
+    })
+    return codes
   }
 
   /**

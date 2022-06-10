@@ -27,6 +27,17 @@
           <el-tooltip content="复制代码">
             <el-button class="code__header__copy" type="text" @click="copyCode"><svg-icon name="file-copy-fill" width="19" height="19" /></el-button>
           </el-tooltip>
+          <el-popover
+            placement="bottom"
+            width="300"
+            trigger="hover"
+          >
+            <div class="code__header__install--container" @click="copyInstall">
+              <svg viewBox="0 0 12.32 9.33"><g><line class="st1" x1="7.6" y1="8.9" x2="7.6" y2="6.9"></line><rect width="1.9" height="1.9"></rect><rect x="1.9" y="1.9" width="1.9" height="1.9"></rect><rect x="3.7" y="3.7" width="1.9" height="1.9"></rect><rect x="1.9" y="5.6" width="1.9" height="1.9"></rect><rect y="7.5" width="1.9" height="1.9"></rect></g></svg>
+              <code title="复制命令">cuted add {{ name }}</code>
+            </div>
+            <el-button slot="reference" class="code__header__install" type="text"><svg-icon name="cloud-download" width="19" height="19" /></el-button>
+          </el-popover>
         </div>
         <codemirror v-if="code" :value="code" :options="cmOptions" />
       </div>
@@ -181,6 +192,14 @@ export default class extends Vue {
   }
 
   /**
+   * 复制安装代码
+   */
+  private copyInstall() {
+    copy(`cuted add ${this.name}`)
+    this.$message.success('已复制安装命令')
+  }
+
+  /**
    * 渲染文件更多下拉列表
    */
   private renderMore() {
@@ -280,8 +299,26 @@ export default class extends Vue {
 
       &__copy {
         position: absolute;
+        right: 38px;
+        top: 8px;
+      }
+
+      &__install {
+        position: absolute;
         right: 10px;
         top: 8px;
+
+        &--container {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          svg {
+            width: 12px;
+            height: 12px;
+            margin-right: 10px;
+          }
+        }
       }
 
       .el-menu {

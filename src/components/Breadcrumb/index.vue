@@ -52,7 +52,7 @@ export default class extends Vue {
     const first = matched[0]
     if (!this.isDashboard(first)) {
       matched = [
-        { path: '/home', meta: { title: '首页' } } as unknown as RouteRecord
+        { path: '/', meta: { title: '首页' } } as unknown as RouteRecord
       ].concat(matched)
     }
     this.breadcrumbs = matched.filter(item => {

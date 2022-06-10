@@ -4,6 +4,7 @@ const pageRoutes = [
   // 表单
   {
     path: '/page/form',
+    redirect: '/page/form/simple-form',
     component: Layout,
     name: 'Form',
     meta: {
@@ -17,8 +18,7 @@ const pageRoutes = [
         name: 'SimpleForm',
         meta: {
           title: 'Form 基础表单',
-          breadcrumb: true,
-          manifest: '@/views/page/form/SimpleForm.json'
+          breadcrumb: true
         }
       }, {
         path: 'pro-form',
@@ -26,8 +26,7 @@ const pageRoutes = [
         name: 'ProForm',
         meta: {
           title: 'ProForm 复杂表单',
-          breadcrumb: true,
-          manifest: '@/views/page/form/SimpleForm.json'
+          breadcrumb: true
         }
       }
     ]
@@ -35,6 +34,7 @@ const pageRoutes = [
   // 表格
   {
     path: '/page/table',
+    redirect: '/page/form/simple-table',
     component: Layout,
     name: 'Table',
     meta: {
@@ -48,8 +48,7 @@ const pageRoutes = [
         name: 'SimpleTable',
         meta: {
           title: 'Table 基础表格',
-          breadcrumb: true,
-          manifest: '@/views/page/table/SimpleTable.json'
+          breadcrumb: true
         }
       },
       {
@@ -58,8 +57,7 @@ const pageRoutes = [
         name: 'ProTable',
         meta: {
           title: 'ProTable 复杂表格',
-          breadcrumb: true,
-          manifest: '@/views/page/table/SimpleTable.json'
+          breadcrumb: true
         }
       }
     ]
@@ -67,6 +65,7 @@ const pageRoutes = [
   // 其他
   {
     path: '/page/other',
+    redirect: '/page/other/icon',
     component: Layout,
     name: 'Other',
     meta: {
@@ -99,8 +98,7 @@ const pageRoutes = [
         name: 'TypeScriptDemo',
         meta: {
           title: 'TypeScript Demo',
-          breadcrumb: true,
-          manifest: '@/views/page/ts-demo/TypeScriptDemo.json'
+          breadcrumb: true
         }
       }
     ]

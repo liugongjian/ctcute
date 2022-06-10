@@ -10,7 +10,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { AppMain, Navbar, Sidebar, LayoutHeader } from './components'
-import { CasModule } from '@/store/modules/cas'
 
 @Component({
   name: 'UiLayout',
@@ -22,10 +21,6 @@ import { CasModule } from '@/store/modules/cas'
   }
 })
 export default class extends Vue {
-  /* 是否为单点登录界面 */
-  private get isCas() {
-    return !!CasModule.cas
-  }
 }
 </script>
 <style lang="scss" scoped>

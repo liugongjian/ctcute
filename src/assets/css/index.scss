@@ -1,5 +1,4 @@
 @import './layout.scss';
-@import './cas.scss';
 @import './transition.scss';
 @import './svgicon.scss';
 @import './element-override.scss';
@@ -49,25 +48,29 @@ hr {
   border: none;
   border-top: 1px solid $border;
 }
+
 ::-webkit-scrollbar-track-piece {
-  -webkit-border-radius: 0;
+  border-radius: 0;
 }
+
 ::-webkit-scrollbar {
   width: 5px;
   height: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
   height: 50px;
-  background-color: #dddddd;
-  -webkit-border-radius: 6px;
+  background-color: #ddd;
+  border-radius: 6px;
   outline-offset: -2px;
   filter: alpha(opacity = 50);
   -moz-opacity: 0.5;
   -khtml-opacity: 0.5;
   opacity: 0.5;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   height: 50px;
-  background-color: #dddddd;
-  -webkit-border-radius: 6px;
+  background-color: #ddd;
+  border-radius: 6px;
 }

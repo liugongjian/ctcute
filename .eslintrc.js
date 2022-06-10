@@ -16,7 +16,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     indent: 'off',
     '@typescript-eslint/indent': ['error', 2],
-    'space-before-function-paren': [2, 'never'],
+    'space-before-function-paren': ['error', { anonymous: 'never', named: 'never', asyncArrow: 'always' }],
     'block-spacing': ['error', 'always'],
     'key-spacing': 'error',
     quotes: ['error', 'single'],

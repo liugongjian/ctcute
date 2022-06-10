@@ -12,7 +12,12 @@ export default (appInfo: EggAppInfo) => {
 
   // add your special config in here
   const bizConfig = {
-    sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`
+    sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
+    bizerror: {
+      breakDefault: false, // disable default error handler
+      sendClientAllParams: false, // return error bizParams to user
+      interceptAllError: true, // handle all exception, not only bizError exception
+    },
   }
 
   // the return config will combines to EggAppConfig

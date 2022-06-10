@@ -29,5 +29,11 @@ export default class CodeController extends Controller {
     const name = ctx.query.name
     const data = await ctx.service.code.getCodes(name)
     ctx.body = data
+    // try {
+
+    // } catch(e) {
+    //   console.log('====e====', e)
+    //   ctx.throwBizError('PAGE_NOT_FOUND')
+    // }
   }
 }

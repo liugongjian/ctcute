@@ -22,15 +22,15 @@ export default class Code extends Service {
    * @return {string} 清单JSON
    */
   public async getManifest(name: string) {
-    try {
-      const manifestPath = this.manifestMapping[name]
-      if (manifestPath) {
-        const manifest = fs.readFileSync(manifestPath, { encoding: 'utf8' })
+    const manifestPath = this.manifestMapping[name]
+    if (manifestPath) {
+      const manifest = fs.readFileSync(manifestPath, { encoding: 'utf8' })
+      try {
         return JSON.parse(manifest)
-      } else {
-        this.ctx.throwBizError('PAGE_NOT_FOUND')
+      } catch (e) {
+        this.ctx.throwBizError('MANIFEST_JSON_ERR')
       }
-    } catch (e) {
+    } else {
       this.ctx.throwBizError('PAGE_NOT_FOUND')
     }
   }
@@ -55,7 +55,7 @@ export default class Code extends Service {
     const codes = manifest.map(file => {
       return {
         path: file.path.replace('@/', ''),
-        code: this.getCode(file.path),
+        code: this.getCode(file.path)
       }
     })
     return codes

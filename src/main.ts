@@ -9,6 +9,10 @@ import './assets/css/element-variables.scss'
 import './assets/css/index.scss'
 import '@/permission'
 
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+Vue.use(mavonEditor)
+
 Vue.use(ElementUI, { size: 'medium' })
 Vue.use(SvgIcon, {
   tagName: 'svg-icon',

@@ -1,6 +1,28 @@
 import Layout from '@/layout/index.vue'
 
 const pageRoutes = [
+  // 开发指南
+  {
+    path: '/guide',
+    component: Layout,
+    redirect: '/guide/quick-start',
+    meta: {
+      title: '开发指南',
+      alwaysShow: true,
+      breadcrumb: true
+    },
+    children: [
+      {
+        path: 'quick-start',
+        name: 'QuickStart',
+        component: () => import('@/views/page/guides/QuickStart.vue'),
+        meta: {
+          title: '快速上手',
+          breadcrumb: true
+        }
+      }
+    ]
+  },
   // 表单
   {
     path: '/page/form',

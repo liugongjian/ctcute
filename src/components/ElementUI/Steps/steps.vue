@@ -1,0 +1,178 @@
+<template>
+  <div>
+    <div :class="size === 'mini' ? 'ui-stepsMin' : 'ui-steps'" :style="{ width: stepWidth }">
+      <el-steps
+        v-if="type !== 'multiSteps'"
+        :space="300"
+        :active="active"
+        finish-status="success"
+        :class="{ max: size !== 'mini' }"
+        :direction="direction"
+      >
+        <el-step
+          v-for="(s, index) in steps"
+          :key="index"
+          :title="gettitle(s, index)"
+          :status="s.status"
+          :description="s.description"
+          @click.native="!s.disabled && handleStep(s, index)"
+          :class="{ stepErr: s.disabled }"
+          :style="{ minWidth: widthArr[index] }"
+        >
+        </el-step>
+      </el-steps>
+      <el-steps
+        v-else
+        :space="300"
+        :active="active"
+        finish-status="success"
+        :class="{ max: size !== 'mini' }"
+        :direction="direction"
+      >
+        <el-step
+          v-for="(s, index) in steps"
+          v-show="getShow(index)"
+          :key="index"
+          :title="gettitle(s, index)"
+          :status="s.status"
+          :description="s.description"
+          @click.native="!s.disabled && handleStep(s, index)"
+          :class="{ stepErr: s.disabled }"
+          :style="{ minWidth: widthArr[index] }"
+        >
+        </el-step>
+      </el-steps>
+    </div>
+  </div>
+</template>
+<script lang="ts">
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
+
+@Component({
+  name: 'UiSteps',
+})
+export default class extends Vue {
+  @Prop({ type: String, default: 'middle' }) size?: string
+  @Prop({ type: String, default: '100%' }) stepWidth?: string
+  @Prop({ type: String }) direction?: string
+  @Prop({ type: Number, default: 0 }) active?: number
+  @Prop(Array) readonly steps: any
+  @Prop({ type: String }) type?: string
+  @Prop({ type: Number, default: 3 }) stepSize?: number
+  get widthArr() {
+    const { steps } = this
+    const lastStepWidth = 135
+    return steps.map((s, index) => {
+      let result = ''
+      if (index < steps.length - 1) {
+        result = `calc((100% - ${lastStepWidth}px) / ${steps.length - 1})`
+      } else {
+        result = `${lastStepWidth}px`
+      }
+      return result
+    })
+  }
+  handleStep(s: any, index: number) {
+    this.$emit('clickStep', s, index)
+  }
+
+  getShow(index: number) {
+    if (index === 0 || index === this.steps.length - 1) {
+      return true
+    } else if (this.active === index) {
+      return true
+    } else if (index > this.active + (this.stepSize - 3)) {
+      return false
+    } else if (index < this.active && !(index === 0 || index === this.steps.length - 1)) {
+      return false
+    } else {
+      return true
+    }
+  }
+  gettitle(s: any, index: number) {
+    if (index === this.active) {
+      return '正在处理'
+    } else if (index === this.active + 1) {
+      return '等待处理'
+    } else if (this.steps.length - 1 === this.active) {
+      return '处理完成'
+    } else {
+      return s.title
+    }
+  }
+  mounted() {
+    this.getShow(0)
+  }
+}
+</script>
+<style lang="scss" scoped>
+.ui-steps {
+  ::v-deep .el-step .el-step__main {
+    position: absolute;
+    left: 24px;
+    top: 2px;
+    height: 26px;
+    line-height: 26px;
+    background-color: #fff;
+    padding: 0 10px 0 16px;
+  }
+  ::v-deep.el-step .el-step__title {
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  ::v-deep .el-step__icon.is-text {
+    width: 32px;
+    height: 32px;
+  }
+  ::v-deep .el-step.is-horizontal .el-step__line {
+    top: 16px;
+  }
+}
+.ui-stepsMin {
+  ::v-deep .el-step .el-step__main {
+    position: absolute;
+    left: 12px;
+    top: 1px;
+    height: 26px;
+    line-height: 26px;
+    background-color: #fff;
+    padding: 0 10px 0 16px;
+  }
+  ::v-deep.el-step .el-step__title {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  ::v-deep .el-step__icon.is-text {
+    width: 20px;
+    height: 20px;
+  }
+  ::v-deep .el-step.is-horizontal .el-step__line {
+    top: 10px;
+  }
+}
+
+::v-deep .el-step__title.is-process {
+  font-weight: 400;
+}
+::v-deep .el-step__head.is-process {
+  border-color: #fa8334;
+}
+::v-deep .el-step__head.is-process .el-step__icon.is-text {
+  color: #fff;
+  background-color: #fa8334;
+}
+::v-deep .el-step__description {
+  margin-top: 2px;
+}
+::v-deep .el-step__description.is-success {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.stepSuc :hover {
+  cursor: pointer;
+}
+.stepErr :hover {
+  cursor: not-allowed;
+}
+</style>

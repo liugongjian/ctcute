@@ -8,8 +8,10 @@ import './assets/icons/components'
 import './assets/css/element-variables.scss'
 import './assets/css/index.scss'
 import '@/permission'
+import ElementUIOverride from '@/components/ElementUI'
 
 Vue.use(ElementUI, { size: 'medium' })
+Vue.use(ElementUIOverride)
 Vue.use(SvgIcon, {
   tagName: 'svg-icon',
   defaultWidth: '1em',

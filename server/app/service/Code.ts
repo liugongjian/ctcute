@@ -1,5 +1,4 @@
 import { Service } from 'egg'
-import { ERROR } from '../dics/error'
 import fs = require('fs')
 import path = require('path')
 import glob = require('glob')
@@ -29,10 +28,10 @@ export default class Code extends Service {
       try {
         return JSON.parse(manifest)
       } catch (e) {
-        this.ctx.throw(ERROR.MANIFEST_JSON_ERR.message, ERROR.MANIFEST_JSON_ERR.code)
+        this.ctx.throwBizError('MANIFEST_JSON_ERR')
       }
     } else {
-      this.ctx.throw(ERROR.NAME_NOT_FOUND.message, ERROR.NAME_NOT_FOUND.code)
+      this.ctx.throwBizError('PAGE_NOT_FOUND')
     }
   }
 
@@ -79,7 +78,7 @@ export default class Code extends Service {
   private generateManifestMapping(manifestList) {
     const mapping = {}
     manifestList.forEach(manifestPath => {
-      const name = manifestPath.replace(/(.*\/)*([^.]+).manifest/ig, '$2')
+      const name = manifestPath.replace(/(.*\/)*([^.]+).manifest/gi, '$2')
       mapping[name] = manifestPath
     })
     return mapping

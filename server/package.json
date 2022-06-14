@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "egg": "^2.6.1",
+    "egg-bizerror": "^2.2.1",
     "egg-scripts": "^2.6.0",
     "glob": "^8.0.3"
   },

@@ -6,6 +6,10 @@ const plugin: EggPlugin = {
   //   enable: true,
   //   package: 'egg-view-nunjucks',
   // },
+  bizerror: {
+    enable: true,
+    package: 'egg-bizerror',
+  },
 }
 
 export default plugin

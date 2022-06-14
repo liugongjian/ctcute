@@ -1,34 +1,21 @@
 <template>
   <div
     v-if="!item.meta || !item.meta.hidden"
-    :class="['menu-wrapper', isCollapse ? 'simple-mode' : 'full-mode', {'first-level': isFirstLevel}]"
+    :class="['menu-wrapper', isCollapse ? 'simple-mode' : 'full-mode', { 'first-level': isFirstLevel }]"
   >
     <template v-if="theOnlyOneChild && !theOnlyOneChild.children">
-      <sidebar-item-link
-        v-if="theOnlyOneChild.meta"
-        :to="resolvePath(theOnlyOneChild.path)"
-      >
+      <sidebar-item-link v-if="theOnlyOneChild.meta" :to="resolvePath(theOnlyOneChild.path)">
         <el-menu-item
           :index="resolvePath(theOnlyOneChild.path)"
-          :class="{'submenu-title-noDropdown': isFirstLevel}"
+          :class="{ 'submenu-title-noDropdown': isFirstLevel }"
         >
-          <span
-            v-if="theOnlyOneChild.meta.title"
-            slot="title"
-          >{{ theOnlyOneChild.meta.title }}</span>
+          <span v-if="theOnlyOneChild.meta.title" slot="title">{{ theOnlyOneChild.meta.title }}</span>
         </el-menu-item>
       </sidebar-item-link>
     </template>
-    <el-submenu
-      v-else
-      :index="resolvePath(item.path)"
-      popper-append-to-body
-    >
+    <el-submenu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template slot="title">
-        <span
-          v-if="item.meta && item.meta.title"
-          slot="title"
-        >{{ item.meta.title }}</span>
+        <span v-if="item.meta && item.meta.title" slot="title">{{ item.meta.title }}</span>
       </template>
       <template v-if="item.children">
         <sidebar-item
@@ -57,8 +44,8 @@ import SidebarItemLink from './SidebarItemLink.vue'
   // See https://medium.com/haiiro-io/element-component-name-with-vue-class-component-f3b435656561 for detail
   name: 'SidebarItem',
   components: {
-    SidebarItemLink
-  }
+    SidebarItemLink,
+  },
 })
 export default class extends Vue {
   @Prop({ required: true }) private item!: RouteConfig
@@ -68,7 +55,7 @@ export default class extends Vue {
 
   get showingChildNumber(): any {
     if (this.item.children) {
-      const showingChildren = this.item.children.filter((item) => {
+      const showingChildren = this.item.children.filter(item => {
         if (item.meta && item.meta.hidden) {
           return false
         } else {

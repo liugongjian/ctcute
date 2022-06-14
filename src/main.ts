@@ -10,6 +10,10 @@ import './assets/css/index.scss'
 import '@/permission'
 import ElementUIOverride from '@/components/ElementUI'
 
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+Vue.use(mavonEditor)
+
 Vue.use(ElementUI, { size: 'medium' })
 Vue.use(ElementUIOverride)
 Vue.use(SvgIcon, {

@@ -3,6 +3,8 @@
  */
 const componentsList = [
   require('./Button.vue'),
+  require('./Textandiconbutton.vue'),
+  require('./Link.vue'),
   require('./Breadcrumb.vue'),
   require('./Pagination.vue'),
   require('./Steps.vue'),
@@ -17,12 +19,13 @@ const componentsList = [
   require('./Popover.vue'),
   require('./Tooltip.vue'),
   require('./Tabs.vue'),
+  require('./Selectedbutton.vue'),
   require('./Table.vue'),
   require('./Alert.vue'),
   require('./Contentareatips.vue'),
   require('./Tag.vue'),
   require('./Tree.vue'),
-  // require('./State.vue'),
+  require('./State.vue'),
   require('./Notification.vue'),
   require('./Progress.vue'),
   require('./Toast.vue'),
@@ -30,6 +33,7 @@ const componentsList = [
   require('./Transfer.vue'),
   require('./Collapse.vue'),
   require('./Timeline.vue')
+
 ]
 
 const _components = {}

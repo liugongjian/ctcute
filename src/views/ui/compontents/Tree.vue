@@ -101,12 +101,15 @@ export default class extends Vue {
   width: 1200px;
 }
 .node-content {
+  display: flex;
+  align-items: center;
   color: rgba(0, 0, 0, 0.9);
 }
 .icon-folder {
   color: #989A9C;
   .svg-icon {
     display: none;
+    margin-right: 5px;
     &:first-child {
       display: inline;
     }
@@ -136,14 +139,14 @@ export default class extends Vue {
     .handler-menu {
       position: absolute;
       right: 10px;
-      top: 0;
+      top: -3px;
       display: none;
       .el-button {
         margin-left: 5px;
       }
       .handler-icon {
         color: #989A9C;
-        border: 1px solid #989A9C;
+        border: 1.5px solid #989A9C;
       }
     }
     &:hover {

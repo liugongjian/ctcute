@@ -1,7 +1,7 @@
 <template>
   <div>
     <div :class="size === 'mini' ? 'ui-stepsMin' : 'ui-steps'" :style="{ width: stepWidth }">
-      <!-- <div class="but-style"><i class="el-icon-arrow-left"></i></div> -->
+     <!--  <i class="el-icon-arrow-left but-style"></i> -->
       <el-steps
         v-if="type !== 'multiSteps'"
         :space="300"
@@ -43,6 +43,7 @@
         >
         </el-step>
       </el-steps>
+
       <!-- <i class="el-icon-arrow-right"></i> -->
     </div>
   </div>

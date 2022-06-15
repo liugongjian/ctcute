@@ -3,8 +3,8 @@
     <el-tag type="info">标签</el-tag>
     <el-tag type="info" closable>标签</el-tag>
     <el-button class="button-new-tag" size="small">+ 标签</el-button>
-    <el-tag type="danger">red</el-tag>
-    <el-tag type="success">green</el-tag>
+    <el-tag type="danger">红色</el-tag>
+    <el-tag type="success">绿色</el-tag>
     <el-tag type="">蓝色</el-tag>
     <el-tag type="warning">橙色</el-tag>
   </div>
@@ -38,5 +38,6 @@ export default class extends Vue {
   line-height: 22px;
   padding-top: 0;
   padding-bottom: 0;
+  border: 1px dashed #ccc;
 }
 </style>

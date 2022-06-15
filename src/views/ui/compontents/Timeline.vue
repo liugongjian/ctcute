@@ -23,7 +23,7 @@
           <h4>内蒙电信集团 编排下次发布状态：<span class="sub-origin">成功</span></h4>
           <p>2021/04/14 23:56:11</p>
         </el-timeline-item>
-        <el-timeline-item timestamp="美容发布  自动升级：一个kBs集群  | 容器组：100个" placement="top">
+        <el-timeline-item timestamp="灰度发布  自动升级：一个k8s集群  | 容器组：100个" placement="top">
           <div class="sub-complex">
             <span>序号</span>
             <el-divider direction="vertical"></el-divider>
@@ -59,7 +59,7 @@
           <h4>内蒙电信集团 编排下次发布状态：<span class="sub-origin">成功</span></h4>
           <p>2021/04/14 23:56:11</p>
         </el-timeline-item>
-        <el-timeline-item timestamp="灰度发布  自动升级：一个kBs集群  | 容器组：100个" placement="top">
+        <el-timeline-item timestamp="灰度发布  自动升级：一个k8s集群  | 容器组：100个" placement="top">
           <div class="sub-complex">
             <span>序号</span>
             <el-divider direction="vertical"></el-divider>

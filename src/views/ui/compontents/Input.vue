@@ -17,6 +17,17 @@
         <el-col :span="7"><el-input v-model="value" disabled placeholder="请输入"> </el-input></el-col>
       </el-row>
     </div>
+    <div class="routine-input">
+      <h3>编辑输入框</h3>
+      <el-row>
+        <el-button type="text">描述 <svg-icon name="edit" /></el-button>
+      </el-row>
+      <el-row>
+        <el-input placeholder="请输入" value="描述"></el-input>
+        <svg-icon name="check" class="edit-input-icon" color="#52C41A" />
+        <svg-icon name="close" color="#F5212D" />
+      </el-row>
+    </div>
     <h3>搜索输入框</h3>
     <div class="sub-input">
       <el-row>
@@ -250,6 +261,22 @@ export default class extends Vue {
   .el-icon-close {
     line-height: 36px;
   }
+}
+
+.edit-input-icon {
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.el-input {
+  width: 300px;
+  height: 32px;
+  // margin: 20px 0;
+}
+
+.el-textarea {
+  display: block;
+  width: 300px;
 }
 
 .el-input.is-disabled {

@@ -3,8 +3,9 @@
     <p>屏幕边缘滑出的浮层面板</p>
     <h3>何时使用</h3>
     <p>
-      抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到原任务
-    </p>
+      抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到原任务。<br/>
+      -当需要一个附加的面板来控制父窗体内容，这个面板在需要时呼出。比如，控制界面展示样式，往界面中添加内容。<br/>
+      -当需要在当前任务流中插入临时任务，创建或预览附加内容。比如展示协议条款，创建子对象。</p>
     <el-row>
       <el-col :span="2">
         <h3>简单样式</h3>
@@ -14,10 +15,9 @@
           <div class="sub-content">
             <div class="el-form">
               抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到到原任务。
-              该组件使用智能布局设计，支持拉伸到合适的尺寸使用，
             </div>
             <div class="sub-foot">
-              <el-button>取消</el-button>
+              <el-button @click="drawer = false">关闭</el-button>
             </div>
           </div>
         </el-drawer>
@@ -70,8 +70,8 @@
               </el-form-item>
             </el-form>
             <div class="sub-foot">
-              <el-button>取消</el-button>
-              <el-button type="primary">确定</el-button>
+              <el-button @click="drawer1 = false">取消</el-button>
+              <el-button type="primary" @click="drawer1 = false">确定</el-button>
             </div>
           </div>
         </el-drawer>
@@ -137,7 +137,7 @@ export default class extends Vue {
     font-size: 14px;
   }
   .sub-foot {
-    height: 50px;
+    padding: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;

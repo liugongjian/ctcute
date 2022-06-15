@@ -1,13 +1,24 @@
 import { mock } from 'mockjs'
 const data = mock({
-  'tableData|10': [
+  'tableData|20': [
     {
       name: 'test1',
       status: /(已部署|待分配)/,
       ip: '10.142.90.34',
-      cpu: 80,
-      memory: 80,
-      disk: 80,
+      time: '2022-05-20 18:00:05',
+      label: ['标签1', '标签2'],
+      description: '这是一个很长很长的描述描述描述描述描述描述描述描述描述',
+      healthy: /(1|2|3|4|5)/
+    }
+  ],
+  'tableData10|10': [
+    {
+      name: 'test1',
+      status: /(已部署|待分配)/,
+      ip: '10.142.90.34',
+      time: '2022-05-20 18:00:05',
+      label: ['标签1', '标签2'],
+      description: '这是一个很长很长的描述描述描述描述描述描述描述描述描述',
       healthy: /(1|2|3|4|5)/
     }
   ],

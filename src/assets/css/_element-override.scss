@@ -1,5 +1,12 @@
+/* iconfont */
+@mixin iconfont {
+  font-family: 'iconfont' !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 /* Button */
-/* 
+/*
   $type:类名;
   $bgColor:背景颜色;
   $bdColor:边框颜色;
@@ -30,6 +37,16 @@
 
 .el-button + .el-button {
   margin-left: 8px;
+}
+
+.el-button--medium {
+  padding: 7px;
+}
+.el-button--text {
+  color: $text;
+  &:hover {
+    color: $primary;
+  }
 }
 
 .el-button-rect {
@@ -223,14 +240,41 @@
 .el-table__header-wrapper {
   background-color: #f3f3f3;
 }
+.el-table--border .el-table__cell {
+  border-right: 0px solid #eee;
+}
 
+.el-table--border .el-table__cell:first-child .cell {
+  padding-left: 20px;
+}
+
+.el-table--border .el-table__cell:last-child .cell {
+  padding-right: 20px;
+}
 .el-table .el-table__header tr,
 .el-table .el-table__header th {
+  border-right: 1px solid white;
   background-color: #f3f3f3;
+  .cell {
+    height: 28px;
+    line-height: 28px;
+  }
+}
+.el-table .el-table__header th {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .el-table th.el-table-column--selection > .cell {
   padding-left: 14px;
+}
+// .el-table .el-table__fixed {
+//   height: 100% !important;
+// }
+.el-table {
+  max-height: 638px;
+  overflow-y: scroll;
+  margin: 24px 0 11px 0 !important;
 }
 
 .el-table .cell {
@@ -239,6 +283,33 @@
     font-size: 12px;
   }
 }
+.el-table .caret-wrapper {
+  height: 28px;
+}
+.el-table .el-table__body-wrapper {
+}
+.el-table .sort-caret.ascending {
+  border-bottom-color: #c0c4cc;
+  top: 3px;
+}
+.el-table .sort-caret.descending {
+  border-top-color: #c0c4cc;
+  bottom: 3px;
+}
+
+.el-table--group,
+.el-table--border {
+  border: 0px;
+}
+.el-table::before,
+.el-table--group::after,
+.el-table--border::after {
+  content: '';
+  position: absolute;
+  background-color: transparent;
+  z-index: 1;
+}
+
 /* Pagination */
 .el-pagination {
   margin-top: 8px;
@@ -314,7 +385,7 @@
 
 /* steps */
 /* $class:类名;
-   $bdColor:边框颜色 
+   $bdColor:边框颜色
    $color:字体颜色
    $BgColor:背景颜色
 */
@@ -440,7 +511,7 @@
   background-color: #f7f8fa;
 }
 /* Alert */
-/* 
+/*
   $class:类名;
   $bdcolor:边框颜色;
   $iconColor:icon颜色;
@@ -462,9 +533,14 @@
 @include global-tips(success, #a8e18c, #52c41a, #edf9e8);
 @include global-tips(warning, #fcd68a, #faad15, #fef6e7);
 @include global-tips(error, #ffa4a3, #f5212d, #ffecec);
+@include global-tips(weak, #ccc, #ccc, #fff);
 .sub-all-alert {
+  .el-alert__closebtn {
+    top: 10px;
+  }
   .el-alert__closebtn.is-customed {
-    color: #fa8334;
+    font-size: 12px;
+    top: 8px;
   }
 }
 
@@ -475,22 +551,39 @@
 .el-progress.is-success .el-progress__text {
   color: #52c41a;
 }
-.el-progress__text {
-  color: #faad15;
+
+.el-icon-circle-check:before {
+  @include iconfont;
+  content: '\ea4a';
 }
-
+.el-icon-circle-close:before {
+  @include iconfont;
+  content: '\ea4a';
+}
+.el-progress-bar__inner,
+.el-progress-bar__outer {
+  border-radius: 0;
+}
 /* Tag  */
-
-.el-tag {
-  background-color: #bddbff;
-  color: #1890ff;
-  border: 1px solid #bddbff;
-  &.el-tag--success {
-    background-color: #edf9e8;
-    color: #52c41a;
-    border: 1px solid #a8e18c;
+@mixin global-tag($class: info, $bdcolor: #ddd, $fontColor: #333, $bgColor: #f8f8f8) {
+  .el-tag.el-tag--#{$class} {
+    border: 1px solid $bdcolor;
+    color: $fontColor;
+    background-color: $bgColor;
   }
 }
+@include global-tag();
+@include global-tag(success, #a8e18c, #52c41a, #edf9e8);
+@include global-tag(warning, #fcc199, #fa9a34, #fef2ea);
+@include global-tag(danger, #ffa4a3, #f5212d, #ffecec);
+
+.el-tag {
+  background-color: #f3f9ff;
+  color: #1890ff;
+  border: 1px solid #bddbff;
+  border-radius: 2px;
+}
+
 /* Tree  */
 .el-tree-node__content {
   height: 30px;
@@ -502,7 +595,7 @@
 }
 
 /* Toast  */
-/* 
+/*
   $class:类名;
   $iconColor:icon颜色;
   $iconClass:icon类名;
@@ -529,7 +622,7 @@
 @include toast-page(error, #f5212d);
 
 /* notification  */
-/* 
+/*
   $class:类名;
   $iconColor:icon颜色;
   $iconClass:icon类名;
@@ -556,6 +649,10 @@
 @include notification-page(success-tips, #52c41a, success);
 @include notification-page();
 @include notification-page(warning-tips, #faad15, warning);
+.el-notification {
+  border-radius: 4px;
+  box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 0.5);
+}
 .el-notification.routine-tips.right {
   width: 480px;
   height: 124px;
@@ -600,6 +697,16 @@
 }
 /* Transfer */
 .sub-transfer {
+  .el-transfer-panel .el-checkbox__inner {
+    border-radius: 2px;
+  }
+  .el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
+    top: 5px;
+    left: 5px;
+    width: 2px;
+    height: 2px;
+    transform: scale(3);
+  }
   .el-transfer__buttons {
     padding: 0px;
   }
@@ -609,9 +716,21 @@
     margin: 4px 8px;
   }
 }
-
+.el-transfer-panel__filter .el-input__inner {
+  border-radius: 2px;
+}
 /* Timeline */
 .sub-timeline {
+  ul {
+    padding-inline-start: 12px;
+  }
+  .el-timeline-item__wrapper {
+    padding-left: 18px;
+    top: -4px;
+  }
+  .el-timeline-item__timestamp.is-top {
+    padding-top: 3px;
+  }
   .el-timeline-item__node--primary,
   .el-timeline-item__node--normal {
     left: 0;
@@ -627,7 +746,7 @@
   }
 }
 /* Contentareatips */
-/* 
+/*
   $class:类名;
   $color:字体颜色;
   $iconColor:icon颜色;
@@ -652,5 +771,32 @@
 .ui-tooltip {
   .el-tooltip__popper.is-dark {
     background: #3b3e4b;
+  }
+}
+/* Tree */
+.el-tree-node:focus > .el-tree-node__content {
+  background-color: #fa8334;
+  color: #fff;
+}
+.el-tree-node__content:hover {
+  color: #989a9c;
+}
+.el-tooltip__popper.is-light {
+  border: 1px solid #ebeef5;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  min-width: 0;
+  padding: 0;
+  margin: -10px 0 0 0 !important;
+  .tooltip-content {
+    display: flex;
+    flex-direction: column;
+    .el-button {
+      margin: 0;
+      padding: 10px 15px;
+      color: rgba(0, 0, 0, 0.65);
+      &:hover {
+        background: #fef5ee;
+      }
+    }
   }
 }

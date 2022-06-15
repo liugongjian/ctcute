@@ -516,20 +516,24 @@
   color: #fff
 }
 .el-tree-node__content:hover {
-  color: rgba(0, 0, 0, 0.9);
+  color: #989A9C;
 }
-.node-popover {
-  display: flex;
-  flex-direction: column;
+.el-tooltip__popper.is-light {
+  border: 1px solid #ebeef5;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
   min-width: 0;
   padding: 0;
   margin: -10px 0 0 0 !important;
-  .el-button {
-    margin: 0;
-    padding: 10px 15px;
-    color: rgba(0, 0, 0, 0.9);
-    &:hover {
-      background: #FEF5EE;
+  .tooltip-content {
+    display: flex;
+    flex-direction: column;
+    .el-button {
+      margin: 0;
+      padding: 10px 15px;
+      color: rgba(0, 0, 0, 0.65);
+      &:hover {
+        background: #FEF5EE;
+      }
     }
   }
 }

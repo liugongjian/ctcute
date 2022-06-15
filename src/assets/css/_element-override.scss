@@ -355,12 +355,12 @@
     }
 }
 @include global-tag();
-@include global-tag(success, #52c41a, #52c41a, #52c41a14);
-@include global-tag(warning, #ff8f34, #faad15, #fff9f5);
-@include global-tag(danger, #ff5050, #f5212d, #fff6f6);
+@include global-tag(success, #a8e18c, #52c41a, #edf9e8);
+@include global-tag(warning, #fcc199, #fa9a34, #fef2ea);
+@include global-tag(danger, #ffa4a3, #f5212d, #ffecec);
 
 .el-tag {
-  background-color: #bddbff;
+  background-color: #f3f9ff;
   color: #1890ff;
   border: 1px solid #bddbff;
   border-radius: 2px;

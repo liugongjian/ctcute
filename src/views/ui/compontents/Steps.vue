@@ -3,7 +3,7 @@
     <p>默认横向步骤条。存在常规、进行中、已完成等情况。</p>
     <h3>基础步骤条</h3>
     <div class="sub-steps">
-      <ui-steps :active="active" :steps="steps" stepWidth="80%" @clickStep="clickStep"></ui-steps>
+      <ui-steps :active="active" :steps="steps" step-width="80%" @clickStep="clickStep"></ui-steps>
       <el-button
         style="margin-top: 48px"
         @click="
@@ -22,7 +22,7 @@
         size="mini"
         :active="activeMini"
         :steps="steps"
-        stepWidth="100%"
+        step-width="100%"
         @clickStep="clickmini"
       ></ui-steps>
       <el-button
@@ -42,10 +42,12 @@
       <ui-steps
         :active="activeMulti"
         :steps="multisteps"
-        stepWidth="100%"
+        step-width="100%"
         type="multiSteps"
+        :step-size="3"
+        :go-button="true"
         @clickStep="clickmulti"
-        :stepSize="3"
+        @change="goMulti"
       ></ui-steps>
       <el-button
         style="margin-top: 48px; margin-bottom: 12px"
@@ -62,10 +64,12 @@
         :active="activeMultiMini"
         :steps="multisteps"
         size="mini"
-        stepWidth="100%"
+        step-width="100%"
         type="multiSteps"
+        :step-size="6"
+        :go-button="true"
         @clickStep="clickmultimini"
-        :stepSize="6"
+        @change="goMultiMini"
       ></ui-steps>
       <el-button
         style="margin-top: 48px"
@@ -93,8 +97,9 @@ export default class extends Vue {
     zh: '步骤条',
     en: 'Steps',
   }
+
   steps = [
-    { title: '步骤1', description: '这是一个描述' },
+    { title: '步骤1' },
     { title: '步骤2' },
     { title: '步骤3' },
     { title: '步骤4' },
@@ -102,11 +107,12 @@ export default class extends Vue {
     { title: '错误/失败', status: 'error' },
     { title: '结束', status: 'finish' },
   ]
+
   multisteps = [
-    { title: '步骤1', description: '这是一个描述' },
+    { title: '步骤1' },
     { title: '步骤2' },
     { title: '步骤3' },
-    { title: '步骤4', description: '这是一个描述' },
+    { title: '步骤4' },
     { title: '步骤5' },
     { title: '步骤6' },
     { title: '不可点击', disabled: true },
@@ -114,10 +120,14 @@ export default class extends Vue {
     { title: '结束', status: 'finish' },
   ]
 
-  active = 0 //普通
-  activeMini = 0 //迷你
-  activeMulti = 5 ///多选，默认size
-  activeMultiMini = 5 //多选，设定size
+  active = 0
+  // 普通
+  activeMini = 0
+  // 迷你
+  activeMulti = 5
+  // 多选，默认size
+  activeMultiMini = 5
+  // 多选，设定size
 
   clickStep(step: any, index: number) {
     if (step.disabled) {
@@ -127,6 +137,7 @@ export default class extends Vue {
       this.$message.success(`点击 ${step.title}成功`)
     }
   }
+
   clickmini(step: any, index: number) {
     if (step.disabled) {
       this.activeMini = index + 1
@@ -135,6 +146,7 @@ export default class extends Vue {
       this.$message.success(`点击 ${step.title}成功`)
     }
   }
+
   clickmulti(step: any, index: number) {
     if (step.disabled) {
       this.activeMulti = index + 1
@@ -143,12 +155,27 @@ export default class extends Vue {
       this.$message.success(`点击 ${step.title}成功`)
     }
   }
+
   clickmultimini(step: any, index: number) {
     if (step.disabled) {
       this.activeMultiMini = index + 1
     } else {
       this.activeMultiMini = index
       this.$message.success(`点击 ${step.title}成功`)
+    }
+  }
+
+  goMulti(val: number) {
+    this.activeMulti = this.activeMulti + val
+    if (this.activeMulti < 0) {
+      this.activeMulti = 0
+    }
+  }
+
+  goMultiMini(val: number) {
+    this.activeMultiMini = this.activeMultiMini + val
+    if (this.activeMultiMini < 0) {
+      this.activeMultiMini = 0
     }
   }
 }

@@ -1,5 +1,7 @@
 <template>
   <div class="sub-notification">
+    <p>全局展示通知提醒信息</p>
+    <h3>普通通知提醒</h3>
     <p>常规状态通常出现在页面的右上角</p>
     <el-row>
       <el-button

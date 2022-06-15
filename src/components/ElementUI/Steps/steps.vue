@@ -1,6 +1,7 @@
 <template>
   <div>
     <div :class="size === 'mini' ? 'ui-stepsMin' : 'ui-steps'" :style="{ width: stepWidth }">
+      <!-- <div class="but-style"><i class="el-icon-arrow-left"></i></div> -->
       <el-steps
         v-if="type !== 'multiSteps'"
         :space="300"
@@ -15,9 +16,9 @@
           :title="gettitle(s, index)"
           :status="s.status"
           :description="s.description"
-          @click.native="!s.disabled && handleStep(s, index)"
           :class="{ stepErr: s.disabled }"
           :style="{ minWidth: widthArr[index] }"
+          @click.native="!s.disabled && handleStep(s, index)"
         >
         </el-step>
       </el-steps>
@@ -36,29 +37,30 @@
           :title="gettitle(s, index)"
           :status="s.status"
           :description="s.description"
-          @click.native="!s.disabled && handleStep(s, index)"
           :class="{ stepErr: s.disabled }"
           :style="{ minWidth: widthArr[index] }"
+          @click.native="!s.disabled && handleStep(s, index)"
         >
         </el-step>
       </el-steps>
+      <!-- <i class="el-icon-arrow-right"></i> -->
     </div>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({
   name: 'UiSteps',
 })
 export default class extends Vue {
-  @Prop({ type: String, default: 'middle' }) size?: string
-  @Prop({ type: String, default: '100%' }) stepWidth?: string
-  @Prop({ type: String }) direction?: string
-  @Prop({ type: Number, default: 0 }) active?: number
-  @Prop(Array) readonly steps: any
-  @Prop({ type: String }) type?: string
-  @Prop({ type: Number, default: 3 }) stepSize?: number
+  @Prop({ type: String, default: 'middle' }) size?: string // 步骤条大小，mini
+  @Prop({ type: String, default: '100%' }) stepWidth?: string // 步骤条长度
+  @Prop({ type: String }) direction?: string // 步骤条方向
+  @Prop({ type: Number, default: 0 }) active?: number // 激活
+  @Prop(Array) readonly steps: any // step数据
+  @Prop({ type: String }) type?: string // 多步骤条,multiSteps
+  @Prop({ type: Number, default: 3 }) stepSize?: number // 多步骤条时使用，显示几个步骤
   get widthArr() {
     const { steps } = this
     const lastStepWidth = 135
@@ -72,6 +74,7 @@ export default class extends Vue {
       return result
     })
   }
+
   handleStep(s: any, index: number) {
     this.$emit('clickStep', s, index)
   }
@@ -89,6 +92,7 @@ export default class extends Vue {
       return true
     }
   }
+
   gettitle(s: any, index: number) {
     if (index === this.active) {
       return '正在处理'
@@ -100,6 +104,7 @@ export default class extends Vue {
       return s.title
     }
   }
+
   mounted() {
     this.getShow(0)
   }
@@ -174,5 +179,10 @@ export default class extends Vue {
 }
 .stepErr :hover {
   cursor: not-allowed;
+}
+.but-style {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
 }
 </style>

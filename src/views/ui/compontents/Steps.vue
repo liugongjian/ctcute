@@ -94,7 +94,7 @@ export default class extends Vue {
     en: 'Steps',
   }
 
-  public static steps = [
+  steps = [
     { title: '步骤1', description: '这是一个描述' },
     { title: '步骤2' },
     { title: '步骤3' },

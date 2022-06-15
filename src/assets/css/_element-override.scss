@@ -548,3 +548,31 @@
 @include contentareatips-page();
 @include contentareatips-page(warning, #fa9a34, #faad15);
 @include contentareatips-page(error, #f5212d, #f5212d);
+
+/* Tree */
+.el-tree-node:focus > .el-tree-node__content {
+  background-color: #fa8334;
+  color: #fff
+}
+.el-tree-node__content:hover {
+  color: #989A9C;
+}
+.el-tooltip__popper.is-light {
+  border: 1px solid #ebeef5;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  min-width: 0;
+  padding: 0;
+  margin: -10px 0 0 0 !important;
+  .tooltip-content {
+    display: flex;
+    flex-direction: column;
+    .el-button {
+      margin: 0;
+      padding: 10px 15px;
+      color: rgba(0, 0, 0, 0.65);
+      &:hover {
+        background: #FEF5EE;
+      }
+    }
+  }
+}

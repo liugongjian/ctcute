@@ -1,51 +1,58 @@
 <template>
   <div>
-    <div :class="size === 'mini' ? 'ui-stepsMin' : 'ui-steps'" :style="{ width: stepWidth }">
-     <!--  <i class="el-icon-arrow-left but-style"></i> -->
-      <el-steps
-        v-if="type !== 'multiSteps'"
-        :space="300"
-        :active="active"
-        finish-status="success"
-        :class="{ max: size !== 'mini' }"
-        :direction="direction"
-      >
-        <el-step
-          v-for="(s, index) in steps"
-          :key="index"
-          :title="gettitle(s, index)"
-          :status="s.status"
-          :description="s.description"
-          :class="{ stepErr: s.disabled }"
-          :style="{ minWidth: widthArr[index] }"
-          @click.native="!s.disabled && handleStep(s, index)"
-        >
-        </el-step>
-      </el-steps>
-      <el-steps
-        v-else
-        :space="300"
-        :active="active"
-        finish-status="success"
-        :class="{ max: size !== 'mini' }"
-        :direction="direction"
-      >
-        <el-step
-          v-for="(s, index) in steps"
-          v-show="getShow(index)"
-          :key="index"
-          :title="gettitle(s, index)"
-          :status="s.status"
-          :description="s.description"
-          :class="{ stepErr: s.disabled }"
-          :style="{ minWidth: widthArr[index] }"
-          @click.native="!s.disabled && handleStep(s, index)"
-        >
-        </el-step>
-      </el-steps>
-
-      <!-- <i class="el-icon-arrow-right"></i> -->
-    </div>
+    <el-row type="flex">
+      <el-col v-if="goButton" :span="1">
+        <div class="button-col point-style" @click="goPre"><i class="el-icon-arrow-left"></i></div>
+      </el-col>
+      <el-col>
+        <div :class="size === 'mini' ? 'ui-stepsMin' : 'ui-steps'" :style="{ width: stepWidth }">
+          <el-steps
+            v-if="type !== 'multiSteps'"
+            :space="300"
+            :active="active"
+            finish-status="success"
+            :class="{ max: size !== 'mini' }"
+            :direction="direction"
+          >
+            <el-step
+              v-for="(s, index) in steps"
+              :key="index"
+              :title="gettitle(s, index)"
+              :status="s.status"
+              :description="s.description"
+              :class="{ stepErr: s.disabled }"
+              :style="{ minWidth: widthArr[index] }"
+              @click.native="!s.disabled && handleStep(s, index)"
+            >
+            </el-step>
+          </el-steps>
+          <el-steps
+            v-else
+            :space="300"
+            :active="active"
+            finish-status="success"
+            :class="{ max: size !== 'mini' }"
+            :direction="direction"
+          >
+            <el-step
+              v-for="(s, index) in steps"
+              v-show="getShow(index)"
+              :key="index"
+              :title="gettitle(s, index)"
+              :status="s.status"
+              :description="s.description"
+              :class="{ stepErr: s.disabled }"
+              :style="{ minWidth: widthArr[index] }"
+              @click.native="!s.disabled && handleStep(s, index)"
+            >
+            </el-step>
+          </el-steps>
+        </div>
+      </el-col>
+      <el-col v-if="goButton" :span="1">
+        <div class="button-col point-style" @click="goNext"><i class="el-icon-arrow-right"></i></div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 <script lang="ts">
@@ -62,6 +69,7 @@ export default class extends Vue {
   @Prop(Array) readonly steps: any // step数据
   @Prop({ type: String }) type?: string // 多步骤条,multiSteps
   @Prop({ type: Number, default: 3 }) stepSize?: number // 多步骤条时使用，显示几个步骤
+  @Prop({ type: Boolean, default: false }) goButton?: boolean // 是否展示前后退按钮
   get widthArr() {
     const { steps } = this
     const lastStepWidth = 135
@@ -106,12 +114,28 @@ export default class extends Vue {
     }
   }
 
+  goPre() {
+    const changeValue = -1
+    this.$emit('change', changeValue)
+  }
+
+  goNext() {
+    const changeValue = 1
+    this.$emit('change', changeValue)
+  }
+
   mounted() {
     this.getShow(0)
   }
 }
 </script>
 <style lang="scss" scoped>
+.button-col {
+  font-size: 20px;
+}
+.point-style {
+  cursor: pointer;
+}
 .ui-steps {
   ::v-deep .el-step .el-step__main {
     position: absolute;
@@ -180,10 +204,5 @@ export default class extends Vue {
 }
 .stepErr :hover {
   cursor: not-allowed;
-}
-.but-style {
-  display: inline-block;
-  height: 10px;
-  width: 10px;
 }
 </style>

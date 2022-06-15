@@ -45,7 +45,9 @@
         step-width="100%"
         type="multiSteps"
         :step-size="3"
+        :go-button="true"
         @clickStep="clickmulti"
+        @change="goMulti"
       ></ui-steps>
       <el-button
         style="margin-top: 48px; margin-bottom: 12px"
@@ -65,7 +67,9 @@
         step-width="100%"
         type="multiSteps"
         :step-size="6"
+        :go-button="true"
         @clickStep="clickmultimini"
+        @change="goMultiMini"
       ></ui-steps>
       <el-button
         style="margin-top: 48px"
@@ -158,6 +162,20 @@ export default class extends Vue {
     } else {
       this.activeMultiMini = index
       this.$message.success(`点击 ${step.title}成功`)
+    }
+  }
+
+  goMulti(val: number) {
+    this.activeMulti = this.activeMulti + val
+    if (this.activeMulti < 0) {
+      this.activeMulti = 0
+    }
+  }
+
+  goMultiMini(val: number) {
+    this.activeMultiMini = this.activeMultiMini + val
+    if (this.activeMultiMini < 0) {
+      this.activeMultiMini = 0
     }
   }
 }

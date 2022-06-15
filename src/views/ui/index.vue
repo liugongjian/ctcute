@@ -18,8 +18,8 @@ import Sidebar from './Sidebar.vue'
   name: 'Ui',
   components: {
     Sidebar,
-    ...components
-  }
+    ...components,
+  },
 })
 export default class extends Vue {
   private componentList = list
@@ -78,11 +78,18 @@ export default class extends Vue {
   ::v-deep {
     p {
       color: $text;
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 400;
+      margin-bottom: 24px;
     }
 
     h2 {
-      margin-top: 8px;
-      font-size: 14px;
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 500;
       color: $textHead;
     }
     h3 {

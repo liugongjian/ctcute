@@ -24,7 +24,7 @@
     <div>
       <h3>拖拽上传</h3>
       <el-upload class="upload-demo" drag action="https://jsonplaceholder.typicode.com/posts/" multiple>
-        <i class="el-icon-upload"></i>
+        <svg-icon name="container" class="el-icon-upload" />
         <div class="el-upload__text">
           <b>点击或将文件拖拽到这里上传</b>
           <p>支持扩展名：.rar .zip .doc .docx .pdf .jpg...</p>
@@ -37,12 +37,12 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiUpload'
+  name: 'UiUpload',
 })
 export default class extends Vue {
   public static title = {
     zh: '上传',
-    en: 'Upload'
+    en: 'Upload',
   }
 }
 </script>
@@ -59,7 +59,9 @@ export default class extends Vue {
   border-color: #409eff;
 }
 .el-upload-dragger .el-icon-upload {
-  margin-top: 20px;
+  width: 33px !important;
+  height: 42px !important;
+  margin-top: 45px;
   color: #fa8334;
 }
 .avatar {

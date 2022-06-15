@@ -1,46 +1,57 @@
 <template>
-  <div>
+  <div class="ui-button">
     <p>常用的操作按钮</p>
+    <h2>特殊按钮</h2>
+    <div class="sub-special">
+      <el-button type="danger">特殊按钮</el-button>
+      <el-button type="primary" disabled>不可用特殊按钮</el-button>
+    </div>
     <h2>不同尺寸</h2>
     <div class="sub-sample">
-      <el-button type="primary">默认按钮</el-button>
-      <el-button type="primary" size="small">小型按钮</el-button>
-      <el-button type="primary" size="mini">超小按钮</el-button>
+      <el-button>次按钮</el-button>
+      <el-button size="small">小次按钮</el-button>
+      <el-button type="primary" size="small">小主按钮</el-button>
     </div>
     <h2>常用按钮</h2>
     <div class="sub-sample">
       <el-button type="primary">主按钮</el-button>
       <el-button>次按钮</el-button>
-      <el-button type="text">文字按钮</el-button>
-      <el-button type="text">文字连接</el-button>
-      <el-button type="text"><svg-icon name="upload" /></el-button>
-      <el-button type="text"><svg-icon name="upload" />下载</el-button>
-      <el-button type="primary" plain>+ 表单新增</el-button>
-      <el-button type="danger" plain>次危险</el-button>
-      <el-button type="danger">按钮</el-button>
-      <el-button type="primary"><svg-icon name="save" /> 带图标</el-button>
+      <el-button type="danger" plain>危险</el-button>
+      <el-button size="small"><svg-icon name="plus-circle" /> 带图标按钮</el-button>
+      <el-dropdown>
+        <el-button size="small"> <svg-icon name="select" /> 按钮2 <svg-icon name="caret-down" /> </el-button>
+        <el-dropdown-menu slot="dropdown" class="conventional-dropdown">
+          <el-dropdown-item> <svg-icon name="select" /> 按钮</el-dropdown-item>
+          <el-dropdown-item> <svg-icon name="select" /> 按钮</el-dropdown-item>
+          <el-dropdown-item> <svg-icon name="select" /> 按钮</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <el-button size="small">小次按钮</el-button>
     </div>
     <h2>禁用状态</h2>
     <div class="sub-sample">
-      <el-button type="primary" disabled>主按钮</el-button>
-      <el-button disabled>次按钮</el-button>
-      <el-button type="text" disabled>文字按钮</el-button>
-      <el-button type="text" disabled>文字链接</el-button>
-      <el-button type="text" disabled><svg-icon name="upload" /></el-button>
-      <el-button type="text" disabled><svg-icon name="upload" />下载</el-button>
-      <el-button type="primary" plain disabled>+ 表单新增</el-button>
-      <el-button type="danger" plain disabled>次危险</el-button>
-      <el-button type="danger" disabled>危险</el-button>
-      <el-button type="primary" disabled><svg-icon name="save" /> 带图标</el-button>
+      <el-button disabled type="primary">主按钮</el-button>
+      <el-button disabled type="primary">次按钮</el-button>
+      <el-button disabled type="danger" plain>危险</el-button>
+      <el-button disabled size="small" type="primary"><svg-icon name="plus-circle" /> 带图标按钮</el-button>
+      <el-button disabled size="small" type="primary"><svg-icon name="select" /> 按钮2 </el-button>
+      <el-button disabled size="small" type="primary">小次按钮</el-button>
     </div>
     <h2>组合图标</h2>
     <div class="sub-combination">
       <p>常用于复杂详情页</p>
-      <el-button-group>
-        <el-button>操作一</el-button>
-        <el-button>操作二</el-button>
-        <el-button type="primary">主操作</el-button>
-      </el-button-group>
+      <el-button>操作一</el-button>
+      <el-button>操作二</el-button>
+      <el-dropdown>
+        <el-button>...</el-button>
+        <el-dropdown-menu slot="dropdown" class="combination-dropdown">
+          <el-dropdown-item>操作一</el-dropdown-item>
+          <el-dropdown-item>操作二</el-dropdown-item>
+          <el-dropdown-item>操作三</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+
+      <el-button type="primary">主操作</el-button>
     </div>
     <h2>按钮布局</h2>
     <div class="sub-sample">
@@ -52,12 +63,12 @@
         <el-button>次按钮</el-button>
       </div>
       <div class="button-layout">
-        <el-button type="primary" size="small">小型按钮</el-button>
-        <el-button size="small">小型按钮</el-button>
+        <el-button type="primary" size="small">小按钮</el-button>
+        <el-button size="small">小按钮</el-button>
       </div>
       <div class="button-layout">
         <el-button>取消</el-button>
-        <el-button type="primary">确定</el-button>
+        <el-button type="primary">主按钮</el-button>
       </div>
     </div>
     <h2>加载中…</h2>
@@ -71,21 +82,30 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiButton'
+  name: 'UiButton',
 })
 export default class extends Vue {
   public static title = {
     zh: '按钮',
-    en: 'Button'
+    en: 'Button',
   }
+
+  private flag = false
 }
 </script>
 <style lang="scss" scoped>
 .sub-sample {
   white-space: nowrap;
-
   .el-button + .el-button {
-    margin-left: 30px;
+    margin-left: 16px;
+  }
+}
+.sub-combination {
+  .el-button + .el-button {
+    margin: 0px;
+  }
+  .el-button + .el-dropdown {
+    margin: 0;
   }
 }
 
@@ -98,6 +118,6 @@ export default class extends Vue {
 }
 
 .button-layout + .button-layout {
-  margin-left: 30px;
+  margin-left: 48px;
 }
 </style>

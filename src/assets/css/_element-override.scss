@@ -1,3 +1,10 @@
+/* iconfont */
+@mixin iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 /* Button */
 /*
   $type:类名;
@@ -184,6 +191,9 @@
 .el-table th.el-table-column--selection > .cell {
   padding-left: 14px;
 }
+// .el-table .el-table__fixed {
+//   height: 100% !important;
+// }
 .el-table {
   max-height: 638px;
   overflow-y: scroll;
@@ -216,7 +226,7 @@
 .el-table::before, .el-table--group::after, .el-table--border::after {
   content: "";
   position: absolute;
-  background-color: #fff;
+  background-color: transparent;
   z-index: 1;
 }
 
@@ -399,6 +409,15 @@
 }
 .el-progress.is-success .el-progress__text {
   color: #52c41a;
+}
+
+.el-icon-circle-check:before {
+  @include iconfont;
+  content: "\ea4a";
+}
+.el-icon-circle-close:before {
+  @include iconfont;
+  content: "\ea4a";
 }
 .el-progress-bar__inner,
 .el-progress-bar__outer {

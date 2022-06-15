@@ -1,10 +1,10 @@
 <template>
   <div class="sub-transfer">
     <el-row>
-      <el-col :span="10">
+      <el-col :span="12">
         <el-transfer v-model="value" :data="data" :titles="['源列表', '目标列表']"></el-transfer>
       </el-col>
-      <el-col :span="10">
+      <el-col :span="12">
         <el-transfer
           v-model="value1"
           style="text-align: left; display: inline-block"

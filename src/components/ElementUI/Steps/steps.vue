@@ -19,7 +19,6 @@
               :key="index"
               :title="gettitle(s, index)"
               :status="s.status"
-              :description="s.description"
               :class="{ stepErr: s.disabled }"
               :style="{ minWidth: widthArr[index] }"
               @click.native="!s.disabled && handleStep(s, index)"
@@ -40,7 +39,6 @@
               :key="index"
               :title="gettitle(s, index)"
               :status="s.status"
-              :description="s.description"
               :class="{ stepErr: s.disabled }"
               :style="{ minWidth: widthArr[index] }"
               @click.native="!s.disabled && handleStep(s, index)"
@@ -192,9 +190,10 @@ export default class extends Vue {
   color: #fff;
   background-color: #fa8334;
 }
-::v-deep .el-step__description {
+/* ::v-deep .el-step__description {
+  padding-right: 0;
   margin-top: 2px;
-}
+} */
 ::v-deep .el-step__description.is-success {
   color: rgba(0, 0, 0, 0.65);
 }

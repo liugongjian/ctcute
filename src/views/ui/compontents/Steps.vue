@@ -99,7 +99,7 @@ export default class extends Vue {
   }
 
   steps = [
-    { title: '步骤1', description: '这是一个描述' },
+    { title: '步骤1' },
     { title: '步骤2' },
     { title: '步骤3' },
     { title: '步骤4' },
@@ -109,10 +109,10 @@ export default class extends Vue {
   ]
 
   multisteps = [
-    { title: '步骤1', description: '这是一个描述' },
+    { title: '步骤1' },
     { title: '步骤2' },
     { title: '步骤3' },
-    { title: '步骤4', description: '这是一个描述' },
+    { title: '步骤4' },
     { title: '步骤5' },
     { title: '步骤6' },
     { title: '不可点击', disabled: true },

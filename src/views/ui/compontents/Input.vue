@@ -11,6 +11,17 @@
       <el-row> <el-input v-model="content" placeholder="请输入" :disabled="true"> </el-input></el-row>
       <el-row> <el-input type="textarea" :rows="5" placeholder="请输入" :disabled="true"> </el-input></el-row>
     </div>
+    <div class="routine-input">
+      <h3>编辑输入框</h3>
+      <el-row>
+        <el-button type="text">描述 <svg-icon name="edit" /></el-button>
+      </el-row>
+      <el-row>
+        <el-input placeholder="请输入" value="描述"></el-input>
+        <svg-icon name="check" class="edit-input-icon" color="#52C41A" />
+        <svg-icon name="close" color= "#F5212D"/>
+      </el-row>
+    </div>
     <h3>搜索输入框</h3>
     <div class="sub-input">
       <el-row>
@@ -112,6 +123,11 @@ export default class extends Vue {
 .sub-input {
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 24px;
+}
+
+.edit-input-icon {
+  margin: 0 20px;
+  cursor: pointer;
 }
 
 .el-input {

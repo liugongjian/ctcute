@@ -29,6 +29,16 @@
   margin-left: 8px;
 }
 
+.el-button--medium {
+  padding: 7px;
+}
+.el-button--text {
+  color: $text;
+  &:hover {
+    color: $primary;
+  }
+}
+
 .el-button-rect {
   padding: 10px;
 }

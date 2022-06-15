@@ -35,7 +35,7 @@ export default class extends Vue {
 }
 .yellow-tag {
   background-color: #fef6e7;
-  color: #fa9a43;
+  color: #fa9a34;
   border: 1px solid #fcd68a;
 }
 .button-new-tag {

@@ -140,11 +140,11 @@ export default class extends Vue {
     position: relative;
     .handler-menu {
       position: absolute;
-      right: 0.8em;
-      top: -0.2em;
+      right: 0.5em;
       display: none;
       .el-button {
-        margin-left: 0.5em;
+        padding: 0;
+        margin: 0.9em 0.3em;
       }
       .handler-icon {
         color: #989A9C;

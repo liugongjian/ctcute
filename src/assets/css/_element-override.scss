@@ -47,6 +47,9 @@
   &:hover {
     color: $primary;
   }
+  &.light:not(.is-disabled) {
+    color: $primary;
+  }
 }
 
 .el-button-rect {

@@ -101,6 +101,7 @@ export default class extends Vue {
   width: 1200px;
 }
 .node-content {
+  margin-left: -6px;
   display: flex;
   align-items: center;
   color: rgba(0, 0, 0, 0.9);

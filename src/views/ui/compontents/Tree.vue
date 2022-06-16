@@ -5,7 +5,7 @@
         <h3>四层树状菜单标题</h3>
         <el-tree :data="data.threeFour" node-key="key" draggable :default-expanded-keys="[2]">
           <span slot-scope="{ node, data }" class="node-content">
-            <span class="icon-folder">
+            <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
               <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
             </span>
@@ -13,6 +13,7 @@
             <div class="handler-menu">
               <el-button slot="reference" type="text"><svg-icon v-if="!node.isLeaf" name="plus" class="handler-icon" @click.stop="() => {}" /></el-button>
               <el-tooltip
+                popper-class="tree-node-popover"
                 effect="light"
                 placement="bottom-end"
                 trigger="click"
@@ -36,7 +37,7 @@
         <h3>三层树状菜单标题</h3>
         <el-tree :data="data.threeTree" draggable node-key="key" :default-expanded-keys="[3]">
           <span slot-scope="{ node }" class="node-content">
-            <span class="icon-folder">
+            <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
               <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
             </span>
@@ -48,7 +49,7 @@
         <h3>两层树状菜单标题</h3>
         <el-tree :data="data.twoTree" node-key="key" :default-expanded-keys="[4]">
           <span slot-scope="{ node }" class="node-content">
-            <span class="icon-folder">
+            <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
               <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
             </span>
@@ -60,11 +61,11 @@
         <h3>三层树状菜单加icon</h3>
         <el-tree :data="data.threeTree" node-key="key" :default-expanded-keys="[3]">
           <span slot-scope="{ node }" class="node-content">
-            <span class="icon-folder">
+            <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
               <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
             </span>
-            <span class="icon-folder">
+            <span class="node-icon">
               <svg-icon v-if="node.isLeaf" name="tag" width="17" height="17" />
             </span>
             {{ node.label }}
@@ -101,23 +102,23 @@ export default class extends Vue {
   width: 1200px;
 }
 .node-content {
-  margin-left: -6px;
+  margin-left: -0.5em;
   display: flex;
   align-items: center;
   color: rgba(0, 0, 0, 0.9);
 }
-.icon-folder {
+.node-icon {
   color: #989A9C;
   .svg-icon {
     display: none;
-    margin-right: 5px;
+    margin-right: 0.5em;
     &:first-child {
       display: inline;
     }
   }
 }
 .is-expanded > .el-tree-node__content {
-  .icon-folder {
+  .node-icon {
     color: #989A9C;
     .svg-icon {
       display: none;
@@ -128,7 +129,7 @@ export default class extends Vue {
   }
 }
 .el-tree-node:focus > .el-tree-node__content {
-  .node-content, .icon-folder, .handler-icon {
+  .node-content, .node-icon, .handler-icon {
     color: #FFF;
   }
   .handler-icon {
@@ -139,11 +140,11 @@ export default class extends Vue {
     position: relative;
     .handler-menu {
       position: absolute;
-      right: 10px;
-      top: -3px;
+      right: 0.8em;
+      top: -0.2em;
       display: none;
       .el-button {
-        margin-left: 5px;
+        margin-left: 0.5em;
       }
       .handler-icon {
         color: #989A9C;

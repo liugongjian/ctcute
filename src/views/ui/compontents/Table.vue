@@ -6,7 +6,7 @@
     </p>
     <h3>基础表格</h3>
     <div class="sub-table">
-      <el-table :data="data.tableData" border>
+      <el-table :data="data.tableData" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
         <el-table-column prop="name" label="主机别名" width="150px">
           <template slot-scope="scope">
             <div>
@@ -38,11 +38,12 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="180px">
+        <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small">挂载</el-button>
-            <el-button type="text" size="small">卸载</el-button>
-            <el-button type="text" size="small">扩容</el-button>
+            <el-button type="text" size="small" class="bt-operation">挂载</el-button>
+            <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+            <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+            <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false">
               <span class="el-dropdown-link">
                 更多<i class="el-icon-arrow-down el-icon--right"></i>
@@ -62,10 +63,14 @@
         :current-page="2"
         :page-sizes="pageSizeOptions"
         background
-        :page-size="pageSize"
-        layout="sizes, total, prev, pager, next"
+        :page-size="20"
+        layout="slot, total, prev, pager, next"
         :total="total"
       >
+        <el-select v-model="value" placeholder="请选择" popper-class="custom-select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
       </el-pagination>
     </div>
 
@@ -75,7 +80,7 @@
         <el-button type="primary" disabled>主按钮</el-button>
         <el-button disabled>次按钮</el-button>
       </div>
-      <el-table ref="multipleTable" :data="data.tableData10" tooltip-effect="dark" border>
+      <el-table ref="multipleTable" :data="data.tableData10" tooltip-effect="dark" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" width="150px" label="主机别名">
           <template slot-scope="scope">
@@ -106,11 +111,12 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="180px">
+        <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small">挂载</el-button>
-            <el-button type="text" size="small">卸载</el-button>
-            <el-button type="text" size="small">扩容</el-button>
+            <el-button type="text" size="small" class="bt-operation">挂载</el-button>
+            <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+            <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+            <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false">
               <span class="el-dropdown-link">
                 更多<i class="el-icon-arrow-down el-icon--right"></i>
@@ -131,9 +137,13 @@
         :page-sizes="pageSizeOptions"
         background
         :page-size="10"
-        layout="sizes, total, prev, pager, next"
+        layout="slot, total, prev, pager, next"
         :total="100"
       >
+        <el-select v-model="value" placeholder="请选择" popper-class="custom-select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
       </el-pagination>
     </div>
 
@@ -146,7 +156,7 @@
         </el-select>
       </div>
 
-      <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData10" border>
+      <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData10" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" label="主机别名">
           <template slot-scope="scope">
@@ -177,11 +187,12 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="180px">
+        <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small">挂载</el-button>
-            <el-button type="text" size="small">卸载</el-button>
-            <el-button type="text" size="small">扩容</el-button>
+            <el-button type="text" size="small" class="bt-operation">挂载</el-button>
+            <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+            <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+            <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false">
               <span class="el-dropdown-link">
                 更多<i class="el-icon-arrow-down el-icon--right"></i>
@@ -202,15 +213,19 @@
         :page-sizes="pageSizeOptions"
         background
         :page-size="10"
-        layout="sizes, total, prev, pager, next"
+        layout="slot, total, prev, pager, next"
         :total="100"
       >
+        <el-select v-model="value" placeholder="请选择" popper-class="custom-select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
       </el-pagination>
     </div>
 
     <h3>展示不全的表格</h3>
     <div class="sub-table">
-      <el-table :data="data.tableData10" border>
+      <el-table :data="data.tableData10" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
         <el-table-column prop="name" label="主机别名" width="120" fixed>
           <template slot-scope="scope">
             <span class="text-ellipsis" style="width: 100%;">{{ scope.row.name }}</span>
@@ -240,11 +255,12 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="185" fixed="right">
+        <el-table-column label="操作" width="190px" fixed="right">
           <template slot-scope="scope">
-            <el-button type="text" size="small">挂载</el-button>
-            <el-button type="text" size="small">卸载</el-button>
-            <el-button type="text" size="small">扩容</el-button>
+            <el-button type="text" size="small" class="bt-operation">挂载</el-button>
+            <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+            <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+            <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false">
               <span class="el-dropdown-link">
                 更多<i class="el-icon-arrow-down el-icon--right"></i>
@@ -265,9 +281,13 @@
         :page-sizes="pageSizeOptions"
         background
         :page-size="10"
-        layout="sizes, total, prev, pager, next"
+        layout="slot, total, prev, pager, next"
         :total="100"
       >
+        <el-select v-model="value" placeholder="请选择" popper-class="custom-select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
       </el-pagination>
     </div>
     <h3>横向展示列表</h3>
@@ -287,7 +307,7 @@
 
     <h3>小表格</h3>
     <div>
-      <el-table :data="data.smallTable">
+      <el-table :data="data.smallTable" :row-style="{ 'height': '38px', 'line-height': '38px' }" :cell-style="{ 'padding': 0 }" border>
         <el-table-column label="排行">
           <template slot-scope="scope">
             <span :class="scope.$index <3 ? 'sub-index sub-index-top3': 'sub-index'">{{ scope.$index+1 }}</span>
@@ -295,7 +315,7 @@
         </el-table-column>
         <el-table-column prop="name" label="工作流名称">
           <template slot-scope="scope">
-            <span class="text-ellipsis" style="width: 100%;">{{ scope.row.name }}</span>
+            <span class="text-ellipsis" style="width: 100%;" :title="scope.row.name">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="time" label="耗时"> </el-table-column>
@@ -314,9 +334,13 @@
         :page-sizes="pageSizeOptions"
         background
         :page-size="pageSize"
-        layout="sizes, total, prev, pager, next"
+        layout="slot, total, prev, pager, next"
         :total="10"
       >
+        <el-select v-model="value" placeholder="请选择" popper-class="custom-select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
       </el-pagination>
     </div>
   </div>
@@ -363,9 +387,30 @@ export default class extends Vue {
 
   private pageNum = 3
 
-  private pageSizeOptions = [10, 20, 30, 40, 50, 100]
+  private pageSizeOptions = [10, 20, 30, 40]
 
   private total = 153
+
+  private value = '10'
+
+  private options = [
+    {
+      value: '选项1',
+      label: '10',
+    },
+    {
+      value: '选项2',
+      label: '20',
+    },
+    {
+      value: '选项3',
+      label: '30',
+    },
+    {
+      value: '选项4',
+      label: '40',
+    },
+  ]
 
   private row({ rowIndex, columnIndex }) {
     if (rowIndex === 0 && columnIndex !== 5 && columnIndex !== 6) {
@@ -425,6 +470,15 @@ export default class extends Vue {
   }
 }
 
+.small-table {
+  tr,
+  td{
+    height: 34px;
+    line-height: 34px;
+    padding: 0 !important;
+  }
+}
+
 .sub-index {
   display: inline-block;
   width: 20px;
@@ -444,6 +498,10 @@ export default class extends Vue {
 .pagination {
   text-align: right;
   margin-bottom: 24px;
+}
+
+.bt-operation {
+  color: $primary;
 }
 
 .sub-spot {

@@ -309,6 +309,10 @@
   background-color: transparent;
   z-index: 1;
 }
+.el-table .el-icon-arrow-down:before {
+  content: "\e790";
+}
+
 
 /* Pagination */
 .el-pagination {

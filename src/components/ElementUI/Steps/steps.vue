@@ -1,11 +1,11 @@
 <template>
   <div>
-    <el-row type="flex">
+    <el-row :gutter="20" align="middle" :style="{ width: stepWidth }">
       <el-col v-if="goButton" :span="1">
         <div class="button-col point-style" @click="goPre"><i class="el-icon-arrow-left"></i></div>
       </el-col>
-      <el-col>
-        <div :class="size === 'mini' ? 'ui-stepsMin' : 'ui-steps'" :style="{ width: stepWidth }">
+      <el-col :span="16">
+        <div :class="size === 'mini' ? 'ui-stepsMin' : 'ui-steps'">
           <el-steps
             v-if="type !== 'multiSteps'"
             :space="300"
@@ -182,6 +182,10 @@ export default class extends Vue {
 
 ::v-deep .el-step__title.is-process {
   font-weight: 400;
+  color: rgba(51, 51, 51, 0.85);
+}
+::v-deep .el-step__title.is-success {
+  color: rgba(0, 0, 0, 0.65);
 }
 ::v-deep .el-step__head.is-process {
   border-color: #fa8334;
@@ -189,6 +193,9 @@ export default class extends Vue {
 ::v-deep .el-step__head.is-process .el-step__icon.is-text {
   color: #fff;
   background-color: #fa8334;
+}
+::v-deep .el-step__title.is-wait {
+  color: #cccccc;
 }
 /* ::v-deep .el-step__description {
   padding-right: 0;

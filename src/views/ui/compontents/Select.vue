@@ -8,11 +8,11 @@
       </div>
       <el-row>
         <el-col :span="6">
-          <el-select value="" popper-class="select-radio" filterable>
+          <el-select v-model="value" popper-class="select-radio" filterable>
             <el-option label="默认选项" value="默认选项"> </el-option>
             <el-option label="已选择项" value="已选择项"> </el-option>
             <el-option label="不可用" value="不可用" disabled> </el-option>
-            <el-option label="默认选项" value="默认选项" class="auxiliary-message"> </el-option>
+            <el-option label="默认选项1" value="默认选项1" class="auxiliary-message"> </el-option>
           </el-select>
         </el-col>
         <el-col :span="6" class="loading-select">
@@ -32,7 +32,7 @@
       <h3>多选</h3>
       <el-row>
         <el-col :span="6">
-          <el-select :value="[]" multiple placeholder="请选择">
+          <el-select v-model="selectValue" multiple placeholder="请选择">
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
             </el-option>
           </el-select>
@@ -43,12 +43,12 @@
             <el-option label="不可用" value=""> <svg-icon name="save"> </svg-icon></el-option>
           </el-select>
         </el-col>
-        <el-col :span="6">
+        <!-- <el-col :span="6">
           <el-select v-model="value3" multiple placeholder="请选择">
             <el-option label="不可用" value="不可用" disabled> </el-option>
             <el-option label="选项" value="选项"> </el-option>
           </el-select>
-        </el-col>
+        </el-col> -->
       </el-row>
     </div>
     <div class="sub-down">
@@ -131,8 +131,18 @@
       <h3>操作已选项</h3>
       <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
       <el-row>
-        <el-select value="操作已选项" placeholder="请选择">
-          <el-option label="操作已选项" value="操作已选项"> </el-option>
+        <el-select ref="select" v-model="sele" placeholder="请选择" popper-class="select-field">
+          <el-option label="tree" value="tree" class="field-option"> </el-option>
+          <el-tree
+            ref="tree"
+            node-key="value"
+            :data="[
+              { label: '1234', value: '123', children: [] },
+              { label: '32456', value: '1236666', children: [] },
+            ]"
+            show-checkbox
+            @check-change="chang"
+          ></el-tree>
         </el-select>
       </el-row>
       <el-row>
@@ -156,12 +166,13 @@ export default class extends Vue {
     en: 'Select',
   }
 
-  private value = ''
+  private selectValue = []
+  private value = []
   private value1 = ['不可用']
   private value2 = '选项一'
   private value3 = ['不可用', '选项']
   private text = ''
-
+  private sele = ''
   private options = [
     {
       value: '选项1',
@@ -184,10 +195,20 @@ export default class extends Vue {
       label: '选项E',
     },
   ]
+
+  private chang() {
+    const ref = (): any => this.$refs.tree
+    const data = ref().getCheckedKeys()
+    this.sele = `操作已选项(${data.length})`
+    ref().setCheckedKeys(data)
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.field-option {
+  display: none;
+}
 .sub-down {
   border-bottom: 1px solid #f1f1f1;
   .el-row {
@@ -203,9 +224,19 @@ export default class extends Vue {
 }
 
 .sub-checkout {
+  ::v-deep.el-input .el-input__inner {
+    color: #fa8334;
+  }
+  .select-field {
+  }
+  color: red;
   ::v-deep .el-input.el-input--medium.el-input--suffix {
-    width: 110px;
+    width: auto;
+    padding-right: 0;
     font-size: 12px;
+  }
+  ::v-deep.el-input__inner {
+    padding-right: 0;
   }
 }
 .el-select-dropdown__item:hover {

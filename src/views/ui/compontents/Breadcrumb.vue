@@ -30,7 +30,8 @@ export default class extends Vue {
     font-size: 12px;
   }
   ::v-deep.el-breadcrumb__inner:hover {
-    color: #fa8334;
+    color: $primary;
+    cursor: pointer;
   }
 }
 </style>

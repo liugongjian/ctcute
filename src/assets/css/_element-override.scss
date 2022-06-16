@@ -38,9 +38,10 @@
 .el-button + .el-button {
   margin-left: 8px;
 }
-
-.el-button--medium {
-  padding: 7px;
+.ui-iconbutton {
+  .el-button--medium {
+    padding: 7px;
+  }
 }
 .el-button--text {
   color: $text;
@@ -72,12 +73,12 @@
     }
   }
   .el-button--medium {
-    padding: 6px 20px;
+    padding: 10px 20px;
     font-size: 12px;
     border-radius: 0 2px 2px 0;
   }
   .el-button--small {
-    padding: 4px 20px;
+    padding: 8x 20px;
     border: 1px solid #cccccc;
     border-radius: 2px;
   }
@@ -99,13 +100,11 @@
   width: 102px;
   text-align: center;
   left: 650px;
-  top: 410px !important;
   .popper__arrow {
     display: none;
   }
 }
 .combination-dropdown {
-  top: 684px !important;
 }
 
 /* Form */
@@ -350,7 +349,7 @@
 
 .el-pagination.is-background .el-pager li:not(.disabled):hover {
   color: #333333;
-  background: #dee6fb;
+  background: #fef5ee;
 }
 .el-pagination__jump {
   margin-left: 0px;
@@ -692,8 +691,16 @@
 }
 
 /* Dropdown */
-.el-dropdown-menu__item.is-active {
-  color: $primary;
+.el-dropdown-menu--medium .el-dropdown-menu__item {
+  font-size: $textSize;
+  &:hover {
+    background: #fef5ee;
+    color: $primary;
+  }
+  &:active {
+    background: $primary;
+    color: #ffffff;
+  }
 }
 /* Transfer */
 .sub-transfer {
@@ -798,5 +805,12 @@
         background: #fef5ee;
       }
     }
+  }
+}
+/* popover */
+.el-popover.el-popper.operation-content {
+  padding: 20px 24px 20px 16px !important;
+  .el-popover__title {
+    font-size: $textSize;
   }
 }

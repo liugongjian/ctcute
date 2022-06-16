@@ -112,9 +112,6 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .el-row {
   margin: 20px 0 24px 0;
-  // ::v-deep.el-tabs--card > .el-tabs__header .el-tabs__nav {
-  //   border: none;
-  // }
 }
 .small-tabs {
   ::v-deep.el-tabs__nav.is-top {
@@ -124,6 +121,10 @@ export default class extends Vue {
     border-top: 1px solid #dddddd;
     box-sizing: content-box;
   }
+  ::v-deep.el-tabs__item {
+    height: 28px;
+    line-height: 28px;
+  }
 }
 .delete-tabs {
   ::v-deep.el-tabs__nav.is-top {
@@ -132,6 +133,10 @@ export default class extends Vue {
   ::v-deep.el-tabs__item.is-top.is-active.is-closable {
     border-top: 1px solid #dddddd;
     box-sizing: content-box;
+  }
+  ::v-deep.el-tabs__item {
+    height: 28px;
+    line-height: 28px;
   }
 }
 .button-tabs {

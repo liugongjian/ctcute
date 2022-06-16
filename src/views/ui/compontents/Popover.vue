@@ -36,40 +36,60 @@
     <h3>操作提示类型</h3>
     <el-row class="operation-popover">
       <el-col :span="6">
-        <el-popover placement="top-start" title="标题内容" popper-class="operation-content">
+        <el-popover v-model="visible" placement="top-start" title="标题内容" popper-class="operation-content">
           <p>需勾选表格项后进行批量删除文字</p>
           <div class="operation-button">
-            <el-button size="mini" type="text">取消</el-button>
-            <el-button type="primary" size="mini">确定</el-button>
+            <el-button size="mini" type="text" class="cancel-popover" @click="visible = false">
+              取消
+            </el-button>
+            <el-button type="primary" size="mini" class="determine-popover" @click="visible = false">
+              确定
+            </el-button>
           </div>
 
           <el-button slot="reference" type="text" class="sub-edit">编辑</el-button>
         </el-popover>
 
-        <el-popover placement="top-start" title="标题内容" popper-class="operation-content">
+        <el-popover
+          v-model="visible1"
+          placement="top-start"
+          title="标题内容"
+          popper-class="operation-content"
+        >
           <p>需勾选表格项后进行批量删除文字</p>
           <div class="operation-button">
-            <el-button size="mini" type="text">取消</el-button>
-            <el-button type="primary" size="mini">确定</el-button>
+            <el-button size="mini" type="text" class="cancel-popover" @click="visible1 = false">
+              取消
+            </el-button>
+            <el-button type="primary" size="mini" class="determine-popover" @click="visible1 = false">
+              确定
+            </el-button>
           </div>
           <el-button slot="reference" type="text">删除</el-button>
         </el-popover>
       </el-col>
       <el-col :span="6">
-        <el-popover placement="top-start" popper-class="operation-content">
+        <el-popover v-model="visible2" placement="top">
           <p>需勾选表格项后进行批量删除文字</p>
-          <div class="operation-button">
-            <el-button size="mini" type="text">取消</el-button>
-            <el-button type="primary" size="mini">确定</el-button>
+          <div style="text-align: right; margin: 0">
+            <el-button size="mini" type="text" class="cancel-popover" @click="visible2 = false">
+              取消
+            </el-button>
+            <el-button type="primary" size="mini" class="determine-popover" @click="visible2 = false">
+              确定
+            </el-button>
           </div>
-
-          <el-button slot="reference" type="text" class="sub-edit">编辑</el-button>
+          <el-button slot="reference" type="text">删除</el-button>
         </el-popover>
-        <el-popover placement="top-start" popper-class="operation-content">
+        <el-popover v-model="visible3" placement="top-start">
           <p>需勾选表格项后进行批量删除文字</p>
           <div class="operation-button">
-            <el-button size="mini" type="text">取消</el-button>
-            <el-button type="primary" size="mini">确定</el-button>
+            <el-button size="mini" type="text" class="cancel-popover" @click="visible3 = false">
+              取消
+            </el-button>
+            <el-button type="primary" size="mini" class="determine-popover" @click="visible3 = false">
+              确定
+            </el-button>
           </div>
 
           <el-button slot="reference" type="text">删除</el-button>
@@ -89,24 +109,32 @@ export default class extends Vue {
     zh: '气泡提示',
     en: 'Popover',
   }
+
+  private visible = false
+  private visible1 = false
+  private visible2 = false
+  private visible3 = false
 }
 </script>
 
 <style lang="scss" scoped>
-.operation-content.el-popover.el-popper {
-  ::v-deep.el-popover__title {
-    font-size: 12px !important;
-  }
-  p {
-    font-size: 12px;
-  }
-}
 .popover-top-text {
   margin-right: 24px;
+}
+p {
+  font-size: $textSize;
+  margin-top: 15px;
 }
 .operation-button {
   text-align: right;
   margin: 0;
+}
+.cancel-popover {
+  border: 1px solid $borderButton;
+  padding: 8px 20px;
+}
+.determine-popover {
+  padding: 8px 20px;
 }
 
 .sub-edit::after {

@@ -98,6 +98,9 @@ export default class extends Vue {
 .tooltip-more,
 .tooltip-mores {
   margin-right: 6px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .tooltip-more {
   text-decoration: underline;

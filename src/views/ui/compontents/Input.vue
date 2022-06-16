@@ -98,6 +98,7 @@
           class="inline-input"
           placeholder="请输入内容"
           :fetch-suggestions="querySearch"
+          :trigger-on-focus="false"
           @input="prompt"
         >
           <span v-show="flag" slot="suffix" class="prompt-title">数据资源名称</span>
@@ -223,6 +224,7 @@ export default class extends Vue {
 }
 .special-input {
   border-bottom: 1px solid #f1f1f1;
+  padding-bottom: 24px;
   ::v-deep.el-input-group__append,
   ::v-deep.el-input-group__prepend {
     width: 80px;
@@ -260,6 +262,10 @@ export default class extends Vue {
   padding-bottom: 24px;
   .el-icon-close {
     line-height: 36px;
+    &:hover {
+      color: $primary;
+      cursor: pointer;
+    }
   }
 }
 

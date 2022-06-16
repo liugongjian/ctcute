@@ -6,12 +6,12 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiSelectedbutton',
+  name: 'UiSelectedButton',
 })
 export default class extends Vue {
   public static title = {
     zh: '选择按钮',
-    en: 'Selectedbutton',
+    en: 'SelectedButton',
   }
 }
 </script>

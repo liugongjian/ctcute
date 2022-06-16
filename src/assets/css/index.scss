@@ -7,13 +7,12 @@
 @import './table.scss';
 @import './animation.scss';
 
-
 /* Global scss */
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, arial, STHeiTi, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   background: $bodyBg;
   padding: 0;
   margin: 0;

@@ -653,6 +653,12 @@
   border-radius: 4px;
   box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 0.5);
 }
+.el-icon-info {
+    &:before {
+        @include iconfont;
+        content: '\eb5f';
+    }
+}
 .el-notification.routine-tips.right {
   width: 480px;
   height: 124px;

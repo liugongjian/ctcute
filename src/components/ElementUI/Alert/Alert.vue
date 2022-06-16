@@ -1,28 +1,27 @@
 <template>
   <transition name="el-alert-fade">
     <div
+      v-show="visible"
       class="el-alert"
       :class="[typeClass, center ? 'is-center' : '', 'is-' + effect]"
-      v-show="visible"
       role="alert"
     >
       <slot name="icon-custom">
-        <i class="el-alert__icon" :class="[iconClass, isBigIcon]" v-if="showIcon"></i>
+        <i v-if="showIcon" class="el-alert__icon" :class="[iconClass, isBigIcon]"></i>
       </slot>
       <div class="el-alert__content">
-        <span class="el-alert__title" :class="[isBoldTitle]" v-if="title || $slots.title">
+        <span v-if="title || $slots.title" class="el-alert__title" :class="[isBoldTitle]">
           <slot name="title">{{ title }}</slot>
         </span>
-        <p class="el-alert__description" v-if="$slots.default && !description"><slot></slot></p>
-        <p class="el-alert__description" v-if="description && !$slots.default">{{ description }}</p>
+        <p v-if="$slots.default && !description" class="el-alert__description"><slot></slot></p>
+        <p v-if="description && !$slots.default" class="el-alert__description">{{ description }}</p>
         <i
+          v-show="closable"
           class="el-alert__closebtn"
           :class="{ 'is-customed': closeText !== '', 'el-icon-close': closeText === '' }"
-          :style="{color: closeBtnColor}"
-          v-show="closable"
+          :style="{ color: closeBtnColor }"
           @click="close()"
-          >{{ closeText }}</i
-        >
+        >{{ closeText }}</i>
       </div>
     </div>
   </transition>
@@ -64,9 +63,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    iconColor: String,
-    closeBtnColor: String,
-    iconName: {
+    closeBtnColor: {
       type: String,
       default: ''
     },
@@ -74,7 +71,7 @@ export default {
     effect: {
       type: String,
       default: 'light',
-      validator: function (value) {
+      validator: function(value) {
         return ['light', 'dark'].indexOf(value) !== -1
       },
     },
@@ -85,14 +82,6 @@ export default {
       visible: true,
     }
   },
-
-  methods: {
-    close() {
-      this.visible = false
-      this.$emit('close')
-    },
-  },
-
   computed: {
     typeClass() {
       return `el-alert--${this.type}`
@@ -108,6 +97,13 @@ export default {
 
     isBoldTitle() {
       return this.description || this.$slots.default ? 'is-bold' : ''
+    },
+  },
+
+  methods: {
+    close() {
+      this.visible = false
+      this.$emit('close')
     },
   },
 }

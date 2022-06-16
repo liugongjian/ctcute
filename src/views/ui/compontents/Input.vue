@@ -20,12 +20,7 @@
     <div class="routine-input">
       <h3>编辑输入框</h3>
       <el-row>
-        <el-button type="text">描述 <svg-icon name="edit" /></el-button>
-      </el-row>
-      <el-row>
-        <el-input placeholder="请输入" value="描述"></el-input>
-        <svg-icon name="check" class="edit-input-icon" color="#52C41A" />
-        <svg-icon name="close" color="#F5212D" />
+        <edit-input value="描述" />
       </el-row>
     </div>
     <h3>搜索输入框</h3>
@@ -151,9 +146,13 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import EditInput from '@/components/EditInput/index.vue'
 
 @Component({
   name: 'UiInput',
+  components: {
+    EditInput
+  }
 })
 export default class extends Vue {
   public static title = {

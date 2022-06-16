@@ -46,7 +46,7 @@
     <el-row>
       <el-alert type="warning" show-icon :close-btn-color="alertColor">
         <template slot="title">
-          <div class="sub-title">您订购的服务还剩<span :style="{color: alertColor}">23</span>天到期</div>
+          <div class="sub-title">您订购的服务还剩<span :style="{ color: alertColor }">23</span>天到期</div>
         </template>
       </el-alert>
     </el-row>
@@ -54,14 +54,14 @@
       <el-alert type="info" show-icon :closable="false">
         <span slot="icon-custom"><svg-icon class="el-alert__icon loading" name="sync" :color="infoColor" /></span>
         <template slot="title">
-          <div class="sub-title">商品正在上架中，已完成<span :style="{color: infoColor}">13/25</span>，请耐心等待</div>
+          <div class="sub-title">商品正在上架中，已完成<span :style="{ color: infoColor }">13/25</span>，请耐心等待</div>
         </template>
       </el-alert>
     </el-row>
     <el-row>
       <el-alert type="error" show-icon :close-btn-color="errorColor">
         <template slot="title">
-          <div class="sub-title">上架完成，<span :style="{color: errorColor}">25</span>个商品上架失败</div>
+          <div class="sub-title">上架完成，<span :style="{ color: errorColor }">25</span>个商品上架失败</div>
         </template>
       </el-alert>
     </el-row>
@@ -88,9 +88,10 @@ export default class extends Vue {
     zh: '警告',
     en: 'Alert'
   }
-  private infoColor = "#fa8334";
-  private alertColor = "#faad15";
-  private errorColor = "#f5212d";
+
+  private infoColor = '#fa8334'
+  private alertColor = '#faad15'
+  private errorColor = '#f5212d'
 }
 </script>
 

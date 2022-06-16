@@ -3,7 +3,7 @@
     <p>默认横向步骤条。存在常规、进行中、已完成等情况。</p>
     <h3>基础步骤条</h3>
     <div class="sub-steps">
-      <ui-steps :active="active" :steps="steps" step-width="80%" @clickStep="clickStep"></ui-steps>
+      <ui-steps :active="active" :steps="normalsteps" step-width="50%" @clickStep="clickStep"></ui-steps>
       <el-button
         style="margin-top: 48px"
         @click="
@@ -22,7 +22,7 @@
         size="mini"
         :active="activeMini"
         :steps="steps"
-        step-width="100%"
+        step-width="80%"
         @clickStep="clickmini"
       ></ui-steps>
       <el-button
@@ -42,7 +42,7 @@
       <ui-steps
         :active="activeMulti"
         :steps="multisteps"
-        step-width="100%"
+        step-width="60%"
         type="multiSteps"
         :step-size="3"
         :go-button="true"
@@ -98,11 +98,12 @@ export default class extends Vue {
     en: 'Steps',
   }
 
+  normalsteps = [{ title: '步骤1' }, { title: '步骤2' }, { title: '步骤3' }]
+
   steps = [
     { title: '步骤1' },
     { title: '步骤2' },
     { title: '步骤3' },
-    { title: '步骤4' },
     { title: '不可点击', disabled: true },
     { title: '错误/失败', status: 'error' },
     { title: '结束', status: 'finish' },
@@ -117,7 +118,7 @@ export default class extends Vue {
     { title: '步骤6' },
     { title: '不可点击', disabled: true },
     { title: '错误/失败', status: 'error' },
-    { title: '结束', status: 'finish' },
+    { title: '结束' },
   ]
 
   active = 0

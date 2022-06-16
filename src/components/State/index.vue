@@ -1,6 +1,6 @@
 <template>
   <span class="el-state">
-    <span v-if="icon">
+    <span v-if="icon" class="icon-wrap">
       <svg-icon
         :class="[{ 'loading': loading }]"
         :name="icon"
@@ -34,6 +34,9 @@ export default class extends Vue {
   height: 6px;
   display: inline-block;
   border-radius: 50%;
+}
+.icon-wrap {
+  font-size: 14px;
 }
 @keyframes rotating {
   0% {transform: rotate(0);}

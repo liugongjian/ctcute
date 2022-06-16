@@ -118,7 +118,7 @@ export default class extends Vue {
     { title: '步骤6' },
     { title: '不可点击', disabled: true },
     { title: '错误/失败', status: 'error' },
-    { title: '结束', status: 'finish' },
+    { title: '结束' },
   ]
 
   active = 0

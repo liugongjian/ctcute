@@ -12,11 +12,16 @@
         <dot-state>下线/未完成/未开始/中止/取消</dot-state>
       </el-row>
       <el-row>
-        <dot-state icon="delete-fill">已卸载</dot-state>
+        <dot-state icon="uninstalled">已卸载</dot-state>
+        <dot-state icon="fault" color="#F5212D">故障</dot-state>
         <dot-state icon="close-circle" color="#F5212D">失败</dot-state>
+        <dot-state icon="warning-circle" color="#FAAD15">异常/告警</dot-state>
+        <dot-state icon="warning-circle" color="#999">未运行/停止</dot-state>
         <dot-state icon="check-circle" color="#52C41A">正常/健康/成功</dot-state>
+        <dot-state icon="inconsistent" color="#FAAD15">不一致</dot-state>
         <dot-state icon="loading" color="#1890FF">重启中</dot-state>
         <dot-state icon="loading" color="#52C41A" :loading="true">启动中</dot-state>
+        <dot-state icon="loading" color="#F5212D">卸载中</dot-state>
         <dot-state icon="loading">停止中</dot-state>
       </el-row>
     </div>

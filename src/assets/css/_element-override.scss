@@ -47,6 +47,9 @@
   &:hover {
     color: $primary;
   }
+  &.light:not(.is-disabled) {
+    color: $primary;
+  }
 }
 
 .el-button-rect {
@@ -657,6 +660,12 @@
   border-radius: 4px;
   box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 0.5);
 }
+.el-icon-info {
+    &:before {
+        @include iconfont;
+        content: '\eb5f';
+    }
+}
 .el-notification.routine-tips.right {
   width: 480px;
   height: 124px;
@@ -785,18 +794,19 @@
 .el-tree-node__content:hover {
   color: #989a9c;
 }
-.el-tooltip__popper.is-light {
-  border: 1px solid #ebeef5;
+
+.tree-node-popover {
+  border: 1px solid #ebeef5 !important;
   box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
   min-width: 0;
   padding: 0;
-  margin: -10px 0 0 0 !important;
+  margin: 0.3em 0 0 0 !important;
   .tooltip-content {
     display: flex;
     flex-direction: column;
     .el-button {
       margin: 0;
-      padding: 10px 15px;
+      padding: 0.8em 1.2em;
       color: rgba(0, 0, 0, 0.65);
       &:hover {
         background: #fef5ee;
@@ -804,3 +814,4 @@
     }
   }
 }
+

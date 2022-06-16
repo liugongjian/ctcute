@@ -7,6 +7,7 @@
       <el-button type="text"><svg-icon name="setting" /></el-button>
       <el-button type="text"><svg-icon name="download" />下载</el-button>
       <el-button type="text">文字按钮</el-button>
+      <el-button type="text" class="light"><svg-icon name="download" />下载</el-button>
     </div>
     <h2>禁用状态</h2>
     <div class="sub-sample">
@@ -14,6 +15,7 @@
       <el-button disabled type="text"><svg-icon name="setting" /></el-button>
       <el-button disabled type="text"><svg-icon name="download" />下载</el-button>
       <el-button disabled type="text">文字按钮</el-button>
+      <el-button disabled type="text" class="light"><svg-icon name="download" />下载</el-button>
     </div>
   </div>
 </template>

@@ -781,18 +781,19 @@
 .el-tree-node__content:hover {
   color: #989a9c;
 }
-.el-tooltip__popper.is-light {
-  border: 1px solid #ebeef5;
+
+.tree-node-popover {
+  border: 1px solid #ebeef5 !important;
   box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
   min-width: 0;
   padding: 0;
-  margin: -10px 0 0 0 !important;
+  margin: -0.5em 0 0 0 !important;
   .tooltip-content {
     display: flex;
     flex-direction: column;
     .el-button {
       margin: 0;
-      padding: 10px 15px;
+      padding: 0.8em 1.2em;
       color: rgba(0, 0, 0, 0.65);
       &:hover {
         background: #fef5ee;
@@ -800,3 +801,4 @@
     }
   }
 }
+

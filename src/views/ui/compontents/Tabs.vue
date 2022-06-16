@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="ui-tabs">
     <h3>基础样式</h3>
     <el-row>
       <el-tabs>
         <el-tab-pane label="选项一">选项一</el-tab-pane>
-        <el-tab-pane label="选项二">选项二</el-tab-pane>
-        <el-tab-pane label="选项三">选项三</el-tab-pane>
+        <el-tab-pane label="禁用项" disabled>禁用项</el-tab-pane>
+        <el-tab-pane label="默认项">默认项</el-tab-pane>
       </el-tabs>
     </el-row>
     <hr />
@@ -16,39 +16,43 @@
           <span slot="label"><i class="el-icon-cloudy"></i> 选项一</span>
           选项一
         </el-tab-pane>
-        <el-tab-pane>
-          <span slot="label"><i class="el-icon-cloudy"></i> 选项二</span>
-          选项二
+        <el-tab-pane disabled>
+          <span slot="label"><i class="el-icon-cloudy"></i> 禁用项</span>
+          禁用项
         </el-tab-pane>
         <el-tab-pane>
-          <span slot="label"><i class="el-icon-cloudy"></i> 选项三</span>
-          选项三
+          <span slot="label"><i class="el-icon-cloudy"></i> 默认项</span>
+          默认项
         </el-tab-pane>
       </el-tabs>
     </el-row>
     <hr />
-    <h3>卡片样式</h3>
-    <el-row>
+
+    <h3>小选项卡</h3>
+    <el-row class="small-tabs">
       <el-tabs value="third" type="card">
-        <el-tab-pane label="hover项" name="first">hover项</el-tab-pane>
         <el-tab-pane label="默认项" name="second">默认项</el-tab-pane>
         <el-tab-pane label="选中项" name="third">选中项</el-tab-pane>
         <el-tab-pane label="禁用选项" name="fourth" disabled>禁用选项</el-tab-pane>
       </el-tabs>
     </el-row>
-    <el-row>
+    <h3>可删除小选项卡</h3>
+    <el-row class="delete-tabs">
       <el-tabs v-model="editableTabsValue" type="card" closable @tab-remove="removeTab">
-        <el-tab-pane v-for="item in editableTabs" :key="item.name" :label="item.title" :name="item.name">
+        <!-- <el-tab-pane v-for="item in editableTabs" :key="item.name" :label="item.title" :name="item.name">
           {{ item.content }}
-        </el-tab-pane>
+        </el-tab-pane> -->
+        <el-tab-pane label="默认选项">默认选项</el-tab-pane>
+        <el-tab-pane label="选中选项">选中选项</el-tab-pane>
+        <el-tab-pane label="选中不可点选项" disabled>选中不可点选项</el-tab-pane>
       </el-tabs>
     </el-row>
-    <el-row>
+    <h3>按钮选项卡</h3>
+    <el-row class="button-tabs">
       <el-tabs value="second1" type="card">
         <el-tab-pane label="默认选项" name="first1">默认选项</el-tab-pane>
-        <el-tab-pane label="默认项" name="second1">选中选项</el-tab-pane>
-        <el-tab-pane label="hover选项" name="third1">hover选项</el-tab-pane>
-        <el-tab-pane label="选中不可点项" name="fourth1" disabled>选中不可点选项</el-tab-pane>
+        <el-tab-pane label="选中选项" name="second1">选中选项</el-tab-pane>
+        <el-tab-pane label="选中不可点选项" name="fourth1" disabled>选中不可点选项</el-tab-pane>
         <el-tab-pane label="禁用选项" name="fourt2" disabled>禁用选项</el-tab-pane>
       </el-tabs>
     </el-row>
@@ -58,30 +62,30 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiTabs'
+  name: 'UiTabs',
 })
 export default class extends Vue {
   public static title = {
     zh: '选项卡',
-    en: 'Tabs'
+    en: 'Tabs',
   }
 
   private editableTabs = [
     {
-      title: '选项一',
+      title: '默认项',
       name: '1',
-      content: '选项一'
+      content: '默认项',
     },
     {
-      title: '选项二',
+      title: '选中项',
       name: '2',
-      content: '选项二'
+      content: '选中项',
     },
     {
-      title: '选项三',
+      title: '不可用',
       name: '3',
-      content: '选项三'
-    }
+      content: '不可用',
+    },
   ]
 
   private editableTabsValue = '1'
@@ -108,5 +112,38 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .el-row {
   margin: 20px 0 24px 0;
+  // ::v-deep.el-tabs--card > .el-tabs__header .el-tabs__nav {
+  //   border: none;
+  // }
+}
+.small-tabs {
+  ::v-deep.el-tabs__nav.is-top {
+    border: none;
+  }
+  ::v-deep .el-tabs__item.is-top.is-active {
+    border-top: 1px solid #dddddd;
+    box-sizing: content-box;
+  }
+}
+.delete-tabs {
+  ::v-deep.el-tabs__nav.is-top {
+    border: none;
+  }
+  ::v-deep.el-tabs__item.is-top.is-active.is-closable {
+    border-top: 1px solid #dddddd;
+    box-sizing: content-box;
+  }
+}
+.button-tabs {
+  ::v-deep#tab-fourt2 {
+    background: #f8f8f8;
+    color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #dddddd;
+  }
+  ::v-deep.el-tabs__item.is-top.is-active {
+    background: rgba(250, 131, 52, 0.08);
+    border: 1px solid #fa8334;
+    color: #fa8334;
+  }
 }
 </style>

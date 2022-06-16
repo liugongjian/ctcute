@@ -11,6 +11,7 @@ import './assets/icons/components'
 import './assets/css/element-variables.scss'
 import './assets/css/index.scss'
 import '@/permission'
+import './assets/fonts/iconfont.css'
 
 Vue.use(mavonEditor)
 Vue.use(ElementUI, { size: 'medium' })

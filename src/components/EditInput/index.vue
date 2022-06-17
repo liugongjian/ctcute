@@ -1,9 +1,9 @@
 <template>
   <span>
-    <el-button v-if="!editing" type="text">描述 <svg-icon name="edit" @click="editing = true" /></el-button>
+    <template v-if="!editing">描述 <svg-icon class="edit-input-icon" name="edit" @click="editing = true" /></template>
     <span v-else class="wrap">
-      <el-input placeholder="请输入" value="描述"></el-input>
-      <svg-icon name="check" class="edit-input-icon" color="#52C41A" />
+      <el-input v-model="value" placeholder="请输入"></el-input>
+      <svg-icon name="check" color="#52C41A" @click="onOk" />
       <svg-icon name="close" color="#F5212D" @click="editing = false" />
     </span>
   </span>
@@ -18,10 +18,22 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ default: '' }) private value!: string
   private editing = false
+  private onOk() {
+    this.editing = false
+    this.$emit('edit-input-save')
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.edit-input-icon {
+  font-size: 14px;
+  margin-left: 10px;
+  cursor: pointer;
+  &:hover {
+    color: $primary;
+  }
+}
 .wrap {
   width: 384px;
   display: inline-block;
@@ -35,5 +47,4 @@ export default class extends Vue {
     margin-right: 8px;
   }
 }
-
 </style>

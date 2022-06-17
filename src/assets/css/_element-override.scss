@@ -585,6 +585,8 @@
   color: #1890ff;
   border: 1px solid #bddbff;
   border-radius: 2px;
+  height: 22px;
+  line-height: 20px;
 }
 
 /* Tree  */
@@ -713,7 +715,7 @@
   }
 }
 /* Transfer */
-.sub-transfer {
+.el-transfer {
   .el-transfer-panel .el-checkbox__inner {
     border-radius: 2px;
   }
@@ -732,9 +734,48 @@
     display: block;
     margin: 4px 8px;
   }
+  .el-icon-arrow-right:before {
+    content: '\eb44';
+    @include iconfont;
+  }
+  .el-icon-arrow-left:before {
+    content: '\eb21';
+    @include iconfont;
+  }
+  .el-transfer-panel__header {
+    margin-bottom: 0 !important;
+  }
+  .is-disabled.el-transfer__button {
+    background: #F8F8F8;
+    border: 1px solid #DDDDDD;
+    border-radius: 2px;
+    color: #ddd;
+    &:hover {
+      background: #F8F8F8;
+      color: #ddd;
+    }
+  }
+  .el-transfer-panel__filter {
+    margin: 8px 12px;
+    .el-input__inner {
+      border-radius: 2px;
+    }
+  }
+  .el-checkbox.el-transfer-panel__item.is-checked {
+    background-color: #fef5ee;
+  }
+  .el-checkbox__input.is-checked + .el-checkbox__label {
+    color: #333;
+  }
+  .el-checkbox {
+    margin-right: 0;
+  }
+  .el-checkbox__label {
+    font-size: 12px;
+  }
 }
-.el-transfer-panel__filter .el-input__inner {
-  border-radius: 2px;
+.el-transfer-panel .el-transfer-panel__header .el-checkbox .el-checkbox__label {
+  font-size: 12px;
 }
 /* Timeline */
 .sub-timeline {
@@ -768,7 +809,7 @@
   $color:字体颜色;
   $iconColor:icon颜色;
 */
-@mixin contentareatips-page($class: info, $color: rgba(0, 0, 0, 0.45), $iconColor: rgba(0, 0, 0, 0.45)) {
+@mixin contentareatips-page($class: info, $color: #666, $iconColor: rgba(0, 0, 0, 0.45)) {
   .sub-contentareatips {
     .el-alert--#{$class}.is-light {
       background-color: #ffff;
@@ -783,7 +824,9 @@
 @include contentareatips-page();
 @include contentareatips-page(warning, #fa9a34, #faad15);
 @include contentareatips-page(error, #f5212d, #f5212d);
-
+.el-alert__title {
+  font-size: 12px;
+}
 /* tooltip */
 .ui-tooltip {
   .el-tooltip__popper.is-dark {

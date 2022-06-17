@@ -9,8 +9,8 @@
           v-model="value1"
           style="text-align: left; display: inline-block"
           filterable
-          :left-default-checked="[2, 3]"
-          :right-default-checked="[1]"
+          :left-default-checked="[5]"
+          :right-default-checked="[]"
           :titles="['源列表', '目标列表']"
           :format="{
             noChecked: '${total}',

@@ -14,7 +14,7 @@
             })
           "
         >
-          成功
+          <span class="btn-text">成功</span>
         </el-button>
       </el-col>
       <el-col :span="1">
@@ -28,7 +28,7 @@
             })
           "
         >
-          警告
+          <span class="btn-text">警告</span>
         </el-button>
       </el-col>
       <el-col :span="2">
@@ -42,7 +42,7 @@
             })
           "
         >
-          错误
+          <span class="btn-text">错误</span>
         </el-button>
       </el-col>
     </el-row>
@@ -61,3 +61,10 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.sub-toast {
+  .btn-text {
+    font-size: 12px;
+  }
+}
+</style>

@@ -44,7 +44,6 @@
         :steps="multisteps"
         step-width="60%"
         type="multiSteps"
-        :step-size="3"
         :go-button="true"
         @clickStep="clickmulti"
         @change="goMulti"
@@ -66,7 +65,7 @@
         size="mini"
         step-width="100%"
         type="multiSteps"
-        :step-size="6"
+        :step-size="3"
         :go-button="true"
         @clickStep="clickmultimini"
         @change="goMultiMini"
@@ -106,7 +105,7 @@ export default class extends Vue {
     { title: '步骤3' },
     { title: '不可点击', disabled: true },
     { title: '错误/失败', status: 'error' },
-    { title: '结束', status: 'finish' },
+    { title: '结束' },
   ]
 
   multisteps = [

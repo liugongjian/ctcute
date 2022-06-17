@@ -30,8 +30,6 @@ export default class extends Vue {
 }
 .el-tag {
   margin-left: 10px;
-  height: 22px;
-  line-height: 20px;
 }
 .yellow-tag {
   background-color: #fef6e7;

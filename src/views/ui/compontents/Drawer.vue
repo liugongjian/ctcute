@@ -3,9 +3,10 @@
     <p>屏幕边缘滑出的浮层面板</p>
     <h3>何时使用</h3>
     <p>
-      抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到原任务。<br/>
-      -当需要一个附加的面板来控制父窗体内容，这个面板在需要时呼出。比如，控制界面展示样式，往界面中添加内容。<br/>
-      -当需要在当前任务流中插入临时任务，创建或预览附加内容。比如展示协议条款，创建子对象。</p>
+      抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到原任务。<br />
+      -当需要一个附加的面板来控制父窗体内容，这个面板在需要时呼出。比如，控制界面展示样式，往界面中添加内容。<br />
+      -当需要在当前任务流中插入临时任务，创建或预览附加内容。比如展示协议条款，创建子对象。
+    </p>
     <el-row>
       <el-col :span="2">
         <h3>简单样式</h3>
@@ -107,14 +108,16 @@ export default class extends Vue {
   margin-left: 10px;
 }
 .button-new-tag {
+  height: 22px;
+  line-height: 20px;
   margin-left: 10px;
-  height: 32px;
-  line-height: 30px;
   padding-top: 0;
   padding-bottom: 0;
+  border: 1px dashed #ccc;
 }
 .sub-tags {
   display: flex;
+  align-items: center;
   ::v-deep.el-form-item__label {
     padding: 0;
   }

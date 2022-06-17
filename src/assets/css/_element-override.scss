@@ -561,7 +561,7 @@
 }
 .el-icon-circle-close:before {
   @include iconfont;
-  content: '\ea4a';
+  content: '\ea5c';
 }
 .el-progress-bar__inner,
 .el-progress-bar__outer {
@@ -746,12 +746,12 @@
     margin-bottom: 0 !important;
   }
   .is-disabled.el-transfer__button {
-    background: #F8F8F8;
-    border: 1px solid #DDDDDD;
+    background: #f8f8f8;
+    border: 1px solid #dddddd;
     border-radius: 2px;
     color: #ddd;
     &:hover {
-      background: #F8F8F8;
+      background: #f8f8f8;
       color: #ddd;
     }
   }

@@ -10,7 +10,7 @@
     <div class="sub-sample">
       <el-button>次按钮</el-button>
       <el-button size="small">小次按钮</el-button>
-      <el-button type="primary" size="small">小主按钮</el-button>
+      <el-button type="primary" size="mini">小主按钮</el-button>
     </div>
     <h2>常用按钮</h2>
     <div class="sub-sample">

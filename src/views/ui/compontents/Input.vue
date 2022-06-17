@@ -44,7 +44,7 @@
         </el-col>
         <el-col :span="8">
           <el-input placeholder="请输入详细地址" class="input-with-select">
-            <el-select slot="prepend" v-model="select" placeholder="城市">
+            <el-select slot="prepend" v-model="select" placeholder="城市" size="small">
               <el-option label="上海" value="1"></el-option>
             </el-select>
           </el-input>
@@ -107,7 +107,7 @@
         </el-input>
       </el-row>
       <el-row>
-        <el-col :span="6">
+        <el-col :span="7">
           <el-input
             v-model="information"
             type="textarea"
@@ -118,7 +118,7 @@
           >
           </el-input>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="7">
           <el-input
             type="textarea"
             :rows="3"
@@ -129,7 +129,7 @@
           >
           </el-input>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="7">
           <el-input
             v-model="information1"
             type="textarea"
@@ -151,8 +151,8 @@ import EditInput from '@/components/EditInput/index.vue'
 @Component({
   name: 'UiInput',
   components: {
-    EditInput
-  }
+    EditInput,
+  },
 })
 export default class extends Vue {
   public static title = {
@@ -215,45 +215,28 @@ export default class extends Vue {
 .el-input {
   width: 300px;
   height: 32px;
-  font-size: 12px;
 }
-.el-textarea {
-  display: block;
-  width: 300px;
-}
+
 .special-input {
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 24px;
-  ::v-deep.el-input-group__append,
-  ::v-deep.el-input-group__prepend {
-    width: 80px;
-    background: #ffff;
-    color: #333333;
+}
+
+.input-icon {
+  .el-input {
+    width: 200px;
   }
-  .special-prepend {
-    ::v-deep.el-input-group__append,
-    ::v-deep.el-input-group__prepend {
-      width: 80px;
-      color: rgba(0, 0, 0, 0.45);
-    }
-  }
-  .icon-money {
-    line-height: 36px;
-  }
-  .input-icon {
-    .el-input {
-      width: 200px;
-    }
-  }
-  .suffix-Forgot {
-    line-height: 36px;
-    color: #333333;
-  }
-  .suffix-Forgot::before {
-    content: '|';
-    color: #cccccc;
-    margin-right: 12px;
-  }
+}
+.suffix-Forgot,
+.icon-money {
+  line-height: 36px;
+  color: #333333;
+  margin-right: 12px;
+}
+.suffix-Forgot::before {
+  content: '|';
+  color: #cccccc;
+  margin-right: 12px;
 }
 
 .sub-input {
@@ -261,6 +244,7 @@ export default class extends Vue {
   padding-bottom: 24px;
   .el-icon-close {
     line-height: 36px;
+    padding-right: 15px;
     &:hover {
       color: $primary;
       cursor: pointer;
@@ -271,17 +255,6 @@ export default class extends Vue {
 .edit-input-icon {
   margin: 0 20px;
   cursor: pointer;
-}
-
-.el-input {
-  width: 300px;
-  height: 32px;
-  // margin: 20px 0;
-}
-
-.el-textarea {
-  display: block;
-  width: 300px;
 }
 
 .el-input.is-disabled {

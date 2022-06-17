@@ -16,10 +16,11 @@ $--border-radius-base: 2px;
 $--input-disabled-fill: #f8f8f8;
 $--rate-icon-color: #fa8334;
 $--tree-node-hover-background-color: #fef5ee;
+$--font-size-base: 12px;
 
 /* $--color-text-primary:#ffff; */
 /* Icon font path, required */
-$--font-path: "~element-ui/lib/theme-chalk/fonts";
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 /* Apply overrided variables in Element UI */
-@import "~element-ui/packages/theme-chalk/src/index";
+@import '~element-ui/packages/theme-chalk/src/index';

@@ -7,7 +7,7 @@
         <el-button type="text">默认</el-button><el-button type="text" disabled>存在分组</el-button><el-button type="text" disabled>存在多行字段</el-button><el-button type="text" disabled>不可用</el-button><el-button type="text" disabled>存在辅助信息</el-button>
       </div>
       <el-row>
-        <el-col :span="6">
+        <el-col :span="7">
           <el-select v-model="value" popper-class="select-radio" filterable>
             <el-option label="默认选项" value="默认选项"> </el-option>
             <el-option label="已选择项" value="已选择项"> </el-option>
@@ -31,7 +31,7 @@
     <div class="sub-down">
       <h3>多选</h3>
       <el-row>
-        <el-col :span="6">
+        <el-col :span="7">
           <el-select v-model="selectValue" multiple placeholder="请选择">
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
             </el-option>
@@ -70,7 +70,7 @@
     <div class="sub-down">
       <h3>日期/时间选择</h3>
       <el-row>
-        <el-col :span="6">
+        <el-col :span="7">
           <el-time-select
             v-model="text"
             :picker-options="{
@@ -82,7 +82,7 @@
           >
           </el-time-select>
         </el-col>
-        <el-col :span="7">
+        <el-col :span="8">
           <el-date-picker
             type="daterange"
             range-separator="至"
@@ -91,7 +91,7 @@
           >
           </el-date-picker>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="7">
           <el-date-picker
             type="datetimerange"
             range-separator="至"
@@ -102,10 +102,10 @@
         </el-col>
       </el-row>
       <el-row>
-        <el-col :span="6">
+        <el-col :span="7">
           <el-date-picker type="datetime" placeholder="选择时间" size="mini"> </el-date-picker>
         </el-col>
-        <el-col :span="7">
+        <el-col :span="8">
           <el-date-picker
             type="daterange"
             range-separator="至"
@@ -115,7 +115,7 @@
           >
           </el-date-picker>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="7">
           <el-date-picker
             type="datetimerange"
             range-separator="至"
@@ -216,7 +216,6 @@ export default class extends Vue {
   }
   .el-select {
     margin: 10px 0 24px 0;
-    border: 1px solid #dddddd;
     ::v-deep.el-input__inner {
       font-size: 12px;
     }
@@ -227,9 +226,6 @@ export default class extends Vue {
   ::v-deep.el-input .el-input__inner {
     color: #fa8334;
   }
-  .select-field {
-  }
-  color: red;
   ::v-deep .el-input.el-input--medium.el-input--suffix {
     width: auto;
     padding-right: 0;
@@ -264,6 +260,7 @@ export default class extends Vue {
   }
   ::v-deep.el-select__tags-text:hover {
     color: #fa8334;
+    cursor: pointer;
   }
   ::v-deep.el-tag__close.el-icon-close {
     background: #999999;

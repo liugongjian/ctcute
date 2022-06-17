@@ -178,6 +178,7 @@
     margin-left: 2px;
     .el-radio-button__inner {
       color: $text;
+      font-size: $textSize;
       background-color: #FFEFE3;
       border: 0;
       &:hover {
@@ -243,6 +244,7 @@
   }
   .el-checkbox-button__inner {
     color: $text;
+    font-size: $textSize;
     background-color: #FFEFE3;
     border: 1px solid transparent;
     border-radius: 2px;

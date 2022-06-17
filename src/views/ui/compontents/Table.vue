@@ -10,7 +10,7 @@
         <el-table-column prop="name" label="主机别名" width="150px">
           <template slot-scope="scope">
             <div>
-              <span class="text-ellipsis" :title="scope.row.name">{{ scope.row.name }}</span>
+              <span class="text-ellipsis name-primary" :title="scope.row.name">{{ scope.row.name }}</span>
             </div>
           </template>
         </el-table-column>
@@ -76,15 +76,15 @@
 
     <h3>可多选表格(2个以内操作)</h3>
     <div class="sub-table">
-      <div style="margin-bottom: 20px;">
-        <el-button type="primary" disabled>主按钮</el-button>
-        <el-button disabled>次按钮</el-button>
+      <div style="margin-bottom: 16px;">
+        <el-button type="primary" :disabled="!multipleSelection.length" size="small">主按钮</el-button>
+        <el-button :disabled="!multipleSelection.length" size="small">次按钮</el-button>
       </div>
-      <el-table ref="multipleTable" :data="data.tableData10" tooltip-effect="dark" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
+      <el-table ref="multipleTable" :data="data.tableData10" tooltip-effect="dark" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }" @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" width="150px" label="主机别名">
           <template slot-scope="scope">
-            <span class="text-ellipsis" style="width: 100%;">{{ scope.row.name }}</span>
+            <span class="text-ellipsis name-primary" style="width: 100%;">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
@@ -150,17 +150,19 @@
     <h3>可多选表格(3个以上操作)</h3>
     <div class="sub-table">
       <div style="margin-bottom: 20px;">
-        <el-select value="" placeholder="操作已选项" style="width: 110px; height: 32px;">
-          <!-- <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-        </el-option> -->
+        <el-select v-model="selectedCount" placeholder="请选择" popper-class="select-field">
+          <el-option> 续订 </el-option>
+          <el-option> 退订 </el-option>
+          <el-option> 创建 </el-option>
+          <el-option disabled> Disabled </el-option>
         </el-select>
       </div>
 
-      <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData10" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
+      <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData10" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }" @selection-change="handleSelectionChangeOver3">
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" label="主机别名">
           <template slot-scope="scope">
-            <span class="text-ellipsis" style="width: 100%;">{{ scope.row.name }}</span>
+            <span class="text-ellipsis name-primary" style="width: 100%;">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
@@ -226,9 +228,10 @@
     <h3>展示不全的表格</h3>
     <div class="sub-table">
       <el-table :data="data.tableData10" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
-        <el-table-column prop="name" label="主机别名" width="120" fixed>
+        <el-table-column type="selection" width="55" fixed> </el-table-column>
+        <el-table-column prop="name" label="主机别名" width="120">
           <template slot-scope="scope">
-            <span class="text-ellipsis" style="width: 100%;">{{ scope.row.name }}</span>
+            <span class="text-ellipsis name-primary" style="width: 100%;">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
@@ -292,7 +295,7 @@
     </div>
     <h3>横向展示列表</h3>
     <div class="sub-table">
-      <el-table :data="tableData" :span-method="row" border>
+      <el-table :data="tableData" :span-method="row">
         <el-table-column prop="dataFilter" label="数据筛选" width="230" align="center"> </el-table-column>
         <el-table-column prop="dataTime" label="数据时间字段" align="center" sortable> </el-table-column>
         <el-table-column prop="key" label="主键" align="center" width="260"> </el-table-column>
@@ -356,7 +359,9 @@ export default class extends Vue {
   private data = data
 
   private HEALTH = HEALTH
-
+  private multipleSelection = []
+  private multipleSelectionOver3 = []
+  private selectedCount = ''
   private tableData = [
     {
       dataFilter: 'user_age>6 and user_age<=9',
@@ -420,7 +425,19 @@ export default class extends Vue {
       return [0, 0]
     }
   }
+
+  private handleSelectionChange(val: []) {
+    this.multipleSelection = val
+    console.log(this.multipleSelection)
+  }
+
+  private handleSelectionChangeOver3(val: []) {
+    this.multipleSelectionOver3 = val
+    console.log(this.multipleSelectionOver3)
+    this.selectedCount = `已选项(${val.length})`
+  }
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -434,6 +451,9 @@ export default class extends Vue {
     white-space: nowrap;
     vertical-align: middle;
     width: 100%;
+  }
+  .name-primary {
+    color: $primary;
   }
 
   .cell {

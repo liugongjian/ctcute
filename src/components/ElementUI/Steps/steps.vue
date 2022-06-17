@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-row :gutter="20" align="middle" :style="{ width: stepWidth }">
+    <el-row type="flex" align="middle" :style="{ width: stepWidth }">
       <el-col v-if="goButton" :span="1">
         <div class="button-col point-style" @click="goPre"><i class="el-icon-arrow-left"></i></div>
       </el-col>
@@ -66,11 +66,12 @@ export default class extends Vue {
   @Prop({ type: Number, default: 0 }) active?: number // 激活
   @Prop(Array) readonly steps: any // step数据
   @Prop({ type: String }) type?: string // 多步骤条,multiSteps
-  @Prop({ type: Number, default: 3 }) stepSize?: number // 多步骤条时使用，显示几个步骤
+  @Prop({ type: Number, default: 1 }) stepSize?: number // 多步骤条时使用，显示几个步骤
   @Prop({ type: Boolean, default: false }) goButton?: boolean // 是否展示前后退按钮
+  width = '0'
   get widthArr() {
     const { steps } = this
-    const lastStepWidth = 135
+    const lastStepWidth = this.size === 'mini' ? 100 : 120
     return steps.map((s, index) => {
       let result = ''
       if (index < steps.length - 1) {
@@ -87,17 +88,20 @@ export default class extends Vue {
   }
 
   getShow(index: number) {
-    if (index === 0 || index === this.steps.length - 1) {
-      return true
-    } else if (this.active === index) {
-      return true
-    } else if (index > this.active + (this.stepSize - 3)) {
-      return false
-    } else if (index < this.active && !(index === 0 || index === this.steps.length - 1)) {
-      return false
+    if (this.stepSize === 1) {
+      if (index === 0 || index === this.steps.length - 1 || this.active === index) {
+        return true
+      } else {
+        return false
+      }
     } else {
-      return true
+      if (index === 0 || index === this.steps.length - 1) {
+        return true
+      } else if (index <= this.active + this.stepSize - 1 && index >= this.active) {
+        return true
+      }
     }
+    return false
   }
 
   gettitle(s: any, index: number) {
@@ -123,7 +127,9 @@ export default class extends Vue {
   }
 
   mounted() {
-    this.getShow(0)
+    if (this.type === 'multiSteps') {
+      this.getShow(0)
+    }
   }
 }
 </script>
@@ -195,14 +201,21 @@ export default class extends Vue {
   background-color: #fa8334;
 }
 ::v-deep .el-step__title.is-wait {
-  color: #cccccc;
+  color: #999999;
 }
-/* ::v-deep .el-step__description {
+/* ::v-deep .el-step__head.is-wait {
+  color:  #999999;
+}
+::v-deep .el-step__description {
   padding-right: 0;
   margin-top: 2px;
 } */
 ::v-deep .el-step__description.is-success {
   color: rgba(0, 0, 0, 0.65);
+}
+
+::v-deep .el-col-1 {
+  width: 30px;
 }
 
 .stepSuc :hover {

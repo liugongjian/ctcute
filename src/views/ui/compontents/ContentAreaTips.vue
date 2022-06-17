@@ -14,7 +14,7 @@
         <el-alert title="这是一个错误提示" type="error" show-icon :closable="false"> </el-alert>
       </el-col>
       <el-col :span="5" :pull="3">
-        <el-alert>
+        <el-alert show-icon :closable="false">
           <span slot="icon-custom"><svg-icon class="el-alert__icon" name="question-circle" /></span>
         </el-alert>
       </el-col>

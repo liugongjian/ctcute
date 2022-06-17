@@ -31,8 +31,8 @@
 }
 
 .el-button + .el-dropdown {
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 .el-button + .el-button {
@@ -90,6 +90,9 @@
     border: 1px solid #fa8334;
   }
 }
+.svg-icon.svg-fill {
+  margin-right: 4px;
+}
 
 @include button-disabled();
 @include button-disabled(danger, $bgColor, $bdColor, $color);
@@ -107,7 +110,16 @@
     display: none;
   }
 }
-
+// .el-button.el-button--primary.el-button--small {
+//   border: none;
+// }
+.el-button.el-button--primary.el-button--mini {
+  padding: 8px 20px;
+}
+/* Link */
+.el-link.el-link--primary:hover {
+  color: $primary;
+}
 /* Form */
 .el-form-item__label {
   padding-right: 25px;
@@ -123,6 +135,22 @@
 }
 
 /* Input */
+
+.el-input-group__append,
+.el-input-group__prepend {
+  width: 80px;
+  background: #ffff;
+  color: #333333;
+  .el-input__inner::placeholder {
+    color: #333333;
+  }
+}
+.el-input-group__prepend {
+  color: #666666;
+}
+.el-input {
+  font-size: 12px;
+}
 .el-input__prefix {
   display: flex;
   align-items: center;
@@ -151,11 +179,22 @@
     }
   }
 }
-
+.el-input-group__prepend {
+  .el-input__inne::placeholde {
+    color: red;
+  }
+}
 /* Textarea */
 .el-textarea .el-input__count {
   color: $textGrey;
   line-height: 150%;
+}
+.el-textarea {
+  font-size: 12px;
+  width: 300px;
+  .el-textarea__inner {
+    padding: 7px 12px;
+  }
 }
 
 /* Radio */
@@ -319,6 +358,9 @@
 }
 
 /* Table */
+.el-tabs__item {
+  font-size: 12px;
+}
 .el-table__header-wrapper {
   background-color: #f3f3f3;
 }
@@ -399,12 +441,7 @@
 .el-pagination {
   margin-top: 8px;
   padding-top: 8px;
-  .el-select__caret.el-input__icon.el-icon-arrow-up {
-    transform: rotate(360deg);
-  }
-  .el-icon-arrow-up:before {
-    content: '\e790';
-  }
+
   .el-input__inner {
     width: 60px;
     height: 24px;
@@ -420,8 +457,13 @@
   .el-pager {
     li {
       font-size: 12px;
+      height: 24px;
+      line-height: 24px;
     }
   }
+}
+.el-pagination.is-background .el-pager li {
+  min-width: 20px;
 }
 .el-pagination__total {
   margin-right: 14px;
@@ -468,6 +510,9 @@
   }
 }
 
+.el-breadcrumb__item:last-child .el-breadcrumb__inner {
+  color: $text;
+}
 /* steps */
 /* $class:类名;
    $bdColor:边框颜色
@@ -514,6 +559,8 @@
   .el-input.el-input--suffix {
     width: 300px;
   }
+}
+.el-select {
   .el-select__caret.el-input__icon.el-icon-arrow-up {
     transform: rotate(360deg);
     color: #999999;
@@ -523,6 +570,9 @@
   }
 }
 
+.el-select .el-input.is-focus .el-input__inner {
+  border: 1px solid #dddddd;
+}
 .el-tag.el-tag--info {
   background: #f1f1f1;
   color: rgba(0, 0, 0, 0.65);

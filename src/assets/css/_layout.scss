@@ -20,7 +20,7 @@
   overflow: hidden;
 
   &__title {
-    font-size: 16px;
+    font-size: 14px;
     color: $text;
     padding: 15px 0 10px 20px;
     font-weight: bold;
@@ -63,10 +63,12 @@
   .el-submenu .el-menu-item {
     min-width: $sideBarWidth;
     background-color: $subMenuBg;
+    border-right: 2px solid transparent;
 
     &.is-active,
     &:hover {
       background-color: $subMenuHover !important;
+      border-right: 2px solid $primary;
     }
   }
 }

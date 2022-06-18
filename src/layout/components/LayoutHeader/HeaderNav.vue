@@ -42,15 +42,19 @@ export default class extends Vue {
     ::v-deep .el-input__inner {
       width: 200px;
       height: 32px;
-      background: none;
+      background: #353f58;
       border-radius: 2px;
-      border: 1px solid #979797;
       padding-left: 36px;
-      color: #a8adaf;
+      color: #999;
+      border: none;
     }
 
     ::v-deep .el-input__prefix {
       margin-left: 5px;
+    }
+
+    .svg-icon {
+      color: #999;
     }
   }
 }
@@ -59,6 +63,7 @@ export default class extends Vue {
   a {
     color: #a8adaf;
     margin-right: 24px;
+    font-size: 14px;
 
     &.active,
     &:hover {

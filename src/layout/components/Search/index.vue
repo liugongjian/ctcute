@@ -3,7 +3,7 @@
     ref="autocomplete"
     v-model="keyword"
     class="layout-header__search--input"
-    placeholder="请输入"
+    placeholder="搜索..."
     :fetch-suggestions="search"
     :trigger-on-focus="false"
     @select="handleSelect"

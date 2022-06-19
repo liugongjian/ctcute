@@ -37,7 +37,7 @@ export default class extends Vue {
     height: $headerHeight;
     display: flex;
     justify-content: space-between;
-    background: #424550;
+    background: #272b39;
 
     &__logo {
       display: flex;
@@ -45,7 +45,7 @@ export default class extends Vue {
       padding-left: 28px;
 
       &--ct {
-        height: 27px;
+        height: 22px;
       }
 
       &--project {
@@ -56,7 +56,7 @@ export default class extends Vue {
         border-left: 1px solid #979797;
 
         img {
-          height: 18px;
+          height: 15px;
           margin-top: 3px; // 因包含字母g，向下偏移3个像素，让视觉水平居中
         }
       }

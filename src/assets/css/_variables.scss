@@ -8,7 +8,7 @@ $danger: #f5212d;
 $info: #1890ff;
 
 /* Text */
-$text: #333333;
+$text: #333;
 $textGrey: rgba(0, 0, 0, 45%);
 $textLightGrey: rgba(0, 0, 0, 35%);
 $textHead: rgba(0, 0, 0, 90%);
@@ -25,7 +25,7 @@ $headerBg: #424550;
 /* Border */
 $border: #ddd;
 $borderGrey: #eee;
-$borderButton: #dddddd;
+$borderButton: #ddd;
 
 /* Sidebar */
 $sideBarWidth: 230px;
@@ -34,24 +34,24 @@ $menuBg: #fff;
 $menuText: $text;
 $menuActiveText: #000;
 $subMenuBg: #fff;
-$subMenuHover: #f2f2f2;
+$subMenuHover: #fef5ee;
 $subMenuActiveText: #000;
 
-/* Button:disabled*/
+/* Button:disabled */
 $bgColor: #f8f8f8;
-$bdColor: #dddddd;
-$color: rgba(0, 0, 0, 0.3);
+$bdColor: #ddd;
+$color: rgba(0, 0, 0, 30%);
 
-/* Pagination*/
-$paginationBgColor: #ffffff;
+/* Pagination */
+$paginationBgColor: #fff;
 
 /* steps */
 $stepsBorderColor: #fa8334;
 $stepsSuccessColor: #fa8334;
-$stepsColor: #ffffff;
+$stepsColor: #fff;
 
 /* input */
-$inputBgColor: #ffffff;
+$inputBgColor: #fff;
 
 /* Textarea */
 $backgroundColorBase: #f8f8f8;
@@ -60,7 +60,7 @@ $backgroundColorBase: #f8f8f8;
  * https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
   */
 :export {
-  menuBg: $menuBg;
-  menuText: $menuText;
-  menuActiveText: $menuActiveText;
+  menubg: $menuBg;
+  menutext: $menuText;
+  menuactivetext: $menuActiveText;
 }

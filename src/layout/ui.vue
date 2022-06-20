@@ -1,6 +1,6 @@
 <template>
   <div class="app-wrapper">
-    <layout-header v-if="!isCas" />
+    <layout-header />
     <div class="ui-layout-container">
       <app-main />
     </div>

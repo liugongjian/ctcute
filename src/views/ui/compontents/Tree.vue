@@ -12,23 +12,16 @@
             {{ node.label }}
             <div class="handler-menu">
               <el-button slot="reference" type="text"><svg-icon v-if="!node.isLeaf" name="plus" class="handler-icon" @click.stop="() => {}" /></el-button>
-              <el-tooltip
-                popper-class="tree-node-popover"
-                effect="light"
-                placement="bottom-end"
-                trigger="click"
-                :visible-arrow="false"
-                :append-to-body="true"
-                @after-enter="onShow(node)"
-                @after-leave="onHidden($el)"
-              >
-                <div slot="content" class="tooltip-content">
-                  <el-button v-if="!node.isLeaf" size="mini" type="text">重命名</el-button>
-                  <el-button v-if="!node.isLeaf" size="mini" type="text">删除</el-button>
-                  <el-button v-if="node.isLeaf" size="mini" type="text">移动</el-button>
+              <div class="hover-wrapper">
+                <el-button type="text" class="dash-icon"><svg-icon v-if="data.key !== 1" name="dash" class="handler-icon" @click.stop /></el-button>
+                <div class="pop-tooltip tree-node-popover el-tooltip__popper">
+                  <div class="tooltip-content">
+                    <el-button v-if="!node.isLeaf" size="mini" type="text" @click.stop>重命名</el-button>
+                    <el-button v-if="!node.isLeaf" size="mini" type="text" @click.stop>删除</el-button>
+                    <el-button v-if="node.isLeaf" size="mini" type="text" @click.stop>移动</el-button>
+                  </div>
                 </div>
-                <el-button type="text"><svg-icon v-if="data.key !== 1" name="dash" class="handler-icon" @click.stop /></el-button>
-              </el-tooltip>
+              </div>
             </div>
           </span>
         </el-tree>
@@ -142,7 +135,7 @@ export default class extends Vue {
       position: absolute;
       right: 0.5em;
       display: none;
-      .el-button {
+      .el-button:not(.pop-tooltip .el-button) {
         padding: 0;
         margin: 0.9em 0.3em;
       }
@@ -157,4 +150,26 @@ export default class extends Vue {
       }
     }
   }
+.sub-tree {
+  ::v-deep .el-tree-node > .el-tree-node__children {
+    overflow: initial;
+  }
+  .hover-wrapper {
+    display: inline-block;
+    margin-left: -0.4em;
+    &:hover {
+      .pop-tooltip {
+        display: block;
+      }
+    }
+  }
+  .pop-tooltip {
+    display: none;
+    position: absolute;
+    z-index: 2019;
+    top: 24px;
+    right: 0;
+    background: #fff;
+  }
+}
 </style>

@@ -391,7 +391,7 @@
 .el-table {
   max-height: 638px;
   overflow-y: scroll;
-  margin: 24px 0 11px 0 !important;
+  margin: 16px 0 11px 0 !important;
 }
 
 .el-table .cell {
@@ -428,6 +428,9 @@
 }
 .el-table .el-icon-arrow-down:before {
   content: '\e790';
+}
+.el-table thead.is-group th.el-table__cell {
+  border-color: #DDDDDD ;
 }
 
 /* Pagination */

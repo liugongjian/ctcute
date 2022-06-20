@@ -294,8 +294,8 @@
       </el-pagination>
     </div>
     <h3>横向展示列表</h3>
-    <div class="sub-table">
-      <el-table :data="tableData" :span-method="row">
+    <div class="sub-table-horizon">
+      <el-table :data="tableData" :span-method="row" :cell-style="{ 'border-bottom': '1px solid #DDD', 'border-right': '1px solid #DDD' }" :row-style="{ 'border-': '1px solid #DDD', 'border-right': '1px solid #DDD', 'border-right': '1px solid #DDD' }">
         <el-table-column prop="dataFilter" label="数据筛选" width="230" align="center"> </el-table-column>
         <el-table-column prop="dataTime" label="数据时间字段" align="center" sortable> </el-table-column>
         <el-table-column prop="key" label="主键" align="center" width="260"> </el-table-column>
@@ -490,6 +490,15 @@ export default class extends Vue {
   }
 }
 
+.sub-table-horizon {
+  border-bottom: 1px solid #f1f1f1;
+  padding-bottom: 24px;
+  .el-table--border {
+    border-left: 1px solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+  }
+}
 .small-table {
   tr,
   td{

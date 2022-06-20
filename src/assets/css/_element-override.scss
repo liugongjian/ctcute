@@ -436,6 +436,9 @@
 .el-table .el-icon-arrow-down:before {
   content: '\e790';
 }
+.el-table thead.is-group th.el-table__cell {
+  border-color: #DDDDDD ;
+}
 
 /* Pagination */
 .el-pagination {

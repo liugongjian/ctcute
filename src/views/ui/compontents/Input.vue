@@ -20,7 +20,10 @@
     <div class="routine-input">
       <h3>编辑输入框</h3>
       <el-row>
-        <edit-input value="描述" />
+        <edit-input value="单行描述" />
+      </el-row>
+      <el-row>
+        <edit-input :textarea="true" value="多行描述" />
       </el-row>
     </div>
     <h3>搜索输入框</h3>

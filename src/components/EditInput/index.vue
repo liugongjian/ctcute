@@ -1,8 +1,8 @@
 <template>
   <span>
-    <template v-if="!editing">描述 <svg-icon class="edit-input-icon" name="edit" @click="editing = true" /></template>
+    <template v-if="!editing">{{ value }} <svg-icon class="edit-input-icon" name="edit" @click="editing = true" /></template>
     <span v-else class="wrap">
-      <el-input v-model="value" placeholder="请输入"></el-input>
+      <el-input v-model="value" :type="textarea ? 'textarea' : 'text'" placeholder="请输入"></el-input>
       <svg-icon name="check" color="#52C41A" @click="onOk" />
       <svg-icon name="close" color="#F5212D" @click="editing = false" />
     </span>
@@ -17,6 +17,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 })
 export default class extends Vue {
   @Prop({ default: '' }) private value!: string
+  @Prop({ default: false }) private textarea!: boolean
   private editing = false
   private onOk() {
     this.editing = false
@@ -39,7 +40,13 @@ export default class extends Vue {
   display: inline-block;
   .el-input {
     width: calc(100% - 84px);
-    margin-right: 20px;
+  }
+  .el-input,
+  .el-textarea {
+    margin-right: 10px;
+  }
+  .el-textarea ~ svg {
+    margin-bottom: 8px;
   }
   svg {
     cursor: pointer;

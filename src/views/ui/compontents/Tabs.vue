@@ -47,15 +47,6 @@
         <el-tab-pane label="选中不可点选项" disabled>选中不可点选项</el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>按钮选项卡</h3>
-    <el-row class="button-tabs">
-      <el-tabs value="second1" type="card">
-        <el-tab-pane label="默认选项" name="first1">默认选项</el-tab-pane>
-        <el-tab-pane label="选中选项" name="second1">选中选项</el-tab-pane>
-        <el-tab-pane label="选中不可点选项" name="fourth1" disabled>选中不可点选项</el-tab-pane>
-        <el-tab-pane label="禁用选项" name="fourt2" disabled>禁用选项</el-tab-pane>
-      </el-tabs>
-    </el-row>
   </div>
 </template>
 <script lang="ts">

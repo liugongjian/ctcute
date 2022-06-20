@@ -39,21 +39,10 @@
       <el-button disabled size="small" type="primary">小次按钮</el-button>
       <el-button size="small" type="primary" disabled><svg-icon name="plus" />新增过滤</el-button>
     </div>
-    <h2>组合图标</h2>
+    <h2>组合按钮</h2>
     <div class="sub-combination">
-      <p>常用于复杂详情页</p>
-      <el-button>操作一</el-button>
-      <el-button>操作二</el-button>
-      <el-dropdown>
-        <el-button>...</el-button>
-        <el-dropdown-menu slot="dropdown" class="combination-dropdown">
-          <el-dropdown-item>操作一</el-dropdown-item>
-          <el-dropdown-item>操作二</el-dropdown-item>
-          <el-dropdown-item>操作三</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
-
-      <el-button type="primary">主操作</el-button>
+      <p>组合按钮常用于复杂详情页</p>
+      <button-group :data="buttonData" :max="2" />
     </div>
     <h2>按钮布局</h2>
     <div class="sub-sample">
@@ -82,9 +71,10 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-
+import ButtonGroup from '@/components/CombinationButton/ButtonGroup.vue'
 @Component({
   name: 'UiButton',
+  components: { ButtonGroup },
 })
 export default class extends Vue {
   public static title = {
@@ -92,6 +82,7 @@ export default class extends Vue {
     en: 'Button',
   }
 
+  buttonData = ['操作一', '操作二', '操作三']
   private flag = false
 }
 </script>
@@ -103,9 +94,9 @@ export default class extends Vue {
   }
 }
 .sub-combination {
-  .el-button + .el-button {
-    margin: 0px;
-  }
+  // .el-button + .el-button {
+  //   margin: 0px;
+  // }
   .el-button + .el-dropdown {
     margin: 0;
   }

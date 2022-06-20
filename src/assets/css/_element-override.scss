@@ -56,42 +56,39 @@
 .el-button-rect {
   padding: 10px;
 }
-.ui-button {
-  .sub-special {
-    .el-button--danger:hover {
-      background-color: #e32948;
-    }
-    .el-button--danger:active,
-    .el-button--danger:focus {
-      background-color: #bd0322;
-    }
+.sub-special {
+  .el-button--danger:hover {
+    background-color: #e32948;
   }
-  .el-button--danger.is-plain {
-    background: #fff;
-    border: 1px solid #ff5050;
-    &:hover,
-    &:active,
-    &:focus {
-      background: #ff5050;
-    }
-  }
-  .el-button--medium {
-    padding: 10px 20px;
-    font-size: 12px;
-    border-radius: 0 2px 2px 0;
-  }
-  .el-button--small {
-    padding: 8x 20px;
-    border: 1px solid #cccccc;
-    border-radius: 2px;
-  }
-  .el-button.el-button--default:hover {
-    background: #ffff;
-    border: 1px solid #fa8334;
+  .el-button--danger:active,
+  .el-button--danger:focus {
+    background-color: #bd0322;
   }
 }
-.svg-icon.svg-fill {
-  margin-right: 4px;
+.el-button--danger.is-plain {
+  background: #fff;
+  border: 1px solid #ff5050;
+  &:hover,
+  &:active,
+  &:focus {
+    background: #ff5050;
+  }
+}
+.el-button--medium {
+  padding: 10px 20px;
+  font-size: 12px;
+  border-radius: 2px;
+}
+.el-button--small {
+  padding: 8x 20px;
+  border-radius: 2px;
+  .svg-icon.svg-fill {
+    margin-right: 4px;
+  }
+}
+.el-button.el-button--default:hover {
+  background: #ffff;
+  border: 1px solid #fa8334;
 }
 
 @include button-disabled();
@@ -110,9 +107,6 @@
     display: none;
   }
 }
-// .el-button.el-button--primary.el-button--small {
-//   border: none;
-// }
 .el-button.el-button--primary.el-button--mini {
   padding: 8px 20px;
 }
@@ -159,20 +153,19 @@
 .el-input-number__decrease {
   background-color: $inputBgColor;
 }
-.ui-input {
-  .el-input__inner:hover {
-    border: 1px solid #999999;
-  }
-  .el-input__inner:active {
-    border: 1px solid #fa8334;
-    box-shadow: 0 0 4px 0 rgba(250, 131, 52, 0.2);
-  }
+
+.el-input__inner:hover {
+  border-color: #999999;
 }
-.ui-input {
-  .el-form-item.is-error .el-input__inner {
-    border: 1px solid #f5212d;
-    background: rgba(245, 33, 45, 0.08);
-  }
+.el-input__inner:active {
+  border: 1px solid #fa8334;
+  box-shadow: 0 0 4px 0 rgba(250, 131, 52, 0.2);
+}
+
+.el-form-item.is-error .el-input__inner {
+  border: 1px solid #f5212d;
+  background: rgba(245, 33, 45, 0.08);
+
   .el-input__inner:hover {
     .el-input__icon.el-icon-close {
       color: red;
@@ -218,10 +211,10 @@
     .el-radio-button__inner {
       color: $text;
       font-size: $textSize;
-      background-color: #FFEFE3;
+      background-color: #ffefe3;
       border: 0;
       &:hover {
-        background-color: #FFE6D2;
+        background-color: #ffe6d2;
       }
     }
     &.is-active .el-radio-button__inner {
@@ -230,7 +223,7 @@
     }
     &.is-disabled .el-radio-button__inner {
       color: #999;
-      background-color: #F8F8F8;
+      background-color: #f8f8f8;
     }
   }
 }
@@ -245,12 +238,12 @@
     }
     &.is-checked .el-checkbox-button__inner {
       color: #333;
-      background-color: rgba(250,131,52,0.08);;
-      border: 1px solid #FA8334;
+      background-color: rgba(250, 131, 52, 0.08);
+      border: 1px solid #fa8334;
       box-shadow: none;
       position: relative;
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         right: 0;
         top: 0;
@@ -259,19 +252,19 @@
         transform: rotate(270deg);
       }
       &::after {
-        content: "\eac7";
+        content: '\eac7';
         color: #fff;
         position: absolute;
         right: 0;
         top: 0;
         font-size: 12px;
-        zoom: .75;
+        zoom: 0.75;
         @include iconfont;
       }
     }
     &.is-disabled .el-checkbox-button__inner {
       color: #999;
-      background-color: #F8F8F8;
+      background-color: #f8f8f8;
       border-color: #ddd;
       &::before {
         border-color: transparent #ddd #ddd transparent;
@@ -284,11 +277,11 @@
   .el-checkbox-button__inner {
     color: $text;
     font-size: $textSize;
-    background-color: #FFEFE3;
+    background-color: #ffefe3;
     border: 1px solid transparent;
     border-radius: 2px;
     &:hover {
-      background-color: #FFE6D2;
+      background-color: #ffe6d2;
     }
   }
 }
@@ -460,6 +453,10 @@
       height: 24px;
       line-height: 24px;
     }
+    .el-icon-d-arrow-right::before,
+    .el-icon-d-arrow-left::before {
+      line-height: 0;
+    }
   }
 }
 .el-pagination.is-background .el-pager li {
@@ -511,6 +508,7 @@
 }
 
 .el-breadcrumb__item:last-child .el-breadcrumb__inner {
+  font-weight: 500;
   color: $text;
 }
 /* steps */
@@ -608,6 +606,9 @@
 .el-select-dropdown__empty {
   height: 96px;
   line-height: 80px;
+}
+.el-select-dropdown.is-multiple .el-select-dropdown__item.selected.hover {
+  background-color: #fef5ee;
 }
 /* slider */
 

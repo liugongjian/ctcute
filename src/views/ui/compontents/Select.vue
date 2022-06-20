@@ -3,7 +3,7 @@
     <p>将动作或菜单折叠到下拉菜单中</p>
     <div class="sub-down">
       <h3>常规用法</h3>
-      <div>
+      <div class="default-select">
         <el-button type="text">默认</el-button><el-button type="text" disabled>存在分组</el-button><el-button type="text" disabled>存在多行字段</el-button><el-button type="text" disabled>不可用</el-button><el-button type="text" disabled>存在辅助信息</el-button>
       </div>
       <el-row>
@@ -206,6 +206,14 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.default-select {
+  .el-button {
+    padding: 0px;
+  }
+  .el-row {
+    margin-top: 0;
+  }
+}
 .field-option {
   display: none;
 }

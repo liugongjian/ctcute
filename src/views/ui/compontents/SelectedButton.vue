@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h2>默认单选块</h2>
+    <h2>默认单选快</h2>
+    <div class="sub-sample">
+      <default-Radio :data="buutonData" />
+    </div>
+    <h2>特殊单选快(用于订购页)</h2>
     <div class="sub-sample">
       <el-radio-group v-model="radio1">
         <el-radio-button label="Active"></el-radio-button>
@@ -31,15 +35,34 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import DefaultRadio from '@/components/Radio/ DefaultRadio.vue'
 
 @Component({
   name: 'UiSelectedButton',
+  components: { DefaultRadio },
 })
 export default class extends Vue {
   public static title = {
     zh: '选择按钮',
     en: 'SelectedButton',
   }
+
+  buutonData = [
+    {
+      label: '默认选项',
+    },
+    {
+      label: '选中选项',
+    },
+    {
+      label: '选中不可选项',
+      disabled: true,
+    },
+    {
+      label: '禁用选项',
+      disabled: true,
+    },
+  ]
 
   private radio1 = 'Active'
   private radio2 = ['多选选中', '不可用选中']

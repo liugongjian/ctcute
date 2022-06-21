@@ -38,6 +38,7 @@ export default class extends Vue {
   }
   ::v-deep.el-input__inner {
     padding-right: 0;
+    color: $primary;
   }
 }
 </style>

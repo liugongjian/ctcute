@@ -35,7 +35,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import DefaultRadio from '@/components/Radio/ DefaultRadio.vue'
+import DefaultRadio from '@/components/Radio/DefaultRadio.vue'
 
 @Component({
   name: 'UiSelectedButton',

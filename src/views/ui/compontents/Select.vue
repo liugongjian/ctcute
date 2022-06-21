@@ -24,9 +24,11 @@
     </div>
     <div class="sub-down">
       <h3>禁用状态</h3>
-      <el-select v-model="value2" disabled placeholder="请选择">
-        <el-option label="选项一" value="选项一"> </el-option>
-      </el-select>
+      <el-row>
+        <el-select v-model="value2" disabled placeholder="请选择">
+          <el-option label="选项一" value="选项一"> </el-option>
+        </el-select>
+      </el-row>
     </div>
     <div class="sub-down">
       <h3>多选</h3>
@@ -53,19 +55,9 @@
     </div>
     <div class="sub-down">
       <h3>带提示</h3>
-      <el-select
-        :value="[]"
-        multiple
-        filterable
-        allow-create
-        default-first-option
-        placeholder="请选择数据资源事权单位"
-        style="position: relative"
-      >
-        <span style="position: absolute; right: 18px">事业单位</span>
-
-        <option value=""></option>
-      </el-select>
+      <el-row>
+        <remind-input :data="options1" :placeholder="name" />
+      </el-row>
     </div>
     <div class="sub-down">
       <h3>日期/时间选择</h3>
@@ -131,19 +123,7 @@
       <h3>操作已选项</h3>
       <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
       <el-row>
-        <el-select ref="select" v-model="sele" placeholder="请选择" popper-class="select-field">
-          <el-option label="tree" value="tree" class="field-option"> </el-option>
-          <el-tree
-            ref="tree"
-            node-key="value"
-            :data="[
-              { label: '1234', value: '123', children: [] },
-              { label: '32456', value: '1236666', children: [] },
-            ]"
-            show-checkbox
-            @check-change="chang"
-          ></el-tree>
-        </el-select>
+        <selected-input :data="data" :option-data="optionData" @request="request" />
       </el-row>
       <el-row>
         <el-checkbox>未选中项</el-checkbox>
@@ -156,9 +136,11 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-
+import remindInput from '@/components/Select/RemindInput.vue'
+import SelectedInput from '@/components/Select/SelectedInput.vue'
 @Component({
   name: 'UiSelect',
+  components: { remindInput, SelectedInput },
 })
 export default class extends Vue {
   public static title = {
@@ -166,13 +148,13 @@ export default class extends Vue {
     en: 'Select',
   }
 
+  private name = '数据资源名称'
   private selectValue = []
   private value = []
   private value1 = ['不可用']
   private value2 = '选项一'
   private value3 = ['不可用', '选项']
   private text = ''
-  private sele = ''
   private options = [
     {
       value: '选项1',
@@ -196,11 +178,61 @@ export default class extends Vue {
     },
   ]
 
-  private chang() {
-    const ref = (): any => this.$refs.tree
-    const data = ref().getCheckedKeys()
-    this.sele = `操作已选项(${data.length})`
-    ref().setCheckedKeys(data)
+  private options1 = [
+    {
+      value: '选项1',
+      label: '黄金糕',
+    },
+    {
+      value: '选项2',
+      label: '双皮奶',
+    },
+    {
+      value: '选项3',
+      label: '蚵仔煎',
+    },
+    {
+      value: '选项4',
+      label: '龙须面',
+    },
+    {
+      value: '选项5',
+      label: '北京烤鸭',
+    },
+  ]
+
+  data = [
+    {
+      title: 'hahhah',
+      id: '1',
+    },
+    {
+      title: '退订1',
+      id: '2',
+    },
+    {
+      title: '退订2',
+      id: '3',
+    },
+    {
+      title: '退订3',
+      id: '3',
+    },
+  ]
+
+  optionData = [
+    {
+      label: '退订',
+      value: '1',
+    },
+    {
+      label: '续订',
+      value: '2',
+    },
+  ]
+
+  private request(data) {
+    console.log(data)
   }
 }
 </script>
@@ -223,30 +255,12 @@ export default class extends Vue {
     margin: 24px 0;
   }
   .el-select {
-    margin: 10px 0 24px 0;
     ::v-deep.el-input__inner {
       font-size: 12px;
     }
   }
 }
 
-.sub-checkout {
-  ::v-deep.el-input .el-input__inner {
-    color: #fa8334;
-  }
-  ::v-deep .el-input.el-input--medium.el-input--suffix {
-    width: auto;
-    padding-right: 0;
-    font-size: 12px;
-  }
-  ::v-deep.el-input__inner {
-    padding-right: 0;
-  }
-}
-.el-select-dropdown__item:hover {
-  background: #fef5ee;
-  color: #fa8334;
-}
 .select-radio {
   .el-select-dropdown__item {
     font-size: 12px;

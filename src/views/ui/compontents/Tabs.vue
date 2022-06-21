@@ -30,7 +30,7 @@
 
     <h3>小选项卡</h3>
     <el-row class="small-tabs">
-      <el-tabs value="third" type="card">
+      <el-tabs value="third" type="card" size="small">
         <el-tab-pane label="默认项" name="second">默认项</el-tab-pane>
         <el-tab-pane label="选中项" name="third">选中项</el-tab-pane>
         <el-tab-pane label="禁用选项" name="fourth" disabled>禁用选项</el-tab-pane>
@@ -104,42 +104,30 @@ export default class extends Vue {
 .el-row {
   margin: 20px 0 24px 0;
 }
-.small-tabs {
-  ::v-deep.el-tabs__nav.is-top {
-    border: none;
-  }
-  ::v-deep .el-tabs__item.is-top.is-active {
-    border-top: 1px solid #dddddd;
-    box-sizing: content-box;
-  }
-  ::v-deep.el-tabs__item {
-    height: 28px;
-    line-height: 28px;
-  }
-}
-.delete-tabs {
-  ::v-deep.el-tabs__nav.is-top {
-    border: none;
-  }
-  ::v-deep.el-tabs__item.is-top.is-active.is-closable {
-    border-top: 1px solid #dddddd;
-    box-sizing: content-box;
-  }
-  ::v-deep.el-tabs__item {
-    height: 28px;
-    line-height: 28px;
-  }
-}
-.button-tabs {
-  ::v-deep#tab-fourt2 {
-    background: #f8f8f8;
-    color: rgba(0, 0, 0, 0.3);
-    border: 1px solid #dddddd;
-  }
-  ::v-deep.el-tabs__item.is-top.is-active {
-    background: rgba(250, 131, 52, 0.08);
-    border: 1px solid #fa8334;
-    color: #fa8334;
-  }
-}
+
+// ::v-deep.el-tabs__nav.is-top {
+//   border: none;
+// }
+// ::v-deep .el-tabs__item.is-top.is-active {
+//   border-top: 1px solid #dddddd;
+//   box-sizing: content-box;
+// }
+// ::v-deep.el-tabs__item {
+//   height: 28px;
+//   line-height: 28px;
+// }
+
+// .delete-tabs {
+//   ::v-deep.el-tabs__nav.is-top {
+//     border: none;
+//   }
+//   ::v-deep.el-tabs__item.is-top.is-active.is-closable {
+//     border-top: 1px solid #dddddd;
+//     box-sizing: content-box;
+//   }
+//   ::v-deep.el-tabs__item {
+//     height: 28px;
+//     line-height: 28px;
+//   }
+// }
 </style>

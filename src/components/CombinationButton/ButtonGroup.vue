@@ -34,15 +34,26 @@ export default class extends Vue {
     margin: 0;
   }
   .el-button--medium {
-    border-right: aliceblue;
+    border-left-color: #fff;
+  }
+  .el-button--medium {
     border-radius: 0;
   }
   .el-button--medium:first-child {
+    border-left: 1px solid #cccccc;
     border-radius: 2px 0px 0px 2px;
+  }
+  .el-button--medium:last-child {
+    border-radius: 0px 2px 2px 0px;
+    border-left-color: $primary;
   }
   .el-dropdown {
     .el-button--medium {
       border-radius: 0;
+      border-left-color: #fff;
+      &:hover {
+        border-right-color: #fff;
+      }
     }
   }
 }

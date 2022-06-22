@@ -3,7 +3,7 @@
     <p>默认横向步骤条。存在常规、进行中、已完成等情况。</p>
     <h3>基础步骤条</h3>
     <div class="sub-steps">
-      <ui-steps :active="active" :steps="normalsteps" step-width="800px" @clickStep="clickStep"></ui-steps>
+      <ui-steps :active="active" :steps="normalsteps" max-width="800px" @clickStep="clickStep"></ui-steps>
       <el-button
         class="btn-style"
         @click="
@@ -36,7 +36,7 @@
       <ui-steps
         :active="activeMulti"
         :steps="multisteps"
-        step-width="60%"
+        max-width="60%"
         type="multiSteps"
         :go-button="true"
         @clickStep="clickmulti"
@@ -57,7 +57,7 @@
         :active="activeMultiMini"
         :steps="multisteps"
         size="mini"
-        step-width="100%"
+        max-width="100%"
         type="multiSteps"
         :step-size="3"
         :go-button="true"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-row type="flex" align="middle" :style="{ 'max-width': stepWidth }">
+    <el-row type="flex" align="middle" :style="{ 'max-width': maxWidth }">
       <el-col v-if="goButton" :span="1">
         <div class="button-col point-style" @click="goPre"><i class="el-icon-arrow-left"></i></div>
       </el-col>
@@ -61,7 +61,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 })
 export default class extends Vue {
   @Prop({ type: String, default: 'middle' }) size?: string // 步骤条大小，mini
-  @Prop({ type: String, default: '100%' }) stepWidth?: string // 步骤条长度
+  @Prop({ type: String, default: '100%' }) maxWidth?: string // 步骤条长度
   @Prop({ type: String }) direction?: string // 步骤条方向
   @Prop({ type: Number, default: 0 }) active?: number // 激活
   @Prop(Array) readonly steps: any // step数据

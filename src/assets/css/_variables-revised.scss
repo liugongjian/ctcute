@@ -3,7 +3,7 @@ $color-primary: #fa8334;
 $color-primary-hover: #ff934c;
 $color-primary-active: #ed7c31;
 $color-success: #52c41a;
-$color-warning: #fa8334;
+$color-warning: #faad15;
 $color-danger: #f5212d;
 $color-info: #1890ff;
 $color-disabled: #999;
@@ -18,7 +18,6 @@ $text-size-primary: $text-size-small;
 
 /* 字体颜色 */
 $text-color-primary: #333; // 正文颜色
-$text-color-dark: rgba(0, 0, 0, 45%); // 标题颜色
 $text-color-light: #666; // 提示文字
 $text-color-lighter: #999; // 次要文本、表单占位文本
 
@@ -35,38 +34,10 @@ $border-color-light: #eee;
 $border-radius: 2px;
 
 /* 内外边距 */
-$padding-primary: 15px;
+$padding-primary: 20px;
 $margin-small: 8px;
 $margin-medium: 16px;
-$margin-primary: 8px;
-
-/* Sidebar */
-$sidebar-width: 230px;
-$sidebar-bg: $bg-color-lighter;
-$menu-bg: $bg-color-lighter;
-$menu-text: $text-color-primary;
-$menu-active-text: $text-color-dark;
-$sub-menu-bg: $bg-color-lighter;
-$sub-menu-hover: $bg-color-primary-hover;
-$sub-menu-active-text: $text-color-dark;
-
-/* Button:disabled */
-$button-bg-color-disabled: $bg-color-light;
-$button-border-color-disabled: $border-color-primary;
-
-/* Pagination */
-$pagination-bg-color: $bg-color-lighter;
-
-/* Steps */
-$steps-border-color: $color-primary;
-$steps-success-color: $color-primary;
-$steps-text-color: $color-white;
-
-/* Input */
-$input-bg-color: $color-white;
-
-/* Textarea */
-$textarea-bg-color: $bg-color-light;
+$margin-primary: $margin-small;
 
 /* The :export directive is the magic sauce for webpack
  * https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
@@ -79,7 +50,4 @@ $textarea-bg-color: $bg-color-light;
   colorInfo: $color-info;
   colorDisabled: $color-disabled;
   colorWhite: $color-white;
-  menubg: $menu-bg;
-  menutext: $menu-text;
-  menuactivetext: $menu-active-text;
 }

@@ -1,0 +1,76 @@
+/* 基础配色 */
+$color-primary: #fa8334;
+$color-success: #52c41a;
+$color-warning: #fa8334;
+$color-danger: #f5212d;
+$color-info: #1890ff;
+$color-disabled: #999;
+$color-white: #fff;
+
+/* 字体大小 */
+$text-size-small: 12px;
+$text-size-medium: 14px;
+$text-size-large: 16px;
+$text-size-x-large: 18px;
+$text-size-primary: $text-size-small;
+
+/* 字体颜色 */
+$text-color-primary: #333; // 正文颜色
+$text-color-dark: rgba(0, 0, 0, 45%); // 标题颜色
+$text-color-light: #666; // 提示文字
+$text-color-lighter: #999; // 次要文本、表单占位文本
+
+/* 背景颜色 */
+$bg-color-light: #f8f8f8;
+$bg-color-lighter: $color-white;
+$bg-color-dark: #ddd; // 表格单元格、灰色按钮
+$bg-color-body: #f2f2f2;
+$bg-color-primary-hover: #fef5ee; // 主题色悬浮背景
+
+/* 边框 */
+$border-color-primary: #ddd;
+$border-color-light: #eee;
+$border-radius: 2px;
+
+/* 内外边距 */
+$padding-primary: 15px;
+$margin-small: 8px;
+$margin-medium: 16px;
+$margin-primary: 8px;
+
+/* Sidebar */
+$sidebar-width: 230px;
+$sidebar-bg: $bg-color-lighter;
+$menu-bg: $bg-color-lighter;
+$menu-text: $text-color-primary;
+$menu-active-text: $text-color-dark;
+$sub-menu-bg: $bg-color-lighter;
+$sub-menu-hover: $bg-color-primary-hover;
+$sub-menu-active-text: $text-color-dark;
+
+/* Button:disabled */
+$button-bg-color-disabled: $bg-color-light;
+$button-border-color-disabled: $border-color-primary;
+
+/* Pagination */
+$pagination-bg-color: $bg-color-lighter;
+
+/* Steps */
+$steps-border-color: $color-primary;
+$steps-success-color: $color-primary;
+$steps-text-color: $color-white;
+
+/* Input */
+$input-bg-color: $color-white;
+
+/* Textarea */
+$textarea-bg-color: $bg-color-light;
+
+/* The :export directive is the magic sauce for webpack
+ * https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
+  */
+:export {
+  menubg: $menu-bg;
+  menutext: $menu-text;
+  menuactivetext: $menu-active-text;
+}

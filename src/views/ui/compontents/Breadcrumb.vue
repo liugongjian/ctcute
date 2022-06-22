@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-Breadcrumb">
+  <div>
     <p>显示当前页面的路径，快速返回之前的任意页</p>
     <div class="sub-sample">
       <el-breadcrumb separator="/">
@@ -14,7 +14,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiBreakcrumb',
+  name: 'UiBreadcrumb',
 })
 export default class extends Vue {
   public static title = {
@@ -23,15 +23,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.ui-Breadcrumb {
-  .el-breadcrumb {
-    font-size: 12px;
-  }
-  ::v-deep.el-breadcrumb__inner:hover {
-    color: $primary;
-    cursor: pointer;
-  }
-}
-</style>

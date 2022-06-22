@@ -11,7 +11,7 @@
             title: '通知',
             message:
               '通知的内容通知的内容通知的内容通知的内容通知的内容通知的内容通知的内容通知的内容通知的内容通知的内容通知的内容通知的内容',
-            customClass: 'routine-tips'
+            customClass: 'routine-tips',
           })
         "
       >
@@ -29,7 +29,7 @@
               title: '通知的标题十个字以内',
               message:
                 '通知的内容内容内容什么的通知的内容内容内容什么的，通知的内内容内容什么的通知的内容内容内容，什么的通知的内容内容内容什么的，通知的内容内容内容什么的通知的',
-              customClass: 'ordinary-tips'
+              customClass: 'ordinary-tips',
             })
           "
         >
@@ -44,7 +44,7 @@
               title: '通知的标题十个字以内',
               message:
                 '通知的内容内容内容什么的通知的内容内容内容什么的，通知的内内容内容什么的通知的内容内容内容，什么的通知的内容内容内容什么的，通知的内容内容内容什么的通知的',
-              customClass: 'success-tips'
+              customClass: 'success-tips',
             })
           "
         >
@@ -59,7 +59,7 @@
               title: '通知的标题十个字以内',
               message:
                 '通知的内容内容内容什么的通知的内容内容内容什么的，通知的内内容内容什么的通知的内容内容内容，什么的通知的内容内容内容什么的，通知的内容内容内容什么的通知的',
-              customClass: 'error-tips'
+              customClass: 'error-tips',
             })
           "
         >
@@ -75,7 +75,7 @@
               message:
                 '通知的内容内容内容什么的通知的内容内容内容什么的，通知的内内容内容什么的通知的内容内容内容，什么的通知的内容内容内容什么的，通知的内容内容内容什么的通知的',
               type: 'warning',
-              customClass: 'warning-tips'
+              customClass: 'warning-tips',
             })
           "
         >
@@ -89,23 +89,17 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiNotification'
+  name: 'UiNotification',
 })
 export default class extends Vue {
   public static title = {
     zh: '通知提醒框',
-    en: 'Notification'
+    en: 'Notification',
   }
 }
 </script>
 
 <style lang="scss" scoped>
-// .el-row:not(:first-child) {
-//   width: 480px;
-//   height: 144px;
-//   box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 0.5);
-//   border-radius: 4px;
-// }
 .el-notification.right {
   right: 16px;
   width: 480px;

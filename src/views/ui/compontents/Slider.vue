@@ -39,16 +39,16 @@ export default class extends Vue {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .sub-slider {
   .el-row {
     width: 780px;
     margin: 42px 0 24px;
   }
 
-  ::v-deep .el-slider__runway,
-  .el-slider__runway.show-input {
-    width: 616px;
-  }
+  // ::v-deep .el-slider__runway,
+  // .el-slider__runway.show-input {
+  //   width: 616px;
+  // }
 }
 </style>

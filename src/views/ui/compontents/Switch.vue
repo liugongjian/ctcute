@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-switch">
+  <div>
     <el-row>
       <el-col :span="1" class="switch-enable"><b>Enable</b></el-col>
       <el-col :span="1">
@@ -52,24 +52,8 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.ui-switch {
-  .switch-enable,
-  .switch-unable {
-    margin-right: 10px;
-  }
-  .small-switch {
-    ::v-deep.el-switch__core {
-      width: 28px !important;
-      height: 16px;
-    }
-    ::v-deep.el-switch__core::after {
-      width: 12px;
-      height: 12px;
-      margin-top: 0px;
-    }
-    ::v-deep.el-switch.is-checked .el-switch__core::after {
-      margin-left: -13px;
-    }
-  }
+.switch-enable,
+.switch-unable {
+  margin-right: 10px;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="Selected-input">
+  <div class="selected-input">
     <el-select ref="select" v-model="sele" popper-class="select-field" @change="change">
       <el-option v-for="(v, i) in optionData" :key="i" :label="v.label" :value="v.value" class="field-option">
       </el-option>
@@ -8,6 +8,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
+
 @Component({
   name: 'SelectedInput',
 })
@@ -27,10 +28,7 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.Selected-input {
-  // ::v-deep.el-input .el-input__inner {
-  //   color: #fa8334;
-  // }
+.selected-input {
   ::v-deep .el-input.el-input--medium.el-input--suffix {
     width: auto;
     padding-right: 0;

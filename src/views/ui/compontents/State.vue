@@ -1,6 +1,8 @@
 <template>
   <div>
-    <p>颜色状态：用颜色区分状态推荐使用3-5个颜色，不推荐超过5个颜色（超过5个用户找不到重点，无法有效区分状态），超过5个请尽量使用图标进行精准区分。</p>
+    <p>
+      颜色状态：用颜色区分状态推荐使用3-5个颜色，不推荐超过5个颜色（超过5个用户找不到重点，无法有效区分状态），超过5个请尽量使用图标进行精准区分。
+    </p>
     <p>图标状态：进行中的都是用“加载中”icon，用颜色区分不同的进行中状态。</p>
     <div class="sub-sample">
       <el-row>
@@ -34,19 +36,22 @@ import DotState from '@/components/State/index.vue'
 @Component({
   name: 'UiState',
   components: {
-    DotState
-  }
+    DotState,
+  },
 })
 export default class extends Vue {
   public static title = {
     zh: '状态',
-    en: 'State'
+    en: 'State',
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.sub-sample .el-state { margin-left: 32px }
-.sub-sample .el-state:first-child { margin-left: 0 }
-
+.sub-sample .el-state {
+  margin-left: 32px;
+}
+.sub-sample .el-state:first-child {
+  margin-left: 0;
+}
 </style>

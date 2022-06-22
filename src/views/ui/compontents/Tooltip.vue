@@ -1,7 +1,7 @@
 <template>
-  <div class="ui-tooltip">
+  <div>
     <div class="sub-tooltip">
-      <el-row type="flex" align="middle" justify="center" style="width: 1200px">
+      <el-row type="flex" align="middle" justify="center">
         <el-col :span="2">
           <el-tooltip class="item" effect="dark" content="提示描述性文案" placement="left">
             <el-button>LT</el-button>
@@ -13,7 +13,7 @@
               <el-button>LT</el-button>
             </el-tooltip>
           </el-row>
-          <el-row style="margin-top: 52px">
+          <el-row class="tooltip-interval">
             <el-tooltip class="item" effect="dark" content="提示描述性文案" placement="bottom-start">
               <el-button>BL</el-button>
             </el-tooltip>
@@ -25,7 +25,7 @@
               <el-button>TOP</el-button>
             </el-tooltip>
           </el-row>
-          <el-row style="margin-top: 52px">
+          <el-row class="tooltip-interval">
             <el-tooltip class="item" effect="dark" content="提示描述性文案" placement="bottom">
               <el-button>BOT</el-button>
             </el-tooltip>
@@ -37,7 +37,7 @@
               <el-button>TR</el-button>
             </el-tooltip>
           </el-row>
-          <el-row style="margin-top: 52px">
+          <el-row class="tooltip-interval">
             <el-tooltip class="item" effect="dark" content="提示描述性文案" placement="bottom-end">
               <el-button>BR</el-button>
             </el-tooltip>
@@ -110,7 +110,9 @@ export default class extends Vue {
   padding-bottom: 24px;
   border-bottom: 1px solid $border;
 }
-
+.tooltip-interval {
+  margin-top: 52px;
+}
 .message {
   display: block;
   width: 35px;

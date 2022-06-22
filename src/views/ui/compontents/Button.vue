@@ -40,7 +40,7 @@
       <el-button size="small" type="primary" disabled><svg-icon name="plus" />新增过滤</el-button>
     </div>
     <h2>组合按钮</h2>
-    <div class="sub-combination">
+    <div class="sub-sample">
       <p>组合按钮常用于复杂详情页</p>
       <button-group :data="buttonData" :max="2" />
     </div>
@@ -58,8 +58,8 @@
         <el-button size="small">小按钮</el-button>
       </div>
       <div class="button-layout">
-        <el-button>取消</el-button>
-        <el-button type="primary">主按钮</el-button>
+        <el-button>取 消</el-button>
+        <el-button type="primary">确 定</el-button>
       </div>
     </div>
     <h2>加载中…</h2>
@@ -72,6 +72,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import ButtonGroup from '@/components/CombinationButton/ButtonGroup.vue'
+
 @Component({
   name: 'UiButton',
   components: { ButtonGroup },
@@ -83,7 +84,6 @@ export default class extends Vue {
   }
 
   buttonData = ['操作一', '操作二', '操作三']
-  private flag = false
 }
 </script>
 <style lang="scss" scoped>
@@ -94,9 +94,6 @@ export default class extends Vue {
   }
 }
 .sub-combination {
-  // .el-button + .el-button {
-  //   margin: 0px;
-  // }
   .el-button + .el-dropdown {
     margin: 0;
   }
@@ -104,7 +101,6 @@ export default class extends Vue {
 
 .button-layout {
   display: inline-block;
-
   .el-button + .el-button {
     margin-left: 8px;
   }

@@ -3,8 +3,8 @@
     <p>常用的链接</p>
     <h2>默认状态</h2>
     <div class="sub-sample">
-      <el-link>文字按钮</el-link>
-      <el-link type="primary">文字按钮</el-link>
+      <el-link>链接文字</el-link>
+      <el-link type="primary">链接文字</el-link>
     </div>
   </div>
 </template>

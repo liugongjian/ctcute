@@ -295,7 +295,7 @@
     </div>
     <h3>横向展示列表</h3>
     <div class="sub-table-horizon">
-      <el-table :data="tableData" :span-method="row" :cell-style="{ 'border-bottom': '1px solid #DDD', 'border-right': '1px solid #DDD' }" :row-style="{ 'border-': '1px solid #DDD', 'border-right': '1px solid #DDD', 'border-right': '1px solid #DDD' }">
+      <el-table :data="tableData" :span-method="row" :cell-style="{ 'border-bottom': '1px solid #DDD', 'border-right': '1px solid #DDD' }" :row-style="{ 'border-right': '1px solid #DDD' }">
         <el-table-column prop="dataFilter" label="数据筛选" width="230" align="center"> </el-table-column>
         <el-table-column prop="dataTime" label="数据时间字段" align="center" sortable> </el-table-column>
         <el-table-column prop="key" label="主键" align="center" width="260"> </el-table-column>
@@ -463,7 +463,7 @@ export default class extends Vue {
 
     .el-button--text:last-child:before {
       content: '|';
-      color: #dddd;
+      color: $border;
       margin-right: 10px;
     }
   }
@@ -494,9 +494,9 @@ export default class extends Vue {
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 24px;
   .el-table--border {
-    border-left: 1px solid #DDDDDD;
-    border-top: 1px solid #DDDDDD;
-    border-right: 1px solid #DDDDDD;
+    border-left: 1px solid $border;
+    border-top: 1px solid $border;
+    border-right: 1px solid $border;
   }
 }
 .small-table {
@@ -541,19 +541,19 @@ export default class extends Vue {
   margin-right: 10px;
 
   &--1 {
-    background: #52c41a;
+    background: $success;
   }
 
   &--2 {
-    background: #faad15;
+    background: $warning;
   }
 
   &--3 {
-    background: #f5212d;
+    background: $danger;
   }
 
   &--4 {
-    background: #1890ff;
+    background: $info;
   }
 
   &--5 {

@@ -70,6 +70,13 @@ $textarea-bg-color: $bg-color-light;
  * https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
   */
 :export {
+  colorPrimary: $color-primary;
+  colorSuccess: $color-success;
+  colorWarning: $color-warning;
+  colorDanger: $color-danger;
+  colorInfo: $color-info;
+  colorDisabled: $color-disabled;
+  colorWhite: $color-white;
   menubg: $menu-bg;
   menutext: $menu-text;
   menuactivetext: $menu-active-text;

@@ -40,7 +40,7 @@
       </el-row>
     </div>
     <h3>特殊输入框</h3>
-    <div class="special-input">
+    <div class="sub-input">
       <el-row>
         <el-col :span="6">
           <el-input-number v-model="num" controls-position="right" :min="1" :max="10"></el-input-number>
@@ -83,7 +83,7 @@
         </el-col>
         <el-col :span="6">
           <el-input placeholder="请输入密码">
-            <span slot="suffix" class="suffix-Forgot">Forgot?</span>
+            <span slot="suffix" class="suffix-forgot">Forgot?</span>
           </el-input>
         </el-col>
       </el-row>
@@ -91,16 +91,7 @@
     <h3 class="sub-title">带提示的输入框</h3>
     <div class="sub-input">
       <el-row>
-        <el-autocomplete
-          v-model="state1"
-          class="inline-input"
-          placeholder="请输入内容"
-          :fetch-suggestions="querySearch"
-          :trigger-on-focus="false"
-          @input="prompt"
-        >
-          <span v-show="flag" slot="suffix" class="prompt-title">数据资源名称</span>
-        </el-autocomplete>
+        <remind-input :restaurants="restaurants" :placeholder="placeholderTitle" />
       </el-row>
     </div>
     <h3>长文本域</h3>
@@ -150,11 +141,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import EditInput from '@/components/EditInput/index.vue'
-
+import RemindInput from '@/components/Input/RemidInput.vue'
 @Component({
   name: 'UiInput',
   components: {
     EditInput,
+    RemindInput,
   },
 })
 export default class extends Vue {
@@ -163,7 +155,7 @@ export default class extends Vue {
     en: 'Input',
   }
 
-  private flag = false
+  private placeholderTitle = '请输入内容'
   private num = 1
   private num1 = 1
   private content = '这是一段内容'
@@ -177,7 +169,6 @@ export default class extends Vue {
   '一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二'
 
   private password = ''
-  private state1 = ''
   private rules = {
     password: [
       { required: true, message: '密码输入错误', trigger: 'blur' },
@@ -191,27 +182,6 @@ export default class extends Vue {
     { value: '新旺角茶餐厅', address: '上海市普陀区真北路988号创邑金沙谷6号楼113' },
     { value: '泷千家(天山西路店)', address: '天山西路438号' },
   ]
-
-  private querySearch(queryString, cb) {
-    const restaurants = this.restaurants
-    const results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants
-    // 调用 callback 返回建议列表的数据
-    cb(results)
-  }
-
-  private createFilter(queryString) {
-    return restaurant => {
-      return restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
-    }
-  }
-
-  private prompt(e: any) {
-    if (e) {
-      this.flag = true
-    } else {
-      this.flag = false
-    }
-  }
 }
 </script>
 <style lang="scss" scoped>
@@ -220,39 +190,9 @@ export default class extends Vue {
   height: 32px;
 }
 
-.special-input {
-  border-bottom: 1px solid #f1f1f1;
-  padding-bottom: 24px;
-}
-
-.input-icon {
-  .el-input {
-    width: 200px;
-  }
-}
-.suffix-Forgot,
-.icon-money {
-  line-height: 36px;
-  color: #333333;
-  margin-right: 12px;
-}
-.suffix-Forgot::before {
-  content: '|';
-  color: #cccccc;
-  margin-right: 12px;
-}
-
 .sub-input {
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 24px;
-  .el-icon-close {
-    line-height: 36px;
-    padding-right: 15px;
-    &:hover {
-      color: $primary;
-      cursor: pointer;
-    }
-  }
 }
 
 .edit-input-icon {
@@ -260,29 +200,7 @@ export default class extends Vue {
   cursor: pointer;
 }
 
-.el-input.is-disabled {
-  ::v-deep.el-input__inner {
-    color: rgba(0, 0, 0, 0.65);
-    font-size: 12px;
-  }
-}
 .el-select .el-input {
   width: 130px;
-}
-.input-with-select .el-input-group__prepend {
-  background-color: #fff;
-}
-// 提示输入框
-.el-autocomplete.inline-input {
-  width: 300px;
-  height: 32px;
-  // .el-input__inner:active{
-
-  // }
-}
-.prompt-title {
-  // display: none;
-  line-height: 36px;
-  font-size: 12px;
 }
 </style>

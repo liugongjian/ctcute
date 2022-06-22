@@ -1,16 +1,5 @@
 <template>
   <div class="remind-input">
-    <!-- <el-select
-      v-model="value"
-      :value="[]"
-      multiple
-      filterable
-      allow-create
-      default-first-option
-      placeholder="请选择数据资源事权单位"
-    >
-      <option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">1</option>
-    </el-select> -->
     <el-select v-model="value" filterable placeholder="">
       <span slot="prefix" class="prefix-placeholder">{{ placeholder }}</span>
       <el-option v-for="item in data" :key="item.value" :label="item.label" :value="item.value"> </el-option>
@@ -20,7 +9,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component({
-  name: 'remindInput',
+  name: 'remindSelect',
 })
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) data?: []

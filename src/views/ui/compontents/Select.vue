@@ -136,11 +136,12 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import remindInput from '@/components/Select/RemindInput.vue'
+import RemindInput from '@/components/Select/RemindSelect.vue'
 import SelectedInput from '@/components/Select/SelectedInput.vue'
+
 @Component({
   name: 'UiSelect',
-  components: { remindInput, SelectedInput },
+  components: { RemindInput, SelectedInput },
 })
 export default class extends Vue {
   public static title = {
@@ -246,56 +247,11 @@ export default class extends Vue {
     margin-top: 0;
   }
 }
-.field-option {
-  display: none;
-}
+
 .sub-down {
   border-bottom: 1px solid #f1f1f1;
   .el-row {
     margin: 24px 0;
   }
-  .el-select {
-    ::v-deep.el-input__inner {
-      font-size: 12px;
-    }
-  }
-}
-
-.select-radio {
-  .el-select-dropdown__item {
-    font-size: 12px;
-  }
-  .el-select-dropdown__item.selected {
-    background: #fa8334;
-    color: #ffffff;
-  }
-  .el-select-dropdown__empty {
-    width: 300px;
-    height: 96px;
-  }
-}
-.el-select.el-select--medium {
-  ::v-deep .el-tag.el-tag--info.el-tag--small.el-tag--light {
-    background: #f8f8f8;
-    border: 1px solid #dddddd;
-    border-radius: 2px;
-  }
-  ::v-deep.el-select__tags-text:hover {
-    color: #fa8334;
-    cursor: pointer;
-  }
-  ::v-deep.el-tag__close.el-icon-close {
-    background: #999999;
-    color: #ffffff;
-    &:hover {
-      background: #fa8334;
-      color: #ffffff;
-    }
-  }
-}
-.auxiliary-message::after {
-  content: '辅助信息';
-  margin-left: 10px;
-  color: #999999;
 }
 </style>

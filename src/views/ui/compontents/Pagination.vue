@@ -14,7 +14,7 @@
         :pager-count="5"
         :background="true"
       >
-        <el-select v-model="value" placeholder="请选择" popper-class="custom-select">
+        <el-select v-model="pageSize" placeholder="请选择" popper-class="custom-select">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
           </el-option>
         </el-select>
@@ -25,6 +25,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+
 @Component({
   name: 'UiPagination',
 })
@@ -34,7 +35,7 @@ export default class extends Vue {
     en: 'Pagination',
   }
 
-  private value = '10'
+  private pageSize = '10'
   private options = [
     {
       value: '选项1',
@@ -55,11 +56,3 @@ export default class extends Vue {
   ]
 }
 </script>
-<style lang="scss" scoped>
-.pageination-total {
-  color: #333333;
-  font-size: 12px !important;
-  font-weight: normal;
-  margin: 0 19px 0 20px;
-}
-</style>

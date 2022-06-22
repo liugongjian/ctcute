@@ -14,7 +14,7 @@
           :titles="['源列表', '目标列表']"
           :format="{
             noChecked: '${total}',
-            hasChecked: '${checked}/${total}'
+            hasChecked: '${checked}/${total}',
           }"
           :data="data"
         >
@@ -27,12 +27,12 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiTransfer'
+  name: 'UiTransfer',
 })
 export default class extends Vue {
   public static title = {
     zh: '穿梭框',
-    en: 'Transfer'
+    en: 'Transfer',
   }
 
   private generateData = () => {
@@ -41,7 +41,7 @@ export default class extends Vue {
       data.push({
         key: i,
         label: `备选项 ${i}`,
-        disabled: i % 4 === 0
+        disabled: i % 4 === 0,
       })
     }
     return data
@@ -52,10 +52,4 @@ export default class extends Vue {
   private value1 = [1, 4]
 }
 </script>
-<style lang="scss" scoped>
-.el-transfer {
-  ::v-deep .el-transfer-panel .el-transfer-panel__header {
-    background: #ffff;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

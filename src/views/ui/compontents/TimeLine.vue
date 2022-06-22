@@ -102,31 +102,31 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiTimeline'
+  name: 'UiTimeline',
 })
 export default class extends Vue {
   public static title = {
     zh: '时间轴',
-    en: 'Timeline'
+    en: 'Timeline',
   }
 
   private activities = [
     {
       content: 'Create a services site 2015-09-01',
-      type: 'primary'
+      type: 'primary',
     },
     {
       content: 'Create a services site 2015-09-01',
-      type: 'primary'
+      type: 'primary',
     },
     {
       content: 'Create a services site 2015-09-01',
-      type: 'primary'
+      type: 'primary',
     },
     {
       type: 'primary',
-      content: 'Create a services site 2015-09-01'
-    }
+      content: 'Create a services site 2015-09-01',
+    },
   ]
 }
 </script>
@@ -162,7 +162,7 @@ export default class extends Vue {
     text-align: center;
   }
 }
-.sub-esay {
+.sub-easy {
   width: 693px;
   height: 42px;
   display: flex;
@@ -178,7 +178,7 @@ export default class extends Vue {
   }
 }
 .sub-origin::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 6px;
   height: 6px;

@@ -39,9 +39,6 @@
     <h3>可删除小选项卡</h3>
     <el-row class="delete-tabs">
       <el-tabs v-model="editableTabsValue" type="card" closable @tab-remove="removeTab">
-        <!-- <el-tab-pane v-for="item in editableTabs" :key="item.name" :label="item.title" :name="item.name">
-          {{ item.content }}
-        </el-tab-pane> -->
         <el-tab-pane label="默认选项">默认选项</el-tab-pane>
         <el-tab-pane label="选中选项">选中选项</el-tab-pane>
         <el-tab-pane label="选中不可点选项" disabled>选中不可点选项</el-tab-pane>
@@ -104,30 +101,4 @@ export default class extends Vue {
 .el-row {
   margin: 20px 0 24px 0;
 }
-
-// ::v-deep.el-tabs__nav.is-top {
-//   border: none;
-// }
-// ::v-deep .el-tabs__item.is-top.is-active {
-//   border-top: 1px solid #dddddd;
-//   box-sizing: content-box;
-// }
-// ::v-deep.el-tabs__item {
-//   height: 28px;
-//   line-height: 28px;
-// }
-
-// .delete-tabs {
-//   ::v-deep.el-tabs__nav.is-top {
-//     border: none;
-//   }
-//   ::v-deep.el-tabs__item.is-top.is-active.is-closable {
-//     border-top: 1px solid #dddddd;
-//     box-sizing: content-box;
-//   }
-//   ::v-deep.el-tabs__item {
-//     height: 28px;
-//     line-height: 28px;
-//   }
-// }
 </style>

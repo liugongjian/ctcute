@@ -18,29 +18,20 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiProgress'
+  name: 'UiProgress',
 })
 export default class extends Vue {
   public static title = {
     zh: '进度条',
-    en: 'Progress'
+    en: 'Progress',
   }
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .el-row {
   width: 275px;
   height: 20px;
   margin-top: 24px;
-}
-.sub-progress {
-  .normal-text {
-    ::v-deep {
-      .el-progress__text {
-        font-size: 12px !important;
-      }
-    }
-  }
 }
 </style>

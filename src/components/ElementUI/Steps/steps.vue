@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-row type="flex" align="middle" :style="{ width: stepWidth }">
+    <el-row type="flex" align="middle" :style="{ 'max-width': stepWidth }">
       <el-col v-if="goButton" :span="1">
         <div class="button-col point-style" @click="goPre"><i class="el-icon-arrow-left"></i></div>
       </el-col>

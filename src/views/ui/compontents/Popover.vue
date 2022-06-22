@@ -1,7 +1,31 @@
 <template>
   <div class="ui-popover">
     <h3>常规用法</h3>
-    <el-row class="popover-top">
+    <div class="popover-top">
+      <el-popover placement="top" trigger="hover" :open-delay="1000">
+        <div class="popover-top-prompt">
+          <span class="popover-top-text">需勾选表格项后删除</span><el-button type="text">链接文本</el-button>
+        </div>
+        <el-button slot="reference" type="text">向上提示带链接</el-button>
+      </el-popover>
+      <el-popover placement="top" trigger="hover" content="需勾选表格项后进行批量删除">
+        <el-button slot="reference" type="text">向上提示</el-button>
+      </el-popover>
+    </div>
+    <div class="popover-left">
+      <el-popover placement="left" trigger="hover" content="需勾选表格项后进行批量删除">
+        <el-button slot="reference" type="text">向左提示</el-button>
+      </el-popover>
+      <el-popover placement="right" trigger="hover" content="需勾选表格项后进行批量删除">
+        <el-button slot="reference" type="text">向右提示</el-button>
+      </el-popover>
+    </div>
+    <div class="popover-bottom">
+      <el-popover placement="bottom" trigger="hover" content="需勾选表格项后进行批量删除">
+        <el-button slot="reference" type="text">向下提示</el-button>
+      </el-popover>
+    </div>
+    <!-- <el-row class="popover-top">
       <el-col :span="5">
         <el-popover placement="top" trigger="hover" :open-delay="1000">
           <div class="popover-top-prompt">
@@ -32,7 +56,7 @@
       <el-popover placement="bottom" trigger="hover" content="需勾选表格项后进行批量删除">
         <el-button slot="reference" type="text">向下提示</el-button>
       </el-popover>
-    </el-row>
+    </el-row> -->
     <h3>操作提示类型</h3>
     <el-row class="operation-popover">
       <el-col :span="6">
@@ -79,7 +103,7 @@
               确定
             </el-button>
           </div>
-          <el-button slot="reference" type="text">删除</el-button>
+          <el-button slot="reference" type="text" class="sub-edit">编辑</el-button>
         </el-popover>
         <el-popover v-model="visible3" placement="top-start">
           <p>需勾选表格项后进行批量删除文字</p>
@@ -144,10 +168,16 @@ p {
   margin: 0 10px;
 }
 .popover-top {
+  width: 306px;
+  display: flex;
+  justify-content: space-between;
   margin-left: 360px;
 }
 .popover-left {
-  margin-left: 220px;
+  width: 574px;
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 0px 24px 220px;
 }
 .popover-bottom {
   margin-left: 474px;

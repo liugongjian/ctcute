@@ -121,6 +121,11 @@
     color: #777777;
   }
 }
+/* TextButton */
+.el-button.el-button--text.el-button--medium {
+  padding: 0;
+}
+
 /* Link */
 .el-link.el-link--primary:hover {
   color: $primary;
@@ -764,7 +769,11 @@
   background-color: #f7f8fa;
 }
 /* Switch */
+.el-switch + .el-switch {
+  margin-left: 30px;
+}
 .small-switch {
+  margin-left: 32px;
   .el-switch__core {
     width: 28px !important;
     height: 16px;
@@ -811,7 +820,12 @@
     top: 8px;
   }
 }
-
+.el-alert {
+  padding: 0;
+}
+.el-alert + .el-alert {
+  margin-left: 49px;
+}
 /* Progress  */
 .el-progress.is-success .el-progress-bar__inner {
   background-color: #52c41a;
@@ -1138,5 +1152,10 @@
   padding: 20px 24px 20px 16px !important;
   .el-popover__title {
     font-size: $textSize;
+  }
+}
+.el-popover__reference-wrapper {
+  .el-button--medium {
+    padding: 0;
   }
 }

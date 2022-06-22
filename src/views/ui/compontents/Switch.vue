@@ -1,6 +1,28 @@
 <template>
   <div>
-    <el-row>
+    <div class="sub-switch">
+      <b>Enable</b>
+      <div>
+        <el-switch v-model="value1"> </el-switch>
+        <el-switch v-model="value"> </el-switch>
+      </div>
+      <div class="small-switch">
+        <el-switch v-model="value2"> </el-switch>
+        <el-switch v-model="value3"> </el-switch>
+      </div>
+    </div>
+    <div class="sub-switch">
+      <b>Unable</b>
+      <div>
+        <el-switch :value="false" disabled> </el-switch>
+        <el-switch :value="true" disabled> </el-switch>
+      </div>
+      <div class="small-switch">
+        <el-switch :value="false" disabled> </el-switch>
+        <el-switch :value="true" disabled> </el-switch>
+      </div>
+    </div>
+    <!-- <el-row>
       <el-col :span="1" class="switch-enable"><b>Enable</b></el-col>
       <el-col :span="1">
         <el-switch v-model="value1"> </el-switch>
@@ -29,7 +51,7 @@
       <el-col :span="6" class="small-switch">
         <el-switch :value="true" disabled> </el-switch>
       </el-col>
-    </el-row>
+    </el-row> -->
   </div>
 </template>
 <script lang="ts">
@@ -52,8 +74,12 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.switch-enable,
-.switch-unable {
-  margin-right: 10px;
+b {
+  margin-right: 24px;
+}
+.sub-switch {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
 }
 </style>

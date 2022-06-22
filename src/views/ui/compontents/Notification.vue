@@ -5,7 +5,6 @@
     <p>常规状态通常出现在页面的右上角</p>
     <el-row>
       <el-button
-        type="text"
         @click="
           $notify({
             title: '通知',
@@ -23,7 +22,6 @@
     <el-row>
       <el-col :span="2">
         <el-button
-          type="text"
           @click="
             $notify.info({
               title: '通知的标题十个字以内',
@@ -38,7 +36,6 @@
       </el-col>
       <el-col :span="2">
         <el-button
-          type="text"
           @click="
             $notify.success({
               title: '通知的标题十个字以内',
@@ -53,7 +50,6 @@
       </el-col>
       <el-col :span="2">
         <el-button
-          type="text"
           @click="
             $notify.error({
               title: '通知的标题十个字以内',
@@ -68,7 +64,6 @@
       </el-col>
       <el-col :span="2">
         <el-button
-          type="text"
           @click="
             $notify({
               title: '通知的标题十个字以内',

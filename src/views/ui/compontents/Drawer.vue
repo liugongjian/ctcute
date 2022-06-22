@@ -8,9 +8,9 @@
       -当需要在当前任务流中插入临时任务，创建或预览附加内容。比如展示协议条款，创建子对象。
     </p>
     <el-row>
-      <el-col :span="2">
+      <el-col :span="3">
         <h3>简单样式</h3>
-        <el-button type="text" @click="drawer = true">简单样式 </el-button>
+        <el-button @click="drawer = true">简单样式 </el-button>
         <!-- 抽屉 -->
         <el-drawer title="抽屉" :visible.sync="drawer" custom-class="sub-simple">
           <div class="sub-content">
@@ -25,7 +25,7 @@
       </el-col>
       <el-col :span="2">
         <h3>复杂样式</h3>
-        <el-button type="text" @click="drawer1 = true">复杂样式 </el-button>
+        <el-button @click="drawer1 = true">复杂样式 </el-button>
         <!-- 抽屉 -->
         <el-drawer title="小弹窗(提示框)" :visible.sync="drawer1" custom-class="sub-simple">
           <div class="sub-content">
@@ -84,12 +84,12 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiDrawer'
+  name: 'UiDrawer',
 })
 export default class extends Vue {
   public static title = {
     zh: '抽屉',
-    en: 'Drawer'
+    en: 'Drawer',
   }
 
   private drawer = false
@@ -97,8 +97,8 @@ export default class extends Vue {
   private rules = {
     name: [
       { required: true, message: '请输入活动名称', trigger: 'blur' },
-      { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-    ]
+      { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
+    ],
   }
 }
 </script>

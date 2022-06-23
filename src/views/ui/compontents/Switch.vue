@@ -47,6 +47,7 @@ export default class extends Vue {
 b {
   margin-right: 24px;
 }
+
 .sub-switch {
   display: flex;
   align-items: center;

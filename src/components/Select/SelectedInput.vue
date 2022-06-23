@@ -7,7 +7,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 
 @Component({
   name: 'SelectedInput',
@@ -20,8 +20,9 @@ export default class extends Vue {
     this.data.length > 0 ? (this.sele = `操作已选项(${this.data.length})`) : (this.sele = '操作已选项')
   }
 
+  @Watch('data')
   private change() {
-    this.sele = `操作已选项(${this.data.length})`
+    this.data.length > 0 ? (this.sele = `操作已选项(${this.data.length})`) : (this.sele = '操作已选项')
     this.$emit('request', this.data)
   }
 }
@@ -34,6 +35,7 @@ export default class extends Vue {
     padding-right: 0;
     font-size: 12px;
   }
+
   ::v-deep.el-input__inner {
     padding-right: 0;
     color: $primary;

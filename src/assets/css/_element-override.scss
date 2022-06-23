@@ -84,6 +84,7 @@
     margin-right: 4px;
   }
 }
+
 .el-button.el-button--default:not(.is-disabled):hover {
   background: #ffff;
   border-color: #fa8334;
@@ -122,7 +123,7 @@
   }
 }
 /* TextButton */
-.el-button.el-button--text.el-button--medium {
+.el-button--text {
   padding: 0;
 }
 
@@ -361,7 +362,11 @@
 .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
   background: #f8f8f8;
 }
-
+.el-checkbox__label {
+  font-size: 12px;
+  color: $text;
+  font-weight: normal;
+}
 /* Datepicker */
 .el-date-editor .el-range-separator {
   width: 40px;

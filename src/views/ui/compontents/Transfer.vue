@@ -52,4 +52,3 @@ export default class extends Vue {
   private value1 = [1, 4]
 }
 </script>
-<style lang="scss" scoped></style>

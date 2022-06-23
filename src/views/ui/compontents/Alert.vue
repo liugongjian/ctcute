@@ -79,7 +79,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-
+import variablesRevised from '@/assets/css/_variables-revised.scss'
 @Component({
   name: 'UiAlert'
 })
@@ -89,47 +89,64 @@ export default class extends Vue {
     en: 'Alert'
   }
 
-  private infoColor = '#fa8334'
-  private alertColor = '#faad15'
-  private errorColor = '#f5212d'
+  private get infoColor(): string {
+    return variablesRevised.colorPrimary
+  }
+
+  private get alertColor(): string {
+    return variablesRevised.colorWarning
+  }
+
+  private get errorColor(): string {
+    return variablesRevised.colorDanger
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .sub-all-alert {
   ::v-deep.sub-all-alert .el-alert__closebtn.is-customed {
-    font-size: 12px;
+    font-size: $text-size-primary;
   }
+
   @keyframes rotating {
-    0% {transform: rotate(0);}
-    100% {transform: rotate(1turn);}
+    0% { transform: rotate(0); }
+    100% { transform: rotate(1turn); }
   }
+
   .loading {
     animation: rotating 2s linear infinite;
   }
+
   .long-text.el-alert {
     align-items: flex-start;
   }
+
   .sub-title {
-    font-size: 12px;
-    &::after {
-      content: "";
+    font-size: $text-size-primary;
+
+    &:after {
+      content: '';
       display: inline-block;
       width: 10px;
     }
   }
+
   .sub-title-text {
-    font-size: 12px;
-    &::after {
-      content: "";
+    font-size: $text-size-primary;
+
+    &:after {
+      content: '';
       display: inline-block;
       width: 54px;
     }
   }
+
   .el-row,
   .sub-alert {
     display: flex;
     margin-top: 20px;
+
     ::v-deep.el-alert {
       width: auto;
       min-width: 164px;

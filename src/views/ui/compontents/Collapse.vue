@@ -103,32 +103,6 @@ export default class extends Vue {
 .sub-collapse {
   .el-collapse {
     width: 638px;
-    border: none;
-
-    ::v-deep.el-collapse-item.is-disabled .el-collapse-item__header {
-      font-family: PingFangSC-Medium;
-      font-size: 12px;
-      color: rgba(0, 0, 0, 30%);
-    }
-
-    ::v-deep.el-collapse-item__header {
-      height: 36px;
-      font-family: PingFangSC-Medium;
-      background: #fafafa;
-      border: 1px solid #eee;
-      color: rgba(0, 0, 0, 90%);
-      font-weight: bold;
-      font-size: 12px;
-      margin-top: 24px;
-      padding-left: 36px;
-      position: relative;
-
-      .el-collapse-item__arrow {
-        position: absolute;
-        left: 16px;
-        color: #000;
-      }
-    }
 
     .table-key {
       cursor: pointer;
@@ -139,18 +113,15 @@ export default class extends Vue {
       overflow-y: auto;
       margin: 0 !important;
     }
-
-    ::v-deep.el-collapse-item__content {
-      font-size: 12px;
-      color: rgba(0, 0, 0, 65%);
-      line-height: 20px;
-      padding: 10px;
-      border: 1px solid #f1f1f1;
-      border-top: none;
-    }
   }
 
   .collapse-notcontent {
+    ::v-deep.el-collapse-item__header {
+      background-color: #f3f3f3;
+      border: none;
+      height: 32px;
+    }
+
     ::v-deep.el-collapse-item__content {
       margin-top: 16px;
       border: none;

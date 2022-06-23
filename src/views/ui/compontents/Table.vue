@@ -19,7 +19,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -40,7 +40,7 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation">挂载</el-button>
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">挂载</el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
@@ -92,7 +92,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -113,7 +113,7 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation">挂载</el-button>
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">挂载</el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
@@ -170,7 +170,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px">2022-05-20 18:00:05 </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -191,7 +191,7 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation">挂载</el-button>
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">挂载</el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
@@ -239,7 +239,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -260,7 +260,7 @@
         </el-table-column>
         <el-table-column label="操作" width="190px" fixed="right">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation">挂载</el-button>
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">挂载</el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
@@ -436,6 +436,10 @@ export default class extends Vue {
     console.log(this.multipleSelectionOver3)
     this.selectedCount = `已选项(${val.length})`
   }
+
+  private handleClick(index, row) {
+    console.log(index, row)
+  }
 }
 
 </script>
@@ -444,6 +448,7 @@ export default class extends Vue {
 .el-table {
   // width: 65%;
   margin: 24px 0;
+
   .text-ellipsis {
     display: inline-block;
     overflow: hidden;
@@ -452,6 +457,7 @@ export default class extends Vue {
     vertical-align: middle;
     width: 100%;
   }
+
   .name-primary {
     color: $primary;
   }
@@ -467,13 +473,16 @@ export default class extends Vue {
       margin-right: 10px;
     }
   }
+
   .el-dropdown-link {
     cursor: pointer;
     color: $primary;
   }
+
   .el-icon-arrow-down {
     font-size: 12px;
   }
+
   .el-table__fixed {
     height: 1000px;
   }
@@ -493,15 +502,17 @@ export default class extends Vue {
 .sub-table-horizon {
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 24px;
+
   .el-table--border {
     border-left: 1px solid $border;
     border-top: 1px solid $border;
     border-right: 1px solid $border;
   }
 }
+
 .small-table {
   tr,
-  td{
+  td {
     height: 34px;
     line-height: 34px;
     padding: 0 !important;
@@ -520,10 +531,12 @@ export default class extends Vue {
   font-size: 12px;
   margin-left: 10px;
 }
+
 .sub-index-top3 {
   color: #fff;
   background: $primary;
 }
+
 .pagination {
   text-align: right;
   margin-bottom: 24px;
@@ -557,7 +570,7 @@ export default class extends Vue {
   }
 
   &--5 {
-    background: rgba(0, 0, 0, 30%);
+    background: $color-disabled;
   }
 }
 
@@ -569,19 +582,19 @@ export default class extends Vue {
   margin-right: 10px;
 
   &--6 {
-    background: rgba(115, 222, 179, 85%);
+    background: $color-success;
   }
 
   &--7 {
-    background: #ff4948;
+    background: $color-danger;
   }
 
   &--8 {
-    background: #faad15;
+    background: $color-warning;
   }
 
   &--9 {
-    background: rgba(0, 0, 0, 28%);
+    background: $color-disabled;
   }
 }
 </style>

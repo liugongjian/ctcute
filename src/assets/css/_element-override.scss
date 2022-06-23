@@ -262,6 +262,12 @@
       color: #999;
       background-color: #f8f8f8;
     }
+    &.el-radio-button--medium .el-radio-button__inner {
+      padding: 8px 20px;
+    }
+    &.el-radio-button--small .el-radio-button__inner {
+      padding: 6px 9px;
+    }
   }
 }
 .el-checkbox-group {
@@ -310,6 +316,9 @@
         color: #aaa;
       }
     }
+    &.el-checkbox-button--medium .el-checkbox-button__inner {
+      padding: 7px 19px;
+    }
   }
   .el-checkbox-button__inner {
     color: $text;
@@ -320,7 +329,7 @@
     &:hover {
       background-color: #ffe6d2;
     }
-  }
+  } 
 }
 
 // 选中项

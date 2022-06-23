@@ -6,7 +6,7 @@
     </p>
     <h3>基础表格</h3>
     <div class="sub-table">
-      <el-table :data="data.tableData" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
+      <el-table :data="data.tableData" border>
         <el-table-column prop="name" label="主机别名" width="150px">
           <template slot-scope="scope">
             <div>
@@ -80,7 +80,7 @@
         <el-button type="primary" :disabled="!multipleSelection.length" size="small">主按钮</el-button>
         <el-button :disabled="!multipleSelection.length" size="small">次按钮</el-button>
       </div>
-      <el-table ref="multipleTable" :data="data.tableData10" tooltip-effect="dark" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }" @selection-change="handleSelectionChange">
+      <el-table ref="multipleTable" :data="data.tableData10" tooltip-effect="dark" border @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" width="150px" label="主机别名">
           <template slot-scope="scope">
@@ -157,8 +157,7 @@
           <el-option disabled> Disabled </el-option>
         </el-select>
       </div>
-
-      <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData10" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }" @selection-change="handleSelectionChangeOver3">
+      <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData10" border @selection-change="handleSelectionChangeOver3">
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" label="主机别名">
           <template slot-scope="scope">
@@ -227,7 +226,7 @@
 
     <h3>展示不全的表格</h3>
     <div class="sub-table">
-      <el-table :data="data.tableData10" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
+      <el-table :data="data.tableData10" border>
         <el-table-column type="selection" width="55" fixed> </el-table-column>
         <el-table-column prop="name" label="主机别名" width="120">
           <template slot-scope="scope">
@@ -294,10 +293,10 @@
       </el-pagination>
     </div>
     <h3>横向展示列表</h3>
-    <div class="sub-table-horizon">
-      <el-table :data="tableData" :span-method="row" :cell-style="{ 'border-bottom': '1px solid #DDD', 'border-right': '1px solid #DDD' }" :row-style="{ 'border-right': '1px solid #DDD' }">
+    <div class="sub-table-horizon" border>
+      <el-table :data="tableData" :span-method="row">
         <el-table-column prop="dataFilter" label="数据筛选" width="230" align="center"> </el-table-column>
-        <el-table-column prop="dataTime" label="数据时间字段" align="center" sortable> </el-table-column>
+        <el-table-column prop="dataTime" label="数据时间字段" align="center"> </el-table-column>
         <el-table-column prop="key" label="主键" align="center" width="260"> </el-table-column>
         <el-table-column label="标签" align="center">
           <el-table-column label="标签单元" prop="tag1" align="center"> </el-table-column>
@@ -310,7 +309,7 @@
 
     <h3>小表格</h3>
     <div>
-      <el-table :data="data.smallTable" :row-style="{ 'height': '38px', 'line-height': '38px' }" :cell-style="{ 'padding': 0 }" border>
+      <el-table :data="data.smallTable" border size="small">
         <el-table-column label="排行">
           <template slot-scope="scope">
             <span :class="scope.$index <3 ? 'sub-index sub-index-top3': 'sub-index'">{{ scope.$index+1 }}</span>
@@ -502,21 +501,6 @@ export default class extends Vue {
 .sub-table-horizon {
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 24px;
-
-  .el-table--border {
-    border-left: 1px solid $border;
-    border-top: 1px solid $border;
-    border-right: 1px solid $border;
-  }
-}
-
-.small-table {
-  tr,
-  td {
-    height: 34px;
-    line-height: 34px;
-    padding: 0 !important;
-  }
 }
 
 .sub-index {

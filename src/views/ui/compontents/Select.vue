@@ -3,9 +3,6 @@
     <p>将动作或菜单折叠到下拉菜单中</p>
     <div class="sub-down">
       <h3>常规用法</h3>
-      <div class="default-select">
-        <el-button type="text">默认</el-button><el-button type="text" disabled>存在分组</el-button><el-button type="text" disabled>存在多行字段</el-button><el-button type="text" disabled>不可用</el-button><el-button type="text" disabled>存在辅助信息</el-button>
-      </div>
       <el-row>
         <el-col :span="7">
           <el-select v-model="value" popper-class="select-radio" filterable>
@@ -45,12 +42,6 @@
             <el-option label="不可用" value=""> <svg-icon name="save"> </svg-icon></el-option>
           </el-select>
         </el-col>
-        <!-- <el-col :span="6">
-          <el-select v-model="value3" multiple placeholder="请选择">
-            <el-option label="不可用" value="不可用" disabled> </el-option>
-            <el-option label="选项" value="选项"> </el-option>
-          </el-select>
-        </el-col> -->
       </el-row>
     </div>
     <div class="sub-down">
@@ -119,18 +110,20 @@
         </el-col>
       </el-row>
     </div>
-    <div class="sub-checkout">
+    <div class="sub-down">
       <h3>操作已选项</h3>
       <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
       <el-row>
-        <selected-input :data="data" :option-data="optionData" @request="request" />
+        <selected-input :data="checkList" :option-data="optionData" @request="request" />
       </el-row>
-      <el-row>
-        <el-checkbox>未选中项</el-checkbox>
-      </el-row>
-      <el-row>
-        <el-checkbox checked>已选中项</el-checkbox>
-      </el-row>
+      <el-checkbox-group v-model="checkList">
+        <el-row>
+          <el-checkbox label="未选中项"></el-checkbox>
+        </el-row>
+        <el-row>
+          <el-checkbox label="已选中项"></el-checkbox>
+        </el-row>
+      </el-checkbox-group>
     </div>
   </div>
 </template>
@@ -149,6 +142,7 @@ export default class extends Vue {
     en: 'Select',
   }
 
+  private checkList = ['已选中项']
   private name = '数据资源名称'
   private selectValue = []
   private value = []
@@ -202,25 +196,6 @@ export default class extends Vue {
     },
   ]
 
-  data = [
-    {
-      title: 'hahhah',
-      id: '1',
-    },
-    {
-      title: '退订1',
-      id: '2',
-    },
-    {
-      title: '退订2',
-      id: '3',
-    },
-    {
-      title: '退订3',
-      id: '3',
-    },
-  ]
-
   optionData = [
     {
       label: '退订',
@@ -241,8 +216,9 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .default-select {
   .el-button {
-    padding: 0px;
+    padding: 0;
   }
+
   .el-row {
     margin-top: 0;
   }
@@ -250,6 +226,7 @@ export default class extends Vue {
 
 .sub-down {
   border-bottom: 1px solid #f1f1f1;
+
   .el-row {
     margin: 24px 0;
   }

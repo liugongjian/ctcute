@@ -280,9 +280,9 @@
       border: 1px solid transparent;
     }
     &.is-checked .el-checkbox-button__inner {
-      color: #333;
+      color: $text-color-primary;
       background-color: rgba(250, 131, 52, 0.08);
-      border: 1px solid #fa8334;
+      border: 1px solid $color-primary;
       box-shadow: none;
       position: relative;
       &::before {
@@ -291,7 +291,7 @@
         right: 0;
         top: 0;
         border: 8px solid transparent;
-        border-color: transparent #ff7b03 #ff7b03 transparent;
+        border-color: transparent $color-primary $color-primary transparent;
         transform: rotate(270deg);
       }
       &::after {
@@ -300,17 +300,17 @@
         position: absolute;
         right: 0;
         top: 0;
-        font-size: 12px;
+        font-size: $text-size-small;
         zoom: 0.75;
         @include iconfont;
       }
     }
     &.is-disabled .el-checkbox-button__inner {
-      color: #999;
-      background-color: #f8f8f8;
-      border-color: #ddd;
+      color: $color-disabled;
+      background-color: $bg-color-light;
+      border-color: $bg-color-dark;
       &::before {
-        border-color: transparent #ddd #ddd transparent;
+        border-color: transparent $bg-color-dark $bg-color-dark transparent;
       }
       &::after {
         color: #aaa;

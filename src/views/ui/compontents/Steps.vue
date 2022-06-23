@@ -3,7 +3,12 @@
     <p>默认横向步骤条。存在常规、进行中、已完成等情况。</p>
     <h3>基础步骤条</h3>
     <div class="sub-steps">
-      <ui-steps :active="active" :steps="normalsteps" max-width="800px" @clickStep="clickStep"></ui-steps>
+      <ui-el-steps
+        :active="active"
+        :steps="normalsteps"
+        max-width="800px"
+        @clickStep="clickStep"
+      ></ui-el-steps>
       <el-button
         class="btn-style"
         @click="
@@ -18,7 +23,13 @@
     </div>
     <h3>迷你步骤条</h3>
     <div class="sub-steps">
-      <ui-steps size="mini" :active="activeMini" :steps="steps" @clickStep="clickmini"></ui-steps>
+      <ui-el-steps
+        size="mini"
+        :active="activeMini"
+        max-width="1200px"
+        :steps="steps"
+        @clickStep="clickmini"
+      ></ui-el-steps>
       <el-button
         class="btn-style"
         @click="
@@ -33,7 +44,7 @@
     </div>
     <h3>步骤多展示不全</h3>
     <div class="sub-steps">
-      <ui-steps
+      <ui-el-steps
         :active="activeMulti"
         :steps="multisteps"
         max-width="60%"
@@ -41,7 +52,7 @@
         :go-button="true"
         @clickStep="clickmulti"
         @change="goMulti"
-      ></ui-steps>
+      ></ui-el-steps>
       <el-button
         class="btn-style"
         @click="
@@ -53,7 +64,7 @@
         下一步
       </el-button>
       <el-button @click="() => (activeMulti = 0)">重置</el-button>
-      <ui-steps
+      <ui-el-steps
         :active="activeMultiMini"
         :steps="multisteps"
         size="mini"
@@ -63,7 +74,7 @@
         :go-button="true"
         @clickStep="clickmultimini"
         @change="goMultiMini"
-      ></ui-steps>
+      ></ui-el-steps>
       <el-button
         class="btn-style"
         @click="
@@ -80,10 +91,10 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import UiSteps from '@/components/ElementUI/Steps/steps.vue'
+import UiElSteps from '@/components/ElementUI/Steps/steps.vue'
 @Component({
-  name: 'Steps',
-  components: { UiSteps },
+  name: 'UiSteps',
+  components: { UiElSteps },
 })
 export default class extends Vue {
   public static title = {
@@ -177,5 +188,8 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .btn-style {
   margin-top: 48px;
+}
+.max-style {
+  max-width: 800px;
 }
 </style>

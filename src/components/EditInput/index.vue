@@ -28,7 +28,7 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .edit-input-icon {
-  font-size: 14px;
+  font-size: $text-size-medium;
   margin-left: 10px;
   cursor: pointer;
   &:hover {
@@ -50,7 +50,7 @@ export default class extends Vue {
   }
   svg {
     cursor: pointer;
-    font-size: 16px;
+    font-size: $text-size-large;
     margin-right: 8px;
   }
 }

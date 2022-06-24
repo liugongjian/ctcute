@@ -909,9 +909,15 @@
 }
 @include global-tag();
 @include global-tag(success, #a8e18c, $color-success, #edf9e8);
-@include global-tag(warning, #fcc199, #fa9a34, #fef2ea);
+@include global-tag(warning, #fcd68a, #fa9a34, #fef6e7);
 @include global-tag(danger, #ffa4a3, $color-danger, #ffecec);
-
+@include global-tag(newtag, $color-primary, $color-primary, rgba(250,131,52,0.08));
+.el-tag--newtag {
+  &:hover {
+    background: rgba(250,131,52,0.15);
+    cursor: pointer;
+  }
+}
 .el-tag {
   background-color: #f3f9ff;
   color: $color-info;
@@ -1119,7 +1125,7 @@
   .el-collapse-item.is-disabled .el-collapse-item__header {
     font-family: PingFangSC-Medium;
     font-size: 12px;
-    color: #999;
+    color: $color-disabled;
   }
   .el-collapse-item__header {
     height: 36px;
@@ -1146,7 +1152,7 @@
     color: rgba(0, 0, 0, 65%);
     line-height: 20px;
     padding: 10px;
-    background: $sideBarBg;
+    background: $color-white;
     border: 1px solid $border;
     border-top: none;
   }

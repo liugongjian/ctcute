@@ -6,7 +6,7 @@
     </p>
     <h3>基础表格</h3>
     <div class="sub-table">
-      <el-table :data="data.tableData" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
+      <el-table :data="data.tableData" border>
         <el-table-column prop="name" label="主机别名" width="150px">
           <template slot-scope="scope">
             <div>
@@ -19,7 +19,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -40,7 +40,7 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation">挂载</el-button>
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">挂载</el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
@@ -80,7 +80,7 @@
         <el-button type="primary" :disabled="!multipleSelection.length" size="small">主按钮</el-button>
         <el-button :disabled="!multipleSelection.length" size="small">次按钮</el-button>
       </div>
-      <el-table ref="multipleTable" :data="data.tableData10" tooltip-effect="dark" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }" @selection-change="handleSelectionChange">
+      <el-table ref="multipleTable" :data="data.tableData10" tooltip-effect="dark" border @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" width="150px" label="主机别名">
           <template slot-scope="scope">
@@ -92,7 +92,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -113,7 +113,7 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation">挂载</el-button>
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">挂载</el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
@@ -157,8 +157,7 @@
           <el-option disabled> Disabled </el-option>
         </el-select>
       </div>
-
-      <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData10" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }" @selection-change="handleSelectionChangeOver3">
+      <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData10" border @selection-change="handleSelectionChangeOver3">
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" label="主机别名">
           <template slot-scope="scope">
@@ -170,7 +169,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px">2022-05-20 18:00:05 </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -191,7 +190,7 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation">挂载</el-button>
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">挂载</el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
@@ -227,7 +226,7 @@
 
     <h3>展示不全的表格</h3>
     <div class="sub-table">
-      <el-table :data="data.tableData10" border :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
+      <el-table :data="data.tableData10" border>
         <el-table-column type="selection" width="55" fixed> </el-table-column>
         <el-table-column prop="name" label="主机别名" width="120">
           <template slot-scope="scope">
@@ -239,7 +238,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -260,7 +259,7 @@
         </el-table-column>
         <el-table-column label="操作" width="190px" fixed="right">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation">挂载</el-button>
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">挂载</el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
@@ -294,10 +293,10 @@
       </el-pagination>
     </div>
     <h3>横向展示列表</h3>
-    <div class="sub-table-horizon">
-      <el-table :data="tableData" :span-method="row" :cell-style="{ 'border-bottom': '1px solid #DDD', 'border-right': '1px solid #DDD' }" :row-style="{ 'border-right': '1px solid #DDD' }">
+    <div class="sub-table-horizon" border>
+      <el-table :data="tableData" :span-method="row">
         <el-table-column prop="dataFilter" label="数据筛选" width="230" align="center"> </el-table-column>
-        <el-table-column prop="dataTime" label="数据时间字段" align="center" sortable> </el-table-column>
+        <el-table-column prop="dataTime" label="数据时间字段" align="center"> </el-table-column>
         <el-table-column prop="key" label="主键" align="center" width="260"> </el-table-column>
         <el-table-column label="标签" align="center">
           <el-table-column label="标签单元" prop="tag1" align="center"> </el-table-column>
@@ -310,7 +309,7 @@
 
     <h3>小表格</h3>
     <div>
-      <el-table :data="data.smallTable" :row-style="{ 'height': '38px', 'line-height': '38px' }" :cell-style="{ 'padding': 0 }" border>
+      <el-table :data="data.smallTable" border size="small">
         <el-table-column label="排行">
           <template slot-scope="scope">
             <span :class="scope.$index <3 ? 'sub-index sub-index-top3': 'sub-index'">{{ scope.$index+1 }}</span>
@@ -436,6 +435,10 @@ export default class extends Vue {
     console.log(this.multipleSelectionOver3)
     this.selectedCount = `已选项(${val.length})`
   }
+
+  private handleClick(index, row) {
+    console.log(index, row)
+  }
 }
 
 </script>
@@ -444,6 +447,7 @@ export default class extends Vue {
 .el-table {
   // width: 65%;
   margin: 24px 0;
+
   .text-ellipsis {
     display: inline-block;
     overflow: hidden;
@@ -452,6 +456,7 @@ export default class extends Vue {
     vertical-align: middle;
     width: 100%;
   }
+
   .name-primary {
     color: $primary;
   }
@@ -467,13 +472,16 @@ export default class extends Vue {
       margin-right: 10px;
     }
   }
+
   .el-dropdown-link {
     cursor: pointer;
     color: $primary;
   }
+
   .el-icon-arrow-down {
     font-size: 12px;
   }
+
   .el-table__fixed {
     height: 1000px;
   }
@@ -493,19 +501,6 @@ export default class extends Vue {
 .sub-table-horizon {
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 24px;
-  .el-table--border {
-    border-left: 1px solid $border;
-    border-top: 1px solid $border;
-    border-right: 1px solid $border;
-  }
-}
-.small-table {
-  tr,
-  td{
-    height: 34px;
-    line-height: 34px;
-    padding: 0 !important;
-  }
 }
 
 .sub-index {
@@ -520,10 +515,12 @@ export default class extends Vue {
   font-size: 12px;
   margin-left: 10px;
 }
+
 .sub-index-top3 {
   color: #fff;
   background: $primary;
 }
+
 .pagination {
   text-align: right;
   margin-bottom: 24px;
@@ -557,7 +554,7 @@ export default class extends Vue {
   }
 
   &--5 {
-    background: rgba(0, 0, 0, 30%);
+    background: $color-disabled;
   }
 }
 
@@ -569,19 +566,19 @@ export default class extends Vue {
   margin-right: 10px;
 
   &--6 {
-    background: rgba(115, 222, 179, 85%);
+    background: $color-success;
   }
 
   &--7 {
-    background: #ff4948;
+    background: $color-danger;
   }
 
   &--8 {
-    background: #faad15;
+    background: $color-warning;
   }
 
   &--9 {
-    background: rgba(0, 0, 0, 28%);
+    background: $color-disabled;
   }
 }
 </style>

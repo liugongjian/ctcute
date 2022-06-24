@@ -110,7 +110,7 @@
         </el-col>
       </el-row>
     </div>
-    <div class="sub-down">
+    <div>
       <h3>操作已选项</h3>
       <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
       <el-row>

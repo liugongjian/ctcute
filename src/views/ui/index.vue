@@ -67,7 +67,7 @@ export default class extends Vue {
 }
 
 .ui__component {
-  border-bottom: 1px solid $border;
+  border-bottom: 1px solid #f1f1f1;
   padding: 14px 0 24px;
 
   h1 {
@@ -78,7 +78,6 @@ export default class extends Vue {
   ::v-deep {
     p {
       color: $text;
-      font-family: PingFangSC-Regular;
       font-size: 12px;
       line-height: 20px;
       font-weight: 400;
@@ -86,21 +85,22 @@ export default class extends Vue {
     }
 
     h2 {
-      font-family: PingFangSC-Medium;
       font-size: 16px;
       line-height: 20px;
       font-weight: 500;
       color: $textHead;
     }
+
     h3 {
       font-size: 14px;
       margin-top: 24px;
       color: $textHead;
     }
+
     .sub-sample {
       margin: 24px 0;
       padding-bottom: 24px;
-      border-bottom: 1px solid $border;
+      border-bottom: 1px solid #f1f1f1;
 
       &:last-child {
         padding: 0;
@@ -108,6 +108,7 @@ export default class extends Vue {
         border: 0;
       }
     }
+
     .sub-steps {
       margin: 24px 0;
       padding-bottom: 24px;

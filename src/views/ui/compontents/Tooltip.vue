@@ -98,41 +98,50 @@ export default class extends Vue {
 .tooltip-more,
 .tooltip-mores {
   margin-right: 6px;
+
   &:hover {
     cursor: pointer;
   }
 }
+
 .tooltip-more {
   text-decoration: underline;
 }
+
 .sub-tooltip {
   margin: 24px 0;
   padding-bottom: 24px;
-  border-bottom: 1px solid $border;
+  border-bottom: 1px solid #f1f1f1;
 }
+
 .tooltip-interval {
   margin-top: 52px;
 }
+
 .message {
   display: block;
   width: 35px;
   height: 18px;
-  border-radius: 6px 0 6px 0;
+  border-radius: 6px 0;
   color: #ffff;
   font-size: 12px;
   text-align: center;
   line-height: 18px;
+
   &.prompt-warning {
     background: #faad15;
   }
+
   &.prompt-error {
     background: #f5212d;
   }
+
   &.prompt-success {
     background: #52c41a;
   }
+
   &.prompt-conventional {
-    background: #ffffff;
+    background: #fff;
     border: 1px solid #fa8334;
     color: #fa8334;
   }

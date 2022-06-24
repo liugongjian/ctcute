@@ -3,7 +3,7 @@
     <div class="sub-input">
       <h3>常规用法</h3>
       <el-row>
-        <el-col :span="7"><el-input placeholder="请输入"></el-input></el-col>
+        <el-col :span="7"><el-input v-model="value1" placeholder="请输入"></el-input></el-col>
         <el-col :span="7">
           <el-form v-model="password" :rules="rules">
             <el-form-item prop="password">
@@ -41,52 +41,52 @@
     </div>
     <h3>特殊输入框</h3>
     <div class="sub-input">
-      <el-row>
-        <el-col :span="6">
+      <div class="input-content">
+        <div>
           <el-input-number v-model="num" controls-position="right" :min="1" :max="10"></el-input-number>
-        </el-col>
-        <el-col :span="8">
-          <el-input placeholder="请输入详细地址" class="input-with-select">
+        </div>
+        <div>
+          <el-input v-model="address" placeholder="请输入详细地址" class="input-with-select">
             <el-select slot="prepend" v-model="select" placeholder="城市" size="small">
               <el-option label="上海" value="1"></el-option>
             </el-select>
           </el-input>
-        </el-col>
-        <el-col :span="8">
-          <el-input placeholder="请输入身高" class="input-with-select">
+        </div>
+        <div>
+          <el-input v-model="height" placeholder="请输入身高" class="input-with-select">
             <el-select slot="append" v-model="select" placeholder="CM">
               <el-option label="cm" value="2"></el-option>
             </el-select>
           </el-input>
-        </el-col>
-      </el-row>
-      <el-row class="special-prepend">
-        <el-col :span="6">
+        </div>
+      </div>
+      <div class="input-content">
+        <div>
           <el-input-number v-model="num1" :min="1" :max="10" label="描述文字"></el-input-number>
-        </el-col>
-        <el-col :span="8">
-          <el-input placeholder="请输入url">
+        </div>
+        <div>
+          <el-input v-model="url" placeholder="请输入url">
             <template slot="prepend">Http://</template>
           </el-input>
-        </el-col>
-        <el-col :span="6">
-          <el-input placeholder="请输入url">
+        </div>
+        <div>
+          <el-input v-model="url1" placeholder="请输入url">
             <template slot="append">.com</template>
           </el-input>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="6" class="input-icon">
+        </div>
+      </div>
+      <div class="input-bottom">
+        <div class="input-icon">
           <el-input v-model="money">
             <span slot="suffix" class="icon-money">元</span>
           </el-input>
-        </el-col>
-        <el-col :span="6">
-          <el-input placeholder="请输入密码">
+        </div>
+        <div>
+          <el-input v-model="forgot" placeholder="请输入密码">
             <span slot="suffix" class="suffix-forgot">Forgot?</span>
           </el-input>
-        </el-col>
-      </el-row>
+        </div>
+      </div>
     </div>
     <h3 class="sub-title">带提示的输入框</h3>
     <div class="sub-input">
@@ -155,6 +155,7 @@ export default class extends Vue {
     en: 'Input',
   }
 
+  private value1 = ''
   private placeholderTitle = '请输入内容'
   private num = 1
   private num1 = 1
@@ -168,6 +169,11 @@ export default class extends Vue {
   private information1 =
   '一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二'
 
+  private address = '' // 地址
+  private height = '' // 身高
+  private url = '' // url
+  private url1 = ''
+  private forgot = ''
   private password = ''
   private rules = {
     password: [
@@ -202,5 +208,18 @@ export default class extends Vue {
 
 .el-select .el-input {
   width: 130px;
+}
+
+.input-content {
+  width: 846px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.input-bottom {
+  width: 522px;
+  display: flex;
+  justify-content: space-between;
 }
 </style>

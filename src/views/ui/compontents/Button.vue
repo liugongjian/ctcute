@@ -89,10 +89,12 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .sub-sample {
   white-space: nowrap;
+
   .el-button + .el-button {
     margin-left: 16px;
   }
 }
+
 .sub-combination {
   .el-button + .el-dropdown {
     margin: 0;
@@ -101,8 +103,9 @@ export default class extends Vue {
 
 .button-layout {
   display: inline-block;
+
   .el-button + .el-button {
-    margin-left: 8px;
+    margin-left: 12px;
   }
 }
 

@@ -43,7 +43,7 @@
             <el-divider direction="vertical"></el-divider>
             <span>未知 </span>
           </div>
-          <div class="sub-esay">
+          <div class="sub-easy">
             <span>1</span>
             <span>内蒙电信</span>
             <span class="sub-origin">已完成</span>
@@ -79,7 +79,7 @@
             <el-divider direction="vertical"></el-divider>
             <span>未知 </span>
           </div>
-          <div class="sub-esay">
+          <div class="sub-easy">
             <span>1</span>
             <span>内蒙电信</span>
             <span class="sub-origin">已完成</span>
@@ -134,27 +134,32 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .timeline-content {
   margin-top: 24px;
+
   h4 {
     font-size: 12px;
-    color: rgba(0, 0, 0, 0.65);
+    color: rgba(0, 0, 0, 65%);
   }
+
   p {
     font-size: 12px;
-    color: rgba(0, 0, 0, 0.45);
+    color: rgba(0, 0, 0, 45%);
   }
+
   ::v-deep.el-divider--vertical {
     color: #dddd;
   }
 }
+
 .sub-complex {
   width: 693px;
   height: 42px;
-  background: #ffffff;
-  box-shadow: inset 0 1px 0 0 #eeeeee;
+  background: #fff;
+  box-shadow: inset 0 1px 0 0 #eee;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-top: 24px;
+
   span {
     font-weight: bold;
     display: block;
@@ -162,22 +167,25 @@ export default class extends Vue {
     text-align: center;
   }
 }
+
 .sub-easy {
   width: 693px;
   height: 42px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   span {
     width: 70px;
     display: block;
     text-align: center;
-    color: rgba(0, 0, 0, 0.65);
+    color: rgba(0, 0, 0, 65%);
     font-size: 12px;
     vertical-align: middle;
   }
 }
-.sub-origin::before {
+
+.sub-origin:before {
   content: '';
   display: inline-block;
   width: 6px;

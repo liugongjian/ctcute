@@ -1,16 +1,16 @@
 <template>
-  <div class="ui-tabs">
+  <div>
     <h3>基础样式</h3>
-    <el-row>
+    <el-row class="sub-tabs">
       <el-tabs>
         <el-tab-pane label="选项一">选项一</el-tab-pane>
         <el-tab-pane label="禁用项" disabled>禁用项</el-tab-pane>
         <el-tab-pane label="默认项">默认项</el-tab-pane>
       </el-tabs>
     </el-row>
-    <hr />
+    <!-- <hr /> -->
     <h3>带icon样式</h3>
-    <el-row>
+    <el-row class="sub-tabs">
       <el-tabs>
         <el-tab-pane>
           <span slot="label"><i class="el-icon-cloudy"></i> 选项一</span>
@@ -26,7 +26,7 @@
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <hr />
+    <!-- <hr /> -->
 
     <h3>小选项卡</h3>
     <el-row class="small-tabs">
@@ -99,6 +99,11 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .el-row {
-  margin: 20px 0 24px 0;
+  margin: 20px 0 24px;
+}
+
+.sub-tabs {
+  border-bottom: 1px solid #f1f1f1;
+  padding-bottom: 24px;
 }
 </style>

@@ -369,11 +369,11 @@
       border-color: $disabled-border;
 
       &::before {
-        border-color: $disabled-border;
+        border-color: transparent $disabled-border $disabled-border transparent;
       }
 
       &::after {
-        color: $disabled-border;
+        color: $color-grey-5;
       }
     }
 
@@ -1022,7 +1022,13 @@
 @include global-tag(success, $color-tag-success-1, $color-status-success, $color-tag-success-2);
 @include global-tag(warning, $color-tag-warning-1, $color-status-warning, $color-tag-warning-2);
 @include global-tag(danger, $color-tag-danger-1, $color-status-danger, $color-tag-danger-2);
-
+@include global-tag(newtag, $color-master-1, $color-master-1, $color-master-7);
+.el-tag--newtag {
+  &:hover {
+    background: $color-master-7;
+    cursor: pointer;
+  }
+}
 .el-tag {
   background-color: $color-tag-info-2;
   color: $color-status-info;
@@ -1227,7 +1233,7 @@
   .el-collapse-item.is-disabled .el-collapse-item__header {
     font-family: PingFangSC-Medium;
     font-size: 12px;
-    color: #999;
+    color: $disabled-color;
   }
   .el-collapse-item__header {
     height: 36px;
@@ -1254,7 +1260,7 @@
     color: rgba(0, 0, 0, 65%);
     line-height: 20px;
     padding: 10px;
-    background: $sideBarBg;
+    background: $color-white;
     border: 1px solid $border;
     border-top: none;
   }

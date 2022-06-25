@@ -458,7 +458,7 @@ export default class extends Vue {
   }
 
   .name-primary {
-    color: $primary;
+    color: $color-master-1;
   }
 
   .cell {
@@ -475,7 +475,7 @@ export default class extends Vue {
 
   .el-dropdown-link {
     cursor: pointer;
-    color: $primary;
+    color: $color-master-1;
   }
 
   .el-icon-arrow-down {
@@ -518,7 +518,7 @@ export default class extends Vue {
 
 .sub-index-top3 {
   color: #fff;
-  background: $primary;
+  background: $color-master-1;
 }
 
 .pagination {
@@ -527,7 +527,7 @@ export default class extends Vue {
 }
 
 .bt-operation {
-  color: $primary;
+  color: $color-master-1;
 }
 
 .sub-spot {
@@ -538,23 +538,23 @@ export default class extends Vue {
   margin-right: 10px;
 
   &--1 {
-    background: $success;
+    background: $color-status-success;
   }
 
   &--2 {
-    background: $warning;
+    background: $color-status-warning;
   }
 
   &--3 {
-    background: $danger;
+    background: $color-status-danger;
   }
 
   &--4 {
-    background: $info;
+    background: $color-status-info;
   }
 
   &--5 {
-    background: $color-disabled;
+    background: $disabled-fill;
   }
 }
 
@@ -566,19 +566,19 @@ export default class extends Vue {
   margin-right: 10px;
 
   &--6 {
-    background: $color-success;
+    background: $color-status-success;
   }
 
   &--7 {
-    background: $color-danger;
+    background: $color-status-danger;
   }
 
   &--8 {
-    background: $color-warning;
+    background: $color-status-warning;
   }
 
   &--9 {
-    background: $color-disabled;
+    background: $disabled-fill;
   }
 }
 </style>

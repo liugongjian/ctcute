@@ -13,7 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, arial, STHeiTi, sans-serif;
   font-size: 12px;
-  background: $bodyBg;
+  background: $bg-color-body;
   padding: 0;
   margin: 0;
 }
@@ -32,12 +32,12 @@ a:hover {
 }
 
 a {
-  color: $primary;
+  color: $color-master-1;
 }
 
 a:focus,
 a:hover {
-  color: #fb9c5d;
+  color: $color-master-1;
 }
 
 div:focus {
@@ -46,7 +46,7 @@ div:focus {
 
 hr {
   border: none;
-  border-top: 1px solid $border;
+  border-top: 1px solid $border-color-light-1;
 }
 
 ::-webkit-scrollbar-track-piece {
@@ -57,20 +57,3 @@ hr {
   width: 0;
   height: 0;
 }
-
-// ::-webkit-scrollbar-thumb {
-//   height: 50px;
-//   background-color: #ddd;
-//   border-radius: 6px;
-//   outline-offset: -2px;
-//   filter: alpha(opacity = 50);
-//   -moz-opacity: 0.5;
-//   -khtml-opacity: 0.5;
-//   opacity: 0.5;
-// }
-
-// ::-webkit-scrollbar-thumb:hover {
-//   height: 50px;
-//   background-color: #ddd;
-//   border-radius: 6px;
-// }

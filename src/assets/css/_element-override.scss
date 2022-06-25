@@ -1,18 +1,21 @@
-/* iconfont */
+/* Iconfont
+-------------------------- */
 @mixin iconfont {
   font-family: 'iconfont' !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* Button */
+
+/* Button
+-------------------------- */
 /*
   $type:类名;
   $bgColor:背景颜色;
   $bdColor:边框颜色;
   $color:字体颜色;
 */
-@mixin button-disabled($type: primary, $bgColor: $bgColor, $bdColor: $bdColor, $color: $color) {
+@mixin button-disabled($type: primary, $bgColor: $disabled-fill, $bdColor: $disabled-border, $color: $disabled-color) {
   .el-button--#{$type}.is-plain.is-disabled,
   .el-button--#{$type}.is-disabled {
     background-color: $bgColor;
@@ -28,8 +31,8 @@
   }
 }
 @include button-disabled();
-@include button-disabled(danger, $bgColor, $bdColor, $color);
-@include button-disabled(default, $color-white, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.3));
+@include button-disabled(danger, $disabled-danger-fill, $disabled-danger-border, $disabled-danger-color);
+@include button-disabled(default, $disabled-fill, $disabled-border, $disabled-color);
 .el-button + .el-dropdown {
   margin-left: 16px;
   margin-right: 16px;
@@ -38,52 +41,60 @@
 .el-button + .el-button {
   margin-left: 8px;
 }
+
 .ui-iconbutton {
   .el-button--medium {
     padding: 7px;
   }
 }
+
 .el-button--text {
-  // color: $text;
   .svg-icon.svg-fill {
     margin-right: 4px;
   }
   &:hover {
-    color: $primary;
+    color: $color-master-1;
   }
   &.light:not(.is-disabled) {
-    color: $primary;
+    color: $color-master-1;
   }
 }
 
 .el-button-rect {
   padding: 10px;
 }
+
 .sub-special {
   .el-button--danger {
-    background-color: #df0428;
+    background-color: $color-sp-1;
     border: none;
     &:hover {
-      background-color: #e32948;
+      background-color: $color-sp-2;
     }
     &:active {
-      background-color: #bd0322;
+      background-color: $color-sp-3;
     }
   }
 }
+
 .el-button--danger.is-plain {
   background: $color-white;
+  border-color: $color-status-danger-1;
+
   &:hover,
   &:active,
   &:focus {
-    background: #ff5050;
+    color: $color-status-danger-1;
+    background: $color-status-danger-2;
   }
 }
+
 .el-button--medium {
   padding: 9px $padding-primary;
   font-size: $text-size-small;
   border-radius: $border-radius;
 }
+
 .el-button--small {
   padding: 7px $padding-primary;
   border-radius: $border-radius;
@@ -94,7 +105,7 @@
 
 .el-button.el-button--default:not(.is-disabled):hover {
   background: $color-white;
-  border-color: $color-primary;
+  border-color: $color-master-1;
 }
 
 .el-button.is-loading:before {
@@ -106,39 +117,48 @@
   width: 124px;
   text-align: center;
 }
+
 .el-button--primary:hover {
-  background-color: $color-primary;
+  background-color: $color-master-1;
 }
+
 .el-button.el-button--primary.el-button--mini {
   padding: 7px $padding-primary;
 }
+
 .el-dropdown {
   .el-button:hover,
   .el-button:focus {
     .svg-icon.svg-fill {
-      color: $primary;
+      color: $color-master-1;
     }
   }
   .svg-icon.svg-fill:not(:first-child) {
     margin-left: 13px;
   }
   .svg-icon.svg-fill {
-    color: #777777;
+    color: $button-icon-color;
   }
 }
-/* TextButton */
+
+/* TextButton
+-------------------------- */
 .el-button--text {
   padding: 0;
 }
 
-/* Link */
+
+/* Link
+-------------------------- */
 .el-link.el-link--primary:hover {
-  color: $color-primary-active;
+  color: $color-master-2;
 }
-/* Form */
+
+/* Link
+-------------------------- */
 .el-form-item__label {
   padding-right: 25px;
-  color: $textGrey;
+  color: $text-color-light-1;
 }
 
 .el-form-item {
@@ -149,10 +169,12 @@
   padding-top: 3px;
 }
 
-/* Input */
+/* Input
+-------------------------- */
 .el-input {
   font-size: $text-size-small;
 }
+
 .el-input-group__append,
 .el-input-group__prepend {
   .el-select {
@@ -162,87 +184,100 @@
   }
   width: 80px;
   background: $color-white;
-  color: $text;
+  color: $text-color-primary;
   .el-input__inner::placeholder {
-    color: $text;
+    color: $text-color-primary;
   }
 }
+
 .el-input-group__prepend {
-  color: $text-color-light;
+  color: $text-color-light-1;
 }
 
 .el-input__prefix {
   display: flex;
   align-items: center;
 }
+
 .el-input-number__increase,
 .el-input-number__decrease {
-  background-color: $inputBgColor;
+  background-color: $input-fill;
 }
 
 .el-input__inner:hover {
-  border-color: $text-color-lighter;
+  border-color: $text-color-light-1;
 }
+
 .el-input__inner:active {
-  border: 1px solid $color-primary;
+  border: 1px solid $color-master-1;
   box-shadow: 0 0 4px 0 rgba(250, 131, 52, 0.2);
 }
 
 .el-form-item.is-error .el-input__inner {
-  border: 1px solid $color-danger;
+  border: 1px solid $color-status-danger-1;
   background: rgba(245, 33, 45, 0.08);
 }
+
 .el-input__suffix-inner {
   .el-icon-close {
     line-height: 36px;
     padding-right: 15px;
     &:hover {
-      color: $primary;
+      color: $color-master-1;
       cursor: pointer;
     }
   }
 }
+
 .input-icon {
   .el-input {
     width: 200px;
   }
 }
+
 .suffix-forgot,
 .icon-money {
   line-height: 36px;
-  color: $text;
+  color: $text-color-light-1;
   margin-right: $text-size-small;
 }
+
 .suffix-forgot::before {
   content: '|';
-  color: #cccccc;
+  color: $border-color-primary;
   margin-right: $text-size-small;
 }
-/* Textarea */
+
+/* Textarea
+-------------------------- */
 .el-textarea .el-input__count {
-  color: $textGrey;
+  color: $text-color-light-1;
   line-height: 150%;
 }
+
 .el-textarea {
   font-size: $text-size-small;
   width: 300px;
+
   .el-textarea__inner {
     padding: 7px 12px;
   }
 }
 
-/* Radio */
+/* Radio
+-------------------------- */
 .el-radio-button__orig-radio:checked + .el-radio-button__inner {
-  color: $primary;
-  background-color: rgba(250, 131, 52, 8%);
+  color: $color-master-1;
+  background-color: $color-master-7;
 }
+
 .el-radio__inner {
   width: 16px;
   height: 16px;
   &::after {
     width: 8px;
     height: 8px;
-    background: $color-primary;
+    background: $color-master-1;
   }
 }
 
@@ -250,30 +285,49 @@
   .el-radio-button {
     margin-left: 2px;
     .el-radio-button__inner {
-      color: $text;
+      color: $text-color-primary;
       font-size: $textSize;
-      background-color: #ffefe3;
+      background-color: $color-master-6;
       border: 0;
       &:hover {
-        background-color: #ffe6d2;
+        background-color: $color-master-5;
       }
     }
+
     &.is-active .el-radio-button__inner {
-      color: white;
-      background-color: $primary;
+      color: $color-white;
+      background-color: $color-master-1;
     }
+
     &.is-disabled .el-radio-button__inner {
-      color: $text-color-lighter;
-      background-color: $bg-color-light;
+      color: $text-color-light-1;
+      background-color: $disabled-fill;
     }
+
     &.el-radio-button--medium .el-radio-button__inner {
       padding: 8px 20px;
     }
+
     &.el-radio-button--small .el-radio-button__inner {
       padding: 6px 9px;
     }
   }
 }
+
+.el-radio__input.is-disabled.is-checked .el-radio__inner::after {
+  background: $disabled-border;
+}
+
+.el-radio__input.is-disabled .el-radio__inner {
+  background: $disabled-fill;
+}
+
+.el-radio__input.is-checked .el-radio__inner {
+  background: $color-white;
+}
+
+/* Checkbox
+-------------------------- */
 .el-checkbox-group {
   .el-checkbox-button {
     margin-right: 8px;
@@ -285,8 +339,8 @@
     }
     &.is-checked .el-checkbox-button__inner {
       color: $text-color-primary;
-      background-color: rgba(250, 131, 52, 0.08);
-      border: 1px solid $color-primary;
+      background-color: $color-master-7;
+      border: 1px solid $color-master-1;
       box-shadow: none;
       position: relative;
       &::before {
@@ -295,7 +349,7 @@
         right: 0;
         top: 0;
         border: 8px solid transparent;
-        border-color: transparent $color-primary $color-primary transparent;
+        border-color: transparent $color-master-1 $color-master-1 transparent;
         transform: rotate(270deg);
       }
       &::after {
@@ -310,22 +364,25 @@
       }
     }
     &.is-disabled .el-checkbox-button__inner {
-      color: $color-disabled;
-      background-color: $bg-color-light;
-      border-color: $bg-color-dark;
+      color: $disabled-color;
+      background-color: $disabled-fill;
+      border-color: $disabled-border;
+
       &::before {
-        border-color: transparent $bg-color-dark $bg-color-dark transparent;
+        border-color: $disabled-border;
       }
+
       &::after {
-        color: #aaa;
+        color: $disabled-border;
       }
     }
+
     &.el-checkbox-button--medium .el-checkbox-button__inner {
       padding: 7px 19px;
     }
   }
   .el-checkbox-button__inner {
-    color: $text;
+    color: $text-color-primary;
     font-size: $textSize;
     background-color: #ffefe3;
     border: 1px solid transparent;
@@ -336,18 +393,6 @@
   }
 }
 
-// 选中项
-.el-radio__input.is-disabled.is-checked .el-radio__inner::after {
-  background: $bg-color-dark;
-}
-.el-radio__input.is-disabled .el-radio__inner {
-  background: $bg-color-light;
-}
-.el-radio__input.is-checked .el-radio__inner {
-  background: $color-white;
-}
-
-/* Checkbox */
 .el-checkbox-group + .el-form-item__error {
   padding-top: 0;
 }
@@ -363,47 +408,92 @@
   background-color: $color-white;
 }
 .el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
-  background-color: $color-primary;
+  background-color: $color-master-1;
   top: 2px;
   width: 10px;
   height: 10px;
   left: 2px;
 }
 .el-checkbox__input.is-disabled .el-checkbox__inner {
-  background: $bg-color-light;
+  background: $disabled-fill;
 }
 .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
-  background: $bg-color-light;
+  background: $disabled-fill;
 }
 .el-checkbox__label {
   font-size: $text-size-small;
-  color: $text;
+  color: $text-color-primary;
   font-weight: normal;
 }
-/* Datepicker */
+
+/* Datepicker
+-------------------------- */
 .el-date-editor .el-range-separator {
   width: 40px;
 }
 
-/* Tree */
+/* Tree
+-------------------------- */
 .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
   background: #f3f3f3;
 }
 
-/* Dialog */
+.el-tree-node__content {
+  height: 30px;
+  margin-bottom: 6px;
+  font-size: $text-size-small;
+  &:hover {
+    color: $color-master-1;
+  }
+}
+
+.el-tree-node:focus > .el-tree-node__content {
+  background-color: $color-master-1;
+  color: $color-white;
+}
+
+.el-tree-node__content:hover {
+  color: #989a9c;
+}
+
+.tree-node-popover {
+  border: 1px solid #ebeef5 !important;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  min-width: 0;
+  padding: 0;
+  margin: 0.3em 0 0 0 !important;
+  .tooltip-content {
+    display: flex;
+    flex-direction: column;
+    .el-button {
+      margin: 0;
+      padding: 0.8em 1.2em;
+      color: rgba(0, 0, 0, 0.65);
+      &:hover {
+        background: $color-master-7;
+      }
+    }
+  }
+}
+
+/* Dialog
+-------------------------- */
 .el-dialog__footer {
   margin-top: -30px;
 }
 
 .el-dialog__headerbtn .el-dialog__close {
-  color: $textGrey;
+  color: $text-color-light-1;
 }
 
-/* Descriptions */
+/* Descriptions
+-------------------------- */
 .el-descriptions td {
   padding: 10px 0;
 }
-/* Tabs */
+
+/* Tabs
+-------------------------- */
 .el-tabs__item {
   font-size: $text-size-small;
 }
@@ -425,8 +515,9 @@
     box-sizing: content-box;
   }
 }
-/* Table */
 
+/* Table
+-------------------------- */
 .el-table__header-wrapper {
   background-color: #f3f3f3;
 }
@@ -534,7 +625,8 @@
   border-color: $border;
 }
 
-/* Pagination */
+/* Pagination
+-------------------------- */
 .el-pagination {
   margin-top: 8px;
   padding-top: 8px;
@@ -542,7 +634,7 @@
     width: 60px;
   }
   .pageination-total {
-    color: $text;
+    color: $text-color-primary;
     font-size: $text-size-small !important;
     font-weight: normal;
     margin: 0 19px 0 20px;
@@ -586,8 +678,8 @@
 }
 
 .el-pagination.is-background .el-pager li:not(.disabled):hover {
-  color: $text;
-  background: $bg-color-primary-hover;
+  color: $text-color-primary;
+  background: $color-master-7;
 }
 .el-pagination__jump {
   margin-left: 0px;
@@ -596,32 +688,33 @@
   }
 }
 
-/* Breadcrumb */
+/* Breadcrumb
+-------------------------- */
 .el-breadcrumb {
   font-size: $text-size-small;
   .el-breadcrumb__inner:hover {
-    color: $primary;
+    color: $color-master-1;
     cursor: pointer;
   }
 }
 .el-breadcrumb__inner.is-link,
 .el-breadcrumb__inner a,
 .el-breadcrumb__inner {
-  color: $textGrey;
+  color: $text-color-light-1;
   font-weight: normal;
   &:hover {
-    color: $textGrey;
+    color: $text-color-light-1;
   }
 }
 
 .el-breadcrumb__inner a:hover {
-  color: $primary;
+  color: $color-master-1;
 }
 
 .el-breadcrumb__item:last-child {
   .el-breadcrumb__inner,
   .el-breadcrumb__inner:hover {
-    color: $textHead;
+    color: $text-color-primary;
     font-weight: bold;
     cursor: pointer;
   }
@@ -629,9 +722,11 @@
 
 .el-breadcrumb__item:last-child .el-breadcrumb__inner {
   font-weight: 500;
-  color: $text;
+  color: $text-color-primary;
 }
-/* steps */
+
+/* Steps
+-------------------------- */
 /* $class:类名;
    $bdColor:边框颜色
    $color:字体颜色
@@ -672,8 +767,8 @@
   }
 }
 
-/* select */
-
+/* Select
+-------------------------- */
 .el-select {
   .el-input.el-input--suffix {
     width: 300px;
@@ -688,19 +783,19 @@
 }
 .el-select.el-select--medium {
   .el-tag.el-tag--info.el-tag--small.el-tag--light {
-    background: $bg-color-light;
+    background: $disabled-fill;
     border: 1px solid $border-color-primary;
     border-radius: $border-radius;
   }
   .el-select__tags-text:hover {
-    color: $primary;
+    color: $color-master-1;
     cursor: pointer;
   }
   .el-tag__close.el-icon-close {
-    background: $text-color-lighter;
+    background: $text-color-light-1;
     color: $color-white;
     &:hover {
-      background: $primary;
+      background: $color-master-1;
       color: $color-white;
     }
   }
@@ -708,14 +803,14 @@
 .auxiliary-message::after {
   content: '辅助信息';
   margin-left: 10px;
-  color: $text-color-lighter;
+  color: $text-color-light-1;
 }
 .select-radio {
   .el-select-dropdown__item {
     font-size: $text-size-small;
   }
   .el-select-dropdown__item.selected {
-    background: $primary;
+    background: $color-master-1;
     color: $color-white;
   }
   .el-select-dropdown__empty {
@@ -751,9 +846,9 @@
       margin-left: 10px;
     }
     .el-select__tags-text {
-      color: $text-color-lighter;
+      color: $text-color-light-1;
       &:hover {
-        color: $text-color-lighter;
+        color: $text-color-light-1;
       }
     }
   }
@@ -763,17 +858,18 @@
   line-height: 80px;
 }
 .el-select-dropdown.is-multiple .el-select-dropdown__item.selected.hover {
-  background-color: $bg-color-primary-hover;
+  background-color: $color-master-7;
 }
 .el-select-dropdown__item:hover {
-  background-color: $bg-color-primary-hover;
-  color: $primary;
+  background-color: $color-master-7;
+  color: $color-master-1;
 }
 .el-select-dropdown__item.hover {
-  background-color: $bg-color-primary-hover;
+  background-color: $color-master-7;
 }
-/* slider */
 
+/* Slider
+-------------------------- */
 .el-slider__marks-text {
   color: rgba(0, 0, 0, 0.65);
 }
@@ -788,7 +884,9 @@
 .el-slider__runway.show-input {
   width: 616px;
 }
-/* unpload */
+
+/* Upload
+-------------------------- */
 .el-upload {
   width: 80px;
   height: 80px;
@@ -802,6 +900,7 @@
     align-items: center;
   }
 }
+
 .sub-upload {
   .el-upload,
   .upload-demo {
@@ -815,10 +914,13 @@
     background-color: $color-white;
   }
 }
+
 .el-upload-dragger {
   background-color: #f7f8fa;
 }
-/* Switch */
+
+/* Switch
+-------------------------- */
 .el-switch + .el-switch {
   margin-left: 30px;
 }
@@ -837,14 +939,16 @@
     margin-left: -13px;
   }
 }
-/* Alert */
+
+/* Alert
+-------------------------- */
 /*
   $class:类名;
   $bdcolor:边框颜色;
   $iconColor:icon颜色;
   $bgColor:背景颜色;
 */
-@mixin global-tips($class: info, $bdcolor: #fcc199, $iconColor: $color-primary, $bgColor: #fef2ea) {
+@mixin global-tips($class: info, $bdcolor: #fcc199, $iconColor: $color-master-1, $bgColor: #fef2ea) {
   .sub-all-alert {
     .el-alert--#{$class}.is-light {
       border: 1px solid $bdcolor;
@@ -857,10 +961,11 @@
   }
 }
 @include global-tips();
-@include global-tips(success, #a8e18c, $color-success, #edf9e8);
-@include global-tips(warning, #fcd68a, $color-warning, #fef6e7);
-@include global-tips(error, #ffa4a3, $color-danger, #ffecec);
-@include global-tips(weak, #ccc, #ccc, $color-white);
+@include global-tips(success, $color-tag-success-1, $color-status-success, $color-tag-success-2);
+@include global-tips(warning, $color-tag-warning-1, $color-status-warning, $color-tag-warning-2);
+@include global-tips(error, $color-tag-danger-1, $color-status-danger, $color-tag-danger-2);
+@include global-tips(weak, $disabled-border, $disabled-color, $color-white);
+
 .sub-all-alert {
   .el-alert__closebtn {
     top: 10px;
@@ -870,18 +975,22 @@
     top: 8px;
   }
 }
+
 .el-alert {
   padding: 0;
 }
+
 .el-alert + .el-alert {
   margin-left: 49px;
 }
-/* Progress  */
+
+/* Progress
+-------------------------- */
 .el-progress.is-success .el-progress-bar__inner {
-  background-color: $color-success;
+  background-color: $color-status-success;
 }
 .el-progress.is-success .el-progress__text {
-  color: $color-success;
+  color: $color-status-success;
 }
 
 .el-icon-circle-check:before {
@@ -899,8 +1008,10 @@
 .el-progress__text {
   font-size: $text-size-small !important;
 }
-/* Tag  */
-@mixin global-tag($class: info, $bdcolor: $bg-color-dark, $fontColor: #333, $bgColor: $bg-color-light) {
+
+/* Tag
+-------------------------- */
+@mixin global-tag($class: info, $bdcolor: $disabled-border, $fontColor: $text-color-primary, $bgColor: $disabled-fill) {
   .el-tag.el-tag--#{$class} {
     border: 1px solid $bdcolor;
     color: $fontColor;
@@ -908,36 +1019,27 @@
   }
 }
 @include global-tag();
-@include global-tag(success, #a8e18c, $color-success, #edf9e8);
-@include global-tag(warning, #fcc199, #fa9a34, #fef2ea);
-@include global-tag(danger, #ffa4a3, $color-danger, #ffecec);
+@include global-tag(success, $color-tag-success-1, $color-status-success, $color-tag-success-2);
+@include global-tag(warning, $color-tag-warning-1, $color-status-warning, $color-tag-warning-2);
+@include global-tag(danger, $color-tag-danger-1, $color-status-danger, $color-tag-danger-2);
 
 .el-tag {
-  background-color: #f3f9ff;
-  color: $color-info;
-  border: 1px solid #bddbff;
+  background-color: $color-tag-info-2;
+  color: $color-status-info;
+  border: 1px solid $color-tag-info-1;
   border-radius: $border-radius;
   height: 22px;
   line-height: 20px;
 }
 
-/* Tree  */
-.el-tree-node__content {
-  height: 30px;
-  margin-bottom: 6px;
-  font-size: $text-size-small;
-  &:hover {
-    color: $color-primary;
-  }
-}
-
-/* Toast  */
+/* Toast
+-------------------------- */
 /*
   $class:类名;
   $iconColor:icon颜色;
   $iconClass:icon类名;
 */
-@mixin toast-page($class: success, $iconColor: $color-success, $iconClass: success) {
+@mixin toast-page($class: success, $iconColor: $color-status-success, $iconClass: success) {
   .el-message.el-message--#{$class}.toast-#{$class} {
     min-width: 150px;
     height: 40px;
@@ -955,16 +1057,17 @@
   }
 }
 @include toast-page();
-@include toast-page(warning, $color-warning);
-@include toast-page(error, $color-danger);
+@include toast-page(warning, $color-status-warning);
+@include toast-page(error, $color-status-danger);
 
-/* notification  */
+/* Notification
+-------------------------- */
 /*
   $class:类名;
   $iconColor:icon颜色;
   $iconClass:icon类名;
 */
-@mixin notification-page($class: error-tips, $iconColor: $color-danger, $iconClass: error) {
+@mixin notification-page($class: error-tips, $iconColor: $color-status-danger, $iconClass: error) {
   .el-notification.#{$class}.right {
     width: 480px;
     height: 144px;
@@ -982,10 +1085,10 @@
     }
   }
 }
-@include notification-page(ordinary-tips, $color-info, info);
-@include notification-page(success-tips, $color-success, success);
+@include notification-page(ordinary-tips, $color-status-info, info);
+@include notification-page(success-tips, $color-status-success, success);
 @include notification-page();
-@include notification-page(warning-tips, $color-warning, warning);
+@include notification-page(warning-tips, $color-status-warning, warning);
 .el-notification {
   border-radius: 4px;
   box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 0.5);
@@ -1008,7 +1111,8 @@
   }
 }
 
-/* drawer  */
+/* Drawer
+-------------------------- */
 .sub-drawer {
   .sub-content {
     .el-form {
@@ -1034,19 +1138,22 @@
   }
 }
 
-/* Dropdown */
+/* Dropdown
+-------------------------- */
 .el-dropdown-menu--medium .el-dropdown-menu__item {
   font-size: $textSize;
   &:hover {
-    background: $bg-color-primary-hover;
-    color: $primary;
+    background: $color-master-7;
+    color: $color-master-1;
   }
   &:active {
-    background: $primary;
+    background: $color-master-1;
     color: $color-white;
   }
 }
-/* Transfer */
+
+/* Transfer
+-------------------------- */
 .el-transfer {
   .el-transfer-panel .el-transfer-panel__header {
     background: $color-white;
@@ -1081,12 +1188,12 @@
     margin-bottom: 0 !important;
   }
   .is-disabled.el-transfer__button {
-    background: $bg-color-light;
+    background: $disabled-fill;
     border: 1px solid $border-color-primary;
     border-radius: $border-radius;
     color: #ddd;
     &:hover {
-      background: $bg-color-light;
+      background: $disabled-fill;
       color: #ddd;
     }
   }
@@ -1097,7 +1204,7 @@
     }
   }
   .el-checkbox.el-transfer-panel__item.is-checked {
-    background-color: $bg-color-primary-hover;
+    background-color: $color-master-7;
   }
   .el-checkbox__input.is-checked + .el-checkbox__label {
     color: #333;
@@ -1113,7 +1220,8 @@
   font-size: $text-size-small;
 }
 
-/* Collapse*/
+/* Collapse
+-------------------------- */
 .el-collapse {
   border: none;
   .el-collapse-item.is-disabled .el-collapse-item__header {
@@ -1126,7 +1234,7 @@
     font-family: PingFangSC-Medium;
     background: #fafafa;
     border: 1px solid $border;
-    color: $textHead;
+    color: $text-color-primary;
     font-weight: bold;
     font-size: 12px;
     margin-top: 24px;
@@ -1152,7 +1260,8 @@
   }
 }
 
-/* Timeline */
+/* Timeline
+-------------------------- */
 .sub-timeline {
   ul {
     padding-inline-start: 12px;
@@ -1170,7 +1279,7 @@
     width: 10px;
     height: 10px;
     background-color: $color-white;
-    border: 2px solid $color-primary;
+    border: 2px solid $color-master-1;
   }
   .el-timeline-item__timestamp.is-top {
     font-weight: bold;
@@ -1178,13 +1287,15 @@
     font-size: $text-size-small;
   }
 }
-/* Contentareatips */
+
+/* Content Area Tips
+-------------------------- */
 /*
   $class:类名;
   $color:字体颜色;
   $iconColor:icon颜色;
 */
-@mixin contentareatips-page($class: info, $color: $text-color-light, $iconColor: rgba(0, 0, 0, 0.45)) {
+@mixin contentareatips-page($class: info, $color: $text-color-light-1, $iconColor: rgba(0, 0, 0, 0.45)) {
   .sub-contentareatips {
     .el-alert--#{$class}.is-light {
       background-color: $color-white;
@@ -1197,53 +1308,26 @@
 }
 
 @include contentareatips-page();
-@include contentareatips-page(warning, #fa9a34, $color-warning);
-@include contentareatips-page(error, $color-danger, $color-danger);
+@include contentareatips-page(warning, #fa9a34, $color-status-warning);
+@include contentareatips-page(error, $color-status-danger, $color-status-danger);
 .el-alert__title {
   font-size: $text-size-small;
 }
-/* tooltip */
+
+/* Tooltip
+-------------------------- */
 .ui-tooltip {
   .el-tooltip__popper.is-dark {
-    background: #3b3e4b;
-  }
-}
-/* Tree */
-.el-tree-node:focus > .el-tree-node__content {
-  background-color: $color-primary;
-  color: $color-white;
-}
-.el-tree-node__content:hover {
-  color: #989a9c;
-}
-
-.tree-node-popover {
-  border: 1px solid #ebeef5 !important;
-  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
-  min-width: 0;
-  padding: 0;
-  margin: 0.3em 0 0 0 !important;
-  .tooltip-content {
-    display: flex;
-    flex-direction: column;
-    .el-button {
-      margin: 0;
-      padding: 0.8em 1.2em;
-      color: rgba(0, 0, 0, 0.65);
-      &:hover {
-        background: $bg-color-primary-hover;
-      }
-    }
+    background: $tooltip-fill;
   }
 }
 
-/* popover */
+/* Popover
+-------------------------- */
 .el-popover.el-popper.operation-content {
   padding: 20px 24px 20px 16px !important;
-  .el-popover__title {
-    font-size: $textSize;
-  }
 }
+
 .el-popover__reference-wrapper {
   .el-button--medium {
     padding: 0;

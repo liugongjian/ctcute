@@ -1,53 +1,119 @@
-/* 基础配色 */
-$color-primary: #fa8334;
-$color-primary-hover: #ff934c;
-$color-primary-active: #ed7c31;
-$color-success: #52c41a;
-$color-warning: #faad15;
-$color-danger: #f5212d;
-$color-info: #1890ff;
-$color-disabled: #999;
+/* Color
+-------------------------- */
+/* 主题色 */
+$color-master-1: #fa8334;
+$color-master-2: #ff934c;
+$color-master-3: #ed7c31;
+$color-master-4: #ffe1c6;
+$color-master-5: #ffe6d2;
+$color-master-6: #ffefe3;
+$color-master-7: #fef5ee;
+
+/* 特殊色 */
+$color-sp-1: #df0428;
+$color-sp-2: #e32948;
+$color-sp-3: #bd0322;
+
+/* 状态色 */
+$color-status-danger-1: #f5212d;
+$color-status-danger-2: #ffeeef;
+$color-status-danger: $color-status-danger-1;
+$color-status-info-1: #1890ff;
+$color-status-info: $color-status-info-1;
+$color-status-success-1: #52c41a;
+$color-status-success: $color-status-success-1;
+$color-status-warning-1: #faad15;
+$color-status-warning: #faad15;
+
+/* 标签色 */
+$color-tag-danger-1: #ffa4a3;
+$color-tag-danger-2: #ffecec;
+$color-tag-info-1: #bddbff;
+$color-tag-info-2: #f3f9ff;
+$color-tag-success-1: #a8e18c;
+$color-tag-success-2: #edf9e8;
+$color-tag-warning-1: #fcd68a;
+$color-tag-warning-2: #fef6e7;
+
+/* 灰色 */
+$color-grey-1: #333;
+$color-grey-2: #666;
+$color-grey-3: #777;
+$color-grey-4: #999;
+$color-grey-5: #aaa;
+$color-grey-6: #ddd;
+$color-grey-7: #f2f2f2;
+$color-grey-8: #f3f3f3;
+$color-grey-9: #f5f5f5;
+$color-grey-10: #f8f8f8;
+$color-grey-11: #fafafa;
+
+/* 白色 */
 $color-white: #fff;
 
-/* 字体大小 */
+/* 其他 */
+$color-other-1: #3b3e4b;
+
+/* Background
+-------------------------- */
+$bg-color-body: $color-grey-7;
+
+/* Typography
+-------------------------- */
 $text-size-small: 12px;
 $text-size-medium: 14px;
 $text-size-large: 16px;
 $text-size-x-large: 18px;
 $text-size-primary: $text-size-small;
 
-/* 字体颜色 */
-$text-color-primary: #333; // 正文颜色
-$text-color-light: #666; // 提示文字
-$text-color-lighter: #999; // 次要文本、表单占位文本
+$text-color-primary: $color-grey-1; /* 正文颜色 */
+$text-color-light-1: $color-grey-2; /* 提示文字 */
+$text-color-light-2: $color-grey-4; /* 次要文本、表单占位文本 */
 
-/* 背景颜色 */
-$bg-color-light: #f8f8f8;
-$bg-color-lighter: $color-white;
-$bg-color-dark: #ddd; // 表格单元格、灰色按钮
-$bg-color-body: #f2f2f2;
-$bg-color-primary-hover: #fef5ee; // 主题色悬浮背景
-
-/* 边框 */
-$border-color-primary: #ddd;
-$border-color-light: #eee;
+/* Border
+-------------------------- */
+$border-color-primary: $color-grey-6;
+$border-color-light-1: $color-grey-7;
+$border-color-dark-1: $color-grey-4; /* 悬浮状态 */
 $border-radius: 2px;
 
-/* 内外边距 */
+/* Padding & Margin
+-------------------------- */
 $padding-primary: 20px;
 $margin-small: 8px;
 $margin-medium: 16px;
 $margin-primary: $margin-small;
 
+/* Disable
+-------------------------- */
+$disabled-fill: $color-grey-10;
+$disabled-color: $color-grey-4;
+$disabled-border: $color-grey-6;
+$disabled-danger-fill: $color-white;
+$disabled-danger-color: mix($color-white, $color-status-danger-1, 50%);
+$disabled-danger-border: $disabled-danger-color;
+
+/* Button
+-------------------------- */
+$button-icon-color: $color-grey-3;
+
+/* Input
+-------------------------- */
+$input-fill: $color-white;
+
+/* Tooltip
+-------------------------- */
+$tooltip-fill: $color-other-1;
+
 /* The :export directive is the magic sauce for webpack
  * https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
   */
-:export {
-  colorPrimary: $color-primary;
-  colorSuccess: $color-success;
-  colorWarning: $color-warning;
-  colorDanger: $color-danger;
-  colorInfo: $color-info;
-  colorDisabled: $color-disabled;
-  colorWhite: $color-white;
-}
+// :export {
+//   colorprimary: $color-primary;
+//   colorsuccess: $color-success;
+//   colorwarning: $color-warning;
+//   colordanger: $color-danger;
+//   colorinfo: $color-info;
+//   colordisabled: $color-disabled;
+//   colorwhite: $color-white;
+// }

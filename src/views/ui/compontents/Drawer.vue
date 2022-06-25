@@ -107,44 +107,51 @@ export default class extends Vue {
 .el-tag {
   margin-left: 10px;
 }
+
 .button-new-tag {
   height: 22px;
   line-height: 20px;
   margin-left: 10px;
   padding-top: 0;
   padding-bottom: 0;
-  border: 1px dashed #ccc;
+  border: 1px dashed $color-grey-6;
 }
+
 .sub-tags {
   display: flex;
   align-items: center;
+
   ::v-deep.el-form-item__label {
     padding: 0;
   }
 }
+
 .sub-content {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
+
   p {
     flex: 1;
     padding: 30px;
     font-size: 14px;
-    color: rgba(0, 0, 0, 0.65);
+    color: $text-color-primary;
     font-weight: 400;
   }
+
   .el-form {
     flex: 1;
     padding: 30px;
     font-size: 14px;
   }
+
   .sub-foot {
     padding: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f5f5f5;
+    background: $color-grey-9;
   }
 }
 </style>

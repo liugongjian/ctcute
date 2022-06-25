@@ -1,9 +1,13 @@
-export interface IScssVariables {
-  menuBg: string
-  menuText: string
-  menuActiveText: string
+export interface IScssVariablesRevised {
+  colorMaster: string;
+  colorSuccess: string;
+  colorWarning: string;
+  colorDanger: string;
+  colorInfo: string;
+  colorDisabled: string;
+  colorWhite: string;
 }
 
-export const variables: IScssVariables
+export const variablesRevised: IScssVariablesRevised
 
-export default variables
+export default variablesRevised

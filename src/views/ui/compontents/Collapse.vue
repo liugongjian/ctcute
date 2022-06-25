@@ -106,7 +106,7 @@ export default class extends Vue {
 
     .table-key {
       cursor: pointer;
-      color: $primary;
+      color: $color-master-1;
     }
 
     .el-table {
@@ -117,7 +117,7 @@ export default class extends Vue {
 
   .collapse-notcontent {
     ::v-deep.el-collapse-item__header {
-      background-color: #f3f3f3;
+      background-color: $color-grey-8;
       border: none;
       height: 32px;
     }

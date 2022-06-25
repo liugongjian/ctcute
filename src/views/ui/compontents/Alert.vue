@@ -79,7 +79,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import variablesRevised from '@/assets/css/_variables-revised.scss'
+import variables from '@/assets/css/_variables.scss'
 @Component({
   name: 'UiAlert'
 })
@@ -90,15 +90,15 @@ export default class extends Vue {
   }
 
   private get infoColor(): string {
-    return variablesRevised.colorPrimary
+    return variables.colorMaster
   }
 
   private get alertColor(): string {
-    return variablesRevised.colorWarning
+    return variables.colorWarning
   }
 
   private get errorColor(): string {
-    return variablesRevised.colorDanger
+    return variables.colorDanger
   }
 }
 </script>

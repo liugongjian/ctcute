@@ -3,9 +3,6 @@
     <div class="layout-sidebar__title">{{ title }}</div>
     <el-menu
       :default-active="activeMenu"
-      :background-color="variables.menuBg"
-      :text-color="variables.menuText"
-      :active-text-color="variables.menuActiveText"
       :unique-opened="false"
       :collapse-transition="false"
       mode="vertical"
@@ -24,7 +21,6 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import { PermissionModule } from '@/store/modules/permission'
 import SidebarItem from './SidebarItem.vue'
-import variables from '@/assets/css/_variables.scss'
 
 @Component({
   name: 'SideBar',
@@ -51,10 +47,6 @@ export default class extends Vue {
 
   private get currentRoutes(): any {
     return this.routes || PermissionModule.routes
-  }
-
-  private get variables(): any {
-    return variables
   }
 }
 </script>

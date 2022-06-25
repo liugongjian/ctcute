@@ -189,6 +189,7 @@ export default class extends Vue {
 .btn-style {
   margin-top: 48px;
 }
+
 .max-style {
   max-width: 800px;
 }

@@ -44,8 +44,8 @@ export default class extends Vue {
       align-items: center;
       min-width: 150px;
       height: 150px;
-      border: 1px solid #f1f1f1;
-      color: $textLightGrey;
+      border: 1px solid $border-color-light-1;
+      color: $text-color-light-2;
       margin: -1px 0 0 -1px;
       cursor: pointer;
       transition: opacity 200ms;
@@ -57,13 +57,13 @@ export default class extends Vue {
 
     &__img {
       svg {
-        color: rgba(0, 0, 0, 65%);
+        color: $text-color-light-1;
       }
     }
 
     &__name {
       margin-top: 10px;
-      color: $textLightGrey;
+      color: $text-color-light-2;
     }
   }
 </style>

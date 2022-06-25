@@ -468,7 +468,7 @@ export default class extends Vue {
 
     .el-button--text:last-child:before {
       content: '|';
-      color: $border;
+      color: $border-color-primary;
       margin-right: 10px;
     }
   }

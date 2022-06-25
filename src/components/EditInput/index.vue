@@ -31,23 +31,29 @@ export default class extends Vue {
   font-size: $text-size-medium;
   margin-left: 10px;
   cursor: pointer;
+
   &:hover {
-    color: $primary;
+    color: $color-master-1;
   }
 }
+
 .wrap {
   width: 384px;
   display: inline-block;
+
   .el-input {
     width: calc(100% - 84px);
   }
+
   .el-input,
   .el-textarea {
     margin-right: 10px;
   }
+
   .el-textarea ~ svg {
     margin-bottom: 8px;
   }
+
   svg {
     cursor: pointer;
     font-size: $text-size-large;

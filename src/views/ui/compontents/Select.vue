@@ -225,7 +225,7 @@ export default class extends Vue {
 }
 
 .sub-down {
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid $border-color-light-1;
 
   .el-row {
     margin: 24px 0;

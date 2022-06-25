@@ -212,26 +212,26 @@ export default class extends Mixins(TypeScriptDemoMixin) {
     margin-top: 15px;
     padding: 10px;
     font-size: 18px;
-    border: 1px solid $borderGrey; // 颜色变量请从src/assets/css/_variables.scss查找
+    border: 1px solid $border-color-primary; // 颜色变量请从src/assets/css/_variables.scss查找
 
     &__binary {
       margin-top: 10px;
       font-size: 12px;
-      color: $textGrey;
+      color: $text-color-light-1;
     }
 
     &__child {
       font-size: 12px;
-      color: $textGrey;
+      color: $text-color-light-1;
     }
   }
 
   .child {
     margin: 40px;
-    background: $bgColor;
+    background: $color-grey-8;
   }
 
   .tips {
-    color: $textGrey;
+    color: $text-color-light-1;
   }
 </style>

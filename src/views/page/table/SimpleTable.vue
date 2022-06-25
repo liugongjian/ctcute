@@ -237,23 +237,23 @@ export default class extends Vue {
     border-radius: 100%;
 
     &--1 {
-      background: $success;
+      background: $color-status-success;
     }
 
     &--2 {
-      background: $warning;
+      background: $color-status-warning;
     }
 
     &--3 {
-      background: $danger;
+      background: $color-status-danger;
     }
 
     &--4 {
-      background: $info;
+      background: $color-status-info;
     }
 
     &--5 {
-      background: $textLightGrey;
+      background: $disabled-fill;
     }
   }
 </style>

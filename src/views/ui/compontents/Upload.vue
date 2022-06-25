@@ -49,54 +49,64 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .avatar-uploader .el-upload {
-  border: 1px dashed #d9d9d9;
+  border: 1px dashed $border-color-primary;
   border-radius: 6px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
 }
+
 .avatar-uploader .el-upload:hover {
-  border-color: #409eff;
+  border-color: $color-status-info;
 }
+
 .el-upload-dragger .el-icon-upload {
   width: 33px !important;
   height: 42px !important;
   margin-top: 45px;
-  color: #fa8334;
+  color: $color-master-1;
 }
+
 .avatar {
   width: 178px;
   height: 178px;
   display: block;
 }
+
 .sub-upload {
   width: 320px;
   height: 80px;
-  border: 1px solid #dddddd;
-  margin: 24px 0 24px 0;
+  border: 1px solid $border-color-primary;
+  margin: 24px 0;
 }
+
 .el-upload__text {
   b {
     font-size: 12px;
   }
+
   p {
     font-size: 12px;
-    color: rgba(0, 0, 0, 0.45);
+    color: $text-color-light-2;
   }
 }
+
 .sub-svg-text {
   margin-bottom: 9px;
+
   svg {
-    color: #fa8334;
+    color: $color-master-1;
     margin-right: 10px;
   }
+
   span {
     font-size: 12px;
-    color: rgba(0, 0, 0, 0.9);
+    color: $text-color-primary;
   }
 }
+
 .el-upload__tip {
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.45);
+  color: $text-color-light-2;
 }
 </style>

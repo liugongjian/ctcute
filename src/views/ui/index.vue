@@ -57,27 +57,27 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .layout-sidebar {
-  border-right: 1px solid #f1f1f1;
+  border-right: 1px solid $border-color-light-1;
 }
 
 .ui__container {
   margin-left: 230px;
-  margin-top: $headerHeight;
+  margin-top: $header-height;
   padding: 1px 24px 24px;
 }
 
 .ui__component {
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid $border-color-light-1;
   padding: 14px 0 24px;
 
   h1 {
     margin: 10px 0;
-    color: $textHead;
+    color: $text-color-primary;
   }
 
   ::v-deep {
     p {
-      color: $text;
+      color: $text-color-primary;
       font-size: 12px;
       line-height: 20px;
       font-weight: 400;
@@ -88,19 +88,19 @@ export default class extends Vue {
       font-size: 16px;
       line-height: 20px;
       font-weight: 500;
-      color: $textHead;
+      color: $text-color-primary;
     }
 
     h3 {
       font-size: 14px;
       margin-top: 24px;
-      color: $textHead;
+      color: $text-color-primary;
     }
 
     .sub-sample {
       margin: 24px 0;
       padding-bottom: 24px;
-      border-bottom: 1px solid #f1f1f1;
+      border-bottom: 1px solid $border-color-light-1;
 
       &:last-child {
         padding: 0;
@@ -112,7 +112,7 @@ export default class extends Vue {
     .sub-steps {
       margin: 24px 0;
       padding-bottom: 24px;
-      border-bottom: 1px solid $border;
+      border-bottom: 1px solid $border-color-primary;
     }
   }
 }

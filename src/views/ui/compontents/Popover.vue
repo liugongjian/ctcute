@@ -95,7 +95,7 @@
       <el-col :span="6">
         <el-popover v-model="visible2" placement="top">
           <p>需勾选表格项后进行批量删除文字</p>
-          <div style="text-align: right; margin: 0">
+          <div style="text-align: right; margin: 0;">
             <el-button size="mini" type="text" class="cancel-popover" @click="visible2 = false">
               取消
             </el-button>
@@ -145,40 +145,47 @@ export default class extends Vue {
 .popover-top-text {
   margin-right: 24px;
 }
+
 p {
-  font-size: $textSize;
+  font-size: $text-size-primary;
   margin-top: 15px;
 }
+
 .operation-button {
   text-align: right;
   margin: 0;
 }
+
 .cancel-popover {
-  border: 1px solid $borderButton;
+  border: 1px solid $border-color-primary;
   padding: 8px 20px;
 }
+
 .determine-popover {
   padding: 8px 20px;
 }
 
-.sub-edit::after {
+.sub-edit:after {
   content: '|';
-  color: #dddddd;
+  color: $icon-color;
   font-size: 16px;
   margin: 0 10px;
 }
+
 .popover-top {
   width: 306px;
   display: flex;
   justify-content: space-between;
   margin-left: 360px;
 }
+
 .popover-left {
   width: 574px;
   display: flex;
   justify-content: space-between;
-  margin: 24px 0px 24px 220px;
+  margin: 24px 0 24px 220px;
 }
+
 .popover-bottom {
   margin-left: 474px;
 }

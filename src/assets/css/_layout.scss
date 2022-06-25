@@ -8,20 +8,20 @@
 /* 侧边栏样式 */
 .layout-sidebar {
   transition: width 0.28s;
-  width: $sideBarWidth;
+  width: $sidebar-width;
   height: 100%;
   position: fixed;
   font-size: 0;
-  top: $headerHeight;
+  top: $header-height;
   bottom: 0;
   left: 0;
-  background: $sideBarBg;
+  background: $sidebar-fill;
   z-index: 10;
   overflow: hidden;
 
   &__title {
     font-size: 14px;
-    color: $text;
+    color: $text-color-primary;
     padding: 15px 0 10px 20px;
     font-weight: bold;
   }
@@ -55,20 +55,20 @@
   }
 
   .el-submenu.is-active > .el-submenu__title {
-    color: $subMenuActiveText;
+    color: $text-color-primary;
   }
 
   .el-menu-item,
   .el-submenu > .el-submenu__title,
   .el-submenu .el-menu-item {
-    min-width: $sideBarWidth;
-    background-color: $subMenuBg;
+    min-width: $sidebar-width;
+    background-color: $sidebar-sub-fill;
     border-right: 2px solid transparent;
 
     &.is-active,
     &:hover {
-      background-color: $subMenuHover !important;
-      border-right: 2px solid $primary;
+      background-color: $sidebar-sub-hover !important;
+      border-right: 2px solid $color-master-1;
     }
   }
 }
@@ -78,8 +78,8 @@
   position: relative;
   min-height: 100%;
   transition: margin-left 0.28s;
-  margin-left: $sideBarWidth;
-  padding: $headerHeight 15px 15px;
+  margin-left: $sidebar-width;
+  padding: $header-height 15px 15px;
 
   .navbar {
     margin-top: 15px;

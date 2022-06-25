@@ -29,19 +29,23 @@ export default class extends Vue {
 .el-state > span {
   margin-right: 8px;
 }
+
 .el-state > span.dot {
   width: 6px;
   height: 6px;
   display: inline-block;
   border-radius: 50%;
 }
+
 .icon-wrap {
   font-size: 14px;
 }
+
 @keyframes rotating {
-  0% {transform: rotate(0);}
-  100% {transform: rotate(1turn);}
+  0% { transform: rotate(0); }
+  100% { transform: rotate(1turn); }
 }
+
 .loading {
   animation: rotating 1.5s linear infinite;
 }

@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
-import variables from '@/assets/css/_variables.scss'
+import variables from '@/assets/css/_variables-legacy.scss'
 
 @Component({
   name: 'SideBar'

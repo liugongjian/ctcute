@@ -1,66 +1,159 @@
-/* Variables */
+/* stylelint-disable property-case */
 
-/* Base color */
-$primary: #fa8334;
-$success: #52c41a;
-$warning: #fa8334;
-$danger: #f5212d;
-$info: #1890ff;
+/* Color
+-------------------------- */
 
-/* Text */
-$text: #333;
-$textGrey: rgba(0, 0, 0, 45%);
-$textLightGrey: rgba(0, 0, 0, 35%);
-$textHead: rgba(0, 0, 0, 90%);
-$textYellow: #aa4a0b;
-$textSize: 12px;
+/* 主题色 */
+$color-master-1: #fa8334;
+$color-master-2: #ff934c;
+$color-master-3: #ed7c31;
+$color-master-4: #ffe1c6;
+$color-master-5: #ffe6d2;
+$color-master-6: #ffefe3;
+$color-master-7: #fef5ee;
 
-/* Body */
-$bodyBg: #f2f2f2;
+/* 特殊色 */
+$color-sp-1: #df0428;
+$color-sp-2: #e32948;
+$color-sp-3: #bd0322;
+
+/* 状态色 */
+$color-status-danger-1: #f5212d;
+$color-status-danger-2: #ffeeef;
+$color-status-danger: $color-status-danger-1;
+$color-status-info-1: #1890ff;
+$color-status-info: $color-status-info-1;
+$color-status-success-1: #52c41a;
+$color-status-success: $color-status-success-1;
+$color-status-warning-1: #faad15;
+$color-status-warning: #faad15;
+
+/* 标签色 */
+$color-tag-danger-1: #ffa4a3;
+$color-tag-danger-2: #ffecec;
+$color-tag-info-1: #bddbff;
+$color-tag-info-2: #f3f9ff;
+$color-tag-success-1: #a8e18c;
+$color-tag-success-2: #edf9e8;
+$color-tag-warning-1: #fcd68a;
+$color-tag-warning-2: #fef6e7;
+
+/* 灰色 */
+$color-grey-1: #333;
+$color-grey-2: #666;
+$color-grey-3: #777;
+$color-grey-4: #999;
+$color-grey-5: #aaa;
+$color-grey-6: #ddd;
+$color-grey-7: #f2f2f2;
+$color-grey-8: #f3f3f3;
+$color-grey-9: #f5f5f5;
+$color-grey-10: #f8f8f8;
+$color-grey-11: #fafafa;
+
+/* 白色 */
+$color-white: #fff;
+
+/* 其他 */
+$color-other-1: #3b3e4b;
+
+/* Background
+-------------------------- */
+$body-fill: $color-grey-7;
+
+/* Disable
+-------------------------- */
+$disabled-fill: $color-grey-10;
+$disabled-color: $color-grey-4;
+$disabled-border: $color-grey-6;
+$disabled-danger-fill: $color-white;
+/* stylelint-disable-next-line function-no-unknown */
+$disabled-danger-color: mix($color-white, $color-status-danger-1, 50%);
+$disabled-danger-border: $disabled-danger-color;
+
+/* Typography
+-------------------------- */
+$text-size-small: 12px;
+$text-size-medium: 14px;
+$text-size-large: 16px;
+$text-size-x-large: 18px;
+$text-size-primary: $text-size-small;
+
+$text-color-primary: $color-grey-1; /* 正文颜色 */
+$text-color-light-1: $color-grey-2; /* 提示文字 */
+$text-color-light-2: $color-grey-4; /* 次要文本、表单占位文本 */
+
+/* Border
+-------------------------- */
+$border-color-primary: $color-grey-6;
+$border-color-light-1: $color-grey-7;
+$border-color-dark-1: $color-grey-4; /* 悬浮状态 */
+$border-radius: 2px;
+
+/* Padding & Margin
+-------------------------- */
+$padding-primary: 20px;
+$margin-small: 8px;
+$margin-medium: 16px;
+$margin-primary: $margin-small;
+
+/* Button
+-------------------------- */
+$button-icon-color: $color-grey-3;
+
+/* Input
+-------------------------- */
+$input-fill: $color-white;
+
+/* Table
+-------------------------- */
+$table-header-fill: $color-grey-8;
+$table-cell-fill: $color-grey-8;
+$table-sort-caret-fill: $color-grey-4;
+
+/* Table
+-------------------------- */
+$pagination-fill: $color-white;
+
+/* Tooltip
+-------------------------- */
+$tooltip-fill: $color-other-1;
+
+/* Upload
+-------------------------- */
+$upload-fill: $color-grey-11;
+
+/* Collapse
+-------------------------- */
+$collapse-header-fill: $color-grey-11;
+
+/* Icon
+-------------------------- */
+$icon-color: $color-grey-3;
+
+/* Layout
+-------------------------- */
 
 /* Header */
-$headerHeight: 50px;
-$headerBg: #424550;
-
-/* Border */
-$border: #ddd;
-$borderGrey: #eee;
-$borderButton: #ddd;
+$header-height: 50px;
+$header-fill: #424550;
 
 /* Sidebar */
-$sideBarWidth: 230px;
-$sideBarBg: #fff;
-$menuBg: #fff;
-$menuText: $text;
-$menuActiveText: #000;
-$subMenuBg: #fff;
-$subMenuHover: #fef5ee;
-$subMenuActiveText: #000;
-
-/* Button:disabled */
-$bgColor: #f8f8f8;
-$bdColor: #ddd;
-$color: rgba(0, 0, 0, 30%);
-
-/* Pagination */
-$paginationBgColor: #fff;
-
-/* steps */
-$stepsBorderColor: #fa8334;
-$stepsSuccessColor: #fa8334;
-$stepsColor: #fff;
-
-/* input */
-$inputBgColor: #fff;
-
-/* Textarea */
-$backgroundColorBase: #f8f8f8;
+$sidebar-width: 230px;
+$sidebar-fill: $color-white;
+$sidebar-sub-fill: $color-white;
+$sidebar-sub-hover: $color-master-7;
 
 /* The :export directive is the magic sauce for webpack
  * https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
   */
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
 :export {
-  menubg: $menuBg;
-  menutext: $menuText;
-  menuactivetext: $menuActiveText;
+  colorMaster: $color-master-1;
+  colorSuccess: $color-status-success;
+  colorWarning: $color-status-warning;
+  colorDanger: $color-status-danger;
+  colorInfo: $color-status-info;
+  colorDisabled: $disabled-fill;
+  colorWhite: $color-white;
 }

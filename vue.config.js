@@ -40,7 +40,6 @@ module.exports = {
       preProcessor: 'scss',
       patterns: [
         path.resolve(__dirname, 'src/assets/css/_variables.scss'),
-        path.resolve(__dirname, 'src/assets/css/_variables-revised.scss'),
         path.resolve(__dirname, 'src/assets/css/_mixins.scss')
       ]
     }

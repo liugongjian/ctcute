@@ -30,6 +30,6 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .test {
   font-size: 12px;
-  color: $text;
+  color: $text-color-primary;
 }
 </style>

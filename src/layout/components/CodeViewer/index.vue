@@ -239,8 +239,8 @@ export default class extends Vue {
     position: fixed;
     z-index: 100;
     right: 0;
-    top: $headerHeight;
-    height: calc(100% - $headerHeight);
+    top: $header-height;
+    height: calc(100% - $header-height);
     transition: transform 200ms ease-out;
     transform: translateX(640px);
     font-size: 12px; // TODO REMOVE
@@ -331,11 +331,11 @@ export default class extends Vue {
       .el-menu--horizontal > .el-menu-item {
         height: 56px;
         line-height: 56px;
-        color: $text;
+        color: $text-color-primary;
         padding: 0 16px;
 
         &.is-active {
-          color: $primary;
+          color: $color-master-1
         }
       }
     }

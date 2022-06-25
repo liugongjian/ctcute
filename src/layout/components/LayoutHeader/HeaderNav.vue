@@ -67,7 +67,7 @@ export default class extends Vue {
 
     &.active,
     &:hover {
-      color: $primary;
+      color: $color-master-1;
     }
   }
 }

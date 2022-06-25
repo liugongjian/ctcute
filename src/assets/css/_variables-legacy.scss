@@ -1,0 +1,66 @@
+/* Variables */
+
+/* Base color */
+$primary: #fa8334;
+$success: #52c41a;
+$warning: #fa8334;
+$danger: #f5212d;
+$info: #1890ff;
+
+/* Text */
+$text: #333;
+$textGrey: rgba(0, 0, 0, 45%);
+$textLightGrey: rgba(0, 0, 0, 35%);
+$textHead: rgba(0, 0, 0, 90%);
+$textYellow: #aa4a0b;
+$textSize: 12px;
+
+/* Body */
+$bodyBg: #f2f2f2;
+
+/* Header */
+$header-height: 50px;
+$headerBg: #424550;
+
+/* Border */
+$border: #ddd;
+$borderGrey: #eee;
+$borderButton: #ddd;
+
+/* Sidebar */
+$sideBarWidth: 230px;
+$sideBarBg: #fff;
+$menuBg: #fff;
+$menuText: $text;
+$menuActiveText: #000;
+$subMenuBg: #fff;
+$subMenuHover: #fef5ee;
+$subMenuActiveText: #000;
+
+/* Button:disabled */
+$bgColor: #f8f8f8;
+$bdColor: #ddd;
+$color: rgba(0, 0, 0, 30%);
+
+/* Pagination */
+$paginationBgColor: #fff;
+
+/* steps */
+$stepsBorderColor: #fa8334;
+$stepsSuccessColor: #fa8334;
+$stepsColor: #fff;
+
+/* input */
+$inputBgColor: #fff;
+
+/* Textarea */
+$backgroundColorBase: #f8f8f8;
+
+/* The :export directive is the magic sauce for webpack
+ * https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
+  */
+// :export {
+//   menubg: $menuBg;
+//   menutext: $menuText;
+//   menuactivetext: $menuActiveText;
+// }

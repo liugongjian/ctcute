@@ -86,90 +86,112 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .el-col {
-  border-right: 1px solid #f1f1f1;
+  border-right: 1px solid $border-color-light-1;
 }
+
 .el-col:not(:first-child) {
   margin-left: 81px;
 }
+
 .sub-class {
   width: 1200px;
 }
+
 .node-content {
   margin-left: -0.5em;
   display: flex;
   align-items: center;
-  color: rgba(0, 0, 0, 0.9);
+  color: $text-color-primary;
 }
+
 .node-icon {
-  color: #989A9C;
+  color: $icon-color;
+
   .svg-icon {
     display: none;
     margin-right: 0.5em;
+
     &:first-child {
       display: inline;
     }
   }
 }
+
 .is-expanded > .el-tree-node__content {
   .node-icon {
-    color: #989A9C;
+    color: $icon-color;
+
     .svg-icon {
       display: none;
+
       &:last-child {
         display: inline;
       }
     }
   }
 }
+
 .el-tree-node:focus > .el-tree-node__content {
-  .node-content, .node-icon, .handler-icon {
-    color: #FFF;
-  }
+  .node-content,
+  .node-icon,
   .handler-icon {
-    border: 1px solid #FFF;
+    color: $color-white;
+  }
+
+  .handler-icon {
+    border: 1px solid $color-white;
   }
 }
+
 ::v-deep .el-tree-node__content {
-    position: relative;
-    .handler-menu {
-      position: absolute;
-      right: 0.5em;
-      display: none;
-      .el-button:not(.pop-tooltip .el-button) {
-        padding: 0;
-        margin: 0.9em 0.3em;
-      }
-      .handler-icon {
-        color: #989A9C;
-        border: 1.5px solid #989A9C;
-      }
+  position: relative;
+
+  .handler-menu {
+    position: absolute;
+    right: 0.5em;
+    display: none;
+
+    .el-button:not(.pop-tooltip .el-button) {
+      padding: 0;
+      margin: 0.9em 0.3em;
     }
-    &:hover {
-      .handler-menu {
-        display: block;
-      }
+
+    .handler-icon {
+      color: $icon-color;
+      border: 1.5px solid $icon-color;
     }
   }
+
+  &:hover {
+    .handler-menu {
+      display: block;
+    }
+  }
+}
+
 .sub-tree {
   ::v-deep .el-tree-node > .el-tree-node__children {
     overflow: initial;
   }
+
   .hover-wrapper {
     display: inline-block;
     margin-left: -0.4em;
+
     &:hover {
       .pop-tooltip {
         display: block;
       }
     }
   }
+
   .pop-tooltip {
     display: none;
     position: absolute;
     z-index: 2019;
     top: 24px;
     right: 0;
-    background: #fff;
+    background: $color-white;
   }
 }
 </style>

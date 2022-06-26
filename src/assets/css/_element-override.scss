@@ -222,6 +222,7 @@
   .el-icon-close {
     line-height: 36px;
     padding-right: 15px;
+
     &:hover {
       color: $color-master-1;
       cursor: pointer;
@@ -834,8 +835,9 @@
   }
 
   .el-tag__close.el-icon-close {
-    background: $text-color-light-1;
+    background: $text-color-light-2;
     color: $color-white;
+
     &:hover {
       background: $color-master-1;
       color: $color-white;
@@ -888,7 +890,7 @@
       display: inline-block;
       width: 12px;
       height: 12px;
-      background: $disabled-fill;
+      background: $disabled-border;
       font-size: $text-size-primary;
       border-radius: 50%;
       margin-left: 10px;

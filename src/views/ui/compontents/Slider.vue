@@ -36,6 +36,8 @@ export default class extends Vue {
     zh: '滑动输入条',
     en: 'Slider',
   }
+
+  private value = [4, 8]
 }
 </script>
 
@@ -45,10 +47,5 @@ export default class extends Vue {
     width: 780px;
     margin: 42px 0 24px;
   }
-
-  // ::v-deep .el-slider__runway,
-  // .el-slider__runway.show-input {
-  //   width: 616px;
-  // }
 }
 </style>

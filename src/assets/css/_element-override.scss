@@ -15,7 +15,12 @@
   $bdColor:边框颜色;
   $color:字体颜色;
 */
-@mixin button-disabled($type: primary, $bgColor: $disabled-fill, $bdColor: $disabled-border, $color: $disabled-color) {
+@mixin button-disabled(
+  $type: primary,
+  $bgColor: $disabled-fill,
+  $bdColor: $disabled-border,
+  $color: $disabled-color
+) {
   .el-button--#{$type}.is-plain.is-disabled,
   .el-button--#{$type}.is-disabled {
     background-color: $bgColor;
@@ -67,7 +72,7 @@
 .sub-special {
   .el-button--danger {
     background-color: $color-sp-1;
-    border: none;
+    border-color: $color-white;
     &:hover {
       background-color: $color-sp-2;
     }
@@ -120,6 +125,7 @@
 
 .el-button--primary:hover {
   background-color: $color-master-1;
+  border-color: $color-master-1;
 }
 
 .el-button.el-button--primary.el-button--mini {
@@ -147,14 +153,13 @@
   padding: 0;
 }
 
-
 /* Link
 -------------------------- */
 .el-link.el-link--primary:hover {
-  color: $color-master-2;
+  color: $color-master-3;
 }
 
-/* Link
+/* Form
 -------------------------- */
 .el-form-item__label {
   padding-right: 25px;
@@ -173,6 +178,25 @@
 -------------------------- */
 .el-input {
   font-size: $text-size-primary;
+}
+.el-form-item__error {
+  display: flex;
+  align-items: center;
+  &::before {
+    content: 'x';
+    color: #fff;
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: $color-status-danger-1;
+    border-radius: 50%;
+    margin-right: 5px;
+    color: #fff;
+    text-align: center;
+    line-height: 12px;
+    font-size: 5px;
+    font-weight: normal;
+  }
 }
 
 .el-input-group__append,
@@ -210,7 +234,7 @@
 
 .el-input__inner:active {
   border: 1px solid $color-master-1;
-  box-shadow: 0 0 4px 0 rgba(250, 131, 52, 0.2);
+  box-shadow: $shadow-input;
 }
 
 .el-form-item.is-error .el-input__inner {
@@ -222,6 +246,7 @@
   .el-icon-close {
     line-height: 36px;
     padding-right: 15px;
+
     &:hover {
       color: $color-master-1;
       cursor: pointer;
@@ -460,7 +485,7 @@
 
 .tree-node-popover {
   border: 1px solid $border-color-light-1 !important;
-  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  box-shadow: $shadow-card;
   min-width: 0;
   padding: 0;
   margin: 0.3em 0 0 0 !important;
@@ -834,8 +859,9 @@
   }
 
   .el-tag__close.el-icon-close {
-    background: $text-color-light-1;
+    background: $text-color-light-2;
     color: $color-white;
+
     &:hover {
       background: $color-master-1;
       color: $color-white;
@@ -888,7 +914,7 @@
       display: inline-block;
       width: 12px;
       height: 12px;
-      background: $disabled-fill;
+      background: $disabled-border;
       font-size: $text-size-primary;
       border-radius: 50%;
       margin-left: 10px;
@@ -1008,8 +1034,7 @@
   $iconColor:icon颜色;
   $bgColor:背景颜色;
 */
-// TODO 颜色对应不上
-@mixin global-tips($class: info, $bdcolor: #fcc199, $iconColor: $color-master-1, $bgColor: #fef2ea) {
+@mixin global-tips($class: info, $bdcolor: $color-tag-master-1, $iconColor: $color-status-master, $bgColor: $color-tag-master-2) {
   .sub-all-alert {
     .el-alert--#{$class}.is-light {
       border: 1px solid $bdcolor;
@@ -1078,7 +1103,12 @@
 
 /* Tag
 -------------------------- */
-@mixin global-tag($class: info, $bdcolor: $disabled-border, $fontColor: $text-color-primary, $bgColor: $disabled-fill) {
+@mixin global-tag(
+  $class: info,
+  $bdcolor: $disabled-border,
+  $fontColor: $text-color-primary,
+  $bgColor: $disabled-fill
+) {
   .el-tag.el-tag--#{$class} {
     border: 1px solid $bdcolor;
     color: $fontColor;
@@ -1089,10 +1119,10 @@
 @include global-tag(success, $color-tag-success-1, $color-status-success, $color-tag-success-2);
 @include global-tag(warning, $color-tag-warning-1, $color-status-warning, $color-tag-warning-2);
 @include global-tag(danger, $color-tag-danger-1, $color-status-danger, $color-tag-danger-2);
-@include global-tag(newtag, $color-master-1, $color-master-1, $color-master-7);
+@include global-tag(newtag, $color-tag-master-1, $color-status-master, $color-tag-master-2);
 .el-tag--newtag {
   &:hover {
-    background: $color-master-7;
+    background: $color-master-6;
     cursor: pointer;
   }
 }
@@ -1125,7 +1155,7 @@
     background-color: $color-white;
     border: none;
     padding: $margin-small 12px;
-    box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 0.5);
+    box-shadow: $shadow-card;
 
     .el-icon-success {
       color: $iconColor;
@@ -1176,7 +1206,7 @@
 
 .el-notification {
   border-radius: 4px;
-  box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 0.5);
+  box-shadow: $shadow-card;
 }
 
 .el-icon-info {
@@ -1292,11 +1322,11 @@
     background: $disabled-fill;
     border: 1px solid $border-color-primary;
     border-radius: $border-radius;
-    color: $disabled-color;
+    color: $disabled-icon-color;
 
     &:hover {
       background: $disabled-fill;
-      color: $disabled-color;
+      color: $disabled-icon-color;
     }
   }
 

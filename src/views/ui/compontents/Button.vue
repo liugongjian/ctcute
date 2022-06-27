@@ -27,7 +27,6 @@
         </el-dropdown-menu>
       </el-dropdown>
       <el-button size="small">小次按钮</el-button>
-      <el-button size="small"><svg-icon name="plus" />新增过滤</el-button>
     </div>
     <h2>禁用状态</h2>
     <div class="sub-sample">
@@ -37,7 +36,6 @@
       <el-button disabled size="small" type="primary"><svg-icon name="plus-circle" /> 带图标按钮</el-button>
       <el-button disabled size="small" type="primary"><svg-icon name="select" /> 按钮2 </el-button>
       <el-button disabled size="small" type="primary">小次按钮</el-button>
-      <el-button size="small" type="primary" disabled><svg-icon name="plus" />新增过滤</el-button>
     </div>
     <h2>组合按钮</h2>
     <div class="sub-sample">

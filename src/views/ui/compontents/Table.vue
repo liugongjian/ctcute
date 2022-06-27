@@ -554,7 +554,7 @@ export default class extends Vue {
   }
 
   &--5 {
-    background: $disabled-fill;
+    background: $disabled-color;
   }
 }
 
@@ -578,7 +578,7 @@ export default class extends Vue {
   }
 
   &--9 {
-    background: $disabled-fill;
+    background: $disabled-color;
   }
 }
 </style>

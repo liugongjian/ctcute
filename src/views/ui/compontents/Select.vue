@@ -52,63 +52,55 @@
     </div>
     <div class="sub-down">
       <h3>日期/时间选择</h3>
-      <el-row>
-        <el-col :span="7">
-          <el-time-select
-            v-model="text"
-            :picker-options="{
-              start: '08:30',
-              step: '00:15',
-              end: '18:30',
-            }"
-            placeholder="选择时间"
-          >
-          </el-time-select>
-        </el-col>
-        <el-col :span="8">
-          <el-date-picker
-            type="daterange"
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期"
-          >
-          </el-date-picker>
-        </el-col>
-        <el-col :span="7">
-          <el-date-picker
-            type="datetimerange"
-            range-separator="至"
-            start-placeholder="开始日期和时间"
-            end-placeholder="结束日期和时间"
-          >
-          </el-date-picker>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="7">
-          <el-date-picker type="datetime" placeholder="选择时间" size="mini"> </el-date-picker>
-        </el-col>
-        <el-col :span="8">
-          <el-date-picker
-            type="daterange"
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期"
-            size="mini"
-          >
-          </el-date-picker>
-        </el-col>
-        <el-col :span="7">
-          <el-date-picker
-            type="datetimerange"
-            range-separator="至"
-            start-placeholder="开始日期和时间"
-            end-placeholder="结束日期和时间"
-            size="mini"
-          >
-          </el-date-picker>
-        </el-col>
-      </el-row>
+      <div class="sub-date">
+        <el-time-select
+          v-model="text"
+          :picker-options="{
+            start: '08:30',
+            step: '00:15',
+            end: '18:30',
+          }"
+          placeholder="选择时间"
+        >
+        </el-time-select>
+
+        <el-date-picker
+          type="daterange"
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+        >
+        </el-date-picker>
+
+        <el-date-picker
+          type="datetimerange"
+          range-separator="至"
+          start-placeholder="开始日期和时间"
+          end-placeholder="结束日期和时间"
+        >
+        </el-date-picker>
+      </div>
+      <div class="sub-date">
+        <el-date-picker type="datetime" placeholder="选择时间" size="mini"> </el-date-picker>
+
+        <el-date-picker
+          type="daterange"
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+          size="mini"
+        >
+        </el-date-picker>
+
+        <el-date-picker
+          type="datetimerange"
+          range-separator="至"
+          start-placeholder="开始日期和时间"
+          end-placeholder="结束日期和时间"
+          size="mini"
+        >
+        </el-date-picker>
+      </div>
     </div>
     <div>
       <h3>操作已选项</h3>
@@ -125,6 +117,7 @@
         </el-row>
       </el-checkbox-group>
     </div>
+  </div>
   </div>
 </template>
 <script lang="ts">
@@ -230,5 +223,15 @@ export default class extends Vue {
   .el-row {
     margin: 24px 0;
   }
+}
+
+.sub-date {
+  width: 908px;
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.el-date-editor + .el-date-editor {
+  margin-left: 48px;
 }
 </style>

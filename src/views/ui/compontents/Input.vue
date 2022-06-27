@@ -2,20 +2,23 @@
   <div class="ui-input">
     <div class="sub-input">
       <h3>常规用法</h3>
-      <el-row>
-        <el-col :span="7"><el-input v-model="value1" placeholder="请输入"></el-input></el-col>
-        <el-col :span="7">
+      <div class="input-search">
+        <div><el-input v-model="value1" placeholder="请输入"></el-input></div>
+        <div>
           <el-form v-model="password" :rules="rules">
             <el-form-item prop="password">
               <el-input v-model="password" placeholder="请输入"></el-input>
             </el-form-item>
           </el-form>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="7"><el-input disabled placeholder="请输入"></el-input></el-col>
-        <el-col :span="7"><el-input v-model="value" disabled placeholder="请输入"> </el-input></el-col>
-      </el-row>
+        </div>
+      </div>
+
+      <div class="input-search">
+        <div><el-input disabled placeholder="请输入"></el-input></div>
+        <div>
+          <el-input v-model="value" disabled placeholder="请输入"> </el-input>
+        </div>
+      </div>
     </div>
     <div class="routine-input">
       <h3>编辑输入框</h3>
@@ -28,16 +31,16 @@
     </div>
     <h3>搜索输入框</h3>
     <div class="sub-input">
-      <el-row>
-        <el-col :span="7">
+      <div class="input-search">
+        <div>
           <el-input v-model="searchValue" placeholder="请输入内容" prefix-icon="el-icon-search"> </el-input>
-        </el-col>
-        <el-col :span="6">
+        </div>
+        <div>
           <el-input v-model="searchValue1" placeholder="请输入内容" prefix-icon="el-icon-search">
             <i slot="suffix" class="el-icon-close" @click="searchValue1 = ''"></i>
           </el-input>
-        </el-col>
-      </el-row>
+        </div>
+      </div>
     </div>
     <h3>特殊输入框</h3>
     <div class="sub-input">
@@ -219,6 +222,12 @@ export default class extends Vue {
 
 .input-bottom {
   width: 522px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-search {
+  width: 630px;
   display: flex;
   justify-content: space-between;
 }

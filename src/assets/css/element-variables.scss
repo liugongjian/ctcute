@@ -19,6 +19,12 @@ $--border-color-lighter: $border-color-light-1;
 $--border-color-extra-light: $border-color-light-1;
 $--background-color-base: $color-grey-10;
 
+/* Box-shadow
+-------------------------- */
+$--box-shadow-base: $shadow-card;
+$--box-shadow-dark: $shadow-dialog;
+$--box-shadow-light: $shadow-card;
+
 /* Link
 -------------------------- */
 $--link-color: $color-master-1;

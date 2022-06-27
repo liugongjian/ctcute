@@ -102,7 +102,7 @@
         </el-date-picker>
       </div>
     </div>
-    <div>
+    <div class="sub-down">
       <h3>操作已选项</h3>
       <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
       <el-row>
@@ -117,7 +117,6 @@
         </el-row>
       </el-checkbox-group>
     </div>
-  </div>
   </div>
 </template>
 <script lang="ts">
@@ -207,16 +206,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.default-select {
-  .el-button {
-    padding: 0;
-  }
-
-  .el-row {
-    margin-top: 0;
-  }
-}
-
 .sub-down {
   border-bottom: 1px solid $border-color-light-1;
 

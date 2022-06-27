@@ -18,8 +18,11 @@ $color-sp-2: #e32948;
 $color-sp-3: #bd0322;
 
 /* 状态色 */
+$color-status-master-1: $color-master-1;
+$color-status-master: $color-status-master-1;
 $color-status-danger-1: #f5212d;
 $color-status-danger-2: #ffeeef;
+$color-status-danger-3: #ae050f;
 $color-status-danger: $color-status-danger-1;
 $color-status-info-1: #1890ff;
 $color-status-info: $color-status-info-1;
@@ -29,6 +32,8 @@ $color-status-warning-1: #faad15;
 $color-status-warning: #faad15;
 
 /* 标签色 */
+$color-tag-master-1: #fcc199;
+$color-tag-master-2: #fef2ea;
 $color-tag-danger-1: #ffa4a3;
 $color-tag-danger-2: #ffecec;
 $color-tag-info-1: #bddbff;
@@ -66,6 +71,7 @@ $body-fill: $color-grey-7;
 $disabled-fill: $color-grey-10;
 $disabled-color: $color-grey-4;
 $disabled-border: $color-grey-6;
+$disabled-icon-color: $color-grey-5;
 $disabled-danger-fill: $color-white;
 /* stylelint-disable-next-line function-no-unknown */
 $disabled-danger-color: mix($color-white, $color-status-danger-1, 50%);
@@ -153,6 +159,8 @@ $sidebar-sub-hover: $color-master-7;
   colorSuccess: $color-status-success;
   colorWarning: $color-status-warning;
   colorDanger: $color-status-danger;
+  colorDanger2: $color-status-danger-2;
+  colorDanger3: $color-status-danger-3;
   colorInfo: $color-status-info;
   colorDisabled: $disabled-fill;
   colorWhite: $color-white;

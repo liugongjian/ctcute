@@ -1010,8 +1010,7 @@
   $iconColor:icon颜色;
   $bgColor:背景颜色;
 */
-// TODO 颜色对应不上
-@mixin global-tips($class: info, $bdcolor: #fcc199, $iconColor: $color-master-1, $bgColor: #fef2ea) {
+@mixin global-tips($class: info, $bdcolor: $color-tag-master-1, $iconColor: $color-status-master, $bgColor: $color-tag-master-2) {
   .sub-all-alert {
     .el-alert--#{$class}.is-light {
       border: 1px solid $bdcolor;
@@ -1091,10 +1090,10 @@
 @include global-tag(success, $color-tag-success-1, $color-status-success, $color-tag-success-2);
 @include global-tag(warning, $color-tag-warning-1, $color-status-warning, $color-tag-warning-2);
 @include global-tag(danger, $color-tag-danger-1, $color-status-danger, $color-tag-danger-2);
-@include global-tag(newtag, $color-master-1, $color-master-1, $color-master-7);
+@include global-tag(newtag, $color-tag-master-1, $color-status-master, $color-tag-master-2);
 .el-tag--newtag {
   &:hover {
-    background: $color-master-7;
+    background: $color-tag-master-2;
     cursor: pointer;
   }
 }
@@ -1294,11 +1293,11 @@
     background: $disabled-fill;
     border: 1px solid $border-color-primary;
     border-radius: $border-radius;
-    color: $disabled-color;
+    color: $disabled-icon-color;
 
     &:hover {
       background: $disabled-fill;
-      color: $disabled-color;
+      color: $disabled-icon-color;
     }
   }
 

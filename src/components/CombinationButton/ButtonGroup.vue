@@ -28,38 +28,45 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .combination-button {
   .el-button + .el-button {
-    margin-left: 0;
+    margin-left: -1px;
+    z-index: 1 !important;
   }
 
   .el-button + .el-dropdown {
     margin: 0;
   }
 
-  .el-button--medium {
-    border-left-color: #fff;
+  .el-dropdown + .el-button {
+    margin: 0;
   }
 
   .el-button--medium {
     border-radius: 0;
+
+    &:hover {
+      position: relative;
+      border-color: $color-master-1 !important;
+    }
   }
 
   .el-button--medium:first-child {
-    border-left: 1px solid #ccc;
     border-radius: 2px 0 0 2px;
   }
 
   .el-button--medium:last-child {
     border-radius: 0 2px 2px 0;
-    border-left-color: $color-master-1;
   }
 
   .el-dropdown {
+    margin-left: -1px !important;
+
     .el-button--medium {
       border-radius: 0;
-      border-left-color: #fff;
+      border-right: 0;
 
       &:hover {
-        border-right-color: #fff;
+        position: relative;
+        border-color: $color-master-1 !important;
       }
     }
   }

@@ -15,7 +15,12 @@
   $bdColor:边框颜色;
   $color:字体颜色;
 */
-@mixin button-disabled($type: primary, $bgColor: $disabled-fill, $bdColor: $disabled-border, $color: $disabled-color) {
+@mixin button-disabled(
+  $type: primary,
+  $bgColor: $disabled-fill,
+  $bdColor: $disabled-border,
+  $color: $disabled-color
+) {
   .el-button--#{$type}.is-plain.is-disabled,
   .el-button--#{$type}.is-disabled {
     background-color: $bgColor;
@@ -67,7 +72,7 @@
 .sub-special {
   .el-button--danger {
     background-color: $color-sp-1;
-    border: none;
+    border-color: $color-white;
     &:hover {
       background-color: $color-sp-2;
     }
@@ -120,6 +125,7 @@
 
 .el-button--primary:hover {
   background-color: $color-master-1;
+  border-color: $color-master-1;
 }
 
 .el-button.el-button--primary.el-button--mini {
@@ -147,7 +153,6 @@
   padding: 0;
 }
 
-
 /* Link
 -------------------------- */
 .el-link.el-link--primary:hover {
@@ -173,6 +178,25 @@
 -------------------------- */
 .el-input {
   font-size: $text-size-primary;
+}
+.el-form-item__error {
+  display: flex;
+  align-items: center;
+  &::before {
+    content: 'x';
+    color: #fff;
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: $color-status-danger-1;
+    border-radius: 50%;
+    margin-right: 5px;
+    color: #fff;
+    text-align: center;
+    line-height: 12px;
+    font-size: 5px;
+    font-weight: normal;
+  }
 }
 
 .el-input-group__append,
@@ -1080,7 +1104,12 @@
 
 /* Tag
 -------------------------- */
-@mixin global-tag($class: info, $bdcolor: $disabled-border, $fontColor: $text-color-primary, $bgColor: $disabled-fill) {
+@mixin global-tag(
+  $class: info,
+  $bdcolor: $disabled-border,
+  $fontColor: $text-color-primary,
+  $bgColor: $disabled-fill
+) {
   .el-tag.el-tag--#{$class} {
     border: 1px solid $bdcolor;
     color: $fontColor;

@@ -21,7 +21,7 @@
     <div class="collapse-notcontent">
       <el-collapse v-model="activeNames1">
         <el-collapse-item title="小标题" name="1">
-          <el-table :data="smallTable" :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
+          <el-table ref="table1" :data="smallTable" :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
             <el-table-column prop="id" label="商品编码">
               <template slot-scope="scope">
                 <span class="table-key">{{ scope.row.id }}</span>
@@ -35,7 +35,7 @@
           </el-table>
         </el-collapse-item>
         <el-collapse-item title="小标题" name="2">
-          <el-table :data="smallTable" :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
+          <el-table ref="table2" :data="smallTable" :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
             <el-table-column prop="id" label="商品编码">
               <template slot-scope="scope">
                 <span class="table-key">{{ scope.row.id }}</span>
@@ -58,7 +58,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Watch } from 'vue-property-decorator'
 
 @Component({
   name: 'UiCollapse'
@@ -96,6 +96,12 @@ export default class extends Vue {
     count: '1',
     total: '329.00'
   }]
+
+  @Watch('activeNames1')
+  private handleCollapseChange() {
+    const table1: any = this.$refs.table1
+    table1.$ready = false
+  }
 }
 </script>
 

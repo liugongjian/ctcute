@@ -3,6 +3,8 @@ export interface IScssVariablesRevised {
   colorSuccess: string;
   colorWarning: string;
   colorDanger: string;
+  colorDanger2: string;
+  colorDanger3: string;
   colorInfo: string;
   colorDisabled: string;
   colorWhite: string;

@@ -51,13 +51,13 @@ export default class extends Vue {
   }
 
   .el-textarea ~ svg {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
   svg {
     cursor: pointer;
     font-size: $text-size-large;
-    margin-right: 8px;
+    margin-right: 4px;
   }
 }
 </style>

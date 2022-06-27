@@ -53,8 +53,8 @@
               </el-form-item>
               <el-form-item label="标签" class="sub-tags">
                 <el-tag type="info">标签</el-tag>
-                <el-tag type="info" closable>标签</el-tag>
-                <el-button class="button-new-tag" size="small">+ 标签</el-button>
+                <el-tag v-if="isShow" type="info" closable @close="handleClose">标签</el-tag>
+                <el-tag type="newtag" size="small">+ 标签</el-tag>
               </el-form-item>
 
               <el-form-item label="监控插件端口" prop="name">
@@ -99,6 +99,11 @@ export default class extends Vue {
       { required: true, message: '请输入活动名称', trigger: 'blur' },
       { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
     ],
+  }
+
+  private isShow = true
+  private handleClose() {
+    this.isShow = false
   }
 }
 </script>

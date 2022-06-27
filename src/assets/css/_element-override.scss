@@ -1093,7 +1093,7 @@
 @include global-tag(newtag, $color-tag-master-1, $color-status-master, $color-tag-master-2);
 .el-tag--newtag {
   &:hover {
-    background: $color-tag-master-2;
+    background: $color-master-6;
     cursor: pointer;
   }
 }

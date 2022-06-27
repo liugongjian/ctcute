@@ -62,6 +62,43 @@ export default class Code extends Service {
   }
 
   /**
+   * 根据名称数组获得这一组页面的所有代码
+   * @param pageNames 名称数组
+   * @return {codes} 代码数组
+   */
+  public async getPageList(pageNames: string[]) {
+    const errorNames: string[] = []
+    const pageRes: [][] = []
+    for (const name of pageNames) {
+      try {
+        const manifest = await this.getManifest(name)
+        const codes = manifest.map(file => {
+          return {
+            path: file.path.replace('@/', ''),
+            code: this.getCode(file.path)
+          }
+        })
+        pageRes.push(codes)
+      } catch (e) {
+        errorNames.push(name)
+      }
+    }
+    if (errorNames.length > 0) {
+      this.ctx.throwBizError('PAGE_NOT_FOUND', `页面${errorNames.join(',')}不存在`, errorNames)
+    } else {
+      return pageRes
+    }
+  }
+
+  /**
+   * 获取所有页面名字
+   * @return {string[]} 页面名称列表
+   */
+  public async getAllPageName() {
+   return Object.keys(this.manifestMapping)
+  }
+
+  /**
    * 替换AT符号
    * @param filePath 文件路径
    * @return {string} 完成文件路径

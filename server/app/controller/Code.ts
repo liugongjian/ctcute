@@ -22,18 +22,32 @@ export default class CodeController extends Controller {
   }
 
   /**
-   * 根据页面名称获得所有代码
+   * 根据页面名称获得某一页面所有代码
    */
   public async getCodes() {
     const { ctx } = this
     const name = ctx.query.name
     const data = await ctx.service.code.getCodes(name)
     ctx.body = data
-    // try {
+  }
 
-    // } catch(e) {
-    //   console.log('====e====', e)
-    //   ctx.throwBizError('PAGE_NOT_FOUND')
-    // }
+  /**
+   * 根据页面名称获得多个页面的所有代码
+   */
+   public async getPageList() {
+    const { ctx } = this
+    const name = ctx.query.name
+    const pageNames = (name || "").split(',')
+    const data = await ctx.service.code.getPageList(pageNames)
+    ctx.body = data
+  }
+
+  /**
+   * 列出所有页面的名称
+   */
+   public async getAllPageName() {
+    const { ctx } = this
+    const data = await ctx.service.code.getAllPageName()
+    ctx.body = data
   }
 }

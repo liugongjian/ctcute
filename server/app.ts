@@ -21,6 +21,7 @@ export default class AppBootHook implements IBoot {
         ctx.body = {
           code: config.code,
           msg: config.message,
+          // error
         };
       }
     };

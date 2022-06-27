@@ -84,7 +84,7 @@ export default class Code extends Service {
       }
     }
     if (errorNames.length > 0) {
-      this.ctx.throwBizError('PAGE_NOT_FOUND', `页面${errorNames.join(',')}不存在`, errorNames)
+      this.ctx.throwBizError('PAGE_NOT_FOUND', {message: `页面${errorNames.join(',')}不存在`})
     } else {
       return pageRes
     }

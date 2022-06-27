@@ -72,12 +72,14 @@
 .sub-special {
   .el-button--danger {
     background-color: $color-sp-1;
-    border-color: $color-white;
+    border-color: $color-sp-1;
     &:hover {
       background-color: $color-sp-2;
+      border-color: $color-sp-2;
     }
     &:active {
       background-color: $color-sp-3;
+      border-color: $color-sp-3;
     }
   }
 }
@@ -1034,7 +1036,12 @@
   $iconColor:icon颜色;
   $bgColor:背景颜色;
 */
-@mixin global-tips($class: info, $bdcolor: $color-tag-master-1, $iconColor: $color-status-master, $bgColor: $color-tag-master-2) {
+@mixin global-tips(
+  $class: info,
+  $bdcolor: $color-tag-master-1,
+  $iconColor: $color-status-master,
+  $bgColor: $color-tag-master-2
+) {
   .sub-all-alert {
     .el-alert--#{$class}.is-light {
       border: 1px solid $bdcolor;

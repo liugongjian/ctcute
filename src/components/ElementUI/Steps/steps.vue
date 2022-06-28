@@ -190,7 +190,7 @@ export default class extends Vue {
   font-size: 16px;
 }
 ::v-deep .el-step.is-horizontal .el-step__line {
-  height: 1px;
+  height: 0.5px;
 }
 ::v-deep .el-step__icon-inner {
   font-weight: normal;

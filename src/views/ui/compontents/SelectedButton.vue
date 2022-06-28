@@ -6,7 +6,7 @@
     </div>
     <h2>特殊单选快(用于订购页)</h2>
     <div class="sub-sample">
-      <el-radio-group v-model="radio1">
+      <el-radio-group v-model="radio0">
         <el-radio-button label="Active"></el-radio-button>
         <el-radio-button label="Default"></el-radio-button>
         <el-radio-button label="Disabled" disabled></el-radio-button>
@@ -24,7 +24,6 @@
     <div class="sub-sample">
       <el-checkbox-group v-model="radio2">
         <el-checkbox-button label="多选默认"></el-checkbox-button>
-        <el-checkbox-button label="多选悬停"></el-checkbox-button>
         <el-checkbox-button label="多选选中"></el-checkbox-button>
         <el-checkbox-button label="不可用选中" disabled></el-checkbox-button>
         <el-checkbox-button label="不可用" disabled></el-checkbox-button>
@@ -64,6 +63,7 @@ export default class extends Vue {
     },
   ]
 
+  private radio0 = 'Active'
   private radio1 = 'Active'
   private radio2 = ['多选选中', '不可用选中']
 }

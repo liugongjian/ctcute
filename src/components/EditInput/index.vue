@@ -28,8 +28,9 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .edit-input-icon {
-  font-size: $text-size-medium;
+  font-size: $text-size-large;
   margin-left: 10px;
+  color: $color-grey-3;
   cursor: pointer;
 
   &:hover {

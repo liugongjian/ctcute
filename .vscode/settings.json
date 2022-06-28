@@ -3,6 +3,9 @@
       "source.fixAll.eslint":true,
       "source.fixAll.stylelint": true
   },
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
   "stylelint.validate": ["vue", "css", "less", "scss"],
   "colorize.colorized_variables": ["SASS"]
 }

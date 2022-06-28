@@ -3,9 +3,9 @@
 @import './svgicon.scss';
 @import './element-override.scss';
 @import './margin.scss';
-@import './form.scss';
-@import './table.scss';
 @import './animation.scss';
+@import './page/form.scss';
+@import './page/table.scss';
 
 /* Global scss */
 body {

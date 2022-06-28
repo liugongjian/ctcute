@@ -185,6 +185,10 @@ export default class extends Vue {
     top: 10px;
   }
 }
+::v-deep .el-step__icon-inner.is-status {
+  transform: translateY(0px);
+  font-size: 16px;
+}
 ::v-deep .el-step.is-horizontal .el-step__line {
   height: 1px;
 }

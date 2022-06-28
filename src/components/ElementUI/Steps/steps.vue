@@ -2,7 +2,7 @@
   <div>
     <el-row align="middle" :style="{ 'max-width': maxWidth }">
       <el-col v-if="goButton" :span="1">
-        <div class="button-col point-style" @click="goPre">&lt;</div>
+        <div class="button-col point-style" @click="goPre"><i class="el-icon-arrow-left"></i></div>
       </el-col>
       <el-col :span="16">
         <div :class="size === 'mini' ? 'ui-stepsMin' : 'ui-steps'">
@@ -48,7 +48,7 @@
         </div>
       </el-col>
       <el-col v-if="goButton" :span="1">
-        <div class="button-col point-style" @click="goNext">&gt;</div>
+        <div class="button-col point-style" @click="goNext"><i class="el-icon-arrow-right"></i></div>
       </el-col>
     </el-row>
   </div>
@@ -187,6 +187,16 @@ export default class extends Vue {
 }
 ::v-deep .el-step.is-horizontal .el-step__line {
   height: 1px;
+}
+::v-deep .el-step__icon-inner {
+  font-weight: normal;
+}
+::v-deep .el-icon-arrow-right,
+.el-icon-arrow-right {
+  color: #000;
+}
+::v-deep.el-step__line {
+  background-color: rgba(0, 0, 0, 0.15);
 }
 ::v-deep .el-step__icon.is-text {
   border: 1px solid;

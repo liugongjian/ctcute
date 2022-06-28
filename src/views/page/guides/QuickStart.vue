@@ -27,6 +27,10 @@ cuted ls
 cuted add <PageName> [NewPageName]
 ### 批量新增页面
 cuted madd [.cuted.json]
+
+## 代码仓库
+[https://gitlab.ctyuncdn.cn/ct-basic/cute-design-web.git](https://gitlab.ctyuncdn.cn/ct-basic/cute-design-web.git)
+如果您没有权限，请联系胡佳婷（企业微信）帮您开通开发权限。
 `
 }
 </script>

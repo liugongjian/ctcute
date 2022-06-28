@@ -53,8 +53,28 @@
               </el-form-item>
               <el-form-item label="标签" class="sub-tags">
                 <el-tag type="info">标签</el-tag>
-                <el-tag v-if="isShow" type="info" closable @close="handleClose">标签</el-tag>
-                <el-tag type="newtag" size="small">+ 标签</el-tag>
+                <el-tag v-if="isShow" type="info" closable @close="closeTag">标签</el-tag>
+                <el-tag
+                  v-for="tag in dynamicTags"
+                  :key="tag"
+                  type="info"
+                  closable
+                  :disable-transitions="false"
+                  @close="handleClose(tag)"
+                >
+                  {{ tag }}
+                </el-tag>
+                <el-input
+                  v-if="inputVisible"
+                  ref="saveTagInput"
+                  v-model="inputValue"
+                  size="small"
+                  class="input-new-tag"
+                  @keyup.enter.native="handleInputConfirm"
+                  @blur="handleInputConfirm"
+                >
+                </el-input>
+                <el-tag v-else type="newtag" :disable-transitions="true" @click="showInput">+ 标签</el-tag>
               </el-form-item>
 
               <el-form-item label="监控插件端口" prop="name">
@@ -101,9 +121,35 @@ export default class extends Vue {
     ],
   }
 
+  private dynamicTags = []
   private isShow = true
-  private handleClose() {
+  private inputVisible = false
+  private inputValue = ''
+
+  private closeTag() {
     this.isShow = false
+  }
+
+  private handleInputConfirm() {
+    const inputValue = this.inputValue
+    if (inputValue) {
+      this.dynamicTags.push(inputValue)
+    }
+    this.inputVisible = false
+    this.inputValue = ''
+  }
+
+  private showInput() {
+    this.inputVisible = true
+    this.$nextTick(() => {
+      const saveTagInput: any = this.$refs.saveTagInput
+      const saveTagInputRefs: any = saveTagInput.$refs
+      saveTagInputRefs.input.focus()
+    })
+  }
+
+  private handleClose(tag) {
+    this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
   }
 }
 </script>
@@ -113,13 +159,15 @@ export default class extends Vue {
   margin-left: 10px;
 }
 
-.button-new-tag {
-  height: 22px;
-  line-height: 20px;
+.sub-drawer .input-new-tag {
+  width: 60px;
   margin-left: 10px;
-  padding-top: 0;
-  padding-bottom: 0;
-  border: 1px dashed $color-grey-6;
+  vertical-align: bottom;
+
+  ::v-deep.el-input__inner {
+    height: 22px;
+    line-height: 20px;
+  }
 }
 
 .sub-tags {

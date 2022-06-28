@@ -177,17 +177,19 @@ export default class extends Vue {
 
   /**
    * 切换分页数量
+   * @param limit {number} 分页数
    */
-  private handleSizeChange(val: number) {
-    this.pager.limit = val
+  private handleSizeChange(limit: number) {
+    this.pager.limit = limit
     this.getTable()
   }
 
   /**
    * 切换分页页码
+   * @param page {number} 分页码
    */
-  private handleCurrentChange(val: number) {
-    this.pager.page = val
+  private handleCurrentChange(page: number) {
+    this.pager.page = page
     this.getTable()
   }
 
@@ -208,6 +210,7 @@ export default class extends Vue {
 
   /**
    * 查看详情
+   * @param data {SimpleTable.Host} 表格行对象
    */
   private gotoDetail(data: SimpleTable.Host) {
     this.$message.success(`前往${data.name}详情页面`)
@@ -215,6 +218,7 @@ export default class extends Vue {
 
   /**
    * 查看监控指标
+   * @param data {SimpleTable.Host} 表格行对象
    */
   private gotoDashboard(data: SimpleTable.Host) {
     this.$message.info(`前往${data.name}监控指标页面`)
@@ -222,6 +226,7 @@ export default class extends Vue {
 
   /**
    * 使用字典格式化实例状态
+   * @param data {SimpleTable.Host} 表格行对象
    */
   private statusFormatter(data: SimpleTable.Host) {
     return STATUS[data.status]
@@ -253,7 +258,7 @@ export default class extends Vue {
     }
 
     &--5 {
-      background: $disabled-fill;
+      background: $disabled-color;
     }
   }
 </style>

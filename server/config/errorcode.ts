@@ -1,9 +1,9 @@
 export default {
-  PAGE_NOT_FOUND: {
+  PAGE_NOT_FOUND: (_, error) => ({
     status: 200,
     code: 404,
-    message: '页面不存在',
-  },
+    message: error.bizParams.message || '页面不存在',
+  }),
   MANIFEST_JSON_ERR: {
     status: 502,
     code: 502,

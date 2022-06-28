@@ -13,6 +13,15 @@ const pageRoutes = [
     },
     children: [
       {
+        path: 'design-target',
+        name: 'DesignTarget',
+        component: () => import('@/views/page/guides/DesignTarget.vue'),
+        meta: {
+          title: '设计目标',
+          breadcrumb: true
+        }
+      },
+      {
         path: 'quick-start',
         name: 'QuickStart',
         component: () => import('@/views/page/guides/QuickStart.vue'),

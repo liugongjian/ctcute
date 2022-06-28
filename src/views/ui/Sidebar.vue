@@ -1,16 +1,13 @@
 <template>
-  <el-scrollbar wrap-class="scrollbar-wrapper">
+  <el-scrollbar ref="wrapper" wrap-class="scrollbar-wrapper">
     <div class="layout-sidebar__title">UI 组件</div>
     <el-menu
       :default-active="currentId"
-      :background-color="variables.menuBg"
-      :text-color="variables.menuText"
-      :active-text-color="variables.menuActiveText"
       :unique-opened="false"
       :collapse-transition="false"
       mode="vertical"
     >
-      <el-menu-item v-for="component in componentList" :key="component.name" :index="component.name" @click="changeHash(component.name)">
+      <el-menu-item v-for="component in componentList" :id="`menu-${component.name}`" :key="component.name" :index="component.name" @click="changeHash(component.name)">
         {{ component.title.en }} {{ component.title.zh }}
       </el-menu-item>
     </el-menu>
@@ -18,8 +15,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
-import variables from '@/assets/css/_variables-legacy.scss'
+import { Component, Vue, Prop, Watch, Ref } from 'vue-property-decorator'
 
 @Component({
   name: 'SideBar'
@@ -31,8 +27,22 @@ export default class extends Vue {
   @Prop()
   private currentId
 
-  private get variables(): any {
-    return variables
+  @Ref('wrapper')
+  private wrapper
+
+  /**
+   * hash后自动调整滚动条位置
+   */
+  @Watch('currentId')
+  private onCurrentIdChange() {
+    const currentMenu = this.wrapper.$el.querySelector(`#menu-${this.currentId}`)
+    const wrapper = this.wrapper.$el.querySelector('.scrollbar-wrapper')
+    if (currentMenu) {
+      const currentMenuTop = currentMenu.offsetTop
+      if (currentMenuTop < wrapper.scrollTop || currentMenuTop + currentMenu.clientHeight > wrapper.scrollTop + wrapper.clientHeight) {
+        wrapper.scrollTop = currentMenuTop
+      }
+    }
   }
 
   @Watch('$route.hash')

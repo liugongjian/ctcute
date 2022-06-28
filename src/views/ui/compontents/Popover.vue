@@ -25,50 +25,14 @@
         <el-button slot="reference" type="text">向下提示</el-button>
       </el-popover>
     </div>
-    <!-- <el-row class="popover-top">
-      <el-col :span="5">
-        <el-popover placement="top" trigger="hover" :open-delay="1000">
-          <div class="popover-top-prompt">
-            <span class="popover-top-text">需勾选表格项后删除</span><el-button type="text">链接文本</el-button>
-          </div>
-          <el-button slot="reference" type="text">向上提示带链接</el-button>
-        </el-popover>
-      </el-col>
-      <el-col :span="3">
-        <el-popover placement="top" trigger="hover" content="需勾选表格项后进行批量删除">
-          <el-button slot="reference" type="text">向上提示</el-button>
-        </el-popover>
-      </el-col>
-    </el-row>
-    <el-row class="popover-left">
-      <el-col :span="11">
-        <el-popover placement="left" trigger="hover" content="需勾选表格项后进行批量删除">
-          <el-button slot="reference" type="text">向左提示</el-button>
-        </el-popover>
-      </el-col>
-      <el-col :span="3">
-        <el-popover placement="right" trigger="hover" content="需勾选表格项后进行批量删除">
-          <el-button slot="reference" type="text">向右提示</el-button>
-        </el-popover>
-      </el-col>
-    </el-row>
-    <el-row class="popover-bottom">
-      <el-popover placement="bottom" trigger="hover" content="需勾选表格项后进行批量删除">
-        <el-button slot="reference" type="text">向下提示</el-button>
-      </el-popover>
-    </el-row> -->
     <h3>操作提示类型</h3>
     <el-row class="operation-popover">
       <el-col :span="6">
         <el-popover v-model="visible" placement="top-start" title="标题内容" popper-class="operation-content">
           <p>需勾选表格项后进行批量删除文字</p>
           <div class="operation-button">
-            <el-button size="mini" type="text" class="cancel-popover" @click="visible = false">
-              取消
-            </el-button>
-            <el-button type="primary" size="mini" class="determine-popover" @click="visible = false">
-              确定
-            </el-button>
+            <el-button class="cancel-popover" @click="visible = false"> 取 消 </el-button>
+            <el-button type="primary" class="determine-popover" @click="visible = false"> 确 定 </el-button>
           </div>
 
           <el-button slot="reference" type="text" class="sub-edit">编辑</el-button>
@@ -82,12 +46,8 @@
         >
           <p>需勾选表格项后进行批量删除文字</p>
           <div class="operation-button">
-            <el-button size="mini" type="text" class="cancel-popover" @click="visible1 = false">
-              取消
-            </el-button>
-            <el-button type="primary" size="mini" class="determine-popover" @click="visible1 = false">
-              确定
-            </el-button>
+            <el-button class="cancel-popover" @click="visible1 = false"> 取 消 </el-button>
+            <el-button type="primary" class="determine-popover" @click="visible1 = false"> 确 定 </el-button>
           </div>
           <el-button slot="reference" type="text">删除</el-button>
         </el-popover>
@@ -95,25 +55,17 @@
       <el-col :span="6">
         <el-popover v-model="visible2" placement="top">
           <p>需勾选表格项后进行批量删除文字</p>
-          <div style="text-align: right; margin: 0;">
-            <el-button size="mini" type="text" class="cancel-popover" @click="visible2 = false">
-              取消
-            </el-button>
-            <el-button type="primary" size="mini" class="determine-popover" @click="visible2 = false">
-              确定
-            </el-button>
+          <div style="text-align: right; margin: 0">
+            <el-button class="cancel-popover" @click="visible2 = false"> 取 消 </el-button>
+            <el-button type="primary" class="determine-popover" @click="visible2 = false"> 确 定 </el-button>
           </div>
           <el-button slot="reference" type="text" class="sub-edit">编辑</el-button>
         </el-popover>
         <el-popover v-model="visible3" placement="top-start">
           <p>需勾选表格项后进行批量删除文字</p>
           <div class="operation-button">
-            <el-button size="mini" type="text" class="cancel-popover" @click="visible3 = false">
-              取消
-            </el-button>
-            <el-button type="primary" size="mini" class="determine-popover" @click="visible3 = false">
-              确定
-            </el-button>
+            <el-button class="cancel-popover" @click="visible3 = false"> 取 消 </el-button>
+            <el-button type="primary" class="determine-popover" @click="visible3 = false"> 确 定 </el-button>
           </div>
 
           <el-button slot="reference" type="text">删除</el-button>
@@ -167,7 +119,7 @@ p {
 
 .sub-edit:after {
   content: '|';
-  color: $icon-color;
+  color: $border-color-primary;
   font-size: 16px;
   margin: 0 10px;
 }

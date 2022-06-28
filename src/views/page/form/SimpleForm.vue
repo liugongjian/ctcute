@@ -84,7 +84,7 @@
   </el-card>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Ref } from 'vue-property-decorator'
 import * as SimpleForm from '@/types/SimpleForm'
 import { createSimpleForm, getAlertTarget } from '@/api/simpleForm'
 
@@ -92,6 +92,10 @@ import { createSimpleForm, getAlertTarget } from '@/api/simpleForm'
   name: 'SimpleForm'
 })
 export default class extends Vue {
+  // 表单Ref对象
+  @Ref('simpleForm')
+  private simpleFormRef
+
   // 表单对象
   private form: SimpleForm.Form = {
     name: null,
@@ -187,8 +191,7 @@ export default class extends Vue {
    * 提交表单
    */
   private submit() {
-    const simpleForm: any = this.$refs.simpleForm
-    simpleForm.validate(valid => {
+    this.simpleFormRef.validate(valid => {
       if (valid) {
         this.create()
       } else {

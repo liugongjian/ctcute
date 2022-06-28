@@ -154,11 +154,35 @@
 .el-button--text {
   padding: 0;
 }
-
+/* IconButton
+-------------------------- */
+.el-button.el-button--default.el-button--medium {
+  .svg-icon.svg-fill {
+    color: $color-grey-3;
+  }
+}
+.el-button.el-button--primary.el-button--medium.is-disabled {
+  .svg-icon.svg-fill {
+    color: $color-grey-5;
+  }
+}
 /* Link
 -------------------------- */
-.el-link.el-link--primary:hover {
-  color: $color-master-3;
+.el-link.el-link--primary {
+  &:hover {
+    color: $color-master-3;
+  }
+  &:active {
+    color: $color-master-3;
+  }
+}
+.el-link.el-link--default {
+  &:hover {
+    color: $color-master-3;
+  }
+  &:active {
+    color: $color-master-3;
+  }
 }
 
 /* Form
@@ -848,7 +872,7 @@
   }
 }
 
-.el-select.el-select--medium {
+.el-select {
   .el-tag.el-tag--info.el-tag--small.el-tag--light {
     background: $disabled-fill;
     border: 1px solid $border-color-primary;
@@ -1270,7 +1294,6 @@
 -------------------------- */
 .el-dropdown-menu--medium .el-dropdown-menu__item {
   font-size: $text-size-primary;
-
   &:hover {
     background: $color-master-7;
     color: $color-master-1;
@@ -1281,7 +1304,9 @@
     color: $color-white;
   }
 }
-
+.el-select-dropdown__item.is-disabled:hover {
+  color: $color-grey-4;
+}
 /* Transfer
 -------------------------- */
 .el-transfer {

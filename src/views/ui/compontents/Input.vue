@@ -199,6 +199,10 @@ export default class extends Vue {
   height: 32px;
 }
 
+.el-row {
+  margin-top: 24px;
+}
+
 .sub-input {
   border-bottom: 1px solid $border-color-light-1;
   padding-bottom: 24px;

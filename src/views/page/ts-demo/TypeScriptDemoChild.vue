@@ -142,11 +142,11 @@ export default class extends Mixins(TypeScriptDemoMixin) {
 
   /**
    * 数字加1
-   * @param algebra 代数对象
+   * @param algebra {string} 代数对象
    * 声明一个方法。
    * 等价JavaScript中的methods: {}声明
    */
-  private increase(key) {
+  private increase(key: string) {
     this.algebra[key]++
     this.sumResult = null
     this.multiplyResult = null

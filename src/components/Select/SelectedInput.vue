@@ -1,7 +1,14 @@
 <template>
   <div class="selected-input">
-    <el-select ref="select" v-model="sele" popper-class="select-field" @change="change">
-      <el-option v-for="(v, i) in optionData" :key="i" :label="v.label" :value="v.value" class="field-option">
+    <el-select ref="select" v-model="sele" :class="flag ? 'select-field' : 'el-select'" @change="change">
+      <el-option
+        v-for="(v, i) in optionData"
+        :key="i"
+        :label="v.label"
+        :value="v.value"
+        class="field-option"
+        :disabled="v.disabled"
+      >
       </el-option>
     </el-select>
   </div>
@@ -16,26 +23,46 @@ export default class extends Vue {
   @Prop({ type: Array, default: [] }) data?: []
   @Prop({ type: Array, default: [] }) optionData?: []
   private sele = ''
+  private flag = false
   private created() {
-    this.data.length > 0 ? (this.sele = `操作已选项(${this.data.length})`) : (this.sele = '操作已选项')
+    if (this.data.length > 0) {
+      this.flag = true
+      this.sele = `操作已选项(${this.data.length})`
+    } else {
+      this.flag = false
+      this.sele = '操作已选项'
+    }
   }
 
   @Watch('data')
   private change() {
-    this.data.length > 0 ? (this.sele = `操作已选项(${this.data.length})`) : (this.sele = '操作已选项')
+    if (this.data.length > 0) {
+      this.flag = true
+      this.sele = `操作已选项(${this.data.length})`
+    } else {
+      this.flag = false
+      this.sele = '操作已选项'
+    }
     this.$emit('request', this.data)
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.selected-input {
+.el-select {
   ::v-deep .el-input.el-input--medium.el-input--suffix {
     width: auto;
     padding-right: 0;
     font-size: 12px;
   }
 
+  ::v-deep.el-input__inner {
+    padding-right: 0;
+    color: $color-grey-1;
+  }
+}
+
+.select-field {
   ::v-deep.el-input__inner {
     padding-right: 0;
     color: $color-master-1;

@@ -40,14 +40,19 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">挂载</el-button>
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
+              挂载
+            </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false">
-              <span class="el-dropdown-link">
-                更多<i class="el-icon-arrow-down el-icon--right"></i>
-              </span>
+              <span class="el-dropdown-link"> 更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
                 <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -80,7 +85,13 @@
         <el-button type="primary" :disabled="!multipleSelection.length" size="small">主按钮</el-button>
         <el-button :disabled="!multipleSelection.length" size="small">次按钮</el-button>
       </div>
-      <el-table ref="multipleTable" :data="data.tableData10" tooltip-effect="dark" border @selection-change="handleSelectionChange">
+      <el-table
+        ref="multipleTable"
+        :data="data.tableData10"
+        tooltip-effect="dark"
+        border
+        @selection-change="handleSelectionChange"
+      >
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" width="150px" label="主机别名">
           <template slot-scope="scope">
@@ -113,14 +124,19 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">挂载</el-button>
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
+              挂载
+            </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false">
-              <span class="el-dropdown-link">
-                更多<i class="el-icon-arrow-down el-icon--right"></i>
-              </span>
+              <span class="el-dropdown-link"> 更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
                 <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -150,14 +166,21 @@
     <h3>可多选表格(3个以上操作)</h3>
     <div class="sub-table">
       <div style="margin-bottom: 20px;">
-        <el-select v-model="selectedCount" placeholder="请选择" popper-class="select-field">
-          <el-option> 续订 </el-option>
-          <el-option> 退订 </el-option>
-          <el-option> 创建 </el-option>
-          <el-option disabled> Disabled </el-option>
-        </el-select>
+        <selected-input
+          :data="multipleSelectionOver3"
+          placeholder="请选择"
+          popper-class="select-field"
+          :option-data="optionData"
+        >
+        </selected-input>
       </div>
-      <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData10" border @selection-change="handleSelectionChangeOver3">
+      <el-table
+        ref="multipleTable"
+        tooltip-effect="dark"
+        :data="data.tableData10"
+        border
+        @selection-change="handleSelectionChangeOver3"
+      >
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" label="主机别名">
           <template slot-scope="scope">
@@ -166,7 +189,9 @@
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
         <el-table-column prop="ip" label="IP地址"> </el-table-column>
-        <el-table-column prop="time" label="时间" sortable width="150px">2022-05-20 18:00:05 </el-table-column>
+        <el-table-column prop="time" label="时间" sortable width="150px">
+          2022-05-20 18:00:05
+        </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
             <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
@@ -190,14 +215,19 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">挂载</el-button>
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
+              挂载
+            </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false">
-              <span class="el-dropdown-link">
-                更多<i class="el-icon-arrow-down el-icon--right"></i>
-              </span>
+              <span class="el-dropdown-link"> 更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
                 <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -259,14 +289,19 @@
         </el-table-column>
         <el-table-column label="操作" width="190px" fixed="right">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">挂载</el-button>
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
+              挂载
+            </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false">
-              <span class="el-dropdown-link">
-                更多<i class="el-icon-arrow-down el-icon--right"></i>
-              </span>
+              <span class="el-dropdown-link"> 更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
                 <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -312,12 +347,16 @@
       <el-table :data="data.smallTable" border size="small">
         <el-table-column label="排行">
           <template slot-scope="scope">
-            <span :class="scope.$index <3 ? 'sub-index sub-index-top3': 'sub-index'">{{ scope.$index+1 }}</span>
+            <span :class="scope.$index < 3 ? 'sub-index sub-index-top3' : 'sub-index'">{{
+              scope.$index + 1
+            }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="name" label="工作流名称">
           <template slot-scope="scope">
-            <span class="text-ellipsis" style="width: 100%;" :title="scope.row.name">{{ scope.row.name }}</span>
+            <span class="text-ellipsis" style="width: 100%;" :title="scope.row.name">{{
+              scope.row.name
+            }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="time" label="耗时"> </el-table-column>
@@ -351,8 +390,11 @@
 import { Component, Vue } from 'vue-property-decorator'
 import data from '../../../utils/mock'
 import { HEALTH } from '@/dics/simpleTable'
+import SelectedInput from '@/components/Select/SelectedInput.vue'
+
 @Component({
-  name: 'UiTable'
+  name: 'UiTable',
+  components: { SelectedInput },
 })
 export default class extends Vue {
   private data = data
@@ -369,7 +411,7 @@ export default class extends Vue {
       tag1: 'user_age',
       tag2: '年龄段',
       tag3: '儿童',
-      tag4: 'user_age>6 and user_age<=9'
+      tag4: 'user_age>6 and user_age<=9',
     },
     {
       dataFilter: 'user_age>6 and user_age<=9',
@@ -378,13 +420,13 @@ export default class extends Vue {
       tag1: 'user_age',
       tag2: '年龄段',
       tag3: '少年',
-      tag4: 'user_age>6 and user_age<=9'
-    }
+      tag4: 'user_age>6 and user_age<=9',
+    },
   ]
 
   public static title = {
     zh: '表格',
-    en: 'Table'
+    en: 'Table',
   }
 
   private pageSize = 20
@@ -416,6 +458,26 @@ export default class extends Vue {
     },
   ]
 
+  optionData = [
+    {
+      label: '退订',
+      value: '1',
+    },
+    {
+      label: '续订',
+      value: '2',
+    },
+    {
+      label: '创建',
+      value: '3',
+    },
+    {
+      label: 'Disabled',
+      value: '4',
+      disabled: true,
+    },
+  ]
+
   private row({ rowIndex, columnIndex }) {
     if (rowIndex === 0 && columnIndex !== 5 && columnIndex !== 6) {
       return [2, 1]
@@ -440,7 +502,6 @@ export default class extends Vue {
     console.log(index, row)
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -489,13 +550,6 @@ export default class extends Vue {
 
 .sub-table:not(:last-child) {
   border-bottom: 1px solid #f1f1f1;
-}
-
-.sub-table {
-  ::v-deep .el-input.el-input--medium.el-input--suffix {
-    width: 110px;
-    font-size: 12px;
-  }
 }
 
 .sub-table-horizon {

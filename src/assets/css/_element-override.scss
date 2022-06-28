@@ -160,6 +160,12 @@
   .svg-icon.svg-fill {
     color: $color-grey-3;
   }
+
+  &:hover {
+    .svg-icon.svg-fill {
+      color: $color-master-1;
+    }
+  }
 }
 .el-button.el-button--primary.el-button--medium.is-disabled {
   .svg-icon.svg-fill {

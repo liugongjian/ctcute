@@ -1,5 +1,6 @@
 <template>
   <div class="sub-tag">
+    <h3>默认标签</h3>
     <el-tag type="info">标签</el-tag>
     <el-tag v-if="isShow" type="info" closable :disable-transitions="false" @close="closeTag">标签</el-tag>
     <el-tag
@@ -22,7 +23,14 @@
       @blur="handleInputConfirm"
     >
     </el-input>
-    <el-tag v-else type="newtag" :disable-transitions="true" @click="showInput">+ 新增标签</el-tag>
+    <el-tag v-else type="newtag" :disable-transitions="true" @click="showInput">+ 标签</el-tag>
+    <h3>大标签</h3>
+    <el-tag type="info" size="large">CPU使用量>=2</el-tag>
+    <el-tag v-if="isLargeShow" type="info" size="large" closable @close="isLargeShow = false">
+      CPU使用量>=3
+    </el-tag>
+    <el-tag type="newtag" size="large">+ 新增过滤</el-tag>
+    <h3>彩色标签</h3>
     <el-tag type="danger">红色</el-tag>
     <el-tag type="success">绿色</el-tag>
     <el-tag type="">蓝色</el-tag>
@@ -33,16 +41,17 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiTag'
+  name: 'UiTag',
 })
 export default class extends Vue {
   public static title = {
     zh: '标签',
-    en: 'Tag'
+    en: 'Tag',
   }
 
   private dynamicTags = []
   private isShow = true
+  private isLargeShow = true
   private inputVisible = false
   private inputValue = ''
 
@@ -80,11 +89,11 @@ export default class extends Vue {
 }
 
 .el-tag {
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .input-new-tag {
-  width: 90px;
+  width: 60px;
   margin-left: 10px;
   vertical-align: bottom;
 

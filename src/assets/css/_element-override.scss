@@ -1184,13 +1184,21 @@
   color: $color-status-info;
   border: 1px solid $color-tag-info-1;
   border-radius: $border-radius;
-  height: 22px;
-  line-height: 20px;
 }
 
 .el-tag.el-tag--info .el-tag__close,
 .el-tag.el-tag--info .el-tag__close:hover {
   color: $text-color-light-1;
+}
+
+.el-tag--medium {
+  height: 22px;
+  line-height: 20px;
+}
+
+.el-tag--large {
+  height: 28px;
+  line-height: 26px;
 }
 
 /* Toast
@@ -1308,6 +1316,20 @@
       font-size: 16px;
       font-weight: bold;
     }
+  }
+}
+
+.el-drawer__close-btn {
+  color: $color-grey-3;
+}
+
+.el-drawer {
+  .el-form--label-top .el-form-item__label {
+    padding: 0 0 8px 0;
+  }
+
+  .el-form-item {
+    margin-bottom: 24px;
   }
 }
 

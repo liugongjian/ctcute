@@ -1105,19 +1105,29 @@
 @include global-tips(error, $color-tag-danger-1, $color-status-danger, $color-tag-danger-2);
 @include global-tips(weak, $disabled-border, $disabled-color, $color-white);
 
+.el-alert {
+  padding: 8px 16px;
+  width: auto;
+}
+
+.el-alert__content {
+  padding-right: 0;
+}
+
+.el-alert > .el-alert__content:first-child {
+  padding-left: 0;
+}
+
 .sub-all-alert {
   .el-alert__closebtn {
-    top: 10px;
+    position: static;
+    margin-left: 16px;
   }
 
   .el-alert__closebtn.is-customed {
     font-size: $text-size-primary;
     top: 8px;
   }
-}
-
-.el-alert {
-  padding: 0;
 }
 
 .el-alert + .el-alert {
@@ -1542,6 +1552,7 @@
 @include contentareatips-page(error, $color-status-danger, $color-status-danger);
 .el-alert__title {
   font-size: $text-size-primary;
+  line-height: 20px;
 }
 
 /* Tooltip

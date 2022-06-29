@@ -1,30 +1,34 @@
 <template>
-  <transition name="el-alert-fade">
-    <div
-      v-show="visible"
-      class="el-alert"
-      :class="[typeClass, center ? 'is-center' : '', 'is-' + effect]"
-      role="alert"
-    >
-      <slot name="icon-custom">
-        <i v-if="showIcon" class="el-alert__icon" :class="[iconClass, isBigIcon]"></i>
-      </slot>
-      <div class="el-alert__content">
-        <span v-if="title || $slots.title" class="el-alert__title" :class="[isBoldTitle]">
-          <slot name="title">{{ title }}</slot>
-        </span>
-        <p v-if="$slots.default && !description" class="el-alert__description"><slot></slot></p>
-        <p v-if="description && !$slots.default" class="el-alert__description">{{ description }}</p>
+  <div style="display: flex">
+    <transition name="el-alert-fade">
+      <div
+        v-show="visible"
+        class="el-alert"
+        :class="[typeClass, center ? 'is-center' : '', 'is-' + effect]"
+        role="alert"
+      >
+        <slot name="icon-custom">
+          <i v-if="showIcon" class="el-alert__icon" :class="[iconClass, isBigIcon]"></i>
+        </slot>
+        <div class="el-alert__content">
+          <span v-if="title || $slots.title" class="el-alert__title" :class="[isBoldTitle]">
+            <slot name="title">{{ title }}</slot>
+          </span>
+          <p v-if="$slots.default && !description" class="el-alert__description"><slot></slot></p>
+          <p v-if="description && !$slots.default" class="el-alert__description">{{ description }}</p>
+        </div>
         <i
           v-show="closable"
           class="el-alert__closebtn"
           :class="{ 'is-customed': closeText !== '', 'el-icon-close': closeText === '' }"
           :style="{ color: closeBtnColor }"
           @click="close()"
-        >{{ closeText }}</i>
+        >
+          {{ closeText }}
+        </i>
       </div>
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 
 <script type="text/babel">
@@ -65,7 +69,7 @@ export default {
     },
     closeBtnColor: {
       type: String,
-      default: ''
+      default: '',
     },
     center: Boolean,
     effect: {

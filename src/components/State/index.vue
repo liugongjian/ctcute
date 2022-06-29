@@ -38,12 +38,16 @@ export default class extends Vue {
 }
 
 .icon-wrap {
-  font-size: 14px;
+  font-size: $text-size-large;
 }
 
 @keyframes rotating {
-  0% { transform: rotate(0); }
-  100% { transform: rotate(1turn); }
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
 }
 
 .loading {

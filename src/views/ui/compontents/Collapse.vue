@@ -21,7 +21,7 @@
     <div class="collapse-notcontent">
       <el-collapse v-model="activeNames1">
         <el-collapse-item title="小标题" name="1">
-          <el-table ref="table1" :data="smallTable" :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
+          <el-table ref="table1" :data="smallTable">
             <el-table-column prop="id" label="商品编码">
               <template slot-scope="scope">
                 <span class="table-key">{{ scope.row.id }}</span>
@@ -35,7 +35,7 @@
           </el-table>
         </el-collapse-item>
         <el-collapse-item title="小标题" name="2">
-          <el-table ref="table2" :data="smallTable" :row-style="{ 'height': '42px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
+          <el-table ref="table2" :data="smallTable" :row-style="{ 'height': '75px', 'line-height': '42px' }" :cell-style="{ 'padding': 0 }">
             <el-table-column prop="id" label="商品编码">
               <template slot-scope="scope">
                 <span class="table-key">{{ scope.row.id }}</span>

@@ -557,8 +557,8 @@ export default class extends Vue {
 
 .sub-spot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   margin-right: 10px;
 
@@ -585,8 +585,8 @@ export default class extends Vue {
 
 .sub-small-spot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   margin-right: 10px;
 

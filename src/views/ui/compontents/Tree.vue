@@ -38,6 +38,8 @@
           </span>
         </el-tree>
       </el-col>
+    </el-row>
+    <el-row>
       <el-col :span="5">
         <h3>两层树状菜单标题</h3>
         <el-tree :data="data.twoTree" node-key="key" :default-expanded-keys="[4]">

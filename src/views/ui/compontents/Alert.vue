@@ -3,7 +3,7 @@
     <p>可根据内容调整长度</p>
     <h3>常用样式</h3>
     <el-row>
-      <el-alert title="弱提示文字弱提示文字" type="weak" :closable="false"> </el-alert>
+      <el-alert title="弱提示文字弱提示文字很" type="weak" :closable="false"> </el-alert>
     </el-row>
     <el-row>
       <el-alert title="提示文案，常规提示" :closable="false"><span slot="icon-custom"><svg-icon class="el-alert__icon" name="info-circle-fill" :color="infoColor" /></span></el-alert>
@@ -118,40 +118,32 @@ export default class extends Vue {
     animation: rotating 2s linear infinite;
   }
 
-  .long-text.el-alert {
-    align-items: flex-start;
+  .long-text {
+    ::v-deep.el-alert {
+      align-items: flex-start;
+    }
+
+    .el-alert__icon {
+      margin-top: 2px;
+    }
+
+    ::v-deep.el-alert__closebtn {
+      margin-top: 3px;
+    }
   }
 
   .sub-title {
     font-size: $text-size-primary;
-
-    &:after {
-      content: '';
-      display: inline-block;
-      width: 10px;
-    }
   }
 
   .sub-title-text {
     font-size: $text-size-primary;
-
-    &:after {
-      content: '';
-      display: inline-block;
-      width: 54px;
-    }
   }
 
   .el-row,
   .sub-alert {
-    display: flex;
+    //display: flex;
     margin-top: 20px;
-
-    ::v-deep.el-alert {
-      width: auto;
-      min-width: 164px;
-      padding: 7px 16px;
-    }
   }
 }
 </style>

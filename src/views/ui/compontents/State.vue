@@ -21,10 +21,10 @@
         <dot-state icon="warning-circle">未运行/停止</dot-state>
         <dot-state icon="check-circle" :color="colorVariables.colorSuccess">正常/健康/成功</dot-state>
         <dot-state icon="inconsistent" :color="colorVariables.colorWarning">不一致</dot-state>
-        <dot-state icon="loading" :color="colorVariables.colorInfo">重启中</dot-state>
+        <dot-state icon="loading" :color="colorVariables.colorInfo" :loading="true">重启中</dot-state>
         <dot-state icon="loading" :color="colorVariables.colorSuccess" :loading="true">启动中</dot-state>
-        <dot-state icon="loading" :color="colorVariables.colorDanger">卸载中</dot-state>
-        <dot-state icon="loading">停止中</dot-state>
+        <dot-state icon="loading" :color="colorVariables.colorDanger" :loading="true">卸载中</dot-state>
+        <dot-state icon="loading" :loading="true">停止中</dot-state>
       </el-row>
     </div>
   </div>

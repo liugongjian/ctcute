@@ -32,24 +32,25 @@
             <el-form
               ref="ruleForm"
               :rules="rules"
+              :model="form"
               label-width="125px"
               class="demo-ruleForm"
               label-position="top"
             >
               <el-form-item label="主机别名" prop="name" placeholder="111">
-                <el-input value="" placeholder="请输入主机别名"></el-input>
+                <el-input v-model="form.name" value="" placeholder="请输入主机别名"></el-input>
               </el-form-item>
-              <el-form-item label="IP地址" prop="name">
-                <el-input value="" placeholder="请输入IP地址"></el-input>
+              <el-form-item label="IP地址" prop="ip">
+                <el-input v-model="form.ip" value="" placeholder="请输入IP地址"></el-input>
               </el-form-item>
-              <el-form-item label="SSH端口" prop="name">
-                <el-input value="" placeholder="请输入SSH端口"></el-input>
+              <el-form-item label="SSH端口" prop="ssh">
+                <el-input v-model="form.ssh" value="" placeholder="请输入SSH端口"></el-input>
               </el-form-item>
-              <el-form-item label="SSH用户名" prop="name">
-                <el-input value="" placeholder="请输入SSH用户名"></el-input>
+              <el-form-item label="SSH用户名" prop="sshname">
+                <el-input v-model="form.sshname" value="" placeholder="请输入SSH用户名"></el-input>
               </el-form-item>
-              <el-form-item label="SSH密码" prop="name">
-                <el-input value="" placeholder="请提供具有sudo权限的账号"></el-input>
+              <el-form-item label="SSH密码" prop="password">
+                <el-input v-model="form.password" value="" placeholder="请提供具有sudo权限的账号"></el-input>
               </el-form-item>
               <el-form-item label="标签" class="sub-tags">
                 <el-tag type="info">标签</el-tag>
@@ -77,12 +78,14 @@
                 <el-tag v-else type="newtag" :disable-transitions="true" @click="showInput">+ 标签</el-tag>
               </el-form-item>
 
-              <el-form-item label="监控插件端口" prop="name">
-                <el-input value="" placeholder="请输入监控插件端口"></el-input>
+              <el-form-item label="监控插件端口" prop="port">
+                <el-input v-model="form.port" value="" placeholder="请输入监控插件端口"></el-input>
               </el-form-item>
-              <el-form-item label="备注" prop="name">
+              <el-form-item label="备注" prop="tip">
                 <el-input
+                  v-model="form.tip"
                   type="textarea"
+                  class="tip"
                   maxlength="128"
                   :rows="4"
                   show-word-limit
@@ -116,11 +119,12 @@ export default class extends Vue {
   private drawer1 = false
   private rules = {
     name: [
-      { required: true, message: '请输入活动名称', trigger: 'blur' },
+      { required: true, message: '请输入主机别名', trigger: 'blur' },
       { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
     ],
   }
 
+  private form = {}
   private dynamicTags = []
   private isShow = true
   private inputVisible = false
@@ -175,7 +179,7 @@ export default class extends Vue {
   align-items: center;
 
   ::v-deep.el-form-item__label {
-    padding: 0;
+    padding: 0 !important;
   }
 }
 
@@ -195,11 +199,18 @@ export default class extends Vue {
 
   .el-form {
     flex: 1;
-    padding: 30px;
+    padding: 30px 30px 52px;
     font-size: 14px;
+
+    .tip {
+      width: 100%;
+    }
   }
 
   .sub-foot {
+    position: fixed;
+    bottom: 0;
+    width: 30%;
     padding: 10px 0;
     display: flex;
     justify-content: center;

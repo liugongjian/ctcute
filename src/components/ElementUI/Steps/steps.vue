@@ -185,7 +185,26 @@ export default class extends Vue {
     top: 10px;
   }
 }
-
+::v-deep .el-step__icon-inner.is-status {
+  transform: translateY(0px);
+  font-size: 16px;
+}
+::v-deep .el-step.is-horizontal .el-step__line {
+  height: 0.5px;
+}
+::v-deep .el-step__icon-inner {
+  font-weight: normal;
+}
+::v-deep .el-icon-arrow-right,
+.el-icon-arrow-right {
+  color: #000;
+}
+::v-deep.el-step__line {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+::v-deep .el-step__icon.is-text {
+  border: 1px solid;
+}
 ::v-deep .el-step__title.is-process {
   font-weight: 400;
   color: rgba(51, 51, 51, 0.85);

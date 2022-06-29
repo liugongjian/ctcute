@@ -8,7 +8,11 @@
       <el-alert title="这是一个警告提示" type="warning" show-icon :closable="false"> </el-alert>
       <el-alert title="这是一个错误提示" type="error" show-icon :closable="false"> </el-alert>
       <el-alert show-icon :closable="false">
-        <span slot="icon-custom"><svg-icon class="el-alert__icon" name="question-circle" /></span>
+        <span slot="icon-custom">
+          <el-tooltip effect="dark" placement="top" content="提示描述性文案">
+            <svg-icon class="el-alert__icon" name="question-circle" />
+          </el-tooltip>
+        </span>
       </el-alert>
     </div>
   </div>

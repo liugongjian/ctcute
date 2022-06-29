@@ -33,8 +33,11 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .contentareatips-content {
-  // width: 642px;
-  justify-content: space-between;
   display: flex;
+  justify-content: flex-start;
+
+  ::v-deep.el-alert {
+    margin-right: 20px;
+  }
 }
 </style>

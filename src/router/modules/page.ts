@@ -9,28 +9,28 @@ const pageRoutes = [
     meta: {
       title: '开发指南',
       alwaysShow: true,
-      breadcrumb: true
+      breadcrumb: true,
     },
     children: [
       {
         path: 'design-target',
         name: 'DesignTarget',
-        component: () => import('@/views/page/guides/DesignTarget.vue'),
+        component: () => import('@/views/page/Guides/DesignTarget.vue'),
         meta: {
           title: '设计目标',
-          breadcrumb: true
-        }
+          breadcrumb: true,
+        },
       },
       {
         path: 'quick-start',
         name: 'QuickStart',
-        component: () => import('@/views/page/guides/QuickStart.vue'),
+        component: () => import('@/views/page/Guides/QuickStart.vue'),
         meta: {
           title: '快速上手',
-          breadcrumb: true
-        }
-      }
-    ]
+          breadcrumb: true,
+        },
+      },
+    ],
   },
   // 表单
   {
@@ -40,27 +40,28 @@ const pageRoutes = [
     name: 'Form',
     meta: {
       title: 'Form 表单',
-      breadcrumb: true
+      breadcrumb: true,
     },
     children: [
       {
         path: 'simple-form',
-        component: () => import(/* webpackChunkName: "form" */ '@/views/page/form/SimpleForm.vue'),
+        component: () => import(/* webpackChunkName: "form" */ '@/views/page/Form/SimpleForm.vue'),
         name: 'SimpleForm',
         meta: {
           title: 'Form 基础表单',
-          breadcrumb: true
-        }
-      }, {
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'pro-form',
-        component: () => import(/* webpackChunkName: "form" */ '@/views/page/form/SimpleForm.vue'),
+        component: () => import(/* webpackChunkName: "form" */ '@/views/page/Form/SimpleForm.vue'),
         name: 'ProForm',
         meta: {
           title: 'ProForm 复杂表单',
-          breadcrumb: true
-        }
-      }
-    ]
+          breadcrumb: true,
+        },
+      },
+    ],
   },
   // 表格
   {
@@ -70,28 +71,28 @@ const pageRoutes = [
     name: 'Table',
     meta: {
       title: 'Table 表格',
-      breadcrumb: true
+      breadcrumb: true,
     },
     children: [
       {
         path: 'simple-table',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/table/SimpleTable.vue'),
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/SimpleTable.vue'),
         name: 'SimpleTable',
         meta: {
           title: 'Table 基础表格',
-          breadcrumb: true
-        }
+          breadcrumb: true,
+        },
       },
       {
         path: 'pro-table',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/table/SimpleTable.vue'),
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/SimpleTable.vue'),
         name: 'ProTable',
         meta: {
           title: 'ProTable 复杂表格',
-          breadcrumb: true
-        }
-      }
-    ]
+          breadcrumb: true,
+        },
+      },
+    ],
   },
   // 其他
   {
@@ -102,29 +103,29 @@ const pageRoutes = [
     meta: {
       title: 'Other 其他',
       alwaysShow: true,
-      breadcrumb: true
+      breadcrumb: true,
     },
     children: [
       {
         path: 'icon',
-        component: () => import(/* webpackChunkName: "icon" */ '@/views/page/icon/index.vue'),
+        component: () => import(/* webpackChunkName: "icon" */ '@/views/page/Icon/index.vue'),
         name: 'Icon',
         meta: {
           title: 'Icon 图标',
-          breadcrumb: true
-        }
+          breadcrumb: true,
+        },
       },
       {
         path: 'ts-demo',
-        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/ts-demo/index.vue'),
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/TsDemo/index.vue'),
         name: 'TypeScriptDemo',
         meta: {
           title: 'TypeScript Demo',
-          breadcrumb: true
-        }
-      }
-    ]
-  }
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
 ]
 
 export default pageRoutes

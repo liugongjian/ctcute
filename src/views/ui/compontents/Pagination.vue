@@ -5,29 +5,21 @@
       若选中的是中间的页数，则除了固定显示第 1 页和最后 1 页之外，显示以选中的页数为中间数，向前和向后各 2
       页。
     </p>
-    <div class="pageination">
-      <el-pagination
-        :page-sizes="[10, 20, 30, 40]"
-        :page-size="20"
-        :total="153"
-        layout=" slot, prev, pager, next"
-        :pager-count="5"
-        :background="true"
-      >
-        <el-select v-model="pageSize" placeholder="请选择" popper-class="custom-select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-        <span class="pageination-total">总条数 : 153</span>
-      </el-pagination>
-    </div>
+    <ui-el-pagination
+      :options="options"
+      :option-size="optionSize"
+      :total="total"
+      :page-sizes="[10, 20, 30, 40]"
+      :page-size="20"
+    />
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-
+import UiElPagination from '@/components/ElementUI/Pagination/index.vue'
 @Component({
   name: 'UiPagination',
+  components: { UiElPagination },
 })
 export default class extends Vue {
   public static title = {
@@ -35,8 +27,10 @@ export default class extends Vue {
     en: 'Pagination',
   }
 
-  private pageSize = '10'
-  private options = [
+  private total = 153 // 总条数
+  private optionSize = '10' // 下拉回显值
+  options = [
+    // 下拉数据
     {
       value: '选项1',
       label: '10',
@@ -56,3 +50,9 @@ export default class extends Vue {
   ]
 }
 </script>
+<style lang="scss" scoped>
+.el-pagination {
+  display: flex;
+  align-items: center;
+}
+</style>

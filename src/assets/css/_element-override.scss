@@ -58,10 +58,10 @@
     margin-right: 4px;
   }
   &:hover {
-    color: $color-master-1;
+    color: $color-master-3;
   }
   &.light:not(.is-disabled) {
-    color: $color-master-1;
+    color: $color-master-3;
   }
 }
 
@@ -119,15 +119,13 @@
   background: transparent;
 }
 
-.conventional-dropdown,
-.combination-dropdown {
-  width: 124px;
-  text-align: center;
-}
-
-.el-button--primary:hover {
-  background-color: $color-master-1;
-  border-color: $color-master-1;
+.el-button--primary {
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $color-master-3;
+    border-color: $color-master-3;
+  }
 }
 
 .el-button.el-button--primary.el-button--mini {
@@ -204,7 +202,17 @@
 -------------------------- */
 .el-input {
   font-size: $text-size-primary;
+  .el-input__icon.el-icon-search {
+    line-height: 32px;
+  }
+  .el-input__suffix-inner .el-icon-close {
+    line-height: 32px;
+  }
+  .el-input--medium .el-input__icon {
+    line-height: 32px;
+  }
 }
+
 .el-form-item__error {
   display: flex;
   align-items: center;
@@ -254,8 +262,11 @@
   background-color: $input-fill;
 }
 
+.el-input.is-disabled .el-input__inner {
+  border: 1px solid $disabled-border;
+}
 .el-input__inner:hover {
-  border-color: $text-color-light-1;
+  border-color: $border-color-dark-1;
 }
 
 .el-input__inner:active {
@@ -313,8 +324,20 @@
   .el-textarea__inner {
     padding: 7px 12px;
   }
+  .el-input__count {
+    color: $color-grey-4;
+  }
 }
 
+.el-input-number.is-controls-right {
+  .el-input-number__increase {
+    line-height: 13px !important;
+  }
+}
+.el-input-number--medium {
+  line-height: 30px;
+}
+// el-input-number__increase
 /* Radio
 -------------------------- */
 .el-radio-button__orig-radio:checked + .el-radio-button__inner {
@@ -462,17 +485,22 @@
 }
 .el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
   background-color: $color-master-1;
-  top: 2px;
-  width: 10px;
-  height: 10px;
-  left: 2px;
+  top: 1px;
+  width: 12px;
+  height: 12px;
+  left: 1px;
 }
-
+.el-checkbox__input.is-disabled.is-indeterminate .el-checkbox__inner::before {
+  border-color: $disabled-border;
+  background-color: $color-grey-6;
+}
 .el-checkbox__input.is-disabled .el-checkbox__inner,
 .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
   background: $disabled-fill;
 }
-
+.el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
+  border-color: $disabled-border;
+}
 .el-checkbox__label {
   font-size: $text-size-primary;
   color: $text-color-primary;
@@ -483,6 +511,21 @@
 -------------------------- */
 .el-date-editor .el-range-separator {
   width: 40px;
+}
+.el-date-editor.el-input.el-input--medium {
+  .el-input__icon.el-icon-time {
+    line-height: 32px;
+  }
+}
+.el-range-editor--medium .el-range__icon {
+  line-height: 25px;
+}
+.el-range-editor--medium .el-range-separator {
+  font-size: 12px;
+}
+.el-range-editor--medium.el-input__inner {
+  height: 32px;
+  line-height: 32px;
 }
 
 /* Tree
@@ -555,8 +598,15 @@
 
 .el-tabs.el-tabs--card.el-tabs--top {
   .el-tabs__item {
+    padding: 0px 12px;
     height: 28px;
     line-height: 28px;
+  }
+  .el-tabs__item .el-icon-close {
+    margin-left: 8px;
+  }
+  .el-tabs__item.is-top:not(.is-closable).is-active {
+    padding-left: 12px;
   }
 
   .el-tabs__header .el-tabs__item {
@@ -574,7 +624,13 @@
     box-sizing: content-box;
   }
 }
-
+.el-tabs__nav-wrap::after {
+  height: 1px;
+  background-color: $border-color-primary;
+}
+.el-tabs--card > .el-tabs__header {
+  border-bottom: 1px solid $border-color-primary;
+}
 /* Table
 -------------------------- */
 .el-table__header-wrapper {
@@ -701,77 +757,6 @@
 
 /* Pagination
 -------------------------- */
-.el-pagination {
-  margin-top: 8px;
-  padding-top: 8px;
-
-  .el-select .el-input.el-input--suffix {
-    width: 60px;
-  }
-
-  .pageination-total {
-    color: $text-color-primary;
-    font-size: $text-size-primary !important;
-    font-weight: normal;
-    margin: 0 19px 0 20px;
-  }
-
-  .el-input__inner {
-    width: 60px;
-    height: 24px;
-    font-size: $text-size-primary;
-  }
-
-  .el-select .el-input {
-    width: 60px;
-  }
-
-  .el-input--medium .el-input__icon {
-    line-height: 24px;
-    color: $icon-color;
-  }
-
-  .el-pager {
-    li {
-      font-size: $text-size-primary;
-      height: 24px;
-      line-height: 24px;
-    }
-
-    .el-icon-d-arrow-right::before,
-    .el-icon-d-arrow-left::before {
-      line-height: 0;
-    }
-  }
-}
-
-.el-pagination.is-background .el-pager li {
-  min-width: 20px;
-}
-
-.el-pagination__total {
-  margin-right: 14px;
-}
-
-.el-pagination.is-background .btn-prev,
-.el-pagination.is-background .btn-next,
-.el-pagination.is-background .el-pager li {
-  background-color: $pagination-fill;
-  font-weight: 400;
-}
-
-.el-pagination.is-background .el-pager li:not(.disabled):hover {
-  color: $text-color-primary;
-  background: $color-master-7;
-}
-
-.el-pagination__jump {
-  margin-left: 0px;
-
-  .el-pagination__editor.el-input {
-    margin: 0 8px;
-  }
-}
 
 /* Breadcrumb
 -------------------------- */
@@ -870,8 +855,14 @@
   .el-icon-arrow-up:before {
     content: '\e790';
   }
+  .el-input--medium .el-input__icon {
+    line-height: 32px;
+  }
 }
-
+.el-input--medium .el-input__inner {
+  height: 32px;
+  line-height: 32px;
+}
 .el-select {
   .el-tag.el-tag--info.el-tag--small.el-tag--light {
     background: $disabled-fill;
@@ -973,10 +964,16 @@
   background-color: $color-master-7;
 }
 
+.el-range-editor--medium .el-range-input {
+  font-size: 12px;
+}
+
 /* Slider
 -------------------------- */
 .el-slider__marks-text {
   color: $text-color-light-1;
+  min-width: 30px !important;
+  text-align: center;
 }
 
 .el-slider__button {
@@ -992,7 +989,9 @@
 .el-slider__runway.show-input {
   width: 616px;
 }
-
+.el-slider__stop {
+  border: 2px solid $color-white;
+}
 /* Upload
 -------------------------- */
 .el-upload {
@@ -1027,7 +1026,11 @@
 .el-upload-dragger {
   background-color: $upload-fill;
 }
-
+.avatar-uploader {
+  .el-upload.el-upload--text {
+    border: 1px solid $border-color-primary;
+  }
+}
 /* Switch
 -------------------------- */
 .el-switch + .el-switch {
@@ -1503,7 +1506,7 @@
 /* Popover
 -------------------------- */
 .el-popover.el-popper.operation-content {
-  padding: 20px 24px 20px 16px !important;
+  padding: 24px 16px !important;
 }
 
 .el-popover__reference-wrapper {

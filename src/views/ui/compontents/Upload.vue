@@ -78,6 +78,10 @@ export default class extends Vue {
   height: 80px;
   border: 1px solid $border-color-primary;
   margin: 24px 0;
+
+  &:hover {
+    border-color: $color-master-1;
+  }
 }
 
 .el-upload__text {
@@ -101,7 +105,7 @@ export default class extends Vue {
 
   span {
     font-size: 12px;
-    color: $text-color-primary;
+    color: $color-master-1;
   }
 }
 

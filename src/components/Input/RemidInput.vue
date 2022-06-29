@@ -52,7 +52,7 @@ export default class extends Vue {
   height: 32px;
 
   .prompt-title {
-    line-height: 36px;
+    line-height: 32px;
     margin-right: 12px;
   }
 }

@@ -214,6 +214,14 @@ export default class extends Vue {
   }
 }
 
+.sub-down:last-child {
+  border-bottom: none;
+
+  .el-row {
+    margin-top: 24px;
+  }
+}
+
 .sub-date {
   width: 908px;
   display: flex;

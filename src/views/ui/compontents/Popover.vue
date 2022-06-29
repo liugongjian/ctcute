@@ -55,7 +55,7 @@
       <el-col :span="6">
         <el-popover v-model="visible2" placement="top">
           <p>需勾选表格项后进行批量删除文字</p>
-          <div style="text-align: right; margin: 0">
+          <div class="operation-button">
             <el-button class="cancel-popover" @click="visible2 = false"> 取 消 </el-button>
             <el-button type="primary" class="determine-popover" @click="visible2 = false"> 确 定 </el-button>
           </div>
@@ -106,11 +106,15 @@ p {
 .operation-button {
   text-align: right;
   margin: 0;
+
+  .el-button + .el-button {
+    margin-left: 12px;
+  }
 }
 
 .cancel-popover {
   border: 1px solid $border-color-primary;
-  padding: 8px 20px;
+  // padding: 8px 20px;
 }
 
 .determine-popover {

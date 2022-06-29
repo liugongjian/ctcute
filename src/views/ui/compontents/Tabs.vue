@@ -8,12 +8,11 @@
         <el-tab-pane label="默认项">默认项</el-tab-pane>
       </el-tabs>
     </el-row>
-    <!-- <hr /> -->
     <h3>带icon样式</h3>
     <el-row class="sub-tabs">
       <el-tabs>
         <el-tab-pane>
-          <span slot="label"><i class="el-icon-cloudy"></i> 选项一</span>
+          <span slot="label"><i class="el-icon-date"></i> 选项一</span>
           选项一
         </el-tab-pane>
         <el-tab-pane disabled>
@@ -26,7 +25,6 @@
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <!-- <hr /> -->
 
     <h3>小选项卡</h3>
     <el-row class="small-tabs">
@@ -102,8 +100,17 @@ export default class extends Vue {
   margin: 20px 0 24px;
 }
 
-.sub-tabs {
+.sub-tabs,
+.small-tabs {
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 24px;
+
+  .el-tabs__item {
+    padding: 0 12px;
+  }
+}
+
+.delete-tabs {
+  margin-bottom: 0;
 }
 </style>

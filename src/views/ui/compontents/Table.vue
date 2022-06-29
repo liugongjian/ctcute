@@ -19,7 +19,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -63,25 +63,19 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
+      <ui-el-pagination
         class="pagination"
-        :current-page="2"
+        :options="options"
+        :option-size="optionSize"
+        :total="153"
         :page-sizes="pageSizeOptions"
-        background
         :page-size="20"
-        layout="slot, total, prev, pager, next"
-        :total="total"
-      >
-        <el-select v-model="value" placeholder="请选择" popper-class="custom-select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-      </el-pagination>
+      />
     </div>
 
     <h3>可多选表格(2个以内操作)</h3>
     <div class="sub-table">
-      <div style="margin-bottom: 16px;">
+      <div style="margin-bottom: 16px">
         <el-button type="primary" :disabled="!multipleSelection.length" size="small">主按钮</el-button>
         <el-button :disabled="!multipleSelection.length" size="small">次按钮</el-button>
       </div>
@@ -95,7 +89,7 @@
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" width="150px" label="主机别名">
           <template slot-scope="scope">
-            <span class="text-ellipsis name-primary" style="width: 100%;">{{ scope.row.name }}</span>
+            <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
@@ -103,7 +97,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -147,25 +141,20 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
+
+      <ui-el-pagination
         class="pagination"
-        :current-page="2"
-        :page-sizes="pageSizeOptions"
-        background
-        :page-size="10"
-        layout="slot, total, prev, pager, next"
+        :options="options"
+        :option-size="optionSize"
         :total="100"
-      >
-        <el-select v-model="value" placeholder="请选择" popper-class="custom-select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-      </el-pagination>
+        :page-sizes="pageSizeOptions"
+        :page-size="10"
+      />
     </div>
 
     <h3>可多选表格(3个以上操作)</h3>
     <div class="sub-table">
-      <div style="margin-bottom: 20px;">
+      <div style="margin-bottom: 20px">
         <selected-input
           :data="multipleSelectionOver3"
           placeholder="请选择"
@@ -184,7 +173,7 @@
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" label="主机别名">
           <template slot-scope="scope">
-            <span class="text-ellipsis name-primary" style="width: 100%;">{{ scope.row.name }}</span>
+            <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
@@ -194,7 +183,7 @@
         </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -238,20 +227,14 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
+      <ui-el-pagination
         class="pagination"
-        :current-page="2"
-        :page-sizes="pageSizeOptions"
-        background
-        :page-size="10"
-        layout="slot, total, prev, pager, next"
+        :options="options"
+        :option-size="optionSize"
         :total="100"
-      >
-        <el-select v-model="value" placeholder="请选择" popper-class="custom-select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-      </el-pagination>
+        :page-sizes="pageSizeOptions"
+        :page-size="10"
+      />
     </div>
 
     <h3>展示不全的表格</h3>
@@ -260,7 +243,7 @@
         <el-table-column type="selection" width="55" fixed> </el-table-column>
         <el-table-column prop="name" label="主机别名" width="120">
           <template slot-scope="scope">
-            <span class="text-ellipsis name-primary" style="width: 100%;">{{ scope.row.name }}</span>
+            <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
@@ -268,7 +251,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -312,20 +295,14 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
+      <ui-el-pagination
         class="pagination"
-        :current-page="2"
-        :page-sizes="pageSizeOptions"
-        background
-        :page-size="10"
-        layout="slot, total, prev, pager, next"
+        :options="options"
+        :option-size="optionSize"
         :total="100"
-      >
-        <el-select v-model="value" placeholder="请选择" popper-class="custom-select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-      </el-pagination>
+        :page-sizes="pageSizeOptions"
+        :page-size="10"
+      />
     </div>
     <h3>横向展示列表</h3>
     <div class="sub-table-horizon" border>
@@ -354,7 +331,7 @@
         </el-table-column>
         <el-table-column prop="name" label="工作流名称">
           <template slot-scope="scope">
-            <span class="text-ellipsis" style="width: 100%;" :title="scope.row.name">{{
+            <span class="text-ellipsis" style="width: 100%" :title="scope.row.name">{{
               scope.row.name
             }}</span>
           </template>
@@ -369,20 +346,14 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
+      <ui-el-pagination
         class="pagination"
-        :current-page="2"
+        :options="options"
+        :option-size="optionSize"
         :page-sizes="pageSizeOptions"
-        background
-        :page-size="pageSize"
-        layout="slot, total, prev, pager, next"
         :total="10"
-      >
-        <el-select v-model="value" placeholder="请选择" popper-class="custom-select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-      </el-pagination>
+        :page-size="20"
+      />
     </div>
   </div>
 </template>
@@ -391,10 +362,10 @@ import { Component, Vue } from 'vue-property-decorator'
 import data from '../../../utils/mock'
 import { HEALTH } from '@/dics/simpleTable'
 import SelectedInput from '@/components/Select/SelectedInput.vue'
-
+import UiElPagination from '@/components/ElementUI/Pagination/index.vue'
 @Component({
   name: 'UiTable',
-  components: { SelectedInput },
+  components: { SelectedInput, UiElPagination },
 })
 export default class extends Vue {
   private data = data
@@ -437,9 +408,9 @@ export default class extends Vue {
 
   private total = 153
 
-  private value = '10'
+  private optionSize = '10'
 
-  private options = [
+  options = [
     {
       value: '选项1',
       label: '10',

@@ -110,4 +110,17 @@ export default class extends Vue {
 .button-layout + .button-layout {
   margin-left: 48px;
 }
+
+.conventional-dropdown,
+.combination-dropdown {
+  width: 124px;
+
+  .el-dropdown-menu__item {
+    margin-left: 4px;
+
+    .svg-icon.svg-fill {
+      margin-right: 4px;
+    }
+  }
+}
 </style>

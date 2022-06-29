@@ -51,7 +51,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .el-select {
   ::v-deep .el-input.el-input--medium.el-input--suffix {
-    width: auto;
+    width: 123px;
     padding-right: 0;
     font-size: 12px;
   }

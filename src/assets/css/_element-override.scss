@@ -1495,11 +1495,11 @@
 
   .el-timeline-item__wrapper {
     padding-left: 18px;
-    top: -4px;
   }
 
   .el-timeline-item__timestamp.is-top {
-    padding-top: 3px;
+    padding: 2px 0px;
+    margin-bottom: 0;
   }
 
   .el-timeline-item__node--primary,

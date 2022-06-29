@@ -17,79 +17,45 @@
       </el-timeline>
     </div>
     <h3>复杂样式</h3>
-    <div class="timeline-content">
+    <div class="timeline-content sub-complex">
       <el-timeline>
         <el-timeline-item timestamp="第一批次" placement="top">
           <h4>内蒙电信集团 编排下次发布状态：<span class="sub-origin">成功</span></h4>
           <p>2021/04/14 23:56:11</p>
         </el-timeline-item>
         <el-timeline-item timestamp="灰度发布  自动升级：一个k8s集群  | 容器组：100个" placement="top">
-          <div class="sub-complex">
-            <span>序号</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>集群名称</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>状态</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>进行中</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>启动中</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>失败</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>销售中</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>不可用</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>未知 </span>
-          </div>
-          <div class="sub-easy">
-            <span>1</span>
-            <span>内蒙电信</span>
-            <span class="sub-origin">已完成</span>
-            <span>2</span>
-            <span>2</span>
-            <span>2</span>
-            <span>2</span>
-            <span>2</span>
-            <span>2</span>
-          </div>
+          <el-table :data="tableData" border class="table">
+            <el-table-column prop="id" label="序号"></el-table-column>
+            <el-table-column prop="name" label="集群名称"></el-table-column>
+            <el-table-column prop="status" label="状态">
+              <span class="sub-origin">已完成</span>
+            </el-table-column>
+            <el-table-column prop="running" label="运行中"></el-table-column>
+            <el-table-column prop="start" label="启动中"></el-table-column>
+            <el-table-column prop="fail" label="失败"></el-table-column>
+            <el-table-column prop="sale" label="销售中"></el-table-column>
+            <el-table-column prop="unavailable" label="不可用"></el-table-column>
+            <el-table-column prop="unknown" label="未知"></el-table-column>
+          </el-table>
         </el-timeline-item>
         <el-timeline-item timestamp="第二批次" placement="top">
           <h4>内蒙电信集团 编排下次发布状态：<span class="sub-origin">成功</span></h4>
           <p>2021/04/14 23:56:11</p>
         </el-timeline-item>
         <el-timeline-item timestamp="灰度发布  自动升级：一个k8s集群  | 容器组：100个" placement="top">
-          <div class="sub-complex">
-            <span>序号</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>集群名称</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>状态</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>进行中</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>启动中</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>失败</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>销售中</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>不可用</span>
-            <el-divider direction="vertical"></el-divider>
-            <span>未知 </span>
-          </div>
-          <div class="sub-easy">
-            <span>1</span>
-            <span>内蒙电信</span>
-            <span class="sub-origin">已完成</span>
-            <span>2</span>
-            <span>2</span>
-            <span>2</span>
-            <span>2</span>
-            <span>2</span>
-            <span>2</span>
-          </div>
+          <el-table :data="tableData" border class="table">
+            <el-table-column prop="id" label="序号"></el-table-column>
+            <el-table-column prop="name" label="集群名称"></el-table-column>
+            <el-table-column prop="status" label="状态">
+              <span class="sub-origin">已完成</span>
+            </el-table-column>
+            <el-table-column prop="running" label="运行中"></el-table-column>
+            <el-table-column prop="start" label="启动中"></el-table-column>
+            <el-table-column prop="fail" label="失败"></el-table-column>
+            <el-table-column prop="sale" label="销售中"></el-table-column>
+            <el-table-column prop="unavailable" label="不可用"></el-table-column>
+            <el-table-column prop="unknown" label="未知"></el-table-column>
+          </el-table>
         </el-timeline-item>
         <el-timeline-item timestamp="升级结束" placement="top">
           <p>2021/04/14 23:56:11</p>
@@ -128,6 +94,20 @@ export default class extends Vue {
       content: 'Create a services site 2015-09-01',
     },
   ]
+
+  private tableData = [
+    {
+      id: 1,
+      name: '内蒙电信',
+      status: 1,
+      running: 2,
+      start: 2,
+      fail: 2,
+      sale: 2,
+      unavailable: 2,
+      unknown: 2,
+    },
+  ]
 }
 </script>
 
@@ -138,50 +118,29 @@ export default class extends Vue {
   h4 {
     font-size: 12px;
     color: rgba(0, 0, 0, 65%);
+    margin-top: 8px;
+    margin-bottom: 0 !important;
   }
 
   p {
     font-size: 12px;
     color: rgba(0, 0, 0, 45%);
+    margin-top: 8px;
+    margin-bottom: 0 !important;
   }
 
   ::v-deep.el-divider--vertical {
     color: #dddd;
   }
-}
 
-.sub-complex {
-  width: 693px;
-  height: 42px;
-  background: #fff;
-  box-shadow: inset 0 1px 0 0 #eee;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 24px;
-
-  span {
-    font-weight: bold;
-    display: block;
-    width: 90px;
-    text-align: center;
+  .table {
+    margin: 8px 0 0 !important;
   }
 }
 
-.sub-easy {
-  width: 693px;
-  height: 42px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  span {
-    width: 70px;
-    display: block;
-    text-align: center;
-    color: rgba(0, 0, 0, 65%);
-    font-size: 12px;
-    vertical-align: middle;
+.sub-complex {
+  ::v-deep .el-timeline-item {
+    padding-bottom: 16px;
   }
 }
 

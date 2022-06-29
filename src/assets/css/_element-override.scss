@@ -1279,6 +1279,9 @@
 .el-notification {
   border-radius: 4px;
   box-shadow: $shadow-card;
+  .el-icon-info {
+    color: $color-master-1 !important;
+  }
 }
 
 .el-icon-info {

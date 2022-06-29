@@ -24,3 +24,5 @@ pnpm-debug.log*
 node_modules
 
 .stylelintcache
+
+pnpm-lock.yaml

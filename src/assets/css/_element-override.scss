@@ -705,6 +705,12 @@
 .el-table thead.is-group td.el-table__cell {
   border-color: $border-color-primary;
 }
+.el-table thead {
+  color: $color-grey-2;
+}
+.el-table {
+  color: $color-grey-1;
+}
 
 /* Pagination
 -------------------------- */

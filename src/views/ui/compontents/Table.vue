@@ -72,7 +72,7 @@
         layout="slot, total, prev, pager, next"
         :total="total"
       >
-        <el-select v-model="value" placeholder="请选择" popper-class="custom-select">
+        <el-select v-model="defaulePageValue20" placeholder="请选择" popper-class="custom-select">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
           </el-option>
         </el-select>
@@ -439,6 +439,7 @@ export default class extends Vue {
 
   private value = '10'
 
+  private defaulePageValue20 = '20'
   private options = [
     {
       value: '选项1',
@@ -586,8 +587,8 @@ export default class extends Vue {
 
 .sub-spot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   margin-right: 10px;
 
@@ -614,8 +615,8 @@ export default class extends Vue {
 
 .sub-small-spot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   margin-right: 10px;
 

@@ -985,6 +985,14 @@
 .el-select-dropdown__item.hover {
   background-color: $color-master-7;
 }
+.el-select-dropdown .popper__arrow,
+.el-select-dropdown .popper__arrow::after {
+  border-style: none !important;
+  border-bottom-color: transparent;
+}
+.el-select-dropdown.el-popper[x-placement^='bottom'] {
+  margin-top: 4px;
+}
 
 /* Slider
 -------------------------- */
@@ -1320,6 +1328,15 @@
 .el-select-dropdown__item.is-disabled:hover {
   color: $color-grey-4;
 }
+.el-dropdown-menu .popper__arrow,
+.el-dropdown-menu .popper__arrow::after {
+  border-style: none !important;
+  border-bottom-color: transparent;
+}
+.el-dropdown-menu.el-popper[x-placement^='bottom'] {
+  margin-top: 4px;
+}
+
 /* Transfer
 -------------------------- */
 .el-transfer {

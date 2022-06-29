@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { IPermissionState } from './modules/permission'
-import { ITsDemo } from './modules/ts-demo'
+import { ITsDemo } from './modules/tsDemo'
 
 Vue.use(Vuex)
 

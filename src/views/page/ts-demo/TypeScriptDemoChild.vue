@@ -13,32 +13,49 @@
       </div>
       <el-alert type="info">Z来自父组件的求和结果</el-alert>
       <div class="equation">
-        {{ algebra.x }} + {{ algebra.y }} + {{ algebra.z ? algebra.z : 'Z' }} = {{ sumResult ? sumResult : '?' }}
+        {{ algebra.x }} + {{ algebra.y }} + {{ algebra.z ? algebra.z : 'Z' }} =
+        {{ sumResult ? sumResult : '?' }}
       </div>
       <div class="equation">
-        {{ algebra.x }} * {{ algebra.y }} * {{ algebra.z ? algebra.z : 'Z' }} = {{ multiplyResult ? multiplyResult : '?' }}
+        {{ algebra.x }} * {{ algebra.y }} * {{ algebra.z ? algebra.z : 'Z' }} =
+        {{ multiplyResult ? multiplyResult : '?' }}
       </div>
       <div v-if="parentSumResult || parentMultiplyResult" class="equation equation__child">
-        <p v-if="parentSumResult">听说父组件的求和结果是: <strong>{{ parentSumResult }} (结果来自Vuex)</strong></p>
-        <p v-if="parentMultiplyResult">听说父组件的求积结果是: <strong>{{ parentMultiplyResult }} (结果来自Vuex)</strong></p>
-        <p v-if="parentSumResultFromProvide">听说父组件的求积结果是: <strong>{{ parentSumResultFromProvide }} (结果来自Provider)</strong></p>
+        <p v-if="parentSumResult">
+          听说父组件的求和结果是: <strong>{{ parentSumResult }} (结果来自Vuex)</strong>
+        </p>
+        <p v-if="parentMultiplyResult">
+          听说父组件的求积结果是: <strong>{{ parentMultiplyResult }} (结果来自Vuex)</strong>
+        </p>
+        <p v-if="parentSumResultFromProvide">
+          听说父组件的求积结果是: <strong>{{ parentSumResultFromProvide }} (结果来自Provider)</strong>
+        </p>
       </div>
     </div>
   </el-card>
 </template>
 <script lang="ts">
 // 引入Vue TypeScript组件包
-import { Component, Mixins, Prop, PropSync, Watch, Inject, InjectReactive, Emit } from 'vue-property-decorator'
+import {
+  Component,
+  Mixins,
+  Prop,
+  PropSync,
+  Watch,
+  Inject,
+  InjectReactive,
+  Emit,
+} from 'vue-property-decorator'
 // 引入TS Type类型
 import * as TypeScriptDemo from '@/types/TypeScriptDemo'
 // 引入Vuex Module
-import { TsDemoModule } from '@/store/modules/ts-demo'
+import { TsDemoModule } from '@/store/modules/tsDemo'
 // 引入Mixin
 import TypeScriptDemoMixin from './mixin'
 
 @Component({
   // 组件名称，可以获得更有语义信息的组件树。用于在Vue DevTool Components中显示组件名称。
-  name: 'TypeScriptDemoChild'
+  name: 'TypeScriptDemoChild',
 })
 /**
  * 本示例使用了Mixin继承，如无需Mixin则需要在vue-property-decorator组件包里引入Vue，并直接extends Vue
@@ -70,7 +87,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   private algebra: TypeScriptDemo.Algebra = {
     x: 0,
     y: 0,
-    z: 0
+    z: 0,
   }
 
   /* 求和的计算结果 */
@@ -122,7 +139,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
    * 详见文档：https://github.com/kaorun343/vue-property-decorator#-watchpath-string-options-watchoptions---decorator
    */
   @Watch('z', {
-    immediate: true
+    immediate: true,
   })
   private onZChanged() {
     this.algebra.z = this.z
@@ -206,20 +223,20 @@ export default class extends Mixins(TypeScriptDemoMixin) {
 }
 </script>
 <style lang="scss" scoped>
-  .actions {
-    margin-bottom: 8px;
-  }
+.actions {
+  margin-bottom: 8px;
+}
 
-  .equation {
-    margin-top: 15px;
-    padding: 10px;
-    font-size: 18px;
-    background: #fff;
-    border: 1px solid $border-color-primary; // 颜色变量请从src/assets/css/_variables.scss查找
+.equation {
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 18px;
+  background: #fff;
+  border: 1px solid $border-color-primary; // 颜色变量请从src/assets/css/_variables.scss查找
 
-    &__child {
-      font-size: 12px;
-      color: $text-color-light-1;
-    }
+  &__child {
+    font-size: 12px;
+    color: $text-color-light-1;
   }
+}
 </style>

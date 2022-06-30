@@ -861,6 +861,10 @@
     transform: rotate(360deg);
     color: $text-color-light-2;
   }
+  .el-select__caret.el-input__icon.el-icon-arrow-up.is-reverse {
+    transform: rotate(180deg);
+    color: $text-color-light-2;
+  }
   .el-icon-arrow-up:before {
     content: '\e790';
   }

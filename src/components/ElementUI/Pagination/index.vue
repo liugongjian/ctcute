@@ -61,7 +61,7 @@ export default class extends Vue {
   }
 
   ::v-deep.el-pager {
-    li {
+    ::v-deep li {
       font-size: $text-size-primary;
       height: 24px;
       line-height: 24px;

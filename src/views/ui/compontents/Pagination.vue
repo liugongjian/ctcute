@@ -5,18 +5,8 @@
       若选中的是中间的页数，则除了固定显示第 1 页和最后 1 页之外，显示以选中的页数为中间数，向前和向后各 2
       页。
     </p>
-    <!-- <ui-el-pagination
-      :options="options"
-      :option-size="optionSize"
-      :total="total"
-      :page-sizes="[10, 20, 30, 40]"
-      :page-size="20"
-    /> -->
     <el-pagination
       :current-page="currentPage4"
-      :page-sizes="[10, 20, 30, 40]"
-      :page-size="10"
-      layout="sizes,total, prev, pager, next"
       :total="total"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"

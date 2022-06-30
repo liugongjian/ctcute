@@ -63,14 +63,17 @@
           </template>
         </el-table-column>
       </el-table>
-      <ui-el-pagination
+      <el-pagination
         class="pagination"
-        :options="options"
-        :option-size="optionSize"
-        :total="153"
+        :current-page="currentPage4"
         :page-sizes="pageSizeOptions"
         :page-size="20"
-      />
+        layout="sizes,total, prev, pager, next"
+        :total="153"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
     </div>
 
     <h3>可多选表格(2个以内操作)</h3>
@@ -141,15 +144,17 @@
           </template>
         </el-table-column>
       </el-table>
-
-      <ui-el-pagination
+      <el-pagination
         class="pagination"
-        :options="options"
-        :option-size="optionSize"
-        :total="100"
+        :current-page="currentPage4"
         :page-sizes="pageSizeOptions"
         :page-size="10"
-      />
+        layout="sizes,total, prev, pager, next"
+        :total="100"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
     </div>
 
     <h3>可多选表格(3个以上操作)</h3>
@@ -222,14 +227,17 @@
           </template>
         </el-table-column>
       </el-table>
-      <ui-el-pagination
+      <el-pagination
         class="pagination"
-        :options="options"
-        :option-size="optionSize"
-        :total="100"
+        :current-page="currentPage4"
         :page-sizes="pageSizeOptions"
         :page-size="10"
-      />
+        layout="sizes,total, prev, pager, next"
+        :total="100"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
     </div>
 
     <h3>展示不全的表格</h3>
@@ -290,14 +298,17 @@
           </template>
         </el-table-column>
       </el-table>
-      <ui-el-pagination
+      <el-pagination
         class="pagination"
-        :options="options"
-        :option-size="optionSize"
-        :total="100"
+        :current-page="currentPage4"
         :page-sizes="pageSizeOptions"
         :page-size="10"
-      />
+        layout="sizes,total, prev, pager, next"
+        :total="100"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
     </div>
     <h3>横向展示列表</h3>
     <div class="sub-table-horizon" border>
@@ -341,14 +352,17 @@
           </template>
         </el-table-column>
       </el-table>
-      <ui-el-pagination
+      <el-pagination
         class="pagination"
-        :options="options"
-        :option-size="optionSize"
+        :current-page="currentPage4"
         :page-sizes="pageSizeOptions"
-        :total="10"
-        :page-size="20"
-      />
+        :page-size="10"
+        layout="sizes,total, prev, pager, next"
+        :total="100"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
     </div>
   </div>
 </template>
@@ -404,6 +418,7 @@ export default class extends Vue {
   private total = 153
 
   private optionSize = '10'
+  private currentPage4 = 4
 
   options = [
     {
@@ -443,6 +458,14 @@ export default class extends Vue {
       disabled: true,
     },
   ]
+
+  private handleSizeChange(val) {
+    console.log(`每页 ${val} 条`)
+  }
+
+  private handleCurrentChange(val) {
+    console.log(`当前页: ${val}`)
+  }
 
   private row({ rowIndex, columnIndex }) {
     if (rowIndex === 0 && columnIndex !== 5 && columnIndex !== 6) {
@@ -516,6 +539,7 @@ export default class extends Vue {
 
 .sub-table:not(:last-child) {
   border-bottom: 1px solid #f1f1f1;
+  padding-bottom: 24px;
 }
 
 .sub-table-horizon {
@@ -542,8 +566,9 @@ export default class extends Vue {
 }
 
 .pagination {
-  text-align: right;
-  margin-bottom: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .bt-operation {

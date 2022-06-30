@@ -3,7 +3,9 @@
     <p>常用的文字按钮</p>
     <h2>默认状态</h2>
     <div class="sub-sample">
-      <el-button><svg-icon name="setting" /></el-button>
+      <el-button class="button">
+        <svg-icon name="setting" />
+      </el-button>
       <el-button type="text"><svg-icon name="setting" /></el-button>
       <el-button type="text"><svg-icon name="download" />下载</el-button>
     </div>
@@ -36,6 +38,10 @@ export default class extends Vue {
 
   .el-button + .el-button {
     margin-left: 20px;
+  }
+
+  .button:hover {
+    color: $color-master-1;
   }
 }
 </style>

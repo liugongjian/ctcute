@@ -2,7 +2,7 @@
   <el-autocomplete
     v-model="state1"
     class="inline-input"
-    placeholder="请输入内容"
+    :placeholder="placeholder"
     :fetch-suggestions="querySearch"
     :trigger-on-focus="false"
     @input="prompt"

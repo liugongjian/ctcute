@@ -1,7 +1,5 @@
 <template>
-  <span v-if="!editing"
-    >{{ value }} <svg-icon class="edit-input-icon" name="edit" @click="editing = true"
-  /></span>
+  <span v-if="!editing">{{ value }} <svg-icon class="edit-input-icon" name="edit" @click="editing = true" /></span>
   <span v-else class="wrap">
     <el-input v-model="value" :type="textarea ? 'textarea' : 'text'" placeholder="请输入"></el-input>
     <svg-icon name="check" color="#52C41A" @click="onOk" />

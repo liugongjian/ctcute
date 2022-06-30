@@ -1,10 +1,8 @@
 <template>
-  <div class="remind-input">
-    <el-select v-model="value" filterable placeholder="数据资源名称">
-      <span slot="prefix" class="prefix-placeholder">{{ value ? placeholder : '' }}</span>
-      <el-option v-for="item in data" :key="item.value" :label="item.label" :value="item.value"> </el-option>
-    </el-select>
-  </div>
+  <el-select v-model="value" filterable :placeholder="placeholder" clearable>
+    <span slot="prefix" class="prefix-placeholder">{{ value ? placeholder : '' }}</span>
+    <el-option v-for="item in data" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+  </el-select>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
@@ -20,6 +18,8 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .el-select {
+  width: 100%;
+
   ::v-deep.el-input__inner {
     padding-left: 12px;
   }

@@ -50,7 +50,7 @@
       <h3>带提示</h3>
       <div class="line">
         <div class="line__left">
-          <remind-input :data="options1" :placeholder="name" />
+          <remind-select :data="options1" :placeholder="name" />
         </div>
       </div>
     </div>
@@ -125,12 +125,12 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import RemindInput from '@/components/Select/RemindSelect.vue'
+import RemindSelect from '@/components/Select/RemindSelect.vue'
 import SelectedInput from '@/components/Select/SelectedInput.vue'
 
 @Component({
   name: 'UiSelect',
-  components: { RemindInput, SelectedInput },
+  components: { RemindSelect, SelectedInput },
 })
 export default class extends Vue {
   public static title = {
@@ -250,5 +250,11 @@ export default class extends Vue {
 
 .el-date-editor + .el-date-editor {
   margin-left: 48px;
+}
+
+.auxiliary-message:after {
+  content: '辅助信息';
+  margin-left: 10px;
+  color: $text-color-light-2;
 }
 </style>

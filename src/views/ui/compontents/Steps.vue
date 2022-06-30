@@ -76,6 +76,7 @@
         :active="activeMultiMini"
         :steps="multisteps"
         size="mini"
+        :space="400"
         max-width="100%"
         :step-size="3"
         :go-button="true"
@@ -98,11 +99,10 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import UiElSteps from '@/components/ElementUI/Steps/steps.vue'
 import StepsMulti from '@/components/Steps/StepsMulti.vue'
 @Component({
   name: 'UiSteps',
-  components: { UiElSteps, StepsMulti },
+  components: { StepsMulti },
 })
 export default class extends Vue {
   public static title = {

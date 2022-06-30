@@ -832,50 +832,7 @@
 }
 @include steps-page();
 @include steps-page(is-process, $color-master-1, $color-master-1, $color-white);
-.ui-steps {
-  .el-step .el-step__main {
-    position: absolute;
-    left: 24px;
-    top: 2px;
-    height: 26px;
-    line-height: 26px;
-    background-color: #fff;
-    padding: 0 10px 0 16px;
-  }
-  .el-step .el-step__title {
-    font-size: 16px;
-    line-height: 32px;
-  }
-  .el-step__icon.is-text {
-    width: 32px;
-    height: 32px;
-  }
-  .el-step.is-horizontal .el-step__line {
-    top: 16px;
-  }
-}
-.ui-stepsMin {
-  .el-step .el-step__main {
-    position: absolute;
-    left: 12px;
-    top: 1px;
-    height: 26px;
-    line-height: 26px;
-    background-color: #fff;
-    padding: 0 10px 0 16px;
-  }
-  .el-step .el-step__title {
-    font-size: 12px;
-    line-height: 20px;
-  }
-  .el-step__icon.is-text {
-    width: 20px;
-    height: 20px;
-  }
-  .el-step.is-horizontal .el-step__line {
-    top: 10px;
-  }
-}
+
 .el-step__icon-inner.is-status {
   transform: translateY(0px);
   font-size: 16px;

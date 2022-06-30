@@ -3,17 +3,15 @@
     <p>默认横向步骤条。存在常规、进行中、已完成等情况。</p>
     <h3>基础步骤条</h3>
     <div class="sub-steps">
-      <div class="ui-steps">
-        <el-steps :space="200" :active="active" finish-status="success">
-          <el-step
-            v-for="(s, index) in steps"
-            :key="index"
-            :title="gettitle(s, index)"
-            :status="s.status"
-            :class="{ stepErr: s.disabled }"
-          ></el-step>
-        </el-steps>
-      </div>
+      <el-steps :space="200" :active="active" finish-status="success">
+        <el-step
+          v-for="(s, index) in steps"
+          :key="index"
+          :title="gettitle(s, index)"
+          :status="s.status"
+          :class="{ stepErr: s.disabled }"
+        ></el-step>
+      </el-steps>
       <el-button
         class="btn-style"
         @click="
@@ -28,17 +26,16 @@
     </div>
     <h3>迷你步骤条</h3>
     <div class="sub-steps">
-      <div class="ui-stepsMin">
-        <el-steps :space="200" :active="activeMini" finish-status="success">
-          <el-step
-            v-for="(s, index) in steps"
-            :key="index"
-            :title="gettitle(s, index)"
-            :status="s.status"
-            :class="{ stepErr: s.disabled }"
-          ></el-step>
-        </el-steps>
-      </div>
+      <el-steps :space="200" :active="activeMini" finish-status="success" size="mini">
+        <el-step
+          v-for="(s, index) in steps"
+          :key="index"
+          :title="gettitle(s, index)"
+          :status="s.status"
+          :class="{ stepErr: s.disabled }"
+        ></el-step>
+      </el-steps>
+
       <el-button
         class="btn-style"
         @click="

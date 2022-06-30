@@ -5,27 +5,26 @@
         <div class="button-col point-style" @click="goPre"><i class="el-icon-arrow-left"></i></div>
       </el-col>
       <el-col :span="16">
-        <div :class="size === 'mini' ? 'ui-stepsMin' : 'ui-steps'">
-          <el-steps
-            :space="space"
-            :active="active"
-            finish-status="success"
-            :class="{ max: size !== 'mini' }"
-            :direction="direction"
+        <el-steps
+          :space="space"
+          :active="active"
+          finish-status="success"
+          :class="{ max: size !== 'mini' }"
+          :direction="direction"
+          :size="size"
+        >
+          <el-step
+            v-for="(s, index) in steps"
+            v-show="getShow(index)"
+            :key="index"
+            :title="gettitle(s, index)"
+            :status="s.status"
+            :class="{ stepErr: s.disabled }"
+            :style="{ minWidth: widthArr[index] }"
+            @click.native="!s.disabled && handleStep(s, index)"
           >
-            <el-step
-              v-for="(s, index) in steps"
-              v-show="getShow(index)"
-              :key="index"
-              :title="gettitle(s, index)"
-              :status="s.status"
-              :class="{ stepErr: s.disabled }"
-              :style="{ minWidth: widthArr[index] }"
-              @click.native="!s.disabled && handleStep(s, index)"
-            >
-            </el-step>
-          </el-steps>
-        </div>
+          </el-step>
+        </el-steps>
       </el-col>
       <el-col v-if="goButton" :span="1">
         <div class="button-col point-style" @click="goNext"><i class="el-icon-arrow-right"></i></div>

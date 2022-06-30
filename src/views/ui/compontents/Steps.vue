@@ -3,12 +3,17 @@
     <p>默认横向步骤条。存在常规、进行中、已完成等情况。</p>
     <h3>基础步骤条</h3>
     <div class="sub-steps">
-      <ui-el-steps
-        :active="active"
-        :steps="normalsteps"
-        max-width="800px"
-        @clickStep="clickStep"
-      ></ui-el-steps>
+      <div class="ui-steps">
+        <el-steps :space="200" :active="active" finish-status="success">
+          <el-step
+            v-for="(s, index) in steps"
+            :key="index"
+            :title="gettitle(s, index)"
+            :status="s.status"
+            :class="{ stepErr: s.disabled }"
+          ></el-step>
+        </el-steps>
+      </div>
       <el-button
         class="btn-style"
         @click="
@@ -23,13 +28,17 @@
     </div>
     <h3>迷你步骤条</h3>
     <div class="sub-steps">
-      <ui-el-steps
-        size="mini"
-        :active="activeMini"
-        max-width="1200px"
-        :steps="steps"
-        @clickStep="clickmini"
-      ></ui-el-steps>
+      <div class="ui-stepsMin">
+        <el-steps :space="200" :active="activeMini" finish-status="success">
+          <el-step
+            v-for="(s, index) in steps"
+            :key="index"
+            :title="gettitle(s, index)"
+            :status="s.status"
+            :class="{ stepErr: s.disabled }"
+          ></el-step>
+        </el-steps>
+      </div>
       <el-button
         class="btn-style"
         @click="
@@ -44,15 +53,14 @@
     </div>
     <h3>步骤多展示不全</h3>
     <div class="sub-steps">
-      <ui-el-steps
+      <steps-multi
         :active="activeMulti"
         :steps="multisteps"
         max-width="60%"
-        type="multiSteps"
         :go-button="true"
         @clickStep="clickmulti"
         @change="goMulti"
-      ></ui-el-steps>
+      ></steps-multi>
       <el-button
         class="btn-style"
         @click="
@@ -64,17 +72,16 @@
         下一步
       </el-button>
       <el-button @click="() => (activeMulti = 0)">重置</el-button>
-      <ui-el-steps
+      <steps-multi
         :active="activeMultiMini"
         :steps="multisteps"
         size="mini"
         max-width="100%"
-        type="multiSteps"
         :step-size="3"
         :go-button="true"
         @clickStep="clickmultimini"
         @change="goMultiMini"
-      ></ui-el-steps>
+      ></steps-multi>
       <el-button
         class="btn-style"
         @click="
@@ -92,9 +99,10 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import UiElSteps from '@/components/ElementUI/Steps/steps.vue'
+import StepsMulti from '@/components/Steps/StepsMulti.vue'
 @Component({
   name: 'UiSteps',
-  components: { UiElSteps },
+  components: { UiElSteps, StepsMulti },
 })
 export default class extends Vue {
   public static title = {
@@ -183,11 +191,24 @@ export default class extends Vue {
       this.activeMultiMini = 0
     }
   }
+
+  private gettitle(s: any, index: number) {
+    if (index === this.active) {
+      return '正在处理'
+    } else if (index === this.active + 1) {
+      return '等待处理'
+    } else if (this.steps.length - 1 === this.active) {
+      return '处理完成'
+    } else {
+      return s.title
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
 .btn-style {
-  margin-top: 48px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .max-style {

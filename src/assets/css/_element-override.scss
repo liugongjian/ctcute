@@ -15,7 +15,12 @@
   $bdColor:边框颜色;
   $color:字体颜色;
 */
-@mixin button-disabled($type: primary, $bgColor: $disabled-fill, $bdColor: $disabled-border, $color: $disabled-color) {
+@mixin button-disabled(
+  $type: primary,
+  $bgColor: $disabled-fill,
+  $bdColor: $disabled-border,
+  $color: $disabled-color
+) {
   .el-button--#{$type}.is-plain.is-disabled,
   .el-button--#{$type}.is-disabled {
     background-color: $bgColor;
@@ -811,7 +816,12 @@
    $color:字体颜色
    $bgColor:背景颜色
 */
-@mixin steps-page($class: is-success, $bdColor: $color-master-1, $color: $color-master-1, $bgColor: $color-white) {
+@mixin steps-page(
+  $class: is-success,
+  $bdColor: $color-master-1,
+  $color: $color-master-1,
+  $bgColor: $color-white
+) {
   .el-step__head.#{$class} {
     border-color: $bdColor;
     color: $color;
@@ -822,6 +832,87 @@
 }
 @include steps-page();
 @include steps-page(is-process, $color-master-1, $color-master-1, $color-white);
+.ui-steps {
+  .el-step .el-step__main {
+    position: absolute;
+    left: 24px;
+    top: 2px;
+    height: 26px;
+    line-height: 26px;
+    background-color: #fff;
+    padding: 0 10px 0 16px;
+  }
+  .el-step .el-step__title {
+    font-size: 16px;
+    line-height: 32px;
+  }
+  .el-step__icon.is-text {
+    width: 32px;
+    height: 32px;
+  }
+  .el-step.is-horizontal .el-step__line {
+    top: 16px;
+  }
+}
+.ui-stepsMin {
+  .el-step .el-step__main {
+    position: absolute;
+    left: 12px;
+    top: 1px;
+    height: 26px;
+    line-height: 26px;
+    background-color: #fff;
+    padding: 0 10px 0 16px;
+  }
+  .el-step .el-step__title {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .el-step__icon.is-text {
+    width: 20px;
+    height: 20px;
+  }
+  .el-step.is-horizontal .el-step__line {
+    top: 10px;
+  }
+}
+.el-step__icon-inner.is-status {
+  transform: translateY(0px);
+  font-size: 16px;
+}
+.el-step.is-horizontal .el-step__line {
+  height: 0.5px;
+}
+.el-step__icon-inner {
+  font-weight: normal;
+}
+.el-icon-arrow-right,
+.el-icon-arrow-right {
+  color: #000;
+}
+.el-step__line {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.el-step__icon.is-text {
+  border: 1px solid;
+}
+.el-step__title.is-process {
+  font-weight: 400;
+  color: rgba(51, 51, 51, 0.85);
+}
+.el-step__title.is-success {
+  color: rgba(0, 0, 0, 0.65);
+}
+.el-step__head.is-process {
+  border-color: #fa8334;
+}
+.el-step__head.is-process .el-step__icon.is-text {
+  color: #fff;
+  background-color: #fa8334;
+}
+.el-step__title.is-wait {
+  color: #999999;
+}
 .el-step__title.is-success {
   color: $text-color-light-1;
 }
@@ -842,6 +933,13 @@
     height: 32px;
     font-size: 16px;
   }
+}
+
+.stepSuc :hover {
+  cursor: pointer;
+}
+.stepErr :hover {
+  cursor: not-allowed;
 }
 
 /* Select
@@ -1066,7 +1164,12 @@
   $iconColor:icon颜色;
   $bgColor:背景颜色;
 */
-@mixin global-tips($class: info, $bdcolor: $color-tag-master-1, $iconColor: $color-status-master, $bgColor: $color-tag-master-2) {
+@mixin global-tips(
+  $class: info,
+  $bdcolor: $color-tag-master-1,
+  $iconColor: $color-status-master,
+  $bgColor: $color-tag-master-2
+) {
   .sub-all-alert {
     .el-alert--#{$class}.is-light {
       border: 1px solid $bdcolor;
@@ -1145,7 +1248,12 @@
 
 /* Tag
 -------------------------- */
-@mixin global-tag($class: info, $bdcolor: $disabled-border, $fontColor: $text-color-primary, $bgColor: $disabled-fill) {
+@mixin global-tag(
+  $class: info,
+  $bdcolor: $disabled-border,
+  $fontColor: $text-color-primary,
+  $bgColor: $disabled-fill
+) {
   .el-tag.el-tag--#{$class} {
     border: 1px solid $bdcolor;
     color: $fontColor;

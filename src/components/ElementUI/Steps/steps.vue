@@ -20,16 +20,7 @@ export default {
   mixins: [Migrating],
 
   props: {
-    space: [
-      {
-        type: Number,
-        default: 300,
-      },
-      {
-        type: String,
-        default: '300',
-      },
-    ],
+    space: [Number, String],
     active: {
       type: Number,
       default: 0,

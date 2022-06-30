@@ -20,8 +20,11 @@ export default {
   mixins: [Migrating],
 
   props: {
-    space: [Number, String],
-    active: Number,
+    space: { type: [Number, String], default: 300 },
+    active: {
+      type: Number,
+      default: 0,
+    },
     direction: {
       type: String,
       default: 'horizontal',
@@ -49,19 +52,19 @@ export default {
     }
   },
 
-  methods: {
-    getMigratingConfig() {
-      return {
-        props: {
-          center: 'center is removed.',
-        },
-      }
-    },
-  },
-
   watch: {
     active(newVal, oldVal) {
       this.$emit('change', newVal, oldVal)
+    },
+
+    methods: {
+      getMigratingConfig() {
+        return {
+          props: {
+            center: 'center is removed.',
+          },
+        }
+      },
     },
 
     steps(steps) {

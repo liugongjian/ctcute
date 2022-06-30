@@ -42,7 +42,7 @@ export default class extends Vue {
     ::v-deep .el-input__inner {
       width: 200px;
       height: 32px;
-      background: #353f58;
+      background: #3a3e4c;
       border-radius: 2px;
       padding-left: 36px;
       color: #999;

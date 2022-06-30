@@ -1,11 +1,11 @@
 <template>
-  <span>
-    <template v-if="!editing">{{ value }} <svg-icon class="edit-input-icon" name="edit" @click="editing = true" /></template>
-    <span v-else class="wrap">
-      <el-input v-model="value" :type="textarea ? 'textarea' : 'text'" placeholder="请输入"></el-input>
-      <svg-icon name="check" color="#52C41A" @click="onOk" />
-      <svg-icon name="close" color="#F5212D" @click="editing = false" />
-    </span>
+  <span v-if="!editing"
+    >{{ value }} <svg-icon class="edit-input-icon" name="edit" @click="editing = true"
+  /></span>
+  <span v-else class="wrap">
+    <el-input v-model="value" :type="textarea ? 'textarea' : 'text'" placeholder="请输入"></el-input>
+    <svg-icon name="check" color="#52C41A" @click="onOk" />
+    <svg-icon name="close" color="#F5212D" @click="editing = false" />
   </span>
 </template>
 
@@ -13,7 +13,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'EditInput'
+  name: 'EditInput',
 })
 export default class extends Vue {
   @Prop({ default: '' }) private value!: string
@@ -39,15 +39,12 @@ export default class extends Vue {
 }
 
 .wrap {
-  width: 384px;
+  width: 100%;
   display: inline-block;
-
-  .el-input {
-    width: calc(100% - 84px);
-  }
 
   .el-input,
   .el-textarea {
+    width: calc(100% - 84px);
     margin-right: 10px;
   }
 

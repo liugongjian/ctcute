@@ -23,10 +23,10 @@
     <div class="routine-input">
       <h3>编辑输入框</h3>
       <el-row>
-        <edit-input value="单行描述" />
+        <edit-input value="单行描述" class="input-demo" />
       </el-row>
       <el-row>
-        <edit-input :textarea="true" value="多行描述" />
+        <edit-input :textarea="true" value="多行描述" class="input-demo" />
       </el-row>
     </div>
     <h3>搜索输入框</h3>
@@ -234,5 +234,13 @@ export default class extends Vue {
   width: 630px;
   display: flex;
   justify-content: space-between;
+}
+
+.input-demo {
+  width: 384px;
+}
+
+.el-textarea {
+  max-width: 300px;
 }
 </style>

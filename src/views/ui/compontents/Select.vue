@@ -3,52 +3,56 @@
     <p>将动作或菜单折叠到下拉菜单中</p>
     <div class="sub-down">
       <h3>常规用法</h3>
-      <el-row>
-        <el-col :span="7">
-          <el-select v-model="value" popper-class="select-radio" filterable>
+      <div class="line">
+        <div class="line__left">
+          <el-select v-model="value" filterable>
             <el-option label="默认选项" value="默认选项"> </el-option>
             <el-option label="已选择项" value="已选择项"> </el-option>
             <el-option label="不可用" value="不可用" disabled> </el-option>
             <el-option label="默认选项1" value="默认选项1" class="auxiliary-message"> </el-option>
           </el-select>
-        </el-col>
-        <el-col :span="6" class="loading-select">
-          <el-select value="" popper-class="select-radio" filterable loading placeholder="加载中">
+        </div>
+        <div class="line__right">
+          <el-select value="" filterable loading placeholder="加载中">
             <option value=""></option>
           </el-select>
-        </el-col>
-      </el-row>
+        </div>
+      </div>
     </div>
     <div class="sub-down">
       <h3>禁用状态</h3>
-      <el-row>
-        <el-select v-model="value2" disabled placeholder="请选择">
-          <el-option label="选项一" value="选项一"> </el-option>
-        </el-select>
-      </el-row>
+      <div class="line">
+        <div class="line__left">
+          <el-select v-model="value2" disabled placeholder="请选择">
+            <el-option label="选项一" value="选项一"> </el-option>
+          </el-select>
+        </div>
+      </div>
     </div>
     <div class="sub-down">
       <h3>多选</h3>
-      <el-row>
-        <el-col :span="7">
+      <div class="line">
+        <div class="line__left">
           <el-select v-model="selectValue" multiple placeholder="请选择">
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
             </el-option>
           </el-select>
-        </el-col>
-        <el-col :span="6" class="disabled-select">
+        </div>
+        <div class="line__right">
           <el-select v-model="value1" multiple placeholder="请选择" disabled>
             <span slot="prefix">11</span>
             <el-option label="不可用" value=""> <svg-icon name="save"> </svg-icon></el-option>
           </el-select>
-        </el-col>
-      </el-row>
+        </div>
+      </div>
     </div>
     <div class="sub-down">
       <h3>带提示</h3>
-      <el-row>
-        <remind-input :data="options1" :placeholder="name" />
-      </el-row>
+      <div class="line">
+        <div class="line__left">
+          <remind-input :data="options1" :placeholder="name" />
+        </div>
+      </div>
     </div>
     <div class="sub-down">
       <h3>日期/时间选择</h3>
@@ -206,6 +210,22 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.line {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+
+  &__left,
+  &__right {
+    width: 300px;
+    margin-right: 47px;
+  }
+
+  .el-select {
+    width: 100%;
+  }
+}
+
 .sub-down {
   border-bottom: 1px solid $border-color-light-1;
 

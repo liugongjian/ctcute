@@ -48,7 +48,7 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "form" */ '@/views/page/Form/SimpleForm.vue'),
         name: 'SimpleForm',
         meta: {
-          title: 'Form 基础表单',
+          title: 'SimpleForm 基础表单',
           breadcrumb: true,
         },
       },
@@ -79,7 +79,7 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/SimpleTable.vue'),
         name: 'SimpleTable',
         meta: {
-          title: 'Table 基础表格',
+          title: 'SimpleTable 基础表格',
           breadcrumb: true,
         },
       },

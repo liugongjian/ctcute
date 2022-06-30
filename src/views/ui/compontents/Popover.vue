@@ -145,4 +145,8 @@ p {
 .popover-bottom {
   margin-left: 474px;
 }
+
+.el-popover.el-popper.operation-content {
+  padding: 24px 16px !important;
+}
 </style>

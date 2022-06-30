@@ -15,12 +15,7 @@
   $bdColor:边框颜色;
   $color:字体颜色;
 */
-@mixin button-disabled(
-  $type: primary,
-  $bgColor: $disabled-fill,
-  $bdColor: $disabled-border,
-  $color: $disabled-color
-) {
+@mixin button-disabled($type: primary, $bgColor: $disabled-fill, $bdColor: $disabled-border, $color: $disabled-color) {
   .el-button--#{$type}.is-plain.is-disabled,
   .el-button--#{$type}.is-disabled {
     background-color: $bgColor;
@@ -816,12 +811,7 @@
    $color:字体颜色
    $bgColor:背景颜色
 */
-@mixin steps-page(
-  $class: is-success,
-  $bdColor: $color-master-1,
-  $color: $color-master-1,
-  $bgColor: $color-white
-) {
+@mixin steps-page($class: is-success, $bdColor: $color-master-1, $color: $color-master-1, $bgColor: $color-white) {
   .el-step__head.#{$class} {
     border-color: $bdColor;
     color: $color;
@@ -1076,12 +1066,7 @@
   $iconColor:icon颜色;
   $bgColor:背景颜色;
 */
-@mixin global-tips(
-  $class: info,
-  $bdcolor: $color-tag-master-1,
-  $iconColor: $color-status-master,
-  $bgColor: $color-tag-master-2
-) {
+@mixin global-tips($class: info, $bdcolor: $color-tag-master-1, $iconColor: $color-status-master, $bgColor: $color-tag-master-2) {
   .sub-all-alert {
     .el-alert--#{$class}.is-light {
       border: 1px solid $bdcolor;
@@ -1160,12 +1145,7 @@
 
 /* Tag
 -------------------------- */
-@mixin global-tag(
-  $class: info,
-  $bdcolor: $disabled-border,
-  $fontColor: $text-color-primary,
-  $bgColor: $disabled-fill
-) {
+@mixin global-tag($class: info, $bdcolor: $disabled-border, $fontColor: $text-color-primary, $bgColor: $disabled-fill) {
   .el-tag.el-tag--#{$class} {
     border: 1px solid $bdcolor;
     color: $fontColor;
@@ -1566,10 +1546,6 @@
 
 /* Popover
 -------------------------- */
-.el-popover.el-popper.operation-content {
-  padding: 24px 16px !important;
-}
-
 .el-popover__reference-wrapper {
   .el-button--medium {
     padding: 0;

@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import ElementUIOverride from '@/components/ElementUI'
+import i18n from '@/i18n'
 import mavonEditor from 'mavon-editor'
 import SvgIcon from 'vue-svgicon'
 import 'mavon-editor/dist/css/index.css'
@@ -25,6 +26,7 @@ Vue.use(SvgIcon, {
 Vue.config.productionTip = false
 
 new Vue({
+  i18n,
   router,
   store,
   render: h => h(App)

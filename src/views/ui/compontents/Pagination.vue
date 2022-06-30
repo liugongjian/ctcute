@@ -5,21 +5,31 @@
       若选中的是中间的页数，则除了固定显示第 1 页和最后 1 页之外，显示以选中的页数为中间数，向前和向后各 2
       页。
     </p>
-    <ui-el-pagination
+    <!-- <ui-el-pagination
       :options="options"
       :option-size="optionSize"
       :total="total"
       :page-sizes="[10, 20, 30, 40]"
       :page-size="20"
-    />
+    /> -->
+    <el-pagination
+      :current-page="currentPage4"
+      :page-sizes="[10, 20, 30, 40]"
+      :page-size="10"
+      layout="sizes,total, prev, pager, next"
+      :total="total"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    >
+    </el-pagination>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import UiElPagination from '@/components/ElementUI/Pagination/index.vue'
+// import UiElPagination from '@/components/ElementUI/Pagination/index.vue'
 @Component({
   name: 'UiPagination',
-  components: { UiElPagination },
+  // components: { UiElPagination },
 })
 export default class extends Vue {
   public static title = {
@@ -29,6 +39,7 @@ export default class extends Vue {
 
   private total = 153 // 总条数
   private optionSize = '10' // 下拉回显值
+  currentPage4 = 4
   options = [
     // 下拉数据
     {
@@ -48,6 +59,14 @@ export default class extends Vue {
       label: '40',
     },
   ]
+
+  handleSizeChange(val) {
+    console.log(`每页 ${val} 条`)
+  }
+
+  handleCurrentChange(val) {
+    console.log(`当前页: ${val}`)
+  }
 }
 </script>
 <style lang="scss" scoped>

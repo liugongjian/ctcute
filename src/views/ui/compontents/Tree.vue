@@ -107,7 +107,7 @@ export default class extends Vue {
 }
 
 .node-icon {
-  color: $icon-color;
+  color: $color-grey-5;
 
   .svg-icon {
     display: none;
@@ -121,7 +121,7 @@ export default class extends Vue {
 
 .is-expanded > .el-tree-node__content {
   .node-icon {
-    color: $icon-color;
+    color: $color-grey-5;
 
     .svg-icon {
       display: none;
@@ -159,8 +159,9 @@ export default class extends Vue {
     }
 
     .handler-icon {
-      color: $icon-color;
-      border: 1.5px solid $icon-color;
+      color: $color-grey-5;
+      border: 1.5px solid $color-grey-5;
+      font-size: 12.5px !important;
     }
   }
 

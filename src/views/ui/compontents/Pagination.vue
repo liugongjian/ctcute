@@ -16,10 +16,8 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-// import UiElPagination from '@/components/ElementUI/Pagination/index.vue'
 @Component({
   name: 'UiPagination',
-  // components: { UiElPagination },
 })
 export default class extends Vue {
   public static title = {

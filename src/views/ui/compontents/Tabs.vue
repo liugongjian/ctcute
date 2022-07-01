@@ -37,9 +37,15 @@
     <h3>可删除小选项卡</h3>
     <el-row class="delete-tabs">
       <el-tabs v-model="editableTabsValue" type="card" closable @tab-remove="removeTab">
-        <el-tab-pane label="默认选项">默认选项</el-tab-pane>
-        <el-tab-pane label="选中选项">选中选项</el-tab-pane>
-        <el-tab-pane label="选中不可点选项" disabled>选中不可点选项</el-tab-pane>
+        <el-tab-pane
+          v-for="item in editableTabs"
+          :key="item.name"
+          :label="item.title"
+          :name="item.name"
+          :disabled="item.disabled"
+        >
+          {{ item.content }}
+        </el-tab-pane>
       </el-tabs>
     </el-row>
   </div>
@@ -71,12 +77,15 @@ export default class extends Vue {
       title: '不可用',
       name: '3',
       content: '不可用',
+      disabled: true,
     },
   ]
 
   private editableTabsValue = '1'
 
   private removeTab(targetName) {
+    // debugger
+    console.log('====targetName===', targetName)
     const tabs = this.editableTabs
     let activeName = this.editableTabsValue
     if (activeName === targetName) {

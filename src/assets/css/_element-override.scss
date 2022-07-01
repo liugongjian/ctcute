@@ -1595,6 +1595,24 @@
   }
 }
 
+.el-collapse--seperate {
+  .el-collapse-item__header {
+    background-color: $color-grey-8;
+    border: none;
+    height: 32px;
+  }
+
+  .el-collapse-item__content {
+    margin-top: 16px;
+    border: none;
+    padding: 0;
+  }
+
+  .el-collapse-item__wrap {
+    border: none;
+  }
+}
+
 /* Timeline
 -------------------------- */
 .sub-timeline {

@@ -371,10 +371,9 @@ import { Component, Vue } from 'vue-property-decorator'
 import data from '../../../utils/mock'
 import { HEALTH } from '@/dics/simpleTable'
 import SelectedInput from '@/components/Select/SelectedInput.vue'
-import UiElPagination from '@/components/ElementUI/Pagination/index.vue'
 @Component({
   name: 'UiTable',
-  components: { SelectedInput, UiElPagination },
+  components: { SelectedInput },
 })
 export default class extends Vue {
   private data = data

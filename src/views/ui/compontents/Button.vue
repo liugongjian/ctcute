@@ -116,7 +116,7 @@ export default class extends Vue {
   width: 124px;
 
   .el-dropdown-menu__item {
-    margin-left: 4px;
+    padding-left: 21px;
 
     .svg-icon.svg-fill {
       margin-right: 4px;

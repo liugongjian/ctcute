@@ -772,7 +772,25 @@
 .el-table {
   color: $color-grey-1;
 }
-
+/* Descriptions
+-------------------------- */
+.el-descriptions-item__label.is-bordered-label {
+  background: $color-grey-11;
+  text-align: right !important;
+  color: $color-grey-2;
+  font-weight: bold !important;
+}
+.el-descriptions .is-bordered .el-descriptions-item__cell {
+  border-color: $color-grey-6;
+  height: 44px;
+}
+.el-descriptions-item__cell.el-descriptions-item__content {
+  color: $color-grey-1;
+  border: 1px solid #ddd;
+  div {
+    line-height: 22px;
+  }
+}
 /* Pagination
 -------------------------- */
 .el-pagination {

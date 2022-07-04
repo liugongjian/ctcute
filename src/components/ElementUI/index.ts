@@ -1,7 +1,7 @@
-import Steps from './Steps/steps.vue'
-import Step from './Steps/step.vue'
-import Alert from './Alert/Alert.vue'
-import Collapse from './Collapse/collapse.vue'
+import Steps from './Steps/index.vue'
+import Step from './Steps/Step.vue'
+import Alert from './Alert/index.vue'
+import Collapse from './Collapse/index.vue'
 
 export default {
   install(Vue) {

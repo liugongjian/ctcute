@@ -600,6 +600,13 @@
 .el-tabs__item {
   font-size: $text-size-primary;
 }
+.el-icon-cloudy {
+  vertical-align: text-bottom;
+  &::before {
+    font-size: 16px;
+    margin-right: 2px;
+  }
+}
 
 .el-tabs.el-tabs--card.el-tabs--top {
   .el-tabs__item {

@@ -48,7 +48,6 @@ export default {
 
   created() {
     this.$on('item-click', this.handleItemClick)
-    console.log('type', this.type)
   },
 
   methods: {

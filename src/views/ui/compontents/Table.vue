@@ -51,8 +51,13 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false">
-              <span class="el-dropdown-link"> 更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
+            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+              <span class="el-dropdown-link">
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
+              </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
                 <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -132,8 +137,13 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false">
-              <span class="el-dropdown-link"> 更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
+            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+              <span class="el-dropdown-link">
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
+              </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
                 <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -215,8 +225,13 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false">
-              <span class="el-dropdown-link"> 更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
+            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+              <span class="el-dropdown-link">
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
+              </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
                 <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -286,8 +301,13 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false">
-              <span class="el-dropdown-link"> 更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
+            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+              <span class="el-dropdown-link">
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
+              </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
                 <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -418,6 +438,7 @@ export default class extends Vue {
 
   private optionSize = '10'
   private currentPage4 = 4
+  private flag = false
 
   options = [
     {
@@ -488,6 +509,10 @@ export default class extends Vue {
 
   private handleClick(index, row) {
     console.log(index, row)
+  }
+
+  private openDropdown(e) {
+    e ? (this.flag = true) : (this.flag = false)
   }
 }
 </script>
@@ -623,5 +648,10 @@ export default class extends Vue {
   &--9 {
     background: $disabled-color;
   }
+}
+
+.top-fill {
+  // color: #000;
+  transform: rotate(180deg);
 }
 </style>

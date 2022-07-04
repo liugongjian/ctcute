@@ -2,20 +2,22 @@
   <div class="sub-rate">
     <el-rate
       v-model="value"
-      disabled
       text-color="#ff9900"
       :allow-half="true"
+      void-icon-class="el-icon-star-on"
       :colors="['#FA8334', '#FA8334', '#FA8334']"
+      void-color="#ddd"
     >
     </el-rate>
 
     <el-rate
       v-model="value1"
-      disabled
+      void-color="#ddd"
       show-score
       text-color="rgba(0,0,0,0.60)"
       score-template="3星"
       :colors="['#FA8334', '#FA8334', '#FA8334']"
+      void-icon-class="el-icon-star-on"
     >
     </el-rate>
   </div>

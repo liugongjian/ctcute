@@ -18,8 +18,11 @@
       <el-button>次按钮</el-button>
       <el-button type="danger" plain>危险</el-button>
       <el-button size="small"><svg-icon name="plus-circle" /> 带图标按钮</el-button>
-      <el-dropdown>
-        <el-button size="small"> <svg-icon name="select" /> 按钮2 <svg-icon name="caret-down" /> </el-button>
+      <el-dropdown @visible-change="openDropdown">
+        <el-button size="small">
+          <svg-icon name="select" /> 按钮2
+          <svg-icon name="caret-down" :class="flag ? 'top-fill' : 'svg-icon svg-fill'" />
+        </el-button>
         <el-dropdown-menu slot="dropdown" class="conventional-dropdown">
           <el-dropdown-item> <svg-icon name="select" /> 按钮</el-dropdown-item>
           <el-dropdown-item> <svg-icon name="select" /> 按钮</el-dropdown-item>
@@ -82,6 +85,10 @@ export default class extends Vue {
   }
 
   buttonData = ['操作一', '操作二', '操作三']
+  private flag = false
+  private openDropdown(e) {
+    e ? (this.flag = true) : (this.flag = false)
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -122,5 +129,9 @@ export default class extends Vue {
       margin-right: 4px;
     }
   }
+}
+
+.top-fill {
+  transform: rotate(180deg);
 }
 </style>

@@ -19,7 +19,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -51,8 +51,13 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false">
-              <span class="el-dropdown-link"> 更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
+            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+              <span class="el-dropdown-link">
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
+              </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
                 <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -78,7 +83,7 @@
 
     <h3>可多选表格(2个以内操作)</h3>
     <div class="sub-table">
-      <div style="margin-bottom: 16px;">
+      <div style="margin-bottom: 16px">
         <el-button type="primary" :disabled="!multipleSelection.length" size="small">主按钮</el-button>
         <el-button :disabled="!multipleSelection.length" size="small">次按钮</el-button>
       </div>
@@ -92,7 +97,7 @@
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" width="150px" label="主机别名">
           <template slot-scope="scope">
-            <span class="text-ellipsis name-primary" style="width: 100%;">{{ scope.row.name }}</span>
+            <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
@@ -100,7 +105,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -132,8 +137,13 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false">
-              <span class="el-dropdown-link"> 更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
+            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+              <span class="el-dropdown-link">
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
+              </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
                 <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -159,7 +169,7 @@
 
     <h3>可多选表格(3个以上操作)</h3>
     <div class="sub-table">
-      <div style="margin-bottom: 20px;">
+      <div style="margin-bottom: 20px">
         <selected-input :data="multipleSelectionOver3" placeholder="请选择" :option-data="optionData">
         </selected-input>
       </div>
@@ -173,7 +183,7 @@
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" label="主机别名">
           <template slot-scope="scope">
-            <span class="text-ellipsis name-primary" style="width: 100%;">{{ scope.row.name }}</span>
+            <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
@@ -183,7 +193,7 @@
         </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -215,8 +225,13 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false">
-              <span class="el-dropdown-link"> 更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
+            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+              <span class="el-dropdown-link">
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
+              </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
                 <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -246,7 +261,7 @@
         <el-table-column type="selection" width="55" fixed> </el-table-column>
         <el-table-column prop="name" label="主机别名" width="120">
           <template slot-scope="scope">
-            <span class="text-ellipsis name-primary" style="width: 100%;">{{ scope.row.name }}</span>
+            <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
@@ -254,7 +269,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -286,8 +301,13 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false">
-              <span class="el-dropdown-link"> 更多<i class="el-icon-arrow-down el-icon--right"></i> </span>
+            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+              <span class="el-dropdown-link">
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
+              </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
                 <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -324,7 +344,56 @@
         </el-table-column>
       </el-table>
     </div>
+    <h3>纵向展示列表</h3>
+    <div class="sub-table-horizon">
+      <el-descriptions class="margin-top" :column="2" :size="size" border>
+        <el-descriptions-item>
+          <template slot="label"> 数据库类型 </template>
+          Spark
+        </el-descriptions-item>
 
+        <el-descriptions-item>
+          <template slot="label"> 表类型 </template>
+          物理表
+        </el-descriptions-item>
+        <el-descriptions-item>
+          <template slot="label"> 配置时间 </template>
+          2018-04-24 18:00:00
+        </el-descriptions-item>
+        <el-descriptions-item>
+          <template slot="label"> 使用时间 </template>
+          2018-04-24 18:00:00 至 2019-04-24 18:00:00
+        </el-descriptions-item>
+        <el-descriptions-item>
+          <template slot="label"> 所属业务</template>
+          金融 科技 -T Tech Ui
+        </el-descriptions-item>
+        <el-descriptions-item>
+          <template slot="label"> 数据位点 </template>
+          2018-04-24 18:00:00 至 2019-04-24 18:00:00
+        </el-descriptions-item>
+        <el-descriptions-item>
+          <template slot="label"> 储存量(GB) </template>
+          50
+        </el-descriptions-item>
+        <el-descriptions-item>
+          <template slot="label"> 数据负责人 </template>
+          王小明
+        </el-descriptions-item>
+        <el-descriptions-item :span="2">
+          <template slot="label"> 生命周期（天） </template>
+          30
+        </el-descriptions-item>
+        <el-descriptions-item :span="2">
+          <template slot="label"> 配置信息 </template>
+          <div>数据盘类型：MongoDB</div>
+          <div>数据库版本：3.4</div>
+          <div>套餐：dds.mongo.mid</div>
+          <div>存储空间：10 GB</div>
+          <div>地域：华东 1</div>
+        </el-descriptions-item>
+      </el-descriptions>
+    </div>
     <h3>小表格</h3>
     <div>
       <el-table :data="data.smallTable" border size="small">
@@ -337,7 +406,7 @@
         </el-table-column>
         <el-table-column prop="name" label="工作流名称">
           <template slot-scope="scope">
-            <span class="text-ellipsis" style="width: 100%;" :title="scope.row.name">{{
+            <span class="text-ellipsis" style="width: 100%" :title="scope.row.name">{{
               scope.row.name
             }}</span>
           </template>
@@ -418,6 +487,7 @@ export default class extends Vue {
 
   private optionSize = '10'
   private currentPage4 = 4
+  private flag = false
 
   options = [
     {
@@ -488,6 +558,10 @@ export default class extends Vue {
 
   private handleClick(index, row) {
     console.log(index, row)
+  }
+
+  private openDropdown(e) {
+    e ? (this.flag = true) : (this.flag = false)
   }
 }
 </script>
@@ -623,5 +697,9 @@ export default class extends Vue {
   &--9 {
     background: $disabled-color;
   }
+}
+
+.top-fill {
+  transform: rotate(180deg);
 }
 </style>

@@ -3,7 +3,13 @@
     <el-row>
       <el-col :span="5">
         <h3>四层树状菜单标题</h3>
-        <el-tree :data="data.threeFour" node-key="key" draggable :default-expanded-keys="[2]">
+        <el-tree
+          :data="data.threeFour"
+          node-key="key"
+          draggable
+          :default-expanded-keys="[2]"
+          indent="10"
+        >
           <span slot-scope="{ node, data }" class="node-content">
             <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
@@ -11,9 +17,18 @@
             </span>
             {{ node.label }}
             <div class="handler-menu">
-              <el-button slot="reference" type="text"><svg-icon v-if="!node.isLeaf" name="plus" class="handler-icon" @click.stop="() => {}" /></el-button>
+              <el-button slot="reference" type="text">
+                <svg-icon
+                  v-if="!node.isLeaf"
+                  name="plus"
+                  class="handler-icon"
+                  @click.stop="() => {}"
+                />
+              </el-button>
               <div class="hover-wrapper">
-                <el-button type="text" class="dash-icon"><svg-icon v-if="data.key !== 1" name="dash" class="handler-icon" @click.stop /></el-button>
+                <el-button type="text" class="dash-icon">
+                  <svg-icon v-if="data.key !== 1" name="dash" class="handler-icon" @click.stop />
+                </el-button>
                 <div class="pop-tooltip tree-node-popover el-tooltip__popper">
                   <div class="tooltip-content">
                     <el-button v-if="!node.isLeaf" size="mini" type="text" @click.stop>重命名</el-button>
@@ -28,7 +43,13 @@
       </el-col>
       <el-col :span="5">
         <h3>三层树状菜单标题</h3>
-        <el-tree :data="data.threeTree" draggable node-key="key" :default-expanded-keys="[3]">
+        <el-tree
+          :data="data.threeTree"
+          draggable
+          node-key="key"
+          :default-expanded-keys="[3]"
+          indent="10"
+        >
           <span slot-scope="{ node }" class="node-content">
             <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
@@ -42,7 +63,7 @@
     <el-row>
       <el-col :span="5">
         <h3>两层树状菜单标题</h3>
-        <el-tree :data="data.twoTree" node-key="key" :default-expanded-keys="[4]">
+        <el-tree :data="data.twoTree" node-key="key" :default-expanded-keys="[4]" indent="10">
           <span slot-scope="{ node }" class="node-content">
             <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
@@ -54,7 +75,7 @@
       </el-col>
       <el-col :span="5">
         <h3>三层树状菜单加icon</h3>
-        <el-tree :data="data.threeTree" node-key="key" :default-expanded-keys="[3]">
+        <el-tree :data="data.threeTree" node-key="key" :default-expanded-keys="[3]" indent="10">
           <span slot-scope="{ node }" class="node-content">
             <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
@@ -74,12 +95,12 @@
 import { Component, Vue } from 'vue-property-decorator'
 import Data from '@/utils/mock'
 @Component({
-  name: 'UiTree'
+  name: 'UiTree',
 })
 export default class extends Vue {
   public static title = {
     zh: '树形菜单',
-    en: 'Tree'
+    en: 'Tree',
   }
 
   public data = Data
@@ -107,7 +128,7 @@ export default class extends Vue {
 }
 
 .node-icon {
-  color: $icon-color;
+  color: $color-grey-5;
 
   .svg-icon {
     display: none;
@@ -121,7 +142,7 @@ export default class extends Vue {
 
 .is-expanded > .el-tree-node__content {
   .node-icon {
-    color: $icon-color;
+    color: $color-grey-5;
 
     .svg-icon {
       display: none;
@@ -159,8 +180,9 @@ export default class extends Vue {
     }
 
     .handler-icon {
-      color: $icon-color;
-      border: 1.5px solid $icon-color;
+      color: $color-grey-5;
+      border: 1.5px solid $color-grey-5;
+      font-size: 12.5px !important;
     }
   }
 

@@ -573,7 +573,12 @@
     }
   }
 }
-
+.el-tree-node__expand-icon {
+  color: $color-grey-5;
+}
+.el-tree-node__expand-icon.is-leaf {
+  padding: 2px;
+}
 /* Dialog
 -------------------------- */
 .el-dialog__footer {
@@ -594,6 +599,13 @@
 -------------------------- */
 .el-tabs__item {
   font-size: $text-size-primary;
+}
+.el-icon-cloudy {
+  vertical-align: text-bottom;
+  &::before {
+    font-size: 16px;
+    margin-right: 2px;
+  }
 }
 
 .el-tabs.el-tabs--card.el-tabs--top {
@@ -760,7 +772,25 @@
 .el-table {
   color: $color-grey-1;
 }
-
+/* Descriptions
+-------------------------- */
+.el-descriptions-item__label.is-bordered-label {
+  background: $color-grey-11;
+  text-align: right !important;
+  color: $color-grey-2;
+  font-weight: bold !important;
+}
+.el-descriptions .is-bordered .el-descriptions-item__cell {
+  border-color: $color-grey-6;
+  height: 44px;
+}
+.el-descriptions-item__cell.el-descriptions-item__content {
+  color: $color-grey-1;
+  border: 1px solid #ddd;
+  div {
+    line-height: 22px;
+  }
+}
 /* Pagination
 -------------------------- */
 .el-pagination {
@@ -995,6 +1025,7 @@
 }
 
 .el-select-dropdown__item {
+  height: 30px;
   font-size: $text-size-primary;
 }
 .el-select-dropdown__item:hover {

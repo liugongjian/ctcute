@@ -1,8 +1,8 @@
 {
   "id": "3310364",
   "name": "天翼云icon库（上海）",
-  "font_family": "iconfont",
-  "css_prefix_text": "icon-",
+  "font_family": "element-icons",
+  "css_prefix_text": "el-icon-",
   "description": "",
   "glyphs": [
     {

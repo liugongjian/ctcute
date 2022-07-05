@@ -53,11 +53,11 @@ const pageRoutes = [
         },
       },
       {
-        path: 'pro-form',
-        component: () => import(/* webpackChunkName: "form" */ '@/views/page/Form/SimpleForm.vue'),
-        name: 'ProForm',
+        path: 'pro-form1',
+        component: () => import(/* webpackChunkName: "form" */ '@/views/page/Form/ProForm1.vue'),
+        name: 'ProForm1',
         meta: {
-          title: 'ProForm 复杂表单',
+          title: 'ProForm 复杂表单1',
           breadcrumb: true,
         },
       },

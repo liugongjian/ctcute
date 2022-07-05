@@ -347,6 +347,11 @@ export default class extends Vue {
     }
   ]
 
+  private valValue = (rule, value, callback) => {
+    // console.log(rule, 'ruleeeeeee', value, 'vvvvvvv')
+    // return callback(new Error())
+  }
+
   // 表单校验规则
   private rules = {
     name: [
@@ -362,7 +367,8 @@ export default class extends Vue {
       { required: true, message: '请选择告警级别', trigger: 'change' }
     ],
     templateType: {
-      // required: true,
+      required: true,
+      validator: this.valValue,
       monitor: { required: true, message: '请选择', trigger: 'change' },
       percentage: {
         required: true,

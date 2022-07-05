@@ -15,7 +15,7 @@ const pageRoutes = [
       {
         path: 'design-target',
         name: 'DesignTarget',
-        component: () => import('@/views/page/guides/DesignTarget.vue'),
+        component: () => import('@/views/page/Guides/DesignTarget.vue'),
         meta: {
           title: '设计目标',
           breadcrumb: true,
@@ -24,7 +24,7 @@ const pageRoutes = [
       {
         path: 'quick-start',
         name: 'QuickStart',
-        component: () => import('@/views/page/guides/QuickStart.vue'),
+        component: () => import('@/views/page/Guides/QuickStart.vue'),
         meta: {
           title: '快速上手',
           breadcrumb: true,
@@ -45,7 +45,7 @@ const pageRoutes = [
     children: [
       {
         path: 'simple-form',
-        component: () => import(/* webpackChunkName: "form" */ '@/views/page/form/SimpleForm.vue'),
+        component: () => import(/* webpackChunkName: "form" */ '@/views/page/Form/SimpleForm.vue'),
         name: 'SimpleForm',
         meta: {
           title: 'SimpleForm 基础表单',
@@ -53,11 +53,11 @@ const pageRoutes = [
         },
       },
       {
-        path: 'pro-form',
-        component: () => import(/* webpackChunkName: "form" */ '@/views/page/form/ProForm1.vue'),
-        name: 'ProForm',
+        path: 'pro-form1',
+        component: () => import(/* webpackChunkName: "form" */ '@/views/page/Form/ProForm1.vue'),
+        name: 'ProForm1',
         meta: {
-          title: 'ProForm 复杂表单',
+          title: 'ProForm 复杂表单1',
           breadcrumb: true,
         },
       },
@@ -76,7 +76,7 @@ const pageRoutes = [
     children: [
       {
         path: 'simple-table',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/table/SimpleTable.vue'),
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/SimpleTable.vue'),
         name: 'SimpleTable',
         meta: {
           title: 'SimpleTable 基础表格',
@@ -85,7 +85,7 @@ const pageRoutes = [
       },
       {
         path: 'pro-table',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/table/SimpleTable.vue'),
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/SimpleTable.vue'),
         name: 'ProTable',
         meta: {
           title: 'ProTable 复杂表格',
@@ -108,7 +108,7 @@ const pageRoutes = [
     children: [
       {
         path: 'icon',
-        component: () => import(/* webpackChunkName: "icon" */ '@/views/page/icon/index.vue'),
+        component: () => import(/* webpackChunkName: "icon" */ '@/views/page/Icon/index.vue'),
         name: 'Icon',
         meta: {
           title: 'Icon 图标',

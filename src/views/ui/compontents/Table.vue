@@ -386,11 +386,11 @@
         </el-descriptions-item>
         <el-descriptions-item :span="2">
           <template slot="label"> 配置信息 </template>
-          <div>数据盘类型：MongoDB</div>
-          <div>数据库版本：3.4</div>
-          <div>套餐：dds.mongo.mid</div>
-          <div>存储空间：10 GB</div>
-          <div>地域：华东 1</div>
+          <div>数据盘类型：<span>MongoDB </span></div>
+          <div>数据库版本：<span>3.4 </span></div>
+          <div>套餐：<span>dds.mongo.mid </span></div>
+          <div>存储空间：<span>10 GB </span></div>
+          <div>地域：<span>华东 1 </span></div>
         </el-descriptions-item>
       </el-descriptions>
     </div>

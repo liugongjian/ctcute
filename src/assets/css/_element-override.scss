@@ -281,13 +281,16 @@
 
 .el-input__suffix-inner {
   .el-icon-close {
-    line-height: 36px;
     padding-right: 15px;
 
     &:hover {
       color: $color-master-1;
       cursor: pointer;
     }
+  }
+  .el-icon-view {
+    padding-right: 15px;
+    line-height: 32px;
   }
 }
 
@@ -302,6 +305,9 @@
   line-height: 36px;
   color: $text-color-light-1;
   margin-right: $text-size-primary;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .suffix-forgot::before {
@@ -642,7 +648,11 @@
 }
 .el-tabs--card > .el-tabs__header {
   border-bottom: 1px solid $border-color-primary;
+  .el-tabs__item.is-active.is-closable {
+    padding: 0 10px 0 12px;
+  }
 }
+
 /* Table
 -------------------------- */
 .el-table__header-wrapper {
@@ -789,6 +799,9 @@
   border: 1px solid #ddd;
   div {
     line-height: 22px;
+    // span {
+    //   // color: ;
+    // }
   }
 }
 /* Pagination
@@ -996,6 +1009,9 @@
   .el-input--medium .el-input__icon {
     line-height: 32px;
   }
+  .el-input__suffix {
+    height: 32px;
+  }
 }
 .el-input--medium .el-input__inner {
   height: 32px;
@@ -1102,7 +1118,15 @@
 .el-select-dropdown.el-popper[x-placement^='top'] {
   margin-bottom: $margin-tiny;
 }
-
+.el-picker-panel.time-select.el-popper[x-placement^='bottom'] {
+  margin-top: $margin-tiny;
+}
+.el-picker-panel.time-select.el-popper[x-placement^='top'] {
+  margin-bottom: $margin-tiny;
+}
+.el-popper[x-placement^='bottom'] .popper__arrow {
+  display: none;
+}
 .el-range-editor--medium .el-range-input {
   font-size: 12px;
 }
@@ -1167,9 +1191,31 @@
 }
 .avatar-uploader {
   .el-upload.el-upload--text {
-    border: 1px solid $border-color-primary;
+    border: 1px dashed $border-color-primary;
+    border-radius: 2px;
   }
 }
+.el-upload__tip {
+  font-size: 12px;
+  color: $text-color-light-2;
+  margin: 11px 0 14px 0;
+}
+
+.el-upload__text {
+  b {
+    font-size: 12px;
+    margin-top: 20px;
+    line-height: 20px;
+  }
+
+  div {
+    font-size: 12px;
+    color: $text-color-light-2;
+    margin: 6px 0 38px 0;
+    line-height: 20px;
+  }
+}
+
 /* Switch
 -------------------------- */
 .el-switch + .el-switch {
@@ -1702,10 +1748,9 @@
 
 /* Tooltip
 -------------------------- */
-.ui-tooltip {
-  .el-tooltip__popper.is-dark {
-    background: $tooltip-fill;
-  }
+
+.el-tooltip__popper.is-dark {
+  background: $color-other-1;
 }
 
 /* Popover

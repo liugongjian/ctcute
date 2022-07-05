@@ -4,11 +4,11 @@ module.exports = {
     browser: true, // 浏览器环境中的全局变量
     commonjs: true, // 支持 commonjs 语法
     node: true, // 支持 node
-    es6: true // 支持 es6 语法
+    es6: true, // 支持 es6 语法
   },
   extends: ['plugin:vue/recommended', '@vue/standard', '@vue/typescript/recommended'],
   parserOptions: {
-    ecmaVersion: '2021'
+    ecmaVersion: '2021',
   },
   rules: {
     'comma-dangle': 'off',
@@ -41,7 +41,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/type-annotation-spacing': [
       'error',
-      { before: false, after: true, overrides: { arrow: { before: true, after: true } } }
+      { before: false, after: true, overrides: { arrow: { before: true, after: true } } },
     ],
     'space-infix-ops': 'off',
     '@typescript-eslint/space-infix-ops': ['error', { int32Hint: false }],
@@ -51,6 +51,6 @@ module.exports = {
     '@typescript-eslint/object-curly-spacing': ['error', 'always'],
     semi: 'off',
     '@typescript-eslint/semi': ['error', 'never'],
-    'no-undef': 'off'
-  }
+    'no-undef': 'off',
+  },
 }

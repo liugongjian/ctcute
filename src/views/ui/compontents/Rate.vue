@@ -20,6 +20,14 @@
       void-icon-class="el-icon-star-on"
     >
     </el-rate>
+
+    <el-rate
+      v-model="value2"
+      :icon-classes="iconClasses"
+      void-icon-class="el-icon-like-fill"
+      :colors="[themeColor, themeColor, themeColor]"
+    >
+    </el-rate>
   </div>
 </template>
 <script lang="ts">
@@ -37,6 +45,8 @@ export default class extends Vue {
 
   public value = 2.5
   public value1 = 3
+  private value2 = 3
+  private iconClasses = ['el-icon-like-fill', 'el-icon-like-fill', 'el-icon-like-fill']
   private get themeColor(): string {
     return variables.colorMaster
   }

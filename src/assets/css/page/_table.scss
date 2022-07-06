@@ -144,3 +144,24 @@
     }
   }
 }
+
+/* 复杂表格1 */
+
+.table-filter {
+  display: flex;
+  align-items: center;
+
+  .table-filter_text {
+    color: $color-grey-1;
+    margin-right: 12px;
+  }
+}
+
+.el-dropdown-link {
+  cursor: pointer;
+  color: $color-master-1;
+}
+
+.top-fill {
+  transform: rotate(180deg);
+}

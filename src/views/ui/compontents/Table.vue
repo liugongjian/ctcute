@@ -25,9 +25,9 @@
         </el-table-column>
         <el-table-column prop="description" label="描述" width="150px">
           <template slot-scope="scope">
-            <div>
-              <span class="text-ellipsis" :title="scope.row.description">{{ scope.row.description }}</span>
-            </div>
+            <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+              <span class="text-ellipsis">{{ scope.row.description }}</span>
+            </el-tooltip>
           </template>
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
@@ -111,9 +111,9 @@
         </el-table-column>
         <el-table-column prop="description" label="描述" width="150px">
           <template slot-scope="scope">
-            <div>
-              <span class="text-ellipsis" :title="scope.row.description">{{ scope.row.description }}</span>
-            </div>
+            <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+              <span class="text-ellipsis">{{ scope.row.description }}</span>
+            </el-tooltip>
           </template>
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
@@ -199,9 +199,9 @@
         </el-table-column>
         <el-table-column prop="description" label="描述" width="150px">
           <template slot-scope="scope">
-            <div>
-              <span class="text-ellipsis" :title="scope.row.description">{{ scope.row.description }}</span>
-            </div>
+            <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+              <span class="text-ellipsis">{{ scope.row.description }}</span>
+            </el-tooltip>
           </template>
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
@@ -275,9 +275,9 @@
         </el-table-column>
         <el-table-column prop="description" label="描述" width="150px">
           <template slot-scope="scope">
-            <div>
-              <span class="text-ellipsis" :title="scope.row.description">{{ scope.row.description }}</span>
-            </div>
+            <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+              <span class="text-ellipsis">{{ scope.row.description }}</span>
+            </el-tooltip>
           </template>
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
@@ -346,7 +346,7 @@
     </div>
     <h3>纵向展示列表</h3>
     <div class="sub-table-horizon">
-      <el-descriptions class="margin-top" :column="2" :size="size" border>
+      <el-descriptions class="margin-top" :column="2" border>
         <el-descriptions-item>
           <template slot="label"> 数据库类型 </template>
           Spark
@@ -386,11 +386,11 @@
         </el-descriptions-item>
         <el-descriptions-item :span="2">
           <template slot="label"> 配置信息 </template>
-          <div>数据盘类型：MongoDB</div>
-          <div>数据库版本：3.4</div>
-          <div>套餐：dds.mongo.mid</div>
-          <div>存储空间：10 GB</div>
-          <div>地域：华东 1</div>
+          <div>数据盘类型：<span>MongoDB </span></div>
+          <div>数据库版本：<span>3.4 </span></div>
+          <div>套餐：<span>dds.mongo.mid </span></div>
+          <div>存储空间：<span>10 GB </span></div>
+          <div>地域：<span>华东 1 </span></div>
         </el-descriptions-item>
       </el-descriptions>
     </div>
@@ -406,9 +406,9 @@
         </el-table-column>
         <el-table-column prop="name" label="工作流名称">
           <template slot-scope="scope">
-            <span class="text-ellipsis" style="width: 100%" :title="scope.row.name">{{
-              scope.row.name
-            }}</span>
+            <el-tooltip class="item" effect="dark" :content="scope.row.name" placement="top">
+              <span class="text-ellipsis">{{ scope.row.name }}</span>
+            </el-tooltip>
           </template>
         </el-table-column>
         <el-table-column prop="time" label="耗时"> </el-table-column>

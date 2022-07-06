@@ -69,6 +69,7 @@
         </el-time-select>
 
         <el-date-picker
+          v-model="value4"
           type="daterange"
           range-separator="至"
           start-placeholder="开始日期"
@@ -77,6 +78,7 @@
         </el-date-picker>
 
         <el-date-picker
+          v-model="value5"
           type="datetimerange"
           range-separator="至"
           start-placeholder="开始日期和时间"
@@ -85,9 +87,10 @@
         </el-date-picker>
       </div>
       <div class="sub-date">
-        <el-date-picker type="datetime" placeholder="选择时间" size="mini"> </el-date-picker>
+        <el-date-picker v-model="value6" type="datetime" placeholder="选择时间" size="mini"> </el-date-picker>
 
         <el-date-picker
+          v-model="value7"
           type="daterange"
           range-separator="至"
           start-placeholder="开始日期"
@@ -97,6 +100,7 @@
         </el-date-picker>
 
         <el-date-picker
+          v-model="value8"
           type="datetimerange"
           range-separator="至"
           start-placeholder="开始日期和时间"
@@ -145,6 +149,12 @@ export default class extends Vue {
   private value1 = ['不可用']
   private value2 = '选项一'
   private value3 = ['不可用', '选项']
+  private value4 = ''
+  private value5 = ''
+  private value6 = ''
+  private value7 = ''
+  private value8 = ''
+
   private text = ''
   private options = [
     {

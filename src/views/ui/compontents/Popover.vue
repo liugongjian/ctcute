@@ -2,9 +2,9 @@
   <div class="ui-popover">
     <h3>常规用法</h3>
     <div class="popover-top">
-      <el-popover placement="top" trigger="hover" :open-delay="1000">
+      <el-popover placement="top" trigger="hover">
         <div class="popover-top-prompt">
-          <span class="popover-top-text">需勾选表格项后删除</span><el-button type="text">链接文本</el-button>
+          <span class="popover-top-text">需勾选表格项后删除</span><el-link type="primary">链接文本</el-link>
         </div>
         <el-button slot="reference" type="text">向上提示带链接</el-button>
       </el-popover>

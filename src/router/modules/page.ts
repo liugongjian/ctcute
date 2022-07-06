@@ -103,6 +103,28 @@ const pageRoutes = [
       },
     ],
   },
+  // 卡片
+  {
+    path: '/page/card-list',
+    redirect: '/page/card-list/card1',
+    component: Layout,
+    name: 'CardList',
+    meta: {
+      title: 'CardList 卡片列表',
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'card1',
+        component: () => import(/* webpackChunkName: "card" */ '@/views/page/CardList/Card1.vue'),
+        name: 'Card1',
+        meta: {
+          title: 'Card1 小卡片',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
   // 详情
   {
     path: '/page/detail',

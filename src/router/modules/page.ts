@@ -57,7 +57,16 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "form" */ '@/views/page/Form/ProForm1.vue'),
         name: 'ProForm1',
         meta: {
-          title: 'ProForm 复杂表单1',
+          title: 'ProForm1 复杂表单1',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-form2',
+        component: () => import(/* webpackChunkName: "form" */ '@/views/page/Form/ProForm2.vue'),
+        name: 'ProForm2',
+        meta: {
+          title: 'ProForm2 复杂表单2',
           breadcrumb: true,
         },
       },
@@ -83,30 +92,12 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
-      // {
-      //   path: 'pro-table',
-      //   component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/SimpleTable.vue'),
-      //   name: 'ProTable',
-      //   meta: {
-      //     title: 'ProTable 复杂表格',
-      //     breadcrumb: true,
-      //   },
-      // },
       {
-        path: 'pro-table1',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable1.vue'),
+        path: 'pro-table',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/SimpleTable.vue'),
         name: 'ProTable',
         meta: {
-          title: 'ProTable1 复杂表格1',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'pro-table2',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable2.vue'),
-        name: 'ProTable',
-        meta: {
-          title: 'ProTable2 复杂表格2',
+          title: 'ProTable 复杂表格',
           breadcrumb: true,
         },
       },

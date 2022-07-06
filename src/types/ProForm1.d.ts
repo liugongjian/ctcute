@@ -1,6 +1,6 @@
 export interface Intertable {
   id: number,
-  MonitorIndicators: number,
+  monitorIndicators: number,
   timeSection: number,
   computValue: number,
   operation: number,

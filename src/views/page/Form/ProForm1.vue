@@ -65,14 +65,14 @@
           <el-table border style="width: 97%" :data="form.tableData">
             <el-table-column min-width="153" label="监控指标">
               <template slot-scope="scope">
-                <el-form-item :prop="'tableData.' + scope.$index + '.MonitorIndicators'" :rules="rules.templateType.monitor">
+                <el-form-item :prop="'tableData.' + scope.$index + '.monitorIndicators'" :rules="rules.templateType.monitor">
                   <el-select
-                    v-model="scope.row.MonitorIndicators"
+                    v-model="scope.row.monitorIndicators"
                     placeholder="请选择"
                     style="width: 160px"
                   >
                     <el-option
-                      v-for="item in MonitorOptions"
+                      v-for="item in monitorOptions"
                       :key="item.value"
                       :label="item.label"
                       :value="item.value"
@@ -221,7 +221,7 @@ export default class extends Vue {
     tableData: [
       {
         id: 1,
-        MonitorIndicators: 1,
+        monitorIndicators: 1,
         timeSection: 1,
         computValue: 1,
         operation: 1,
@@ -229,7 +229,7 @@ export default class extends Vue {
         calculate: 50
       }, {
         id: 2,
-        MonitorIndicators: 2,
+        monitorIndicators: 2,
         timeSection: 2,
         computValue: 2,
         operation: 2,
@@ -272,7 +272,7 @@ export default class extends Vue {
   ]
 
   // 监控指标选项
-  private MonitorOptions = [
+  private monitorOptions = [
     {
       label: '主节点CPU使用率',
       value: 1,
@@ -348,8 +348,7 @@ export default class extends Vue {
   ]
 
   private valValue = (rule, value, callback) => {
-    // console.log(rule, 'ruleeeeeee', value, 'vvvvvvv')
-    // return callback(new Error())
+    return callback()
   }
 
   // 表单校验规则
@@ -420,7 +419,7 @@ export default class extends Vue {
   private addCondit() {
     this.form.tableData.push({
       id: Date.now(),
-      MonitorIndicators: 1,
+      monitorIndicators: 1,
       timeSection: 1,
       computValue: 1,
       operation: 1,
@@ -430,7 +429,7 @@ export default class extends Vue {
   }
 
   /**
-   * 删除当前项
+   * 前端过滤删除当前项
    */
   private handleDelete(id: number) {
     this.form.tableData = this.form.tableData.filter(item => item.id !== id)

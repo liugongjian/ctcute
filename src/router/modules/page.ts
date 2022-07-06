@@ -94,6 +94,46 @@ const pageRoutes = [
       },
     ],
   },
+  // 详情
+  {
+    path: '/page/detail',
+    redirect: '/page/detail/simple-detail',
+    component: Layout,
+    name: 'Detail',
+    meta: {
+      title: 'Detail 详情',
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'simple-detail',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Detail/SimpleDetail.vue'),
+        name: 'SimpleDetail',
+        meta: {
+          title: 'SimpleDetail 简单详情页',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-detail1',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Detail/ProDetail1.vue'),
+        name: 'ProDetail1',
+        meta: {
+          title: 'ProDetail1 复杂详情页1',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-detail2',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Detail/ProDetail2.vue'),
+        name: 'ProDetail2',
+        meta: {
+          title: 'ProDetail2 复杂详情页2',
+          breadcrumb: true,
+        },
+      }
+    ],
+  },
   // 其他
   {
     path: '/page/other',

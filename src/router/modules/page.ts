@@ -70,6 +70,15 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'step-form',
+        component: () => import(/* webpackChunkName: "form" */ '@/views/page/Form/StepForm.vue'),
+        name: 'StepForm',
+        meta: {
+          title: 'StepForm 分步表单',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 表格

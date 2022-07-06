@@ -1,12 +1,12 @@
 [
   {
     "name": "ProForm1.vue",
-    "path": "@/views/page/form/ProForm1.vue"
-  }, 
+    "path": "@/views/page/Form/ProForm1.vue"
+  },
   {
     "name": "ProForm1.d.ts",
     "path": "@/types/ProForm1.d.ts"
-  }, 
+  },
   {
     "name": "api/ProForm1.ts",
     "path": "@/api/ProForm1.ts"

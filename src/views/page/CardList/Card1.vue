@@ -2,8 +2,7 @@
   <el-card class="card1">
     <div class="card-tools">
       <div class="card-tools__left">
-        <el-button type="primary">+ 新增按钮</el-button>
-        <el-button>次按钮</el-button>
+        <el-button type="primary">+ 新增质检方案</el-button>
       </div>
       <div class="card-tools__right">
         <el-form ref="conditions" inline @submit.native.prevent>
@@ -25,11 +24,36 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { getCardList } from '@/api/card'
+import type { CardListItem } from '@/types/Card'
 
 @Component({
   name: 'Card1',
 })
 export default class extends Vue {
+  /**
+   * 页面Mounted
+   */
+  private mounted() {
+    this.getData()
+  }
+
+  // 加载状态
+  private loading = false
+
+  // 数据
+  private cardData: CardListItem[] = []
+
+  private async getData() {
+    try {
+      this.loading = true
+      const { data } = await getCardList()
+      this.cardData = data
+    } finally {
+      this.loading = false
+    }
+  }
+
   /**
    * 搜索表单
    */

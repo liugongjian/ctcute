@@ -1,7 +1,7 @@
 /* Iconfont
 -------------------------- */
 @mixin iconfont {
-  font-family: 'element-icons' !important;
+  font-family: 'cute-icons' !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -948,10 +948,10 @@
 }
 .el-step__title.is-process {
   font-weight: 400;
-  color: rgba(51, 51, 51, 0.85);//#ccc
+  color: rgba(51, 51, 51, 0.85); //#ccc
 }
 .el-step__title.is-success {
-  color: $color-grey-2;//rgba(0, 0, 0, 0.65);
+  color: $color-grey-2; //rgba(0, 0, 0, 0.65);
 }
 .el-step__head.is-process {
   border-color: $color-master-1;

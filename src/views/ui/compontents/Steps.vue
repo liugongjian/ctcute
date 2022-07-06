@@ -22,7 +22,7 @@
       >
         下一步
       </el-button>
-      <el-button @click="() => (active = 0)">重置</el-button>
+      <el-button @click="() => (active = 0)">重 置</el-button>
     </div>
     <h3>迷你步骤条</h3>
     <div class="sub-steps">
@@ -46,10 +46,10 @@
       >
         下一步
       </el-button>
-      <el-button @click="() => (activeMini = 0)">重置</el-button>
+      <el-button @click="() => (activeMini = 0)">重 置</el-button>
     </div>
     <h3>步骤多展示不全</h3>
-    <div class="sub-steps">
+    <div>
       <steps-multi
         :active="activeMulti"
         :steps="multisteps"
@@ -68,7 +68,7 @@
       >
         下一步
       </el-button>
-      <el-button @click="() => (activeMulti = 0)">重置</el-button>
+      <el-button @click="() => (activeMulti = 0)">重 置</el-button>
       <steps-multi
         :active="activeMultiMini"
         :steps="multisteps"
@@ -90,7 +90,7 @@
       >
         下一步
       </el-button>
-      <el-button @click="() => (activeMultiMini = 0)">重置</el-button>
+      <el-button @click="() => (activeMultiMini = 0)">重 置</el-button>
     </div>
   </div>
 </template>

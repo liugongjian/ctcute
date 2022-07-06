@@ -8,13 +8,13 @@ import CuteMavonEditor from './components/CuteMavonEditor.vue'
 @Component({
   name: 'QuickStart',
   components: {
-    CuteMavonEditor
-  }
+    CuteMavonEditor,
+  },
 })
 export default class extends Vue {
   private content = `
 ## 快速上手
-### 1. 把镜像源切换到私库[\`http://verdaccio.ctyun.xyz/\`](http://verdaccio.ctyun.xyz/)
+### 1. 把镜像源切换到私库[\`http://verdaccio.ctcdn.cn/\`](http://verdaccio.ctcdn.cn/)。PS：需要本地配置hosts【36.111.140.224 verdaccio.ctcdn.cn】
 ### 2. 全局安装脚手架\`npm install -g fe-cli\`和命令行工具\`npm install -g cute-design-tools\`
 ### 3. 执行\`fe-cli create <projectName>\`，选择\`cute-design-template\`模板的\`master\`分支创建项目
 ### 4. 进入项目目录，试用\`cuted add <PageName> [optonal NewPageName]\` 生成demo页

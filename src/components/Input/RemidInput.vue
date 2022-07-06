@@ -7,7 +7,8 @@
     :trigger-on-focus="false"
     @input="prompt"
   >
-    <span v-show="flag" slot="suffix" class="prompt-title">{{ placeholder }}</span>
+    <span v-show="flag" slot="suffix" class="prompt-title"><div>{{ placeholder }}</div>
+    </span>
   </el-autocomplete>
 </template>
 <script lang="ts">
@@ -50,6 +51,10 @@ export default class extends Vue {
 ::v-deep.el-autocomplete.inline-input {
   width: 300px;
   height: 32px;
+
+  .el-input--suffix .el-input__inner {
+    padding-right: 70px;
+  }
 
   .prompt-title {
     line-height: 32px;

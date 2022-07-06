@@ -5,9 +5,11 @@
       <div class="input-search">
         <div><el-input v-model="value1" placeholder="请输入"></el-input></div>
         <div>
-          <el-form v-model="password" :rules="rules">
+          <el-form :model="formData" :rules="rules">
             <el-form-item prop="password">
-              <el-input v-model="password" placeholder="请输入"></el-input>
+              <el-input v-model="formData.password" placeholder="请输入" type="text" @input="changeValue">
+                <i slot="suffix" class="el-icon-view" @click="appearValue"></i>
+              </el-input>
             </el-form-item>
           </el-form>
         </div>
@@ -89,6 +91,9 @@
             <span slot="suffix" class="suffix-forgot">Forgot?</span>
           </el-input>
         </div>
+        <el-input v-model="formData.password1" placeholder="请输入" type="text" @input="changeValue">
+          <i slot="suffix" class="el-icon-view" @click="appearValue"></i>
+        </el-input>
       </div>
     </div>
     <h3 class="sub-title">带提示的输入框</h3>
@@ -158,6 +163,7 @@ export default class extends Vue {
     en: 'Input',
   }
 
+  private flag = true
   private value1 = ''
   private placeholderTitle = '请输入内容'
   private num = 1
@@ -168,20 +174,25 @@ export default class extends Vue {
   private searchValue = ''
   private searchValue1 = ''
   private money = '2'
-  private information = '请输入备注信息'
-  private information1 = `一二三四五六七八九十一二三四五六七八九十一二三
-                          四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二`
+  private information = '这是一条备注信息'
+  private information1 = ''
 
   private address = '' // 地址
   private height = '' // 身高
   private url = '' // url
   private url1 = ''
   private forgot = ''
-  private password = ''
+  private formData = {
+    password: '',
+    password1: '',
+  }
+
+  private newPassword = ''
+
   private rules = {
     password: [
-      { required: true, message: '密码输入错误', trigger: 'blur' },
-      { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
+      { required: true, message: '密码输入错误', trigger: 'change' },
+      { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'change' },
     ],
   }
 
@@ -191,6 +202,36 @@ export default class extends Vue {
     { value: '新旺角茶餐厅', address: '上海市普陀区真北路988号创邑金沙谷6号楼113' },
     { value: '泷千家(天山西路店)', address: '天山西路438号' },
   ]
+
+  // . 替换成 *
+  private changeValue(value: string, type?: boolean) {
+    let val = ''
+    if (value.length < this.newPassword.length) {
+      this.newPassword = this.newPassword.slice(0, this.newPassword.length - 1)
+      return
+    }
+    if (!type) {
+      this.newPassword = this.newPassword + value.charAt(value.length - 1)
+    }
+    if (value.length) {
+      for (let i = 0; i < value.length; i++) {
+        val += '*'
+      }
+      this.formData.password = val
+    }
+  }
+
+  // 显示密码
+  private appearValue() {
+    if (this.formData.password === '' || !this.formData.password) return
+    if (this.flag) {
+      this.formData.password = this.newPassword
+      this.flag = false
+    } else if (!this.flag) {
+      this.changeValue(this.formData.password, true)
+      this.flag = true
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -225,7 +266,7 @@ export default class extends Vue {
 }
 
 .input-bottom {
-  width: 522px;
+  width: 846px;
   display: flex;
   justify-content: space-between;
 }

@@ -27,7 +27,7 @@
         <svg-icon name="container" class="el-icon-upload" />
         <div class="el-upload__text">
           <b>点击或将文件拖拽到这里上传</b>
-          <p>支持扩展名：.rar .zip .doc .docx .pdf .jpg...</p>
+          <div>支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
         </div>
       </el-upload>
     </div>
@@ -63,7 +63,7 @@ export default class extends Vue {
 .el-upload-dragger .el-icon-upload {
   width: 33px !important;
   height: 42px !important;
-  margin-top: 45px;
+  margin-top: 38px;
   color: $color-master-1;
 }
 
@@ -78,25 +78,15 @@ export default class extends Vue {
   height: 80px;
   border: 1px solid $border-color-primary;
   margin: 24px 0;
+  border-radius: 2px;
 
   &:hover {
     border-color: $color-master-1;
   }
 }
 
-.el-upload__text {
-  b {
-    font-size: 12px;
-  }
-
-  p {
-    font-size: 12px;
-    color: $text-color-light-2;
-  }
-}
-
 .sub-svg-text {
-  margin-bottom: 9px;
+  margin-top: 18px;
 
   svg {
     color: $color-master-1;
@@ -107,10 +97,5 @@ export default class extends Vue {
     font-size: 12px;
     color: $color-master-1;
   }
-}
-
-.el-upload__tip {
-  font-size: 12px;
-  color: $text-color-light-2;
 }
 </style>

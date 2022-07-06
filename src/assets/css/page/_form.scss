@@ -13,35 +13,35 @@
     width: 100%;
   }
 }
-
+@mixin formTitle {
+ .form-titles{
+  line-height: 14px;
+  padding-left: 12px;
+  border-left: 4px solid $color-master-1;
+  height: 14px;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: $color-grey-1;
+  margin: 0 0 24px 40px;
+  font-weight: 500;
+}
+}
 /* 简单表单 */
 .simple-form {
   @include form();
 }
 /* 复杂表单 */
 .pro-form1{
-
-  .form-titles{
- line-height: 14px;
-  padding-left: 12px;
-  border-left: 4px solid $color-master-1;
-  height: 14px;
-  font-family: PingFangSC-Medium;
-font-size: 14px;
-color: $color-grey-1;
-margin: 0 0 24px 40px;
-font-weight: 500;
-
-  }
-  .el-divider--horizontal{
+   @include formTitle();
+ .el-divider--horizontal{
   width: 95%;
   margin:24px;
   margin-left:40px 
 }
  .el-table{
-      margin: 16px 0 0 0 !important;
- }
-  .pro-form1-bottom{
+  margin: 16px 0 0 0 !important;
+}
+ .pro-form1-bottom{
    position: fixed;
    margin-left: -15px;
    width: 100%;
@@ -50,9 +50,40 @@ font-weight: 500;
    bottom: 0;
    line-height: 48px;
    box-shadow: 0 2px 8px 0 rgba(200,201,204,0.50);
+}
+  @include form();
+  .el-select{
+    //  max-width: 0; /* 1920页面宽度下，右侧面板50%的像素值 */
+    min-width: 0; /* 1366页面宽度下，右侧面板50%的像素值 */
   }
+}
+.pro-form2 {
+   @include formTitle();
+    .el-divider--horizontal{
+  width: 93%;
+  margin:24px;
+  margin-left:34px;
+
+}
+  .form-items{
+    margin: 0 40px 0 35px;
+    display: flex;
+    // width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    >div{
+      width: 30%;
+       .el-select{
+        width: 100%;
+       }
+    }
+  }
+
    @include form();
-     .el-input,
+  .form-titles{
+  margin: 0 0 24px 35px;
+  }
+   .el-input,
   .el-select,
   .el-textarea {
     //  max-width: 0; /* 1920页面宽度下，右侧面板50%的像素值 */

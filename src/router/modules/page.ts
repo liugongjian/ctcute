@@ -92,6 +92,15 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'pro-table3',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable3.vue'),
+        name: 'ProTable3',
+        meta: {
+          title: 'ProTable3 复杂表格3',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 其他

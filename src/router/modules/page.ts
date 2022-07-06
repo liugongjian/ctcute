@@ -138,7 +138,7 @@ const pageRoutes = [
     children: [
       {
         path: 'simple-detail',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Detail/SimpleDetail.vue'),
+        component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/SimpleDetail.vue'),
         name: 'SimpleDetail',
         meta: {
           title: 'SimpleDetail 简单详情页',
@@ -147,7 +147,7 @@ const pageRoutes = [
       },
       {
         path: 'pro-detail1',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Detail/ProDetail1.vue'),
+        component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/ProDetail1.vue'),
         name: 'ProDetail1',
         meta: {
           title: 'ProDetail1 复杂详情页1',
@@ -156,7 +156,7 @@ const pageRoutes = [
       },
       {
         path: 'pro-detail2',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Detail/ProDetail2.vue'),
+        component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/ProDetail2.vue'),
         name: 'ProDetail2',
         meta: {
           title: 'ProDetail2 复杂详情页2',

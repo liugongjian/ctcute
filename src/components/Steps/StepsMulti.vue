@@ -114,7 +114,10 @@ export default class extends Vue {
 .button-col {
   font-size: 20px;
 }
-
+.el-icon-arrow-left,
+.el-icon-arrow-right {
+  color: #000;
+}
 ::v-deep .el-col-1 {
   width: 30px;
 }

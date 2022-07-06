@@ -36,7 +36,7 @@ export default class extends Vue {
   private value = 2.5
   private value1 = 3
   private value2 = 3
-  private likeIcon = 'el-icon-like-fill'
+  private likeIcon = 'cute-icon-like-fill'
   private likeClasses = new Array(3).fill(this.likeIcon)
 }
 </script>

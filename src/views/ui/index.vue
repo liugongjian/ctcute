@@ -113,7 +113,7 @@ export default class extends Vue {
     .sub-steps {
       margin: 24px 0;
       padding-bottom: 24px;
-      border-bottom: 1px solid #f2f2f2;
+      border-bottom: 1px solid $color-grey-7;
     }
   }
 }

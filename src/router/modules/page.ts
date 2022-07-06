@@ -94,6 +94,28 @@ const pageRoutes = [
       },
     ],
   },
+  // 详情
+  {
+    path: '/page/detail',
+    redirect: '/page/detail/simple-detail/:id',
+    component: Layout,
+    name: 'Detail',
+    meta: {
+      title: 'Detail 详情',
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'simple-detail/:id',
+        component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/SimpleDetail.vue'),
+        name: 'SimpleDetail',
+        meta: {
+          title: 'SimpleDetail 基础详情',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
   // 其他
   {
     path: '/page/other',

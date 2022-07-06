@@ -169,8 +169,8 @@ export default class extends Vue {
   private searchValue1 = ''
   private money = '2'
   private information = '请输入备注信息'
-  private information1 =
-  '一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二'
+  private information1 = `一二三四五六七八九十一二三四五六七八九十一二三
+                          四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二`
 
   private address = '' // 地址
   private height = '' // 身高

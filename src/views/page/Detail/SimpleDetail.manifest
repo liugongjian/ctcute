@@ -1,0 +1,14 @@
+[
+  {
+    "name": "SimpleDetail.vue",
+    "path": "@/views/page/Detail/SimpleDetail.vue"
+  },
+  {
+    "name": "SimpleDetail.d.ts",
+    "path": "@/types/SimpleDetail.d.ts"
+  },
+  {
+    "name": "api/simpleDetail.ts",
+    "path": "@/api/simpleDetail.ts"
+  }
+]

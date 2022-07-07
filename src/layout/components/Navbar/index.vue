@@ -1,9 +1,6 @@
 <template>
   <div class="navbar">
-    <breadcrumb
-      id="breadcrumb-container"
-      class="breadcrumb-container"
-    />
+    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
   </div>
 </template>
 
@@ -14,9 +11,8 @@ import Breadcrumb from '@/components/Breadcrumb/index.vue'
 @Component({
   name: 'Navbar',
   components: {
-    Breadcrumb
-  }
+    Breadcrumb,
+  },
 })
-export default class extends Vue {
-}
+export default class extends Vue {}
 </script>

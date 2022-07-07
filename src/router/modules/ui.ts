@@ -8,7 +8,7 @@ const uiRoutes = [
     meta: {
       title: 'UI',
       breadcrumb: false,
-      hidden: true
+      hidden: true,
     },
     children: [
       {
@@ -17,11 +17,11 @@ const uiRoutes = [
         name: 'Component',
         meta: {
           title: 'Component 组件',
-          breadcrumb: true
-        }
-      }
-    ]
-  }
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
 ]
 
 export default uiRoutes

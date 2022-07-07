@@ -33,7 +33,7 @@ const componentsList = [
   require('./Drawer.vue'),
   require('./Transfer.vue'),
   require('./Collapse.vue'),
-  require('./TimeLine.vue')
+  require('./TimeLine.vue'),
 ]
 
 const _components = {}
@@ -43,7 +43,7 @@ export const list = componentsList.map((component: any) => {
   return {
     name: _component.options.name,
     title: _component.title,
-    component: _component
+    component: _component,
   }
 })
 

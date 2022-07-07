@@ -17,11 +17,10 @@ import { AppMain, Navbar, Sidebar, LayoutHeader } from './components'
     AppMain,
     Navbar,
     Sidebar,
-    LayoutHeader
-  }
+    LayoutHeader,
+  },
 })
-export default class extends Vue {
-}
+export default class extends Vue {}
 </script>
 <style lang="scss" scoped>
 .ui-layout-container {

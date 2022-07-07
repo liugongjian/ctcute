@@ -14,7 +14,9 @@
           <span v-if="title || $slots.title" class="el-alert__title" :class="[isBoldTitle]">
             <slot name="title">{{ title }}</slot>
           </span>
-          <p v-if="$slots.default && !description" class="el-alert__description"><slot></slot></p>
+          <p v-if="$slots.default && !description" class="el-alert__description">
+            <slot></slot>
+          </p>
           <p v-if="description && !$slots.default" class="el-alert__description">{{ description }}</p>
         </div>
         <i
@@ -23,9 +25,8 @@
           :class="{ 'is-customed': closeText !== '', 'el-icon-close': closeText === '' }"
           :style="{ color: closeBtnColor }"
           @click="close()"
+          >{{ closeText }}</i
         >
-          {{ closeText }}
-        </i>
       </div>
     </transition>
   </div>
@@ -75,7 +76,7 @@ export default {
     effect: {
       type: String,
       default: 'light',
-      validator: function(value) {
+      validator: function (value) {
         return ['light', 'dark'].indexOf(value) !== -1
       },
     },

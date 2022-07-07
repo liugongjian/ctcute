@@ -2,8 +2,8 @@ import { VuexModule, Module, getModule, MutationAction } from 'vuex-module-decor
 import store from '@/store'
 
 export interface IUserState {
-  token: string;
-  roles: string[];
+  token: string
+  roles: string[]
 }
 
 @Module({ dynamic: true, store, name: 'user' })

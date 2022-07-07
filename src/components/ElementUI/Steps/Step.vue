@@ -114,12 +114,14 @@ export default {
       const style = {}
       const parent = this.$parent
       const len = parent.steps.length
-      const space =
-        typeof this.space === 'number'
-          ? this.space + 'px'
-          : this.space
-            ? this.space
-            : 100 / (len - (this.isCenter ? 0 : 1)) + '%'
+      let space
+      if (typeof this.space === 'number') {
+        space = this.space + 'px'
+      } else if (this.space) {
+        space = this.space
+      } else {
+        space = 100 / (len - (this.isCenter ? 0 : 1)) + '%'
+      }
       style.flexBasis = space
       if (this.isVertical) return style
       if (this.isLast) {

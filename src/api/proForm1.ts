@@ -11,5 +11,5 @@ export const createProForm1 = (params: ProForm1.Form): AxiosPromise<ProForm1.Res
   request({
     url: '/mock/175/form/proForm1',
     method: 'post',
-    data: params
+    data: params,
   })

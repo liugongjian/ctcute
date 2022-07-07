@@ -9,7 +9,7 @@ import * as SimpleForm from '@/types/SimpleForm'
 export const getAlertTarget = (): AxiosPromise<string[]> =>
   request({
     url: '/mock/175/form/alertTarget',
-    method: 'get'
+    method: 'get',
   })
 
 /**
@@ -21,5 +21,5 @@ export const createSimpleForm = (params: SimpleForm.Form): AxiosPromise<SimpleFo
   request({
     url: '/mock/175/form/simpleForm',
     method: 'post',
-    data: params
+    data: params,
   })

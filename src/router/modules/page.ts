@@ -39,7 +39,7 @@ const pageRoutes = [
     name: 'Dialog',
     meta: {
       title: 'Dialog 弹窗',
-      breadcrumb: true
+      breadcrumb: true,
     },
     children: [
       {
@@ -48,8 +48,8 @@ const pageRoutes = [
         name: 'SuccessDialog',
         meta: {
           title: 'SuccessDialog 成功弹窗',
-          breadcrumb: true
-        }
+          breadcrumb: true,
+        },
       },
       {
         path: 'warn-dialog',
@@ -57,10 +57,10 @@ const pageRoutes = [
         name: 'WarnDialog',
         meta: {
           title: 'WarnDialog 告警弹窗',
-          breadcrumb: true
-        }
-      }
-    ]
+          breadcrumb: true,
+        },
+      },
+    ],
   },
   // 表单
   {

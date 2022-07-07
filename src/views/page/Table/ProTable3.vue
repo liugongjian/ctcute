@@ -60,10 +60,12 @@
               </el-form-item>
             </el-col>
             <el-col :span="8" class="mb-16">
-              <el-form-item class="table-tools__conditions__buttons">
-                <el-button type="primary" @click="search">查询</el-button>
-                <el-button @click="resetConditions">重置</el-button>
-                <span class="table-tools__conditions__buttons__txt" @click="openConditions">展开<svg-icon name="down" class="ml-6 mr-12" /></span>
+              <el-form-item>
+                <div class="table-tools__conditions__buttons">
+                  <el-button type="primary" @click="search">查询</el-button>
+                  <el-button @click="resetConditions">重置</el-button>
+                  <span class="table-tools__conditions__buttons__txt" @click="openConditions">展开<svg-icon name="down" class="ml-6" /></span>
+                </div>
               </el-form-item>
             </el-col>
           </el-row>
@@ -84,13 +86,13 @@
           <el-button>次按钮</el-button>
         </div>
         <div class="table-tools__right">
-          <div class="table-tools__right__btn__txt" @click="download">
+          <div class="table-tools__right__button__txt" @click="download">
             <svg-icon name="vertical-align-bottom" />
             <span class="ml-6">下载</span>
           </div>
-          <div class="table-tools__right__btn__txt ml-22" @click="exportFile">
+          <div class="table-tools__right__button__txt ml-22" @click="exportFile">
             <svg-icon name="export" />
-            <span class="ml-6 mr-12">导出</span>
+            <span class="ml-6">导出</span>
           </div>
         </div>
       </div>
@@ -109,12 +111,23 @@
           <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
         </template>
       </el-table-column>
-      <el-table-column prop="actions" label="操作" width="190" fixed="right" class-name="actions">
+      <el-table-column prop="actions" label="操作" width="200" fixed="right" class-name="actions">
         <template slot-scope="{ row }">
           <el-button type="text" @click="gotoMount(row)">挂载</el-button>
           <el-button type="text" @click="gotoUninstall(row)">卸载</el-button>
           <el-button type="text" @click="gotoExpansion(row)">扩容</el-button>
-          <el-button type="text" @click="gotoDashboard(row)">更多<svg-icon name="caret-down" class="actions__svgicon" /></el-button>
+          <el-dropdown trigger="click">
+            <span class="actions__txt">
+              更多<svg-icon name="caret-down" class="actions__svgicon" />
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>黄金糕</el-dropdown-item>
+              <el-dropdown-item>狮子头</el-dropdown-item>
+              <el-dropdown-item>螺蛳粉</el-dropdown-item>
+              <el-dropdown-item disabled>双皮奶</el-dropdown-item>
+              <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
         </template>
       </el-table-column>
     </el-table>
@@ -386,16 +399,15 @@ export default class extends Vue {
   margin-bottom: 16px;
 }
 
-.mr-12 {
-  margin-right: 12px;
+::v-deep .el-form-item {
+  width: 100%;
 }
 
-.table-tools__right__btn__txt {
-  font-family: PingFangSC-Regular;
-  font-size: 12px;
-  color: $color-grey-1;
-  line-height: 20px;
-  font-weight: 400;
-  cursor: pointer;
+::v-deep .el-form-item__content {
+  width: 100%;
+}
+
+::v-deep .el-dropdown {
+  margin: 0;
 }
 </style>

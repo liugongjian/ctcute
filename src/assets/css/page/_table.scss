@@ -80,13 +80,21 @@
             border-left: 1px solid $border-color-primary;
           }
         }
-
-        .actions__svgicon {
-          margin-left: 6px;
-          cursor: pointer;
-          width: 10px !important;
-        }
       }
+    }
+
+    .actions__svgicon {
+      margin-left: 6px;
+      cursor: pointer;
+      width: 10px !important;
+      color: $color-master-1;
+    }
+
+    .actions__txt {
+      font-size: 12px;
+      color: $color-master-1;
+      line-height: 20px;
+      font-weight: 400;
     }
   }
 
@@ -95,6 +103,14 @@
     &__right {
       display: flex;
       align-items: center;
+
+      &__button__txt {
+        font-size: 12px;
+        color: $color-grey-1;
+        line-height: 20px;
+        font-weight: 400;
+        cursor: pointer;
+      }
     }
 
     /* 按钮组 */
@@ -126,11 +142,12 @@
       .el-input,
       .el-select {
         min-width: 357px;
+        width: 100%;
       }
 
       &__buttons {
-        margin-left: 24px;
         margin-right: 0;
+        float: right;
 
         &__txt {
           font-size: 12px;

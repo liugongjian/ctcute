@@ -16,12 +16,9 @@
         <el-form v-show="active === 0" ref="firstForm" :model="firstForm" :rules="rules" label-width="130px">
           <el-form-item label="输入查询" prop="name">
             <div>
-              <el-input
-                v-model="firstForm.name"
-                placeholder="请输入策略名称"
-              />
+              <el-input v-model="firstForm.name" placeholder="请输入策略名称" />
               <div class="form-item-tip">
-                <span style="margin-right: 8px;"><svg-icon name="info-circle" width="12" height="12" /></span>
+                <span style="margin-right: 8px"><svg-icon name="info-circle" width="12" height="12" /></span>
                 <span>策略格式为XXXXXXXXXXXXXXXXX</span>
               </div>
             </div>
@@ -37,37 +34,16 @@
             />
           </el-form-item>
           <el-form-item label="置灰输入" prop="disabledInput">
-            <el-input
-              v-model="firstForm.disabledInput"
-              :disabled="true"
-              placeholder="请输入"
-            />
+            <el-input v-model="firstForm.disabledInput" :disabled="true" placeholder="请输入" />
           </el-form-item>
           <el-form-item label="置灰下拉" prop="disabledSelect">
-            <el-select
-              v-model="firstForm.disabledSelect"
-              :disabled="true"
-              placeholder="请选择"
-            >
-              <el-option
-                v-for="item in disabledSelectOptions"
-                :key="item"
-                :label="item"
-                :value="item"
-              />
+            <el-select v-model="firstForm.disabledSelect" :disabled="true" placeholder="请选择">
+              <el-option v-for="item in disabledSelectOptions" :key="item" :label="item" :value="item" />
             </el-select>
           </el-form-item>
           <el-form-item label="超长标题测试" prop="longText">
-            <el-select
-              v-model="firstForm.longText"
-              placeholder="请选择"
-            >
-              <el-option
-                v-for="item in disabledSelectOptions"
-                :key="item"
-                :label="item"
-                :value="item"
-              />
+            <el-select v-model="firstForm.longText" placeholder="请选择">
+              <el-option v-for="item in disabledSelectOptions" :key="item" :label="item" :value="item" />
             </el-select>
           </el-form-item>
           <el-form-item label="单选" prop="radio">
@@ -82,7 +58,12 @@
             </el-checkbox-group>
           </el-form-item>
           <el-form-item label="短数字端" prop="shortNumber">
-            <el-input-number v-model="firstForm.shortNumber" controls-position="right" :min="1" :max="10"></el-input-number>
+            <el-input-number
+              v-model="firstForm.shortNumber"
+              controls-position="right"
+              :min="1"
+              :max="10"
+            ></el-input-number>
           </el-form-item>
           <el-form-item label="标签" prop="price">
             <el-tag
@@ -109,15 +90,18 @@
           </el-form-item>
         </el-form>
         <!-- 第二步表单 -->
-        <el-form v-show="active === 1" ref="secondForm" :model="secondForm" :rules="rules" label-width="130px">
+        <el-form
+          v-show="active === 1"
+          ref="secondForm"
+          :model="secondForm"
+          :rules="rules"
+          label-width="130px"
+        >
           <el-form-item label="输入查询" prop="name">
             <div>
-              <el-input
-                v-model="secondForm.name"
-                placeholder="请输入策略名称"
-              />
+              <el-input v-model="secondForm.name" placeholder="请输入策略名称" />
               <div class="form-item-tip">
-                <span style="margin-right: 8px;"><svg-icon name="info-circle" width="12" height="12" /></span>
+                <span style="margin-right: 8px"><svg-icon name="info-circle" width="12" height="12" /></span>
                 <span>策略格式为XXXXXXXXXXXXXXXXX</span>
               </div>
             </div>
@@ -133,37 +117,16 @@
             />
           </el-form-item>
           <el-form-item label="置灰输入" prop="disabledInput">
-            <el-input
-              v-model="secondForm.disabledInput"
-              :disabled="true"
-              placeholder="请输入"
-            />
+            <el-input v-model="secondForm.disabledInput" :disabled="true" placeholder="请输入" />
           </el-form-item>
           <el-form-item label="置灰下拉" prop="disabledSelect">
-            <el-select
-              v-model="secondForm.disabledSelect"
-              :disabled="true"
-              placeholder="请选择"
-            >
-              <el-option
-                v-for="item in disabledSelectOptions"
-                :key="item"
-                :label="item"
-                :value="item"
-              />
+            <el-select v-model="secondForm.disabledSelect" :disabled="true" placeholder="请选择">
+              <el-option v-for="item in disabledSelectOptions" :key="item" :label="item" :value="item" />
             </el-select>
           </el-form-item>
           <el-form-item label="超长标题测试" prop="longText">
-            <el-select
-              v-model="secondForm.longText"
-              placeholder="请选择"
-            >
-              <el-option
-                v-for="item in disabledSelectOptions"
-                :key="item"
-                :label="item"
-                :value="item"
-              />
+            <el-select v-model="secondForm.longText" placeholder="请选择">
+              <el-option v-for="item in disabledSelectOptions" :key="item" :label="item" :value="item" />
             </el-select>
           </el-form-item>
           <el-form-item label="单选" prop="radio">
@@ -178,7 +141,12 @@
             </el-checkbox-group>
           </el-form-item>
           <el-form-item label="短数字端" prop="shortNumber">
-            <el-input-number v-model="secondForm.shortNumber" controls-position="right" :min="1" :max="10"></el-input-number>
+            <el-input-number
+              v-model="secondForm.shortNumber"
+              controls-position="right"
+              :min="1"
+              :max="10"
+            ></el-input-number>
           </el-form-item>
         </el-form>
         <!-- 第三步表单 -->
@@ -204,12 +172,11 @@
             30
           </el-descriptions-item>
         </el-descriptions>
-        <el-result v-show="active > 2" icon="success" sub-title="恭喜你提交成功">
-        </el-result>
+        <el-result v-show="active > 2" icon="success" sub-title="恭喜你提交成功"> </el-result>
       </div>
 
       <div class="footer">
-        <div v-if="active === (steps.length - 1)">
+        <div v-if="active === steps.length - 1">
           <el-button
             class="btn-style"
             type="primary"
@@ -222,9 +189,11 @@
             提交信息
           </el-button>
           <el-button
-            @click="() => {
-              active--
-            }"
+            @click="
+              () => {
+                active--
+              }
+            "
           >
             上一步
           </el-button>
@@ -249,17 +218,21 @@
           <el-button
             class="btn-style"
             type="primary"
-            @click="() => {
-              nextStep()
-            }"
+            @click="
+              () => {
+                nextStep()
+              }
+            "
           >
             下一步
           </el-button>
           <el-button
             v-if="active > 0"
-            @click="() => {
-              active--
-            }"
+            @click="
+              () => {
+                active--
+              }
+            "
           >
             上一步
           </el-button>
@@ -273,10 +246,10 @@ import { Component, Vue, Ref } from 'vue-property-decorator'
 import * as StepForm from '@/types/StepForm'
 
 @Component({
-  name: 'StepForm'
+  name: 'StepForm',
 })
 export default class extends Vue {
-// 表单Ref对象
+  // 表单Ref对象
   @Ref('firstForm')
   private first
 
@@ -284,11 +257,7 @@ export default class extends Vue {
   @Ref('secondForm')
   private second
 
-  private steps = [
-    { title: '步骤1' },
-    { title: '步骤2' },
-    { title: '步骤3' }
-  ]
+  private steps = [{ title: '步骤1' }, { title: '步骤2' }, { title: '步骤3' }]
 
   private active = 0
 
@@ -324,21 +293,11 @@ export default class extends Vue {
 
   // 表单校验规则
   private rules = {
-    name: [
-      { required: true, message: '请输入策略名称', trigger: 'blur' }
-    ],
-    disabledInput: [
-      { required: true, message: '请输入置灰输入', trigger: 'change' }
-    ],
-    disabledSelect: [
-      { required: true, message: '请选择置灰下拉', trigger: 'change' }
-    ],
-    longTitle: [
-      { required: true, message: '请输入超长标题测试', trigger: 'change' }
-    ],
-    radio: [
-      { required: true, message: '请选择单选', trigger: 'change' }
-    ]
+    name: [{ required: true, message: '请输入策略名称', trigger: 'blur' }],
+    disabledInput: [{ required: true, message: '请输入置灰输入', trigger: 'change' }],
+    disabledSelect: [{ required: true, message: '请选择置灰下拉', trigger: 'change' }],
+    longTitle: [{ required: true, message: '请输入超长标题测试', trigger: 'change' }],
+    radio: [{ required: true, message: '请选择单选', trigger: 'change' }],
   }
 
   // 置灰下拉框选项

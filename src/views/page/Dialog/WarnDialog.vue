@@ -21,9 +21,8 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({
-  name: 'WarnDialog'
+  name: 'WarnDialog',
 })
-
 export default class extends Vue {
   @Prop({ default: '取消' }) readonly cancelButtonText: string
   @Prop({ default: '确定' }) readonly confirmButtonText: string

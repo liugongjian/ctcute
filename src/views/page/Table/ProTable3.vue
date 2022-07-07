@@ -64,7 +64,9 @@
                 <div class="table-tools__conditions__buttons">
                   <el-button type="primary" @click="search">查询</el-button>
                   <el-button @click="resetConditions">重置</el-button>
-                  <span class="table-tools__conditions__buttons__txt" @click="openConditions">展开<svg-icon name="down" class="ml-6" /></span>
+                  <span class="table-tools__conditions__buttons__txt" @click="openConditions"
+                    >展开<svg-icon name="down" class="ml-6"
+                  /></span>
                 </div>
               </el-form-item>
             </el-col>
@@ -117,9 +119,7 @@
           <el-button type="text" @click="gotoUninstall(row)">卸载</el-button>
           <el-button type="text" @click="gotoExpansion(row)">扩容</el-button>
           <el-dropdown trigger="click">
-            <span class="actions__txt">
-              更多<svg-icon name="caret-down" class="actions__svgicon" />
-            </span>
+            <span class="actions__txt"> 更多<svg-icon name="caret-down" class="actions__svgicon" /> </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>黄金糕</el-dropdown-item>
               <el-dropdown-item>狮子头</el-dropdown-item>

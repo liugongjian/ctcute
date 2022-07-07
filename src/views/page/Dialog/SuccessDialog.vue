@@ -8,7 +8,9 @@
   >
     <div class="success-dialog--content">
       <slot name="icon"><svg-icon name="check-circle-fill" /></slot>
-      <slot name="content">已成功创建XXX数据源标签方案，是否配置任务？已成功创建XXX数据源标签方案，是否配置任务？</slot>
+      <slot name="content"
+        >已成功创建XXX数据源标签方案，是否配置任务？已成功创建XXX数据源标签方案，是否配置任务？</slot
+      >
     </div>
     <div class="success-dialog--btns">
       <el-button @click="close">{{ cancelButtonText }}</el-button>
@@ -21,7 +23,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({
-  name: 'SuccessDialog'
+  name: 'SuccessDialog',
 })
 export default class extends Vue {
   @Prop({ default: '以后再说' }) readonly cancelButtonText: string

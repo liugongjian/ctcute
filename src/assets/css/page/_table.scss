@@ -55,6 +55,113 @@
   @include table();
 }
 
+/* 复杂表格 3 */
+.pro-table-3 {
+  /* 分页 */
+  .el-pagination {
+    text-align: right;
+  }
+
+  .el-table {
+    /* 操作按钮 */
+    .actions.el-table__cell {
+      .el-button--text + .el-button--text {
+        margin-left: 10px;
+
+        &:nth-last-child(2) {
+          margin-right: 10px;
+        }
+
+        &:nth-last-child(1) {
+          &:before {
+            content: ' ';
+            position: relative;
+            left: -10px;
+            border-left: 1px solid $border-color-primary;
+          }
+        }
+      }
+    }
+
+    .actions__svgicon {
+      margin-left: 6px;
+      cursor: pointer;
+      width: 10px !important;
+      color: $color-master-1;
+    }
+
+    .actions__txt {
+      font-size: 12px;
+      color: $color-master-1;
+      line-height: 20px;
+      font-weight: 400;
+    }
+  }
+
+  /* 表格工具栏 */
+  .table-tools {
+    &__right {
+      display: flex;
+      align-items: center;
+
+      &__button__txt {
+        font-size: 12px;
+        color: $color-grey-1;
+        line-height: 20px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+    }
+
+    /* 按钮组 */
+    &__bottom {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* 筛选表单 */
+    &__conditions {
+      border-bottom: 1px solid $color-grey-7;
+
+      .el-form-item {
+        margin-bottom: 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .el-row:nth-last-child(1) {
+        .el-col:nth-last-child(1) {
+          display: flex;
+          flex-direction: row-reverse;
+        }
+      }
+
+      .el-input,
+      .el-select {
+        min-width: 357px;
+        width: 100%;
+      }
+
+      &__buttons {
+        margin-right: 0;
+        float: right;
+
+        &__txt {
+          font-size: 12px;
+          color: $color-master-1;
+          line-height: 20px;
+          font-weight: 400;
+          margin-left: 12px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
 /* 复杂表格1 */
 
 .table-filter {

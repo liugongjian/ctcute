@@ -32,6 +32,36 @@ const pageRoutes = [
       },
     ],
   },
+  // 弹窗
+  {
+    path: '/page/dialog',
+    component: Layout,
+    name: 'Dialog',
+    meta: {
+      title: 'Dialog 弹窗',
+      breadcrumb: true
+    },
+    children: [
+      {
+        path: 'success-dialog',
+        component: () => import('@/views/page/Dialog/SuccessDialog.vue'),
+        name: 'SuccessDialog',
+        meta: {
+          title: 'SuccessDialog 成功弹窗',
+          breadcrumb: true
+        }
+      },
+      {
+        path: 'warn-dialog',
+        component: () => import('@/views/page/Dialog/WarnDialog.vue'),
+        name: 'WarnDialog',
+        meta: {
+          title: 'WarnDialog 告警弹窗',
+          breadcrumb: true
+        }
+      }
+    ]
+  },
   // 表单
   {
     path: '/page/form',
@@ -70,6 +100,15 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'step-form',
+        component: () => import(/* webpackChunkName: "form" */ '@/views/page/Form/StepForm.vue'),
+        name: 'StepForm',
+        meta: {
+          title: 'StepForm 分步表单',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 表格
@@ -98,6 +137,15 @@ const pageRoutes = [
         name: 'ProTable',
         meta: {
           title: 'ProTable 复杂表格',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-table3',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable3.vue'),
+        name: 'ProTable3',
+        meta: {
+          title: 'ProTable3 复杂表格3',
           breadcrumb: true,
         },
       },

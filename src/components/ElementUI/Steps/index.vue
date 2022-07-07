@@ -119,5 +119,9 @@ export default {
   ::v-deep .el-step.is-horizontal .el-step__line {
     top: 10px;
   }
+  ::v-deep .el-step__icon-inner.is-status {
+    transform: translateY(0px);
+    font-size: 12px;
+}
 }
 </style>

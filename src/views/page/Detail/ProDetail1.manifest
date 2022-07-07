@@ -1,0 +1,18 @@
+[
+  {
+    "name": "ProDetail1.vue",
+    "path": "@/views/page/Detail/ProDetail1.vue"
+  },
+  {
+    "name": "ProDetail1.d.ts",
+    "path": "@/types/ProDetail1.d.ts"
+  },
+  {
+    "name": "api/ProDetail1.ts",
+    "path": "@/api/ProDetail1.ts"
+  },
+  {
+    "name": "dics/ProDetail1.ts",
+    "path": "@/dics/ProDetail1.ts"
+  }
+]

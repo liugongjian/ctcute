@@ -1,14 +1,17 @@
 <template>
-  <div style="display: flex;">
+  <div style="display: flex">
     <el-dropdown
-      trigger="click" :hide-on-click="false" placement="bottom-start" @visible-change="openDropdown"
+      trigger="click"
+      :hide-on-click="false"
+      placement="bottom-start"
+      @visible-change="openDropdown"
     >
       <el-tag type="newtag" size="large"> + 新增过滤 </el-tag>
       <el-dropdown-menu slot="dropdown" class="conventional-dropdown">
         <el-dropdown-item>
           <el-form>
             <el-form-item label="cpu使用量">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
+              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px">
                 <el-option
                   v-for="item in operationOptions"
                   :key="item.value"
@@ -17,12 +20,12 @@
                 />
               </el-select>
 
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" />
+              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px" />
               <span>%</span>
             </el-form-item>
 
             <el-form-item label="RAM使用量">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
+              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px">
                 <el-option
                   v-for="item in operationOptions"
                   :key="item.value"
@@ -31,11 +34,11 @@
                 />
               </el-select>
 
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" />
+              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px" />
               <span>%</span>
             </el-form-item>
             <el-form-item label="磁盘剩余量">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
+              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px">
                 <el-option
                   v-for="item in operationOptions"
                   :key="item.value"
@@ -43,11 +46,11 @@
                   :value="item.value"
                 />
               </el-select>
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" />
+              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px" />
               <span>%</span>
             </el-form-item>
             <el-form-item label="网络平均负数">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
+              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px">
                 <el-option
                   v-for="item in operationOptions"
                   :key="item.value"
@@ -55,11 +58,11 @@
                   :value="item.value"
                 />
               </el-select>
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" />
+              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px" />
               <span>%</span>
             </el-form-item>
             <el-form-item label="处理请求数">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
+              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px">
                 <el-option
                   v-for="item in operationOptions"
                   :key="item.value"
@@ -67,7 +70,7 @@
                   :value="item.value"
                 />
               </el-select>
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" />
+              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px" />
               <span>%</span>
             </el-form-item>
           </el-form>
@@ -108,5 +111,4 @@ export default class extends Vue {
     color: $color-grey-1;
   }
 }
-
 </style>

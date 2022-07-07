@@ -37,7 +37,7 @@ export default class extends Vue {
 
   // 加载状态
   private loading = false
-  
+
   private name = ''
 
   // 数据

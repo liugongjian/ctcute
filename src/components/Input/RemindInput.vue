@@ -6,7 +6,8 @@
     :fetch-suggestions="querySearch"
     :trigger-on-focus="false"
   >
-    <span slot="suffix" class="prompt-title"><div>{{ model ? title : '' }}</div>
+    <span slot="suffix" class="prompt-title"
+      ><div>{{ model ? title : '' }}</div>
     </span>
   </el-autocomplete>
 </template>

@@ -3,7 +3,13 @@
     <!--表格工具栏-->
     <div class="table-tools">
       <div class="table-tools__right table-tools__conditions">
-        <el-form class="complex-table_from" :model="conditions" inline label-width="130px" @submit.native.prevent>
+        <el-form
+          class="complex-table_from"
+          :model="conditions"
+          inline
+          label-width="130px"
+          @submit.native.prevent
+        >
           <el-form-item prop="name">
             <remind-input :title="title" :placeholder="placeholder" :model="conditions.name"> </remind-input>
           </el-form-item>

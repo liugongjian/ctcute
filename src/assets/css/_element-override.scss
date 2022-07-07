@@ -1,7 +1,7 @@
 /* Iconfont
 -------------------------- */
 @mixin iconfont {
-  font-family: 'element-icons' !important;
+  font-family: 'cute-icons' !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -314,7 +314,7 @@
     cursor: pointer;
   }
 }
-.suffix-forgot + .el-link{
+.suffix-forgot + .el-link {
   height: 16px;
   line-height: 32px;
 }
@@ -797,8 +797,8 @@
   text-align: right !important;
   color: $color-grey-2;
   font-weight: bold !important;
-   padding-right: 24px !important;
-   width: 165px !important;
+  padding-right: 24px !important;
+  width: 165px !important;
 }
 .el-descriptions .is-bordered .el-descriptions-item__cell {
   border-color: $color-grey-6;
@@ -835,10 +835,10 @@
       color: $icon-color;
     }
   }
-  .el-select .el-input__suffix{
-     height: 24px !important;
+  .el-select .el-input__suffix {
+    height: 24px !important;
   }
-  .el-input .el-input__suffix{
+  .el-input .el-input__suffix {
     right: 0;
   }
   .el-pagination__total {
@@ -1775,6 +1775,6 @@
 /* sidebar
 -------------------------- */
 
-.el-submenu__icon-arrow.el-icon-arrow-down::before{
+.el-submenu__icon-arrow.el-icon-arrow-down::before {
   content: '\e790';
 }

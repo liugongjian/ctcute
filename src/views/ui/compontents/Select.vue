@@ -50,9 +50,7 @@
       <h3>带提示</h3>
       <div class="line">
         <div class="line__left">
-          <remind-select
-            :data="options1" :title="name" :placeholder="name" :model="value9"
-          />
+          <remind-select :data="options1" :title="name" :placeholder="name" :model="value9" />
         </div>
       </div>
     </div>

@@ -164,7 +164,7 @@ import { STATUS, HEALTH } from '@/dics/simpleTable'
 import TableFilter from '@/components/Table/TableFilter.vue'
 @Component({
   name: 'SimpleTable',
-  components: { TableFilter }
+  components: { TableFilter },
 })
 export default class extends Vue {
   // 健康状态字典

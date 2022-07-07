@@ -30,6 +30,7 @@ export default class extends Vue {
     display: flex;
     align-items: center;
     margin-bottom: 16px;
+    font-size: 14px;
 
     &:before {
       width: 4px;
@@ -39,11 +40,6 @@ export default class extends Vue {
       content: ' ';
       display: inline-block;
     }
-  }
-
-  &__content {
-    // margin-top: 16px;
-    // margin-bottom: 24px;
   }
 
   &:last-of-type {

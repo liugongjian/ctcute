@@ -18,7 +18,7 @@ const settings: ISettings = {
   showSidebarLogo: false,
   errorLog: ['production'],
   sidebarTextTheme: true,
-  apiBaseUrl: '/'
+  apiBaseUrl: '/',
 }
 
 export default settings

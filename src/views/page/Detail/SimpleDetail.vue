@@ -92,8 +92,7 @@
             </template>
           </el-table-column>
           <el-table-column prop="operatorId" label="操作员id"></el-table-column>
-          <el-table-column prop="duration" label="耗时">
-          </el-table-column>
+          <el-table-column prop="duration" label="耗时"> </el-table-column>
         </el-table>
       </div>
     </div>

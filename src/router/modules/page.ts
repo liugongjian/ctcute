@@ -162,7 +162,7 @@ const pageRoutes = [
           title: 'ProDetail2 复杂详情页2',
           breadcrumb: true,
         },
-      }
+      },
     ],
   },
   // 其他

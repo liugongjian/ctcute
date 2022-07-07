@@ -8,8 +8,8 @@ const data = mock({
       time: '2022-05-20 18:00:05',
       label: ['标签1', '标签2'],
       description: '这是一个很长很长的描述描述描述描述描述描述描述描述描述',
-      healthy: /(1|2|3|4|5)/
-    }
+      healthy: /(1|2|3|4|5)/,
+    },
   ],
   'tableData10|10': [
     {
@@ -19,23 +19,23 @@ const data = mock({
       time: '2022-05-20 18:00:05',
       label: ['标签1', '标签2'],
       description: '这是一个很长很长的描述描述描述描述描述描述描述描述描述',
-      healthy: /(1|2|3|4|5)/
-    }
+      healthy: /(1|2|3|4|5)/,
+    },
   ],
   'smallTable|10': [
     {
       name: '工作实例名称最多十字工作实例名称最多十字工作实例名称最多十字工作实例名称最多十字',
       time: '999天23小时59分59秒',
-      status: /(6|7|8|9)/
-    }
+      status: /(6|7|8|9)/,
+    },
   ],
   transverseTable: [
     {
       name: 'user_age>6 and user_age<=9',
       date: 'update_time',
       primarykey: '主键',
-      unit: 'unit'
-    }
+      unit: 'unit',
+    },
   ],
   'twoTree|10': [
     {
@@ -44,10 +44,10 @@ const data = mock({
       'children|7': [
         {
           label: '具体文件名称',
-          key: '@id'
-        }
-      ]
-    }
+          key: '@id',
+        },
+      ],
+    },
   ],
 
   threeTree: [
@@ -61,12 +61,12 @@ const data = mock({
           'children|6': [
             {
               label: '具体文件名称',
-              key: '@id'
-            }
-          ]
-        }
-      ]
-    }
+              key: '@id',
+            },
+          ],
+        },
+      ],
+    },
   ],
   threeFour: [
     {
@@ -83,15 +83,15 @@ const data = mock({
               'children|3': [
                 {
                   key: '@id',
-                  label: '具体文件名称'
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
+                  label: '具体文件名称',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
 })
 // 设置需要展开的key
 data.threeFour[0].children[1].children[2].key = 2

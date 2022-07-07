@@ -3,7 +3,9 @@
     <h3>折叠面板</h3>
     <el-collapse v-model="activeNames">
       <el-collapse-item title="标题" name="1">
-        <div>我是内容我是内容我是内容，我是内容我是内容我是内容我是。内容我是内容我是内，容我是内容我是内容我是内容我。我是内容我是内容我是内容我是内容我是内容，我是内容我是内容我是内容。我是内容我是内容我是内容，我是内容我是内容我是内容，我是内容我是内容我是内容我是。内容我是内容</div>
+        <div>
+          我是内容我是内容我是内容，我是内容我是内容我是内容我是。内容我是内容我是内，容我是内容我是内容我是内容我。我是内容我是内容我是内容我是内容我是内容，我是内容我是内容我是内容。我是内容我是内容我是内容，我是内容我是内容我是内容，我是内容我是内容我是内容我是。内容我是内容
+        </div>
       </el-collapse-item>
       <el-collapse-item title="标题" name="2">
         <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
@@ -35,8 +37,8 @@
         <el-table
           ref="table2"
           :data="smallTable"
-          :row-style="{ 'height': '75px', 'line-height': '42px' }"
-          :cell-style="{ 'padding': 0 }"
+          :row-style="{ height: '75px', 'line-height': '42px' }"
+          :cell-style="{ padding: 0 }"
         >
           <el-table-column prop="id" label="商品编码">
             <template slot-scope="scope">

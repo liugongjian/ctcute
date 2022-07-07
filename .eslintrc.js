@@ -6,7 +6,12 @@ module.exports = {
     node: true, // 支持 node
     es6: true, // 支持 es6 语法
   },
-  extends: ['plugin:vue/recommended', '@vue/standard', '@vue/typescript/recommended'],
+  extends: [
+    'plugin:vue/recommended',
+    '@vue/typescript/recommended',
+    '@vue/prettier',
+    '@vue/prettier/@typescript-eslint',
+  ],
   parserOptions: {
     ecmaVersion: '2021',
   },
@@ -15,8 +20,8 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     indent: 'off',
-    '@typescript-eslint/indent': ['error', 2],
-    'space-before-function-paren': ['error', { anonymous: 'never', named: 'never', asyncArrow: 'always' }],
+    // 函数圆括号之前有一个空格，关闭 eslint 规则，交由 prettier 自行处理
+    'space-before-function-paren': 0,
     'block-spacing': ['error', 'always'],
     'key-spacing': 'error',
     quotes: ['error', 'single'],

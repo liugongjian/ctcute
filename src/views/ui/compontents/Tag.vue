@@ -50,7 +50,9 @@
       @blur="handleFilterInputConfirm"
     >
     </el-input>
-    <el-tag v-else type="newtag" :disable-transitions="true" size="large" @click="showFilterInput">+ 新增过滤</el-tag>
+    <el-tag v-else type="newtag" :disable-transitions="true" size="large" @click="showFilterInput"
+      >+ 新增过滤</el-tag
+    >
     <h3>彩色标签</h3>
     <el-tag type="danger">红色</el-tag>
     <el-tag type="success">绿色</el-tag>

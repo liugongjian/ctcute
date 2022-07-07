@@ -9,23 +9,12 @@
       <div class="table-tools__right table-tools__conditions">
         <el-form ref="conditions" :model="conditions" inline @submit.native.prevent>
           <el-form-item prop="host">
-            <el-select
-              v-model="conditions.host"
-              placeholder="请选择主机"
-            >
-              <el-option
-                v-for="item in hostOptions"
-                :key="item"
-                :label="item"
-                :value="item"
-              />
+            <el-select v-model="conditions.host" placeholder="请选择主机">
+              <el-option v-for="item in hostOptions" :key="item" :label="item" :value="item" />
             </el-select>
           </el-form-item>
           <el-form-item prop="name">
-            <el-input
-              v-model="conditions.name"
-              placeholder="请输入主机别名"
-            />
+            <el-input v-model="conditions.name" placeholder="请输入主机别名" />
             <el-form-item class="table-tools__conditions__buttons">
               <el-button type="primary" @click="search">查询</el-button>
               <el-button @click="resetConditions">重置</el-button>
@@ -35,52 +24,19 @@
       </div>
     </div>
     <!--表格-->
-    <el-table
-      v-loading="loading"
-      :data="tableData"
-      fit
-    >
-      <el-table-column
-        prop="name"
-        label="主机别名"
-      />
-      <el-table-column
-        prop="status"
-        label="实例状态"
-        :formatter="statusFormatter"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="ip"
-        label="IP地址"
-      />
-      <el-table-column
-        prop="cpu"
-        label="CPU利用率(%)"
-      />
-      <el-table-column
-        prop="memory"
-        label="内存利用率(%)"
-      />
-      <el-table-column
-        prop="disk"
-        label="磁盘利用率(%)"
-      />
-      <el-table-column
-        prop="health"
-        label="健康状态"
-      >
+    <el-table v-loading="loading" :data="tableData" fit>
+      <el-table-column prop="name" label="主机别名" />
+      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
+      <el-table-column prop="ip" label="IP地址" />
+      <el-table-column prop="cpu" label="CPU利用率(%)" />
+      <el-table-column prop="memory" label="内存利用率(%)" />
+      <el-table-column prop="disk" label="磁盘利用率(%)" />
+      <el-table-column prop="health" label="健康状态">
         <template slot-scope="{ row }">
           <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
         </template>
       </el-table-column>
-      <el-table-column
-        prop="actions"
-        label="操作"
-        width="150"
-        fixed="right"
-        class-name="actions"
-      >
+      <el-table-column prop="actions" label="操作" width="150" fixed="right" class-name="actions">
         <template slot-scope="{ row }">
           <el-button type="text" @click="gotoDetail(row)">详情</el-button>
           <el-button type="text" @click="gotoDashboard(row)">监控指标</el-button>
@@ -105,7 +61,7 @@ import { getTable, getHosts } from '@/api/simpleTable'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
 
 @Component({
-  name: 'SimpleTable'
+  name: 'SimpleTable',
 })
 export default class extends Vue {
   // 健康状态字典
@@ -114,7 +70,7 @@ export default class extends Vue {
   // 搜索信息
   private conditions: SimpleTable.Conditions = {
     host: '',
-    name: ''
+    name: '',
   }
 
   // 主机信息下拉框选项
@@ -124,7 +80,7 @@ export default class extends Vue {
   private pager = {
     page: 1,
     limit: 10,
-    total: 20
+    total: 20,
   }
 
   // 加载状态
@@ -163,7 +119,7 @@ export default class extends Vue {
       const params: SimpleTable.TableParams = {
         page: this.pager.page,
         limit: this.pager.limit,
-        ...this.conditions
+        ...this.conditions,
       }
       const res = await getTable(params)
       this.pager.total = res.data.total
@@ -234,31 +190,31 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-  .health-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin-right: 8px;
-    border-radius: 100%;
+.health-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 100%;
 
-    &--1 {
-      background: $color-status-success;
-    }
-
-    &--2 {
-      background: $color-status-warning;
-    }
-
-    &--3 {
-      background: $color-status-danger;
-    }
-
-    &--4 {
-      background: $color-status-info;
-    }
-
-    &--5 {
-      background: $disabled-color;
-    }
+  &--1 {
+    background: $color-status-success;
   }
+
+  &--2 {
+    background: $color-status-warning;
+  }
+
+  &--3 {
+    background: $color-status-danger;
+  }
+
+  &--4 {
+    background: $color-status-info;
+  }
+
+  &--5 {
+    background: $disabled-color;
+  }
+}
 </style>

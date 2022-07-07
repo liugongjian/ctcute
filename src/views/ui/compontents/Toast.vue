@@ -10,7 +10,7 @@
             $message({
               message: '成功提示文案',
               type: 'success',
-              customClass: 'toast-success'
+              customClass: 'toast-success',
             })
           "
         >
@@ -24,7 +24,7 @@
             $message({
               message: '警告提示文案',
               type: 'warning',
-              customClass: 'toast-warning'
+              customClass: 'toast-warning',
             })
           "
         >
@@ -38,7 +38,7 @@
             $message({
               message: '错误提示文案',
               type: 'error',
-              customClass: 'toast-error'
+              customClass: 'toast-error',
             })
           "
         >
@@ -52,12 +52,12 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiToast'
+  name: 'UiToast',
 })
 export default class extends Vue {
   public static title = {
     zh: '轻提示',
-    en: 'Toast'
+    en: 'Toast',
   }
 }
 </script>

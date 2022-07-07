@@ -7,8 +7,8 @@ import { VuexModule, Module, Mutation, getModule } from 'vuex-module-decorators'
 import store from '@/store'
 
 interface Result {
-  sumResult: number;
-  multiplyResult: number;
+  sumResult: number
+  multiplyResult: number
 }
 
 export interface ITsDemo {
@@ -19,7 +19,7 @@ export interface ITsDemo {
 class TsDemo extends VuexModule implements ITsDemo {
   public result: Result = {
     sumResult: null,
-    multiplyResult: null
+    multiplyResult: null,
   }
 
   /**

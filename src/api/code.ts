@@ -6,12 +6,12 @@ export const getManifest = (params: Code.ParamsManifest): AxiosPromise<Code.Mani
   request({
     url: '/v1/code/manifest',
     method: 'get',
-    params
+    params,
   })
 
 export const getCode = (params: Code.ParamsCode): AxiosPromise<string> =>
   request({
     url: '/v1/code',
     method: 'get',
-    params
+    params,
   })

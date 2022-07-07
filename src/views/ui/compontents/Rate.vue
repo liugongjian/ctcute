@@ -1,24 +1,10 @@
 <template>
   <div class="sub-rate">
-    <el-rate
-      v-model="value"
-      :allow-half="true"
-    >
-    </el-rate>
+    <el-rate v-model="value" :allow-half="true"> </el-rate>
 
-    <el-rate
-      v-model="value1"
-      show-score
-      score-template="{value}星"
-    >
-    </el-rate>
+    <el-rate v-model="value1" show-score score-template="{value}星"> </el-rate>
 
-    <el-rate
-      v-model="value2"
-      :icon-classes="likeClasses"
-      :void-icon-class="likeIcon"
-    >
-    </el-rate>
+    <el-rate v-model="value2" :icon-classes="likeClasses" :void-icon-class="likeIcon"> </el-rate>
   </div>
 </template>
 <script lang="ts">

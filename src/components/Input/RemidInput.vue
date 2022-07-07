@@ -7,7 +7,8 @@
     :trigger-on-focus="false"
     @input="prompt"
   >
-    <span v-show="flag" slot="suffix" class="prompt-title"><div>{{ placeholder }}</div>
+    <span v-show="flag" slot="suffix" class="prompt-title"
+      ><div>{{ placeholder }}</div>
     </span>
   </el-autocomplete>
 </template>

@@ -8,10 +8,7 @@
       <div class="card-tools__right">
         <el-form ref="conditions" inline @submit.native.prevent>
           <el-form-item prop="name">
-            <el-input
-              v-model="name"
-              placeholder="请输入名称"
-            />
+            <el-input v-model="name" placeholder="请输入名称" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="search">查询</el-button>
@@ -45,5 +42,4 @@ export default class extends Vue {
     conditionsForm.resetFields()
   }
 }
-
 </script>

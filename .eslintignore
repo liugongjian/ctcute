@@ -1,0 +1,5 @@
+# eslint 忽略文件
+vue.config.js
+dist/
+public/
+src/assets/

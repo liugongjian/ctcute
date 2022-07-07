@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex;">
+  <div style="display: flex">
     <transition name="el-alert-fade">
       <div
         v-show="visible"
@@ -25,7 +25,8 @@
           :class="{ 'is-customed': closeText !== '', 'el-icon-close': closeText === '' }"
           :style="{ color: closeBtnColor }"
           @click="close()"
-        >{{ closeText }}</i>
+          >{{ closeText }}</i
+        >
       </div>
     </transition>
   </div>
@@ -75,7 +76,7 @@ export default {
     effect: {
       type: String,
       default: 'light',
-      validator: function(value) {
+      validator: function (value) {
         return ['light', 'dark'].indexOf(value) !== -1
       },
     },

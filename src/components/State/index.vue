@@ -1,11 +1,7 @@
 <template>
   <span class="el-state">
     <span v-if="icon" class="icon-wrap">
-      <svg-icon
-        :class="[{ 'loading': loading }]"
-        :name="icon"
-        :color="color"
-      />
+      <svg-icon :class="[{ loading: loading }]" :name="icon" :color="color" />
     </span>
     <span v-else class="dot" :style="{ 'background-color': color }" />
     <slot />
@@ -16,7 +12,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'State'
+  name: 'State',
 })
 export default class extends Vue {
   @Prop({ default: '#999' }) private color!: string

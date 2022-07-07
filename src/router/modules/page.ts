@@ -43,6 +43,33 @@ const pageRoutes = [
     },
     children: [
       {
+        path: 'small-dialog',
+        component: () => import('@/views/page/Dialog/SmallDialog.vue'),
+        name: 'SmallDialog',
+        meta: {
+          title: 'SmallDialog 小弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'medium-dialog',
+        component: () => import('@/views/page/Dialog/MediumDialog.vue'),
+        name: 'MediumDialog',
+        meta: {
+          title: 'MediumDialog 中弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'large-dialog',
+        component: () => import('@/views/page/Dialog/LargeDialog.vue'),
+        name: 'LargeDialog',
+        meta: {
+          title: 'LargeDialog 大弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'success-dialog',
         component: () => import('@/views/page/Dialog/SuccessDialog.vue'),
         name: 'SuccessDialog',

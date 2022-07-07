@@ -35,13 +35,40 @@ const pageRoutes = [
   // 弹窗
   {
     path: '/page/dialog',
-    component: Layout,
     name: 'Dialog',
+    component: Layout,
     meta: {
       title: 'Dialog 弹窗',
       breadcrumb: true,
     },
     children: [
+      {
+        path: 'small-dialog',
+        component: () => import('@/views/page/Dialog/SmallDialog.vue'),
+        name: 'SmallDialog',
+        meta: {
+          title: 'SmallDialog 小弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'medium-dialog',
+        component: () => import('@/views/page/Dialog/MediumDialog.vue'),
+        name: 'MediumDialog',
+        meta: {
+          title: 'MediumDialog 中弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'large-dialog',
+        component: () => import('@/views/page/Dialog/LargeDialog.vue'),
+        name: 'LargeDialog',
+        meta: {
+          title: 'LargeDialog 大弹窗',
+          breadcrumb: true,
+        },
+      },
       {
         path: 'success-dialog',
         component: () => import('@/views/page/Dialog/SuccessDialog.vue'),
@@ -56,7 +83,7 @@ const pageRoutes = [
         component: () => import('@/views/page/Dialog/WarnDialog.vue'),
         name: 'WarnDialog',
         meta: {
-          title: 'WarnDialog 告警弹窗',
+          title: 'WarnDialog 警告弹窗',
           breadcrumb: true,
         },
       },
@@ -257,6 +284,30 @@ const pageRoutes = [
         name: 'EmptyPage',
         meta: {
           title: '空页面',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  // 图表
+
+  {
+    path: '/page/chart',
+    redirect: '/page/chart/simpleChart',
+    component: Layout,
+    name: 'simpleChart',
+    meta: {
+      title: 'SimpleChart 基础图表',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'Chart',
+        component: () => import(/* webpackChunkName: "simplechart" */ '@/views/page/Chart/SimpleChart.vue'),
+        name: 'Chart',
+        meta: {
+          title: 'SimpleChart 基础图表',
           breadcrumb: true,
         },
       },

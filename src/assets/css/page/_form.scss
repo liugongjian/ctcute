@@ -22,10 +22,8 @@
 }
 
 @mixin formTitle {
-  .form-titles {
+  .block__title {
     line-height: 14px;
-    padding-left: 12px;
-    border-left: 4px solid $color-master-1;
     height: 14px;
     font-family: PingFangSC-Medium;
     font-size: 14px;
@@ -133,7 +131,7 @@
 
   @include form();
 
-  .form-titles {
+  .block__title {
     margin: 0 0 24px 35px;
   }
 

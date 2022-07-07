@@ -6,7 +6,7 @@
     </p>
     <h3>基础表格</h3>
     <div class="sub-table">
-      <el-table :data="data.tableData" border>
+      <el-table :data="data.tableData" border height="614px">
         <el-table-column prop="name" label="主机别名" width="150px">
           <template slot-scope="scope">
             <div>

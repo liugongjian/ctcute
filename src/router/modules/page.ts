@@ -94,6 +94,30 @@ const pageRoutes = [
       },
     ],
   },
+  // 图表
+
+  {
+    path: '/page/chart',
+    redirect: '/page/chart/simpleChart',
+    component: Layout,
+    name: 'simpleChart',
+    meta: {
+      title: 'SimpleChart 基础图表',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'Chart',
+        component: () => import(/* webpackChunkName: "simplechart" */ '@/views/page/Chart/SimpleChart.vue'),
+        name: 'Chart',
+        meta: {
+          title: 'SimpleChart 基础图表',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
   // 其他
   {
     path: '/page/other',

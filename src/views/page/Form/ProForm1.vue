@@ -179,10 +179,8 @@
         </el-form-item>
       </el-form>
     </el-card>
-    <div class="pro-form1-bottom">
-      <el-button type="primary" :loading="submitting" style="margin: 0 16px 0 40px" @click="submit"
-        >提 交</el-button
-      >
+    <div class="pro-form-bottom">
+      <el-button type="primary" :loading="submitting" style="margin:0 16px 0 40px;" @click="submit">提 交</el-button>
       <el-button @click="back">取 消</el-button>
     </div>
   </div>
@@ -422,7 +420,11 @@ export default class extends Vue {
    * 前端过滤删除当前项
    */
   private handleDelete(id: number) {
-    this.form.tableData = this.form.tableData.filter(item => item.id !== id)
+    if (this.form.tableData.length > 1) {
+      this.form.tableData = this.form.tableData.filter(item => item.id !== id)
+    } else {
+      this.$message.error('至少添加一条数据！')
+    }
   }
 
   /**

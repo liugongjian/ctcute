@@ -5,27 +5,55 @@
         <div class="form-titles">基本信息</div>
         <div class="form-items">
           <el-form-item label="所属环境">
-            <el-select v-model="form.environment" placeholder="请选择告警对象">
-              <el-option v-for="item in environmentOptions" :key="item" :label="item" :value="item" />
+            <el-select
+              v-model="form.environment"
+              placeholder="请选择"
+            >
+              <el-option
+                v-for="item in environmentOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
           <el-form-item label="所属集群">
-            <el-select v-model="form.cluster" placeholder="请选择告警对象">
-              <el-option v-for="item in clusterOptions" :key="item" :label="item" :value="item" />
+            <el-select
+              v-model="form.colony"
+              placeholder="请选择"
+            >
+              <el-option
+                v-for="item in colonyOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
           <el-form-item label="策略名称">
-            <el-select v-model="form.policy" placeholder="请选择告警对象">
-              <el-option v-for="item in policyOptions" :key="item" :label="item" :value="item" />
-            </el-select>
+            <el-input
+              v-model="form.policyName"
+              placeholder="请输入"
+            />
           </el-form-item>
           <el-form-item label="告警对象">
-            <el-select v-model="form.alertTarget" placeholder="请选择告警对象">
-              <el-option v-for="item in alertTargetOptions" :key="item" :label="item" :value="item" />
+            <el-select
+              v-model="form.alertTarget"
+              placeholder="请选择"
+            >
+              <el-option
+                v-for="item in alertTargetOptions"
+                :key="item"
+                :label="item"
+                :value="item"
+              />
             </el-select>
           </el-form-item>
           <el-form-item label="沉默周期">
-            <el-select v-model="form.duration" placeholder="请选择沉默周期">
+            <el-select
+              v-model="form.duration"
+              placeholder="请选择"
+            >
               <el-option
                 v-for="item in durationOptions"
                 :key="item.value"
@@ -34,33 +62,45 @@
               />
             </el-select>
           </el-form-item>
-          <el-form-item label="告警级别">
-            <el-select v-model="form.alertLevel" placeholder="请选择告警级别">
+          <el-form-item label="告警名称">
+            <el-input
+              v-model="form.alarmName"
+              placeholder="请输入"
+            />
+          </el-form-item>
+          <el-form-item label="监控对象">
+            <el-select
+              v-model="form.monitorTarget"
+              placeholder="请选择"
+            >
               <el-option
-                v-for="item in alertLevelOptions"
+                v-for="item in monitorsOptions"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
               />
             </el-select>
           </el-form-item>
-          <el-form-item label="告警对象">
-            <el-select v-model="form.alertTarget" placeholder="请选择告警对象">
-              <el-option v-for="item in alertTargetOptions" :key="item" :label="item" :value="item" />
+          <el-form-item label="监控集群">
+            <el-select
+              v-model="form.monitorColony"
+              placeholder="请选择"
+            >
+              <el-option
+                v-for="item in monitorColonyOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
-          <el-form-item label="告警对象">
-            <el-select v-model="form.alertTarget" placeholder="请选择告警对象">
-              <el-option v-for="item in alertTargetOptions" :key="item" :label="item" :value="item" />
-            </el-select>
-          </el-form-item>
-          <el-form-item label="告警对象">
-            <el-select v-model="form.alertTarget" placeholder="请选择告警对象">
-              <el-option v-for="item in alertTargetOptions" :key="item" :label="item" :value="item" />
-            </el-select>
+          <el-form-item label="监控名称">
+            <el-input
+              v-model="form.monitorName"
+              placeholder="请输入"
+            />
           </el-form-item>
         </div>
-
         <el-divider></el-divider>
         <div class="form-titles">告警规则</div>
         <el-form-item label="模板类型" prop="templateType" style="margin: 0 40px 0 35px">
@@ -185,37 +225,43 @@
         <el-divider></el-divider>
         <div class="form-titles">通知设置</div>
         <div class="form-items">
-          <el-form-item label="标签" prop="longTitle">
-            <el-tag v-if="isShow" type="info" closable :disable-transitions="false" @close="closeTag"
-              >标签</el-tag
-            >
-            <el-tag
-              v-for="tag in dynamicTags"
-              :key="tag"
-              type="info"
-              closable
-              :disable-transitions="false"
-              @close="handleClose(tag)"
-            >
-              {{ tag }}
-            </el-tag>
+          <el-form-item label="标签">
+            <div class="sub-tags">
+              <el-tag v-if="isShow" type="info" closable :disable-transitions="false" @close="closeTag">标签</el-tag>
+              <el-tag
+                v-for="tag in form.dynamicTags"
+                :key="tag"
+                type="info"
+                closable
+                :disable-transitions="false"
+                @close="handleClose(tag)"
+              >
+                {{ tag }}
+              </el-tag>
+              <el-input
+                v-if="inputVisible"
+                ref="saveTagInput"
+                v-model="inputValue"
+                size="small"
+                class="input-new-tag"
+                @keyup.enter.native="handleInputConfirm"
+                @blur="handleInputConfirm"
+              >
+              </el-input>
+              <el-tag v-else type="newtag" :disable-transitions="true" @click="showInput">+ 标签</el-tag>
+            </div>
+          </el-form-item>
+          <el-form-item label="六字标题测试">
             <el-input
-              v-if="inputVisible"
-              ref="saveTagInput"
-              v-model="inputValue"
-              size="small"
-              class="input-new-tag"
-              @keyup.enter.native="handleInputConfirm"
-              @blur="handleInputConfirm"
+              v-model="form.longTitle"
+              placeholder="请输入六字标题测试"
+            />
+          </el-form-item>
+          <el-form-item label="选择对象">
+            <el-select
+              v-model="form.chooseObjs"
+              placeholder="请选择对象"
             >
-            </el-input>
-            <el-tag v-else type="newtag" :disable-transitions="true" @click="showInput">+ 标签</el-tag>
-          </el-form-item>
-          <el-form-item label="六字标题测试" prop="longTitle">
-            <el-input v-model="form.longTitle" placeholder="请输入六字标题测试" />
-          </el-form-item>
-          <el-form-item label="选择对象" prop="chooseObjs">
-            <el-select v-model="form.chooseObjs" placeholder="请选择对象">
               <el-option
                 v-for="item in choObjsOptions"
                 :key="item.value"
@@ -227,35 +273,68 @@
         </div>
       </el-form>
     </el-card>
-    <div class="pro-form2-bottom">
-      <el-button type="primary" :loading="submitting" style="margin: 0 16px 0 40px" @click="submit"
-        >提 交</el-button
-      >
-      <el-button @click="back">取 消</el-button>
+    <div class="pro-form-bottom">
+      <el-button type="primary" :loading="submitting" style="margin-right:16px;" @click="submit">提 交</el-button>
+      <el-button style="margin-right:40px;" @click="back">取 消</el-button>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
-import * as ProForm1 from '@/types/ProForm1'
+import * as ProForm2 from '@/types/ProForm2'
 import { getAlertTarget } from '@/api/simpleForm'
-import { createProForm1 } from '@/api/proForm1'
+import { createProForm2 } from '@/api/proForm2'
 
 @Component({
-  name: 'ProForm1',
+  name: 'ProForm2'
 })
 export default class extends Vue {
   // 表单Ref对象
-  @Ref('proForm1')
-  private proForm1Ref
+  @Ref('proForm2')
+  private proForm2Ref
+
+  private inputValue = ''
+  private inputVisible = false
+  private isShow = true
+  // private dynamicTags = []
+
+  private closeTag() {
+    this.isShow = false
+  }
+
+  private showInput() {
+    this.inputVisible = true
+    this.$nextTick(() => {
+      const saveTagInput: any = this.$refs.saveTagInput
+      const saveTagInputRefs: any = saveTagInput.$refs
+      saveTagInputRefs.input.focus()
+    })
+  }
+
+  private handleInputConfirm() {
+    const inputValue = this.inputValue
+    if (inputValue) {
+      this.form.dynamicTags.push(inputValue)
+    }
+    this.inputVisible = false
+    this.inputValue = ''
+  }
+
+  private handleClose(tag) {
+    this.form.dynamicTags.splice(this.form.dynamicTags.indexOf(tag), 1)
+  }
 
   // 表单对象
-  private form: ProForm1.Form = {
-    name: null,
-    remark: null,
+  private form: ProForm2.Form = {
+    policyName: null,
+    environment: null,
+    colony: null,
+    alarmName: null,
+    monitorTarget: null,
+    monitorColony: null,
+    monitorName: null,
     alertTarget: null,
     duration: null,
-    alertLevel: null,
     longTitle: null,
     chooseObjs: 1,
     tableData: [
@@ -278,10 +357,54 @@ export default class extends Vue {
         calculate: 80,
       },
     ],
+    dynamicTags: []
   }
 
   // 告警对象下拉框选项
   private alertTargetOptions: string[] = []
+  // 所属环境下拉框选项
+  private environmentOptions = [
+    {
+      label: '紧急环境',
+      value: 1
+    }, {
+      label: '一般环境',
+      value: 2
+    }
+  ]
+
+  // 所属集群下拉框选项
+  private colonyOptions = [
+    {
+      label: 'Offline',
+      value: 1
+    }, {
+      label: 'Online',
+      value: 2
+    }
+  ]
+
+  // 监控对象下拉框选项
+  private monitorsOptions = [
+    {
+      label: '用户监控',
+      value: 1
+    }, {
+      label: '应用监控',
+      value: 2
+    }
+  ]
+
+  // 监控集群下拉框选项
+  private monitorColonyOptions = [
+    {
+      label: '用户集群',
+      value: 1
+    }, {
+      label: '应用集群',
+      value: 2
+    }
+  ]
 
   // 沉默周期选项
   private durationOptions = [
@@ -399,10 +522,6 @@ export default class extends Vue {
 
   // 表单校验规则
   private rules = {
-    name: [{ required: true, message: '请输入策略名称', trigger: 'blur' }],
-    alertTarget: [{ required: true, message: '请选择告警对象', trigger: 'change' }],
-    duration: [{ required: true, message: '请选择沉默周期', trigger: 'change' }],
-    alertLevel: [{ required: true, message: '请选择告警级别', trigger: 'change' }],
     templateType: {
       required: true,
       validator: this.valValue,
@@ -442,7 +561,7 @@ export default class extends Vue {
    * 提交表单
    */
   private submit() {
-    this.proForm1Ref.validate(valid => {
+    this.proForm2Ref.validate(valid => {
       if (valid) {
         this.create()
       } else {
@@ -470,7 +589,11 @@ export default class extends Vue {
    * 前端过滤删除当前项
    */
   private handleDelete(id: number) {
-    this.form.tableData = this.form.tableData.filter(item => item.id !== id)
+    if (this.form.tableData.length > 1) {
+      this.form.tableData = this.form.tableData.filter(item => item.id !== id)
+    } else {
+      this.$message.error('至少添加一条数据！')
+    }
   }
 
   /**
@@ -480,7 +603,7 @@ export default class extends Vue {
   private async create() {
     try {
       this.submitting = true
-      const res = await createProForm1(this.form)
+      const res = await createProForm2(this.form)
       const data = res.data
       this.$message.success(`创建成功！ID: ${data.id}`)
     } catch (e) {

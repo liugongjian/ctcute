@@ -34,10 +34,9 @@
 
 <script type="text/babel">
 const TYPE_CLASSES_MAP = {
-  success: 'el-icon-success',
-  warning: 'el-icon-warning',
-  error: 'el-icon-error',
-  weak: 'el-icon-weak',
+  success: 'cute-icon-check-circle-fill',
+  warning: 'cute-icon-warning-circle-fill',
+  error: 'cute-icon-close-circle-fill',
 }
 export default {
   name: 'ElAlert',
@@ -93,7 +92,7 @@ export default {
     },
 
     iconClass() {
-      return TYPE_CLASSES_MAP[this.type] || 'el-icon-info'
+      return TYPE_CLASSES_MAP[this.type] || 'cute-icon-info-circle-fill'
     },
 
     isBigIcon() {

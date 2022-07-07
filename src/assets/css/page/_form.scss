@@ -12,6 +12,11 @@
   .el-select .el-input.el-input--suffix {
     width: 100%;
   }
+
+  .el-input-number .el-input {
+    width: auto;
+    min-width: 0;
+  }
 }
 @mixin formTitle {
  .form-titles{

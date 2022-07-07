@@ -4,31 +4,31 @@
       <el-descriptions :column="2" border>
         <el-descriptions-item>
           <template slot="label"> 内部标识符 </template>
-          {{ simpleDetailInfo.basic.innerIdentity }}
+          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.innerIdentity }}
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label"> 标识符 </template>
-          {{ simpleDetailInfo.basic.showIdentity }}
+          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.showIdentity }}
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label"> 中文名称 </template>
-          {{ simpleDetailInfo.basic.chineseName }}
+          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.chineseName }}
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label"> 英文名称 </template>
-          {{ simpleDetailInfo.basic.englishName }}
+          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.englishName }}
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label"> 语境</template>
-          {{ simpleDetailInfo.basic.context }}
+          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.context }}
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label"> 版本 </template>
-          {{ simpleDetailInfo.basic.version }}
+          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.version }}
         </el-descriptions-item>
         <el-descriptions-item :span="2">
           <template slot="label"> 同义名称 </template>
-          {{ simpleDetailInfo.basic.synonyms }}
+          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.synonyms }}
         </el-descriptions-item>
       </el-descriptions>
     </titled-block>
@@ -36,16 +36,16 @@
       <el-descriptions :column="2" border>
         <el-descriptions-item>
           <template slot="label"> 融合单位类型 </template>
-          {{ simpleDetailInfo.fusion.type }}
+          {{ simpleDetailInfo && simpleDetailInfo.fusion && simpleDetailInfo.fusion.type }}
         </el-descriptions-item>
         <el-descriptions-item>
           <template slot="label"> 融合单位数据元编码 </template>
-          {{ simpleDetailInfo.fusion.encode }}
+          {{ simpleDetailInfo && simpleDetailInfo.fusion && simpleDetailInfo.fusion.encode }}
         </el-descriptions-item>
       </el-descriptions>
     </titled-block>
     <titled-block title="退货商品">
-      <el-collapse v-model="activeNames1" seperate>
+      <el-collapse seperate>
         <el-collapse-item
           v-for="(item, index) in simpleDetailInfo.returnGoods"
           :key="item.type"

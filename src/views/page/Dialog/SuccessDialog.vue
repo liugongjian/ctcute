@@ -26,13 +26,14 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
   name: 'SuccessDialog',
 })
 export default class extends Vue {
+  @Prop(Boolean) readonly visible: boolean
   @Prop({ default: '以后再说' }) readonly cancelButtonText: string
   @Prop({ default: '前往配置' }) readonly confirmButtonText: string
 
   private title = '成功提示'
-  private visible = true
   private close() {
-    this.visible = false
+    this.$emit('update:visible', false)
+    this.$emit('close')
   }
 
   private confirm() {

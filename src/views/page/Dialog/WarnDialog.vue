@@ -24,13 +24,14 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
   name: 'WarnDialog',
 })
 export default class extends Vue {
+  @Prop(Boolean) readonly visible: boolean
   @Prop({ default: '取消' }) readonly cancelButtonText: string
   @Prop({ default: '确定' }) readonly confirmButtonText: string
 
   private title = '警告提示'
-  private visible = true
   private onClose() {
-    this.visible = false
+    this.$emit('update:visible', false)
+    this.$emit('close')
   }
 }
 </script>

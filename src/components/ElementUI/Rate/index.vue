@@ -87,16 +87,16 @@ export default {
     iconClasses: {
       type: [Array, Object],
       default() {
-        return ['el-icon-star-fill', 'el-icon-star-fill', 'el-icon-star-fill']
+        return ['cute-icon-star-fill', 'cute-icon-star-fill', 'cute-icon-star-fill']
       },
     },
     voidIconClass: {
       type: String,
-      default: 'el-icon-star-fill',
+      default: 'cute-icon-star-fill',
     },
     disabledVoidIconClass: {
       type: String,
-      default: 'el-icon-star-fill',
+      default: 'cute-icon-star-fill',
     },
     disabled: {
       type: Boolean,
@@ -172,10 +172,10 @@ export default {
     classMap() {
       return Array.isArray(this.iconClasses)
         ? {
-          [this.lowThreshold]: this.iconClasses[0],
-          [this.highThreshold]: { value: this.iconClasses[1], excluded: true },
-          [this.max]: this.iconClasses[2],
-        }
+            [this.lowThreshold]: this.iconClasses[0],
+            [this.highThreshold]: { value: this.iconClasses[1], excluded: true },
+            [this.max]: this.iconClasses[2],
+          }
         : this.iconClasses
     },
 
@@ -194,10 +194,10 @@ export default {
     colorMap() {
       return Array.isArray(this.colors)
         ? {
-          [this.lowThreshold]: this.colors[0],
-          [this.highThreshold]: { value: this.colors[1], excluded: true },
-          [this.max]: this.colors[2],
-        }
+            [this.lowThreshold]: this.colors[0],
+            [this.highThreshold]: { value: this.colors[1], excluded: true },
+            [this.max]: this.colors[2],
+          }
         : this.colors
     },
 

@@ -1,0 +1,95 @@
+@mixin detail {
+  /* 橙色标题 */
+  .header-title {
+    line-height: $text-size-medium;
+    padding-left: 12px;
+    border-left: 4px solid $color-master-1;
+    height: 14px;
+    font-family: PingFangSC-Medium;
+    font-size: $text-size-medium;
+    color: $color-grey-1;
+    font-weight: 500;
+  }
+
+  /* 带标签和操作按钮的顶部栏 */
+  .detail-header {
+    display: flex;
+    justify-content: space-between;
+
+    &__left {
+      .tags-title {
+        font-size: $text-size-medium;
+        font-weight: 500;
+        margin-right: 16px;
+      }
+
+      .el-tag {
+        margin-left: 8px;
+      }
+
+      .input-new-tag {
+        width: 60px;
+        margin-left: 10px;
+        vertical-align: bottom;
+
+        .el-input__inner {
+          height: 22px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+/* 简单详情 */
+
+/* 复杂详情页1 */
+
+.pro-detail1 {
+  @include detail();
+
+  .first-title {
+    margin-bottom: 16px;
+  }
+
+  .forth-title {
+    margin-bottom: 16px;
+  }
+
+  .el-card {
+    border: 1px solid $border-color-primary;
+  }
+
+  .operate-card {
+    margin-top: 16px;
+
+    /* 分批管理子卡片 */
+    .el-card__header {
+      background-color: $color-grey-10;
+      padding: 9px 16px;
+      border-bottom: 1px solid $border-color-primary;
+    }
+
+    .el-card__body {
+      padding: 0 16px;
+    }
+
+    &__left {
+      width: 376px;
+      float: left;
+      padding-right: 16px;
+      padding-top: 16px;
+    }
+
+    &__right {
+      margin-left: 376px;
+      border-left: 1px solid $border-color-primary;
+      padding-left: 16px;
+      padding-top: 16px;
+
+      ul {
+        padding-left: 12px;
+      }
+    }
+  }
+}

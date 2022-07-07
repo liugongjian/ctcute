@@ -14,7 +14,7 @@ import SvgIcon from 'vue-svgicon'
 import copy from 'copy-to-clipboard'
 
 @Component({
-  name: 'Icon'
+  name: 'Icon',
 })
 export default class extends Vue {
   private icons = null
@@ -30,40 +30,40 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-  .icon {
-    &__list {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 1px 0 0 1px;
-    }
+.icon {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1px 0 0 1px;
+  }
 
-    &__item {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-width: 150px;
-      height: 150px;
-      border: 1px solid $border-color-light-1;
-      color: $text-color-light-2;
-      margin: -1px 0 0 -1px;
-      cursor: pointer;
-      transition: opacity 200ms;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 150px;
+    height: 150px;
+    border: 1px solid $border-color-light-1;
+    color: $text-color-light-2;
+    margin: -1px 0 0 -1px;
+    cursor: pointer;
+    transition: opacity 200ms;
 
-      &:hover {
-        opacity: 0.65;
-      }
-    }
-
-    &__img {
-      svg {
-        color: $text-color-light-1;
-      }
-    }
-
-    &__name {
-      margin-top: 10px;
-      color: $text-color-light-2;
+    &:hover {
+      opacity: 0.65;
     }
   }
+
+  &__img {
+    svg {
+      color: $text-color-light-1;
+    }
+  }
+
+  &__name {
+    margin-top: 10px;
+    color: $text-color-light-2;
+  }
+}
 </style>

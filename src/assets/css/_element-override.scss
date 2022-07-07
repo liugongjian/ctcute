@@ -1,7 +1,7 @@
 /* Iconfont
 -------------------------- */
 @mixin iconfont {
-  font-family: 'iconfont' !important;
+  font-family: 'cute-icons' !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -281,13 +281,16 @@
 
 .el-input__suffix-inner {
   .el-icon-close {
-    line-height: 36px;
     padding-right: 15px;
 
     &:hover {
       color: $color-master-1;
       cursor: pointer;
     }
+  }
+  .el-icon-view {
+    padding-right: 15px;
+    line-height: 32px;
   }
 }
 
@@ -302,6 +305,9 @@
   line-height: 36px;
   color: $text-color-light-1;
   margin-right: $text-size-primary;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .suffix-forgot::before {
@@ -642,7 +648,11 @@
 }
 .el-tabs--card > .el-tabs__header {
   border-bottom: 1px solid $border-color-primary;
+  .el-tabs__item.is-active.is-closable {
+    padding: 0 10px 0 12px;
+  }
 }
+
 /* Table
 -------------------------- */
 .el-table__header-wrapper {
@@ -685,7 +695,7 @@
 .el-table--small .el-table__header tr,
 .el-table--small .el-table__header th {
   .el-table__cell {
-    padding: 5px;
+    padding: 0px;
   }
 }
 
@@ -716,17 +726,21 @@
 }
 
 .el-table .caret-wrapper {
-  height: 28px;
+  height: inherit;
+}
+.el-table th.el-table__cell > .cell {
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .el-table .sort-caret.ascending {
   border-bottom-color: $table-sort-caret-fill;
-  top: 3px;
+  top: -12px;
 }
 
 .el-table .sort-caret.descending {
   border-top-color: $table-sort-caret-fill;
-  bottom: 3px;
+  bottom: -10px;
 }
 
 .el-table--border {
@@ -789,6 +803,9 @@
   border: 1px solid #ddd;
   div {
     line-height: 22px;
+    // span {
+    //   // color: ;
+    // }
   }
 }
 /* Pagination
@@ -923,29 +940,25 @@
 .el-step__icon-inner {
   font-weight: normal;
 }
-.el-icon-arrow-right,
-.el-icon-arrow-right {
-  color: #000;
-}
 .el-step__line {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: $color-grey-6//rgba(0, 0, 0, 0.15);
 }
 .el-step__icon.is-text {
   border: 1px solid;
 }
 .el-step__title.is-process {
   font-weight: 400;
-  color: rgba(51, 51, 51, 0.85);
+  color: rgba(51, 51, 51, 0.85); //#ccc
 }
 .el-step__title.is-success {
-  color: rgba(0, 0, 0, 0.65);
+  color: $color-grey-2; //rgba(0, 0, 0, 0.65);
 }
 .el-step__head.is-process {
-  border-color: #fa8334;
+  border-color: $color-master-1;
 }
 .el-step__head.is-process .el-step__icon.is-text {
   color: #fff;
-  background-color: #fa8334;
+  background-color: $color-master-1;
 }
 .el-step__title.is-wait {
   color: #999999;
@@ -995,6 +1008,9 @@
   }
   .el-input--medium .el-input__icon {
     line-height: 32px;
+  }
+  .el-input__suffix {
+    height: 32px;
   }
 }
 .el-input--medium .el-input__inner {
@@ -1102,7 +1118,15 @@
 .el-select-dropdown.el-popper[x-placement^='top'] {
   margin-bottom: $margin-tiny;
 }
-
+.el-picker-panel.time-select.el-popper[x-placement^='bottom'] {
+  margin-top: $margin-tiny;
+}
+.el-picker-panel.time-select.el-popper[x-placement^='top'] {
+  margin-bottom: $margin-tiny;
+}
+.el-popper[x-placement^='bottom'] .popper__arrow {
+  display: none;
+}
 .el-range-editor--medium .el-range-input {
   font-size: 12px;
 }
@@ -1167,9 +1191,31 @@
 }
 .avatar-uploader {
   .el-upload.el-upload--text {
-    border: 1px solid $border-color-primary;
+    border: 1px dashed $border-color-primary;
+    border-radius: 2px;
   }
 }
+.el-upload__tip {
+  font-size: 12px;
+  color: $text-color-light-2;
+  margin: 11px 0 14px 0;
+}
+
+.el-upload__text {
+  b {
+    font-size: 12px;
+    margin-top: 20px;
+    line-height: 20px;
+  }
+
+  div {
+    font-size: 12px;
+    color: $text-color-light-2;
+    margin: 6px 0 38px 0;
+    line-height: 20px;
+  }
+}
+
 /* Switch
 -------------------------- */
 .el-switch + .el-switch {
@@ -1702,10 +1748,9 @@
 
 /* Tooltip
 -------------------------- */
-.ui-tooltip {
-  .el-tooltip__popper.is-dark {
-    background: $tooltip-fill;
-  }
+
+.el-tooltip__popper.is-dark {
+  background: $color-other-1;
 }
 
 /* Popover

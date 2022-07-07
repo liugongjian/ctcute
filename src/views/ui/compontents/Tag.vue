@@ -29,7 +29,30 @@
     <el-tag v-if="isLargeShow" type="info" size="large" closable @close="isLargeShow = false">
       CPU使用量>=3
     </el-tag>
-    <el-tag type="newtag" size="large">+ 新增过滤</el-tag>
+    <el-tag
+      v-for="tag in dynamicFilterTags"
+      :key="tag"
+      type="info"
+      size="large"
+      closable
+      :disable-transitions="false"
+      @close="handleFilterClose(tag)"
+    >
+      {{ tag }}
+    </el-tag>
+    <el-input
+      v-if="inputFilterVisible"
+      ref="saveFilterTagInput"
+      v-model="inputFilterValue"
+      size="small"
+      class="input-filter-tag"
+      @keyup.enter.native="handleFilterInputConfirm"
+      @blur="handleFilterInputConfirm"
+    >
+    </el-input>
+    <el-tag v-else type="newtag" :disable-transitions="true" size="large" @click="showFilterInput"
+      >+ 新增过滤</el-tag
+    >
     <h3>彩色标签</h3>
     <el-tag type="danger">红色</el-tag>
     <el-tag type="success">绿色</el-tag>
@@ -54,6 +77,10 @@ export default class extends Vue {
   private isLargeShow = true
   private inputVisible = false
   private inputValue = ''
+  private dynamicFilterTags = []
+  private isFilterShow = true
+  private inputFilterVisible = false
+  private inputFilterValue = ''
 
   private closeTag() {
     this.isShow = false
@@ -80,6 +107,28 @@ export default class extends Vue {
   private handleClose(tag) {
     this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
   }
+
+  private showFilterInput() {
+    this.inputFilterVisible = true
+    this.$nextTick(() => {
+      const saveFilterTagInput: any = this.$refs.saveFilterTagInput
+      const saveFilterTagInputRefs: any = saveFilterTagInput.$refs
+      saveFilterTagInputRefs.input.focus()
+    })
+  }
+
+  private handleFilterInputConfirm() {
+    const inputFilterValue = this.inputFilterValue
+    if (inputFilterValue) {
+      this.dynamicFilterTags.push(inputFilterValue)
+    }
+    this.inputFilterVisible = false
+    this.inputFilterValue = ''
+  }
+
+  private handleFilterClose(tag) {
+    this.dynamicFilterTags.splice(this.dynamicFilterTags.indexOf(tag), 1)
+  }
 }
 </script>
 
@@ -99,6 +148,17 @@ export default class extends Vue {
 
   ::v-deep.el-input__inner {
     height: 22px;
+    line-height: 20px;
+  }
+}
+
+.input-filter-tag {
+  width: 83px;
+  margin-left: 10px;
+  vertical-align: bottom;
+
+  ::v-deep.el-input__inner {
+    height: 28px;
     line-height: 20px;
   }
 }

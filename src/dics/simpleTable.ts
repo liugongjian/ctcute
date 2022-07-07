@@ -1,6 +1,6 @@
 export const STATUS = {
   1: '待分配',
-  2: '已部署'
+  2: '已部署',
 }
 
 export const HEALTH = {
@@ -12,5 +12,5 @@ export const HEALTH = {
   6: '成功',
   7: '失败',
   8: '停止',
-  9: '暂停'
+  9: '暂停',
 }

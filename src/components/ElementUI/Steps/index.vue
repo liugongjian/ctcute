@@ -86,18 +86,22 @@ export default {
     background-color: #fff;
     padding: 0 10px 0 16px;
   }
+
   ::v-deep .el-step .el-step__title {
     font-size: 16px;
     line-height: 32px;
   }
+
   ::v-deep .el-step__icon.is-text {
     width: 32px;
     height: 32px;
   }
+
   ::v-deep .el-step.is-horizontal .el-step__line {
     top: 16px;
   }
 }
+
 .el-steps--min {
   ::v-deep .el-step .el-step__main {
     position: absolute;
@@ -108,16 +112,24 @@ export default {
     background-color: #fff;
     padding: 0 10px 0 16px;
   }
+
   ::v-deep .el-step .el-step__title {
     font-size: 12px;
     line-height: 20px;
   }
+
   ::v-deep .el-step__icon.is-text {
     width: 20px;
     height: 20px;
   }
+
   ::v-deep .el-step.is-horizontal .el-step__line {
     top: 10px;
+  }
+
+  ::v-deep .el-step__icon-inner.is-status {
+    transform: translateY(0);
+    font-size: 12px;
   }
 }
 </style>

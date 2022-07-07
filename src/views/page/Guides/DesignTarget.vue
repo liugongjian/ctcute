@@ -8,8 +8,8 @@ import CuteMavonEditor from './components/CuteMavonEditor.vue'
 @Component({
   name: 'DesignTarget',
   components: {
-    CuteMavonEditor
-  }
+    CuteMavonEditor,
+  },
 })
 export default class extends Vue {
   private content = `

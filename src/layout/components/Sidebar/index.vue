@@ -1,18 +1,8 @@
 <template>
   <el-scrollbar wrap-class="scrollbar-wrapper">
     <div class="layout-sidebar__title">{{ title }}</div>
-    <el-menu
-      :default-active="activeMenu"
-      :unique-opened="false"
-      :collapse-transition="false"
-      mode="vertical"
-    >
-      <sidebar-item
-        v-for="route in currentRoutes"
-        :key="route.path"
-        :item="route"
-        :base-path="route.path"
-      />
+    <el-menu :default-active="activeMenu" :unique-opened="false" :collapse-transition="false" mode="vertical">
+      <sidebar-item v-for="route in currentRoutes" :key="route.path" :item="route" :base-path="route.path" />
     </el-menu>
   </el-scrollbar>
 </template>
@@ -25,8 +15,8 @@ import SidebarItem from './SidebarItem.vue'
 @Component({
   name: 'SideBar',
   components: {
-    SidebarItem
-  }
+    SidebarItem,
+  },
 })
 export default class extends Vue {
   @Prop()

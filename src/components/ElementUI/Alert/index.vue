@@ -14,7 +14,9 @@
           <span v-if="title || $slots.title" class="el-alert__title" :class="[isBoldTitle]">
             <slot name="title">{{ title }}</slot>
           </span>
-          <p v-if="$slots.default && !description" class="el-alert__description"><slot></slot></p>
+          <p v-if="$slots.default && !description" class="el-alert__description">
+            <slot></slot>
+          </p>
           <p v-if="description && !$slots.default" class="el-alert__description">{{ description }}</p>
         </div>
         <i
@@ -23,9 +25,8 @@
           :class="{ 'is-customed': closeText !== '', 'el-icon-close': closeText === '' }"
           :style="{ color: closeBtnColor }"
           @click="close()"
+          >{{ closeText }}</i
         >
-          {{ closeText }}
-        </i>
       </div>
     </transition>
   </div>
@@ -33,10 +34,9 @@
 
 <script type="text/babel">
 const TYPE_CLASSES_MAP = {
-  success: 'el-icon-success',
-  warning: 'el-icon-warning',
-  error: 'el-icon-error',
-  weak: 'el-icon-weak',
+  success: 'cute-icon-check-circle-fill',
+  warning: 'cute-icon-warning-circle-fill',
+  error: 'cute-icon-close-circle-fill',
 }
 export default {
   name: 'ElAlert',
@@ -75,7 +75,7 @@ export default {
     effect: {
       type: String,
       default: 'light',
-      validator: function(value) {
+      validator: function (value) {
         return ['light', 'dark'].indexOf(value) !== -1
       },
     },
@@ -92,7 +92,7 @@ export default {
     },
 
     iconClass() {
-      return TYPE_CLASSES_MAP[this.type] || 'el-icon-info'
+      return TYPE_CLASSES_MAP[this.type] || 'cute-icon-info-circle-fill'
     },
 
     isBigIcon() {

@@ -1,13 +1,13 @@
-# scaffold
+# cute-design
 
 ## Requirements
-Node >= 14.0
+Node == 14.19.1
 
 ## 1、基础部分
 
 - [目录说明](/docs/basics/目录说明.md)
 - [设计说明](/docs/basics/设计说明.md)
-- [一些约定](/docs/basics/一些约定.md)
+- [页面开发规范](/docs/basics/页面开发规范.md)
 - [编码风格](/docs/basics/编码风格.md)：描述了相关工具的使用，并提供了常用 IDE 对应插件的使用说明
 - [git-message 规范](/docs/basics/git-message规范.md)：描述了 git message 的书写规范
 

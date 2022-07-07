@@ -11,7 +11,7 @@ module.exports = {
     open: true,
     overlay: {
       warnings: false,
-      errors: true
+      errors: true,
     },
     proxy: {
       /**
@@ -20,7 +20,7 @@ module.exports = {
       '/v1/': {
         target: 'http://localhost:7001/',
         changeOrigin: true,
-        secure: false
+        secure: false,
       },
       /**
        * Mock接口
@@ -29,26 +29,26 @@ module.exports = {
         target: 'https://yapi.ctcdn.cn/',
         https: true,
         changeOrigin: true,
-        secure: false
-      }
+        secure: false,
+      },
     },
     historyApiFallback: true,
-    disableHostCheck: true
+    disableHostCheck: true,
   },
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
       patterns: [
         path.resolve(__dirname, 'src/assets/css/_variables.scss'),
-        path.resolve(__dirname, 'src/assets/css/_mixins.scss')
-      ]
-    }
+        path.resolve(__dirname, 'src/assets/css/_mixins.scss'),
+      ],
+    },
   },
   css: {
     loaderOptions: {
       sass: {
-        sassOptions: { outputStyle: 'expanded' }
-      }
-    }
-  }
+        sassOptions: { outputStyle: 'expanded' },
+      },
+    },
+  },
 }

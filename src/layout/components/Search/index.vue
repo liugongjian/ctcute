@@ -17,7 +17,7 @@ import pageRoutes from '@/router/modules/page'
 import { components as uiComponents } from '@/views/ui/compontents/index'
 
 @Component({
-  name: 'Search'
+  name: 'Search',
 })
 export default class extends Vue {
   // 查询关键词
@@ -50,7 +50,7 @@ export default class extends Vue {
     } else {
       this.$router.push({
         path: '/ui',
-        hash: item.name
+        hash: item.name,
       })
     }
     this.keyword = ''
@@ -63,11 +63,12 @@ export default class extends Vue {
     routes.forEach(route => {
       const path = parentPath ? `${parentPath}/${route.path}` : route.path
       route.children && this.generateRouteMenu(route.children, path, items)
-      parentPath && items.push({
-        path: path,
-        value: route.meta.title,
-        type: 'page'
-      })
+      parentPath &&
+        items.push({
+          path: path,
+          value: route.meta.title,
+          type: 'page',
+        })
     })
     return items
   }
@@ -82,7 +83,7 @@ export default class extends Vue {
       items.push({
         name,
         value: `${component.title.en} ${component.title.zh}`,
-        type: 'ui'
+        type: 'ui',
       })
     }
     return items

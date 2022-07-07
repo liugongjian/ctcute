@@ -19,47 +19,45 @@ import HeaderNav from './HeaderNav.vue'
 @Component({
   name: 'LayoutHeader',
   components: {
-    HeaderNav
-  }
+    HeaderNav,
+  },
 })
-export default class extends Vue {
-
-}
+export default class extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-  .layout-header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 1002;
-    height: $header-height;
-    display: flex;
-    justify-content: space-between;
-    background: #272b39;
+.layout-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1002;
+  height: $header-height;
+  display: flex;
+  justify-content: space-between;
+  background: #272b39;
 
-    &__logo {
+  &__logo {
+    display: flex;
+    align-items: center;
+    padding-left: 28px;
+
+    &--ct {
+      height: 22px;
+    }
+
+    &--project {
       display: flex;
       align-items: center;
-      padding-left: 28px;
+      margin-left: 15px;
+      padding-left: 15px;
+      border-left: 1px solid #979797;
 
-      &--ct {
-        height: 22px;
-      }
-
-      &--project {
-        display: flex;
-        align-items: center;
-        margin-left: 15px;
-        padding-left: 15px;
-        border-left: 1px solid #979797;
-
-        img {
-          height: 15px;
-          margin-top: 3px; // 因包含字母g，向下偏移3个像素，让视觉水平居中
-        }
+      img {
+        height: 15px;
+        margin-top: 3px; // 因包含字母g，向下偏移3个像素，让视觉水平居中
       }
     }
   }
+}
 </style>

@@ -1,13 +1,14 @@
 <template>
   <el-scrollbar ref="wrapper" wrap-class="scrollbar-wrapper">
     <div class="layout-sidebar__title">UI 组件</div>
-    <el-menu
-      :default-active="currentId"
-      :unique-opened="false"
-      :collapse-transition="false"
-      mode="vertical"
-    >
-      <el-menu-item v-for="component in componentList" :id="`menu-${component.name}`" :key="component.name" :index="component.name" @click="changeHash(component.name)">
+    <el-menu :default-active="currentId" :unique-opened="false" :collapse-transition="false" mode="vertical">
+      <el-menu-item
+        v-for="component in componentList"
+        :id="`menu-${component.name}`"
+        :key="component.name"
+        :index="component.name"
+        @click="changeHash(component.name)"
+      >
         {{ component.title.en }} {{ component.title.zh }}
       </el-menu-item>
     </el-menu>
@@ -18,7 +19,7 @@
 import { Component, Vue, Prop, Watch, Ref } from 'vue-property-decorator'
 
 @Component({
-  name: 'SideBar'
+  name: 'SideBar',
 })
 export default class extends Vue {
   @Prop()
@@ -39,7 +40,10 @@ export default class extends Vue {
     const wrapper = this.wrapper.$el.querySelector('.scrollbar-wrapper')
     if (currentMenu) {
       const currentMenuTop = currentMenu.offsetTop
-      if (currentMenuTop < wrapper.scrollTop || currentMenuTop + currentMenu.clientHeight > wrapper.scrollTop + wrapper.clientHeight) {
+      if (
+        currentMenuTop < wrapper.scrollTop ||
+        currentMenuTop + currentMenu.clientHeight > wrapper.scrollTop + wrapper.clientHeight
+      ) {
         wrapper.scrollTop = currentMenuTop
       }
     }
@@ -65,7 +69,7 @@ export default class extends Vue {
     if (title) {
       window.scrollTo({
         top: title.offsetTop - 27,
-        behavior: 'smooth'
+        behavior: 'smooth',
       })
     }
   }

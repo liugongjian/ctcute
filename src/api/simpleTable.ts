@@ -10,7 +10,7 @@ export const getTable = (params: SimpleTable.TableParams): AxiosPromise<SimpleTa
   request({
     url: '/mock/175/table',
     method: 'get',
-    params
+    params,
   })
 
 /**
@@ -20,5 +20,5 @@ export const getTable = (params: SimpleTable.TableParams): AxiosPromise<SimpleTa
 export const getHosts = (): AxiosPromise<string[]> =>
   request({
     url: '/mock/175/table/hosts',
-    method: 'get'
+    method: 'get',
   })

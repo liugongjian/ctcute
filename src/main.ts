@@ -21,7 +21,7 @@ Vue.use(ElementUIOverride)
 Vue.use(SvgIcon, {
   tagName: 'svg-icon',
   defaultWidth: '1em',
-  defaultHeight: '1em'
+  defaultHeight: '1em',
 })
 
 Vue.config.productionTip = false
@@ -30,5 +30,5 @@ new Vue({
   i18n,
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount('#app')

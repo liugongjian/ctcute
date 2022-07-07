@@ -26,8 +26,8 @@ import { AppMain, Navbar, Sidebar, LayoutHeader, CodeViewer } from './components
     Navbar,
     Sidebar,
     LayoutHeader,
-    CodeViewer
-  }
+    CodeViewer,
+  },
 })
 export default class extends Vue {
   private sidebarTitle = '页面规范'

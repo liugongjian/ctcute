@@ -1,14 +1,12 @@
 <template>
   <el-autocomplete
-    v-model="state1"
+    v-model="model"
     class="inline-input"
     :placeholder="placeholder"
     :fetch-suggestions="querySearch"
     :trigger-on-focus="false"
-    @input="prompt"
   >
-    <span v-show="flag" slot="suffix" class="prompt-title"
-      ><div>{{ placeholder }}</div>
+    <span slot="suffix" class="prompt-title"><div>{{ model ? title : '' }}</div>
     </span>
   </el-autocomplete>
 </template>
@@ -21,8 +19,9 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) restaurants?: []
   @Prop({ type: String, default: '' }) placeholder?: ''
+  @Prop({ type: String, default: '' }) title?: ''
+  @Prop({ type: String, default: '' }) model?: ''
 
-  private state1 = ''
   private flag = false
 
   private querySearch(queryString, cb) {
@@ -35,14 +34,6 @@ export default class extends Vue {
   private createFilter(queryString) {
     return restaurant => {
       return restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
-    }
-  }
-
-  private prompt(e: any) {
-    if (e) {
-      this.flag = true
-    } else {
-      this.flag = false
     }
   }
 }

@@ -25,19 +25,81 @@
     </div>
     <div class="table-filter">
       <div class="table-filter_text">指标条件</div>
-      <el-dropdown>
-        <el-tag type="newtag" size="large">+ 新增过滤</el-tag>
-
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>
-            <div>111 <el-input></el-input></div>
-          </el-dropdown-item>
-          <el-dropdown-item>狮子头</el-dropdown-item>
-          <el-dropdown-item>螺蛳粉</el-dropdown-item>
-          <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-          <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+      <table-filter />
+      <!-- <el-tag type="newtag" size="large">
+        + 新增过滤
+        <div class="table-filter_content">
+          <el-form>
+            <el-form-item label="123">
+              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
+                <el-option
+                  v-for="item in operationOptions"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                />
+              </el-select>
+            </el-form-item>
+            <el-form-item>
+              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" /> <span>%</span>
+            </el-form-item>
+            <el-table-row>
+              <el-form-item label="123">
+                <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
+                  <el-option
+                    v-for="item in operationOptions"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  />
+                </el-select>
+              </el-form-item>
+              <el-form-item>
+                <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" /> <span>GB</span>
+              </el-form-item>
+            </el-table-row>
+            <el-form-item label="123">
+              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
+                <el-option
+                  v-for="item in operationOptions"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                />
+              </el-select>
+            </el-form-item>
+            <el-form-item>
+              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" /> <span>GB</span>
+            </el-form-item>
+            <el-form-item label="123">
+              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
+                <el-option
+                  v-for="item in operationOptions"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                />
+              </el-select>
+            </el-form-item>
+            <el-form-item>
+              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" /> <span>kbs</span>
+            </el-form-item>
+            <el-form-item label="处理请求通知">
+              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
+                <el-option
+                  v-for="item in operationOptions"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                />
+              </el-select>
+            </el-form-item>
+            <el-form-item>
+              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" /> <span>个</span>
+            </el-form-item>
+          </el-form>
+        </div>
+      </el-tag> -->
     </div>
 
     <!--表格-->
@@ -99,9 +161,10 @@ import { Component, Vue } from 'vue-property-decorator'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTable, getHosts } from '@/api/simpleTable'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
-
+import TableFilter from '@/components/Table/TableFilter.vue'
 @Component({
   name: 'SimpleTable',
+  components: { TableFilter }
 })
 export default class extends Vue {
   // 健康状态字典
@@ -234,6 +297,11 @@ export default class extends Vue {
   private openDropdown(e) {
     e ? (this.flag = true) : (this.flag = false)
   }
+
+  private operationOptions = [
+    { label: '> =', value: 1 },
+    { label: '< =', value: 2 },
+  ]
 }
 </script>
 <style lang="scss" scoped>

@@ -20,7 +20,13 @@ export type Conditions = {
   host: string
   name: string
 }
-
+/* 复杂表格过滤条件 */
+export type ComplexConditions = {
+  host: string;
+  name: string;
+  environment: string;
+  cpu: string;
+}
 /* 获取表格请求类型 */
 export type TableParams = Request.Pager & Conditions
 

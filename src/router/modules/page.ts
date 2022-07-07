@@ -159,11 +159,20 @@ const pageRoutes = [
         },
       },
       {
-        path: 'pro-table',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/SimpleTable.vue'),
-        name: 'ProTable',
+        path: 'pro-table1',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable1.vue'),
+        name: 'ProTable1',
         meta: {
-          title: 'ProTable 复杂表格',
+          title: 'ProTable1 复杂表格1',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-table2',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable2.vue'),
+        name: 'ProTable2',
+        meta: {
+          title: 'ProTable2 复杂表格2',
           breadcrumb: true,
         },
       },

@@ -1,7 +1,7 @@
 /* Iconfont
 -------------------------- */
 @mixin iconfont {
-  font-family: 'cute-icons' !important;
+  font-family: 'element-icons' !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -211,6 +211,10 @@
   .el-input--medium .el-input__icon {
     line-height: 32px;
   }
+  .el-input__suffix {
+    line-height: 32px;
+    right: 12px;
+  }
 }
 
 .el-form-item__error {
@@ -302,18 +306,22 @@
 
 .suffix-forgot,
 .icon-money {
-  line-height: 36px;
+  line-height: 32px;
   color: $text-color-light-1;
   margin-right: $text-size-primary;
+  font-weight: normal;
   &:hover {
     cursor: pointer;
   }
 }
-
-.suffix-forgot::before {
+.suffix-forgot + .el-link{
+  height: 16px;
+  line-height: 32px;
+}
+.suffix-forgot::after {
   content: '|';
   color: $border-color-primary;
-  margin-right: $text-size-primary;
+  margin-left: $text-size-primary;
 }
 
 /* Textarea
@@ -695,7 +703,7 @@
 .el-table--small .el-table__header tr,
 .el-table--small .el-table__header th {
   .el-table__cell {
-    padding: 0px;
+    padding: 5px;
   }
 }
 
@@ -726,21 +734,17 @@
 }
 
 .el-table .caret-wrapper {
-  height: inherit;
-}
-.el-table th.el-table__cell > .cell {
-  padding-top: 2px;
-  padding-bottom: 2px;
+  height: 28px;
 }
 
 .el-table .sort-caret.ascending {
   border-bottom-color: $table-sort-caret-fill;
-  top: -12px;
+  top: 3px;
 }
 
 .el-table .sort-caret.descending {
   border-top-color: $table-sort-caret-fill;
-  bottom: -10px;
+  bottom: 3px;
 }
 
 .el-table--border {
@@ -793,6 +797,8 @@
   text-align: right !important;
   color: $color-grey-2;
   font-weight: bold !important;
+   padding-right: 24px !important;
+   width: 165px !important;
 }
 .el-descriptions .is-bordered .el-descriptions-item__cell {
   border-color: $color-grey-6;
@@ -801,11 +807,10 @@
 .el-descriptions-item__cell.el-descriptions-item__content {
   color: $color-grey-1;
   border: 1px solid #ddd;
+  padding-left: 24px !important;
+  width: 525px !important;
   div {
     line-height: 22px;
-    // span {
-    //   // color: ;
-    // }
   }
 }
 /* Pagination
@@ -830,7 +835,12 @@
       color: $icon-color;
     }
   }
-
+  .el-select .el-input__suffix{
+     height: 24px !important;
+  }
+  .el-input .el-input__suffix{
+    right: 0;
+  }
   .el-pagination__total {
     color: $text-color-primary !important;
     font-size: $text-size-primary !important;
@@ -940,25 +950,29 @@
 .el-step__icon-inner {
   font-weight: normal;
 }
+.el-icon-arrow-right,
+.el-icon-arrow-right {
+  color: #000;
+}
 .el-step__line {
-  background-color: $color-grey-6//rgba(0, 0, 0, 0.15);
+  background-color: #ddd//rgba(0, 0, 0, 0.15);
 }
 .el-step__icon.is-text {
   border: 1px solid;
 }
 .el-step__title.is-process {
   font-weight: 400;
-  color: rgba(51, 51, 51, 0.85); //#ccc
+  color: rgba(51, 51, 51, 0.85);
 }
 .el-step__title.is-success {
-  color: $color-grey-2; //rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, 0.65);
 }
 .el-step__head.is-process {
-  border-color: $color-master-1;
+  border-color: #fa8334;
 }
 .el-step__head.is-process .el-step__icon.is-text {
   color: #fff;
-  background-color: $color-master-1;
+  background-color: #fa8334;
 }
 .el-step__title.is-wait {
   color: #999999;
@@ -1038,6 +1052,14 @@
       color: $color-white;
     }
   }
+  .el-tag.el-tag--info.el-tag__close {
+    background-color: $color-grey-4;
+    color: $color-white;
+    &:hover {
+      background-color: $color-master-1;
+      color: $color-white;
+    }
+  }
 }
 
 .el-select-dropdown__item {
@@ -1073,12 +1095,6 @@
 .el-tag.el-tag--info {
   background: $color-grey-7;
   color: $text-color-light-1;
-}
-
-.el-tag.el-tag--info .el-tag__close,
-.el-tag.el-tag--info .el-tag__close:hover {
-  background: transparent;
-  color: $text-color-light-2;
 }
 
 .disabled-select {
@@ -1361,11 +1377,6 @@
   color: $color-status-info;
   border: 1px solid $color-tag-info-1;
   border-radius: $border-radius;
-}
-
-.el-tag.el-tag--info .el-tag__close,
-.el-tag.el-tag--info .el-tag__close:hover {
-  color: $text-color-light-1;
 }
 
 .el-tag--medium {
@@ -1759,4 +1770,11 @@
   .el-button--medium {
     padding: 0;
   }
+}
+
+/* sidebar
+-------------------------- */
+
+.el-submenu__icon-arrow.el-icon-arrow-down::before{
+  content: '\e790';
 }

@@ -213,6 +213,55 @@ const pageRoutes = [
       },
     ],
   },
+  // 状态页
+  {
+    path: '/page/pageStatus',
+    // redirect: '/page/form/simple-table',
+    component: Layout,
+    name: 'PageStatus',
+    meta: {
+      title: 'Status 状态页',
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'Page403',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page403.vue'),
+        name: 'Page403',
+        meta: {
+          title: '403页',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'Page404',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page404.vue'),
+        name: 'Page404',
+        meta: {
+          title: '404页',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'Page500',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page500.vue'),
+        name: 'Page500',
+        meta: {
+          title: '500页',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'EmptyPage',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/EmptyPage.vue'),
+        name: 'EmptyPage',
+        meta: {
+          title: '空页面',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
   // 其他
   {
     path: '/page/other',

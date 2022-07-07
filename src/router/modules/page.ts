@@ -100,6 +100,15 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'step-form',
+        component: () => import(/* webpackChunkName: "form" */ '@/views/page/Form/StepForm.vue'),
+        name: 'StepForm',
+        meta: {
+          title: 'StepForm 分步表单',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 表格
@@ -131,6 +140,37 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'pro-table3',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable3.vue'),
+        name: 'ProTable3',
+        meta: {
+          title: 'ProTable3 复杂表格3',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  // 卡片
+  {
+    path: '/page/card-list',
+    redirect: '/page/card-list/card1',
+    component: Layout,
+    name: 'CardList',
+    meta: {
+      title: 'CardList 卡片列表',
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'card1',
+        component: () => import(/* webpackChunkName: "card" */ '@/views/page/CardList/Card1.vue'),
+        name: 'Card1',
+        meta: {
+          title: 'Card1 小卡片',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 详情
@@ -146,7 +186,7 @@ const pageRoutes = [
     children: [
       {
         path: 'simple-detail',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Detail/SimpleDetail.vue'),
+        component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/SimpleDetail.vue'),
         name: 'SimpleDetail',
         meta: {
           title: 'SimpleDetail 简单详情页',
@@ -155,7 +195,7 @@ const pageRoutes = [
       },
       {
         path: 'pro-detail1',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Detail/ProDetail1.vue'),
+        component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/ProDetail1.vue'),
         name: 'ProDetail1',
         meta: {
           title: 'ProDetail1 复杂详情页1',
@@ -164,7 +204,7 @@ const pageRoutes = [
       },
       {
         path: 'pro-detail2',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Detail/ProDetail2.vue'),
+        component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/ProDetail2.vue'),
         name: 'ProDetail2',
         meta: {
           title: 'ProDetail2 复杂详情页2',

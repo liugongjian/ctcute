@@ -82,16 +82,11 @@ const pageRoutes = [
         path: 'warn-dialog',
         component: () => import('@/views/page/Dialog/WarnDialog.vue'),
         name: 'WarnDialog',
-      },
-      {
-        path: '',
-        name: 'Dialog',
-        component: () => import('@/views/page/Dialog/index.vue'),
         meta: {
-          title: 'Dialog 弹窗',
-          breadcrumb: false,
+          title: 'WarnDialog 警告弹窗',
+          breadcrumb: true,
         },
-      }
+      },
     ],
   },
   // 表单

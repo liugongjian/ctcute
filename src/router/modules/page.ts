@@ -35,31 +35,22 @@ const pageRoutes = [
   // 弹窗
   {
     path: '/page/dialog',
-    component: Layout,
     name: 'Dialog',
+    component: Layout,
     meta: {
       title: 'Dialog 弹窗',
       breadcrumb: true,
     },
     children: [
       {
-        path: 'success-dialog',
-        component: () => import('@/views/page/Dialog/SuccessDialog.vue'),
-        name: 'SuccessDialog',
+        path: '',
+        name: 'Dialog',
+        component: () => import('@/views/page/Dialog/index.vue'),
         meta: {
-          title: 'SuccessDialog 成功弹窗',
-          breadcrumb: true,
+          title: 'Dialog 弹窗',
+          breadcrumb: false,
         },
-      },
-      {
-        path: 'warn-dialog',
-        component: () => import('@/views/page/Dialog/WarnDialog.vue'),
-        name: 'WarnDialog',
-        meta: {
-          title: 'WarnDialog 告警弹窗',
-          breadcrumb: true,
-        },
-      },
+      }
     ],
   },
   // 表单

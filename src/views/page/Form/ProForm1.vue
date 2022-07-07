@@ -2,185 +2,195 @@
   <div class="pro-form1">
     <el-card>
       <el-form ref="proForm1" :model="form" :rules="rules" label-width="130px">
-        <div class="form-titles">基本信息</div>
-        <el-form-item label="策略名称" prop="name">
-          <el-input v-model="form.name" placeholder="请输入策略名称" />
-        </el-form-item>
-        <el-form-item label="备注" prop="remark">
-          <el-input
-            v-model="form.remark"
-            placeholder="请输入备注信息"
-            type="textarea"
-            :rows="3"
-            maxlength="128"
-            show-word-limit
-          />
-        </el-form-item>
+        <titled-block title="基本信息">
+          <el-form-item label="策略名称" prop="name">
+            <el-input v-model="form.name" placeholder="请输入策略名称" />
+          </el-form-item>
+          <el-form-item label="备注" prop="remark">
+            <el-input
+              v-model="form.remark"
+              placeholder="请输入备注信息"
+              type="textarea"
+              :rows="3"
+              maxlength="128"
+              show-word-limit
+            />
+          </el-form-item>
+        </titled-block>
         <el-divider></el-divider>
-        <div class="form-titles">告警信息</div>
-        <el-form-item label="告警对象" prop="alertTarget">
-          <el-select v-model="form.alertTarget" placeholder="请选择告警对象">
-            <el-option v-for="item in alertTargetOptions" :key="item" :label="item" :value="item" />
-          </el-select>
-        </el-form-item>
-        <el-form-item label="沉默周期" prop="duration">
-          <el-select v-model="form.duration" placeholder="请选择沉默周期">
-            <el-option
-              v-for="item in durationOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
-        </el-form-item>
-        <el-form-item label="告警级别" prop="alertLevel">
-          <el-select v-model="form.alertLevel" placeholder="请选择告警级别">
-            <el-option
-              v-for="item in alertLevelOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
-        </el-form-item>
-        <el-form-item label="模板类型" prop="templateType">
-          <el-table border style="width: 97%" :data="form.tableData">
-            <el-table-column min-width="153" label="监控指标">
-              <template slot-scope="scope">
-                <el-form-item
-                  :prop="'tableData.' + scope.$index + '.monitorIndicators'"
-                  :rules="rules.templateType.monitor"
-                >
-                  <el-select v-model="scope.row.monitorIndicators" placeholder="请选择" style="width: 160px">
-                    <el-option
-                      v-for="item in monitorOptions"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    />
-                  </el-select>
-                </el-form-item>
-              </template>
-            </el-table-column>
-            <el-table-column min-width="153" label="时间区间">
-              <template slot-scope="scope">
-                <el-form-item
-                  :prop="'tableData.' + scope.$index + '.timeSection'"
-                  :rules="rules.templateType.monitor"
-                >
-                  <el-select v-model="scope.row.timeSection" placeholder="请选择" style="width: 160px">
-                    <el-option
-                      v-for="item in timeSectOptions"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    />
-                  </el-select>
-                </el-form-item>
-              </template>
-            </el-table-column>
-            <el-table-column min-width="291" label="计算方法">
-              <template slot-scope="scope">
-                <el-form-item
-                  style="display: inline-block"
-                  :prop="'tableData.' + scope.$index + '.computValue'"
-                  :rules="rules.templateType.monitor"
-                >
-                  <el-select
-                    v-model="scope.row.computValue"
-                    placeholder="请选择"
-                    style="width: 90px; margin-right: 8px"
+        <titled-block title="告警信息">
+          <el-form-item label="告警对象" prop="alertTarget">
+            <el-select v-model="form.alertTarget" placeholder="请选择告警对象">
+              <el-option v-for="item in alertTargetOptions" :key="item" :label="item" :value="item" />
+            </el-select>
+          </el-form-item>
+          <el-form-item label="沉默周期" prop="duration">
+            <el-select v-model="form.duration" placeholder="请选择沉默周期">
+              <el-option
+                v-for="item in durationOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+          </el-form-item>
+          <el-form-item label="告警级别" prop="alertLevel">
+            <el-select v-model="form.alertLevel" placeholder="请选择告警级别">
+              <el-option
+                v-for="item in alertLevelOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+          </el-form-item>
+          <el-form-item label="模板类型" prop="templateType">
+            <el-table border style="width: 97%" :data="form.tableData">
+              <el-table-column min-width="153" label="监控指标">
+                <template slot-scope="scope">
+                  <el-form-item
+                    :prop="'tableData.' + scope.$index + '.monitorIndicators'"
+                    :rules="rules.templateType.monitor"
                   >
-                    <el-option
-                      v-for="item in computOptions"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    />
-                  </el-select>
-                </el-form-item>
-                <el-form-item
-                  style="display: inline-block"
-                  :prop="'tableData.' + scope.$index + '.operation'"
-                  :rules="rules.templateType.monitor"
-                >
-                  <el-select
-                    v-model="scope.row.operation"
-                    placeholder="请选择"
-                    style="width: 90px; margin-right: 8px"
+                    <el-select
+                      v-model="scope.row.monitorIndicators"
+                      placeholder="请选择"
+                      style="width: 160px"
+                    >
+                      <el-option
+                        v-for="item in monitorOptions"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </el-form-item>
+                </template>
+              </el-table-column>
+              <el-table-column min-width="153" label="时间区间">
+                <template slot-scope="scope">
+                  <el-form-item
+                    :prop="'tableData.' + scope.$index + '.timeSection'"
+                    :rules="rules.templateType.monitor"
                   >
-                    <el-option
-                      v-for="item in operationOptions"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
+                    <el-select v-model="scope.row.timeSection" placeholder="请选择" style="width: 160px">
+                      <el-option
+                        v-for="item in timeSectOptions"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </el-form-item>
+                </template>
+              </el-table-column>
+              <el-table-column min-width="291" label="计算方法">
+                <template slot-scope="scope">
+                  <el-form-item
+                    style="display: inline-block"
+                    :prop="'tableData.' + scope.$index + '.computValue'"
+                    :rules="rules.templateType.monitor"
+                  >
+                    <el-select
+                      v-model="scope.row.computValue"
+                      placeholder="请选择"
+                      style="width: 90px; margin-right: 8px"
+                    >
+                      <el-option
+                        v-for="item in computOptions"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </el-form-item>
+                  <el-form-item
+                    style="display: inline-block"
+                    :prop="'tableData.' + scope.$index + '.operation'"
+                    :rules="rules.templateType.monitor"
+                  >
+                    <el-select
+                      v-model="scope.row.operation"
+                      placeholder="请选择"
+                      style="width: 90px; margin-right: 8px"
+                    >
+                      <el-option
+                        v-for="item in operationOptions"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </el-form-item>
+                  <el-form-item
+                    style="display: inline-block"
+                    :prop="'tableData.' + scope.$index + '.calculate'"
+                    :rules="rules.templateType.percentage"
+                  >
+                    <el-input
+                      v-model="scope.row.calculate"
+                      placeholder="请输入"
+                      style="width: 90px; margin-right: 8px"
                     />
-                  </el-select>
-                </el-form-item>
-                <el-form-item
-                  style="display: inline-block"
-                  :prop="'tableData.' + scope.$index + '.calculate'"
-                  :rules="rules.templateType.percentage"
-                >
-                  <el-input
-                    v-model="scope.row.calculate"
-                    placeholder="请输入"
-                    style="width: 90px; margin-right: 8px"
-                  />
-                </el-form-item>
+                  </el-form-item>
 
-                %
-              </template>
-            </el-table-column>
-            <el-table-column prop="templateType" label="出现次数" min-width="153">
-              <template slot-scope="scope">
-                <el-form-item
-                  :prop="'tableData.' + scope.$index + '.occurrences'"
-                  :rules="rules.templateType.monitor"
-                >
-                  <el-select v-model="scope.row.occurrences" placeholder="请选择" style="width: 160px">
-                    <el-option
-                      v-for="item in occurrencesOptions"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    />
-                  </el-select>
-                </el-form-item>
-              </template>
-            </el-table-column>
-            <el-table-column prop="1" label="操作" min-width="100">
-              <template slot-scope="scope">
-                <el-button type="text" @click="handleDelete(scope.row.id)">删除</el-button>
-              </template>
-            </el-table-column>
-          </el-table>
-          <el-button
-            style="width: 97%; height: 42px; box-shadow: 0 1px 0 0 #dddddd"
-            type="text"
-            @click="addCondit"
-            >+添加条件</el-button
-          >
-        </el-form-item>
+                  %
+                </template>
+              </el-table-column>
+              <el-table-column prop="templateType" label="出现次数" min-width="153">
+                <template slot-scope="scope">
+                  <el-form-item
+                    :prop="'tableData.' + scope.$index + '.occurrences'"
+                    :rules="rules.templateType.monitor"
+                  >
+                    <el-select v-model="scope.row.occurrences" placeholder="请选择" style="width: 160px">
+                      <el-option
+                        v-for="item in occurrencesOptions"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </el-form-item>
+                </template>
+              </el-table-column>
+              <el-table-column prop="1" label="操作" min-width="100">
+                <template slot-scope="scope">
+                  <el-button type="text" @click="handleDelete(scope.row.id)">删除</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+            <el-button
+              style="width: 97%; height: 42px; box-shadow: 0 1px 0 0 #dddddd"
+              type="text"
+              @click="addCondit"
+              >+添加条件</el-button
+            >
+          </el-form-item>
+        </titled-block>
         <el-divider></el-divider>
-        <div class="form-titles">通知设置</div>
-        <el-form-item label="标题测试" prop="longTitle">
-          <el-input v-model="form.longTitle" placeholder="请输入" />
-        </el-form-item>
-        <el-form-item label="选择对象" prop="chooseObjs">
-          <el-select v-model="form.chooseObjs" placeholder="请选择对象">
-            <el-option
-              v-for="item in choObjsOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
-        </el-form-item>
+        <titled-block title="通知设置">
+          <el-form-item label="标题测试" prop="longTitle">
+            <el-input v-model="form.longTitle" placeholder="请输入" />
+          </el-form-item>
+          <el-form-item label="选择对象" prop="chooseObjs">
+            <el-select v-model="form.chooseObjs" placeholder="请选择对象">
+              <el-option
+                v-for="item in choObjsOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+          </el-form-item>
+        </titled-block>
+        <!-- <div class="form-titles">通知设置</div> -->
       </el-form>
     </el-card>
     <div class="pro-form-bottom">
-      <el-button type="primary" :loading="submitting" style="margin:0 16px 0 40px;" @click="submit">提 交</el-button>
+      <el-button type="primary" :loading="submitting" style="margin: 0 16px 0 40px" @click="submit"
+        >提 交</el-button
+      >
       <el-button @click="back">取 消</el-button>
     </div>
   </div>
@@ -188,11 +198,15 @@
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import * as ProForm1 from '@/types/ProForm1'
+import TitledBlock from '@/components/TitiledBlock/index.vue'
 import { getAlertTarget } from '@/api/simpleForm'
 import { createProForm1 } from '@/api/proForm1'
 
 @Component({
   name: 'ProForm1',
+  components: {
+    TitledBlock,
+  },
 })
 export default class extends Vue {
   // 表单Ref对象

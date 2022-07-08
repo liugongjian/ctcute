@@ -12,17 +12,18 @@
           :class="{ stepErr: s.disabled }"
         ></el-step>
       </el-steps>
-      <el-button
-        class="btn-style"
-        @click="
-          () => {
-            active++
-          }
-        "
-      >
-        下一步
-      </el-button>
-      <el-button @click="() => (active = 0)">重 置</el-button>
+      <div class="btn-style">
+        <el-button
+          @click="
+            () => {
+              active++
+            }
+          "
+        >
+          下一步
+        </el-button>
+        <el-button @click="() => (active = 0)">重 置</el-button>
+      </div>
     </div>
     <h3>迷你步骤条</h3>
     <div class="sub-steps">
@@ -35,18 +36,18 @@
           :class="{ stepErr: s.disabled }"
         ></el-step>
       </el-steps>
-
-      <el-button
-        class="btn-style"
-        @click="
-          () => {
-            activeMini++
-          }
-        "
-      >
-        下一步
-      </el-button>
-      <el-button @click="() => (activeMini = 0)">重 置</el-button>
+      <div class="btn-style">
+        <el-button
+          @click="
+            () => {
+              activeMini++
+            }
+          "
+        >
+          下一步
+        </el-button>
+        <el-button @click="() => (activeMini = 0)">重 置</el-button>
+      </div>
     </div>
     <h3>步骤多展示不全</h3>
     <div>
@@ -58,17 +59,19 @@
         @clickStep="clickmulti"
         @change="goMulti"
       ></steps-multi>
-      <el-button
-        class="btn-style"
-        @click="
-          () => {
-            activeMulti++
-          }
-        "
-      >
-        下一步
-      </el-button>
-      <el-button @click="() => (activeMulti = 0)">重 置</el-button>
+      <div class="btn-style">
+        <el-button
+          @click="
+            () => {
+              activeMulti++
+            }
+          "
+        >
+          下一步
+        </el-button>
+        <el-button @click="() => (activeMulti = 0)">重 置</el-button>
+      </div>
+
       <steps-multi
         :active="activeMultiMini"
         :steps="multisteps"
@@ -80,17 +83,18 @@
         @clickStep="clickmultimini"
         @change="goMultiMini"
       ></steps-multi>
-      <el-button
-        class="btn-style"
-        @click="
-          () => {
-            activeMultiMini++
-          }
-        "
-      >
-        下一步
-      </el-button>
-      <el-button @click="() => (activeMultiMini = 0)">重 置</el-button>
+      <div class="btn-style">
+        <el-button
+          @click="
+            () => {
+              activeMultiMini++
+            }
+          "
+        >
+          下一步
+        </el-button>
+        <el-button @click="() => (activeMultiMini = 0)">重 置</el-button>
+      </div>
     </div>
   </div>
 </template>

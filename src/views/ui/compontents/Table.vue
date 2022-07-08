@@ -334,45 +334,45 @@
     </div>
     <h3>纵向展示列表</h3>
     <div class="sub-table-horizon">
-      <el-descriptions class="margin-top" :column="4" border>
-        <el-descriptions-item :span="2">
+      <el-descriptions :column="2" border>
+        <el-descriptions-item>
           <template slot="label"> 数据库类型 </template>
           Spark
         </el-descriptions-item>
 
-        <el-descriptions-item :span="2">
+        <el-descriptions-item>
           <template slot="label"> 表类型 </template>
           物理表
         </el-descriptions-item>
-        <el-descriptions-item :span="2">
+        <el-descriptions-item>
           <template slot="label"> 配置时间 </template>
           2018-04-24 18:00:00
         </el-descriptions-item>
-        <el-descriptions-item :span="2">
+        <el-descriptions-item>
           <template slot="label"> 使用时间 </template>
           2018-04-24 18:00:00 至 2019-04-24 18:00:00
         </el-descriptions-item>
-        <el-descriptions-item :span="2">
+        <el-descriptions-item>
           <template slot="label"> 所属业务</template>
           金融 科技 -T Tech Ui
         </el-descriptions-item>
-        <el-descriptions-item :span="2">
+        <el-descriptions-item>
           <template slot="label"> 数据位点 </template>
           2018-04-24 18:00:00 至 2019-04-24 18:00:00
         </el-descriptions-item>
-        <el-descriptions-item :span="2">
+        <el-descriptions-item>
           <template slot="label"> 储存量(GB) </template>
           50
         </el-descriptions-item>
-        <el-descriptions-item :span="2">
+        <el-descriptions-item>
           <template slot="label"> 数据负责人 </template>
           王小明
         </el-descriptions-item>
-        <el-descriptions-item :span="4">
+        <el-descriptions-item :span="2">
           <template slot="label"> 生命周期（天） </template>
           30
         </el-descriptions-item>
-        <el-descriptions-item :span="4">
+        <el-descriptions-item :span="2">
           <template slot="label"> 配置信息 </template>
           <div>数据盘类型：<span>MongoDB </span></div>
           <div>数据库版本：<span>3.4 </span></div>

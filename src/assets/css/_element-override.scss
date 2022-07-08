@@ -786,17 +786,22 @@
 }
 
 .el-table .caret-wrapper {
-  height: 28px;
+  height: inherit;
 }
+.el-table th.el-table__cell > .cell {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
 
 .el-table .sort-caret.ascending {
   border-bottom-color: $table-sort-caret-fill;
-  top: 3px;
+  top: -12px;
 }
 
 .el-table .sort-caret.descending {
   border-top-color: $table-sort-caret-fill;
-  bottom: 3px;
+  bottom: -10px;
 }
 
 .el-table--border {
@@ -1042,7 +1047,7 @@
 }
 
 .el-step__line {
-  background-color: #ddd; //rgba(0, 0, 0, 0.15);
+  background-color: $color-grey-6//rgba(0, 0, 0, 0.15);
 }
 
 .el-step__icon.is-text {
@@ -1055,16 +1060,16 @@
 }
 
 .el-step__title.is-success {
-  color: rgba(0, 0, 0, 0.65);
+  color: $color-grey-2; //rgba(0, 0, 0, 0.65);
 }
 
 .el-step__head.is-process {
-  border-color: #fa8334;
+  border-color: $color-master-1;
 }
 
 .el-step__head.is-process .el-step__icon.is-text {
   color: #fff;
-  background-color: #fa8334;
+  border-color: $color-master-1;
 }
 
 .el-step__title.is-wait {

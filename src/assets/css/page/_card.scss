@@ -4,6 +4,69 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .el-col {
+    margin-bottom: 20px;
+  }
+
+  .el-card {
+    border-color: #E2E5ED;
+  }
+
+  .card-box {
+    .card-box--title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+
+      svg {
+        margin-right: 8px;
+      }
+    }
+
+    .card-box--bar {
+      display: flex;
+    }
+
+    .card-box--info {
+      margin-top: 8px;
+    }
+
+    .card-box--btns {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      background-color: #f9f9fa;
+      margin: -20px;
+      margin-top: 16px;
+      border-top: 1px solid #E2E5ED;
+
+      &>div {
+        flex: 1;
+        text-align: center;
+        border-right: 1px solid $border-color-primary;
+
+        &:last-child {
+          border: none;
+        }
+      }
+
+      svg {
+        font-size: 16px;
+      }
+    }
+
+    .card-box--bar--text {
+      width: 40%;
+      color: $text-color-light-1;
+
+      span {
+        font-size: $text-size-large;
+        margin-left: 12px;
+        color: rgba(0, 0, 0, 65%);
+      }
+    }
+  }
 }
 
 /* 大卡片 -- Card3 */
@@ -78,7 +141,7 @@
         color: $color-grey-3;
         cursor: pointer;
 
-        & > * {
+        &>* {
           margin: 0 10px;
         }
       }
@@ -102,7 +165,7 @@
         display: flex;
         flex-flow: wrap;
 
-        & > * {
+        &>* {
           background: rgba(0, 0, 0, 4%);
           border: 1px solid rgba(0, 0, 0, 8%);
           border-radius: 2px;

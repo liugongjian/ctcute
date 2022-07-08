@@ -47,7 +47,7 @@
                 </el-select>
               </el-form-item>
               <el-form-item prop="name">
-                <el-input v-model="conditions.name" placeholder="请输入主机别名" />
+                <el-input v-model="conditions.name" placeholder="请输入IP地址" />
                 <el-form-item class="table-tools__conditions__buttons">
                   <el-button type="primary" @click="search">查询</el-button>
                   <el-button @click="resetConditions">重置</el-button>

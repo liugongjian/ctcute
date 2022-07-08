@@ -70,6 +70,15 @@ const pageRoutes = [
         },
       },
       {
+        path: 'fullscreen-dialog',
+        component: () => import('@/views/page/Dialog/FullScreenDialog.vue'),
+        name: 'FullScreenDialog',
+        meta: {
+          title: 'FullScreenDialog 全屏弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'success-dialog',
         component: () => import('@/views/page/Dialog/SuccessDialog.vue'),
         name: 'SuccessDialog',

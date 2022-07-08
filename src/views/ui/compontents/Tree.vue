@@ -12,11 +12,11 @@
             {{ node.label }}
             <div class="handler-menu">
               <el-button v-if="!node.isLeaf" slot="reference" type="text">
-                <svg-icon name="plus" class="handler-icon" @click.stop="() => {}" />
+                <svg-icon name="plus-square" class="handler-icon" @click.stop="() => {}" />
               </el-button>
               <div class="hover-wrapper">
-                <el-button v-if="data.key !== 1" type="text" class="dash-icon">
-                  <svg-icon name="dash" class="handler-icon" @click.stop />
+                <el-button v-if="data.key !== 1" type="text">
+                  <svg-icon name="ellipsis-square" class="handler-icon" @click.stop />
                 </el-button>
                 <div class="pop-tooltip tree-node-popover el-tooltip__popper">
                   <div class="tooltip-content">
@@ -164,8 +164,6 @@ export default class extends Vue {
 
     .handler-icon {
       color: $color-grey-5;
-      border: 1.5px solid $color-grey-5;
-      font-size: 12.5px !important;
     }
   }
 

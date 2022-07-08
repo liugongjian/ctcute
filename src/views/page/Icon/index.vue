@@ -10,7 +10,6 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import SvgIcon from 'vue-svgicon'
 import copy from 'copy-to-clipboard'
 
 @Component({
@@ -20,7 +19,17 @@ export default class extends Vue {
   private icons = null
 
   private mounted() {
-    this.icons = Object.keys(SvgIcon.icons)
+    const req = require.context('@/assets/icons/svg', true, /\.svg$/)
+    this.icons = req
+      .keys()
+      .map(k => k.replace(/\.\/|\.svg/g, ''))
+      .sort(function (a, b) {
+        for (let i = 0; i < b.length; i++) {
+          if (a.toLowerCase().charCodeAt(i) === b.toLowerCase().charCodeAt(i)) continue
+          return a.toLowerCase().charCodeAt(i) - b.toLowerCase().charCodeAt(i)
+        }
+        return 0
+      })
   }
 
   private copyName(icon) {
@@ -56,9 +65,7 @@ export default class extends Vue {
   }
 
   &__img {
-    svg {
-      color: $text-color-light-1;
-    }
+    color: $text-color-light-1;
   }
 
   &__name {

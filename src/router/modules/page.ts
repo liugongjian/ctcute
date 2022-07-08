@@ -70,6 +70,15 @@ const pageRoutes = [
         },
       },
       {
+        path: 'fullscreen-dialog',
+        component: () => import('@/views/page/Dialog/FullScreenDialog.vue'),
+        name: 'FullScreenDialog',
+        meta: {
+          title: 'FullScreenDialog 全屏弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'success-dialog',
         component: () => import('@/views/page/Dialog/SuccessDialog.vue'),
         name: 'SuccessDialog',
@@ -82,16 +91,11 @@ const pageRoutes = [
         path: 'warn-dialog',
         component: () => import('@/views/page/Dialog/WarnDialog.vue'),
         name: 'WarnDialog',
-      },
-      {
-        path: '',
-        name: 'Dialog',
-        component: () => import('@/views/page/Dialog/index.vue'),
         meta: {
-          title: 'Dialog 弹窗',
-          breadcrumb: false,
+          title: 'WarnDialog 警告弹窗',
+          breadcrumb: true,
         },
-      }
+      },
     ],
   },
   // 表单
@@ -164,11 +168,20 @@ const pageRoutes = [
         },
       },
       {
-        path: 'pro-table',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/SimpleTable.vue'),
-        name: 'ProTable',
+        path: 'pro-table1',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable1.vue'),
+        name: 'ProTable1',
         meta: {
-          title: 'ProTable 复杂表格',
+          title: 'ProTable1 复杂表格1',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-table2',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable2.vue'),
+        name: 'ProTable2',
+        meta: {
+          title: 'ProTable2 复杂表格2',
           breadcrumb: true,
         },
       },
@@ -178,6 +191,15 @@ const pageRoutes = [
         name: 'ProTable3',
         meta: {
           title: 'ProTable3 复杂表格3',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-table4',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable4.vue'),
+        name: 'ProTable4',
+        meta: {
+          title: 'ProTable4 复杂表格4',
           breadcrumb: true,
         },
       },
@@ -200,6 +222,15 @@ const pageRoutes = [
         name: 'Card1',
         meta: {
           title: 'Card1 小卡片',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'card3',
+        component: () => import(/* webpackChunkName: "card" */ '@/views/page/CardList/Card3.vue'),
+        name: 'Card3',
+        meta: {
+          title: 'Card3 大卡片',
           breadcrumb: true,
         },
       },

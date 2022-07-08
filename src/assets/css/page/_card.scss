@@ -5,3 +5,126 @@
     justify-content: space-between;
   }
 }
+
+/* 大卡片 -- Card3 */
+
+.card3 {
+  .el-card {
+    border: 1px solid $color-grey-6;
+  }
+
+  .el-card.is-hover-shadow:hover {
+    box-shadow: 0 0 8px 0 rgba(100, 110, 144, 10%);
+  }
+
+  .card-btn {
+    margin-bottom: 16px;
+  }
+
+  .card-box {
+    .el-col {
+      margin-bottom: 20px;
+
+      .el-card.is-hover-shadow:hover {
+        box-shadow: -6px 6px 8px 4px rgba(100, 110, 144, 20%);
+      }
+    }
+
+    &__info {
+      padding: 4px;
+      height: 167px;
+
+      &__header {
+        display: flex;
+        font-family: PingFangSC-Regular;
+      }
+
+      &__avatar {
+        display: inline-block;
+        vertical-align: middle;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: $color-master-2;
+      }
+
+      &__name {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 16px;
+        color: #333;
+        font-weight: 500;
+        margin-left: 12px;
+      }
+
+      &__version {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 16px;
+        font-size: 12px;
+        color: #666;
+        line-height: 20px;
+        font-weight: 400;
+
+        &__num {
+          color: $color-master-1;
+          padding-left: 3px;
+        }
+      }
+
+      &__handle {
+        margin-left: auto;
+        font-size: 18px;
+        color: $color-grey-3;
+        cursor: pointer;
+
+        & > * {
+          margin: 0 10px;
+        }
+      }
+
+      &__con {
+        margin-top: 16px;
+        display: flex;
+      }
+
+      &__text {
+        font-size: 12px;
+        color: #333;
+        line-height: 20px;
+        font-weight: 500;
+        display: inline-block;
+        margin-right: 12px;
+        white-space: nowrap;
+      }
+
+      &__tag {
+        display: flex;
+        flex-flow: wrap;
+
+        & > * {
+          background: rgba(0, 0, 0, 4%);
+          border: 1px solid rgba(0, 0, 0, 8%);
+          border-radius: 2px;
+          padding: 1px 8px;
+          margin-right: 6px;
+          margin-bottom: 2px;
+          white-space: nowrap;
+          cursor: pointer;
+        }
+      }
+
+      &__describe {
+        width: calc(100% - 40px);
+        display: inline-block;
+        overflow: hidden;
+
+        &__text {
+          display: inline-block;
+          overflow-y: scroll;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

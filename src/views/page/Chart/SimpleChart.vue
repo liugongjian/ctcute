@@ -3,13 +3,31 @@
     <!-- 统计数据 -->
     <el-row :gutter="22">
       <el-col :span="8">
-        <chart-card :loading="loading" icon="sever" title="数据库总数(个)" total="20" background="139, 178, 249"></chart-card>
+        <chart-card
+          :loading="loading"
+          icon="sever"
+          title="数据库总数(个)"
+          total="20"
+          background="139, 178, 249"
+        ></chart-card>
       </el-col>
       <el-col :span="8">
-        <chart-card :loading="loading" icon="sever" title="总表数(个)" total="295" background="182, 221, 119"></chart-card>
+        <chart-card
+          :loading="loading"
+          icon="sever"
+          title="总表数(个)"
+          total="295"
+          background="182, 221, 119"
+        ></chart-card>
       </el-col>
       <el-col :span="8">
-        <chart-card :loading="loading" icon="sever" title="总存储量(GB)" total="0.67" background="248, 211, 76"></chart-card>
+        <chart-card
+          :loading="loading"
+          icon="sever"
+          title="总存储量(GB)"
+          total="0.67"
+          background="248, 211, 76"
+        ></chart-card>
       </el-col>
     </el-row>
     <el-row :gutter="22" class="simple-table-box">
@@ -17,12 +35,7 @@
         <el-card class="chart-card-box">
           <div slot="header" class="chart-card-header">
             <span>实例状态统计</span>
-            <el-date-picker
-              v-model="statusDate"
-              type="date"
-              placeholder="选择日期"
-            >
-            </el-date-picker>
+            <el-date-picker v-model="statusDate" type="date" placeholder="选择日期"> </el-date-picker>
           </div>
           <div class="chart-box">
             <Chart :option="option" :height="'280px'" :width="'100%'" />
@@ -70,17 +83,17 @@
             <el-table :data="tableData" style="width: 100%" stripe class="chart-table" height="250">
               <el-table-column prop="index" label="排行" width="56" align="center">
                 <template slot-scope="scope">
-                  <span class="solt" :class="'solt'+scope.row.index">{{ scope.row.index }}</span>
+                  <span class="solt" :class="'solt' + scope.row.index">{{ scope.row.index }}</span>
                 </template>
               </el-table-column>
               <el-table-column prop="name" label="工作流名称"></el-table-column>
               <el-table-column prop="time" label="耗时"></el-table-column>
               <el-table-column prop="status" label="状态" width="80" align="center">
                 <template slot-scope="scope">
-                  <span class="status" :class="'status'+scope.row.status">
-                    <span v-if="scope.row.status===1">停止</span>
-                    <span v-else-if="scope.row.status===2">失败</span>
-                    <span v-else-if="scope.row.status===3">暂停</span>
+                  <span class="status" :class="'status' + scope.row.status">
+                    <span v-if="scope.row.status === 1">停止</span>
+                    <span v-else-if="scope.row.status === 2">失败</span>
+                    <span v-else-if="scope.row.status === 3">暂停</span>
                     <span v-else>成功</span>
                   </span>
                 </template>
@@ -115,8 +128,8 @@ import { Component, Vue } from 'vue-property-decorator'
   name: 'SimpleChart',
   components: {
     ChartCard,
-    Chart
-  }
+    Chart,
+  },
 })
 export default class extends Vue {
   statusDate = ''
@@ -145,24 +158,24 @@ export default class extends Vue {
         fontSize: 16,
         fontWeight: 500,
         fontFamily: '微软雅黑',
-        color: '#333'
-      }
+        color: '#333',
+      },
     },
     textStyle: {
-      color: '#333'
+      color: '#333',
     },
     tooltip: {
       trigger: 'none',
       show: true,
       feature: {
-        mark: { show: true }
-      }
+        mark: { show: true },
+      },
     },
     legend: {
       show: true,
       textStyle: {
         fontSize: 12, // 字体大小
-        color: '#333'// 字体颜色
+        color: '#333', // 字体颜色
       },
       icon: 'circle',
       top: '20%',
@@ -170,18 +183,18 @@ export default class extends Vue {
       itemWidth: 10,
       itemGap: 20,
       itemHeight: 10,
-      orient: 'vertical'
+      orient: 'vertical',
     },
     series: [
       {
         selectedMode: false,
         labelLine: {
           normal: {
-            length: 2
+            length: 2,
           },
           lineStyle: {
-            color: '#333'
-          }
+            color: '#333',
+          },
         },
         label: {
           // normal: {
@@ -204,7 +217,6 @@ export default class extends Vue {
           //     },
           //   }
           // },
-
         },
         fontSize: 12, // 字体大小
         type: 'pie',
@@ -225,13 +237,13 @@ export default class extends Vue {
               show: true,
               padding: [5, 10],
               // formatter:  '{b} \n {c} ({d}%)'
-              formatter: '{b}  {c}'
+              formatter: '{b}  {c}',
             },
-            labelLine: { show: true }
-          }
-        }
-      }
-    ]
+            labelLine: { show: true },
+          },
+        },
+      },
+    ],
   }
 
   // 线图
@@ -240,7 +252,7 @@ export default class extends Vue {
       left: '3%',
       right: '2%',
       bottom: '3%',
-      containLabel: true
+      containLabel: true,
     },
     color: ['#F7C99C', '#FDF5ED', '#FAAD15', '#F96965', '#B4B4B4'],
     tooltip: {
@@ -248,16 +260,16 @@ export default class extends Vue {
       axisPointer: {
         type: 'cross',
         label: {
-          backgroundColor: '#333'
-        }
-      }
+          backgroundColor: '#333',
+        },
+      },
     },
     legend: {
       data: ['昨日', '今日'],
       show: true,
       textStyle: {
         fontSize: 12, // 字体大小
-        color: '#333'// 字体颜色
+        color: '#333', // 字体颜色
       },
       icon: 'circle',
       top: '6%',
@@ -285,8 +297,8 @@ export default class extends Vue {
       },
       splitLine: {
         lineStyle: {
-          type: 'dashed'
-        }
+          type: 'dashed',
+        },
       },
       max: 12,
       // axisLabel: {
@@ -299,34 +311,34 @@ export default class extends Vue {
         type: 'line',
         areaStyle: {},
         emphasis: {
-          focus: 'series'
+          focus: 'series',
         },
         symbol: 'none',
         lineStyle: {
           color: '#F3AD68',
           normal: {
-            color: '#F3AD68'
+            color: '#F3AD68',
           },
         },
-        data: [0, 0, 0, 0, 0, 0, 7, 7, 7, 12, 12, 12, 12]
+        data: [0, 0, 0, 0, 0, 0, 7, 7, 7, 12, 12, 12, 12],
       },
       {
         name: '今日',
         type: 'line',
         areaStyle: {},
         emphasis: {
-          focus: 'series'
+          focus: 'series',
         },
         symbol: 'none',
         lineStyle: {
           color: '#000',
           normal: {
-            color: '#F3AD68'
+            color: '#F3AD68',
           },
         },
-        data: [5, 5, 5, 5, 12, 12, 12, 12, 12, 12, 12, 12, 12]
+        data: [5, 5, 5, 5, 12, 12, 12, 12, 12, 12, 12, 12, 12],
       },
-    ]
+    ],
   }
 
   // 柱状图
@@ -335,7 +347,7 @@ export default class extends Vue {
       left: '3%',
       right: '3%',
       bottom: '3%',
-      containLabel: true
+      containLabel: true,
     },
     color: ['#8BB2F9'],
     tooltip: {
@@ -343,8 +355,8 @@ export default class extends Vue {
       color: '#333',
       formatter: '{b}' + '<br />' + '流程定义数：{c}',
       axisPointer: {
-        type: 'shadow'
-      }
+        type: 'shadow',
+      },
     },
     xAxis: {
       type: 'category',
@@ -362,8 +374,8 @@ export default class extends Vue {
       },
       splitLine: {
         lineStyle: {
-          type: 'dashed'
-        }
+          type: 'dashed',
+        },
       },
     },
     series: [
@@ -372,8 +384,8 @@ export default class extends Vue {
         type: 'bar',
 
         barWidth: 26,
-      }
-    ]
+      },
+    ],
   }
 
   // 柱折混合
@@ -383,23 +395,23 @@ export default class extends Vue {
       right: '2%',
       top: '72px',
       bottom: '0',
-      containLabel: true
+      containLabel: true,
     },
     tooltip: {
       trigger: 'axis',
       axisPointer: {
         type: 'cross',
         crossStyle: {
-          color: '#999'
-        }
-      }
+          color: '#999',
+        },
+      },
     },
     legend: {
       data: ['实际数量', '完成率（%）'],
       show: true,
       textStyle: {
         fontSize: 12, // 字体大小
-        color: '#333'// 字体颜色
+        color: '#333', // 字体颜色
       },
       icon: 'circle',
       top: '0%',
@@ -411,21 +423,35 @@ export default class extends Vue {
     xAxis: [
       {
         type: 'category',
-        data: ['00：00', '02：00', '04：00', '06：00', '08：00', '10：00', '12：00', '14：00', '16：00', '18：00', '20：00', '22：00', '24：00'],
+        data: [
+          '00：00',
+          '02：00',
+          '04：00',
+          '06：00',
+          '08：00',
+          '10：00',
+          '12：00',
+          '14：00',
+          '16：00',
+          '18：00',
+          '20：00',
+          '22：00',
+          '24：00',
+        ],
         nameLocation: 'start',
         verticalAlign: 'bottom',
         name: '时间',
         axisPointer: {
-          type: 'shadow'
-        }
-      }
+          type: 'shadow',
+        },
+      },
     ],
     yAxis: [
       {
         splitLine: {
           lineStyle: {
-            type: 'dashed'
-          }
+            type: 'dashed',
+          },
         },
         type: 'value',
         name: '实际数量',
@@ -433,14 +459,14 @@ export default class extends Vue {
         max: 30,
         interval: 50,
         axisLabel: {
-          formatter: '{value}'
-        }
+          formatter: '{value}',
+        },
       },
       {
         splitLine: {
           lineStyle: {
-            type: 'dashed'
-          }
+            type: 'dashed',
+          },
         },
         type: 'value',
         name: '完成率（%）',
@@ -448,24 +474,22 @@ export default class extends Vue {
         max: 30,
         interval: 5,
         axisLabel: {
-          formatter: '{value} %'
-        }
-      }
+          formatter: '{value} %',
+        },
+      },
     ],
     series: [
       {
         name: '实际数量',
         type: 'bar',
         tooltip: {
-          valueFormatter: function(value: number) {
+          valueFormatter: function (value: number) {
             return value + ' ml'
-          }
+          },
         },
         color: ['#AAD85F'],
         barWidth: 26,
-        data: [
-          30, 28, 25, 24, 21, 20, 16, 15, 13, 12, 10, 7, 3
-        ]
+        data: [30, 28, 25, 24, 21, 20, 16, 15, 13, 12, 10, 7, 3],
       },
       {
         name: '完成率（%）',
@@ -475,13 +499,13 @@ export default class extends Vue {
         align: 'right',
         yAxisIndex: 1,
         tooltip: {
-          valueFormatter: function(value: number) {
+          valueFormatter: function (value: number) {
             return value + ' %'
-          }
+          },
         },
-        data: [13, 18, 22, 20, 26, 18, 15, 14, 13, 16, 16, 16, 11]
-      }
-    ]
+        data: [13, 18, 22, 20, 26, 18, 15, 14, 13, 16, 16, 16, 11],
+      },
+    ],
   }
 
   // 加载状态
@@ -505,43 +529,142 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.simple-table-box{
-  ::v-deep .el-col{ margin-top: 22px;}
+.simple-table-box {
+  ::v-deep .el-col {
+    margin-top: 22px;
+  }
 }
-.chart-card-box{
-  ::v-deep .el-card__header { padding: 0 22px;}
-  .chart-card-header{ clear: both; display: flex; align-items: center;
-    .chart-card-tabs{ margin-left: auto;margin-bottom: -1px;
-    ::v-deep .el-tabs__header{ margin: 0; height: 40px; margin-top: 18px;}
-    ::v-deep .el-tabs__active-bar{ height: 3px;}
-    ::v-deep .el-tabs__nav-wrap::after{ background: none;}
+.chart-card-box {
+  ::v-deep .el-card__header {
+    padding: 0 22px;
+  }
+  .chart-card-header {
+    clear: both;
+    display: flex;
+    align-items: center;
+    .chart-card-tabs {
+      margin-left: auto;
+      margin-bottom: -1px;
+      ::v-deep .el-tabs__header {
+        margin: 0;
+        height: 40px;
+        margin-top: 18px;
+      }
+      ::v-deep .el-tabs__active-bar {
+        height: 3px;
+      }
+      ::v-deep .el-tabs__nav-wrap::after {
+        background: none;
+      }
     }
-    span{  font-size: 14px;color: $color-grey-1;line-height: 58px; font-weight: bold;}
-    .el-date-editor{ margin-left: auto;}
-    ::v-deep .el-input__prefix{ top:-2.4px}
-    ::v-deep .el-range-separator { top:-2.4px}
+    span {
+      font-size: 14px;
+      color: $color-grey-1;
+      line-height: 58px;
+      font-weight: bold;
+    }
+    .el-date-editor {
+      margin-left: auto;
+    }
+    ::v-deep .el-input__prefix {
+      top: -2.4px;
+    }
+    ::v-deep .el-range-separator {
+      top: -2.4px;
+    }
   }
- .chart-box{ height: 280px;}
- .chart-box-linebar{ height: 310px;}
- .chart-table.el-table {
-  .solt{ margin: 0 auto; background: $color-other-2; display: block; color: $color-grey-2; font-size: 12px; line-height: 20px; border-radius: 50%; width: 20px; height: 20px; text-align: center; }
-  .solt1{ background: $color-other-3; color: $color-white;}
-  .status{ padding-left: 18px; position: relative;
-    &::after{ content: ''; position: absolute; width: 8px; height: 8px; border-radius: 50%; background: $color-table-status-success;left: 2px; top: 50%; margin-top: -4px;}
+  .chart-box {
+    height: 280px;
   }
-  .status1::after{ background: $color-table-status-info;}
-  .status2::after{ background: $color-table-status-danger;}
-  .status3::after{ background: $color-table-status-warning;}
-  .solt2{ background: $color-other-3; color: $color-white; opacity: 0.8; }
-  .solt3{ background: $color-other-3; color: $color-white; opacity: 0.6; }
-  ::v-deep th.el-table__cell > .cell{ color: $color-grey-2; font-weight: normal;}
-  ::v-deep .el-table__header .el-table__cell{ border-right: 0; border-bottom: 0px; background: $color-grey-11; }
-  ::v-deep .el-table__header .el-table__cell{ border-right: 0; border-bottom: 0px; background: $color-grey-11; line-height: 40px;}
-  ::v-deep  .el-table__body-wrapper td .el-table__cell{ padding:5px 0;}
-  ::v-deep td.el-table__cell{border-bottom: 1px solid $color-grey-12; color: $color-grey-1}
-  ::-webkit-scrollbar-track-piece { background-color: $color-white;}
-  ::-webkit-scrollbar { width: 6px; height: 8px; }
-  ::-webkit-scrollbar-thumb:vertical { height: 100px; background-color: $color-grey-6; -webkit-border-radius: 6px; border-radius: 6px; }
- }
+  .chart-box-linebar {
+    height: 310px;
+  }
+  .chart-table.el-table {
+    .solt {
+      margin: 0 auto;
+      background: $color-other-2;
+      display: block;
+      color: $color-grey-2;
+      font-size: 12px;
+      line-height: 20px;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+    }
+    .solt1 {
+      background: $color-other-3;
+      color: $color-white;
+    }
+    .status {
+      padding-left: 18px;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $color-table-status-success;
+        left: 2px;
+        top: 50%;
+        margin-top: -4px;
+      }
+    }
+    .status1::after {
+      background: $color-table-status-info;
+    }
+    .status2::after {
+      background: $color-table-status-danger;
+    }
+    .status3::after {
+      background: $color-table-status-warning;
+    }
+    .solt2 {
+      background: $color-other-3;
+      color: $color-white;
+      opacity: 0.8;
+    }
+    .solt3 {
+      background: $color-other-3;
+      color: $color-white;
+      opacity: 0.6;
+    }
+    ::v-deep th.el-table__cell > .cell {
+      color: $color-grey-2;
+      font-weight: normal;
+    }
+    ::v-deep .el-table__header .el-table__cell {
+      border-right: 0;
+      border-bottom: 0px;
+      background: $color-grey-11;
+    }
+    ::v-deep .el-table__header .el-table__cell {
+      border-right: 0;
+      border-bottom: 0px;
+      background: $color-grey-11;
+      line-height: 40px;
+    }
+    ::v-deep .el-table__body-wrapper td .el-table__cell {
+      padding: 5px 0;
+    }
+    ::v-deep td.el-table__cell {
+      border-bottom: 1px solid $color-grey-12;
+      color: $color-grey-1;
+    }
+    ::-webkit-scrollbar-track-piece {
+      background-color: $color-white;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-thumb:vertical {
+      height: 100px;
+      background-color: $color-grey-6;
+      -webkit-border-radius: 6px;
+      border-radius: 6px;
+    }
+  }
 }
 </style>

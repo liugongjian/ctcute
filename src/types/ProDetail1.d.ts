@@ -28,22 +28,22 @@ type BatchesInfo = {
  * 升级策略概览
  */
 export type UpdateStatus = {
-  id: String
-  name: String
-  status: Number
-  running: String
-  start: String
-  fail: String
-  sale: String
-  unavailable: String
-  unknown: String
+  id: string
+  name: string
+  status: number
+  running: string
+  start: string
+  fail: string
+  sale: string
+  unavailable: string
+  unknown: string
 }
 type updateListInfo = {
-  title: String
-  time: String
-  message: String
-  status: Number
-  metric: String
+  title: string
+  time: string
+  message: string
+  status: number
+  metric: string
   list: UpdateStatus[]
 }
 /**

@@ -1,5 +1,4 @@
 @mixin detail {
-
   /* 橙色标题 */
   .header-title {
     line-height: $text-size-medium;
@@ -149,6 +148,30 @@
       ul {
         padding-left: 12px;
       }
+    }
+  }
+}
+
+/* 复杂详情页2 */
+.pro-detail2 {
+  @include detail();
+
+  .header-extra {
+    margin-bottom: 16px;
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+
+    &__left {
+      width: 200px;
+      border-right: 1px solid #f0f0f0;
+    }
+
+    &__right {
+      width: calc(100% - 216px);
+      padding-left: 16px;
     }
   }
 }

@@ -25,19 +25,7 @@
     </div>
     <div class="table-filter">
       <div class="table-filter_text">指标条件</div>
-      <el-dropdown>
-        <el-tag type="newtag" size="large">+ 新增过滤</el-tag>
-
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>
-            <div>111 <el-input></el-input></div>
-          </el-dropdown-item>
-          <el-dropdown-item>狮子头</el-dropdown-item>
-          <el-dropdown-item>螺蛳粉</el-dropdown-item>
-          <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-          <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+      <table-filter />
     </div>
 
     <!--表格-->
@@ -99,9 +87,10 @@ import { Component, Vue } from 'vue-property-decorator'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTable, getHosts } from '@/api/simpleTable'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
-
+import TableFilter from '@/components/Table/TableFilter.vue'
 @Component({
   name: 'SimpleTable',
+  components: { TableFilter },
 })
 export default class extends Vue {
   // 健康状态字典
@@ -234,6 +223,11 @@ export default class extends Vue {
   private openDropdown(e) {
     e ? (this.flag = true) : (this.flag = false)
   }
+
+  private operationOptions = [
+    { label: '> =', value: 1 },
+    { label: '< =', value: 2 },
+  ]
 }
 </script>
 <style lang="scss" scoped>

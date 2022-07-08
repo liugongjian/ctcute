@@ -39,9 +39,8 @@
           </el-select>
         </div>
         <div class="line__right">
-          <el-select v-model="value1" multiple placeholder="请选择" disabled>
-            <span slot="prefix">11</span>
-            <el-option label="不可用" value=""> <svg-icon name="save"> </svg-icon></el-option>
+          <el-select v-model="value1" multiple placeholder="请选择" disabled class="disabled-select">
+            <el-option> <svg-icon name="save"> </svg-icon></el-option>
           </el-select>
         </div>
       </div>
@@ -50,7 +49,7 @@
       <h3>带提示</h3>
       <div class="line">
         <div class="line__left">
-          <remind-select :data="options1" :placeholder="name" />
+          <remind-select :data="options1" :title="name" :placeholder="name" :model="value9" />
         </div>
       </div>
     </div>
@@ -154,6 +153,7 @@ export default class extends Vue {
   private value6 = ''
   private value7 = ''
   private value8 = ''
+  private value9 = ''
 
   private text = ''
   private options = [

@@ -7,13 +7,13 @@ import * as Response from './Response'
  */
 
 export type Host = {
-  name: string;
-  status: number;
-  ip: string;
-  cpu: string;
-  memory: string;
-  disk: string;
-  health: string;
+  name: string
+  status: number
+  ip: string
+  cpu: string
+  memory: string
+  disk: string
+  health: string
 }
 
 export type Option = {
@@ -22,8 +22,8 @@ export type Option = {
 
 /* 过滤条件 */
 export type Conditions = {
-  host: string;
-  name: string;
+  host: string
+  name: string
 }
 
 /* 获取表格请求类型 */
@@ -31,5 +31,5 @@ export type TableParams = Request.Pager & Conditions
 
 /* 返回列表 */
 export type TableData = {
-  list: Host[];
+  list: Host[]
 } & Response.Pager

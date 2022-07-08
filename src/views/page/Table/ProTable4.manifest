@@ -1,0 +1,22 @@
+[
+  {
+    "name": "ProTable4.vue",
+    "path": "@/views/page/table/ProTable4.vue"
+  },
+  {
+    "name": "ProTable4.d.ts",
+    "path": "@/types/ProTable4.d.ts"
+  },
+  {
+    "name": "api/ProTable4.ts",
+    "path": "@/api/ProTable4.ts"
+  },
+  {
+    "name": "dics/simpleTable.ts",
+    "path": "@/dics/simpleTable.ts"
+  },
+  {
+    "name": "utils/mock.js",
+    "path": "@/utils/mock.js"
+  }
+]

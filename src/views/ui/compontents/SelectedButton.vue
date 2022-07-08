@@ -1,24 +1,21 @@
 <template>
   <div>
-    <h2>默认单选快</h2>
+    <h2>默认单选块</h2>
     <div class="sub-sample">
-      <default-Radio :data="buutonData" />
-    </div>
-    <h2>特殊单选快(用于订购页)</h2>
-    <div class="sub-sample">
-      <el-radio-group v-model="radio0">
-        <el-radio-button label="Active"></el-radio-button>
-        <el-radio-button label="Default"></el-radio-button>
-        <el-radio-button label="Disabled" disabled></el-radio-button>
+      <el-radio-group v-model="radio">
+        <el-radio-button label="默认选项"></el-radio-button>
+        <el-radio-button label="选中选项"></el-radio-button>
+        <el-radio-button label="选中不可选" disabled></el-radio-button>
+        <el-radio-button label="禁用选项" disabled></el-radio-button>
       </el-radio-group>
+    </div>
+    <h2>特殊单选块(用于订购页)</h2>
+    <div class="sub-sample">
+      <special-radio :data="buutonData" />
     </div>
     <h2>小单选块</h2>
     <div class="sub-sample">
-      <el-radio-group v-model="radio1" size="small">
-        <el-radio-button label="Active"></el-radio-button>
-        <el-radio-button label="Default"></el-radio-button>
-        <el-radio-button label="Disabled" disabled></el-radio-button>
-      </el-radio-group>
+      <special-radio :data="buutonData" :size="size" />
     </div>
     <h2>多选块</h2>
     <div class="sub-sample">
@@ -34,35 +31,31 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import DefaultRadio from '@/components/Radio/DefaultRadio.vue'
+import SpecialRadio from '@/components/Radio/SpecialRadio.vue'
 
 @Component({
   name: 'UiSelectedButton',
-  components: { DefaultRadio },
+  components: { SpecialRadio },
 })
 export default class extends Vue {
   public static title = {
     zh: '选择按钮',
     en: 'SelectedButton',
   }
-
+  private size = 'small'
   buutonData = [
     {
-      label: '默认选项',
+      label: 'Active',
     },
     {
-      label: '选中选项',
+      label: 'Default',
     },
     {
-      label: '选中不可选项',
-      disabled: true,
-    },
-    {
-      label: '禁用选项',
+      label: 'Disabled',
       disabled: true,
     },
   ]
-
+  private radio = '选中选项'
   private radio0 = 'Active'
   private radio1 = 'Active'
   private radio2 = ['多选选中', '不可用选中']

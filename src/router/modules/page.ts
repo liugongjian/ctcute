@@ -171,6 +171,15 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'card3',
+        component: () => import(/* webpackChunkName: "card" */ '@/views/page/CardList/Card3.vue'),
+        name: 'Card3',
+        meta: {
+          title: 'Card3 大卡片',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 详情

@@ -1,10 +1,8 @@
 <template>
   <div v-if="isExternal" :style="styleExternalIcon" class="svg-external-icon svg-icon" v-on="$listeners" />
-  <span v-else class="svg-container" :style="{ color }">
-    <svg :class="svgClass" :style="svgVerticalAlign" aria-hidden="true" v-on="$listeners">
-      <use :xlink:href="iconName" />
-    </svg>
-  </span>
+  <svg v-else :class="svgClass" :style="styleSvgIcon" aria-hidden="true" v-on="$listeners">
+    <use :xlink:href="iconName" />
+  </svg>
 </template>
 
 <script lang="ts">
@@ -16,7 +14,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ required: true }) private name!: string
   @Prop({ default: '' }) private className!: string
-  @Prop({ default: 'currentColor' }) private color!: string
+  @Prop({ default: '' }) private color!: string
   @Prop({ default: '' }) private width!: string
   @Prop({ default: '' }) private height!: string
   @Prop({ default: '' }) private verticalAlign!: string
@@ -54,19 +52,28 @@ export default class extends Vue {
     }
   }
 
-  public get svgVerticalAlign() {
+  public get styleSvgIcon() {
+    let style = {}
     if (this.width && this.height) {
       // 某些特殊svg需要定制宽高
-      return {
-        'vertical-align': this.verticalAlign,
-        'width': this.width,
-        'height': this.height
+      style = {
+        width: this.width,
+        height: this.height
       }
-    } else {
-      return {
+    }
+    if (this.verticalAlign) {
+      style = {
+        ...style,
         'vertical-align': this.verticalAlign
       }
     }
+    if (this.color) {
+      style = {
+        ...style,
+        fill: this.color
+      }
+    }
+    return style
   }
 }
 </script>

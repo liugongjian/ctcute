@@ -54,7 +54,7 @@
 }
 
 .el-button--text {
-  .svg-icon.svg-fill {
+  .svg-icon {
     margin-right: 4px;
   }
   &:hover {
@@ -105,7 +105,7 @@
 .el-button--small {
   padding: 7px $padding-primary;
   border-radius: $border-radius;
-  .svg-icon.svg-fill {
+  .svg-icon {
     margin-right: 4px;
   }
 }
@@ -135,14 +135,14 @@
 .el-dropdown {
   .el-button:hover,
   .el-button:focus {
-    .svg-icon.svg-fill {
+    .svg-icon {
       color: $color-master-1;
     }
   }
-  .svg-icon.svg-fill:not(:first-child) {
+  .svg-icon:not(:first-child) {
     margin-left: 13px;
   }
-  .svg-icon.svg-fill {
+  .svg-icon {
     color: $button-icon-color;
   }
 }
@@ -155,12 +155,12 @@
 /* IconButton
 -------------------------- */
 .el-button.el-button--medium {
-  .svg-icon.svg-fill {
+  .svg-icon {
     font-size: $text-size-large;
   }
 }
 .el-button.el-button--primary.el-button--medium.is-disabled {
-  .svg-icon.svg-fill {
+  .svg-icon {
     color: $color-grey-5;
   }
 }

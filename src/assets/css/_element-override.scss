@@ -603,12 +603,6 @@
   color: $text-color-light-1;
 }
 
-/* Descriptions
--------------------------- */
-.el-descriptions td {
-  padding: 10px 0;
-}
-
 /* Tabs
 -------------------------- */
 .el-tabs__item {
@@ -792,6 +786,9 @@
 }
 /* Descriptions
 -------------------------- */
+.el-descriptions td {
+  padding: 10px 0;
+}
 .el-descriptions-item__label.is-bordered-label {
   background: $color-grey-11;
   text-align: right !important;

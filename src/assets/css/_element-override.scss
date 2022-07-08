@@ -1138,11 +1138,11 @@
     cursor: pointer;
   }
 
-  .el-tag__close.el-icon-close {
+  .el-tag.el-tag--info .el-tag__close {
     background: $text-color-light-2;
     color: $color-white !important;
     &:hover {
-      background: $color-master-1;
+      background: $color-master-1 !important;
       color: $color-white;
     }
   }
@@ -1482,6 +1482,10 @@
 }
  .el-tag.el-tag--info .el-tag__close{
     color: $color-grey-1;
+    &:hover{
+      color: $color-grey-1;
+      background-color: $color-grey-10 !important;
+    }
   }
 
 .el-tag--medium {

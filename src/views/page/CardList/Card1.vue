@@ -6,7 +6,7 @@
       </div>
       <div class="card-tools__right">
         <el-form ref="conditions" inline @submit.native.prevent>
-          <el-form-item prop="name">
+          <el-form-item>
             <el-input v-model="name" placeholder="请输入名称" />
           </el-form-item>
           <el-form-item>
@@ -37,6 +37,8 @@ export default class extends Vue {
 
   // 加载状态
   private loading = false
+
+  private name = ''
 
   // 数据
   private cardData: CardListItem[] = []

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "page-500.svg",
+    "path": "@/views/page/statusPage/Image/page-500.svg"
+  },
+  {
+    "name": "Page500.vue",
+    "path": "@/views/page/statusPage/Page500.vue"
+  }
+]

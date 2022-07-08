@@ -1,4 +1,5 @@
 @mixin detail {
+
   /* 橙色标题 */
   .header-title {
     line-height: $text-size-medium;
@@ -39,6 +40,15 @@
       }
     }
   }
+
+  /* 表示状态的圆点 */
+  .status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 100%;
+  }
 }
 
 /* 简单详情 */
@@ -72,24 +82,97 @@
 
     .el-card__body {
       padding: 0 16px;
+      display: flex;
     }
 
     &__left {
       width: 376px;
-      float: left;
       padding-right: 16px;
       padding-top: 16px;
+
+      .status-dot {
+        &--0 {
+          background: $color-status-warning;
+        }
+
+        &--1 {
+          background: $color-status-success;
+        }
+      }
+
+      .operate-btn {
+        margin-bottom: 20px;
+      }
     }
 
     &__right {
-      margin-left: 376px;
       border-left: 1px solid $border-color-primary;
       padding-left: 16px;
       padding-top: 16px;
 
+      .timeline-content {
+        margin-top: 24px;
+
+        h4 {
+          font-size: $text-size-small;
+          color: rgba(0, 0, 0, 65%);
+          margin-top: 8px;
+          margin-bottom: 0 !important;
+        }
+
+        p {
+          margin-top: 8px;
+          margin-bottom: 0 !important;
+        }
+
+        .table {
+          margin: 8px 0 0 !important;
+        }
+      }
+
+      .sub-complex {
+        .el-timeline-item {
+          padding-bottom: 16px;
+        }
+
+        .status-dot {
+          &--0 {
+            background: $color-status-danger;
+          }
+
+          &--1 {
+            background: $color-status-success;
+          }
+        }
+      }
+
       ul {
         padding-left: 12px;
       }
+    }
+  }
+}
+
+/* 复杂详情页2 */
+.pro-detail2 {
+  @include detail();
+
+  .header-extra {
+    margin-bottom: 16px;
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+
+    &__left {
+      width: 200px;
+      border-right: 1px solid #f0f0f0;
+    }
+
+    &__right {
+      width: calc(100% - 216px);
+      padding-left: 16px;
     }
   }
 }

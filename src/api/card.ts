@@ -1,13 +1,12 @@
 import request from '@/utils/request'
 import { AxiosPromise } from 'axios'
-import { CardListResponse } from '@/types/Card'
-import * as CardList from '@/types/Card'
+import { CardListItem, CardListResponse } from '@/types/Card'
 
-export const getCardList = (): AxiosPromise<CardListResponse> => {
+export const getCardList = (): AxiosPromise<CardListItem[]> => {
   return request({ url: '/mock/175/card-list' })
 }
 
-export const getCardData = (): AxiosPromise<CardList.CardListResponse> =>
+export const getCardData = (): AxiosPromise<CardListResponse> =>
   request({
     url: '/mock/175/card-list',
     method: 'get',

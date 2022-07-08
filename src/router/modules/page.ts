@@ -35,13 +35,40 @@ const pageRoutes = [
   // 弹窗
   {
     path: '/page/dialog',
-    component: Layout,
     name: 'Dialog',
+    component: Layout,
     meta: {
       title: 'Dialog 弹窗',
       breadcrumb: true,
     },
     children: [
+      {
+        path: 'small-dialog',
+        component: () => import('@/views/page/Dialog/SmallDialog.vue'),
+        name: 'SmallDialog',
+        meta: {
+          title: 'SmallDialog 小弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'medium-dialog',
+        component: () => import('@/views/page/Dialog/MediumDialog.vue'),
+        name: 'MediumDialog',
+        meta: {
+          title: 'MediumDialog 中弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'large-dialog',
+        component: () => import('@/views/page/Dialog/LargeDialog.vue'),
+        name: 'LargeDialog',
+        meta: {
+          title: 'LargeDialog 大弹窗',
+          breadcrumb: true,
+        },
+      },
       {
         path: 'success-dialog',
         component: () => import('@/views/page/Dialog/SuccessDialog.vue'),
@@ -56,7 +83,7 @@ const pageRoutes = [
         component: () => import('@/views/page/Dialog/WarnDialog.vue'),
         name: 'WarnDialog',
         meta: {
-          title: 'WarnDialog 告警弹窗',
+          title: 'WarnDialog 警告弹窗',
           breadcrumb: true,
         },
       },
@@ -132,11 +159,20 @@ const pageRoutes = [
         },
       },
       {
-        path: 'pro-table',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/SimpleTable.vue'),
-        name: 'ProTable',
+        path: 'pro-table1',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable1.vue'),
+        name: 'ProTable1',
         meta: {
-          title: 'ProTable 复杂表格',
+          title: 'ProTable1 复杂表格1',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-table2',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable2.vue'),
+        name: 'ProTable2',
+        meta: {
+          title: 'ProTable2 复杂表格2',
           breadcrumb: true,
         },
       },
@@ -146,6 +182,15 @@ const pageRoutes = [
         name: 'ProTable3',
         meta: {
           title: 'ProTable3 复杂表格3',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-table4',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable4.vue'),
+        name: 'ProTable4',
+        meta: {
+          title: 'ProTable4 复杂表格4',
           breadcrumb: true,
         },
       },
@@ -217,6 +262,79 @@ const pageRoutes = [
         name: 'ProDetail2',
         meta: {
           title: 'ProDetail2 复杂详情页2',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  // 状态页
+  {
+    path: '/page/pageStatus',
+    // redirect: '/page/form/simple-table',
+    component: Layout,
+    name: 'PageStatus',
+    meta: {
+      title: 'Status 状态页',
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'Page403',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page403.vue'),
+        name: 'Page403',
+        meta: {
+          title: '403页',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'Page404',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page404.vue'),
+        name: 'Page404',
+        meta: {
+          title: '404页',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'Page500',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page500.vue'),
+        name: 'Page500',
+        meta: {
+          title: '500页',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'EmptyPage',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/EmptyPage.vue'),
+        name: 'EmptyPage',
+        meta: {
+          title: '空页面',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  // 图表
+
+  {
+    path: '/page/chart',
+    redirect: '/page/chart/simpleChart',
+    component: Layout,
+    name: 'simpleChart',
+    meta: {
+      title: 'SimpleChart 基础图表',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'Chart',
+        component: () => import(/* webpackChunkName: "simplechart" */ '@/views/page/Chart/SimpleChart.vue'),
+        name: 'Chart',
+        meta: {
+          title: 'SimpleChart 基础图表',
           breadcrumb: true,
         },
       },

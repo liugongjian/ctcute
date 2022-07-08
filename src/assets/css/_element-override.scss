@@ -382,8 +382,6 @@
 .el-input-number--medium {
   line-height: 30px;
 }
-
-// el-input-number__increase
 /* Radio
 -------------------------- */
 .el-radio-button__orig-radio:checked+.el-radio-button__inner {
@@ -402,41 +400,37 @@
   }
 }
 
+/* SelectButton
+-------------------------- */
 .el-radio-group {
   .el-radio-button {
-    margin-left: 2px;
-
     .el-radio-button__inner {
       color: $text-color-primary;
       font-size: $text-size-primary;
-      background-color: $color-master-6;
-      border: 0;
-
-      &:hover {
-        background-color: $color-master-5;
+      &:not(.el-radio-group .el-radio-button.is-disabled .el-radio-button__inner):hover {
+        color: $color-master-1;
       }
     }
 
     &.is-active .el-radio-button__inner {
-      color: $color-white;
-      background-color: $color-master-1;
+      background: rgba(250, 131, 52, 8%);
+      color: $color-master-1;
+      border-right: 1px solid $color-master-1;
     }
-
-    &.is-disabled .el-radio-button__inner {
-      color: $text-color-light-1;
-      background-color: $disabled-fill;
-    }
-
-    &.el-radio-button--medium .el-radio-button__inner {
-      padding: 8px 20px;
-    }
-
-    &.el-radio-button--small .el-radio-button__inner {
-      padding: 6px 9px;
-    }
+}
+.el-radio-button:last-child .el-radio-button__inner {
+    background-color: #f8f8f8;
+    color: rgba(0, 0, 0, 30%);
+    font-weight: 400;
+    border-radius: 0 2px 2px 0;
   }
 }
-
+.el-radio-button:not(.is-active) .el-radio-button__inner{
+  border-color: $color-grey-6;
+}
+.el-radio-button.is-disabled .el-radio-button__inner{
+  color: $color-grey-4;
+}
 .el-radio__input.is-disabled.is-checked .el-radio__inner::after {
   background: $disabled-border;
 }
@@ -875,7 +869,7 @@
 
 .el-descriptions-item__cell.el-descriptions-item__content {
   color: $color-grey-1;
-  border: 1px solid #ddd;
+  border: 1px solid $border-color-primary;
   padding-left: 24px !important;
   width: 525px !important;
 
@@ -1146,20 +1140,9 @@
 
   .el-tag__close.el-icon-close {
     background: $text-color-light-2;
-    color: $color-white;
-
+    color: $color-white !important;
     &:hover {
       background: $color-master-1;
-      color: $color-white;
-    }
-  }
-
-  .el-tag.el-tag--info.el-tag__close {
-    background-color: $color-grey-4;
-    color: $color-white;
-
-    &:hover {
-      background-color: $color-master-1;
       color: $color-white;
     }
   }
@@ -1199,13 +1182,13 @@
   border: 1px solid $border-color-primary;
 }
 
-.el-tag.el-tag--info {
-  background: $color-grey-7;
-  color: $text-color-light-1;
-}
+// .el-tag.el-tag--info {
+//   background: $color-grey-7;
+//   color: $text-color-light-1;
+// }
 
-.disabled-select {
-  .el-select.el-select--medium {
+
+  .disabled-select {
     .el-select__tags-text::after {
       content: 'x';
       color: $color-white;
@@ -1228,7 +1211,7 @@
       }
     }
   }
-}
+
 
 .el-select-dropdown .popper__arrow,
 .el-select-dropdown .popper__arrow::after {
@@ -1497,6 +1480,9 @@
   border: 1px solid $color-tag-info-1;
   border-radius: $border-radius;
 }
+ .el-tag.el-tag--info .el-tag__close{
+    color: $color-grey-1;
+  }
 
 .el-tag--medium {
   height: 22px;
@@ -1708,6 +1694,12 @@
     display: block;
     margin: 4px 8px;
   }
+  .el-button--medium:not(.is-disabled){
+    .el-icon-arrow-right{
+      color: $color-white;
+    }
+  }
+   
 
   .el-icon-arrow-right:before {
     content: '\eb44';
@@ -1731,6 +1723,9 @@
 
     &:hover {
       background: $disabled-fill;
+      color: $disabled-icon-color;
+    }
+    .el-icon-arrow-right{
       color: $disabled-icon-color;
     }
   }

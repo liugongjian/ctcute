@@ -880,9 +880,13 @@
 /* Pagination
 -------------------------- */
 .el-pagination {
-  margin-top: 8px;
-  padding-top: 8px;
-
+  padding-top: 0;
+  padding-bottom: 0;
+  span:not([class*='suffix']),
+  button {
+    height: 24px;
+    line-height: 24px;
+  }
   .el-select.el-select--mini {
     .el-select__caret.el-input__icon.el-icon-arrow-up.is-reverse {
       line-height: 24px;
@@ -905,6 +909,7 @@
 
   .el-select .el-input__suffix {
     height: 24px !important;
+    line-height: 24px !important;
   }
 
   .el-input .el-input__suffix {
@@ -929,6 +934,7 @@
       min-width: 20px;
       height: 24px;
       line-height: 24px;
+      border-radius: 2px;
 
       &.active {
         background-color: $color-master-1;

@@ -76,7 +76,6 @@
       :current-page="pager.page"
       :page-size="pager.limit"
       :total="pager.total"
-      layout="total, prev, pager, next, sizes, jumper"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
     />

@@ -57,9 +57,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.el-pagination {
-  display: flex;
-  align-items: center;
-}
-</style>

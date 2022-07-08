@@ -1,17 +1,13 @@
 
 export interface Form {
-  policyName: string,
-  environment: number,
-  colony: number,
-  alarmName: string,
-  monitorTarget: number,
-  monitorColony: number,
-  monitorName: string,
-  alertTarget: number,
-  duration: number,
-  longTitle: string,
-  chooseObjs: number,
-  dynamicTags: string[],
+  name: string,
+  ip: string,
+  ssh: string,
+  sshName: string,
+  password: string,
+  port: string,
+  catalogue: string,
+  dynamicTags: [],
 }
 
 export type Response = {

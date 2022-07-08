@@ -8,7 +8,12 @@
           <el-form :model="formData" :rules="rules">
             <el-form-item prop="password">
               <el-input v-model="formData.password" placeholder="请输入" type="text" @input="changeValue">
-                <i slot="suffix" class="el-icon-view" @click="appearValue"></i>
+                <svg-icon
+                  slot="suffix"
+                  :name="flag ? 'eye-close-fill' : 'eye-fill'"
+                  class="switch"
+                  @click="appearValue"
+                />
               </el-input>
             </el-form-item>
           </el-form>
@@ -87,19 +92,25 @@
           </el-input>
         </div>
         <div>
-          <el-input v-model="forgot" placeholder="请输入密码">
-            <span slot="suffix" class="suffix-forgot">Forgot?</span>
+          <el-input v-model="formData.password" placeholder="请输入密码" type="text" @input="changeValue">
+            <template slot="suffix">
+              <b class="suffix-forgot">
+                <svg-icon slot="suffix" :name="flag ? 'eye-close-fill' : 'eye-fill'" @click="appearValue" />
+              </b>
+
+              <el-link> Forgot? </el-link>
+            </template>
           </el-input>
         </div>
-        <el-input v-model="formData.password1" placeholder="请输入" type="text" @input="changeValue">
-          <i slot="suffix" class="el-icon-view" @click="appearValue"></i>
+        <el-input v-model="formData.password" placeholder="请输入" type="text" @input="changeValue">
+          <svg-icon slot="suffix" :name="flag ? 'eye-close-fill' : 'eye-fill'" @click="appearValue" />
         </el-input>
       </div>
     </div>
     <h3 class="sub-title">带提示的输入框</h3>
     <div class="sub-input">
       <el-row>
-        <remind-input :restaurants="restaurants" :placeholder="placeholderTitle" />
+        <remind-input :restaurants="restaurants" :placeholder="placeholder" :title="title" :model="state1" />
       </el-row>
     </div>
     <h3>长文本域</h3>
@@ -149,7 +160,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import EditInput from '@/components/EditInput/index.vue'
-import RemindInput from '@/components/Input/RemidInput.vue'
+import RemindInput from '@/components/Input/RemindInput.vue'
 @Component({
   name: 'UiInput',
   components: {
@@ -165,7 +176,8 @@ export default class extends Vue {
 
   private flag = true
   private value1 = ''
-  private placeholderTitle = '请输入内容'
+  private title = '数据资源名称'
+  private placeholder = '请输入'
   private num = 1
   private num1 = 1
   private content = '这是一段内容'
@@ -176,6 +188,7 @@ export default class extends Vue {
   private money = '2'
   private information = '这是一条备注信息'
   private information1 = ''
+  private state1 = ''
 
   private address = '' // 地址
   private height = '' // 身高

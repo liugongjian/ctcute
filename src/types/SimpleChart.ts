@@ -5,6 +5,7 @@ import * as Response from './Response'
  * 表格数据
  * 示例为服务器主机
  */
+
 export type Host = {
   name: string
   status: number
@@ -15,18 +16,16 @@ export type Host = {
   health: string
 }
 
+export type Option = {
+  option: object
+}
+
 /* 过滤条件 */
 export type Conditions = {
   host: string
   name: string
 }
-/* 复杂表格过滤条件 */
-export type ComplexConditions = {
-  host: string
-  name: string
-  environment: string
-  cpu: string
-}
+
 /* 获取表格请求类型 */
 export type TableParams = Request.Pager & Conditions
 

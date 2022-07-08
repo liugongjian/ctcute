@@ -12,16 +12,19 @@
     "svg": "vsvg -s ./src/assets/icons/svg -t ./src/assets/icons/components --ext ts --es6"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.7.0",
     "axios": "^0.26.1",
     "copy-to-clipboard": "^3.3.1",
     "core-js": "^3.21.1",
     "date-fns": "^2.28.0",
+    "echarts": "^5.3.3",
     "element-ui": "^2.15.6",
     "js-cookie": "^3.0.1",
     "mavon-editor": "^2.10.4",
-    "vue": "~2.6.14",
+    "vue": "2.6.14",
     "vue-class-component": "^7.2.6",
     "vue-codemirror": "^4.0.6",
+    "vue-echarts": "^6.1.0",
     "vue-i18n": "8.27.2",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.2.0",
@@ -67,6 +70,6 @@
     "typescript": "^4.6.3",
     "vue-cli-plugin-element": "^1.0.1",
     "vue-cli-plugin-style-resources-loader": "^0.1.4",
-    "vue-template-compiler": "~2.6.14"
+    "vue-template-compiler": "2.6.14"
   }
 }

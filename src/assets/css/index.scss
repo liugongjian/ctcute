@@ -60,3 +60,11 @@ hr {
   width: 0;
   height: 0;
 }
+
+::-webkit-resizer {
+  background-image: url('../images/pull.png');
+  background-size: 9px 9px;
+  background-repeat: no-repeat;
+  background-position: 3px 3px;
+  background-position: 6px 6px;
+}

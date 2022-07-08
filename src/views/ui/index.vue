@@ -56,14 +56,11 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.layout-sidebar {
-  border-right: 1px solid $border-color-light-1;
-}
-
 .ui__container {
   margin-left: 230px;
   margin-top: $header-height;
   padding: 1px 24px 24px;
+  border-left: 1px solid $border-color-light-1;
 }
 
 .ui__component {

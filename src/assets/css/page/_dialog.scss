@@ -157,6 +157,23 @@
 .log-dialog {
   @include base-dialog();
 
+  .el-dialog {
+    width: 560px;
+  }
+
+  &--content {
+    background-color: $color-grey-10;
+  }
+
+  &--pre {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.info-dialog {
+  @include base-dialog();
+
   &--content {
     background-color: $color-grey-10;
   }

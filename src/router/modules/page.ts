@@ -97,6 +97,15 @@ const pageRoutes = [
         },
       },
       {
+        path: 'info-dialog',
+        component: () => import('@/views/page/Dialog/InfoDialog.vue'),
+        name: 'InfoDialog',
+        meta: {
+          title: 'InfoDialog 信息弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'log-dialog',
         component: () => import('@/views/page/Dialog/LogDialog.vue'),
         name: 'LogDialog',

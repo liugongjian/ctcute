@@ -8,7 +8,7 @@
     "build": "vue-cli-service build --mode prod",
     "build-test": "vue-cli-service build --mode test",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
+    "lint": "vue-cli-service lint --fix",
     "svg": "vsvg -s ./src/assets/icons/svg -t ./src/assets/icons/components --ext ts --es6"
   },
   "dependencies": {
@@ -55,6 +55,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-vue": "^8.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "mockjs": "^1.1.0",
     "path": "^0.12.7",
     "path-to-regexp": "^6.2.0",
@@ -68,6 +70,8 @@
     "stylelint": "^14.6.1",
     "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-config-standard": "^25.0.0",
+    "svg-sprite-loader": "^5.0.0",
+    "svgo-loader": "^3.0.1",
     "typescript": "^4.6.3",
     "vue-cli-plugin-element": "^1.0.1",
     "vue-cli-plugin-style-resources-loader": "^0.1.4",

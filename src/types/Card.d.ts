@@ -1,4 +1,4 @@
-/* 请求类型: Code */
+/** Card1  */
 export type CardListItem = {
   remark: string
   title: string

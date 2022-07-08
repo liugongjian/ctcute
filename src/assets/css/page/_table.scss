@@ -310,68 +310,142 @@
 }
 
 /* 复杂表格1 */
-
-.table-filter {
-  display: flex;
-  align-items: center;
-
-  .table-filter_text {
-    color: $color-grey-1;
-    margin-right: 12px;
-  }
-
-  .el-tag.el-tag--newtag.el-tag--large.el-tag--light {
-    position: relative;
-  }
-
-  .table-filter_content {
-    position: absolute;
-    padding: 16px;
-    background-color: $color-white;
-    z-index: 9999;
-    left: 0;
-    top: 32px;
-    box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 50%);
-  }
-}
-
-.el-dropdown-link {
-  cursor: pointer;
-  color: $color-master-1;
-}
-
-.top-fill {
-  transform: rotate(180deg);
-}
-
-/* 复杂表格1 */
-.table-button {
-  .el-select {
-    width: 125px !important;
-    margin-right: 20px;
-  }
-
-  margin-top: 16px;
-  display: flex;
-  justify-content: space-between;
-  padding-top: 15px;
-  border-top: 1px solid #f1f1f1;
-
-  .table-button_left {
+.pro-table-1 {
+  /* 表格工具栏 */
+  .table-tools {
     display: flex;
+    justify-content: space-between;
+
+    /* 筛选表单 */
+    &__conditions {
+      margin-bottom: 16px;
+
+      .el-form-item {
+        margin-bottom: 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .el-input,
+      .el-select {
+        width: 268px;
+      }
+
+      &__buttons {
+        margin-left: 24px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include table();
+
+  /*  过滤条件 */
+  .table-filter {
+    display: flex;
+    align-items: center;
+
+    .table-filter_text {
+      color: $color-grey-1;
+      margin-right: 12px;
+    }
+
+    .el-tag.el-tag--newtag.el-tag--large.el-tag--light {
+      position: relative;
+    }
+
+    .table-filter_content {
+      position: absolute;
+      padding: 16px;
+      background-color: $color-white;
+      z-index: 9999;
+      left: 0;
+      top: 32px;
+      box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 50%);
+    }
+  }
+
+  .el-dropdown-link {
+    cursor: pointer;
+    color: $color-master-1;
+  }
+
+  /* 下拉展开旋转小三角 */
+  .top-fill {
+    transform: rotate(180deg);
   }
 }
 
-.el-form-item--medium .el-form-item__content {
-  line-height: 32px;
+/* 复杂表格2 */
+.pro-table-2 {
+  /* 表格工具栏 */
+  .table-tools {
+    display: flex;
+    justify-content: space-between;
+
+    /* 筛选表单 */
+    &__conditions {
+      margin-bottom: 16px;
+
+      .el-form-item {
+        margin-bottom: 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .el-input,
+      .el-select {
+        width: 268px;
+      }
+
+      &__buttons {
+        margin-left: 24px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include table();
+
+  .table-button {
+    .el-select {
+      width: 125px !important;
+      margin-right: 20px;
+    }
+
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid #f1f1f1;
+
+    .table-button_left {
+      display: flex;
+    }
+  }
+
+  .el-form-item--medium .el-form-item__content {
+    line-height: 32px;
+  }
+
+  .complex-table_from {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .el-form-item {
+      margin-bottom: 16px !important;
+    }
+  }
 }
 
-.complex-table_from {
+/* 暂无数据 */
+.el-table__empty-text {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
-  .el-form-item {
-    margin-bottom: 16px !important;
-  }
+  justify-content: center;
+  align-items: center;
 }

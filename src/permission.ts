@@ -27,9 +27,7 @@ router.beforeEach(async (to: Route, _: Route, next: any) => {
           // Generate accessible routes map based on role
           PermissionModule.generateRoutes(roles)
           // Dynamically add accessible routes
-          PermissionModule.dynamicRoutes.forEach(route => {
-            router.addRoute(route)
-          })
+          router.addRoutes(PermissionModule.dynamicRoutes)
           // Hack: ensure addRoutes is complete
           // Set the replace: true, so the navigation will not leave a history record
           next({ ...to, replace: true })

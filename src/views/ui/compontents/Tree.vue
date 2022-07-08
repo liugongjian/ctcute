@@ -11,12 +11,12 @@
             </span>
             {{ node.label }}
             <div class="handler-menu">
-              <el-button slot="reference" type="text">
-                <svg-icon v-if="!node.isLeaf" name="plus" class="handler-icon" @click.stop="() => {}" />
+              <el-button v-if="!node.isLeaf" slot="reference" type="text">
+                <svg-icon name="plus" class="handler-icon" @click.stop="() => {}" />
               </el-button>
               <div class="hover-wrapper">
-                <el-button type="text" class="dash-icon">
-                  <svg-icon v-if="data.key !== 1" name="dash" class="handler-icon" @click.stop />
+                <el-button v-if="data.key !== 1" type="text" class="dash-icon">
+                  <svg-icon name="dash" class="handler-icon" @click.stop />
                 </el-button>
                 <div class="pop-tooltip tree-node-popover el-tooltip__popper">
                   <div class="tooltip-content">

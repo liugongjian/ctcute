@@ -62,6 +62,11 @@ export default {
       type: String,
       default: '',
     },
+    lastStepWidth: {
+      // 新增参数lastStepWidth,最后一个steps宽度，默认135
+      type: Number,
+      default: 135,
+    },
   },
 
   data() {
@@ -114,6 +119,8 @@ export default {
       const style = {}
       const parent = this.$parent
       const len = parent.steps.length
+      const lastStepWidth = this.lastStepWidth
+      const steps = parent.steps
       let space
       if (typeof this.space === 'number') {
         space = this.space + 'px'
@@ -129,6 +136,15 @@ export default {
       } else {
         style.marginRight = -this.$parent.stepOffset + 'px'
       }
+      steps.map((s, index) => {
+        let result = ''
+        if (index < steps.length - 1) {
+          result = `calc((100% - ${lastStepWidth}px) / ${steps.length - 1})`
+        } else {
+          result = `${lastStepWidth}px`
+        }
+        style.minWidth = result
+      })
 
       return style
     },

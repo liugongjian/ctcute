@@ -185,6 +185,15 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'pro-table4',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable4.vue'),
+        name: 'ProTable4',
+        meta: {
+          title: 'ProTable4 复杂表格4',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 卡片

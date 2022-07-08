@@ -11,6 +11,12 @@
     "lint": "vue-cli-service lint --fix",
     "svg": "vsvg -s ./src/assets/icons/svg -t ./src/assets/icons/components --ext ts --es6"
   },
+  "lint-staged": {
+    "*.{ts,js,vue}": [
+      "vue-cli-service lint ./src --fix",
+      "prettier --write ./src"
+    ]
+  },
   "dependencies": {
     "axios": "^0.26.1",
     "copy-to-clipboard": "^3.3.1",

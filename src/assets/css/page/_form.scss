@@ -37,11 +37,11 @@
   .pro-form-bottom {
     position: fixed;
     margin-left: -15px;
-    width: unquote("-webkit-calc(100% - #{$sidebar-width})");
+    width: unquote('-webkit-calc(100% - #{$sidebar-width})');
     background: $color-white;
     bottom: 0;
     line-height: 48px;
-    transition: 0.3s
+    transition: 0.3s;
   }
 }
 
@@ -58,7 +58,7 @@
   .el-divider--horizontal {
     width: 95%;
     margin: 24px;
-    margin-left: 40px
+    margin-left: 40px;
   }
 
   .el-table {
@@ -90,7 +90,6 @@
     width: 93%;
     margin: 24px;
     margin-left: 34px;
-
   }
 
   .form-items {
@@ -99,7 +98,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
-    >div {
+    > div {
       width: 31%;
 
       .el-select {
@@ -107,7 +106,7 @@
       }
 
       .el-input {
-        width: 100%
+        width: 100%;
       }
     }
 
@@ -124,7 +123,6 @@
 
       .el-tag {
         margin: 0 10px 10px 0;
-
       }
     }
   }

@@ -9,7 +9,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({
-  name: 'SvgIcon'
+  name: 'SvgIcon',
 })
 export default class extends Vue {
   @Prop({ required: true }) private name!: string
@@ -41,13 +41,13 @@ export default class extends Vue {
         backgroundColor: this.color,
         mask: `url(${this.name}) no-repeat 50% 50%`,
         '-webkit-mask': `url(${this.name}) no-repeat 50% 50%`,
-        'vertical-align': this.verticalAlign
+        'vertical-align': this.verticalAlign,
       }
     } else {
       return {
         backgroundColor: this.color,
         mask: `url(${this.name}) no-repeat 50% 50%`,
-        '-webkit-mask': `url(${this.name}) no-repeat 50% 50%`
+        '-webkit-mask': `url(${this.name}) no-repeat 50% 50%`,
       }
     }
   }
@@ -58,19 +58,19 @@ export default class extends Vue {
       // 某些特殊svg需要定制宽高
       style = {
         width: this.width,
-        height: this.height
+        height: this.height,
       }
     }
     if (this.verticalAlign) {
       style = {
         ...style,
-        'vertical-align': this.verticalAlign
+        'vertical-align': this.verticalAlign,
       }
     }
     if (this.color) {
       style = {
         ...style,
-        fill: this.color
+        fill: this.color,
       }
     }
     return style

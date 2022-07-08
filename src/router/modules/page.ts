@@ -96,6 +96,15 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'log-dialog',
+        component: () => import('@/views/page/Dialog/LogDialog.vue'),
+        name: 'LogDialog',
+        meta: {
+          title: 'LogDialog 日志弹窗',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 表单

@@ -11,11 +11,6 @@
     "lint": "vue-cli-service lint --fix",
     "svg": "vsvg -s ./src/assets/icons/svg -t ./src/assets/icons/components --ext ts --es6"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{ts,js,vue}": [
       "vue-cli-service lint ./src --fix",

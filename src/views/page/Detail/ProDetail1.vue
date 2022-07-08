@@ -105,12 +105,12 @@
                     :timestamp="item.title"
                     placement="top"
                   >
-                    <h4>
+                    <h4 v-if="item.message">
                       {{ item.message }}
                       <span class="status-dot" :class="`status-dot--${item.status}`" />
                       {{ RESULT[item.status] }}
                     </h4>
-                    <p>{{ item.time }}</p>
+                    <p v-if="item.time">{{ item.time }}</p>
                     <el-table v-if="item.list" :data="item.list" border class="table">
                       <el-table-column prop="id" label="序号"></el-table-column>
                       <el-table-column prop="name" label="集群名称"></el-table-column>

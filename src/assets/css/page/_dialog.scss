@@ -2,42 +2,54 @@
 @mixin special-dialog {
   display: flex;
   align-items: center;
+
   .el-dialog {
     width: 480px;
     margin: 0 auto !important;
+
     /* 弹窗Header */
     .el-dialog__header {
       padding: 32px 0 0 32px;
+
       .el-dialog__title {
         color: $color-grey-1;
         font-size: $text-size-large;
         font-family: PingFangSC-Medium;
         font-weight: 500;
       }
+
       button {
         display: none;
       }
     }
+
     /* 弹窗Body */
     .el-dialog__body {
-      padding: 16px 32px 32px 32px;
+      padding: 16px 32px 32px;
     }
   }
+
   &--content {
     display: flex;
-    .svg-icon { /* 图标 */
+
+    .svg-icon {
+      /* 图标 */
       flex: none;
       font-size: 20px;
       margin-right: 12px;
     }
-    > div { /* 内容 */
+
+    > div {
+      /* 内容 */
       line-height: 20px;
       color: $color-grey-1;
     }
   }
+
   &--btns {
     text-align: center;
     margin-top: 24px;
+
     .el-button + .el-button {
       margin-left: 16px;
     }
@@ -48,13 +60,16 @@
 @mixin base-dialog {
   display: flex;
   align-items: center;
+
   .el-dialog {
     width: 480px;
     margin: 0 auto !important;
+
     /* 弹窗Header */
     .el-dialog__header {
       padding: 17px 24px;
-      border-bottom: 1px solid #F2F2F2;
+      border-bottom: 1px solid #f2f2f2;
+
       .el-dialog__title {
         color: $color-grey-1;
         font-size: $text-size-large;
@@ -62,22 +77,26 @@
         font-weight: 500;
       }
     }
+
     /* 弹窗Body */
     .el-dialog__body {
       padding: 0;
     }
   }
+
   &--content {
     display: flex;
     margin: 24px;
-    color: $color-grey-1 ;
+    color: $color-grey-1;
     font-size: $text-size-medium;
     font-weight: 400;
   }
+
   &--footer {
     text-align: center;
     padding: 9px 0;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
+
     .el-button + .el-button {
       margin-left: 16px;
     }
@@ -94,9 +113,33 @@
   @include base-dialog();
 }
 
+/* 全屏弹窗 */
+.fullscreen-dialog {
+  @include base-dialog();
+
+  .el-dialog {
+    margin: 24px !important;
+    width: 100%;
+    height: calc(100% - 48px);
+    display: flex;
+    flex-flow: column nowrap;
+
+    &__body {
+      flex: 1;
+      display: flex;
+      flex-flow: column nowrap;
+    }
+  }
+
+  &--content {
+    flex: 1;
+  }
+}
+
 /* 成功弹窗 */
 .success-dialog {
   @include special-dialog();
+
   .svg-icon {
     color: $color-status-success;
   }
@@ -105,6 +148,7 @@
 /* 警告弹窗 */
 .warn-dialog {
   @include special-dialog();
+
   .svg-icon {
     color: $color-status-warning;
   }

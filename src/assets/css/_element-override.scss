@@ -890,6 +890,14 @@
   button {
     height: 24px;
     line-height: 24px;
+    &:disabled {
+      color: $color-grey-5;
+    }
+  }
+  .btn-prev,
+  .btn-next,
+  .btn-quicknext {
+    color: $color-grey-3 !important;
   }
   .el-select.el-select--mini {
     .el-select__caret.el-input__icon.el-icon-arrow-up.is-reverse {
@@ -935,6 +943,7 @@
     li {
       color: $text-color-primary;
       font-weight: 400;
+      font-size: 12px;
       min-width: 20px;
       height: 24px;
       line-height: 24px;

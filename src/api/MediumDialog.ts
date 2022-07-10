@@ -11,5 +11,5 @@ export const createMediumDialog = (params: MediumDialog.Form): AxiosPromise<Medi
   request({
     url: '/mock/175/dialog/MediumDialog',
     method: 'post',
-    data: params
+    data: params,
   })

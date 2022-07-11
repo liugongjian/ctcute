@@ -93,13 +93,8 @@
           label-width="130px"
         >
           <el-form-item label="输入查询" prop="name">
-            <div>
-              <el-input v-model="secondForm.name" placeholder="请输入策略名称" />
-              <div class="form-item-tip">
-                <span style="margin-right: 8px"><svg-icon name="info-circle" width="12" height="12" /></span>
-                <span>策略格式为XXXXXXXXXXXXXXXXX</span>
-              </div>
-            </div>
+            <el-input v-model="secondForm.name" placeholder="请输入策略名称" />
+            <div class="form-item__tip">策略格式为XXXXXXXXXXXXXXXXX</div>
           </el-form-item>
           <el-form-item label="备注/描述" prop="remark">
             <el-input

@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex">
+  <div>
     <el-dropdown
       trigger="click"
       :hide-on-click="false"
@@ -11,7 +11,7 @@
         <el-dropdown-item>
           <el-form>
             <el-form-item label="cpu使用量">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px">
+              <el-select placeholder="请选择">
                 <el-option
                   v-for="item in operationOptions"
                   :key="item.value"
@@ -20,12 +20,12 @@
                 />
               </el-select>
 
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px" />
+              <el-input placeholder="请输入" />
               <span>%</span>
             </el-form-item>
 
             <el-form-item label="RAM使用量">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px">
+              <el-select placeholder="请选择">
                 <el-option
                   v-for="item in operationOptions"
                   :key="item.value"
@@ -38,7 +38,7 @@
               <span>%</span>
             </el-form-item>
             <el-form-item label="磁盘剩余量">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px">
+              <el-select placeholder="请选择">
                 <el-option
                   v-for="item in operationOptions"
                   :key="item.value"
@@ -50,7 +50,7 @@
               <span>%</span>
             </el-form-item>
             <el-form-item label="网络平均负数">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px">
+              <el-select placeholder="请选择">
                 <el-option
                   v-for="item in operationOptions"
                   :key="item.value"
@@ -62,7 +62,7 @@
               <span>%</span>
             </el-form-item>
             <el-form-item label="处理请求数">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px">
+              <el-select placeholder="请选择">
                 <el-option
                   v-for="item in operationOptions"
                   :key="item.value"
@@ -85,7 +85,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
   name: 'tableFilter',
 })
 export default class extends Vue {
-  @Prop({ type: Array, default: [] }) data?: [] // 下拉数据
+  @Prop({ type: Array, default: [] }) operationOptions?: [] // 下拉数据
 }
 </script>
 
@@ -102,6 +102,12 @@ export default class extends Vue {
   ::v-deep.el-form-item__label {
     padding-right: 12px;
     color: $color-grey-1;
+  }
+
+  .el-select,
+  .el-input {
+    width: 90px;
+    margin-right: 8px;
   }
 }
 

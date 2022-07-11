@@ -46,7 +46,7 @@ export default class extends Vue {
   height: 32px;
 
   .el-input--suffix .el-input__inner {
-    padding-right: 70px;
+    padding-right: 92px;
   }
 
   .prompt-title {

@@ -25,7 +25,7 @@
     </div>
     <div class="table-filter">
       <div class="table-filter_text">指标条件</div>
-      <table-filter />
+      <table-filter :operation-options="operationOptions" />
     </div>
 
     <!--表格-->
@@ -226,10 +226,20 @@ export default class extends Vue {
   private openDropdown(e) {
     e ? (this.flag = true) : (this.flag = false)
   }
-
+  /** * 新增过滤下拉数据 */
   private operationOptions = [
     { label: '> =', value: 1 },
     { label: '< =', value: 2 },
+  ]
+  /** * 新增过滤表单对象 */
+  private fromData = [
+    {
+      cpu: null,
+    },
+    { ram: null },
+    { cpu: null },
+    { cpu: null },
+    { cpu: null },
   ]
 }
 </script>

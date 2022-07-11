@@ -44,18 +44,6 @@
   transform: rotate(180deg);
 }
 
-.conventional-dropdown,
-.combination-dropdown {
-  width: 124px;
-
-  .el-dropdown-menu__item {
-    padding-left: 21px;
-
-    .svg-icon.svg-fill {
-      margin-right: 4px;
-    }
-  }
-}
 .el-button.el-button--primary.el-button--medium.is-loading {
   background: $loading-primary-color;
   border-color: $loading-primary-border;

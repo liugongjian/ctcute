@@ -122,4 +122,17 @@ export default class extends Vue {
   color: $color-grey-4;
   font-size: 12px;
 }
+
+.conventional-dropdown,
+.combination-dropdown {
+  width: 124px;
+
+  .el-dropdown-menu__item {
+    padding-left: 21px;
+
+    .svg-icon.svg-fill {
+      margin-right: 4px;
+    }
+  }
+}
 </style>

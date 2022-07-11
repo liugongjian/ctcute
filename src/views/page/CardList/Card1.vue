@@ -16,13 +16,18 @@
         </el-form>
       </div>
     </div>
+    <el-tabs value="third" type="card" size="small">
+      <el-tab-pane label="默认项" name="second"></el-tab-pane>
+      <el-tab-pane label="选中项" name="third"></el-tab-pane>
+      <el-tab-pane label="不可用" name="fourth" disabled></el-tab-pane>
+    </el-tabs>
     <div>
       <el-row :gutter="20">
         <el-col v-for="(card, index) in cardData" :key="index" :span="8">
           <el-card shadow="hover">
-            <div class="card-box">
+            <div :class="index === 0 ? 'card-box active' : 'card-box'">
               <div class="card-box--title">
-                <svg-icon name="detail-fill" width="24px" height="24px" /> {{ card.title }}
+                <svg-icon name="question-circle-fill" width="24px" height="24px" /> {{ card.title }}
               </div>
               <div class="card-box--bar">
                 <div class="card-box--bar--text">

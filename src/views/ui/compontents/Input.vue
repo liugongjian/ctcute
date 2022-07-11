@@ -116,7 +116,14 @@
     <h3>长文本域</h3>
     <div class="text-input">
       <el-row>
-        <el-input type="textarea" :rows="3" placeholder="请输入备注信息" maxlength="128" show-word-limit>
+        <el-input
+          v-model="information2"
+          type="textarea"
+          :rows="3"
+          placeholder="请输入备注信息"
+          maxlength="128"
+          show-word-limit
+        >
         </el-input>
       </el-row>
       <el-row>
@@ -188,6 +195,8 @@ export default class extends Vue {
   private money = '2'
   private information = '这是一条备注信息'
   private information1 = ''
+  private information2 = ''
+
   private state1 = ''
 
   private address = '' // 地址

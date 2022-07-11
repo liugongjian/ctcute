@@ -39,9 +39,5 @@ export default class extends Vue {
   .el-button + .el-button {
     margin-left: 20px;
   }
-
-  .button:hover {
-    color: $color-master-1;
-  }
 }
 </style>

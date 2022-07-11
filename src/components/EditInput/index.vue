@@ -36,12 +36,14 @@ export default class extends Vue {
   &:hover {
     color: $color-master-1;
   }
+  &.svg-icon {
+    vertical-align: sub;
+  }
 }
 
 .wrap {
   width: 100%;
   display: inline-block;
-
   .el-input,
   .el-textarea {
     width: calc(100% - 84px);
@@ -56,6 +58,7 @@ export default class extends Vue {
     cursor: pointer;
     font-size: $text-size-large;
     margin-right: 4px;
+    vertical-align: sub;
   }
 }
 </style>

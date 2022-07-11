@@ -15,8 +15,7 @@
   $bdColor:边框颜色;
   $color:字体颜色;
 */
-@mixin button-disabled(
-  $type: default,
+@mixin button-disabled($type: default,
   $bgColor: $disabled-fill,
   $bdColor: $disabled-border,
   $color: $disabled-color) {
@@ -37,19 +36,21 @@
   }
 }
 
-@include button-disabled(primary,$loading-primary-color,$loading-primary-border,$color-white);
+@include button-disabled(primary, $loading-primary-color, $loading-primary-border, $color-white);
 @include button-disabled(danger, $disabled-danger-fill, $disabled-danger-border, $disabled-danger-color);
 @include button-disabled();
 
-.el-button.el-button--primary.el-button--medium.is-loading{
+.el-button.el-button--primary.el-button--medium.is-loading {
   background: $loading-primary-color;
-  border-color:$loading-primary-border;
+  border-color: $loading-primary-border;
 }
-.el-button.el-button--default.el-button--medium.is-loading{
+
+.el-button.el-button--default.el-button--medium.is-loading {
   background: $loading-default-color;
   border-color: $loading-default-border;
 }
-.el-button + .el-dropdown {
+
+.el-button+.el-dropdown {
   margin-left: 16px;
   margin-right: 16px;
 }
@@ -253,7 +254,7 @@
 
   .el-input__suffix {
     line-height: 32px;
-    right: 3px;
+    right: 12px;
   }
 }
 
@@ -1179,6 +1180,8 @@
 
   .el-input__suffix {
     height: 32px;
+    line-height: 32px;
+    right: 3px;
   }
 }
 

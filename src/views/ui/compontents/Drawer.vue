@@ -199,7 +199,7 @@ export default class extends Vue {
 
   .el-form {
     flex: 1;
-    padding: 30px 30px 52px;
+    padding: 24px 24px 52px;
     font-size: 14px;
 
     .tip {

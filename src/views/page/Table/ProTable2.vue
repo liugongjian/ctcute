@@ -60,7 +60,7 @@
     </div>
 
     <!--表格-->
-    <el-table v-loading="loading" :data="tableData" fit @selection-change="handleSelectionChange">
+    <el-table v-loading="loading" :data="tableData" fit border @selection-change="handleSelectionChange">
       <template slot="empty">
         <img src="./Image/not-have.svg" alt="" />
         <span>暂无数据</span>

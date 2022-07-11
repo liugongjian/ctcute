@@ -93,11 +93,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.el-notification.right {
-  right: 16px;
-  width: 480px;
-  height: 144px;
-}
-</style>

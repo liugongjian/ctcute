@@ -143,10 +143,6 @@ export default class extends Vue {
   .handler-icon {
     color: $color-white;
   }
-
-  .handler-icon {
-    border: 1px solid $color-white;
-  }
 }
 
 ::v-deep .el-tree-node__content {

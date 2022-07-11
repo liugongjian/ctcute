@@ -148,6 +148,105 @@
     &__left {
       width: 200px;
       border-right: 1px solid #f0f0f0;
+
+      .node-content {
+        margin-left: -0.5em;
+        display: flex;
+        align-items: center;
+        color: $text-color-primary;
+      }
+
+      .node-icon {
+        color: $color-grey-5;
+
+        .svg-icon {
+          display: none;
+          margin-right: 0.5em;
+
+          &:first-child {
+            display: inline;
+          }
+        }
+      }
+
+      .is-expanded > .el-tree-node__content {
+        .node-icon {
+          color: $color-grey-5;
+
+          .svg-icon {
+            display: none;
+
+            &:last-child {
+              display: inline;
+            }
+          }
+        }
+      }
+
+      .el-tree-node:focus > .el-tree-node__content {
+        .node-content,
+        .node-icon,
+        .handler-icon {
+          color: $color-white;
+        }
+      }
+
+      .el-tree-node__content {
+        position: relative;
+
+        .handler-menu {
+          position: absolute;
+          right: 0.5em;
+          display: none;
+
+          .el-button:not(.pop-tooltip .el-button) {
+            padding: 0;
+            margin: 0.9em 0.3em;
+          }
+
+          .handler-icon {
+            color: $color-grey-5;
+          }
+        }
+
+        &:hover {
+          .handler-menu {
+            display: block;
+          }
+        }
+      }
+
+      .tree-title {
+        font-size: 14px;
+        color: $color-grey-1;
+        line-height: 20px;
+        font-weight: 500;
+        padding-left: 6px;
+      }
+
+      .el-tree-node > .el-tree-node__children {
+        overflow: initial;
+      }
+
+      .hover-wrapper {
+        display: inline-block;
+        margin-left: -0.4em;
+
+        &:hover {
+          .pop-tooltip {
+            display: block;
+          }
+        }
+      }
+
+      .pop-tooltip {
+        display: none;
+        position: absolute;
+        z-index: 2019;
+        top: 24px;
+        right: 0;
+        background: $color-white;
+      }
     }
 
     &__right {

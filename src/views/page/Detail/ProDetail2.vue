@@ -40,7 +40,7 @@
               draggable
               :default-expanded-keys="['1', '2']"
               :indent="10"
-              style="margin-top: 9px"
+              style="margin-top: 9px;"
             >
               <span slot-scope="{ node, data }" class="node-content">
                 <span class="node-icon">
@@ -81,7 +81,7 @@
           <div class="container__right">
             <titled-block title="标识">
               <div class="sub-table-horizon">
-                <el-descriptions class="margin-top" :column="2" :size="size" border>
+                <el-descriptions class="margin-top" :column="2" :size="size">
                   <el-descriptions-item>
                     <template slot="label"> 内部标识符 </template>
                     {{ proDetail2.basic.innerIdentity }}
@@ -114,7 +114,7 @@
               </div>
             </titled-block>
             <titled-block title="分区字段信息">
-              <el-table :data="proDetail2.zoonsInfo1" border>
+              <el-table :data="proDetail2.zoonsInfo1">
                 <el-table-column prop="id" label="序号"> </el-table-column>
                 <el-table-column prop="name" label="字段名称"> </el-table-column>
                 <el-table-column prop="type" label="类型"> </el-table-column>
@@ -130,7 +130,7 @@
               </el-table>
             </titled-block>
             <titled-block title="分区字段信息">
-              <el-table :data="proDetail2.zoonsInfo2" border>
+              <el-table :data="proDetail2.zoonsInfo2">
                 <el-table-column prop="id" label="序号"> </el-table-column>
                 <el-table-column prop="name" label="字段名称"> </el-table-column>
                 <el-table-column prop="type" label="类型"> </el-table-column>

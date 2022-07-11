@@ -2,7 +2,7 @@
   <div>
     <p>在单表格简单场景下默认展示20条，其他情况默认展示10条。</p>
     <p>
-      一般情况下，表格最左列和最右列距离表格间距24，其他列进行平均排序。在列数较少又要占满整个页面的情况下，直接进行平均排布，最右列不特意靠右。
+      一般情况下，表格最左列和最右列距离表格间距20，其他列进行平均排序。在列数较少又要占满整个页面的情况下，直接进行平均排布，最右列不特意靠右。
     </p>
     <h3>基础表格</h3>
     <div class="sub-table">
@@ -19,7 +19,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -80,7 +80,7 @@
 
     <h3>可多选表格(2个以内操作)</h3>
     <div class="sub-table">
-      <div style="margin-bottom: 16px">
+      <div style="margin-bottom: 16px;">
         <el-button type="primary" :disabled="!multipleSelection.length" size="small">主按钮</el-button>
         <el-button :disabled="!multipleSelection.length" size="small">次按钮</el-button>
       </div>
@@ -94,7 +94,7 @@
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" width="150px" label="主机别名">
           <template slot-scope="scope">
-            <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
+            <span class="text-ellipsis name-primary" style="width: 100%;">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
@@ -102,7 +102,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -163,7 +163,7 @@
 
     <h3>可多选表格(3个以上操作)</h3>
     <div class="sub-table">
-      <div style="margin-bottom: 20px">
+      <div style="margin-bottom: 20px;">
         <selected-input :data="multipleSelectionOver3" placeholder="请选择" :option-data="optionData">
         </selected-input>
       </div>
@@ -177,7 +177,7 @@
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" label="主机别名">
           <template slot-scope="scope">
-            <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
+            <span class="text-ellipsis name-primary" style="width: 100%;">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
@@ -187,7 +187,7 @@
         </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
@@ -252,7 +252,7 @@
         <el-table-column type="selection" width="55" fixed> </el-table-column>
         <el-table-column prop="name" label="主机别名" width="120">
           <template slot-scope="scope">
-            <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
+            <span class="text-ellipsis name-primary" style="width: 100%;">{{ scope.row.name }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
@@ -260,7 +260,7 @@
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
-            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small" style="margin-right: 8px;">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>

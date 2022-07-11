@@ -723,16 +723,24 @@
   border-right: 0px solid $border-color-primary;
 }
 
-.el-table--border .el-table__cell:first-child .cell {
-  padding-left: 20px;
+.el-table__cell:first-child .cell {
+  padding-left: 20px !important;
 }
 
-.el-table--border .el-table__cell:last-child .cell {
-  padding-right: 20px;
+.el-table__cell:last-child .cell {
+  padding-right: 20px !important;
 }
 
 .el-table .el-table__header tr,
 .el-table .el-table__header th {
+  background-color: $table-header-fill;
+
+  .el-table__cell {
+    padding: 0px;
+  }
+}
+.el-table--border .el-table__header tr,
+.el-table--border  .el-table__header th {
   border-right: 1px solid $color-white;
   background-color: $table-header-fill;
 

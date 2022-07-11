@@ -31,7 +31,7 @@
       <el-tab-pane label="选项一">
         <titled-block title="灰度发布升级策略">
           <div class="sub-table-horizon">
-            <el-descriptions class="margin-top" :column="2" border>
+            <el-descriptions class="margin-top" :column="2">
               <el-descriptions-item>
                 <template slot="label">内部标识符</template>
                 {{ ProDetail1Info.basic.innerIdentity }}
@@ -67,7 +67,7 @@
           <div slot="header">分批管理</div>
           <div class="operate-card__left">
             <titled-block title="第一批次">
-              <el-table :data="ProDetail1Info.batches.firstBatch" border class="table">
+              <el-table :data="ProDetail1Info.batches.firstBatch" class="table">
                 <el-table-column prop="area" label="可用区"></el-table-column>
                 <el-table-column prop="date" label="编辑下发事件"></el-table-column>
                 <el-table-column prop="status" label="状态">
@@ -79,7 +79,7 @@
               </el-table>
             </titled-block>
             <titled-block title="手动第二批次">
-              <el-table :data="ProDetail1Info.batches.secondBatch" border class="table">
+              <el-table :data="ProDetail1Info.batches.secondBatch" class="table">
                 <el-table-column prop="area" label="可用区"></el-table-column>
                 <el-table-column prop="date" label="编辑下发事件"></el-table-column>
                 <el-table-column prop="status" label="状态">
@@ -111,7 +111,7 @@
                       {{ RESULT[item.status] }}
                     </h4>
                     <p v-if="item.time">{{ item.time }}</p>
-                    <el-table v-if="item.list" :data="item.list" border class="table">
+                    <el-table v-if="item.list" :data="item.list" class="table">
                       <el-table-column prop="id" label="序号"></el-table-column>
                       <el-table-column prop="name" label="集群名称"></el-table-column>
                       <el-table-column prop="status" label="状态">

@@ -47,7 +47,7 @@
     <titled-block title="退货商品">
       <el-collapse seperate>
         <el-collapse-item
-          v-for="(item, index) in simpleDetailInfo.returnGoods"
+          v-for="(item, index) in simpleDetailInfo && simpleDetailInfo.returnGoods"
           :key="item.type"
           :title="item.type"
           :name="index"
@@ -68,7 +68,7 @@
       </el-collapse>
     </titled-block>
     <titled-block title="退货进度">
-      <el-table :data="simpleDetailInfo.returnGoodsProgress">
+      <el-table :data="simpleDetailInfo && simpleDetailInfo.returnGoodsProgress">
         <el-table-column prop="time" label="时间"></el-table-column>
         <el-table-column prop="progress" label="当前进度">
           <template slot-scope="{ row }">

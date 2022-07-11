@@ -1,4 +1,4 @@
-/* 请求类型: Code */
+/** Card1  */
 export type CardListItem = {
   remark: string
   title: string
@@ -7,6 +7,6 @@ export type CardListItem = {
 }
 
 export type CardListResponse = {
-  code: number
-  data: CardListItem[]
+  // code: number
+  list: CardListItem[]
 }

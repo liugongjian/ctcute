@@ -117,7 +117,6 @@
         </el-card>
       </el-col>
     </el-row>
-    <!-- 状态统计 -->
   </el-card>
 </template>
 <script lang="ts">

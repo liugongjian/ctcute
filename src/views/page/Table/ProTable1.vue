@@ -1,5 +1,5 @@
 <template>
-  <el-card class="simple-table">
+  <el-card class="pro-table-1">
     <!--表格工具栏-->
     <div class="table-tools">
       <div class="table-tools__left">
@@ -25,85 +25,15 @@
     </div>
     <div class="table-filter">
       <div class="table-filter_text">指标条件</div>
-      <table-filter />
-      <!-- <el-tag type="newtag" size="large">
-        + 新增过滤
-        <div class="table-filter_content">
-          <el-form>
-            <el-form-item label="123">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
-                <el-option
-                  v-for="item in operationOptions"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                />
-              </el-select>
-            </el-form-item>
-            <el-form-item>
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" /> <span>%</span>
-            </el-form-item>
-            <el-table-row>
-              <el-form-item label="123">
-                <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
-                  <el-option
-                    v-for="item in operationOptions"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  />
-                </el-select>
-              </el-form-item>
-              <el-form-item>
-                <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" /> <span>GB</span>
-              </el-form-item>
-            </el-table-row>
-            <el-form-item label="123">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
-                <el-option
-                  v-for="item in operationOptions"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                />
-              </el-select>
-            </el-form-item>
-            <el-form-item>
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" /> <span>GB</span>
-            </el-form-item>
-            <el-form-item label="123">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
-                <el-option
-                  v-for="item in operationOptions"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                />
-              </el-select>
-            </el-form-item>
-            <el-form-item>
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" /> <span>kbs</span>
-            </el-form-item>
-            <el-form-item label="处理请求通知">
-              <el-select placeholder="请选择" style="width: 90px; margin-right: 8px;">
-                <el-option
-                  v-for="item in operationOptions"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                />
-              </el-select>
-            </el-form-item>
-            <el-form-item>
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px;" /> <span>个</span>
-            </el-form-item>
-          </el-form>
-        </div>
-      </el-tag> -->
+      <table-filter :operation-options="operationOptions" />
     </div>
 
     <!--表格-->
-    <el-table v-loading="loading" :data="tableData" fit>
+    <el-table v-loading="loading" :data="tableData" fit border>
+      <template slot="empty">
+        <img src="./Image/not-have.svg" alt="" />
+        <span>暂无数据</span>
+      </template>
       <el-table-column prop="name" label="主机别名" />
       <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
       <el-table-column prop="ip" label="IP地址" />
@@ -150,7 +80,6 @@
       :current-page="pager.page"
       :page-size="pager.limit"
       :total="pager.total"
-      layout="total, prev, pager, next, sizes, jumper"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
     />
@@ -297,10 +226,20 @@ export default class extends Vue {
   private openDropdown(e) {
     e ? (this.flag = true) : (this.flag = false)
   }
-
+  /** * 新增过滤下拉数据 */
   private operationOptions = [
     { label: '> =', value: 1 },
     { label: '< =', value: 2 },
+  ]
+  /** * 新增过滤表单对象 */
+  private fromData = [
+    {
+      cpu: null,
+    },
+    { ram: null },
+    { cpu: null },
+    { cpu: null },
+    { cpu: null },
   ]
 }
 </script>

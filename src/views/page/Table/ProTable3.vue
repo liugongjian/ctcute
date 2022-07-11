@@ -100,7 +100,11 @@
       </div>
     </div>
     <!--表格-->
-    <el-table v-loading="loading" :data="tableData" fit>
+    <el-table v-loading="loading" :data="tableData" fit border>
+      <template slot="empty">
+        <img src="./Image/not-have.svg" alt="" />
+        <span>暂无数据</span>
+      </template>
       <el-table-column type="selection" width="55" />
       <el-table-column prop="name" label="主机别名" />
       <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
@@ -136,7 +140,6 @@
       :current-page="pager.page"
       :page-size="pager.limit"
       :total="pager.total"
-      layout="total, prev, pager, next, sizes, jumper"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
     />

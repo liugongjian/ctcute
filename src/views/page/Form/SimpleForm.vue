@@ -1,53 +1,57 @@
 <template>
   <el-card class="simple-form">
     <el-form ref="simpleForm" :model="form" :rules="rules" label-width="130px" class="simple-form">
-      <el-form-item label="策略名称" prop="name">
+      <el-form-item label="输入查询" prop="name">
         <el-input v-model="form.name" placeholder="请输入策略名称" />
+        <div class="form-item__tip">策略格式为XXXXXXXXXXXXXXXXX</div>
       </el-form-item>
-      <el-form-item label="备注" prop="remark">
+      <el-form-item label="备注/描述" prop="remark">
         <el-input
           v-model="form.remark"
-          placeholder="请输入备注信息"
+          placeholder="请输入/描述备注信息"
           type="textarea"
           :rows="3"
           maxlength="128"
           show-word-limit
         />
       </el-form-item>
-      <el-form-item label="告警对象" prop="alertTarget">
-        <el-select v-model="form.alertTarget" placeholder="请选择告警对象">
-          <el-option v-for="item in alertTargetOptions" :key="item" :label="item" :value="item" />
+      <el-form-item label="置灰输入" prop="disabledInput">
+        <el-input v-model="form.disabledInput" :disabled="true" placeholder="请输入" />
+      </el-form-item>
+      <el-form-item label="置灰下拉" prop="disabledSelect">
+        <el-select v-model="form.disabledSelect" :disabled="true" placeholder="请选择">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
       </el-form-item>
-      <el-form-item label="沉默周期" prop="duration">
-        <el-select v-model="form.duration" placeholder="请选择沉默周期">
-          <el-option
-            v-for="item in durationOptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          />
+      <el-form-item label="标题测试" prop="longText">
+        <el-select v-model="form.longText" placeholder="请选择">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
       </el-form-item>
-      <el-form-item label="告警级别" prop="alertLevel">
-        <el-select v-model="form.alertLevel" placeholder="请选择告警级别">
-          <el-option
-            v-for="item in alertLevelOptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          />
-        </el-select>
-      </el-form-item>
-      <el-form-item label="通知对象" prop="notifyTarget">
-        <el-radio-group v-model="form.notifyTarget" placeholder="请选择通知对象">
-          <el-radio-button v-for="item in notifyTargetOptions" :key="item.value" :label="item.value">
-            {{ item.label }}
-          </el-radio-button>
+      <el-form-item label="单选" prop="radio">
+        <el-radio-group v-model="form.radio">
+          <el-radio v-for="item in options" :key="item.value" :label="item.value">{{ item.label }}</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="六字标题测试" prop="longTitle">
-        <el-input v-model="form.longTitle" placeholder="请输入六字标题测试" />
+      <el-form-item label="多选" prop="checkbox">
+        <el-checkbox-group v-model="form.checkbox">
+          <el-checkbox v-for="item in options" :key="item.value" :label="item.value">{{
+            item.label
+          }}</el-checkbox>
+        </el-checkbox-group>
+      </el-form-item>
+      <el-form-item label="短数字端" prop="shortNumber" class="form-item--short">
+        <el-input-number
+          v-model="form.shortNumber"
+          controls-position="right"
+          :min="1"
+          :max="10"
+        ></el-input-number>
+      </el-form-item>
+      <el-form-item label="短数字端" prop="shortNumber" class="form-item--short">
+        <el-input v-model="form.shortNumberInput">
+          <span slot="suffix" class="icon-money">元</span>
+        </el-input>
       </el-form-item>
       <el-form-item label="">
         <el-button type="primary" :loading="submitting" @click="submit">确 定</el-button>
@@ -59,7 +63,7 @@
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import * as SimpleForm from '@/types/SimpleForm'
-import { createSimpleForm, getAlertTarget } from '@/api/simpleForm'
+import { createSimpleForm, getOptions } from '@/api/simpleForm'
 
 @Component({
   name: 'SimpleForm',
@@ -73,61 +77,24 @@ export default class extends Vue {
   private form: SimpleForm.Form = {
     name: null,
     remark: null,
-    alertTarget: null,
-    duration: null,
-    notifyTarget: 1,
+    disabledInput: '输入值',
+    disabledSelect: null,
     longTitle: null,
+    radio: null,
+    checkbox: [],
+    shortNumber: 0,
+    shortNumberInput: 2,
   }
 
-  // 告警对象下拉框选项
-  private alertTargetOptions: string[] = []
-
-  // 沉默周期选项
-  private durationOptions = [
-    {
-      label: '1分钟',
-      value: 3600,
-    },
-    {
-      label: '3分钟',
-      value: 3 * 3600,
-    },
-    {
-      label: '5分钟',
-      value: 5 * 3600,
-    },
-  ]
-
-  // 告警级别选项
-  private alertLevelOptions = [
-    {
-      label: '紧急',
-      value: 1,
-    },
-    {
-      label: '一般',
-      value: 2,
-    },
-  ]
-
-  // 通知对象单选控件选项
-  private notifyTargetOptions = [
-    {
-      label: '联系人',
-      value: 1,
-    },
-    {
-      label: '发件人',
-      value: 2,
-    },
-  ]
+  // 多选项
+  private options = []
 
   // 表单校验规则
   private rules = {
     name: [{ required: true, message: '请输入策略名称', trigger: 'blur' }],
-    alertTarget: [{ required: true, message: '请选择告警对象', trigger: 'change' }],
-    duration: [{ required: true, message: '请选择沉默周期', trigger: 'change' }],
-    alertLevel: [{ required: true, message: '请选择告警级别', trigger: 'change' }],
+    disabledInput: [{ required: true, message: '请输入', trigger: 'blur' }],
+    disabledSelect: [{ required: true, message: '请选择', trigger: 'change' }],
+    radio: [{ required: true, message: '请选择', trigger: 'change' }],
   }
 
   // 表单提交状态
@@ -137,16 +104,17 @@ export default class extends Vue {
    * 页面Mounted
    */
   private mounted() {
-    this.getAlertTarget()
+    this.getOptions()
   }
 
   /**
    * 获取获取告警对象
    */
-  private async getAlertTarget() {
+  private async getOptions() {
     try {
-      const res = await getAlertTarget()
-      this.alertTargetOptions = res.data
+      const res = await getOptions()
+      this.options = res.data
+      this.form.disabledSelect = this.options[0].value
     } catch (e) {
       this.$message.error(e)
     }

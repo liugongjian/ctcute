@@ -12,11 +12,11 @@
             {{ node.label }}
             <div class="handler-menu">
               <el-button v-if="!node.isLeaf" slot="reference" type="text">
-                <svg-icon name="plus" class="handler-icon" @click.stop="() => {}" />
+                <svg-icon name="plus-square" class="handler-icon" @click.stop="() => {}" />
               </el-button>
               <div class="hover-wrapper">
-                <el-button v-if="data.key !== 1" type="text" class="dash-icon">
-                  <svg-icon name="dash" class="handler-icon" @click.stop />
+                <el-button v-if="data.key !== 1" type="text">
+                  <svg-icon name="ellipsis-square" class="handler-icon" @click.stop />
                 </el-button>
                 <div class="pop-tooltip tree-node-popover el-tooltip__popper">
                   <div class="tooltip-content">
@@ -57,7 +57,11 @@
           </div>
         </div>
         <!--表格-->
-        <el-table v-loading="loading" :data="tableData" fit>
+        <el-table v-loading="loading" :data="tableData" fit border>
+          <template slot="empty">
+            <img src="./Image/not-have.svg" alt="" />
+            <span>暂无数据</span>
+          </template>
           <el-table-column prop="name" label="主机别名" />
           <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
           <el-table-column prop="ip" label="IP地址" />

@@ -84,8 +84,6 @@ export default class extends Vue {
   private editableTabsValue = '1'
 
   private removeTab(targetName) {
-    // debugger
-    console.log('====targetName===', targetName)
     const tabs = this.editableTabs
     let activeName = this.editableTabsValue
     if (activeName === targetName) {
@@ -113,10 +111,6 @@ export default class extends Vue {
 .small-tabs {
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 24px;
-
-  .el-tabs__item {
-    padding: 0 12px;
-  }
 }
 
 .delete-tabs {

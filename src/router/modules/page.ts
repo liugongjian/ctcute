@@ -70,6 +70,15 @@ const pageRoutes = [
         },
       },
       {
+        path: 'fullscreen-dialog',
+        component: () => import('@/views/page/Dialog/FullScreenDialog.vue'),
+        name: 'FullScreenDialog',
+        meta: {
+          title: 'FullScreenDialog 全屏弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'success-dialog',
         component: () => import('@/views/page/Dialog/SuccessDialog.vue'),
         name: 'SuccessDialog',
@@ -84,6 +93,24 @@ const pageRoutes = [
         name: 'WarnDialog',
         meta: {
           title: 'WarnDialog 警告弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'info-dialog',
+        component: () => import('@/views/page/Dialog/InfoDialog.vue'),
+        name: 'InfoDialog',
+        meta: {
+          title: 'InfoDialog 信息弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'log-dialog',
+        component: () => import('@/views/page/Dialog/LogDialog.vue'),
+        name: 'LogDialog',
+        meta: {
+          title: 'LogDialog 日志弹窗',
           breadcrumb: true,
         },
       },
@@ -213,6 +240,24 @@ const pageRoutes = [
         name: 'Card1',
         meta: {
           title: 'Card1 小卡片',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'card2',
+        component: () => import(/* webpackChunkName: "card" */ '@/views/page/CardList/Card2.vue'),
+        name: 'Card2',
+        meta: {
+          title: 'Card2 小卡片描述较少',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'card3',
+        component: () => import(/* webpackChunkName: "card" */ '@/views/page/CardList/Card3.vue'),
+        name: 'Card3',
+        meta: {
+          title: 'Card3 大卡片',
           breadcrumb: true,
         },
       },

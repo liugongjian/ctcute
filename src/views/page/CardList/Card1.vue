@@ -16,7 +16,47 @@
         </el-form>
       </div>
     </div>
-    <div>hi 我是小卡片</div>
+    <el-tabs value="third" type="card" size="small">
+      <el-tab-pane label="默认项" name="second"></el-tab-pane>
+      <el-tab-pane label="选中项" name="third"></el-tab-pane>
+      <el-tab-pane label="不可用" name="fourth" disabled></el-tab-pane>
+    </el-tabs>
+    <div>
+      <el-row :gutter="20">
+        <el-col v-for="(card, index) in cardData" :key="index" :span="8">
+          <el-card shadow="hover">
+            <div :class="index === 0 ? 'card-box active' : 'card-box'">
+              <div class="card-box--title">
+                <svg-icon name="question-circle-fill" width="24px" height="24px" /> {{ card.title }}
+              </div>
+              <div class="card-box--bar">
+                <div class="card-box--bar--text">
+                  总表数 <span>{{ card.size }}</span>
+                </div>
+                <div class="card-box--bar--text">
+                  已配置 <span>{{ card.deploy }}</span>
+                </div>
+              </div>
+              <div class="card-box--info">描述：{{ card.remark }}</div>
+              <div class="card-box--btns">
+                <div>
+                  <svg-icon name="setting" />
+                </div>
+                <div>
+                  <svg-icon name="eye" />
+                </div>
+                <div>
+                  <svg-icon name="edit" />
+                </div>
+                <div>
+                  <svg-icon name="ellipsis" />
+                </div>
+              </div>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </div>
   </el-card>
 </template>
 <script lang="ts">

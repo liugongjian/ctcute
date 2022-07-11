@@ -32,7 +32,7 @@
     <el-tabs>
       <el-tab-pane label="选项一">
         <div class="container">
-          <div class="container__left sub-tree">
+          <div class="container__left">
             <span class="tree-title">这是一个标题</span>
             <el-tree
               :data="proDetail2.folders"
@@ -50,11 +50,21 @@
                 {{ node.label }}
                 <div class="handler-menu">
                   <el-button slot="reference" type="text">
-                    <svg-icon v-if="!node.isLeaf" name="plus" class="handler-icon" @click.stop="() => {}" />
+                    <svg-icon
+                      v-if="!node.isLeaf"
+                      name="plus-square"
+                      class="handler-icon"
+                      @click.stop="() => {}"
+                    />
                   </el-button>
                   <div class="hover-wrapper">
-                    <el-button type="text" class="dash-icon">
-                      <svg-icon v-if="data.key !== 1" name="dash" class="handler-icon" @click.stop />
+                    <el-button type="text">
+                      <svg-icon
+                        v-if="data.key !== 1"
+                        name="ellipsis-square"
+                        class="handler-icon"
+                        @click.stop
+                      />
                     </el-button>
                     <div class="pop-tooltip tree-node-popover el-tooltip__popper">
                       <div class="tooltip-content">
@@ -104,7 +114,11 @@
               </div>
             </titled-block>
             <titled-block title="分区字段信息">
-              <el-table :data="proDetail2.zoonsInfo1" border>
+              <el-table :data="proDetail2.zoonsInfo1">
+                <template slot="empty">
+                  <img src="./Image/not-have.svg" alt="" />
+                  <span>暂无数据</span>
+                </template>
                 <el-table-column prop="id" label="序号"> </el-table-column>
                 <el-table-column prop="name" label="字段名称"> </el-table-column>
                 <el-table-column prop="type" label="类型"> </el-table-column>
@@ -120,7 +134,11 @@
               </el-table>
             </titled-block>
             <titled-block title="分区字段信息">
-              <el-table :data="proDetail2.zoonsInfo2" border>
+              <el-table :data="proDetail2.zoonsInfo2">
+                <template slot="empty">
+                  <img src="./Image/not-have.svg" alt="" />
+                  <span>暂无数据</span>
+                </template>
                 <el-table-column prop="id" label="序号"> </el-table-column>
                 <el-table-column prop="name" label="字段名称"> </el-table-column>
                 <el-table-column prop="type" label="类型"> </el-table-column>
@@ -179,7 +197,6 @@ export default class extends Vue {
     try {
       const res = await getProDetail()
       this.proDetail2 = res.data
-      console.log(this.proDetail2.basic)
     } catch (e) {
       this.$message.error(e)
     }
@@ -217,111 +234,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.node-content {
-  margin-left: -0.5em;
-  display: flex;
-  align-items: center;
-  color: $text-color-primary;
-}
-
-.node-icon {
-  color: $color-grey-5;
-
-  .svg-icon {
-    display: none;
-    margin-right: 0.5em;
-
-    &:first-child {
-      display: inline;
-    }
-  }
-}
-
-.is-expanded > .el-tree-node__content {
-  .node-icon {
-    color: $color-grey-5;
-
-    .svg-icon {
-      display: none;
-
-      &:last-child {
-        display: inline;
-      }
-    }
-  }
-}
-
-.el-tree-node:focus > .el-tree-node__content {
-  .node-content,
-  .node-icon,
-  .handler-icon {
-    color: $color-white;
-  }
-
-  .handler-icon {
-    border: 1px solid $color-white;
-  }
-}
-
-::v-deep .el-tree-node__content {
-  position: relative;
-
-  .handler-menu {
-    position: absolute;
-    right: 0.5em;
-    display: none;
-
-    .el-button:not(.pop-tooltip .el-button) {
-      padding: 0;
-      margin: 0.9em 0.3em;
-    }
-
-    .handler-icon {
-      color: $color-grey-5;
-      border: 1.5px solid $color-grey-5;
-      font-size: 12.5px !important;
-    }
-  }
-
-  &:hover {
-    .handler-menu {
-      display: block;
-    }
-  }
-}
-
-.sub-tree {
-  .tree-title {
-    font-size: 14px;
-    color: #333;
-    line-height: 20px;
-    font-weight: 500;
-    padding-left: 6px;
-  }
-
-  ::v-deep .el-tree-node > .el-tree-node__children {
-    overflow: initial;
-  }
-
-  .hover-wrapper {
-    display: inline-block;
-    margin-left: -0.4em;
-
-    &:hover {
-      .pop-tooltip {
-        display: block;
-      }
-    }
-  }
-
-  .pop-tooltip {
-    display: none;
-    position: absolute;
-    z-index: 2019;
-    top: 24px;
-    right: 0;
-    background: $color-white;
-  }
-}
-</style>

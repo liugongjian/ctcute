@@ -32,10 +32,10 @@ $color-status-warning-1: #faad15;
 $color-status-warning: #faad15;
 
 /* 表格状态色 */
-$color-table-status-success:#6BDD6B;
-$color-table-status-warning:#FAAD15;
-$color-table-status-info:#B4B4B4;
-$color-table-status-danger:#F96965;
+$color-table-status-success: #6bdd6b;
+$color-table-status-warning: #faad15;
+$color-table-status-info: #b4b4b4;
+$color-table-status-danger: #f96965;
 
 /* 标签色 */
 $color-tag-master-1: #fcc199;
@@ -62,16 +62,17 @@ $color-grey-8: #f3f3f3;
 $color-grey-9: #f5f5f5;
 $color-grey-10: #f8f8f8;
 $color-grey-11: #fafafa;
-$color-grey-12: #eeeeee;
-$color-grey-13:#3E3E3E;
-$color-grey-14:#606266;
+$color-grey-12: #eee;
+$color-grey-13: #3e3e3e;
+$color-grey-14: #606266;
+
 /* 白色 */
 $color-white: #fff;
 
 /* 其他 */
 $color-other-1: #3b3e4b;
-$color-other-2: #F0F2F5;
-$color-other-3: #8BB2F9;
+$color-other-2: #f0f2f5;
+$color-other-3: #8bb2f9;
 
 /* Background
 -------------------------- */
@@ -87,6 +88,13 @@ $disabled-danger-fill: $color-white;
 /* stylelint-disable-next-line function-no-unknown */
 $disabled-danger-color: mix($color-white, $color-status-danger-1, 50%);
 $disabled-danger-border: $disabled-danger-color;
+
+/* LoadingButton
+-------------------------- */
+$loading-primary-color: mix($color-white, $color-master-1, 50%);
+$loading-primary-border: $loading-primary-color;
+$loading-default-color: $color-grey-10;
+$loading-default-border: $color-grey-6;
 
 /* Typography
 -------------------------- */
@@ -110,6 +118,7 @@ $border-radius: 2px;
 /* Padding & Margin
 -------------------------- */
 $padding-primary: 20px;
+$padding-medium: 16px;
 $margin-tiny: 4px;
 $margin-small: 8px;
 $margin-medium: 16px;
@@ -121,7 +130,8 @@ $shadow-input: 0 0 4px 0 rgba(250, 131, 52, 20%);
 $shadow-card: 0 2px 8px 0 rgba(200, 201, 204, 50%);
 $shadow-dialog: 0 6px 16px -8px rgba(0, 0, 0, 8%), 0 9px 28px 0 rgba(0, 0, 0, 5%),
   0 12px 48px 16px rgba(0, 0, 0, 3%);
-$shadow-table-card: rgba(200,201,204,0.50);
+$shadow-table-card: rgba(200, 201, 204, 50%);
+
 /* Button
 -------------------------- */
 $button-icon-color: $color-grey-3;

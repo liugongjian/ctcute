@@ -70,19 +70,7 @@
   }
 }
 
-.el-button--text {
-  .svg-icon {
-    margin-right: 4px;
-  }
 
-  &:hover {
-    color: $color-master-3;
-  }
-
-  &.light:not(.is-disabled) {
-    color: $color-master-3;
-  }
-}
 
 .el-button-rect {
   padding: 10px;
@@ -176,7 +164,19 @@
 /* TextButton
 -------------------------- */
 .el-button--text {
-  padding: 0;
+  color: $color-grey-3;
+    padding: 0;
+  .svg-icon {
+    margin-right: 4px;
+  }
+
+  &:hover {
+    color: $color-master-3;
+  }
+
+  &.light:not(.is-disabled) {
+    color: $color-master-3;
+  }
 }
 
 /* IconButton
@@ -238,7 +238,6 @@
 
 .el-input {
   font-size: $text-size-primary;
-
   .el-input__icon.el-icon-search {
     line-height: 32px;
   }
@@ -290,7 +289,7 @@
   width: 80px;
   background: $color-white;
   color: $text-color-primary;
-
+  
   .el-input__inner::placeholder {
     color: $text-color-primary;
   }
@@ -308,6 +307,9 @@
 .el-input-number__increase,
 .el-input-number__decrease {
   background-color: $input-fill;
+}
+.el-input-number.is-controls-right .el-input__inner{
+  text-align: left;
 }
 
 .el-input.is-disabled .el-input__inner {

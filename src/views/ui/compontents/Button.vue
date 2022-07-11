@@ -31,14 +31,19 @@
       </el-dropdown>
       <el-button size="small">小次按钮</el-button>
     </div>
+    <div class="button-loading">loading</div>
+    <div class="sub-sample">
+      <el-button type="primary" :loading="true">主按钮</el-button>
+      <el-button :loading="true">次按钮</el-button>
+    </div>
     <h2>禁用状态</h2>
     <div class="sub-sample">
       <el-button disabled type="primary">主按钮</el-button>
-      <el-button disabled type="primary">次按钮</el-button>
+      <el-button disabled>次按钮</el-button>
       <el-button disabled type="danger" plain>危险</el-button>
-      <el-button disabled size="small" type="primary"><svg-icon name="plus-circle" /> 带图标按钮</el-button>
-      <el-button disabled size="small" type="primary"><svg-icon name="select" /> 按钮2 </el-button>
-      <el-button disabled size="small" type="primary">小次按钮</el-button>
+      <el-button disabled size="small"><svg-icon name="plus-circle" /> 带图标按钮</el-button>
+      <el-button disabled size="small"><svg-icon name="select" /> 按钮2 </el-button>
+      <el-button disabled size="small">小次按钮</el-button>
     </div>
     <h2>组合按钮</h2>
     <div class="sub-sample">
@@ -62,11 +67,6 @@
         <el-button>取 消</el-button>
         <el-button type="primary">确 定</el-button>
       </div>
-    </div>
-    <h2>加载中…</h2>
-    <div class="sub-sample">
-      <el-button type="primary" :loading="true">加载中…</el-button>
-      <el-button :loading="true">加载中…</el-button>
     </div>
   </div>
 </template>
@@ -133,5 +133,10 @@ export default class extends Vue {
 
 .top-fill {
   transform: rotate(180deg);
+}
+
+.button-loading {
+  color: $color-grey-4;
+  font-size: 12px;
 }
 </style>

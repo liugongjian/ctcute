@@ -40,7 +40,7 @@
               draggable
               :default-expanded-keys="['1', '2']"
               :indent="10"
-              style="margin-top: 9px;"
+              style="margin-top: 9px"
             >
               <span slot-scope="{ node, data }" class="node-content">
                 <span class="node-icon">
@@ -115,6 +115,10 @@
             </titled-block>
             <titled-block title="分区字段信息">
               <el-table :data="proDetail2.zoonsInfo1">
+                <template slot="empty">
+                  <img src="./Image/not-have.svg" alt="" />
+                  <span>暂无数据</span>
+                </template>
                 <el-table-column prop="id" label="序号"> </el-table-column>
                 <el-table-column prop="name" label="字段名称"> </el-table-column>
                 <el-table-column prop="type" label="类型"> </el-table-column>
@@ -131,6 +135,10 @@
             </titled-block>
             <titled-block title="分区字段信息">
               <el-table :data="proDetail2.zoonsInfo2">
+                <template slot="empty">
+                  <img src="./Image/not-have.svg" alt="" />
+                  <span>暂无数据</span>
+                </template>
                 <el-table-column prop="id" label="序号"> </el-table-column>
                 <el-table-column prop="name" label="字段名称"> </el-table-column>
                 <el-table-column prop="type" label="类型"> </el-table-column>

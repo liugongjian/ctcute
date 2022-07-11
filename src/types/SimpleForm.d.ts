@@ -1,10 +1,13 @@
 export type Form = {
   name: string
   remark: string
-  alertTarget: number
-  duration: number
-  notifyTarget: number
+  disabledInput: string
+  disabledSelect: number
   longTitle: string
+  radio: number
+  checkbox: number[]
+  shortNumber: number
+  shortNumberInput: number
 }
 
 export type Response = {

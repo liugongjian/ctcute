@@ -13,6 +13,16 @@ export const getAlertTarget = (): AxiosPromise<string[]> =>
   })
 
 /**
+ * 获取多选项
+ * @returns 多选项数组
+ */
+export const getOptions = (): AxiosPromise<string[]> =>
+  request({
+    url: '/mock/175/form/options',
+    method: 'get',
+  })
+
+/**
  * 创建简单表单
  * @param params 表单对象
  * @returns 结果对象

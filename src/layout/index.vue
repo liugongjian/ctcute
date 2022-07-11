@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { AppMain, Navbar, Sidebar, LayoutHeader, CodeViewer } from './components'
+import { AppMain, Navbar, Sidebar, LayoutHeader } from './components'
 
 @Component({
   name: 'Layout',
@@ -26,7 +26,7 @@ import { AppMain, Navbar, Sidebar, LayoutHeader, CodeViewer } from './components
     Navbar,
     Sidebar,
     LayoutHeader,
-    CodeViewer,
+    CodeViewer: () => import(/* webpackChunkName: "codemirror" */ './components/CodeViewer/index.vue'),
   },
 })
 export default class extends Vue {

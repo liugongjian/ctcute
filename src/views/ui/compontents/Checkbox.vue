@@ -1,9 +1,14 @@
 <template>
   <div>
     <el-row>
-      <el-checkbox>未选中项</el-checkbox>
-      <el-checkbox checked>已选中项</el-checkbox>
-      <el-checkbox :indeterminate="isIndeterminate" @change="handleCheckAllChange"> 部分选中 </el-checkbox>
+      <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+        <el-checkbox v-for="city in cities" :key="city" :label="city">{{ city }}</el-checkbox>
+      </el-checkbox-group>
+      <!-- <el-checkbox>未选中项</el-checkbox>
+      <el-checkbox checked>已选中项</el-checkbox> -->
+      <el-checkbox v-model="checkAll" :indeterminate="isIndeterminate" @change="handleCheckAllChange">
+        部分选中
+      </el-checkbox>
       <el-checkbox disabled>未选中失效</el-checkbox>
       <el-checkbox disabled checked>已选中失效</el-checkbox>
       <el-checkbox indeterminate disabled>部分选中失效</el-checkbox>
@@ -22,9 +27,9 @@ export default class extends Vue {
     en: 'Checkbox',
   }
 
-  private cityOptions = ['上海', '北京', '广州', '深圳']
+  private cityOptions = ['未选中项', '选中项']
 
-  private checkedCities = ['上海', '北京']
+  private checkedCities = ['选中项']
   private cities = this.cityOptions
 
   private isIndeterminate = true
@@ -46,5 +51,13 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .el-row {
   margin-top: 24px;
+  .el-checkbox-group {
+    display: inline-block;
+    // padding-right: 10px;
+    display: inline-block;
+    padding-left: 10px;
+    line-height: 19px;
+    margin-right: 30px;
+  }
 }
 </style>

@@ -51,13 +51,12 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .el-select {
   ::v-deep .el-input.el-input--medium.el-input--suffix {
-    width: 123px;
+    width: 130px;
     padding-right: 0;
-    font-size: 12px;
   }
 
   ::v-deep.el-input__inner {
-    padding-right: 0;
+    padding-right: 0px;
     color: $color-grey-1;
   }
 }
@@ -66,6 +65,7 @@ export default class extends Vue {
   ::v-deep.el-input__inner {
     padding-right: 0;
     color: $color-master-1;
+    padding-left: 11px;
   }
 }
 </style>

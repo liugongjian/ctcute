@@ -750,6 +750,11 @@
   border-right: 0px solid $border-color-primary;
 }
 
+.el-table__fixed::before,
+.el-table__fixed-right::before {
+  background-color: $border-color-primary;
+}
+
 .el-table__cell:first-child .cell {
   padding-left: 20px !important;
 }

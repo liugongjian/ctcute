@@ -19,6 +19,40 @@
     width: auto;
     min-width: 0;
   }
+
+  .form-item--short {
+    .el-input,
+    .el-select,
+    .el-textarea,
+    .el-input-number {
+      width: 150px;
+      min-width: 0;
+    }
+  }
+
+  .form-item__tip {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: $text-color-light-1;
+    font-size: $text-size-primary;
+    line-height: $text-size-primary;
+    padding-top: 3px;
+
+    &:before {
+      font-family: 'cute-icons';
+      content: '\eb5b';
+      color: $icon-color;
+      font-size: 14px;
+      vertical-align: top;
+      margin-right: $margin-tiny;
+    }
+  }
+
+  .el-form-item.is-error .form-item__tip {
+    position: relative;
+    top: auto;
+  }
 }
 
 @mixin formTitle {

@@ -217,12 +217,12 @@
 /* Form
 -------------------------- */
 .el-form-item__label {
-  padding-right: 25px;
-  color: $text-color-light-1;
+  padding-right: $padding-medium;
+  color: $text-color-primary;
 }
 
 .el-form-item {
-  margin-bottom: 25px;
+  margin-bottom: 24px;
 }
 
 .el-form-item__error {
@@ -273,7 +273,7 @@
     color: #fff;
     text-align: center;
     line-height: 12px;
-    font-size: 5px;
+    font-size: 11px;
     font-weight: normal;
   }
 }

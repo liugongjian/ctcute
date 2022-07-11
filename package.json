@@ -14,7 +14,8 @@
   "lint-staged": {
     "*.{ts,js,vue}": [
       "vue-cli-service lint ./src --fix",
-      "prettier --write ./src"
+      "prettier --write ./src",
+      "git add ."
     ]
   },
   "dependencies": {

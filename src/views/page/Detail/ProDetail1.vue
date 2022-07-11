@@ -31,7 +31,7 @@
       <el-tab-pane label="选项一">
         <titled-block title="灰度发布升级策略">
           <div class="sub-table-horizon">
-            <el-descriptions class="margin-top" :column="2">
+            <el-descriptions class="margin-top" :column="2" border>
               <el-descriptions-item>
                 <template slot="label">内部标识符</template>
                 {{ ProDetail1Info.basic.innerIdentity }}

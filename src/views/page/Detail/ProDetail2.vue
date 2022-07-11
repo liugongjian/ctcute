@@ -81,7 +81,7 @@
           <div class="container__right">
             <titled-block title="标识">
               <div class="sub-table-horizon">
-                <el-descriptions class="margin-top" :column="2" :size="size">
+                <el-descriptions class="margin-top" :column="2" :size="size" border>
                   <el-descriptions-item>
                     <template slot="label"> 内部标识符 </template>
                     {{ proDetail2.basic.innerIdentity }}

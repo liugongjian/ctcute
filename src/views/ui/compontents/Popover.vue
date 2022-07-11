@@ -122,7 +122,6 @@ p {
 
 .cancel-popover {
   border: 1px solid $border-color-primary;
-  // padding: 8px 20px;
 }
 
 .determine-popover {

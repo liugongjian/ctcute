@@ -40,7 +40,22 @@
 @include button-disabled(primary, $loading-primary-color, $loading-primary-border, $color-white);
 @include button-disabled(danger, $disabled-danger-fill, $disabled-danger-border, $disabled-danger-color);
 @include button-disabled();
+.top-fill {
+  transform: rotate(180deg);
+}
 
+.conventional-dropdown,
+.combination-dropdown {
+  width: 124px;
+
+  .el-dropdown-menu__item {
+    padding-left: 21px;
+
+    .svg-icon.svg-fill {
+      margin-right: 4px;
+    }
+  }
+}
 .el-button.el-button--primary.el-button--medium.is-loading {
   background: $loading-primary-color;
   border-color: $loading-primary-border;

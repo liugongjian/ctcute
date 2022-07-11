@@ -89,19 +89,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.tooltip-more,
-.tooltip-mores {
-  margin-right: 6px;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.tooltip-more {
-  text-decoration: underline;
-}
-
 .sub-tooltip {
   margin: 24px 0;
   padding-bottom: 24px;

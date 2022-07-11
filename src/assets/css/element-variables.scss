@@ -62,6 +62,26 @@ $--tree-node-hover-background-color: $color-master-7;
 -------------------------- */
 $--rate-icon-color: $color-master-1;
 
+/* Icon
+-------------------------- */
+$--icon-color:$color-grey-3;
+$--icon-color-base:$color-grey-3;
+$--radio-icon-color:$color-grey-3;
+$--radio-checked-icon-color:$color-grey-3;
+$--message-close-icon-color:$color-grey-3;
+$--input-icon-color:$color-grey-3;
+$--tree-expand-icon-color:$color-grey-3;
+$--rate-icon-color:$color-grey-3;
+$--datepicker-icon-color:$color-grey-3;
+$--notification-success-icon-color:$color-grey-3;
+
+/* DisabledIcon
+-------------------------- */
+$--checkbox-disabled-icon-color:$color-grey-5;
+$--checkbox-disabled-checked-icon-color:$color-grey-5;
+$--radio-disabled-icon-color:$color-grey-5;
+$--radio-disabled-checked-icon-color:$color-grey-5;
+
 /* Icon font path, required */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 

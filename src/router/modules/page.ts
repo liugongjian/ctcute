@@ -244,6 +244,15 @@ const pageRoutes = [
         },
       },
       {
+        path: 'card2',
+        component: () => import(/* webpackChunkName: "card" */ '@/views/page/CardList/Card2.vue'),
+        name: 'Card2',
+        meta: {
+          title: 'Card2 小卡片描述较少',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'card3',
         component: () => import(/* webpackChunkName: "card" */ '@/views/page/CardList/Card3.vue'),
         name: 'Card3',

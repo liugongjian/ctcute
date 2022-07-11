@@ -2,7 +2,9 @@
   <div>
     <el-row align="middle" :style="{ 'max-width': maxWidth }">
       <el-col v-if="goButton" :span="1">
-        <div class="button-col point-style" @click="goPre"><i class="el-icon-arrow-left"></i></div>
+        <div class="button-col point-style" @click="goPre">
+          <i :class="['el-icon-arrow-left', disableLeft ? 'disabled' : '']"></i>
+        </div>
       </el-col>
       <el-col :span="16">
         <el-steps
@@ -27,13 +29,15 @@
         </el-steps>
       </el-col>
       <el-col v-if="goButton" :span="1">
-        <div class="button-col point-style" @click="goNext"><i class="el-icon-arrow-right"></i></div>
+        <div class="button-col point-style" @click="goNext">
+          <i :class="['el-icon-arrow-right', disableRight ? 'disabled' : '']"></i>
+        </div>
       </el-col>
     </el-row>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 
 @Component({
   name: 'StepsMulti',
@@ -48,6 +52,23 @@ export default class extends Vue {
   @Prop({ type: Number, default: 1 }) stepSize?: number // 多步骤条时使用，显示几个步骤
   @Prop({ type: Boolean, default: false }) goButton?: boolean // 是否展示前后退按钮
   width = '0'
+  disableLeft = false
+  disableRight = false
+  @Watch('active')
+  private change(val: any) {
+    if (val >= this.steps.length - 1) {
+      this.disableRight = true
+    } else {
+      this.disableRight = false
+    }
+    if (val <= 0) {
+      this.disableLeft = true
+    } else {
+      this.disableLeft = false
+    }
+
+    this.$forceUpdate()
+  }
   get widthArr() {
     const { steps } = this
     const lastStepWidth = this.size === 'mini' ? 100 : 120
@@ -116,7 +137,11 @@ export default class extends Vue {
 }
 .el-icon-arrow-left,
 .el-icon-arrow-right {
-  color: #000;
+  color: $color-grey-3;
+}
+.disabled {
+  cursor: not-allowed;
+  color: $color-grey-5;
 }
 ::v-deep .el-col-1 {
   width: 30px;

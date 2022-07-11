@@ -329,10 +329,15 @@
       cursor: pointer;
     }
   }
+  .svg-icon{
+    font-size: 16px;
+    vertical-align: text-bottom !important;
 
+  }
   .el-icon-view {
     padding-right: 15px;
-    line-height: 32px;
+    font-size: 16px;
+    vertical-align: text-bottom;
   }
 }
 
@@ -345,7 +350,6 @@
 .suffix-forgot,
 .icon-money {
   line-height: 32px;
-  color: $text-color-light-1;
   margin-right: $text-size-primary;
   font-weight: normal;
 
@@ -587,6 +591,11 @@
 -------------------------- */
 .el-date-editor .el-range-separator {
   width: 40px;
+  color: $color-grey-4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
 }
 
 .el-date-editor.el-input.el-input--medium {
@@ -596,12 +605,11 @@
 }
 
 .el-range-editor--medium .el-range__icon {
-  line-height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.el-range-editor--medium .el-range-separator {
-  font-size: 12px;
-}
 
 .el-range-editor--medium.el-input__inner {
   height: 32px;
@@ -716,7 +724,7 @@
     border-top: 1px solid $border-color-primary;
     border-left: 1px solid $border-color-primary;
     border-right: 1px solid $border-color-primary;
-    box-sizing: content-box;
+    transform: translateY(1px);
   }
 }
 
@@ -735,6 +743,9 @@
 
 /* Table
 -------------------------- */
+.bt-operation {
+  color: $color-master-1;
+}
 .el-table__header-wrapper {
   background-color: $table-header-fill;
 }
@@ -1120,7 +1131,7 @@
 }
 
 .el-step__title.is-wait {
-  color: #999999;
+  color: $color-grey-4;
 }
 
 .el-step__title.is-success {

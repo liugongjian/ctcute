@@ -7,7 +7,7 @@
     :trigger-on-focus="false"
   >
     <span slot="suffix" class="prompt-title"
-      ><div>{{ model ? title : '' }}</div>
+      ><div>{{ model ? placeholder : '' }}</div>
     </span>
   </el-autocomplete>
 </template>
@@ -20,7 +20,6 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) restaurants?: []
   @Prop({ type: String, default: '' }) placeholder?: ''
-  @Prop({ type: String, default: '' }) title?: ''
   @Prop({ type: String, default: '' }) model?: ''
 
   private flag = false
@@ -46,7 +45,7 @@ export default class extends Vue {
   height: 32px;
 
   .el-input--suffix .el-input__inner {
-    padding-right: 92px;
+    padding-right: 70px;
   }
 
   .prompt-title {

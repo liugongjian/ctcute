@@ -338,6 +338,10 @@
 
   @include table();
 
+  .el-table__cell:last-child .cell {
+    padding-right: 0 !important;
+  }
+
   /*  过滤条件 */
   .table-filter {
     display: flex;
@@ -402,6 +406,10 @@
 
   @include table();
 
+  .el-table__cell:last-child .cell {
+    padding-right: 0 !important;
+  }
+
   .table-button {
     .el-select {
       width: 125px !important;
@@ -431,6 +439,11 @@
     .el-form-item {
       margin-bottom: 16px !important;
     }
+  }
+
+  .el-dropdown-link {
+    cursor: pointer;
+    color: $color-master-1;
   }
 }
 

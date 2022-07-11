@@ -89,6 +89,13 @@ $disabled-danger-fill: $color-white;
 $disabled-danger-color: mix($color-white, $color-status-danger-1, 50%);
 $disabled-danger-border: $disabled-danger-color;
 
+/* LoadingButton
+-------------------------- */
+$loading-primary-color: mix($color-white, $color-master-1, 50%);
+$loading-primary-border: $loading-primary-color;
+$loading-default-color: $color-grey-10;
+$loading-default-border: $color-grey-6;
+
 /* Typography
 -------------------------- */
 $text-size-small: 12px;

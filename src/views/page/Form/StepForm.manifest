@@ -1,0 +1,14 @@
+[
+  {
+    "name": "StepForm.vue",
+    "path": "@/views/page/Form/StepForm.vue"
+  },
+  {
+    "name": "StepForm.d.ts",
+    "path": "@/types/StepForm.d.ts"
+  },
+  {
+    "name": "api/stepForm.ts",
+    "path": "@/api/stepForm.ts"
+  }
+]

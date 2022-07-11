@@ -1,7 +1,7 @@
 <template>
   <el-card>
     <div class="step-form">
-      <el-steps :active="active" finish-status="success" class="steps">
+      <el-steps :active="active" class="steps" finish-status="success" space="30%">
         <el-step
           v-for="(s, index) in steps"
           :key="index"
@@ -150,7 +150,7 @@
           </el-form-item>
         </el-form>
         <!-- 第三步表单 -->
-        <el-descriptions v-show="active === 2" :column="1" size="small" border>
+        <el-descriptions v-show="active === 2" class="descriptions" :column="1" size="small" border>
           <el-descriptions-item>
             <template slot="label"> 数据库类型 </template>
             Spark
@@ -177,18 +177,11 @@
 
       <div class="footer">
         <div v-if="active === steps.length - 1">
-          <el-button
-            class="btn-style"
-            type="primary"
-            @click="
-              () => {
-                active++
-              }
-            "
-          >
+          <el-button class="btn-style" type="primary" :loading="submitting" @click="create">
             提交信息
           </el-button>
           <el-button
+            :loading="submitting"
             @click="
               () => {
                 active--
@@ -200,18 +193,8 @@
         </div>
 
         <div v-else-if="active >= steps.length">
-          <el-button
-            class="btn-style"
-            type="primary"
-            @click="
-              () => {
-                active++
-              }
-            "
-          >
-            再来一次
-          </el-button>
-          <el-button @click="() => (active = 0)">查看结构表</el-button>
+          <el-button class="btn-style" type="primary" @click="resetForm"> 再来一次 </el-button>
+          <el-button @click="handleClick">查看结构表</el-button>
         </div>
 
         <div v-else>
@@ -244,6 +227,7 @@
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import * as StepForm from '@/types/StepForm'
+import { createStepForm } from '@/api/stepForm'
 
 @Component({
   name: 'StepForm',
@@ -259,13 +243,16 @@ export default class extends Vue {
 
   private steps = [{ title: '步骤1' }, { title: '步骤2' }, { title: '步骤3' }]
 
+  // 步骤标识
   private active = 0
+
+  private submitting = false
 
   private inputVisible = false
   private inputValue = ''
 
   // 表单对象
-  private firstForm: StepForm.FirstForm = {
+  private firstForm: StepForm.Form = {
     name: null,
     remark: null,
     disabledInput: 'test',
@@ -278,7 +265,7 @@ export default class extends Vue {
     tag: [],
   }
 
-  private secondForm: StepForm.FirstForm = {
+  private secondForm: StepForm.Form = {
     name: null,
     remark: null,
     disabledInput: 'test',
@@ -346,6 +333,34 @@ export default class extends Vue {
     if (valid) {
       this.active++
     }
+  }
+
+  private async create() {
+    try {
+      this.submitting = true
+      const params = {
+        first: this.firstForm,
+        second: this.secondForm,
+      }
+      const res = await createStepForm(params)
+      const data = res.data
+      this.$message.success(`创建成功！ID: ${data.id}`)
+      this.active++
+    } catch (e) {
+      this.$message.error('创建失败！')
+    } finally {
+      this.submitting = false
+    }
+  }
+
+  private resetForm() {
+    this.first.resetFields()
+    this.second.resetFields()
+    this.active = 0
+  }
+
+  private handleClick() {
+    this.$message.success('点击了查看表结构按钮')
   }
 }
 </script>

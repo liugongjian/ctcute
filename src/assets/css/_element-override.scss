@@ -15,11 +15,12 @@
   $bdColor:边框颜色;
   $color:字体颜色;
 */
-@mixin button-disabled($type: default,
+@mixin button-disabled(
+  $type: default,
   $bgColor: $disabled-fill,
   $bdColor: $disabled-border,
-  $color: $disabled-color) {
-
+  $color: $disabled-color
+) {
   .el-button--#{$type}.is-plain.is-disabled,
   .el-button--#{$type}.is-disabled {
     background-color: $bgColor;
@@ -50,12 +51,12 @@
   border-color: $loading-default-border;
 }
 
-.el-button+.el-dropdown {
+.el-button + .el-dropdown {
   margin-left: 16px;
   margin-right: 16px;
 }
 
-.el-button+.el-button {
+.el-button + .el-button {
   margin-left: 8px;
 }
 
@@ -69,8 +70,6 @@
     color: $color-master-1;
   }
 }
-
-
 
 .el-button-rect {
   padding: 10px;
@@ -130,7 +129,6 @@
 }
 
 .el-button--primary {
-
   &:hover,
   &:active,
   &:focus {
@@ -144,7 +142,6 @@
 }
 
 .el-dropdown {
-
   .el-button:hover,
   .el-button:focus {
     .svg-icon {
@@ -165,7 +162,7 @@
 -------------------------- */
 .el-button--text {
   color: $color-grey-3;
-    padding: 0;
+  padding: 0;
   .svg-icon {
     margin-right: 4px;
   }
@@ -262,19 +259,12 @@
   align-items: center;
 
   &::before {
-    content: 'x';
-    color: #fff;
-    display: block;
-    width: 14px;
-    height: 14px;
-    background-color: $color-status-danger-1;
-    border-radius: 50%;
-    margin-right: 5px;
-    color: #fff;
-    text-align: center;
-    line-height: 12px;
-    font-size: 11px;
-    font-weight: normal;
+    font-family: 'cute-icons';
+    content: '\ea5c';
+    color: $color-status-danger-1;
+    font-size: 14px;
+    vertical-align: top;
+    margin-right: $margin-tiny;
   }
 }
 
@@ -289,7 +279,7 @@
   width: 80px;
   background: $color-white;
   color: $text-color-primary;
-  
+
   .el-input__inner::placeholder {
     color: $text-color-primary;
   }
@@ -308,7 +298,7 @@
 .el-input-number__decrease {
   background-color: $input-fill;
 }
-.el-input-number.is-controls-right .el-input__inner{
+.el-input-number.is-controls-right .el-input__inner {
   text-align: left;
 }
 
@@ -364,7 +354,7 @@
   }
 }
 
-.suffix-forgot+.el-link {
+.suffix-forgot + .el-link {
   height: 16px;
   line-height: 32px;
 }
@@ -407,7 +397,7 @@
 
 /* Radio
 -------------------------- */
-.el-radio-button__orig-radio:checked+.el-radio-button__inner {
+.el-radio-button__orig-radio:checked + .el-radio-button__inner {
   color: $color-master-1;
   background-color: $color-master-7;
 }
@@ -547,7 +537,7 @@
   }
 }
 
-.el-checkbox-group+.el-form-item__error {
+.el-checkbox-group + .el-form-item__error {
   padding-top: 0;
 }
 
@@ -620,7 +610,7 @@
 
 /* Tree
 -------------------------- */
-.el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
+.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
   background: #f3f3f3;
 }
 
@@ -634,7 +624,7 @@
   }
 }
 
-.el-tree-node:focus>.el-tree-node__content {
+.el-tree-node:focus > .el-tree-node__content {
   background-color: $color-master-1;
   color: $color-white;
 }
@@ -735,7 +725,7 @@
   background-color: $border-color-primary;
 }
 
-.el-tabs--card>.el-tabs__header {
+.el-tabs--card > .el-tabs__header {
   border-bottom: 1px solid $border-color-primary;
 
   .el-tabs__item.is-active.is-closable {
@@ -811,7 +801,7 @@
 }
 
 .el-table .el-table__header tr,
-.el-table .el-table__header .el-table th.el-table-column--selection>.cell {
+.el-table .el-table__header .el-table th.el-table-column--selection > .cell {
   padding-left: 14px;
 }
 
@@ -833,7 +823,7 @@
   height: inherit;
 }
 
-.el-table th.el-table__cell>.cell {
+.el-table th.el-table__cell > .cell {
   padding-top: 2px;
   padding-bottom: 2px;
 }
@@ -851,8 +841,6 @@
   border-top-color: $table-sort-caret-fill;
   bottom: -8px;
 }
-
-
 
 .el-table--border {
   border: 0px;
@@ -990,7 +978,7 @@
     margin: 0 20px 0 10px;
   }
 
-  .el-pager li+li {
+  .el-pager li + li {
     margin-left: 10px;
   }
 
@@ -1052,7 +1040,6 @@
 }
 
 .el-breadcrumb__item:last-child {
-
   .el-breadcrumb__inner,
   .el-breadcrumb__inner:hover {
     color: $text-color-primary;
@@ -1073,10 +1060,12 @@
    $color:字体颜色
    $bgColor:背景颜色
 */
-@mixin steps-page($class: is-success,
+@mixin steps-page(
+  $class: is-success,
   $bdColor: $color-master-1,
   $color: $color-master-1,
-  $bgColor: $color-white) {
+  $bgColor: $color-white
+) {
   .el-step__head.#{$class} {
     border-color: $bdColor;
     color: $color;
@@ -1104,7 +1093,7 @@
 }
 
 .el-step__line {
-  background-color: $color-grey-6 //rgba(0, 0, 0, 0.15);
+  background-color: $color-grey-6; //rgba(0, 0, 0, 0.15);
 }
 
 .el-step__icon.is-text {
@@ -1357,7 +1346,6 @@
 }
 
 .sub-upload {
-
   .el-upload,
   .upload-demo {
     width: 100%;
@@ -1406,7 +1394,7 @@
 
 /* Switch
 -------------------------- */
-.el-switch+.el-switch {
+.el-switch + .el-switch {
   margin-left: 30px;
 }
 
@@ -1437,10 +1425,12 @@
   $iconColor:icon颜色;
   $bgColor:背景颜色;
 */
-@mixin global-tips($class: info,
+@mixin global-tips(
+  $class: info,
   $bdcolor: $color-tag-master-1,
   $iconColor: $color-status-master,
-  $bgColor: $color-tag-master-2) {
+  $bgColor: $color-tag-master-2
+) {
   .sub-all-alert {
     .el-alert--#{$class}.is-light {
       border: 1px solid $bdcolor;
@@ -1469,7 +1459,7 @@
   padding-right: 0;
 }
 
-.el-alert>.el-alert__content:first-child {
+.el-alert > .el-alert__content:first-child {
   padding-left: 0;
 }
 
@@ -1485,7 +1475,7 @@
   }
 }
 
-.el-alert+.el-alert {
+.el-alert + .el-alert {
   margin-left: 49px;
 }
 
@@ -1520,10 +1510,12 @@
 
 /* Tag
 -------------------------- */
-@mixin global-tag($class: info,
+@mixin global-tag(
+  $class: info,
   $bdcolor: $disabled-border,
   $fontColor: $text-color-primary,
-  $bgColor: $disabled-fill) {
+  $bgColor: $disabled-fill
+) {
   .el-tag.el-tag--#{$class} {
     border: 1px solid $bdcolor;
     color: $fontColor;
@@ -1819,7 +1811,7 @@
     background-color: $color-master-7;
   }
 
-  .el-checkbox__input.is-checked+.el-checkbox__label {
+  .el-checkbox__input.is-checked + .el-checkbox__label {
     color: $text-color-primary;
   }
 

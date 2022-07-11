@@ -59,7 +59,7 @@
               </template>
             </el-table-column>
             <el-table-column prop="goodsName" label="商品名称"></el-table-column>
-            <el-table-column prop="goddsCode" label="商品条码"></el-table-column>
+            <el-table-column prop="goodsCode" label="商品条码"></el-table-column>
             <el-table-column prop="price" label="单价"></el-table-column>
             <el-table-column prop="count" label="数量"></el-table-column>
             <el-table-column prop="totalPrice" label="总价"></el-table-column>
@@ -148,23 +148,11 @@ export default class extends Vue {
   border-radius: 100%;
 
   &--1 {
-    background: $color-status-success;
-  }
-
-  &--2 {
-    background: $color-status-warning;
-  }
-
-  &--3 {
-    background: $color-status-danger;
-  }
-
-  &--4 {
     background: $color-status-info;
   }
 
-  &--5 {
-    background: $disabled-color;
+  &--2 {
+    background: $color-status-success;
   }
 }
 </style>

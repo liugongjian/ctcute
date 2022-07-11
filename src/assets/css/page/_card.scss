@@ -10,7 +10,11 @@
   }
 
   .el-card {
-    border-color: #e2e5ed;
+    border-color: $border-color-primary;
+
+    .el-card__body {
+      padding: 16px;
+    }
   }
 
   .card-box {
@@ -20,6 +24,7 @@
       margin-bottom: 14px;
 
       svg {
+        color: $disabled-color;
         margin-right: 8px;
       }
     }
@@ -30,18 +35,25 @@
 
     .card-box--info {
       margin-top: 8px;
+      word-break: break-all;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      min-height: 30px;
     }
-    
+
     .card-box--btns {
       display: flex;
       justify-content: space-between;
       padding: 12px 0;
-      background-color: #f9f9fa;
-      margin: -20px;
+      background-color: $color-grey-11;
+      margin: -16px;
       margin-top: 16px;
-      border-top: 1px solid #e2e5ed;
+      border-top: 1px solid $border-color-primary;
 
-      & > div {
+      &>div {
         flex: 1;
         text-align: center;
         border-right: 1px solid $border-color-primary;
@@ -52,11 +64,14 @@
       }
 
       svg {
+        color: $button-icon-color;
+        font-size: $text-size-large;
+        cursor: pointer;
         font-size: 16px;
-        color:$color-grey-4
+        color: $color-grey-4
       }
     }
-    
+
 
     .card-box--bar--text {
       width: 40%;
@@ -65,7 +80,14 @@
       span {
         font-size: $text-size-large;
         margin-left: 12px;
-        color: $color-grey-1;
+        font-weight: 500;
+        color: $text-color-primary;
+      }
+    }
+
+    &.active {
+      .card-box--title svg {
+        color: #70c140;
         font-weight: 500;
       }
     }
@@ -144,7 +166,7 @@
         color: $color-grey-3;
         cursor: pointer;
 
-        & > * {
+        &>* {
           margin: 0 10px;
         }
       }
@@ -168,7 +190,7 @@
         display: flex;
         flex-flow: wrap;
 
-        & > * {
+        &>* {
           background: rgba(0, 0, 0, 4%);
           border: 1px solid rgba(0, 0, 0, 8%);
           border-radius: 2px;
@@ -193,22 +215,56 @@
       }
     }
   }
+
 }
+
 // 小卡片较少
-.card-box-less{ 
-  .el-card__body{ padding: 0;}
-  .card-box{display: flex;
-      .card-box--info{ display: flex;line-height: 33px; margin-top: 3px;
-        .input-box{ width: 100%; margin-left: auto;}
+.card-box-less {
+  .el-card__body {
+    padding: 0;
+  }
+
+  .card-box {
+    display: flex;
+
+    .card-box--info {
+      display: flex;
+      line-height: 33px;
+      margin-top: 3px;
+
+      .input-box {
+        width: 100%;
+        margin-left: auto;
       }
-    .card-cont{ width: 100%; padding: 16px 16px 12px 16px; 
-      .card-box--bar--text{ width: 50%;}
-      .card-box--title{ line-height: 24px;font-weight: 500;
-        .card-box--title-icon{ width: 24px; height: 24px; border-radius: 50%; background-color: $color-tag-success-1; padding: 5px; margin-right: 16px;
-          .svg-icon{ display: block;}
+    }
+
+    .card-cont {
+      width: 100%;
+      padding: 16px 16px 12px 16px;
+
+      .card-box--bar--text {
+        width: 50%;
+      }
+
+      .card-box--title {
+        line-height: 24px;
+        font-weight: 500;
+
+        .card-box--title-icon {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background-color: $color-tag-success-1;
+          padding: 5px;
+          margin-right: 16px;
+
+          .svg-icon {
+            display: block;
+          }
         }
       }
     }
+
     .card-box--btns-less {
       width: 40px;
       border-left: 1px solid $border-color-primary;
@@ -217,12 +273,13 @@
       margin-left: auto;
       display: flex;
       flex-direction: column;
-      & > div {
-        
-        flex:1;
+
+      &>div {
+
+        flex: 1;
         display: flex;
         justify-content: center;
-        align-items: center;  
+        align-items: center;
         text-align: center;
         border-bottom: 1px solid $border-color-primary;
 
@@ -230,13 +287,16 @@
           border: none;
         }
       }
-      & > div:hover{cursor: pointer; opacity: 0.9;}
+
+      &>div:hover {
+        cursor: pointer;
+        opacity: 0.9;
+      }
 
       svg {
         font-size: 16px;
-        color:$color-grey-4
+        color: $color-grey-4
       }
     }
   }
 }
-   

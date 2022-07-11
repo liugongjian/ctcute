@@ -11,7 +11,7 @@
     </div>
     <h2>禁用状态</h2>
     <div class="sub-sample">
-      <el-button disabled type="primary"><svg-icon name="setting" /></el-button>
+      <el-button disabled><svg-icon name="setting" /></el-button>
       <el-button disabled type="text"><svg-icon name="setting" /></el-button>
       <el-button disabled type="text"><svg-icon name="download" />下载</el-button>
     </div>

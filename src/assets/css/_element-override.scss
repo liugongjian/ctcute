@@ -15,7 +15,8 @@
   $bdColor:边框颜色;
   $color:字体颜色;
 */
-@mixin button-disabled($type: primary,
+@mixin button-disabled(
+  $type: default,
   $bgColor: $disabled-fill,
   $bdColor: $disabled-border,
   $color: $disabled-color) {
@@ -36,11 +37,19 @@
   }
 }
 
-@include button-disabled();
+@include button-disabled(primary,$loading-primary-color,$loading-primary-border,$color-white);
 @include button-disabled(danger, $disabled-danger-fill, $disabled-danger-border, $disabled-danger-color);
-@include button-disabled(default, $disabled-fill, $disabled-border, $disabled-color);
+@include button-disabled();
 
-.el-button+.el-dropdown {
+.el-button.el-button--primary.el-button--medium.is-loading{
+  background: $loading-primary-color;
+  border-color:$loading-primary-border;
+}
+.el-button.el-button--default.el-button--medium.is-loading{
+  background: $loading-default-color;
+  border-color: $loading-default-border;
+}
+.el-button + .el-dropdown {
   margin-left: 16px;
   margin-right: 16px;
 }

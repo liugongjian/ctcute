@@ -367,11 +367,6 @@
     cursor: pointer;
     color: $color-master-1;
   }
-
-  /* 下拉展开旋转小三角 */
-  .top-fill {
-    transform: rotate(180deg);
-  }
 }
 
 /* 复杂表格2 */
@@ -444,4 +439,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* 下拉展开旋转小三角 */
+.top-fill {
+  transform: rotate(180deg);
 }

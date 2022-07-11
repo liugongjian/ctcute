@@ -55,14 +55,8 @@
       <el-row type="flex" align="middle" justify="center">
         <el-col :span="6">
           <el-tooltip class="item" effect="dark" placement="top">
-            <div slot="content"><a class="tooltip-mores">更多</a>关于什么的类型</div>
+            <div slot="content"><el-link type="primary">更多</el-link> 关于什么的类型</div>
             <span>Nomal</span>
-          </el-tooltip>
-        </el-col>
-        <el-col :span="4">
-          <el-tooltip class="item" effect="dark" placement="top">
-            <div slot="content"><a class="tooltip-more">更多</a>关于什么的类型</div>
-            <span>link hover/active/fucus</span>
           </el-tooltip>
         </el-col>
       </el-row>

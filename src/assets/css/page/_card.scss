@@ -10,7 +10,11 @@
   }
 
   .el-card {
-    border-color: #e2e5ed;
+    border-color: $border-color-primary;
+
+    .el-card__body {
+      padding: 16px;
+    }
   }
 
   .card-box {
@@ -20,6 +24,7 @@
       margin-bottom: 14px;
 
       svg {
+        color: $disabled-color;
         margin-right: 8px;
       }
     }
@@ -30,18 +35,25 @@
 
     .card-box--info {
       margin-top: 8px;
+      word-break: break-all;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      min-height: 30px;
     }
 
     .card-box--btns {
       display: flex;
       justify-content: space-between;
       padding: 12px 0;
-      background-color: #f9f9fa;
-      margin: -20px;
+      background-color: $color-grey-11;
+      margin: -16px;
       margin-top: 16px;
-      border-top: 1px solid #e2e5ed;
+      border-top: 1px solid $border-color-primary;
 
-      & > div {
+      &>div {
         flex: 1;
         text-align: center;
         border-right: 1px solid $border-color-primary;
@@ -52,7 +64,9 @@
       }
 
       svg {
-        font-size: 16px;
+        color: $button-icon-color;
+        font-size: $text-size-large;
+        cursor: pointer;
       }
     }
 
@@ -63,7 +77,14 @@
       span {
         font-size: $text-size-large;
         margin-left: 12px;
-        color: rgba(0, 0, 0, 65%);
+        font-weight: 500;
+        color: $text-color-primary;
+      }
+    }
+
+    &.active {
+      .card-box--title svg {
+        color: #70c140;
       }
     }
   }
@@ -141,7 +162,7 @@
         color: $color-grey-3;
         cursor: pointer;
 
-        & > * {
+        &>* {
           margin: 0 10px;
         }
       }
@@ -165,7 +186,7 @@
         display: flex;
         flex-flow: wrap;
 
-        & > * {
+        &>* {
           background: rgba(0, 0, 0, 4%);
           border: 1px solid rgba(0, 0, 0, 8%);
           border-radius: 2px;

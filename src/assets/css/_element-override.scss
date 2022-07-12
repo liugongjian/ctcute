@@ -762,6 +762,13 @@
   background-color: $border-color-primary;
 }
 
+.el-table__body-wrapper.is-scrolling-none~.el-table__fixed,
+.el-table__body-wrapper.is-scrolling-none~.el-table__fixed-right {
+  &::before {
+    background-color: transparent;
+  }
+}
+
 .el-table__cell:first-child .cell {
   padding-left: 20px !important;
 }

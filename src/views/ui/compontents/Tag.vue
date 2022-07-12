@@ -3,12 +3,12 @@
     <h3>默认标签</h3>
     <div class="default-tags">
       <el-tag type="info">标签</el-tag>
-      <cute-tag tag-name="+ 标签" :dynamic-tags="dynamicTags1"></cute-tag>
+      <cute-tag tag-name="+ 新标签" :dynamic-tags="dynamicTags1"></cute-tag>
     </div>
     <h3>大标签</h3>
     <div class="large-tags">
       <el-tag type="info" size="large">CPU使用量>=2</el-tag>
-      <cute-tag :dynamic-tags="dynamicTags2" tag-name="+ 新增过滤" tag-size="large"></cute-tag>
+      <cute-tag :dynamic-tags="dynamicTags2" tag-name="+ 新标签" tag-size="large"></cute-tag>
     </div>
 
     <h3>彩色标签</h3>

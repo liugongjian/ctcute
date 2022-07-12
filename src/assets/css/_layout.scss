@@ -59,7 +59,7 @@
   .el-menu-item,
   .el-submenu > .el-submenu__title,
   .el-submenu .el-menu-item {
-    min-width: $sidebar-width;
+    min-width: calc($sidebar-width - 40px);
     background-color: $sidebar-sub-fill;
     border-right: 2px solid transparent;
 
@@ -76,7 +76,6 @@
   position: relative;
   min-height: 100%;
   transition: margin-left 0.28s;
-  margin-left: calc($sidebar-width + 8px); // 加上左侧栏控制bar的距离
   padding: $header-height 15px 15px;
 
   .navbar {

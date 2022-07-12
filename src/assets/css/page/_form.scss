@@ -152,18 +152,8 @@
     }
 
     .sub-tags {
-      width: 104%;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-
-      .input-new-tag {
-        width: 60px;
-        vertical-align: bottom;
-      }
-
-      .el-tag {
-        margin: 0 10px 10px 0;
+      .el-input {
+        width: 70px;
       }
     }
   }
@@ -196,8 +186,10 @@
     max-width: 800px;
   }
 
-  .el-tag {
-    margin-right: 10px;
+  .cute-tag-add {
+    .el-input {
+      min-width: 70px;
+    }
   }
 
   .form-item-tip {

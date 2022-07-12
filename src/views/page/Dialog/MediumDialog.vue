@@ -4,7 +4,7 @@
     <div>
       <p>
         弹窗头部跟底部跟天翼云弹窗样式统一，在中尺寸弹窗中，宽度为
-        560px，弹窗底部按钮水平居中展示，最大高度为640px。
+        560px，弹窗底部按钮水平居中展示，最大高度为570px。
       </p>
       <el-button type="primary" @click="handleClick">中弹窗</el-button>
     </div>
@@ -16,7 +16,7 @@
       @close="close"
     >
       <div class="medium-dialog--content">
-        <el-form ref="ruleForm" :rules="rules" :model="form" label-width="120px">
+        <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">
           <el-form-item label="主机别名" prop="name" placeholder="111">
             <el-input v-model="form.name" value="" placeholder="请输入主机别名"></el-input>
           </el-form-item>

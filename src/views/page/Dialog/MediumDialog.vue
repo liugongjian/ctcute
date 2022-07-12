@@ -33,28 +33,7 @@
             <el-input v-model="form.password" value="" placeholder="请输入SSH密码"></el-input>
           </el-form-item>
           <el-form-item label="标签" class="sub-tags">
-            <el-tag v-if="isShow" type="info" closable @close="closeTag">标签</el-tag>
-            <el-tag
-              v-for="tag in form.dynamicTags"
-              :key="tag"
-              type="info"
-              closable
-              :disable-transitions="false"
-              @close="handleClose(tag)"
-            >
-              {{ tag }}
-            </el-tag>
-            <el-input
-              v-if="inputVisible"
-              ref="saveTagInput"
-              v-model="inputValue"
-              size="small"
-              class="input-new-tag"
-              @keyup.enter.native="handleInputConfirm"
-              @blur="handleInputConfirm"
-            >
-            </el-input>
-            <el-tag v-else type="newtag" :disable-transitions="true" @click="showInput">+ 标签</el-tag>
+            <cute-tag :dynamic-tags="form.dynamicTags" tag-name="+ 标签"></cute-tag>
           </el-form-item>
           <el-form-item label="监控插件端口" prop="port">
             <el-input v-model="form.port" value="" placeholder="请输入监控插件端口"></el-input>
@@ -87,34 +66,7 @@ export default class extends Vue {
 
   private title = '中弹窗（表单）'
   private visible = false
-  private inputValue = ''
-  private inputVisible = false
-  private isShow = true
-  private closeTag() {
-    this.isShow = false
-  }
 
-  private showInput() {
-    this.inputVisible = true
-    this.$nextTick(() => {
-      const saveTagInput: any = this.$refs.saveTagInput
-      const saveTagInputRefs: any = saveTagInput.$refs
-      saveTagInputRefs.input.focus()
-    })
-  }
-
-  private handleInputConfirm() {
-    const inputValue = this.inputValue
-    if (inputValue) {
-      this.form.dynamicTags.push(inputValue)
-    }
-    this.inputVisible = false
-    this.inputValue = ''
-  }
-
-  private handleClose(tag: string) {
-    this.form.dynamicTags.splice(this.form.dynamicTags.indexOf(tag), 1)
-  }
   // 表单提交状态
   private submitting = false
   //表单对象
@@ -126,7 +78,7 @@ export default class extends Vue {
     password: null,
     port: null,
     catalogue: null,
-    dynamicTags: [],
+    dynamicTags: ['标签'],
   }
 
   /**

@@ -190,7 +190,7 @@
               </el-table-column>
             </el-table>
             <el-button
-              style="width: 97%; height: 42px; box-shadow: 0 1px 0 0 #dddddd"
+              style="width: 97%; height: 42px; box-shadow: 0 1px 0 0 #ddd"
               type="text"
               @click="addCondit"
               >+添加条件</el-button
@@ -202,30 +202,7 @@
           <div class="form-items">
             <el-form-item label="标签">
               <div class="sub-tags">
-                <el-tag v-if="isShow" type="info" closable :disable-transitions="false" @close="closeTag"
-                  >标签</el-tag
-                >
-                <el-tag
-                  v-for="tag in form.dynamicTags"
-                  :key="tag"
-                  type="info"
-                  closable
-                  :disable-transitions="false"
-                  @close="handleClose(tag)"
-                >
-                  {{ tag }}
-                </el-tag>
-                <el-input
-                  v-if="inputVisible"
-                  ref="saveTagInput"
-                  v-model="inputValue"
-                  size="small"
-                  class="input-new-tag"
-                  @keyup.enter.native="handleInputConfirm"
-                  @blur="handleInputConfirm"
-                >
-                </el-input>
-                <el-tag v-else type="newtag" :disable-transitions="true" @click="showInput">+ 标签</el-tag>
+                <cute-tag tag-name="+ 标签" :dynamic-tags="form.dynamicTags"></cute-tag>
               </div>
             </el-form-item>
             <el-form-item label="六字标题测试">
@@ -271,37 +248,6 @@ export default class extends Vue {
   @Ref('proForm2')
   private proForm2Ref
 
-  private inputValue = ''
-  private inputVisible = false
-  private isShow = true
-  // private dynamicTags = []
-
-  private closeTag() {
-    this.isShow = false
-  }
-
-  private showInput() {
-    this.inputVisible = true
-    this.$nextTick(() => {
-      const saveTagInput: any = this.$refs.saveTagInput
-      const saveTagInputRefs: any = saveTagInput.$refs
-      saveTagInputRefs.input.focus()
-    })
-  }
-
-  private handleInputConfirm() {
-    const inputValue = this.inputValue
-    if (inputValue) {
-      this.form.dynamicTags.push(inputValue)
-    }
-    this.inputVisible = false
-    this.inputValue = ''
-  }
-
-  private handleClose(tag) {
-    this.form.dynamicTags.splice(this.form.dynamicTags.indexOf(tag), 1)
-  }
-
   // 表单对象
   private form: ProForm2.Form = {
     policyName: null,
@@ -335,7 +281,7 @@ export default class extends Vue {
         calculate: 80,
       },
     ],
-    dynamicTags: [],
+    dynamicTags: ['标签'],
   }
 
   // 告警对象下拉框选项

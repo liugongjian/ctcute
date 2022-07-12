@@ -113,7 +113,8 @@ p {
 
 .operation-button {
   text-align: right;
-  margin: 0;
+  margin-left: 122px;
+  margin-top: 16px;
 
   .el-button + .el-button {
     margin-left: 12px;

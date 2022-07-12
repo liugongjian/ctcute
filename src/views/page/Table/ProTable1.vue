@@ -157,8 +157,7 @@ export default class extends Vue {
       }
       const res = await getTable(params)
       this.pager.total = res.data.total
-      // this.tableData = res.data.list
-      this.tableData = []
+      this.tableData = res.data.list
     } catch (e) {
       console.error(e)
     } finally {
@@ -230,7 +229,7 @@ export default class extends Vue {
   /** * 新增过滤表单对象 */
   private formData = [
     {
-      label: 'cpu使用量',
+      label: 'CPU使用量',
       options: [
         {
           label: '> =',

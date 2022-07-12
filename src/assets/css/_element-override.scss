@@ -1307,11 +1307,11 @@
   margin-bottom: $margin-tiny;
 }
 
-.el-picker-panel.time-select.el-popper[x-placement^='bottom'] {
+.el-picker-panel.el-date-range-picker.el-popper[x-placement^='bottom'] {
   margin-top: $margin-tiny;
 }
 
-.el-picker-panel.time-select.el-popper[x-placement^='top'] {
+.el-picker-panel.el-date-range-picker.el-popper[x-placement^='top'] {
   margin-bottom: $margin-tiny;
 }
 
@@ -1986,7 +1986,16 @@
     padding: 0;
   }
 }
-
+.el-popover{
+  padding: 20px 24px 20px 16px;
+  p{
+    margin: 0;
+  }
+  .el-popover__title{
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+}
 /* sidebar
 -------------------------- */
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="table-filter">
     <el-tag
       v-for="(v, i) in data"
       v-show="flag"
@@ -10,15 +10,11 @@
       @close="flag = false"
       >{{ v.content }}</el-tag
     >
-    <el-dropdown
-      trigger="click"
-      :hide-on-click="false"
-      placement="bottom-start"
-      @visible-change="openDropdown"
-    >
-      <el-tag type="newtag" size="large"> + 新增过滤 </el-tag>
-      <el-dropdown-menu slot="dropdown" class="conventional-dropdown">
-        <el-dropdown-item>
+
+    <div class="table-filter-dropdown">
+      <el-tag type="newtag" size="large" @click="visible = true"> + 新增过滤 </el-tag>
+      <div v-if="visible" class="table-filter_content">
+        <div class="table-filter_top">
           <el-form>
             <el-form-item v-for="(v, i) in formData" :key="i" :label="v.label">
               <el-select v-model="formSelect[i]" placeholder="请选择">
@@ -34,9 +30,14 @@
               <span>{{ v.unit }}</span>
             </el-form-item>
           </el-form>
-        </el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown>
+        </div>
+
+        <div class="table-filter_foot">
+          <el-button @click="visible = false">取 消</el-button>
+          <el-button type="primary" @click="openDropdown">确 定</el-button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -50,20 +51,21 @@ export default class extends Vue {
   private formSelect = {}
   private data = []
   private flag = true
-  private openDropdown(value: boolean) {
-    if (!value) {
-      const data = []
-      this.formData.forEach((item: any, i) => {
-        if (this.formInput[i] && this.formSelect[i]) {
-          data.push({
-            content: item.label + this.formSelect[i] + this.formInput[i],
-          })
-        }
-      })
-      this.data = data
-      this.formInput = {}
-      this.formSelect = {}
-    }
+  private visible = false
+
+  private openDropdown() {
+    const data = []
+    this.formData.forEach((item: any, i) => {
+      if (this.formInput[i] && this.formSelect[i]) {
+        data.push({
+          content: item.label + this.formSelect[i] + this.formInput[i] + item.unit,
+        })
+      }
+    })
+    this.data = data
+    this.formInput = {}
+    this.formSelect = {}
+    this.visible = false
   }
 }
 </script>
@@ -73,36 +75,65 @@ export default class extends Vue {
   padding: 0 $text-size-large $text-size-large $text-size-large;
 }
 
-.el-tag {
-  margin-right: 12px;
-}
-
-.el-form-item {
-  margin: 0;
-  margin-top: $text-size-large;
+.table-filter {
   display: flex;
+  align-items: center;
 
-  ::v-deep.el-form-item__label {
-    padding-right: 12px;
-    color: $color-grey-1;
+  .el-tag {
+    margin-right: 12px;
   }
 
-  .el-select,
-  .el-input {
-    width: 90px;
-    margin-right: 8px;
-  }
+  .table-filter-dropdown {
+    position: relative;
 
-  span {
-    font-size: 12px;
-    color: rgba(0, 0, 0, 65%);
-  }
-}
+    .table-filter_content {
+      position: absolute;
+      top: 32px;
+      left: 0;
+      box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 50%);
+      z-index: 999;
+      background: $color-white;
 
-.el-dropdown-menu--medium .el-dropdown-menu__item {
-  &:hover {
-    background: $color-white;
-    color: $color-grey-1;
+      .table-filter_top {
+        padding: 0 16px 16px;
+        min-width: 332px;
+
+        .el-form-item {
+          margin: 0;
+          margin-top: $text-size-large;
+          display: flex;
+
+          ::v-deep.el-form-item__label {
+            padding-right: 12px;
+            color: $color-grey-1;
+            min-width: 84px;
+          }
+
+          .el-select,
+          .el-input {
+            width: 90px;
+            margin-right: 8px;
+          }
+
+          span {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 65%);
+          }
+        }
+      }
+
+      .table-filter_foot {
+        height: 50px;
+        background: $color-grey-9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .el-button + .el-button {
+          margin-left: 16px;
+        }
+      }
+    }
   }
 }
 </style>

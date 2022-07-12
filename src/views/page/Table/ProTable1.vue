@@ -25,7 +25,7 @@
     </div>
     <div class="table-filter">
       <div class="table-filter_text">指标条件</div>
-      <table-filter :operation-options="operationOptions" />
+      <table-filter :operation-options="operationOptions" :model="fromData" />
     </div>
 
     <!--表格-->
@@ -232,15 +232,13 @@ export default class extends Vue {
     { label: '< =', value: 2 },
   ]
   /** * 新增过滤表单对象 */
-  private fromData = [
-    {
-      cpu: null,
-    },
-    { ram: null },
-    { cpu: null },
-    { cpu: null },
-    { cpu: null },
-  ]
+  private fromData = {
+    cpu: null,
+    ram: null,
+    disk: null,
+    network: null,
+    handle: null,
+  }
 }
 </script>
 <style lang="scss" scoped>

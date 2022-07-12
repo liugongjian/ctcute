@@ -14,22 +14,22 @@
     >
       <template #title>
         <span class="el-dialog__title">{{ title }}</span>
-        <div style="float: right; margin-right: 24px">
+        <div style="position: absolute; right: 40px; top: 20px">
           <el-button type="text" @click="$emit('download')"
-            ><svg-icon name="cloud-download" width="16" height="16"
+            ><svg-icon name="cloud-download" width="14" height="14"
           /></el-button>
           <el-button type="text" @click="$emit('reload')"
-            ><svg-icon name="reload" width="16" height="16"
+            ><svg-icon name="reload" width="14" height="14"
           /></el-button>
           <el-button type="text" @click="openFullscreen"
-            ><svg-icon name="fullscreen" width="16" height="16"
+            ><svg-icon name="fullscreen" width="14" height="14"
           /></el-button>
         </div>
       </template>
       <el-scrollbar
-        ref="content"
+        ref="scrollBar"
         class="log-dialog--content"
-        :wrap-style="{ maxHeight: isFullscreen ? '100%' : '70vh' }"
+        :wrap-style="{ maxHeight: isFullscreen ? '100%' : '70vh', width: '100%' }"
       >
         <slot name="content">
           <pre class="log-dialog--pre">
@@ -130,7 +130,7 @@ eries= true"`
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch, Ref } from 'vue-property-decorator'
 
 @Component({
   name: 'LogDialog',
@@ -139,6 +139,7 @@ export default class extends Vue {
   @Prop({ default: '取消' }) readonly cancelButtonText: string
   @Prop({ default: '确定' }) readonly confirmButtonText: string
   @Prop({ default: '' }) readonly log: string
+  @Ref('scrollBar') private readonly scrollBar!: Vue & { update: () => void }
 
   private isFullscreen = false
   private title = '日志弹窗示例'
@@ -147,10 +148,11 @@ export default class extends Vue {
   @Watch('visible')
   async onVisibleChange() {
     await this.$nextTick()
-    if (!(this.$refs.content as Vue).$el.onfullscreenchange);
-    ;(this.$refs.content as Vue).$el.onfullscreenchange = event => {
-      this.isFullscreen = document.fullscreenElement === event.target
-    }
+    if (!this.scrollBar.$el.onfullscreenchange)
+      this.scrollBar.$el.onfullscreenchange = async event => {
+        this.isFullscreen = document.fullscreenElement === event.target
+        this.scrollBar.update() // 手动触发滚动条高度更新
+      }
   }
 
   private close() {
@@ -165,7 +167,7 @@ export default class extends Vue {
   }
 
   private openFullscreen() {
-    ;(this.$refs.content as Vue).$el.requestFullscreen()
+    this.scrollBar.$el.requestFullscreen()
   }
 }
 </script>

@@ -27,6 +27,7 @@
         <el-select v-model="form.longText" placeholder="请选择">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
+        <cute-form-info title="标题测试" content="对标题测试的详细说明" />
       </el-form-item>
       <el-form-item label="单选" prop="radio">
         <el-radio-group v-model="form.radio">

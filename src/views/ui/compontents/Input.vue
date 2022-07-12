@@ -110,7 +110,7 @@
     <h3 class="sub-title">带提示的输入框</h3>
     <div class="sub-input">
       <el-row>
-        <remind-input :restaurants="restaurants" :placeholder="placeholder" :title="title" :model="state1" />
+        <remind-input :restaurants="restaurants" :placeholder="placeholder" :model="state1" />
       </el-row>
     </div>
     <h3>长文本域</h3>
@@ -183,7 +183,6 @@ export default class extends Vue {
 
   private flag = true
   private value1 = ''
-  private title = '数据资源名称'
   private placeholder = '请输入'
   private num = 1
   private num1 = 1

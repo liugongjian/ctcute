@@ -124,13 +124,8 @@ export default class extends Vue {
 
   p {
     font-size: 12px;
-    color: rgba(0, 0, 0, 45%);
     margin-top: 8px;
     margin-bottom: 0 !important;
-  }
-
-  ::v-deep.el-divider--vertical {
-    color: #dddd;
   }
 
   .table {

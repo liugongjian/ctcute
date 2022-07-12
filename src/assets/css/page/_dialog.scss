@@ -114,38 +114,61 @@
 
   .el-dialog {
     width: 560px;
-    max-height: 640px;
+    height: 570px;
     display: flex;
-    overflow: scroll;
     flex-direction: column;
 
     .el-dialog__header {
       height: auto;
     }
 
-    .el-dialog__body {
-      flex: 1;
-      overflow: scroll;
-    }
+    // .el-dialog__body {
+    //   flex: 1;
+    //   overflow: scroll;
+    //   .medium-dialog--footer{
+    //     position: absolute;
+    //     bottom: 0px;
+    //     width: 100%;
+    //   }
+    // }
 
     .sub-tags {
+      .el-tag {
+        margin-right: 8px;
+      }
       .input-new-tag {
         width: 60px;
         vertical-align: bottom;
-      }
-
-      .el-tag {
-        margin: 0 10px 10px 0;
-
+        .el-input__inner {
+          height: 22px;
+          line-height: 20px;
+        }
       }
     }
   }
 
   &--content {
-    // display: none;
     display: block;
     clear: both;
-    margin-left: 48px
+    max-height: 461px;
+    overflow-y: auto;
+    margin-bottom: 0px;
+
+    .el-form-item--medium{
+      display: flex;
+      align-items: center;
+      .el-form-item__label{
+        line-height: 20px;
+      }
+      .el-form-item__content{
+        margin-left: 0px !important;
+        width: 100%;
+      }
+    }
+  }
+  &--footer{
+    position: absolute;
+    width: 100%;
   }
 
 

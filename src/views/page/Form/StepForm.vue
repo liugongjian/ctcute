@@ -40,6 +40,7 @@
             <el-select v-model="firstForm.longText" placeholder="请选择">
               <el-option v-for="item in disabledSelectOptions" :key="item" :label="item" :value="item" />
             </el-select>
+            <cute-form-info title="标题测试" content="对标题测试的详细说明" />
           </el-form-item>
           <el-form-item label="单选" prop="radio">
             <el-radio v-model="firstForm.radio" label="1">未选中项</el-radio>
@@ -118,6 +119,7 @@
             <el-select v-model="secondForm.longText" placeholder="请选择">
               <el-option v-for="item in disabledSelectOptions" :key="item" :label="item" :value="item" />
             </el-select>
+            <cute-form-info title="标题测试" content="对标题测试的详细说明" />
           </el-form-item>
           <el-form-item label="单选" prop="radio">
             <el-radio v-model="secondForm.radio" label="1">未选中项</el-radio>

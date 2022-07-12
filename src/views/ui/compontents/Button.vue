@@ -118,6 +118,11 @@ export default class extends Vue {
   margin-left: 48px;
 }
 
+.button-loading {
+  color: $color-grey-4;
+  font-size: 12px;
+}
+
 .conventional-dropdown,
 .combination-dropdown {
   width: 124px;
@@ -129,14 +134,5 @@ export default class extends Vue {
       margin-right: 4px;
     }
   }
-}
-
-.top-fill {
-  transform: rotate(180deg);
-}
-
-.button-loading {
-  color: $color-grey-4;
-  font-size: 12px;
 }
 </style>

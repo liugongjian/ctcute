@@ -1,7 +1,11 @@
 /**
  * 仅注册使用频率高的，轻量级的组件
  */
-const componentsList = [require('./CuteFormInfo/index.vue'), require('./CuteEditInput/index.vue')]
+const componentsList = [
+  require('./CuteFormInfo/index.vue'),
+  require('./CuteEditInput/index.vue'),
+  require('./CuteTag/index.vue'),
+]
 
 export default {
   install(Vue) {

@@ -38,7 +38,7 @@ const TYPE_CLASSES_MAP = {
   large: 'input-large-tag',
 }
 @Component({
-  name: 'CuteTagAdd',
+  name: 'CuteTag',
 })
 export default class extends Vue {
   /** tag的显示名称 必填 */
@@ -49,14 +49,17 @@ export default class extends Vue {
   @Prop({ default: '', required: false }) private readonly tagClass: string
   /** input的自定义class 选填 */
   @Prop({ default: '', required: false }) private readonly inputClass: string
-  private dynamicTags = []
+  /** tag 默认显示的数组 */
+  @Prop({ type: Array, default: [], required: true }) dynamicTags!: string[]
+  // 新增标签input框是否可见
   private inputVisible = false
+  // 新增标签input框输入值
   private inputValue = ''
 
   get typeClass() {
     return TYPE_CLASSES_MAP[this.tagSize] || 'input-new-tag'
   }
-
+  /* 输入确认后添加标签 */
   private handleInputConfirm() {
     const inputValue = this.inputValue
     if (inputValue) {
@@ -66,6 +69,7 @@ export default class extends Vue {
     this.inputValue = ''
   }
 
+  /* 点击新增标签 显示输入框 */
   private showInput() {
     this.inputVisible = true
     this.$nextTick(() => {
@@ -74,7 +78,7 @@ export default class extends Vue {
       saveTagInputRefs.input.focus()
     })
   }
-
+  /* 关闭标签 */
   private handleClose(tag) {
     this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
   }
@@ -84,11 +88,13 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .cute-tag-add {
   display: inline-block;
-  vertical-align: bottom;
 
   .el-tag {
-    margin-right: 10px;
-    vertical-align: bottom;
+    margin-right: 8px;
+  }
+
+  .el-tag--large {
+    margin-right: 12px;
   }
 
   .el-input {
@@ -97,6 +103,7 @@ export default class extends Vue {
 
   .input-new-tag {
     width: 70px;
+    vertical-align: bottom;
 
     ::v-deep.el-input__inner {
       height: 22px;
@@ -106,6 +113,7 @@ export default class extends Vue {
 
   .input-large-tag {
     width: 96px;
+    vertical-align: bottom;
 
     ::v-deep.el-input__inner {
       height: 28px;

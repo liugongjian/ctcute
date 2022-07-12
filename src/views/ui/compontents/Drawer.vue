@@ -53,29 +53,8 @@
                 <el-input v-model="form.password" value="" placeholder="请提供具有sudo权限的账号"></el-input>
               </el-form-item>
               <el-form-item label="标签" class="sub-tags">
-                <el-tag type="info">标签</el-tag>
-                <el-tag v-if="isShow" type="info" closable @close="closeTag">标签</el-tag>
-                <el-tag
-                  v-for="tag in dynamicTags"
-                  :key="tag"
-                  type="info"
-                  closable
-                  :disable-transitions="false"
-                  @close="handleClose(tag)"
-                >
-                  {{ tag }}
-                </el-tag>
-                <el-input
-                  v-if="inputVisible"
-                  ref="saveTagInput"
-                  v-model="inputValue"
-                  size="small"
-                  class="input-new-tag"
-                  @keyup.enter.native="handleInputConfirm"
-                  @blur="handleInputConfirm"
-                >
-                </el-input>
-                <el-tag v-else type="newtag" :disable-transitions="true" @click="showInput">+ 标签</el-tag>
+                <el-tag type="info" class="first-tag">标签</el-tag>
+                <cute-tag tag-name="+ 标签" :dynamic-tags="dynamicTags"></cute-tag>
               </el-form-item>
 
               <el-form-item label="监控插件端口" prop="port">
@@ -125,53 +104,13 @@ export default class extends Vue {
   }
 
   private form = {}
-  private dynamicTags = []
-  private isShow = true
-  private inputVisible = false
-  private inputValue = ''
-
-  private closeTag() {
-    this.isShow = false
-  }
-
-  private handleInputConfirm() {
-    const inputValue = this.inputValue
-    if (inputValue) {
-      this.dynamicTags.push(inputValue)
-    }
-    this.inputVisible = false
-    this.inputValue = ''
-  }
-
-  private showInput() {
-    this.inputVisible = true
-    this.$nextTick(() => {
-      const saveTagInput: any = this.$refs.saveTagInput
-      const saveTagInputRefs: any = saveTagInput.$refs
-      saveTagInputRefs.input.focus()
-    })
-  }
-
-  private handleClose(tag) {
-    this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
-  }
+  private dynamicTags = ['标签']
 }
 </script>
 
 <style lang="scss" scoped>
-.el-tag {
-  margin-left: 10px;
-}
-
-.sub-drawer .input-new-tag {
-  width: 60px;
-  margin-left: 10px;
-  vertical-align: bottom;
-
-  ::v-deep.el-input__inner {
-    height: 22px;
-    line-height: 20px;
-  }
+.sub-drawer .first-tag {
+  margin: 0 8px 0 16px;
 }
 
 .sub-tags {

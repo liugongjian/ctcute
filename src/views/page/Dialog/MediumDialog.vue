@@ -112,7 +112,7 @@ export default class extends Vue {
     this.inputValue = ''
   }
 
-  private handleClose(tag) {
+  private handleClose(tag: string) {
     this.form.dynamicTags.splice(this.form.dynamicTags.indexOf(tag), 1)
   }
   //表单对象

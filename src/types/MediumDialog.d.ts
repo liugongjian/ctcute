@@ -6,7 +6,7 @@ export interface Form {
   password: string
   port: string
   catalogue: string
-  dynamicTags: []
+  dynamicTags: string[]
 }
 
 export type Response = {

@@ -31,7 +31,7 @@
               </el-select>
 
               <el-input v-model="formInput[i]" placeholder="请输入" />
-              <span>%</span>
+              <span>{{ v.unit }}</span>
             </el-form-item>
           </el-form>
         </el-dropdown-item>
@@ -91,6 +91,11 @@ export default class extends Vue {
   .el-input {
     width: 90px;
     margin-right: 8px;
+  }
+
+  span {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 65%);
   }
 }
 

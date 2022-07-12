@@ -255,6 +255,7 @@ export default class extends Vue {
           value: '<=',
         },
       ],
+      unit: 'GB',
     },
     {
       label: '磁盘剩余量',
@@ -268,6 +269,7 @@ export default class extends Vue {
           value: '<=',
         },
       ],
+      unit: 'GB',
     },
 
     {
@@ -282,20 +284,7 @@ export default class extends Vue {
           value: '<=',
         },
       ],
-    },
-
-    {
-      label: '处理请求数',
-      options: [
-        {
-          label: '> =',
-          value: '> =',
-        },
-        {
-          label: '<=',
-          value: '<=',
-        },
-      ],
+      unit: 'kbs',
     },
   ]
 }

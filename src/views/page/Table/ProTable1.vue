@@ -25,7 +25,7 @@
     </div>
     <div class="table-filter">
       <div class="table-filter_text">指标条件</div>
-      <table-filter :from-data="fromData" />
+      <table-filter :form-data="formData" />
     </div>
 
     <!--表格-->
@@ -228,7 +228,7 @@ export default class extends Vue {
     e ? (this.flag = true) : (this.flag = false)
   }
   /** * 新增过滤表单对象 */
-  private fromData = [
+  private formData = [
     {
       label: 'cpu使用量',
       options: [
@@ -241,6 +241,7 @@ export default class extends Vue {
           value: '<=',
         },
       ],
+      unit: '%',
     },
     {
       label: 'RAM使用量',

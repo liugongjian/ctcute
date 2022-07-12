@@ -61,10 +61,6 @@
 
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit border @selection-change="handleSelectionChange">
-      <template slot="empty">
-        <img src="./Image/not-have.svg" alt="" />
-        <span>暂无数据</span>
-      </template>
       <el-table-column type="selection" width="55"> </el-table-column>
       <el-table-column prop="name" label="主机别名" />
       <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>

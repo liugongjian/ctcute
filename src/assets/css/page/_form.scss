@@ -53,6 +53,10 @@
     position: relative;
     top: auto;
   }
+
+  .form-item__info {
+    margin-left: $margin-small;
+  }
 }
 
 @mixin formTitle {

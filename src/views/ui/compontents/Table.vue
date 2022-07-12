@@ -609,16 +609,16 @@ export default class extends Vue {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background: #f0f2f5;
+  background: $color-grey-7;
   text-align: center;
   line-height: 20px;
-  color: #000;
+  color: $color-grey-1;
   border-radius: 50%;
   font-size: 12px;
 }
 
 .sub-index-top3 {
-  color: #fff;
+  color: $color-white;
   background: $color-master-1;
 }
 

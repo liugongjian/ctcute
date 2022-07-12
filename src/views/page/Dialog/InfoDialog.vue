@@ -12,7 +12,7 @@
       :close-on-click-modal="false"
       @close="close"
     >
-      <el-scrollbar ref="content" class="info-dialog--content" :wrap-style="{ maxHeight: '70vh' }">
+      <el-scrollbar class="info-dialog--content" :wrap-style="{ maxHeight: '70vh', width: '100%' }">
         <slot name="content">
           <pre class="info-dialog--pre">
             {{ log }}

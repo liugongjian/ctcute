@@ -25,15 +25,15 @@
     </div>
     <div class="table-filter">
       <div class="table-filter_text">指标条件</div>
-      <table-filter :operation-options="operationOptions" :model="fromData" />
+      <table-filter :from-data="fromData" />
     </div>
 
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit border>
-      <template slot="empty">
-        <img src="./Image/not-have.svg" alt="" />
+      <!-- <template slot="empty">
+        <img src="./image/not-have.svg" alt="" />
         <span>暂无数据</span>
-      </template>
+      </template> -->
       <el-table-column prop="name" label="主机别名" />
       <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
       <el-table-column prop="ip" label="IP地址" />
@@ -157,7 +157,8 @@ export default class extends Vue {
       }
       const res = await getTable(params)
       this.pager.total = res.data.total
-      this.tableData = res.data.list
+      // this.tableData = res.data.list
+      this.tableData = []
     } catch (e) {
       console.error(e)
     } finally {
@@ -226,19 +227,76 @@ export default class extends Vue {
   private openDropdown(e) {
     e ? (this.flag = true) : (this.flag = false)
   }
-  /** * 新增过滤下拉数据 */
-  private operationOptions = [
-    { label: '> =', value: 1 },
-    { label: '< =', value: 2 },
-  ]
   /** * 新增过滤表单对象 */
-  private fromData = {
-    cpu: null,
-    ram: null,
-    disk: null,
-    network: null,
-    handle: null,
-  }
+  private fromData = [
+    {
+      label: 'cpu使用量',
+      options: [
+        {
+          label: '> =',
+          value: '> =',
+        },
+        {
+          label: '<=',
+          value: '<=',
+        },
+      ],
+    },
+    {
+      label: 'RAM使用量',
+      options: [
+        {
+          label: '> =',
+          value: '> =',
+        },
+        {
+          label: '<=',
+          value: '<=',
+        },
+      ],
+    },
+    {
+      label: '磁盘剩余量',
+      options: [
+        {
+          label: '> =',
+          value: '> =',
+        },
+        {
+          label: '<=',
+          value: '<=',
+        },
+      ],
+    },
+
+    {
+      label: '网络平均负数',
+      options: [
+        {
+          label: '> =',
+          value: '> =',
+        },
+        {
+          label: '<=',
+          value: '<=',
+        },
+      ],
+    },
+
+    {
+      label: '处理请求数',
+      options: [
+        {
+          label: '> =',
+          value: '> =',
+        },
+        {
+          label: '<=',
+          value: '<=',
+        },
+      ],
+    },
+  ]
 }
 </script>
 <style lang="scss" scoped>

@@ -92,6 +92,11 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.sub-special {
+  padding-bottom: 24px;
+  border-bottom: 1px solid $border-color-light-1;
+}
+
 .sub-sample {
   white-space: nowrap;
 

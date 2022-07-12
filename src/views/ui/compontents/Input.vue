@@ -183,7 +183,7 @@ export default class extends Vue {
 
   private flag = true
   private value1 = ''
-  private placeholder = '请输入'
+  private placeholder = '数据资源名称'
   private num = 1
   private num1 = 1
   private content = '这是一段内容'

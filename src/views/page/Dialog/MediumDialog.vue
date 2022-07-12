@@ -66,7 +66,7 @@
       </div>
       <div class="medium-dialog--footer">
         <el-button @click="close">{{ cancelButtonText }}</el-button>
-        <el-button type="primary" @click="confirm">{{ confirmButtonText }}</el-button>
+        <el-button type="primary" :loading="submitting" @click="confirm">{{ confirmButtonText }}</el-button>
       </div>
     </el-dialog>
   </el-card>
@@ -115,6 +115,8 @@ export default class extends Vue {
   private handleClose(tag) {
     this.form.dynamicTags.splice(this.form.dynamicTags.indexOf(tag), 1)
   }
+  // 表单提交状态
+  private submitting = false
   //表单对象
   private form: MediumDialog.Form = {
     name: null,
@@ -126,8 +128,7 @@ export default class extends Vue {
     catalogue: null,
     dynamicTags: [],
   }
-  // 表单提交状态
-  private submitting = false
+
   /**
    * 创建表单
    * 调用后端创建接口

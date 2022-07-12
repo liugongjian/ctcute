@@ -13,7 +13,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'EditInput',
+  name: 'CuteEditInput',
 })
 export default class extends Vue {
   @Prop({ default: '' }) private value!: string

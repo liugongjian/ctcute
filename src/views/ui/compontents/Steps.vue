@@ -51,14 +51,14 @@
     </div>
     <h3>步骤多展示不全</h3>
     <div>
-      <steps-multi
+      <cute-steps-multi
         :active="activeMulti"
         :steps="multisteps"
         max-width="60%"
         :go-button="true"
         @clickStep="clickmulti"
         @change="goMulti"
-      ></steps-multi>
+      ></cute-steps-multi>
       <div class="btn-style">
         <el-button
           @click="
@@ -72,7 +72,7 @@
         <el-button @click="() => (activeMulti = 0)">重 置</el-button>
       </div>
 
-      <steps-multi
+      <cute-steps-multi
         :active="activeMultiMini"
         :steps="multisteps"
         size="mini"
@@ -82,7 +82,7 @@
         :go-button="true"
         @clickStep="clickmultimini"
         @change="goMultiMini"
-      ></steps-multi>
+      ></cute-steps-multi>
       <div class="btn-style">
         <el-button
           @click="
@@ -100,10 +100,10 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import StepsMulti from '@/components/Steps/StepsMulti.vue'
+import CuteStepsMulti from '@/components/Steps/StepsMulti.vue'
 @Component({
   name: 'UiSteps',
-  components: { StepsMulti },
+  components: { CuteStepsMulti },
 })
 export default class extends Vue {
   public static title = {

@@ -215,87 +215,85 @@
       }
     }
   }
-
 }
-
-// 小卡片较少
-.card-box-less {
-  .el-card__body {
-    padding: 0;
-  }
-
-  .card-box {
-    display: flex;
-
-    .card-box--info {
-      display: flex;
-      line-height: 33px;
-      margin-top: 3px;
-
-      .input-box {
-        width: 100%;
-        margin-left: auto;
-      }
+.card1{
+  // 小卡片较少
+  .card-box-less {
+    .el-card__body {
+      padding: 0;
     }
+    .card-box {
+      display: flex;
+      .card-box--info {
+        display: flex;
+        line-height: 33px;
+        margin-top: 3px;
 
-    .card-cont {
-      width: 100%;
-      padding: 16px 16px 12px 16px;
-
-      .card-box--bar--text {
-        width: 50%;
+        .input-box {
+          width: 100%;
+          margin-left: auto;
+        }
       }
 
-      .card-box--title {
-        line-height: 24px;
-        font-weight: 500;
+      .card-cont {
+        width: 100%;
+        padding: 16px 16px 12px 16px;
 
-        .card-box--title-icon {
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background-color: $color-tag-success-1;
-          padding: 5px;
-          margin-right: 16px;
+        .card-box--bar--text {
+          width: 50%;
+        }
 
-          .svg-icon {
-            display: block;
+        .card-box--title {
+          line-height: 24px;
+          font-weight: 500;
+
+          .card-box--title-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: $color-tag-success-1;
+            padding: 5px;
+            margin-right: 16px;
+
+            .svg-icon {
+              display: block;
+            }
           }
         }
       }
-    }
 
-    .card-box--btns-less {
-      width: 40px;
-      border-left: 1px solid $border-color-primary;
-      justify-content: space-between;
-      background-color: #f9f9fa;
-      margin-left: auto;
-      display: flex;
-      flex-direction: column;
-
-      &>div {
-
-        flex: 1;
+      .card-box--btns-less {
+        width: 40px;
+        border-left: 1px solid $border-color-primary;
+        justify-content: space-between;
+        background-color: #f9f9fa;
+        margin-left: auto;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        border-bottom: 1px solid $border-color-primary;
+        flex-direction: column;
 
-        &:last-child {
-          border: none;
+        &>div {
+
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          border-bottom: 1px solid $border-color-primary;
+
+          &:last-child {
+            border: none;
+          }
         }
-      }
 
-      &>div:hover {
-        cursor: pointer;
-        opacity: 0.9;
-      }
+        &>div:hover {
+          cursor: pointer;
+          opacity: 0.9;
+        }
 
-      svg {
-        font-size: 16px;
-        color: $color-grey-4
+        svg {
+          font-size: 16px;
+          color: $color-grey-4
+        }
       }
     }
   }

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <el-tag type="info" size="large">CPU使用量>=2</el-tag>
     <el-dropdown
       trigger="click"
       :hide-on-click="false"
@@ -11,7 +12,7 @@
         <el-dropdown-item>
           <el-form>
             <el-form-item label="cpu使用量">
-              <el-select placeholder="请选择">
+              <el-select v-model="value" placeholder="请选择">
                 <el-option
                   v-for="item in operationOptions"
                   :key="item.value"
@@ -20,7 +21,7 @@
                 />
               </el-select>
 
-              <el-input placeholder="请输入" />
+              <el-input v-model="fromData.cpu" placeholder="请输入" />
               <span>%</span>
             </el-form-item>
 
@@ -34,7 +35,7 @@
                 />
               </el-select>
 
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px" />
+              <el-input v-model="fromData.ram" placeholder="请输入" />
               <span>%</span>
             </el-form-item>
             <el-form-item label="磁盘剩余量">
@@ -46,7 +47,7 @@
                   :value="item.value"
                 />
               </el-select>
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px" />
+              <el-input v-model="fromData.disk" placeholder="请输入" />
               <span>%</span>
             </el-form-item>
             <el-form-item label="网络平均负数">
@@ -58,7 +59,7 @@
                   :value="item.value"
                 />
               </el-select>
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px" />
+              <el-input v-model="fromData.network" placeholder="请输入" />
               <span>%</span>
             </el-form-item>
             <el-form-item label="处理请求数">
@@ -70,7 +71,7 @@
                   :value="item.value"
                 />
               </el-select>
-              <el-input placeholder="请输入" style="width: 90px; margin-right: 8px" />
+              <el-input v-model="fromData.handle" placeholder="请输入" />
               <span>%</span>
             </el-form-item>
           </el-form>
@@ -86,12 +87,18 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 })
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) operationOptions?: [] // 下拉数据
+  @Prop({ type: Object, default: {} }) fromData?: {} // 下拉数据
+  private value = ''
 }
 </script>
 
 <style lang="scss" scoped>
 .el-popper {
   padding: 0 $text-size-large $text-size-large $text-size-large;
+}
+
+.el-tag {
+  margin-right: 12px;
 }
 
 .el-form-item {

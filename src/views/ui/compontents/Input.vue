@@ -30,10 +30,10 @@
     <div class="routine-input">
       <h3>编辑输入框</h3>
       <el-row>
-        <edit-input value="单行描述" class="input-demo" />
+        <cute-edit-input value="单行描述" class="input-demo" />
       </el-row>
       <el-row>
-        <edit-input :textarea="true" value="多行描述" class="input-demo" />
+        <cute-edit-input :textarea="true" value="多行描述" class="input-demo" />
       </el-row>
     </div>
     <h3>搜索输入框</h3>
@@ -110,7 +110,7 @@
     <h3 class="sub-title">带提示的输入框</h3>
     <div class="sub-input">
       <el-row>
-        <remind-input :restaurants="restaurants" :placeholder="placeholder" :title="title" :model="state1" />
+        <remind-input :restaurants="restaurants" :placeholder="placeholder" :model="state1" />
       </el-row>
     </div>
     <h3>长文本域</h3>
@@ -166,12 +166,12 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import EditInput from '@/components/EditInput/index.vue'
+import CuteEditInput from '@/components/CuteEditInput/index.vue'
 import RemindInput from '@/components/Input/RemindInput.vue'
 @Component({
   name: 'UiInput',
   components: {
-    EditInput,
+    CuteEditInput,
     RemindInput,
   },
 })
@@ -183,7 +183,6 @@ export default class extends Vue {
 
   private flag = true
   private value1 = ''
-  private title = '数据资源名称'
   private placeholder = '请输入'
   private num = 1
   private num1 = 1

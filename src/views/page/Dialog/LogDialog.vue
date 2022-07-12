@@ -14,15 +14,15 @@
     >
       <template #title>
         <span class="el-dialog__title">{{ title }}</span>
-        <div style="float: right; margin-right: 24px">
+        <div style="position: absolute; right: 40px; top: 20px">
           <el-button type="text" @click="$emit('download')"
-            ><svg-icon name="cloud-download" width="16" height="16"
+            ><svg-icon name="cloud-download" width="14" height="14"
           /></el-button>
           <el-button type="text" @click="$emit('reload')"
-            ><svg-icon name="reload" width="16" height="16"
+            ><svg-icon name="reload" width="14" height="14"
           /></el-button>
           <el-button type="text" @click="openFullscreen"
-            ><svg-icon name="fullscreen" width="16" height="16"
+            ><svg-icon name="fullscreen" width="14" height="14"
           /></el-button>
         </div>
       </template>
@@ -147,10 +147,10 @@ export default class extends Vue {
   @Watch('visible')
   async onVisibleChange() {
     await this.$nextTick()
-    if (!(this.$refs.content as Vue).$el.onfullscreenchange);
-    ;(this.$refs.content as Vue).$el.onfullscreenchange = event => {
-      this.isFullscreen = document.fullscreenElement === event.target
-    }
+    if (!(this.$refs.content as Vue).$el.onfullscreenchange)
+      (this.$refs.content as Vue).$el.onfullscreenchange = event => {
+        this.isFullscreen = document.fullscreenElement === event.target
+      }
   }
 
   private close() {

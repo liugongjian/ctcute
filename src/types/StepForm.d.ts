@@ -1,4 +1,9 @@
-export type FirstForm = {
+export type SubmitParams = {
+  first: Form
+  second: Form
+}
+
+export type Form = {
   name: string
   remark: string
   disabledInput: string
@@ -9,4 +14,8 @@ export type FirstForm = {
   shortNumber: number
   price: number
   tag: string[]
+}
+
+export type Response = {
+  id: number
 }

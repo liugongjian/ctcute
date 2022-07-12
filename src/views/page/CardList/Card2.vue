@@ -41,7 +41,7 @@
                 <div class="card-box--info">
                   描述：
                   <div class="card-box--input">
-                    <edit-input :value="card.remark" class="input-box" />
+                    <cute-edit-input :value="card.remark" class="input-box" />
                   </div>
                 </div>
               </div>
@@ -75,7 +75,7 @@
   </el-card>
 </template>
 <script lang="ts">
-import EditInput from '@/components/EditInput/index.vue'
+import CuteEditInput from '@/components/CuteEditInput/index.vue'
 import { Component, Vue } from 'vue-property-decorator'
 import { getCardList } from '@/api/card'
 import type { CardListItem } from '@/types/Card'
@@ -83,7 +83,7 @@ import type { CardListItem } from '@/types/Card'
 @Component({
   name: 'Card1',
   components: {
-    EditInput,
+    CuteEditInput,
   },
 })
 export default class extends Vue {

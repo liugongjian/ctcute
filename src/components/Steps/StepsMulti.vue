@@ -40,7 +40,7 @@
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 
 @Component({
-  name: 'StepsMulti',
+  name: 'CuteStepsMulti',
 })
 export default class extends Vue {
   @Prop({ type: String, default: 'middle' }) size?: string // 步骤条大小，mini

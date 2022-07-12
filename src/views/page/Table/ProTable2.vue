@@ -11,7 +11,7 @@
           @submit.native.prevent
         >
           <el-form-item prop="name">
-            <remind-input :title="title" :placeholder="placeholder" :model="conditions.name"> </remind-input>
+            <remind-input :placeholder="placeholder" :model="conditions.name"> </remind-input>
           </el-form-item>
 
           <el-form-item prop="host">
@@ -143,7 +143,6 @@ export default class extends Vue {
     cpu: '',
   }
 
-  private title = '数据资源名称'
   private placeholder = '请输入主机别名'
   // 表格选中数据
   private selectedData = []

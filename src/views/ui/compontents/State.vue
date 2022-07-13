@@ -1,19 +1,19 @@
 <template>
   <div>
     <p>
-      颜色状态：用颜色区分状态推荐使用3-5个颜色，不推荐超过5个颜色（超过5个用户找不到重点，无法有效区分状态），超过5个请尽量使用图标进行精准区分。
+      颜色状态：用颜色区分状态推荐使用3-5个颜色，不推荐超过5个颜色（超过5个用户找不到重点，无法有效区分状态），超过5个请尽量使用图标进行精准区分。<br />
+      图标状态：进行中的都是用“加载中”icon，用颜色区分不同的进行中状态。
     </p>
-    <p>图标状态：进行中的都是用“加载中”icon，用颜色区分不同的进行中状态。</p>
     <div class="sub-sample">
-      <el-row>
+      <p>
         <dot-state :color="colorVariables.colorSuccess">健康/正常/成功</dot-state>
         <dot-state :color="colorVariables.colorWarning">警告</dot-state>
         <dot-state :color="colorVariables.colorDanger">危险/故障/失败</dot-state>
         <dot-state :color="colorVariables.colorDanger3">严重故障</dot-state>
         <dot-state :color="colorVariables.colorInfo">进行中</dot-state>
         <dot-state>下线/未完成/未开始/中止/取消</dot-state>
-      </el-row>
-      <el-row>
+      </p>
+      <p>
         <dot-state icon="uninstalled">已卸载</dot-state>
         <dot-state icon="fault" :color="colorVariables.colorDanger">故障</dot-state>
         <dot-state icon="close-circle" :color="colorVariables.colorDanger">失败</dot-state>
@@ -25,7 +25,7 @@
         <dot-state icon="loading" :color="colorVariables.colorSuccess" :loading="true">启动中</dot-state>
         <dot-state icon="loading" :color="colorVariables.colorDanger" :loading="true">卸载中</dot-state>
         <dot-state icon="loading" :loading="true">停止中</dot-state>
-      </el-row>
+      </p>
     </div>
   </div>
 </template>

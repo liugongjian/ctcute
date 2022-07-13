@@ -461,7 +461,11 @@ export default class extends Vue {
     zh: '表格',
     en: 'Table',
   }
-
+  public static description = {
+    maintainer: '朱玉豆',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
   private pageSize = 20
 
   private pageNum = 3

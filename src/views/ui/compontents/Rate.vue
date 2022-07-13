@@ -18,6 +18,11 @@ export default class extends Vue {
     zh: '评分',
     en: 'Rate',
   }
+  public static description = {
+    maintainer: '胡佳婷',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   private value = 2.5
   private value1 = 3

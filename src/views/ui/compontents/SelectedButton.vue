@@ -42,6 +42,11 @@ export default class extends Vue {
     zh: '选择按钮',
     en: 'SelectedButton',
   }
+  public static description = {
+    maintainer: '马妍、王亚振',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
   private size = 'small'
   buutonData = [
     {

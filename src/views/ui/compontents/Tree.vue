@@ -85,6 +85,11 @@ export default class extends Vue {
     zh: '树形菜单',
     en: 'Tree',
   }
+  public static description = {
+    maintainer: '肖仁',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   public data = Data
 }

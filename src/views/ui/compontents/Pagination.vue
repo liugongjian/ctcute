@@ -24,6 +24,11 @@ export default class extends Vue {
     zh: '分页器',
     en: 'Pagination',
   }
+  public static description = {
+    maintainer: '马妍、胡佳婷',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   private total = 153 // 总条数
   private optionSize = '10' // 下拉回显值

@@ -140,6 +140,11 @@ export default class extends Vue {
     zh: '选择器',
     en: 'Select',
   }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   private checkList = ['已选中项']
   private name = '数据资源名称'

@@ -75,6 +75,11 @@ export default class extends Vue {
     zh: '时间轴',
     en: 'Timeline',
   }
+  public static description = {
+    maintainer: '赵昕',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   private activities = [
     {

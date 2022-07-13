@@ -63,7 +63,7 @@ export default class extends Vue {
     en: 'Alert',
   }
   public static description = {
-    maintainer: '马妍',
+    maintainer: '赵昕',
     version: 'v1.0',
     updateTime: '2022.07.12',
   }

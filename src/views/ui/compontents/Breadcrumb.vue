@@ -21,5 +21,10 @@ export default class extends Vue {
     zh: '面包屑',
     en: 'Breadcrumb',
   }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 }
 </script>

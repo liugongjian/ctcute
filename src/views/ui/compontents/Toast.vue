@@ -59,6 +59,11 @@ export default class extends Vue {
     zh: '轻提示',
     en: 'Toast',
   }
+  public static description = {
+    maintainer: '赵昕',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 }
 </script>
 <style lang="scss" scoped>

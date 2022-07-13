@@ -19,6 +19,11 @@ export default class extends Vue {
     zh: '单选框',
     en: 'Radio',
   }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   private value = '2'
 }

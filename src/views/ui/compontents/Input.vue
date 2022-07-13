@@ -180,6 +180,11 @@ export default class extends Vue {
     zh: '输入框',
     en: 'Input',
   }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   private flag = true
   private value1 = ''

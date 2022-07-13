@@ -30,6 +30,11 @@ export default class extends Vue {
     zh: '标签',
     en: 'Tag',
   }
+  public static description = {
+    maintainer: '赵昕',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
   private dynamicTags1 = ['标签']
   private dynamicTags2 = ['CPU使用量>=3']
 }

@@ -83,6 +83,11 @@ export default class extends Vue {
     zh: '按钮',
     en: 'Button',
   }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   buttonData = ['操作一', '操作二', '操作三']
   private flag = false

@@ -15,34 +15,40 @@
       :close-on-click-modal="false"
       @close="close"
     >
-      <div class="medium-dialog--content">
-        <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">
-          <el-form-item label="主机别名" prop="name" placeholder="111">
-            <el-input v-model="form.name" value="" placeholder="请输入主机别名"></el-input>
-          </el-form-item>
-          <el-form-item label="IP地址" prop="ip">
-            <el-input v-model="form.ip" value="" placeholder="请输入IP地址"></el-input>
-          </el-form-item>
-          <el-form-item label="SSH端口" prop="ssh">
-            <el-input v-model="form.ssh" value="" placeholder="请输入SSH端口"></el-input>
-          </el-form-item>
-          <el-form-item label="SSH用户名" prop="sshName">
-            <el-input v-model="form.sshName" value="" placeholder="请提供具有sudo权限的账号"></el-input>
-          </el-form-item>
-          <el-form-item label="SSH密码" prop="password">
-            <el-input v-model="form.password" value="" placeholder="请输入SSH密码"></el-input>
-          </el-form-item>
-          <el-form-item label="标签" class="sub-tags">
-            <cute-tag :dynamic-tags="form.dynamicTags" tag-name="+ 标签"></cute-tag>
-          </el-form-item>
-          <el-form-item label="监控插件端口" prop="port">
-            <el-input v-model="form.port" value="" placeholder="请输入监控插件端口"></el-input>
-          </el-form-item>
-          <el-form-item label="监控插件部署目录" prop="catalogue">
-            <el-input v-model="form.catalogue" placeholder="请输入监控插件部署目录"></el-input>
-          </el-form-item>
-        </el-form>
-      </div>
+      <el-scrollbar
+        ref="scrollBar"
+        class="medium-dialog--scroll"
+        :wrap-style="{ maxHeight: isFullscreen ? '100%' : '461px', width: '100%' }"
+      >
+        <div class="medium-dialog--content">
+          <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">
+            <el-form-item label="主机别名" prop="name" placeholder="111">
+              <el-input v-model="form.name" value="" placeholder="请输入主机别名"></el-input>
+            </el-form-item>
+            <el-form-item label="IP地址" prop="ip">
+              <el-input v-model="form.ip" value="" placeholder="请输入IP地址"></el-input>
+            </el-form-item>
+            <el-form-item label="SSH端口" prop="ssh">
+              <el-input v-model="form.ssh" value="" placeholder="请输入SSH端口"></el-input>
+            </el-form-item>
+            <el-form-item label="SSH用户名" prop="sshName">
+              <el-input v-model="form.sshName" value="" placeholder="请提供具有sudo权限的账号"></el-input>
+            </el-form-item>
+            <el-form-item label="SSH密码" prop="password">
+              <el-input v-model="form.password" value="" placeholder="请输入SSH密码"></el-input>
+            </el-form-item>
+            <el-form-item label="标签" class="sub-tags">
+              <cute-tag :dynamic-tags="form.dynamicTags" tag-name="+ 标签"></cute-tag>
+            </el-form-item>
+            <el-form-item label="监控插件端口" prop="port">
+              <el-input v-model="form.port" value="" placeholder="请输入监控插件端口"></el-input>
+            </el-form-item>
+            <el-form-item label="监控插件部署目录" prop="catalogue">
+              <el-input v-model="form.catalogue" placeholder="请输入监控插件部署目录"></el-input>
+            </el-form-item>
+          </el-form>
+        </div>
+      </el-scrollbar>
       <div class="medium-dialog--footer">
         <el-button @click="close">{{ cancelButtonText }}</el-button>
         <el-button type="primary" :loading="submitting" @click="confirm">{{ confirmButtonText }}</el-button>
@@ -66,6 +72,7 @@ export default class extends Vue {
 
   private title = '中弹窗（表单）'
   private visible = false
+  private isFullscreen = false
 
   // 表单提交状态
   private submitting = false

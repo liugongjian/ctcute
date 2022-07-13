@@ -114,7 +114,7 @@
 
   .el-dialog {
     width: 560px;
-    height: 570px;
+    max-height: 570px;
     display: flex;
     flex-direction: column;
 
@@ -136,9 +136,11 @@
       .el-tag {
         margin-right: 8px;
       }
+
       .input-new-tag {
         width: 60px;
         vertical-align: bottom;
+
         .el-input__inner {
           height: 22px;
           line-height: 20px;
@@ -147,26 +149,33 @@
     }
   }
 
+  &--scroll {
+    background-color: $color-white;
+  }
+
   &--content {
     display: block;
     clear: both;
     max-height: 461px;
-    overflow-y: auto;
+    // overflow-y: auto;
     margin-bottom: 0px;
 
-    .el-form-item--medium{
+    .el-form-item--medium {
       display: flex;
       align-items: center;
-      .el-form-item__label{
+
+      .el-form-item__label {
         line-height: 20px;
       }
-      .el-form-item__content{
+
+      .el-form-item__content {
         margin-left: 0px !important;
         width: 100%;
       }
     }
   }
-  &--footer{
+
+  &--footer {
     position: absolute;
     width: 100%;
   }

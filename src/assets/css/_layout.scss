@@ -52,12 +52,12 @@
     line-height: 40px;
   }
 
-  .el-submenu.is-active>.el-submenu__title {
+  .el-submenu.is-active > .el-submenu__title {
     color: $text-color-primary;
   }
 
   .el-menu-item,
-  .el-submenu>.el-submenu__title,
+  .el-submenu > .el-submenu__title,
   .el-submenu .el-menu-item {
     min-width: calc($sidebar-width - 40px);
     background-color: $sidebar-sub-fill;
@@ -82,7 +82,7 @@
     margin-top: 15px;
   }
 
-  .app-main>.el-card.is-always-shadow {
+  .app-main > .el-card.is-always-shadow {
     box-shadow: none;
     border-radius: 0;
     border: none;

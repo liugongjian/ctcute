@@ -53,7 +53,7 @@
       margin-top: 16px;
       border-top: 1px solid $border-color-primary;
 
-      &>div {
+      & > div {
         flex: 1;
         text-align: center;
         border-right: 1px solid $border-color-primary;
@@ -68,10 +68,9 @@
         font-size: $text-size-large;
         cursor: pointer;
         font-size: 16px;
-        color: $color-grey-4
+        color: $color-grey-4;
       }
     }
-
 
     .card-box--bar--text {
       width: 40%;
@@ -166,7 +165,7 @@
         color: $color-grey-3;
         cursor: pointer;
 
-        &>* {
+        & > * {
           margin: 0 10px;
         }
       }
@@ -190,7 +189,7 @@
         display: flex;
         flex-flow: wrap;
 
-        &>* {
+        & > * {
           background: rgba(0, 0, 0, 4%);
           border: 1px solid rgba(0, 0, 0, 8%);
           border-radius: 2px;
@@ -216,7 +215,7 @@
     }
   }
 }
-.card1{
+.card1 {
   // 小卡片较少
   .card-box-less {
     .el-card__body {
@@ -271,8 +270,7 @@
         display: flex;
         flex-direction: column;
 
-        &>div {
-
+        & > div {
           flex: 1;
           display: flex;
           justify-content: center;
@@ -285,14 +283,14 @@
           }
         }
 
-        &>div:hover {
+        & > div:hover {
           cursor: pointer;
           opacity: 0.9;
         }
 
         svg {
           font-size: 16px;
-          color: $color-grey-4
+          color: $color-grey-4;
         }
       }
     }

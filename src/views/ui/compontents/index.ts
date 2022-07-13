@@ -43,6 +43,7 @@ export const list = componentsList.map((component: any) => {
   return {
     name: _component.options.name,
     title: _component.title,
+    description: _component.description,
     component: _component,
   }
 })

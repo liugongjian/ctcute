@@ -232,7 +232,8 @@
 
 /* Input
 -------------------------- */
-.el-form-item--medium .el-form-item__content,.el-form-item--medium .el-form-item__label {
+.el-form-item--medium .el-form-item__content,
+.el-form-item--medium .el-form-item__label {
   line-height: 32px;
 }
 
@@ -332,10 +333,9 @@
       cursor: pointer;
     }
   }
-  .svg-icon{
+  .svg-icon {
     font-size: 16px;
     vertical-align: text-bottom !important;
-
   }
   .el-icon-view {
     padding-right: 15px;
@@ -613,7 +613,6 @@
   justify-content: center;
 }
 
-
 .el-range-editor--medium.el-input__inner {
   height: 32px;
   line-height: 32px;
@@ -762,8 +761,8 @@
   background-color: $border-color-primary;
 }
 
-.el-table__body-wrapper.is-scrolling-none~.el-table__fixed,
-.el-table__body-wrapper.is-scrolling-none~.el-table__fixed-right {
+.el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed,
+.el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed-right {
   &::before {
     background-color: transparent;
   }
@@ -1986,12 +1985,12 @@
     padding: 0;
   }
 }
-.el-popover{
+.el-popover {
   padding: 20px 24px 20px 16px;
-  p{
+  p {
     margin: 0;
   }
-  .el-popover__title{
+  .el-popover__title {
     font-size: 12px;
     margin-bottom: 15px;
   }

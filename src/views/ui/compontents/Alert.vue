@@ -62,6 +62,11 @@ export default class extends Vue {
     zh: '警告',
     en: 'Alert',
   }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   private get infoColor(): string {
     return variables.colorMaster

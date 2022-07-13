@@ -21,7 +21,6 @@
   }
 
   .form-item--short {
-
     .el-input,
     .el-select,
     .el-textarea,
@@ -74,7 +73,7 @@
 
 @mixin formBottom {
   .pro-form-bottom {
-    box-shadow: -2px 2px 8px 0 rgba(200, 201, 204, 0.50);
+    box-shadow: -2px 2px 8px 0 rgba(200, 201, 204, 0.5);
     position: fixed;
     left: $sidebar-width;
     bottom: 0;
@@ -139,7 +138,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
-    >div {
+    > div {
       width: 31%;
 
       .el-select {

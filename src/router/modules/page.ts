@@ -115,20 +115,20 @@ const pageRoutes = [
         },
       },
       {
-        path: 'info-dialog',
-        component: () => import('@/views/page/Dialog/InfoDialog.vue'),
-        name: 'InfoDialog',
+        path: 'pro-small-dialog',
+        component: () => import('@/views/page/Dialog/ProSmallDialog.vue'),
+        name: 'ProSmallDialog',
         meta: {
-          title: 'InfoDialog 信息弹窗',
+          title: 'ProSmallDialog 特殊弹窗-小',
           breadcrumb: true,
         },
       },
       {
-        path: 'log-dialog',
-        component: () => import('@/views/page/Dialog/LogDialog.vue'),
-        name: 'LogDialog',
+        path: 'pro-medium-dialog',
+        component: () => import('@/views/page/Dialog/ProMediumDialog.vue'),
+        name: 'ProMediumDialog',
         meta: {
-          title: 'LogDialog 日志弹窗',
+          title: 'ProMediumDialog 特殊弹窗-中',
           breadcrumb: true,
         },
       },

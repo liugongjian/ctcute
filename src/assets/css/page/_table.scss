@@ -445,6 +445,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 12px;
+  line-height: normal;
+
+  &:before {
+    display: block;
+    content: url('../../views/page/Table/image/not-have.svg');
+    margin-right: 8px;
+  }
 }
 
 /* 下拉展开旋转小三角 */

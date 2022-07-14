@@ -8,7 +8,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'Hamburger',
+  name: 'CuteHamburger',
 })
 export default class extends Vue {
   @Prop({ default: false }) private isActive!: boolean

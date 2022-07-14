@@ -31,7 +31,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import DotState from '@/components/State/index.vue'
+import DotState from '@/components/CuteState/index.vue'
 import variables from '@/assets/css/_variables.scss'
 
 @Component({

@@ -2,7 +2,7 @@
   <div class="pro-form2">
     <el-card>
       <el-form ref="proForm2" :model="form" :rules="rules" label-width="130px" label-position="top">
-        <titled-block title="基本信息">
+        <cute-titled-block title="基本信息">
           <div class="form-items">
             <el-form-item label="所属环境">
               <el-select v-model="form.environment" placeholder="请选择">
@@ -69,10 +69,10 @@
               <el-input v-model="form.monitorName" placeholder="请输入" />
             </el-form-item>
           </div>
-        </titled-block>
+        </cute-titled-block>
         <!-- <div class="form-titles">基本信息</div> -->
         <el-divider></el-divider>
-        <titled-block title="告警规则">
+        <cute-titled-block title="告警规则">
           <el-form-item label="模板类型" prop="templateType" style="margin: 0 40px 0 35px">
             <el-table border style="width: 100%" :data="form.tableData">
               <el-table-column min-width="153" label="监控指标">
@@ -196,9 +196,9 @@
               >+添加条件</el-button
             >
           </el-form-item>
-        </titled-block>
+        </cute-titled-block>
         <el-divider></el-divider>
-        <titled-block title="通知设置">
+        <cute-titled-block title="通知设置">
           <div class="form-items">
             <el-form-item label="标签">
               <div class="sub-tags">
@@ -219,7 +219,7 @@
               </el-select>
             </el-form-item>
           </div>
-        </titled-block>
+        </cute-titled-block>
       </el-form>
     </el-card>
     <div class="pro-form-bottom">
@@ -232,7 +232,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
-import TitledBlock from '@/components/TitiledBlock/index.vue'
+import CuteTitledBlock from '@/components/CuteTitledBlock/index.vue'
 import * as ProForm2 from '@/types/ProForm2'
 import { getAlertTarget } from '@/api/simpleForm'
 import { createProForm2 } from '@/api/proForm2'
@@ -240,7 +240,7 @@ import { createProForm2 } from '@/api/proForm2'
 @Component({
   name: 'ProForm2',
   components: {
-    TitledBlock,
+    CuteTitledBlock,
   },
 })
 export default class extends Vue {

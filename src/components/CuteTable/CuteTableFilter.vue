@@ -43,7 +43,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component({
-  name: 'tableFilter',
+  name: 'CuteTableFilter',
 })
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) formData: [] // 表单数据

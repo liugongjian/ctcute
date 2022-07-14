@@ -5,6 +5,9 @@ const componentsList = [
   require('./CuteFormInfo/index.vue'),
   require('./CuteEditInput/index.vue'),
   require('./CuteTag/index.vue'),
+  require('./CuteInput/CuteRemindInput.vue'),
+  require('./CuteSelect/CuteRemindSelect'),
+  require('./CuteSelect/CuteSelectedInput.vue')
 ]
 
 export default {

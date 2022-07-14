@@ -6,12 +6,12 @@
         <cute-tag :dynamic-tags="dynamicTags" tag-name="+ 标签"></cute-tag>
       </div>
       <div class="detail-header__right">
-        <button-group :data="buttonData" :max="2" />
+        <cute-button-group :data="buttonData" :max="2" />
       </div>
     </div>
     <el-tabs>
       <el-tab-pane label="选项一">
-        <titled-block title="灰度发布升级策略">
+        <cute-titled-block title="灰度发布升级策略">
           <div class="sub-table-horizon">
             <el-descriptions class="margin-top" :column="2" border>
               <el-descriptions-item>
@@ -44,11 +44,11 @@
               </el-descriptions-item>
             </el-descriptions>
           </div>
-        </titled-block>
+        </cute-titled-block>
         <el-card class="operate-card" shadow="never">
           <div slot="header">分批管理</div>
           <div class="operate-card__left">
-            <titled-block title="第一批次">
+            <cute-titled-block title="第一批次">
               <el-table :data="ProDetail1Info.batches.firstBatch" class="table">
                 <el-table-column prop="area" label="可用区"></el-table-column>
                 <el-table-column prop="date" label="编辑下发事件"></el-table-column>
@@ -59,8 +59,8 @@
                   </template>
                 </el-table-column>
               </el-table>
-            </titled-block>
-            <titled-block title="手动第二批次">
+            </cute-titled-block>
+            <cute-titled-block title="手动第二批次">
               <el-table :data="ProDetail1Info.batches.secondBatch" class="table">
                 <el-table-column prop="area" label="可用区"></el-table-column>
                 <el-table-column prop="date" label="编辑下发事件"></el-table-column>
@@ -71,14 +71,14 @@
                   </template>
                 </el-table-column>
               </el-table>
-            </titled-block>
+            </cute-titled-block>
             <div class="operate-btn">
               <el-button type="primary">手动执行升级</el-button>
               <el-button>版本回退</el-button>
             </div>
           </div>
           <div class="operate-card__right sub-timeline">
-            <titled-block title="升级策略展览">
+            <cute-titled-block title="升级策略展览">
               <div class="timeline-content sub-complex">
                 <el-timeline>
                   <el-timeline-item
@@ -112,7 +112,7 @@
                   </el-timeline-item>
                 </el-timeline>
               </div>
-            </titled-block>
+            </cute-titled-block>
           </div>
         </el-card>
       </el-tab-pane>
@@ -124,13 +124,13 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import * as ProDetail1 from '@/types/ProDetail1'
-import ButtonGroup from '@/components/CombinationButton/ButtonGroup.vue'
+import CuteButtonGroup from '@/components/CuteCombinationButton/CuteButtonGroup.vue'
 import { getProDetail1 } from '@/api/proDetail1'
-import TitledBlock from '@/components/TitiledBlock/index.vue'
+import CuteTitledBlock from '@/components/CuteTitledBlock/index.vue'
 import { STATUS, RESULT } from '@/dics/proDetail1'
 @Component({
   name: 'ProDetail1',
-  components: { ButtonGroup, TitledBlock },
+  components: { CuteButtonGroup, CuteTitledBlock },
 })
 export default class extends Vue {
   // 下发状态字典

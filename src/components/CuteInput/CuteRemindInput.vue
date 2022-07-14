@@ -15,7 +15,7 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component({
-  name: 'RemindInput',
+  name: 'CuteRemindInput',
 })
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) restaurants?: []

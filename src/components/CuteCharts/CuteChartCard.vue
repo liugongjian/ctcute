@@ -16,7 +16,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'ChartCard',
+  name: 'CuteChartCard',
 })
 export default class extends Vue {
   @Prop({ type: String, default: '--' }) title?: '--' // 标题

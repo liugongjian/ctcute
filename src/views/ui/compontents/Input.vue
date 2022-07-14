@@ -110,7 +110,7 @@
     <h3 class="sub-title">带提示的输入框</h3>
     <div class="sub-input">
       <el-row>
-        <remind-input :restaurants="restaurants" :placeholder="placeholder" :model="state1" />
+        <cute-remind-input :restaurants="restaurants" :placeholder="placeholder" :model="state1" />
       </el-row>
     </div>
     <h3>长文本域</h3>
@@ -167,12 +167,10 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import CuteEditInput from '@/components/CuteEditInput/index.vue'
-import RemindInput from '@/components/Input/RemindInput.vue'
 @Component({
   name: 'UiInput',
   components: {
     CuteEditInput,
-    RemindInput,
   },
 })
 export default class extends Vue {

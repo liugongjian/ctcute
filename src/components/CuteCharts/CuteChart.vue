@@ -10,7 +10,7 @@ import ECharts from 'vue-echarts'
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'Chart',
+  name: 'CuteChart',
   components: {
     VChart: ECharts,
   },

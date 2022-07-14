@@ -1,6 +1,6 @@
 <template>
   <el-card class="simple-detail">
-    <titled-block title="基础信息">
+    <cute-titled-block title="基础信息">
       <el-descriptions :column="2" border>
         <el-descriptions-item>
           <template slot="label"> 内部标识符 </template>
@@ -31,8 +31,8 @@
           {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.synonyms }}
         </el-descriptions-item>
       </el-descriptions>
-    </titled-block>
-    <titled-block title="融合">
+    </cute-titled-block>
+    <cute-titled-block title="融合">
       <el-descriptions :column="2" border>
         <el-descriptions-item>
           <template slot="label"> 融合单位类型 </template>
@@ -43,8 +43,8 @@
           {{ simpleDetailInfo && simpleDetailInfo.fusion && simpleDetailInfo.fusion.encode }}
         </el-descriptions-item>
       </el-descriptions>
-    </titled-block>
-    <titled-block title="退货商品">
+    </cute-titled-block>
+    <cute-titled-block title="退货商品">
       <el-collapse seperate>
         <el-collapse-item
           v-for="(item, index) in simpleDetailInfo && simpleDetailInfo.returnGoods"
@@ -66,8 +66,8 @@
           </el-table>
         </el-collapse-item>
       </el-collapse>
-    </titled-block>
-    <titled-block title="退货进度">
+    </cute-titled-block>
+    <cute-titled-block title="退货进度">
       <el-table :data="simpleDetailInfo && simpleDetailInfo.returnGoodsProgress">
         <el-table-column prop="time" label="时间"></el-table-column>
         <el-table-column prop="progress" label="当前进度">
@@ -83,12 +83,12 @@
         <el-table-column prop="operatorId" label="操作员id"></el-table-column>
         <el-table-column prop="duration" label="耗时"> </el-table-column>
       </el-table>
-    </titled-block>
+    </cute-titled-block>
   </el-card>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import TitledBlock from '@/components/TitiledBlock/index.vue'
+import CuteTitledBlock from '@/components/CuteTitledBlock/index.vue'
 import * as SimpleDetail from '@/types/SimpleDetail'
 import { getSimpleDetail } from '@/api/simpleDetail'
 import { STATUS, PROGRESS } from '@/dics/simpleDetail'
@@ -96,7 +96,7 @@ import { STATUS, PROGRESS } from '@/dics/simpleDetail'
 @Component({
   name: 'SimpleTable',
   components: {
-    TitledBlock,
+    CuteTitledBlock,
   },
 })
 export default class extends Vue {

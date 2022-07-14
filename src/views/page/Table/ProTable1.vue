@@ -25,7 +25,7 @@
     </div>
     <div class="table-filter">
       <div class="table-filter_text">指标条件</div>
-      <table-filter :form-data="formData" />
+      <cute-table-filter :form-data="formData" />
     </div>
 
     <!--表格-->
@@ -90,10 +90,10 @@ import { Component, Vue } from 'vue-property-decorator'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTable, getHosts } from '@/api/simpleTable'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
-import TableFilter from '@/components/Table/TableFilter.vue'
+import CuteTableFilter from '@/components/CuteTable/CuteTableFilter.vue'
 @Component({
   name: 'SimpleTable',
-  components: { TableFilter },
+  components: { CuteTableFilter },
 })
 export default class extends Vue {
   // 健康状态字典

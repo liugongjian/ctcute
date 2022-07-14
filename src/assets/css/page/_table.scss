@@ -376,15 +376,17 @@
 
       .el-form-item {
         margin-bottom: 0;
+        width: 357px;
 
         &:last-child {
           margin-right: 0;
+          text-align: right;
         }
       }
 
       .el-input,
       .el-select {
-        width: 268px;
+        width: 357px;
       }
 
       &__buttons {
@@ -401,16 +403,17 @@
   }
 
   .table-button {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #f1f1f1;
+
     .el-select {
       width: 125px !important;
       margin-right: 20px;
     }
-
-    margin-top: 16px;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 15px;
-    border-top: 1px solid #f1f1f1;
 
     .table-button_left {
       display: flex;
@@ -421,7 +424,7 @@
     line-height: 32px;
   }
 
-  .complex-table_from {
+  .el-form {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

@@ -2,7 +2,7 @@
   <div class="pro-form1">
     <el-card>
       <el-form ref="proForm1" :model="form" :rules="rules" label-width="130px">
-        <titled-block title="基本信息">
+        <cute-titled-block title="基本信息">
           <el-form-item label="策略名称" prop="name">
             <el-input v-model="form.name" placeholder="请输入策略名称" />
           </el-form-item>
@@ -16,9 +16,9 @@
               show-word-limit
             />
           </el-form-item>
-        </titled-block>
+        </cute-titled-block>
         <el-divider></el-divider>
-        <titled-block title="告警信息">
+        <cute-titled-block title="告警信息">
           <el-form-item label="告警对象" prop="alertTarget">
             <el-select v-model="form.alertTarget" placeholder="请选择告警对象">
               <el-option v-for="item in alertTargetOptions" :key="item" :label="item" :value="item" />
@@ -167,9 +167,9 @@
               >+添加条件</el-button
             >
           </el-form-item>
-        </titled-block>
+        </cute-titled-block>
         <el-divider></el-divider>
-        <titled-block title="通知设置">
+        <cute-titled-block title="通知设置">
           <el-form-item label="标题测试" prop="longTitle">
             <el-input v-model="form.longTitle" placeholder="请输入" />
           </el-form-item>
@@ -183,7 +183,7 @@
               />
             </el-select>
           </el-form-item>
-        </titled-block>
+        </cute-titled-block>
         <!-- <div class="form-titles">通知设置</div> -->
       </el-form>
     </el-card>
@@ -198,14 +198,14 @@
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import * as ProForm1 from '@/types/ProForm1'
-import TitledBlock from '@/components/TitiledBlock/index.vue'
+import CuteTitledBlock from '@/components/CuteTitledBlock/index.vue'
 import { getAlertTarget } from '@/api/simpleForm'
 import { createProForm1 } from '@/api/proForm1'
 
 @Component({
   name: 'ProForm1',
   components: {
-    TitledBlock,
+    CuteTitledBlock,
   },
 })
 export default class extends Vue {

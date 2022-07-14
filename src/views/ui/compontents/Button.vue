@@ -72,11 +72,11 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import ButtonGroup from '@/components/CombinationButton/ButtonGroup.vue'
+import CuteButtonGroup from '@/components/CuteCombinationButton/CuteButtonGroup.vue'
 
 @Component({
   name: 'UiButton',
-  components: { ButtonGroup },
+  components: { CuteButtonGroup },
 })
 export default class extends Vue {
   public static title = {

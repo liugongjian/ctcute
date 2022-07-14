@@ -11,11 +11,11 @@
     </div>
     <h2>特殊单选块(用于订购页)</h2>
     <div class="sub-sample">
-      <special-radio :data="buutonData" />
+      <cute-special-radio :data="buutonData" />
     </div>
     <h2>小单选块</h2>
     <div class="sub-sample">
-      <special-radio :data="buutonData" :size="size" />
+      <cute-special-radio :data="buutonData" :size="size" />
     </div>
     <h2>多选块</h2>
     <div class="sub-sample">
@@ -31,11 +31,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import SpecialRadio from '@/components/Radio/SpecialRadio.vue'
+import CuteSpecialRadio from '@/components/CuteRadio/CuteSpecialRadio.vue'
 
 @Component({
   name: 'UiSelectedButton',
-  components: { SpecialRadio },
+  components: { CuteSpecialRadio },
 })
 export default class extends Vue {
   public static title = {

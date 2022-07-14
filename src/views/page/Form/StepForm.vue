@@ -5,7 +5,7 @@
         <el-step
           v-for="(s, index) in steps"
           :key="index"
-          :title="gettitle(s, index)"
+          :title="getTitle(index)"
           :status="s.status"
           :class="{ stepErr: s.disabled }"
         ></el-step>
@@ -200,6 +200,7 @@
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import * as StepForm from '@/types/StepForm'
 import { createStepForm } from '@/api/stepForm'
+import { ElForm } from 'element-ui/types/form'
 
 @Component({
   name: 'StepForm',
@@ -207,11 +208,11 @@ import { createStepForm } from '@/api/stepForm'
 export default class extends Vue {
   // 表单Ref对象
   @Ref('firstForm')
-  private first
+  private first: ElForm
 
   // 表单Ref对象
   @Ref('secondForm')
-  private second
+  private second: ElForm
 
   private steps = [{ title: '步骤1' }, { title: '步骤2' }, { title: '步骤3' }]
 
@@ -262,7 +263,7 @@ export default class extends Vue {
   // 置灰下拉框选项
   private disabledSelectOptions: string[] = []
 
-  private gettitle(s: any, index: number) {
+  private getTitle(index: number) {
     if (index === this.active) {
       return '正在处理'
     } else if (index > this.active) {

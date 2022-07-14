@@ -1,15 +1,8 @@
 <template>
   <div class="table-filter">
-    <el-tag
-      v-for="(v, i) in data"
-      v-show="flag"
-      :key="i"
-      type="info"
-      size="large"
-      closable
-      @close="flag = false"
-      >{{ v.content }}</el-tag
-    >
+    <el-tag v-for="(v, i) in data" :key="i" type="info" size="large" closable @close="handleClose(v, i)">{{
+      v.content
+    }}</el-tag>
 
     <div class="table-filter-dropdown">
       <el-tag type="newtag" size="large" @click="visible = true"> + 新增过滤 </el-tag>
@@ -43,16 +36,15 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component({
-  name: 'tableFilter',
+  name: 'CuteTableFilter',
 })
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) formData: [] // 表单数据
   private formInput = {}
   private formSelect = {}
   private data = []
-  private flag = true
   private visible = false
-
+  //添加条件标签
   private openDropdown() {
     const data = []
     this.formData.forEach((item: any, i) => {
@@ -63,9 +55,24 @@ export default class extends Vue {
       }
     })
     this.data = data
-    this.formInput = {}
-    this.formSelect = {}
     this.visible = false
+  }
+
+  //删除标签
+  private handleClose(value, i) {
+    this.data.splice(this.data.indexOf(value), 1)
+    //清空删除标签input值
+    Object.keys(this.formInput).forEach((item, index) => {
+      if (i === index) {
+        delete this.formInput[item]
+      }
+    })
+    //清空删除标签select值
+    Object.keys(this.formSelect).forEach((item, index) => {
+      if (i === index) {
+        delete this.formSelect[item]
+      }
+    })
   }
 }
 </script>

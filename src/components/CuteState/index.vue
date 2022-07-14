@@ -12,7 +12,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'State',
+  name: 'CuteState',
 })
 export default class extends Vue {
   @Prop({ default: '#999' }) private color!: string

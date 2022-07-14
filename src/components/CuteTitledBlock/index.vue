@@ -10,7 +10,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({
-  name: 'SimpleTable',
+  name: 'CuteTitledBlock',
 })
 export default class extends Vue {
   /**

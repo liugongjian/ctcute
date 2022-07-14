@@ -6,7 +6,7 @@
         <cute-tag tag-name="+ 标签" :dynamic-tags="dynamicTags"></cute-tag>
       </div>
       <div class="detail-header__right">
-        <button-group :data="buttonData" :max="2" />
+        <cute-button-group :data="buttonData" :max="2" />
       </div>
     </div>
     <el-tabs>
@@ -59,7 +59,7 @@
             </el-tree>
           </div>
           <div class="container__right">
-            <titled-block title="标识">
+            <cute-titled-block title="标识">
               <div class="sub-table-horizon">
                 <el-descriptions class="margin-top" :column="2" :size="size" border>
                   <el-descriptions-item>
@@ -92,8 +92,8 @@
                   </el-descriptions-item>
                 </el-descriptions>
               </div>
-            </titled-block>
-            <titled-block title="分区字段信息">
+            </cute-titled-block>
+            <cute-titled-block title="分区字段信息">
               <el-table :data="proDetail2.zoonsInfo1">
                 <template slot="empty">
                   <img src="./Image/not-have.svg" alt="" />
@@ -112,8 +112,8 @@
                 <el-table-column prop="title1" label="标题1"> </el-table-column>
                 <el-table-column prop="title2" label="标题2"> </el-table-column>
               </el-table>
-            </titled-block>
-            <titled-block title="分区字段信息">
+            </cute-titled-block>
+            <cute-titled-block title="分区字段信息">
               <el-table :data="proDetail2.zoonsInfo2">
                 <template slot="empty">
                   <img src="./Image/not-have.svg" alt="" />
@@ -132,7 +132,7 @@
                 <el-table-column prop="title1" label="标题1"> </el-table-column>
                 <el-table-column prop="title2" label="标题2"> </el-table-column>
               </el-table>
-            </titled-block>
+            </cute-titled-block>
           </div>
         </div>
       </el-tab-pane>
@@ -143,13 +143,13 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import ButtonGroup from '@/components/CombinationButton/ButtonGroup.vue'
-import TitledBlock from '@/components/TitiledBlock/index.vue'
+import CuteButtonGroup from '@/components/CuteCombinationButton/CuteButtonGroup.vue'
+import CuteTitledBlock from '@/components/CuteTitledBlock/index.vue'
 import { getProDetail } from '@/api/proDetail2'
 import * as ProDetail2 from '@/types/ProDetail2'
 @Component({
   name: 'ProDetail2',
-  components: { ButtonGroup, TitledBlock },
+  components: { CuteButtonGroup, CuteTitledBlock },
 })
 export default class extends Vue {
   // 动态标签

@@ -19,6 +19,7 @@
         :unique-opened="false"
         :collapse-transition="false"
         mode="vertical"
+        class="layout-sidebar__menu"
       >
         <sidebar-item
           v-for="route in currentRoutes"

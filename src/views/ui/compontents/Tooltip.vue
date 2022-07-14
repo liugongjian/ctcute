@@ -85,23 +85,15 @@ export default class extends Vue {
     zh: '文字提示',
     en: 'Tooltip',
   }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-.tooltip-more,
-.tooltip-mores {
-  margin-right: 6px;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.tooltip-more {
-  text-decoration: underline;
-}
-
 .sub-tooltip {
   margin: 24px 0;
   padding-bottom: 24px;

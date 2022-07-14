@@ -71,7 +71,11 @@ export default class extends Vue {
     zh: '折叠',
     en: 'Collapse',
   }
-
+  public static description = {
+    maintainer: '赵昕',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
   private activeNames = ['1']
   private activeNames1 = ['1']
 

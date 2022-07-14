@@ -2,7 +2,7 @@
   <div class="pro-form2">
     <el-card>
       <el-form ref="proForm2" :model="form" :rules="rules" label-width="130px" label-position="top">
-        <titled-block title="基本信息">
+        <cute-titled-block title="基本信息">
           <div class="form-items">
             <el-form-item label="所属环境">
               <el-select v-model="form.environment" placeholder="请选择">
@@ -69,10 +69,10 @@
               <el-input v-model="form.monitorName" placeholder="请输入" />
             </el-form-item>
           </div>
-        </titled-block>
+        </cute-titled-block>
         <!-- <div class="form-titles">基本信息</div> -->
         <el-divider></el-divider>
-        <titled-block title="告警规则">
+        <cute-titled-block title="告警规则">
           <el-form-item label="模板类型" prop="templateType" style="margin: 0 40px 0 35px">
             <el-table border style="width: 100%" :data="form.tableData">
               <el-table-column min-width="153" label="监控指标">
@@ -190,42 +190,19 @@
               </el-table-column>
             </el-table>
             <el-button
-              style="width: 97%; height: 42px; box-shadow: 0 1px 0 0 #dddddd"
+              style="width: 97%; height: 42px; box-shadow: 0 1px 0 0 #ddd"
               type="text"
               @click="addCondit"
               >+添加条件</el-button
             >
           </el-form-item>
-        </titled-block>
+        </cute-titled-block>
         <el-divider></el-divider>
-        <titled-block title="通知设置">
+        <cute-titled-block title="通知设置">
           <div class="form-items">
             <el-form-item label="标签">
               <div class="sub-tags">
-                <el-tag v-if="isShow" type="info" closable :disable-transitions="false" @close="closeTag"
-                  >标签</el-tag
-                >
-                <el-tag
-                  v-for="tag in form.dynamicTags"
-                  :key="tag"
-                  type="info"
-                  closable
-                  :disable-transitions="false"
-                  @close="handleClose(tag)"
-                >
-                  {{ tag }}
-                </el-tag>
-                <el-input
-                  v-if="inputVisible"
-                  ref="saveTagInput"
-                  v-model="inputValue"
-                  size="small"
-                  class="input-new-tag"
-                  @keyup.enter.native="handleInputConfirm"
-                  @blur="handleInputConfirm"
-                >
-                </el-input>
-                <el-tag v-else type="newtag" :disable-transitions="true" @click="showInput">+ 标签</el-tag>
+                <cute-tag tag-name="+ 标签" :dynamic-tags="form.dynamicTags"></cute-tag>
               </div>
             </el-form-item>
             <el-form-item label="六字标题测试">
@@ -242,7 +219,7 @@
               </el-select>
             </el-form-item>
           </div>
-        </titled-block>
+        </cute-titled-block>
       </el-form>
     </el-card>
     <div class="pro-form-bottom">
@@ -255,7 +232,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
-import TitledBlock from '@/components/TitiledBlock/index.vue'
+import CuteTitledBlock from '@/components/CuteTitledBlock/index.vue'
 import * as ProForm2 from '@/types/ProForm2'
 import { getAlertTarget } from '@/api/simpleForm'
 import { createProForm2 } from '@/api/proForm2'
@@ -263,44 +240,13 @@ import { createProForm2 } from '@/api/proForm2'
 @Component({
   name: 'ProForm2',
   components: {
-    TitledBlock,
+    CuteTitledBlock,
   },
 })
 export default class extends Vue {
   // 表单Ref对象
   @Ref('proForm2')
   private proForm2Ref
-
-  private inputValue = ''
-  private inputVisible = false
-  private isShow = true
-  // private dynamicTags = []
-
-  private closeTag() {
-    this.isShow = false
-  }
-
-  private showInput() {
-    this.inputVisible = true
-    this.$nextTick(() => {
-      const saveTagInput: any = this.$refs.saveTagInput
-      const saveTagInputRefs: any = saveTagInput.$refs
-      saveTagInputRefs.input.focus()
-    })
-  }
-
-  private handleInputConfirm() {
-    const inputValue = this.inputValue
-    if (inputValue) {
-      this.form.dynamicTags.push(inputValue)
-    }
-    this.inputVisible = false
-    this.inputValue = ''
-  }
-
-  private handleClose(tag) {
-    this.form.dynamicTags.splice(this.form.dynamicTags.indexOf(tag), 1)
-  }
 
   // 表单对象
   private form: ProForm2.Form = {
@@ -335,7 +281,7 @@ export default class extends Vue {
         calculate: 80,
       },
     ],
-    dynamicTags: [],
+    dynamicTags: ['标签'],
   }
 
   // 告警对象下拉框选项

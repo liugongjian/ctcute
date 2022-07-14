@@ -35,6 +35,11 @@ export default class extends Vue {
     zh: '开关',
     en: 'Switch',
   }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   private value = true
   private value1 = false

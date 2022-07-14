@@ -72,16 +72,21 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import ButtonGroup from '@/components/CombinationButton/ButtonGroup.vue'
+import CuteButtonGroup from '@/components/CuteCombinationButton/CuteButtonGroup.vue'
 
 @Component({
   name: 'UiButton',
-  components: { ButtonGroup },
+  components: { CuteButtonGroup },
 })
 export default class extends Vue {
   public static title = {
     zh: '按钮',
     en: 'Button',
+  }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
   }
 
   buttonData = ['操作一', '操作二', '操作三']
@@ -92,6 +97,11 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.sub-special {
+  padding-bottom: 24px;
+  border-bottom: 1px solid $border-color-light-1;
+}
+
 .sub-sample {
   white-space: nowrap;
 
@@ -118,6 +128,11 @@ export default class extends Vue {
   margin-left: 48px;
 }
 
+.button-loading {
+  color: $color-grey-4;
+  font-size: 12px;
+}
+
 .conventional-dropdown,
 .combination-dropdown {
   width: 124px;
@@ -129,14 +144,5 @@ export default class extends Vue {
       margin-right: 4px;
     }
   }
-}
-
-.top-fill {
-  transform: rotate(180deg);
-}
-
-.button-loading {
-  color: $color-grey-4;
-  font-size: 12px;
 }
 </style>

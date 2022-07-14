@@ -11,11 +11,11 @@
           @submit.native.prevent
         >
           <el-form-item prop="name">
-            <remind-input :title="title" :placeholder="placeholder" :model="conditions.name"> </remind-input>
+            <cute-remind-input :placeholder="placeholder" :model="conditions.name"> </cute-remind-input>
           </el-form-item>
 
           <el-form-item prop="host">
-            <remind-select
+            <cute-remind-select
               :data="hostOptions"
               :placeholder="'请选择主机名'"
               :model="conditions.host"
@@ -23,7 +23,7 @@
             />
           </el-form-item>
           <el-form-item prop="environment">
-            <remind-select
+            <cute-remind-select
               :data="hostEnvironmentOptions"
               :placeholder="'请选择主机环境'"
               :model="conditions.environment"
@@ -32,7 +32,7 @@
           </el-form-item>
 
           <el-form-item prop="cpu">
-            <remind-select
+            <cute-remind-select
               :data="cpuOptions"
               :placeholder="'请选择CPU利用率'"
               :model="conditions.cpu"
@@ -46,7 +46,7 @@
         </el-form>
         <div class="table-button">
           <div class="table-button_left">
-            <selected-input :data="selectedData" :option-data="optionData" />
+            <cute-selected-input :data="selectedData" :option-data="optionData" />
 
             <el-button type="primary"> + 新增按钮 </el-button>
             <el-button @click="resetConditions">次按钮</el-button>
@@ -61,10 +61,6 @@
 
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit border @selection-change="handleSelectionChange">
-      <template slot="empty">
-        <img src="./Image/not-have.svg" alt="" />
-        <span>暂无数据</span>
-      </template>
       <el-table-column type="selection" width="55"> </el-table-column>
       <el-table-column prop="name" label="主机别名" />
       <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
@@ -122,12 +118,11 @@ import { Component, Vue } from 'vue-property-decorator'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTable, getHosts } from '@/api/simpleTable'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
-import SelectedInput from '@/components/Select/SelectedInput.vue'
-import RemindInput from '@/components/Input/RemindInput.vue'
-import RemindSelect from '@/components/Select/RemindSelect.vue'
+// import CuteSelectedInput from '@/components/CuteSelect/CuteSelectedInput.vue'
+// import CuteRemindSelect from '@/components/CuteSelect/CuteRemindSelect.vue'
 @Component({
-  name: 'SimpleTable',
-  components: { SelectedInput, RemindInput, RemindSelect },
+  name: 'ProTable2',
+  // components: { CuteSelectedInput },
 })
 export default class extends Vue {
   // 健康状态字典
@@ -143,7 +138,6 @@ export default class extends Vue {
     cpu: '',
   }
 
-  private title = '数据资源名称'
   private placeholder = '请输入主机别名'
   // 表格选中数据
   private selectedData = []

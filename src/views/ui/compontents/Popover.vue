@@ -93,6 +93,11 @@ export default class extends Vue {
     zh: '气泡提示',
     en: 'Popover',
   }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   private visible = false
   private visible1 = false
@@ -113,7 +118,8 @@ p {
 
 .operation-button {
   text-align: right;
-  margin: 0;
+  margin-left: 122px;
+  margin-top: 16px;
 
   .el-button + .el-button {
     margin-left: 12px;
@@ -122,7 +128,6 @@ p {
 
 .cancel-popover {
   border: 1px solid $border-color-primary;
-  // padding: 8px 20px;
 }
 
 .determine-popover {

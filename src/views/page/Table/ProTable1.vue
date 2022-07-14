@@ -25,15 +25,15 @@
     </div>
     <div class="table-filter">
       <div class="table-filter_text">指标条件</div>
-      <table-filter :operation-options="operationOptions" />
+      <cute-table-filter :form-data="formData" />
     </div>
 
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit border>
-      <template slot="empty">
-        <img src="./Image/not-have.svg" alt="" />
+      <!-- <template slot="empty">
+        <img src="./image/not-have.svg" alt="" />
         <span>暂无数据</span>
-      </template>
+      </template> -->
       <el-table-column prop="name" label="主机别名" />
       <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
       <el-table-column prop="ip" label="IP地址" />
@@ -90,10 +90,10 @@ import { Component, Vue } from 'vue-property-decorator'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTable, getHosts } from '@/api/simpleTable'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
-import TableFilter from '@/components/Table/TableFilter.vue'
+import CuteTableFilter from '@/components/CuteTable/CuteTableFilter.vue'
 @Component({
   name: 'SimpleTable',
-  components: { TableFilter },
+  components: { CuteTableFilter },
 })
 export default class extends Vue {
   // 健康状态字典
@@ -226,20 +226,65 @@ export default class extends Vue {
   private openDropdown(e) {
     e ? (this.flag = true) : (this.flag = false)
   }
-  /** * 新增过滤下拉数据 */
-  private operationOptions = [
-    { label: '> =', value: 1 },
-    { label: '< =', value: 2 },
-  ]
   /** * 新增过滤表单对象 */
-  private fromData = [
+  private formData = [
     {
-      cpu: null,
+      label: 'CPU使用量',
+      options: [
+        {
+          label: '> =',
+          value: '> =',
+        },
+        {
+          label: '<=',
+          value: '<=',
+        },
+      ],
+      unit: '%',
     },
-    { ram: null },
-    { cpu: null },
-    { cpu: null },
-    { cpu: null },
+    {
+      label: 'RAM使用量',
+      options: [
+        {
+          label: '> =',
+          value: '> =',
+        },
+        {
+          label: '<=',
+          value: '<=',
+        },
+      ],
+      unit: 'GB',
+    },
+    {
+      label: '磁盘剩余量',
+      options: [
+        {
+          label: '> =',
+          value: '> =',
+        },
+        {
+          label: '<=',
+          value: '<=',
+        },
+      ],
+      unit: 'GB',
+    },
+
+    {
+      label: '网络平均负数',
+      options: [
+        {
+          label: '> =',
+          value: '> =',
+        },
+        {
+          label: '<=',
+          value: '<=',
+        },
+      ],
+      unit: 'kbs',
+    },
   ]
 }
 </script>

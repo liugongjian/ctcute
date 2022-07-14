@@ -53,6 +53,10 @@
     position: relative;
     top: auto;
   }
+
+  .form-item__info {
+    margin-left: $margin-small;
+  }
 }
 
 @mixin formTitle {
@@ -69,13 +73,15 @@
 
 @mixin formBottom {
   .pro-form-bottom {
+    box-shadow: -2px 2px 8px 0 rgba(200, 201, 204, 0.5);
     position: fixed;
-    margin-left: -15px;
+    left: $sidebar-width;
+    bottom: 0;
     width: unquote('-webkit-calc(100% - #{$sidebar-width})');
     background: $color-white;
-    bottom: 0;
     line-height: 48px;
     transition: 0.3s;
+    z-index: 11;
   }
 }
 
@@ -145,18 +151,8 @@
     }
 
     .sub-tags {
-      width: 104%;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-
-      .input-new-tag {
-        width: 60px;
-        vertical-align: bottom;
-      }
-
-      .el-tag {
-        margin: 0 10px 10px 0;
+      .el-input {
+        width: 70px;
       }
     }
   }
@@ -189,8 +185,10 @@
     max-width: 800px;
   }
 
-  .el-tag {
-    margin-right: 10px;
+  .cute-tag-add {
+    .el-input {
+      min-width: 70px;
+    }
   }
 
   .form-item-tip {

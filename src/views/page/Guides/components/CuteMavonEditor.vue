@@ -24,5 +24,6 @@ export default class extends Vue {
 .test {
   font-size: 12px;
   color: $text-color-primary;
+  z-index: auto;
 }
 </style>

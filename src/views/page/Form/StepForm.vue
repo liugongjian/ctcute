@@ -40,6 +40,7 @@
             <el-select v-model="firstForm.longText" placeholder="请选择">
               <el-option v-for="item in disabledSelectOptions" :key="item" :label="item" :value="item" />
             </el-select>
+            <cute-form-info title="标题测试" content="对标题测试的详细说明" />
           </el-form-item>
           <el-form-item label="单选" prop="radio">
             <el-radio v-model="firstForm.radio" label="1">未选中项</el-radio>
@@ -61,27 +62,7 @@
             ></el-input-number>
           </el-form-item>
           <el-form-item label="标签" prop="price">
-            <el-tag
-              v-for="tag in firstForm.tag"
-              :key="tag"
-              type="info"
-              closable
-              :disable-transitions="false"
-              @close="handleClose(tag)"
-            >
-              {{ tag }}
-            </el-tag>
-            <el-input
-              v-if="inputVisible"
-              ref="saveTagInput"
-              v-model="inputValue"
-              size="small"
-              class="input-new-tag"
-              @keyup.enter.native="handleInputConfirm"
-              @blur="handleInputConfirm"
-            >
-            </el-input>
-            <el-tag v-else type="newtag" :disable-transitions="true" @click="showInput">+ 标签</el-tag>
+            <cute-tag tag-name="+ 标签" :dynamic-tags="firstForm.tag"></cute-tag>
           </el-form-item>
         </el-form>
         <!-- 第二步表单 -->
@@ -118,6 +99,7 @@
             <el-select v-model="secondForm.longText" placeholder="请选择">
               <el-option v-for="item in disabledSelectOptions" :key="item" :label="item" :value="item" />
             </el-select>
+            <cute-form-info title="标题测试" content="对标题测试的详细说明" />
           </el-form-item>
           <el-form-item label="单选" prop="radio">
             <el-radio v-model="secondForm.radio" label="1">未选中项</el-radio>
@@ -253,7 +235,7 @@ export default class extends Vue {
     checkbox: ['已选中项'],
     shortNumber: 1,
     price: 2,
-    tag: [],
+    tag: ['标签'],
   }
 
   private secondForm: StepForm.Form = {
@@ -289,28 +271,6 @@ export default class extends Vue {
     } else if (index < this.active) {
       return '处理完成'
     }
-  }
-
-  private showInput() {
-    this.inputVisible = true
-    this.$nextTick(() => {
-      const saveTagInput: any = this.$refs.saveTagInput
-      const saveTagInputRefs: any = saveTagInput.$refs
-      saveTagInputRefs.input.focus()
-    })
-  }
-
-  private handleInputConfirm() {
-    const inputValue = this.inputValue
-    if (inputValue) {
-      this.firstForm.tag.push(inputValue)
-    }
-    this.inputVisible = false
-    this.inputValue = ''
-  }
-
-  private handleClose(tag) {
-    this.firstForm.tag.splice(this.firstForm.tag.indexOf(tag), 1)
   }
 
   private async nextStep() {

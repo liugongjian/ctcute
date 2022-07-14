@@ -4,6 +4,12 @@
     <div ref="uiContainer" class="ui__container">
       <div v-for="component in componentList" :key="component.name" class="ui__component">
         <h1 :id="component.name">{{ component.title.en }} / {{ component.title.zh }}</h1>
+        <h4 :id="component.name">
+          版本：{{ component.description && component.description.version }} | 更新时间：{{
+            component.description && component.description.updateTime
+          }}
+          | 维护人: {{ component.description && component.description.maintainer }}
+        </h4>
         <component :is="component.name" class="ui__component__body" />
       </div>
     </div>

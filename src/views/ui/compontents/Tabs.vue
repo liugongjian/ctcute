@@ -61,6 +61,11 @@ export default class extends Vue {
     zh: '选项卡',
     en: 'Tabs',
   }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   private editableTabs = [
     {

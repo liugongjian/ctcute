@@ -3,31 +3,31 @@
     <!-- 统计数据 -->
     <el-row :gutter="22">
       <el-col :span="8">
-        <chart-card
+        <cute-chart-card
           :loading="loading"
           icon="sever"
           title="数据库总数(个)"
           total="20"
           background="139, 178, 249"
-        ></chart-card>
+        ></cute-chart-card>
       </el-col>
       <el-col :span="8">
-        <chart-card
+        <cute-chart-card
           :loading="loading"
           icon="sever"
           title="总表数(个)"
           total="295"
           background="182, 221, 119"
-        ></chart-card>
+        ></cute-chart-card>
       </el-col>
       <el-col :span="8">
-        <chart-card
+        <cute-chart-card
           :loading="loading"
           icon="sever"
           title="总存储量(GB)"
           total="0.67"
           background="248, 211, 76"
-        ></chart-card>
+        ></cute-chart-card>
       </el-col>
     </el-row>
     <el-row :gutter="22" class="simple-table-box">
@@ -38,7 +38,7 @@
             <el-date-picker v-model="statusDate" type="date" placeholder="选择日期"> </el-date-picker>
           </div>
           <div class="chart-box">
-            <Chart :option="option" :height="'280px'" :width="'100%'" />
+            <CuteChart :option="option" :height="'280px'" :width="'100%'" />
           </div>
         </el-card>
       </el-col>
@@ -52,7 +52,7 @@
             </el-tabs>
           </div>
           <div class="chart-box">
-            <Chart :option="option2" :height="'280px'" :width="'100%'" />
+            <CuteChart :option="option2" :height="'280px'" :width="'100%'" />
           </div>
         </el-card>
       </el-col>
@@ -62,7 +62,7 @@
             <span>流程数量定义统计</span>
           </div>
           <div class="chart-box">
-            <Chart :option="option3" :height="'280px'" :width="'100%'" />
+            <CuteChart :option="option3" :height="'280px'" :width="'100%'" />
           </div>
         </el-card>
       </el-col>
@@ -112,7 +112,7 @@
             </el-tabs>
           </div>
           <div class="chart-box chart-box-linebar">
-            <Chart :option="option4" :height="'310px'" :width="'100%'" />
+            <CuteChart :option="option4" :height="'310px'" :width="'100%'" />
           </div>
         </el-card>
       </el-col>
@@ -120,14 +120,14 @@
   </el-card>
 </template>
 <script lang="ts">
-import ChartCard from '@/components/Charts/ChartCard.vue'
-import Chart from '@/components/Charts/Chart.vue'
+import CuteChartCard from '@/components/CuteCharts/CuteChartCard.vue'
+import CuteChart from '@/components/CuteCharts/CuteChart.vue'
 import { Component, Vue } from 'vue-property-decorator'
 @Component({
   name: 'SimpleChart',
   components: {
-    ChartCard,
-    Chart,
+    CuteChartCard,
+    CuteChart,
   },
 })
 export default class extends Vue {

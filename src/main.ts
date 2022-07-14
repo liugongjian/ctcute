@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import ElementUIOverride from '@/components/ElementUI'
+import CuteComponent from '@/components/index'
 import '@/components/ElementUI/settings'
 import i18n from '@/i18n'
 import mavonEditor from 'mavon-editor'
@@ -18,6 +19,7 @@ import './assets/icons/index'
 Vue.use(mavonEditor)
 Vue.use(ElementUI, { size: 'medium' })
 Vue.use(ElementUIOverride)
+Vue.use(CuteComponent)
 
 Vue.config.productionTip = false
 

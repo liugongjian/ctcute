@@ -34,3 +34,13 @@ export const removeClass = (elem, className) => {
     }
   })
 }
+
+/**
+ * 手动触发窗口resize事件
+ * @param elem DOM元素
+ */
+export function triggerResize(elem: Element | Window = window) {
+  const event = document.createEvent('UIEvent')
+  event.initEvent('resize', true, true)
+  elem.dispatchEvent(event)
+}

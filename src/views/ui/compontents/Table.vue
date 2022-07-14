@@ -164,8 +164,8 @@
     <h3>可多选表格(3个以上操作)</h3>
     <div class="sub-table">
       <div style="margin-bottom: 20px">
-        <selected-input :data="multipleSelectionOver3" placeholder="请选择" :option-data="optionData">
-        </selected-input>
+        <cute-selected-input :data="multipleSelectionOver3" placeholder="请选择" :option-data="optionData">
+        </cute-selected-input>
       </div>
       <el-table
         ref="multipleTable"
@@ -424,10 +424,10 @@
 import { Component, Vue } from 'vue-property-decorator'
 import data from '../../../utils/mock'
 import { HEALTH } from '@/dics/simpleTable'
-import SelectedInput from '@/components/Select/SelectedInput.vue'
+// import CuteSelectedInput from '@/components/CuteSelect/CuteSelectedInput.vue'
 @Component({
   name: 'UiTable',
-  components: { SelectedInput },
+  // components: { CuteSelectedInput },
 })
 export default class extends Vue {
   private data = data
@@ -461,7 +461,11 @@ export default class extends Vue {
     zh: '表格',
     en: 'Table',
   }
-
+  public static description = {
+    maintainer: '朱玉豆',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
   private pageSize = 20
 
   private pageNum = 3
@@ -609,16 +613,16 @@ export default class extends Vue {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background: #f0f2f5;
+  background: $color-grey-7;
   text-align: center;
   line-height: 20px;
-  color: #000;
+  color: $color-grey-1;
   border-radius: 50%;
   font-size: 12px;
 }
 
 .sub-index-top3 {
-  color: #fff;
+  color: $color-white;
   background: $color-master-1;
 }
 

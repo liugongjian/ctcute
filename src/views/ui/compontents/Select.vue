@@ -49,7 +49,7 @@
       <h3>带提示</h3>
       <div class="line">
         <div class="line__left">
-          <remind-select :data="options1" :title="name" :placeholder="name" :model="value9" />
+          <cute-remind-select :data="options1" :title="name" :placeholder="name" :model="value9" />
         </div>
       </div>
     </div>
@@ -113,7 +113,7 @@
       <h3>操作已选项</h3>
       <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
       <el-row>
-        <selected-input :data="checkList" :option-data="optionData" @request="request" />
+        <cute-selected-input :data="checkList" :option-data="optionData" @request="request" />
       </el-row>
       <el-checkbox-group v-model="checkList">
         <el-row>
@@ -128,17 +128,22 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import RemindSelect from '@/components/Select/RemindSelect.vue'
-import SelectedInput from '@/components/Select/SelectedInput.vue'
+// import CuteRemindSelect from '@/components/CuteSelect/CuteRemindSelect.vue'
+// import CuteSelectedInput from '@/components/CuteSelect/CuteSelectedInput.vue'
 
 @Component({
   name: 'UiSelect',
-  components: { RemindSelect, SelectedInput },
+  // components: { CuteSelectedInput },
 })
 export default class extends Vue {
   public static title = {
     zh: '选择器',
     en: 'Select',
+  }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
   }
 
   private checkList = ['已选中项']

@@ -100,7 +100,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteStepsMulti from '@/components/Steps/StepsMulti.vue'
+import CuteStepsMulti from '@/components/CuteSteps/CuteStepsMulti.vue'
 @Component({
   name: 'UiSteps',
   components: { CuteStepsMulti },
@@ -109,6 +109,11 @@ export default class extends Vue {
   public static title = {
     zh: '步骤条',
     en: 'Steps',
+  }
+  public static description = {
+    maintainer: '吴静',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
   }
 
   private normalsteps = [{ title: '步骤1' }, { title: '步骤2' }, { title: '步骤3' }]

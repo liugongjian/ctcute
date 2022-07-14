@@ -17,7 +17,7 @@
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 
 @Component({
-  name: 'SelectedInput',
+  name: 'CuteSelectedInput',
 })
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) data?: []

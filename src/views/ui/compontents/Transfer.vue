@@ -34,6 +34,11 @@ export default class extends Vue {
     zh: '穿梭框',
     en: 'Transfer',
   }
+  public static description = {
+    maintainer: '赵昕',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   private generateData = () => {
     const data = []

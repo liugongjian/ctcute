@@ -29,6 +29,11 @@ export default class extends Vue {
     zh: '图标按钮',
     en: 'IconButton',
   }
+  public static description = {
+    maintainer: '马妍',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 }
 </script>
 

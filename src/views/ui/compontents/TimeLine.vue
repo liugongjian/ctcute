@@ -75,6 +75,11 @@ export default class extends Vue {
     zh: '时间轴',
     en: 'Timeline',
   }
+  public static description = {
+    maintainer: '赵昕',
+    version: 'v1.0',
+    updateTime: '2022.07.12',
+  }
 
   private activities = [
     {
@@ -124,13 +129,8 @@ export default class extends Vue {
 
   p {
     font-size: 12px;
-    color: rgba(0, 0, 0, 45%);
     margin-top: 8px;
     margin-bottom: 0 !important;
-  }
-
-  ::v-deep.el-divider--vertical {
-    color: #dddd;
   }
 
   .table {

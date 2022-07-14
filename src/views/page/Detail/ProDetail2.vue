@@ -3,30 +3,10 @@
     <div class="detail-header">
       <div class="detail-header__left">
         <span class="tags-title">这是一个名称</span>
-        <el-tag
-          v-for="tag in dynamicTags"
-          :key="tag"
-          type="info"
-          closable
-          :disable-transitions="false"
-          @close="handleClose(tag)"
-        >
-          {{ tag }}
-        </el-tag>
-        <el-input
-          v-if="inputVisible"
-          ref="saveTagInput"
-          v-model="inputValue"
-          size="small"
-          class="input-new-tag"
-          @keyup.enter.native="handleInputConfirm"
-          @blur="handleInputConfirm"
-        >
-        </el-input>
-        <el-tag v-else type="newtag" :disable-transitions="true" @click="showInput">+ 标签</el-tag>
+        <cute-tag tag-name="+ 标签" :dynamic-tags="dynamicTags"></cute-tag>
       </div>
       <div class="detail-header__right">
-        <button-group :data="buttonData" :max="2" />
+        <cute-button-group :data="buttonData" :max="2" />
       </div>
     </div>
     <el-tabs>
@@ -79,7 +59,7 @@
             </el-tree>
           </div>
           <div class="container__right">
-            <titled-block title="标识">
+            <cute-titled-block title="标识">
               <div class="sub-table-horizon">
                 <el-descriptions class="margin-top" :column="2" :size="size" border>
                   <el-descriptions-item>
@@ -112,8 +92,8 @@
                   </el-descriptions-item>
                 </el-descriptions>
               </div>
-            </titled-block>
-            <titled-block title="分区字段信息">
+            </cute-titled-block>
+            <cute-titled-block title="分区字段信息">
               <el-table :data="proDetail2.zoonsInfo1">
                 <template slot="empty">
                   <img src="./Image/not-have.svg" alt="" />
@@ -132,8 +112,8 @@
                 <el-table-column prop="title1" label="标题1"> </el-table-column>
                 <el-table-column prop="title2" label="标题2"> </el-table-column>
               </el-table>
-            </titled-block>
-            <titled-block title="分区字段信息">
+            </cute-titled-block>
+            <cute-titled-block title="分区字段信息">
               <el-table :data="proDetail2.zoonsInfo2">
                 <template slot="empty">
                   <img src="./Image/not-have.svg" alt="" />
@@ -152,7 +132,7 @@
                 <el-table-column prop="title1" label="标题1"> </el-table-column>
                 <el-table-column prop="title2" label="标题2"> </el-table-column>
               </el-table>
-            </titled-block>
+            </cute-titled-block>
           </div>
         </div>
       </el-tab-pane>
@@ -163,23 +143,19 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import ButtonGroup from '@/components/CombinationButton/ButtonGroup.vue'
-import TitledBlock from '@/components/TitiledBlock/index.vue'
+import CuteButtonGroup from '@/components/CuteCombinationButton/CuteButtonGroup.vue'
+import CuteTitledBlock from '@/components/CuteTitledBlock/index.vue'
 import { getProDetail } from '@/api/proDetail2'
 import * as ProDetail2 from '@/types/ProDetail2'
 @Component({
   name: 'ProDetail2',
-  components: { ButtonGroup, TitledBlock },
+  components: { CuteButtonGroup, CuteTitledBlock },
 })
 export default class extends Vue {
   // 动态标签
   private dynamicTags = ['标签', '标签', '标签']
   // 按钮组名称
   private buttonData = ['操作一', '操作二', '操作三']
-  // 新增标签input框是否可见
-  private inputVisible = false
-  // 新增标签input框输入值
-  private inputValue = ''
   // 复杂详情页2信息
   private proDetail2: ProDetail2.ProDetailInfo2 = null
 
@@ -200,37 +176,6 @@ export default class extends Vue {
     } catch (e) {
       this.$message.error(e)
     }
-  }
-
-  /**
-   * 输入确认后添加标签
-   */
-  private handleInputConfirm() {
-    const inputValue = this.inputValue
-    if (inputValue) {
-      this.dynamicTags.push(inputValue)
-    }
-    this.inputVisible = false
-    this.inputValue = ''
-  }
-
-  /**
-   * 点击新增标签 显示输入框
-   */
-  private showInput() {
-    this.inputVisible = true
-    this.$nextTick(() => {
-      const saveTagInput: any = this.$refs.saveTagInput
-      const saveTagInputRefs: any = saveTagInput.$refs
-      saveTagInputRefs.input.focus()
-    })
-  }
-
-  /**
-   * 关闭标签
-   */
-  private handleClose(tag) {
-    this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
   }
 }
 </script>

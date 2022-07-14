@@ -338,6 +338,10 @@
 
   @include table();
 
+  .el-table__cell:last-child .cell {
+    padding-right: 0 !important;
+  }
+
   /*  过滤条件 */
   .table-filter {
     display: flex;
@@ -350,16 +354,6 @@
 
     .el-tag.el-tag--newtag.el-tag--large.el-tag--light {
       position: relative;
-    }
-
-    .table-filter_content {
-      position: absolute;
-      padding: 16px;
-      background-color: $color-white;
-      z-index: 9999;
-      left: 0;
-      top: 32px;
-      box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 50%);
     }
   }
 
@@ -382,15 +376,17 @@
 
       .el-form-item {
         margin-bottom: 0;
+        width: 357px;
 
         &:last-child {
           margin-right: 0;
+          text-align: right;
         }
       }
 
       .el-input,
       .el-select {
-        width: 268px;
+        width: 357px;
       }
 
       &__buttons {
@@ -402,17 +398,22 @@
 
   @include table();
 
+  .el-table__cell:last-child .cell {
+    padding-right: 0 !important;
+  }
+
   .table-button {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #f1f1f1;
+
     .el-select {
       width: 125px !important;
       margin-right: 20px;
     }
-
-    margin-top: 16px;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 15px;
-    border-top: 1px solid #f1f1f1;
 
     .table-button_left {
       display: flex;
@@ -423,7 +424,7 @@
     line-height: 32px;
   }
 
-  .complex-table_from {
+  .el-form {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -432,6 +433,11 @@
       margin-bottom: 16px !important;
     }
   }
+
+  .el-dropdown-link {
+    cursor: pointer;
+    color: $color-master-1;
+  }
 }
 
 /* 暂无数据 */
@@ -439,6 +445,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 12px;
+  line-height: normal;
+
+  &:before {
+    display: block;
+    content: url('../../views/page/Table/image/not-have.svg');
+    margin-right: 8px;
+  }
 }
 
 /* 下拉展开旋转小三角 */

@@ -30,6 +30,24 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'component-master',
+        name: 'ComponentMaster',
+        component: () => import('@/views/page/Guides/ComponentMaster.vue'),
+        meta: {
+          title: '组件维护信息',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'page-master',
+        name: 'PageMaster',
+        component: () => import('@/views/page/Guides/PageMaster.vue'),
+        meta: {
+          title: '页面维护信息',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 弹窗
@@ -97,20 +115,20 @@ const pageRoutes = [
         },
       },
       {
-        path: 'info-dialog',
-        component: () => import('@/views/page/Dialog/InfoDialog.vue'),
-        name: 'InfoDialog',
+        path: 'pro-small-dialog',
+        component: () => import('@/views/page/Dialog/ProSmallDialog.vue'),
+        name: 'ProSmallDialog',
         meta: {
-          title: 'InfoDialog 信息弹窗',
+          title: 'ProSmallDialog 特殊弹窗-小',
           breadcrumb: true,
         },
       },
       {
-        path: 'log-dialog',
-        component: () => import('@/views/page/Dialog/LogDialog.vue'),
-        name: 'LogDialog',
+        path: 'pro-medium-dialog',
+        component: () => import('@/views/page/Dialog/ProMediumDialog.vue'),
+        name: 'ProMediumDialog',
         meta: {
-          title: 'LogDialog 日志弹窗',
+          title: 'ProMediumDialog 特殊弹窗-中',
           breadcrumb: true,
         },
       },

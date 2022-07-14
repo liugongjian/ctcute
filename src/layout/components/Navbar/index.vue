@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Breadcrumb from '@/components/Breadcrumb/index.vue'
+import Breadcrumb from '../Breadcrumb/index.vue'
 
 @Component({
   name: 'Navbar',

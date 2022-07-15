@@ -119,7 +119,7 @@ const pageRoutes = [
         component: () => import('@/views/page/Dialog/ProSmallDialog.vue'),
         name: 'ProSmallDialog',
         meta: {
-          title: 'ProSmallDialog 特殊弹窗-小',
+          title: 'ProSmallDialog 复杂小弹窗',
           breadcrumb: true,
         },
       },
@@ -128,7 +128,7 @@ const pageRoutes = [
         component: () => import('@/views/page/Dialog/ProMediumDialog.vue'),
         name: 'ProMediumDialog',
         meta: {
-          title: 'ProMediumDialog 特殊弹窗-中',
+          title: 'ProMediumDialog 复杂中弹窗',
           breadcrumb: true,
         },
       },
@@ -257,7 +257,7 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "card" */ '@/views/page/CardList/Card1.vue'),
         name: 'Card1',
         meta: {
-          title: 'Card1 小卡片',
+          title: 'Card1 卡片1',
           breadcrumb: true,
         },
       },
@@ -266,7 +266,7 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "card" */ '@/views/page/CardList/Card2.vue'),
         name: 'Card2',
         meta: {
-          title: 'Card2 小卡片描述较少',
+          title: 'Card2 卡片2',
           breadcrumb: true,
         },
       },
@@ -275,7 +275,7 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "card" */ '@/views/page/CardList/Card3.vue'),
         name: 'Card3',
         meta: {
-          title: 'Card3 大卡片',
+          title: 'Card3 卡片3',
           breadcrumb: true,
         },
       },
@@ -297,7 +297,7 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/SimpleDetail.vue'),
         name: 'SimpleDetail',
         meta: {
-          title: 'SimpleDetail 简单详情页',
+          title: 'SimpleDetail 简单详情',
           breadcrumb: true,
         },
       },
@@ -306,7 +306,7 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/ProDetail1.vue'),
         name: 'ProDetail1',
         meta: {
-          title: 'ProDetail1 复杂详情页1',
+          title: 'ProDetail1 复杂详情1',
           breadcrumb: true,
         },
       },
@@ -315,7 +315,7 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/ProDetail2.vue'),
         name: 'ProDetail2',
         meta: {
-          title: 'ProDetail2 复杂详情页2',
+          title: 'ProDetail2 复杂详情2',
           breadcrumb: true,
         },
       },
@@ -337,7 +337,7 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page403.vue'),
         name: 'Page403',
         meta: {
-          title: '403页',
+          title: 'Page403 403页',
           breadcrumb: true,
         },
       },
@@ -346,7 +346,7 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page404.vue'),
         name: 'Page404',
         meta: {
-          title: '404页',
+          title: 'Page404 404页',
           breadcrumb: true,
         },
       },
@@ -355,7 +355,7 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page500.vue'),
         name: 'Page500',
         meta: {
-          title: '500页',
+          title: 'Page500 500页',
           breadcrumb: true,
         },
       },
@@ -364,7 +364,7 @@ const pageRoutes = [
         component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/EmptyPage.vue'),
         name: 'EmptyPage',
         meta: {
-          title: '空页面',
+          title: 'EmptyPage 空页面',
           breadcrumb: true,
         },
       },

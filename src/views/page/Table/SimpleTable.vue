@@ -55,6 +55,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
+import { ElForm } from 'element-ui/types/form'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTable, getHosts } from '@/api/simpleTable'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
@@ -74,7 +75,7 @@ export default class extends Vue {
 
   // 条件搜索表单
   @Ref('conditions')
-  private conditionsForm
+  private conditionsForm: ElForm
 
   // 主机信息下拉框选项
   private hostOptions = []

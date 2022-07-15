@@ -8,7 +8,7 @@
     "path": "@/types/ProForm2.d.ts"
   }, 
   {
-    "name": "api/ProForm2.ts",
-    "path": "@/api/ProForm2.ts"
+    "name": "api/proForm2.ts",
+    "path": "@/api/proForm2.ts"
   }
 ]

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "MediumDialog.vue",
+    "path": "@/views/page/Dialog/MediumDialog.vue"
+  },
+  {
+    "name": "MediumDialog.d.ts",
+    "path": "@/types/MediumDialog.d.ts"
+  },
+  {
+    "name": "api/MediumDialog.ts",
+    "path": "@/api/MediumDialog.ts"
+  }
+]

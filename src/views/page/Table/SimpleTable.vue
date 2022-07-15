@@ -54,7 +54,8 @@
   </el-card>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Ref } from 'vue-property-decorator'
+import { ElForm } from 'element-ui/types/form'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTable, getHosts } from '@/api/simpleTable'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
@@ -71,6 +72,10 @@ export default class extends Vue {
     host: '',
     name: '',
   }
+
+  // 条件搜索表单
+  @Ref('conditions')
+  private conditionsForm: ElForm
 
   // 主机信息下拉框选项
   private hostOptions = []
@@ -159,8 +164,7 @@ export default class extends Vue {
    * 重置搜索表单
    */
   private resetConditions() {
-    const conditionsForm: any = this.$refs.conditions
-    conditionsForm.resetFields()
+    this.conditionsForm.resetFields()
   }
 
   /**

@@ -12,7 +12,7 @@
     "path": "@/api/ProDetail1.ts"
   },
   {
-    "name": "dics/ProDetail1.ts",
-    "path": "@/dics/ProDetail1.ts"
+    "name": "dics/proDetail1.ts",
+    "path": "@/dics/proDetail1.ts"
   }
 ]

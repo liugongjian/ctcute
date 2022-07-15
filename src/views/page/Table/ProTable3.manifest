@@ -1,7 +1,7 @@
 [
   {
     "name": "ProTable3.vue",
-    "path": "@/views/page/table/ProTable3.vue"
+    "path": "@/views/page/Table/ProTable3.vue"
   },
   {
     "name": "ProTable3.d.ts",
@@ -12,7 +12,7 @@
     "path": "@/api/ProTable3.ts"
   },
   {
-    "name": "dics/simpleTable.ts",
+    "name": "dics/ProTable3.ts",
     "path": "@/dics/simpleTable.ts"
   }
 ]

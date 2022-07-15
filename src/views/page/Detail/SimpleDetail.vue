@@ -141,12 +141,6 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .status-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 8px;
-  border-radius: 100%;
-
   &--1 {
     background: $color-status-info;
   }

@@ -63,17 +63,6 @@
   margin-left: 8px;
 }
 
-.ui-iconbutton {
-  .el-button--medium {
-    padding: 7px;
-    // color: #333;
-  }
-
-  .button:hover {
-    color: $color-master-1;
-  }
-}
-
 .el-button-rect {
   padding: 10px;
 }
@@ -164,7 +153,7 @@
 /* TextButton
 -------------------------- */
 .el-button--text {
-  color: $color-grey-3;
+  color: $color-master-1;
   padding: 0;
   .svg-icon {
     margin-right: 4px;
@@ -186,7 +175,21 @@
     font-size: $text-size-large;
   }
 }
-
+.el-button.el-button--text.el-button--medium.is-plain{
+  color: $color-grey-3;
+  border: 0;
+  &:hover, &:active, &:focus{
+    color: $color-master-3;
+    border: none;
+  }
+}
+.el-button.el-button--default.el-button--medium.is-plain{
+  border: 1px solid $border-color-primary;
+  padding: 7px;
+  &:not(.el-button.el-button--default.el-button--medium.is-disabled.is-plain):hover{
+     border: 1px solid $color-master-1;
+  }
+}
 .el-button.el-button--primary.el-button--medium.is-disabled {
   .svg-icon {
     color: $color-grey-5;

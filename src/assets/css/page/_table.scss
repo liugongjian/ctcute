@@ -463,3 +463,7 @@
 .top-fill {
   transform: rotate(180deg);
 }
+
+.el-table__empty-block {
+  border-bottom: 1px solid $border-color-primary;
+}

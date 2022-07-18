@@ -1,0 +1,18 @@
+[
+  {
+    "name": "proTable2.vue",
+    "path": "@/views/page/Table/proTable2.vue"
+  },
+  {
+    "name": "proTable2.d.ts",
+    "path": "@/types/proTable2.d.ts"
+  },
+  {
+    "name": "api/proTable2.ts",
+    "path": "@/api/proTable2.ts"
+  },
+  {
+    "name": "dics/simpleTable.ts",
+    "path": "@/dics/simpleTable.ts"
+  }
+]

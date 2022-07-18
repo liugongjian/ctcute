@@ -71,9 +71,10 @@
                 <div class="table-tools__conditions__buttons">
                   <el-button type="primary" @click="search">查询</el-button>
                   <el-button @click="resetConditions">重置</el-button>
-                  <span class="table-tools__conditions__buttons__txt" @click="openConditions"
-                    >展开<svg-icon name="down" class="ml-6"
-                  /></span>
+                  <span class="table-tools__conditions__buttons__txt" @click="openConditions">
+                    <span>{{ conditionsOpenFlag ? '收起' : '展开' }}</span>
+                    <svg-icon :name="conditionsOpenFlag ? 'up' : 'down'" class="ml-6" />
+                  </span>
                 </div>
               </el-form-item>
             </el-col>

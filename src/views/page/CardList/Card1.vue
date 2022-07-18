@@ -5,7 +5,7 @@
         <el-button type="primary">+ 新增质检方案</el-button>
       </div>
       <div class="card-tools__right">
-        <el-form ref="conditions" inline @submit.native.prevent>
+        <el-form ref="conditionsForm" inline @submit.native.prevent>
           <el-form-item>
             <el-input v-model="name" placeholder="请输入名称" />
           </el-form-item>
@@ -60,9 +60,10 @@
   </el-card>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Ref, Vue } from 'vue-property-decorator'
 import { getCardList } from '@/api/card'
 import type { CardListItem } from '@/types/Card'
+import type { ElForm } from 'element-ui/types/Form'
 
 @Component({
   name: 'Card1',
@@ -74,6 +75,8 @@ export default class extends Vue {
   private mounted() {
     this.getData()
   }
+
+  @Ref() readonly conditionsForm!: ElForm
 
   // 加载状态
   private loading = false
@@ -104,8 +107,7 @@ export default class extends Vue {
    * 重置搜索表单
    */
   private resetConditions() {
-    const conditionsForm: any = this.$refs.conditions
-    conditionsForm.resetFields()
+    this.conditionsForm.resetFields()
   }
 }
 </script>

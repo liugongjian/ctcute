@@ -3,7 +3,7 @@
     <!--表格工具栏-->
     <div class="table-tools">
       <div class="table-tools__conditions">
-        <el-form ref="conditions" :model="conditions" inline @submit.native.prevent>
+        <el-form ref="conditionsRef" :model="conditions" inline @submit.native.prevent>
           <el-row v-show="conditionsOpenFlag" :gutter="24">
             <el-col :span="8">
               <el-form-item prop="name">
@@ -121,11 +121,10 @@
           <el-dropdown trigger="click">
             <span class="actions__txt"> 更多<svg-icon name="caret-down" class="actions__svgicon" /> </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>黄金糕</el-dropdown-item>
-              <el-dropdown-item>狮子头</el-dropdown-item>
-              <el-dropdown-item>螺蛳粉</el-dropdown-item>
-              <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-              <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+              <el-dropdown-item>退订</el-dropdown-item>
+              <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
+              <el-dropdown-item>创建</el-dropdown-item>
+              <el-dropdown-item disabled>Disabled</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </template>
@@ -146,6 +145,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import * as ProTable3 from '@/types/ProTable3'
 import { getTable, getHosts, getEnvs } from '@/api/proTable3'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
+import { ElForm } from 'element-ui/types/form'
 
 @Component({
   name: 'ProTable3',
@@ -293,8 +293,8 @@ export default class extends Vue {
    * 重置搜索表单
    */
   private resetConditions() {
-    const conditionsForm: any = this.$refs.conditions
-    conditionsForm.resetFields()
+    const conditionsRef = this.$refs.conditionsRef as ElForm
+    conditionsRef.resetFields()
   }
 
   /**

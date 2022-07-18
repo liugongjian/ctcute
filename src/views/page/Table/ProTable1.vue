@@ -37,10 +37,6 @@
 
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit border>
-      <!-- <template slot="empty">
-        <img src="./image/not-have.svg" alt="" />
-        <span>暂无数据</span>
-      </template> -->
       <el-table-column prop="name" label="主机别名" />
       <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
       <el-table-column prop="ip" label="IP地址" />
@@ -94,8 +90,8 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import * as SimpleTable from '@/types/SimpleTable'
-import { getTable, getHosts } from '@/api/simpleTable'
+import * as ProTable1 from '@/types/ProTable1'
+import { getTable, getHosts } from '@/api/proTable1'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
 import CuteTableFilter from '@/components/CuteTable/CuteTableFilter.vue'
 @Component({
@@ -109,7 +105,7 @@ export default class extends Vue {
   private flag = false
 
   // 搜索信息
-  private conditions: SimpleTable.Conditions = {
+  private conditions: ProTable1.Conditions = {
     host: '',
     name: '',
   }
@@ -128,7 +124,7 @@ export default class extends Vue {
   private loading = false
 
   // 表格数据
-  private tableData: SimpleTable.Host[] = null
+  private tableData: ProTable1.Host[] = null
 
   /**
    * 页面Mounted
@@ -157,7 +153,7 @@ export default class extends Vue {
     try {
       this.loading = true
       // 分页信息和搜索条件
-      const params: SimpleTable.TableParams = {
+      const params: ProTable1.TableParams = {
         page: this.pager.page,
         limit: this.pager.limit,
         ...this.conditions,
@@ -209,7 +205,7 @@ export default class extends Vue {
    * 查看详情
    * @param data {SimpleTable.Host} 表格行对象
    */
-  private gotoDetail(data: SimpleTable.Host) {
+  private gotoDetail(data: ProTable1.Host) {
     this.$message.success(`前往${data.name}详情页面`)
   }
 
@@ -217,7 +213,7 @@ export default class extends Vue {
    * 查看监控指标
    * @param data {SimpleTable.Host} 表格行对象
    */
-  private gotoDashboard(data: SimpleTable.Host) {
+  private gotoDashboard(data: ProTable1.Host) {
     this.$message.info(`前往${data.name}监控指标页面`)
   }
 
@@ -225,7 +221,7 @@ export default class extends Vue {
    * 使用字典格式化实例状态
    * @param data {SimpleTable.Host} 表格行对象
    */
-  private statusFormatter(data: SimpleTable.Host) {
+  private statusFormatter(data: ProTable1.Host) {
     return STATUS[data.status]
   }
 

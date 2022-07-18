@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-07-15 21:02:01
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-18 12:31:54
+ * @LastEditTime: 2022-07-18 14:20:28
  * @Description:
  */
 import path from 'path'
@@ -68,6 +68,11 @@ function getAnnotation(content: string) {
   return getQuery(comment)
 }
 
+function getLastPath(file: string) {
+  const splitFilePath = file.split('/src/views/page/')
+  return splitFilePath[splitFilePath.length - 1]
+}
+
 async function writeIndexFile(path: string, data: string) {
   fsPromises.writeFile(path, data)
 }
@@ -85,7 +90,11 @@ async function writeIndexFile(path: string, data: string) {
 
         const res = getAnnotation(templateArray[0])
         if (res) {
-          const fileName = file.slice(0, -4)
+          let fileName = file.slice(0, -4)
+          // 如果是index，则使用目录名
+          if (fileName === 'index') {
+            fileName = getLastPath(filePath)
+          }
           let strTmp = ''
           for (let [key, value] of res.entries()) {
             strTmp += `${key} ${[...value].join('')}\n`

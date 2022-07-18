@@ -367,9 +367,9 @@ const pageRoutes = [
     path: '/page/chart',
     redirect: '/page/chart/simpleChart',
     component: Layout,
-    name: 'simpleChart',
+    name: 'Chart',
     meta: {
-      title: 'SimpleChart 基础图表',
+      title: 'Chart 图表',
       alwaysShow: true,
       breadcrumb: true,
     },
@@ -377,7 +377,7 @@ const pageRoutes = [
       {
         path: 'Chart',
         component: () => import(/* webpackChunkName: "simplechart" */ '@/views/page/Chart/SimpleChart.vue'),
-        name: 'Chart',
+        name: 'SimpleChart',
         meta: {
           title: 'SimpleChart 基础图表',
           breadcrumb: true,
@@ -409,7 +409,7 @@ const pageRoutes = [
       {
         path: 'ts-demo',
         component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/TsDemo/index.vue'),
-        name: 'TypeScriptDemo',
+        name: 'TsDemo',
         meta: {
           title: 'TypeScript Demo',
           breadcrumb: true,

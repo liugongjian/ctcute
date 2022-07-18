@@ -1,3 +1,10 @@
+<!--
+ * @Author: 朱凌浩
+ * @Date: 2022-07-08 14:31:41
+ * @LastEditors: 朱凌浩
+ * @LastEditTime: 2022-07-18 14:08:49
+ * @Description: 通用icon
+-->
 <template>
   <el-card>
     <div class="icon__list">

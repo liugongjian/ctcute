@@ -1,3 +1,10 @@
+<!--
+ * @Author: 秦瑞斌
+ * @Date: 2022-07-14 19:41:25
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-07-18 13:43:19
+ * @Description: 复杂表单1
+-->
 <template>
   <div class="pro-form1">
     <el-card>
@@ -161,7 +168,7 @@
               </el-table-column>
             </el-table>
             <el-button
-              style="width: 97%; height: 42px; box-shadow: 0 1px 0 0 #dddddd"
+              style="width: 97%; height: 42px; box-shadow: 0 1px 0 0 #ddd"
               type="text"
               @click="addCondit"
               >+添加条件</el-button

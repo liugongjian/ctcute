@@ -1,3 +1,10 @@
+<!--
+ * @Author: 秦瑞斌
+ * @Date: 2022-07-13 13:41:05
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-07-18 13:52:38
+ * @Description: 中弹窗
+-->
 <template>
   <el-card>
     <h2>中弹窗</h2>

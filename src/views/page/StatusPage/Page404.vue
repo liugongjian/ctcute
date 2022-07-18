@@ -1,3 +1,10 @@
+<!--
+ * @Author: 万璐敏
+ * @Date: 2022-07-08 13:45:09
+ * @LastEditors: 万璐敏
+ * @LastEditTime: 2022-07-18 14:05:44
+ * @Description: 404页
+-->
 <template>
   <div class="page-status">
     <div class="box">

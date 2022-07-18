@@ -3,3 +3,7 @@ vue.config.js
 dist/
 public/
 src/assets/
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+scripts/

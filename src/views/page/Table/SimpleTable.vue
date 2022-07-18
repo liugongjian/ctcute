@@ -1,3 +1,10 @@
+<!--
+ * @Author: 朱凌浩
+ * @Date: 2022-06-18 13:13:36
+ * @LastEditors: 朱凌浩
+ * @LastEditTime: 2022-07-18 13:56:24
+ * @Description: 基础表格
+-->
 <template>
   <el-card class="simple-table">
     <!--表格工具栏-->

@@ -1,3 +1,10 @@
+<!--
+ * @Author: 孙善鹏
+ * @Date: 2022-07-14 19:41:25
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2022-07-18 14:03:58
+ * @Description: 基础图表
+-->
 <template>
   <el-card class="simple-table">
     <!-- 统计数据 -->
@@ -533,51 +540,64 @@ export default class extends Vue {
     margin-top: 22px;
   }
 }
+
 .chart-card-box {
   ::v-deep .el-card__header {
     padding: 0 22px;
   }
+
   .chart-card-header {
     clear: both;
     display: flex;
     align-items: center;
+
     .chart-card-tabs {
       margin-left: auto;
       margin-bottom: -1px;
+
       ::v-deep .el-tabs__header {
         margin: 0;
         height: 40px;
         margin-top: 18px;
       }
+
       ::v-deep .el-tabs__active-bar {
         height: 3px;
       }
-      ::v-deep .el-tabs__nav-wrap::after {
+
+      ::v-deep .el-tabs__nav-wrap:after {
         background: none;
       }
     }
+
     span {
       font-size: 14px;
       color: $color-grey-1;
       line-height: 58px;
       font-weight: bold;
     }
+
     .el-date-editor {
       margin-left: auto;
     }
+
     ::v-deep .el-input__prefix {
       top: -2.4px;
     }
+
     ::v-deep .el-range-separator {
       top: -2.4px;
     }
   }
+
   .chart-box {
     height: 280px;
   }
+
   .chart-box-linebar {
     height: 310px;
   }
+
   .chart-table.el-table {
     .solt {
       margin: 0 auto;
@@ -591,14 +611,17 @@ export default class extends Vue {
       height: 20px;
       text-align: center;
     }
+
     .solt1 {
       background: $color-other-3;
       color: $color-white;
     }
+
     .status {
       padding-left: 18px;
       position: relative;
-      &::after {
+
+      &:after {
         content: '';
         position: absolute;
         width: 8px;
@@ -610,58 +633,71 @@ export default class extends Vue {
         margin-top: -4px;
       }
     }
-    .status1::after {
+
+    .status1:after {
       background: $color-table-status-info;
     }
-    .status2::after {
+
+    .status2:after {
       background: $color-table-status-danger;
     }
-    .status3::after {
+
+    .status3:after {
       background: $color-table-status-warning;
     }
+
     .solt2 {
       background: $color-other-3;
       color: $color-white;
       opacity: 0.8;
     }
+
     .solt3 {
       background: $color-other-3;
       color: $color-white;
       opacity: 0.6;
     }
+
     ::v-deep th.el-table__cell > .cell {
       color: $color-grey-2;
       font-weight: normal;
     }
+
     ::v-deep .el-table__header .el-table__cell {
       border-right: 0;
-      border-bottom: 0px;
+      border-bottom: 0;
       background: $color-grey-11;
     }
+
     ::v-deep .el-table__header .el-table__cell {
       border-right: 0;
-      border-bottom: 0px;
+      border-bottom: 0;
       background: $color-grey-11;
       line-height: 40px;
     }
+
     ::v-deep .el-table__body-wrapper td .el-table__cell {
       padding: 5px 0;
     }
+
     ::v-deep td.el-table__cell {
       border-bottom: 1px solid $color-grey-12;
       color: $color-grey-1;
     }
+
     ::-webkit-scrollbar-track-piece {
       background-color: $color-white;
     }
+
     ::-webkit-scrollbar {
       width: 6px;
       height: 8px;
     }
+
     ::-webkit-scrollbar-thumb:vertical {
       height: 100px;
       background-color: $color-grey-6;
-      -webkit-border-radius: 6px;
+      border-radius: 6px;
       border-radius: 6px;
     }
   }

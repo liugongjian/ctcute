@@ -1,3 +1,10 @@
+<!--
+ * @Author: 吴博聪
+ * @Date: 2022-07-08 16:29:27
+ * @LastEditors: 吴博聪
+ * @LastEditTime: 2022-07-18 13:45:42
+ * @Description: 全屏弹窗
+-->
 <template>
   <el-card>
     <h2>全屏弹窗</h2>

@@ -1,3 +1,10 @@
+<!--
+ * @Author: 赵昕
+ * @Date: 2022-07-18 13:11:31
+ * @LastEditors: 赵昕
+ * @LastEditTime: 2022-07-18 14:02:05
+ * @Description: 复杂详情1
+-->
 <template>
   <el-card class="pro-detail1">
     <div class="detail-header">

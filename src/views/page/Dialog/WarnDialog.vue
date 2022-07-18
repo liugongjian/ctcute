@@ -1,3 +1,10 @@
+<!--
+ * @Author: 李志伟
+ * @Date: 2022-07-08 13:45:09
+ * @LastEditors: 李志伟
+ * @LastEditTime: 2022-07-18 13:55:51
+ * @Description: 告警弹窗
+-->
 <template>
   <el-card>
     <h2>警告弹窗</h2>

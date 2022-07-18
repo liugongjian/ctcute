@@ -1,3 +1,10 @@
+<!--
+ * @Author: 朱凌浩
+ * @Date: 2022-07-12 14:03:28
+ * @LastEditors: 朱凌浩
+ * @LastEditTime: 2022-07-18 13:40:15
+ * @Description: 基础表单
+-->
 <template>
   <el-card class="simple-form">
     <el-form ref="simpleForm" :model="form" :rules="rules" label-width="130px" class="simple-form">

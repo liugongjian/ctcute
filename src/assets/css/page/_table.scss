@@ -100,6 +100,10 @@
 
   /* 表格工具栏 */
   .table-tools {
+    &__left {
+      display: flex;
+    }
+
     &__right {
       display: flex;
       align-items: center;

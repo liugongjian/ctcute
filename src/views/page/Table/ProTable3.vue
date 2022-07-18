@@ -82,17 +82,9 @@
       </div>
       <div class="table-tools__bottom">
         <div class="table-tools__left">
-          <el-select v-model="selectedOptionVal" placeholder="操作已选项">
-            <el-option
-              v-for="item in selectedOptions"
-              :key="item.label + item.value"
-              :label="item.label"
-              :value="item.value"
-              :disabled="item.disabled"
-            />
-          </el-select>
+          <cute-selected-input :data="selectedData" :option-data="optionData" />
           <el-button type="primary" class="ml-20">+ 新增按钮</el-button>
-          <el-button>次按钮</el-button>
+          <el-button class="ml-12">次按钮</el-button>
         </div>
         <div class="table-tools__right">
           <div class="table-tools__right__button__txt" @click="download">
@@ -107,7 +99,7 @@
       </div>
     </div>
     <!--表格-->
-    <el-table v-loading="loading" :data="tableData" fit border>
+    <el-table v-loading="loading" :data="tableData" fit border @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" />
       <el-table-column prop="name" label="主机别名" />
       <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
@@ -176,26 +168,30 @@ export default class extends Vue {
     env_copy_copy: '',
   }
 
+  // 表格选中数据
+  private selectedData = []
+
   // 主机信息下拉框选项
   private hostOptions = []
 
   private envOptions = []
 
-  private selectedOptions = [
+  // 操作已选项下拉数据
+  private optionData = [
     {
-      value: '退订',
+      value: '1',
       label: '退订',
     },
     {
-      value: '续订',
+      value: '2',
       label: '续订',
     },
     {
-      value: '创建',
+      value: '3',
       label: '创建',
     },
     {
-      value: 'Disable',
+      value: '4',
       label: 'Disable',
       disabled: true,
     },
@@ -223,6 +219,10 @@ export default class extends Vue {
     this.getHosts()
     this.getEnvs()
     this.getTable()
+  }
+
+  private handleSelectionChange(val: []) {
+    this.selectedData = val
   }
 
   /**
@@ -393,12 +393,16 @@ export default class extends Vue {
   margin-left: 6px;
 }
 
-.ml-20 {
-  margin-left: 20px;
+.ml-12 {
+  margin-left: 12px;
 }
 
 .ml-22 {
   margin-left: 22px;
+}
+
+.ml-20 {
+  margin-left: 20px;
 }
 
 .mb-16 {

@@ -1,14 +1,16 @@
-[
-  {
-    "name": "SimpleForm.vue",
-    "path": "@/views/page/Form/SimpleForm.vue"
-  },
-  {
-    "name": "SimpleForm.d.ts",
-    "path": "@/types/SimpleForm.d.ts"
-  },
-  {
-    "name": "api/simpleForm.ts",
-    "path": "@/api/simpleForm.ts"
-  }
-]
+{
+  "files": [
+    {
+      "name": "SimpleForm.vue",
+      "path": "@/views/page/Form/SimpleForm.vue"
+    },
+    {
+      "name": "SimpleForm.d.ts",
+      "path": "@/types/SimpleForm.d.ts"
+    },
+    {
+      "name": "api/simpleForm.ts",
+      "path": "@/api/simpleForm.ts"
+    }
+  ]
+}

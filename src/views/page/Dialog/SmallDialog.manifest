@@ -1,6 +1,8 @@
-[
-  {
-    "name": "SmallDialog.vue",
-    "path": "@/views/page/Dialog/SmallDialog.vue"
-  }
-]
+{
+  "files": [
+    {
+      "name": "SmallDialog.vue",
+      "path": "@/views/page/Dialog/SmallDialog.vue"
+    }
+  ]
+}

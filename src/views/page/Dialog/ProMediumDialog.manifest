@@ -1,6 +1,8 @@
-[
-  {
-    "name": "ProMediumDialog.vue",
-    "path": "@/views/page/Dialog/ProMediumDialog.vue"
-  }
-]
+{
+  "files": [
+    {
+      "name": "ProMediumDialog.vue",
+      "path": "@/views/page/Dialog/ProMediumDialog.vue"
+    }
+  ]
+}

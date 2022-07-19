@@ -9,7 +9,7 @@
         <div class="code__header">
           <el-menu ref="menu" :default-active="activePath" mode="horizontal">
             <el-menu-item
-              v-for="file in manifest"
+              v-for="file in files"
               :key="file.path"
               :index="file.path"
               @click="getCode(file.path)"
@@ -17,18 +17,13 @@
             >
           </el-menu>
           <!-- 更多文件 -->
-          <el-dropdown
-            v-if="moreManifest"
-            ref="more"
-            class="code__header__more"
-            @command="handleMoreManifestClick"
-          >
+          <el-dropdown v-if="moreFiles" ref="more" class="code__header__more" @command="handleMoreFilesClick">
             <span class="el-dropdown-link">
               <svg-icon name="down-circle-fill" width="17" height="17" />
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item
-                v-for="file in moreManifest"
+                v-for="file in moreFiles"
                 :key="file.path"
                 :class="{ 'is-active': file.path === activePath }"
                 :command="file.path"
@@ -98,7 +93,7 @@ export default class extends Vue {
   }
 
   private isOpen = false
-  private manifest: Code.Manifest[] = null
+  private files: Code.File[] = null
   private code: string = null
   private activePath = null
   private loading = false
@@ -116,8 +111,8 @@ export default class extends Vue {
     return this.$route.path.startsWith('/page/')
   }
 
-  private get moreManifest() {
-    return this.manifest && this.menuIndex && this.manifest.slice(this.menuIndex)
+  private get moreFiles() {
+    return this.files && this.menuIndex && this.files.slice(this.menuIndex)
   }
 
   @Watch('$route.path')
@@ -130,7 +125,7 @@ export default class extends Vue {
    * 重置
    */
   private reset() {
-    this.manifest = []
+    this.files = []
     this.code = null
     this.menuIndex = 0
   }
@@ -141,22 +136,22 @@ export default class extends Vue {
   private toggle() {
     this.isOpen = !this.isOpen
     if (this.isOpen) {
-      this.getManifest()
+      this.getFiles()
     }
   }
 
   /**
    * 获得代码清单
    */
-  private async getManifest() {
+  private async getFiles() {
     try {
       this.loading = true
       const res = await getManifest({
         name: this.name,
       })
-      this.manifest = res.data
-      if (this.manifest.length) {
-        const path = this.manifest[0].path
+      this.files = res.data.files
+      if (this.files.length) {
+        const path = this.files[0].path
         this.getCode(path)
         this.activePath = path
       }
@@ -249,7 +244,7 @@ export default class extends Vue {
   /**
    * 更多文件列表点击
    */
-  private handleMoreManifestClick(path) {
+  private handleMoreFilesClick(path) {
     this.getCode(path)
   }
 }

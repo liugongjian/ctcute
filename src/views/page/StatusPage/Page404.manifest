@@ -1,10 +1,12 @@
-[
-  {
-    "name": "Page404.vue",
-    "path": "@/views/page/StatusPage/Page404.vue"
-  },
-  {
-    "name": "page-404.svg",
-    "path": "@/views/page/StatusPage/Image/page-404.svg"
-  }
-]
+{
+  "files": [
+    {
+      "name": "Page404.vue",
+      "path": "@/views/page/StatusPage/Page404.vue"
+    },
+    {
+      "name": "page-404.svg",
+      "path": "@/views/page/StatusPage/Image/page-404.svg"
+    }
+  ]
+}

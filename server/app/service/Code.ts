@@ -52,10 +52,11 @@ export default class Code extends Service {
    */
   public async getCodes(name: string) {
     const manifest = await this.getManifest(name)
-    const codes = manifest.map(file => {
+    const files = manifest.files
+    const codes = files.map(file => {
       return {
         path: file.path.replace('@/', ''),
-        code: this.getCode(file.path)
+        code: this.getCode(file.path),
       }
     })
     return codes
@@ -72,10 +73,11 @@ export default class Code extends Service {
     for (const name of pageNames) {
       try {
         const manifest = await this.getManifest(name)
-        const codes = manifest.map(file => {
+        const files = manifest.files
+        const codes = files.map(file => {
           return {
             path: file.path.replace('@/', ''),
-            code: this.getCode(file.path)
+            code: this.getCode(file.path),
           }
         })
         pageRes.push(codes)
@@ -84,7 +86,7 @@ export default class Code extends Service {
       }
     }
     if (errorNames.length > 0) {
-      this.ctx.throwBizError('PAGE_NOT_FOUND', {message: `页面${errorNames.join(',')}不存在`})
+      this.ctx.throwBizError('PAGE_NOT_FOUND', { message: `页面${errorNames.join(',')}不存在` })
     } else {
       return pageRes
     }
@@ -95,7 +97,7 @@ export default class Code extends Service {
    * @return {string[]} 页面名称列表
    */
   public async getAllPageName() {
-   return Object.keys(this.manifestMapping)
+    return Object.keys(this.manifestMapping)
   }
 
   /**

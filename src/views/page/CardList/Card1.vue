@@ -70,7 +70,7 @@
 import { Component, Ref, Vue } from 'vue-property-decorator'
 import { getCardList } from '@/api/card'
 import type { CardListItem } from '@/types/Card'
-import type { ElForm } from 'element-ui/types/Form'
+import type { ElForm } from 'element-ui/types/form'
 
 @Component({
   name: 'Card1',

@@ -16,7 +16,7 @@
           <el-form-item>
             <el-input v-model="name" placeholder="请输入名称" />
           </el-form-item>
-          <el-form-item>
+          <el-form-item class="card-tolls__btn">
             <el-button type="primary" @click="search">查询</el-button>
             <el-button @click="resetConditions">重置</el-button>
           </el-form-item>

@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "name": "Card1.vue",
+      "path": "@/views/page/CardList/Card1.vue"
+    },
+    {
+      "name": "Card.d.ts",
+      "path": "@/types/Card.d.ts"
+    },
+    {
+      "name": "api/card.ts",
+      "path": "@/api/card.ts"
+    }
+  ]
+}

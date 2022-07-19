@@ -54,6 +54,9 @@ export default class extends Vue {
   @Prop()
   private title
 
+  @Prop()
+  private type
+
   mounted() {
     this.setLayoutPadding()
   }
@@ -79,7 +82,8 @@ export default class extends Vue {
   }
 
   private get currentRoutes(): any {
-    return this.routes || PermissionModule.routes
+    const routes = this.routes || PermissionModule.routes
+    return routes.filter(route => route.meta.type === this.type)
   }
 
   private setLayoutPadding() {
@@ -107,36 +111,44 @@ export default class extends Vue {
 ::v-deep .scrollbar-wrapper {
   width: $sidebar-width;
 }
+
 .sidebar {
   display: flex;
+
   &--left {
     width: 50px;
     flex: none;
     font-size: 16px;
     color: $color-grey-2;
     border-right: 1px solid $border-color-primary;
+
     > div {
       text-align: center;
       height: 40px;
       line-height: 40px;
       cursor: pointer;
+
       &:hover {
         background-color: $sidebar-sub-hover;
       }
+
       &.is-first {
         margin-bottom: 1px;
       }
+
       &.is-active {
         background-color: $sidebar-sub-hover;
         color: $color-master-1;
       }
+
       .division {
         height: 1px;
         background-color: $border-color-primary;
-        margin: 0px 8px;
+        margin: 0 8px;
       }
     }
   }
+
   &--knob {
     height: 80px;
     width: 12px;

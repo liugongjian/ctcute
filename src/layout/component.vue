@@ -6,12 +6,13 @@
       本脚手架指定显示了页面规范下的路由表。
       如不需要标题，可直接删除title属性。
     -->
-    <sidebar class="layout-sidebar" :title="sidebarTitle" type="page" />
+    <sidebar class="layout-sidebar" :title="sidebarTitle" type="component" />
     <!-- id在sidebar中被使用，勿随意删改 -->
     <div id="layout-container" class="layout-container">
       <navbar />
-      <code-viewer />
-      <app-main />
+      <el-card>
+        <app-main />
+      </el-card>
     </div>
   </div>
 </template>
@@ -19,7 +20,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { AppMain, Navbar, Sidebar, LayoutHeader } from './components'
-import CodeViewer from './components/CodeViewer/index.vue'
 
 @Component({
   name: 'Layout',
@@ -28,10 +28,9 @@ import CodeViewer from './components/CodeViewer/index.vue'
     Navbar,
     Sidebar,
     LayoutHeader,
-    CodeViewer,
   },
 })
 export default class extends Vue {
-  private sidebarTitle = '页面规范'
+  private sidebarTitle = '组件规范'
 }
 </script>

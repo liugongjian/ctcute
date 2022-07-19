@@ -119,9 +119,11 @@ $border-radius: 2px;
 -------------------------- */
 $padding-primary: 20px;
 $padding-medium: 16px;
-$margin-tiny: 4px;
-$margin-small: 8px;
+$padding-small: 8px;
+$padding-tiny: 4px;
 $margin-medium: 16px;
+$margin-small: 8px;
+$margin-tiny: 4px;
 $margin-primary: $margin-small;
 
 /* Shadow
@@ -178,6 +180,10 @@ $sidebar-width: 190px;
 $sidebar-fill: $color-white;
 $sidebar-sub-fill: $color-white;
 $sidebar-sub-hover: $color-master-7;
+
+/* Animation
+-------------------------- */
+$transition-time: 200ms;
 
 /* The :export directive is the magic sauce for webpack
  * https://mattferderer.com/use-sass-variables-in-typescript-and-javascript

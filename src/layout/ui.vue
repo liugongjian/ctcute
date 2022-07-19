@@ -24,6 +24,6 @@ export default class extends Vue {}
 </script>
 <style lang="scss" scoped>
 .ui-layout-container {
-  background: #fff;
+  background: $color-white;
 }
 </style>

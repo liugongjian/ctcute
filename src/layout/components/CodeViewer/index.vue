@@ -56,7 +56,7 @@
             /></el-button>
           </el-popover>
         </div>
-        <codemirror v-if="code" :value="code" :options="cmOptions" />
+        <vue-code-mirror v-if="code" :code="code" :mode="mode" />
       </div>
     </div>
   </div>
@@ -66,11 +66,6 @@ import { Component, Vue, Watch, Ref } from 'vue-property-decorator'
 import { getManifest, getCode } from '@/api/code'
 import * as Code from '@/types/Code'
 import copy from 'copy-to-clipboard'
-import { codemirror } from 'vue-codemirror'
-import 'codemirror/mode/javascript/javascript.js'
-import 'codemirror/mode/vue/vue.js'
-import 'codemirror/lib/codemirror.css'
-import 'codemirror/theme/base16-light.css'
 
 const CM_MODES = {
   default: 'text/javascript',
@@ -80,21 +75,14 @@ const CM_MODES = {
 @Component({
   name: 'CodeViewer',
   components: {
-    codemirror,
+    VueCodeMirror: () => import(/* webpackChunkName: "codemirror" */ '../VueCodeMirror/index.vue'),
   },
 })
 export default class extends Vue {
-  private cmOptions = {
-    value: '',
-    mode: CM_MODES.default,
-    theme: 'base16-light',
-    lineNumbers: true,
-    readOnly: true,
-  }
-
   private isOpen = false
   private files: Code.File[] = null
   private code: string = null
+  private mode: string = null
   private activePath = null
   private loading = false
   private menuIndex = 0
@@ -197,7 +185,7 @@ export default class extends Vue {
       default:
         mode = CM_MODES.default
     }
-    this.cmOptions.mode = mode
+    this.mode = mode
   }
 
   /**

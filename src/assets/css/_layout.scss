@@ -93,3 +93,11 @@
     color: inherit;
   }
 }
+
+.component__container {
+  padding-bottom: $padding-medium;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

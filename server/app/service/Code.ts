@@ -52,14 +52,17 @@ export default class Code extends Service {
    */
   public async getCodes(name: string) {
     const manifest = await this.getManifest(name)
-    const files = manifest.files
-    const codes = files.map(file => {
+    const manifestFiles = manifest.files
+    const files = manifestFiles.map(file => {
       return {
         path: file.path.replace('@/', ''),
         code: this.getCode(file.path),
       }
     })
-    return codes
+    return {
+      files,
+      package: manifest.package,
+    }
   }
 
   /**

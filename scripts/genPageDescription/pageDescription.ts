@@ -127,7 +127,7 @@ const pageDescription = [
   {
     name: 'ProTable2',
     descriptionInfo:
-      'Author:  马妍\nDate:  2022-07-14 19:41:25\nLastEditors:  马妍\nLastEditTime:  2022-07-18 14:00:10\nDescription:  复杂表格2\n',
+      'Author:  马妍\nDate:  2022-07-14 19:41:25\nLastEditors:  秦瑞斌\nLastEditTime:  2022-07-19 17:02:59\nDescription:  复杂表格2\n',
   },
   {
     name: 'ProTable3',
@@ -137,7 +137,7 @@ const pageDescription = [
   {
     name: 'ProTable4',
     descriptionInfo:
-      'Author:  朱玉豆\nDate:  2022-07-12 16:20:34\nLastEditors:  朱玉豆\nLastEditTime:  2022-07-18 14:01:42\nDescription:  复杂表格4\n',
+      'Author:  肖仁\nDate:  2022-07-12 16:20:34\nLastEditors:  朱玉豆\nLastEditTime:  2022-07-19 10:12:02\nDescription:  复杂表格4\n',
   },
   {
     name: 'SimpleTable',

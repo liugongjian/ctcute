@@ -72,18 +72,22 @@ export default class Code extends Service {
    */
   public async getPageList(pageNames: string[]) {
     const errorNames: string[] = []
-    const pageRes: [][] = []
+    const pageRes: any = []
     for (const name of pageNames) {
       try {
         const manifest = await this.getManifest(name)
-        const files = manifest.files
-        const codes = files.map(file => {
+        const manifestFiles = manifest.files
+
+        const files = manifestFiles.map(file => {
           return {
             path: file.path.replace('@/', ''),
             code: this.getCode(file.path),
           }
         })
-        pageRes.push(codes)
+        pageRes.push({
+          files,
+          package: manifest.package,
+        })
       } catch (e) {
         errorNames.push(name)
       }

@@ -14,7 +14,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import pageRoutes from '@/router/modules/page'
-import { components as uiComponents } from '@/views/ui/compontents/index'
+import { components as uiComponents } from '@/views/ui/components/index'
 
 @Component({
   name: 'Search',

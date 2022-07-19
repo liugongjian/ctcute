@@ -17,7 +17,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { components, list } from './compontents/index'
+import { components, list } from './components/index'
 import Sidebar from './Sidebar.vue'
 
 @Component({

@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2022-07-18 14:00:10
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-07-19 17:02:59
  * @Description: 复杂表格2
 -->
 <template>
@@ -125,11 +125,8 @@ import { Component, Vue } from 'vue-property-decorator'
 import * as ProTable2 from '@/types/ProTable2'
 import { getTable, getHosts } from '@/api/proTable2'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
-// import CuteSelectedInput from '@/components/CuteSelect/CuteSelectedInput.vue'
-// import CuteRemindSelect from '@/components/CuteSelect/CuteRemindSelect.vue'
 @Component({
   name: 'ProTable2',
-  // components: { CuteSelectedInput },
 })
 export default class extends Vue {
   // 健康状态字典

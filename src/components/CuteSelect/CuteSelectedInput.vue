@@ -1,3 +1,10 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-07-14 19:41:25
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-20 13:25:15
+ * @Description: 操作已选项
+-->
 <template>
   <div class="selected-input">
     <el-select ref="select" v-model="sele" :class="flag ? 'select-field' : 'el-select'" @change="change">
@@ -56,7 +63,7 @@ export default class extends Vue {
   }
 
   ::v-deep.el-input__inner {
-    padding-right: 0px;
+    padding-right: 0;
     color: $color-grey-1;
   }
 }

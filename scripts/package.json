@@ -2,11 +2,13 @@
   "name": "scripts",
   "version": "v0.0.1",
   "scripts": {
-    "generate-pageDesc": "ts-node genPageDescription/index.ts"
+    "generate-pageDesc": "ts-node genPageDescription/index.ts",
+    "generate-componentDesc": "ts-node genComponentDescription/index.ts"
   },
   "dependencies": {
     "@babel/runtime": "^7.16.0",
     "@babel/runtime-corejs3": "^7.16.0",
+    "fs-extra": "^10.1.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {

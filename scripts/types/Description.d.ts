@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-07-18 10:18:40
  * @Description:
  */
-export type pageDesc = {
+export type Description = {
   name: string
   descriptionInfo: string
 }

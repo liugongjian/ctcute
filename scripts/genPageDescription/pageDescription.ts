@@ -95,7 +95,12 @@ const pageDescription = [
       'Author:  何晋升\nDate:  2022-07-14 19:41:25\nLastEditors:  胡佳婷\nLastEditTime:  2022-07-18 13:45:39\nDescription:  分步表单\n',
   },
   {
-    name: 'Icon',
+    name: 'QuickStart',
+    descriptionInfo:
+      'Author:  胡佳婷\nDate:  2022-07-08 13:45:09\nLastEditors:  胡佳婷\nLastEditTime:  2022-07-20 09:43:46\nDescription:  快速开始\n',
+  },
+  {
+    name: 'Icon/index.vue',
     descriptionInfo:
       'Author:  朱凌浩\nDate:  2022-07-08 14:31:41\nLastEditors:  朱凌浩\nLastEditTime:  2022-07-18 14:08:49\nDescription:  通用icon\n',
   },
@@ -145,7 +150,7 @@ const pageDescription = [
       'Author:  朱凌浩\nDate:  2022-06-18 13:13:36\nLastEditors:  朱凌浩\nLastEditTime:  2022-07-18 13:56:24\nDescription:  基础表格\n',
   },
   {
-    name: 'TsDemo',
+    name: 'TsDemo/index.vue',
     descriptionInfo:
       'Author:  朱凌浩\nDate:  2022-07-08 13:45:09\nLastEditors:  朱凌浩\nLastEditTime:  2022-07-18 14:09:19\nDescription:  TsDemo\n',
   },

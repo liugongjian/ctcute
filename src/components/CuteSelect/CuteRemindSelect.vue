@@ -1,3 +1,10 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-07-14 19:41:25
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-20 10:59:18
+ * @Description: 带提示的选择器
+-->
 <template>
   <el-select v-model="model" filterable :placeholder="placeholder" clearable>
     <span slot="prefix" class="prefix-placeholder">{{ model ? title : '' }}</span>

@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-07-15 21:08:21
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-20 10:13:43
+ * @LastEditTime: 2022-07-20 13:21:07
  * @Description:
 -->
 <template>
@@ -16,9 +16,10 @@ import { Component, Vue, Watch } from 'vue-property-decorator'
 import { Route } from 'vue-router'
 import CuteMavonEditor from '@/views/page/Guides/components/CuteMavonEditor.vue'
 import pageDescription from 'scripts/genPageDescription/pageDescription'
+import componentDescription from 'scripts/genComponentDescription/componentDescription'
 
 @Component({
-  name: 'PageDescription',
+  name: 'CuteDescription',
   components: {
     CuteMavonEditor,
   },
@@ -28,6 +29,11 @@ export default class extends Vue {
    * @description: 拿到所有页面的描述
    */
   private pageDescription = pageDescription
+
+  /**
+   * @description: 拿到所有组件的描述
+   */
+  private componentDescription = componentDescription
 
   /**
    * @description: 页面描述信息
@@ -48,9 +54,16 @@ export default class extends Vue {
   }
 
   private getContent() {
+    const isPage = this.$route.path.startsWith('/page/')
+    const isComponent = this.$route.path.startsWith('/component/')
     const matched = this.$route.matched.filter(item => item.name)
     const last = matched[matched.length - 1]
-    const descObj = pageDescription.find(item => item.name === last.name)
+    let descObj
+    if (isPage) {
+      descObj = pageDescription.find(item => item.name === last.name)
+    } else if (isComponent) {
+      descObj = componentDescription.find(item => item.name === last.name)
+    }
     if (descObj !== null && descObj !== undefined) {
       this.descriptionInfo = descObj.descriptionInfo
     } else {

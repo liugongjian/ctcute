@@ -704,12 +704,12 @@ export default class extends Vue {
 }
 
 .sub-table:not(:last-child) {
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid $color-grey-7;
   padding-bottom: 24px;
 }
 
 .sub-table-horizon {
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid $color-grey-7;
   padding-bottom: 24px;
 }
 

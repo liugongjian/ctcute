@@ -648,6 +648,11 @@ export default class extends Vue {
       onEnd: ({ newIndex, oldIndex }) => {
         const currRow = this.data.tableData10.splice(oldIndex, 1)[0]
         this.data.tableData10.splice(newIndex, 0, currRow)
+        const newArray = this.data.tableData10.slice(0)
+        this.data.tableData10 = []
+        this.$nextTick(function () {
+          this.data.tableData10 = newArray
+        })
       },
     })
   }

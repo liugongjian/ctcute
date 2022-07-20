@@ -5,7 +5,7 @@ const componentRoutes = [
   {
     path: '/component/base',
     component: Layout,
-    redirect: '/component/base/cute-select',
+    redirect: '/component/base/cute-redmind-select',
     meta: {
       title: '基础组件',
       alwaysShow: true,
@@ -13,11 +13,20 @@ const componentRoutes = [
     },
     children: [
       {
-        path: 'cute-select',
-        name: 'CuteSelect',
-        component: () => import('@/views/component/Base/CuteSelect/index.vue'),
+        path: 'cute-redmind-select',
+        name: 'CuteRemindSelect',
+        component: () => import('@/views/component/Base/CuteRemindSelect/index.vue'),
         meta: {
-          title: 'CuteSelect 选择器',
+          title: 'CuteRemindSelect',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-selected-input',
+        name: 'CuteSelectedInput',
+        component: () => import('@/views/component/Base/CuteSelectedInput/index.vue'),
+        meta: {
+          title: 'CuteSelectedInput',
           breadcrumb: true,
         },
       },

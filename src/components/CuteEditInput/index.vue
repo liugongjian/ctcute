@@ -4,13 +4,14 @@
   /></span>
   <span v-else class="wrap">
     <el-input v-model="value" :type="textarea ? 'textarea' : 'text'" placeholder="请输入"></el-input>
-    <svg-icon name="check" color="#52C41A" @click="onOk" />
-    <svg-icon name="close" color="#F5212D" @click="editing = false" />
+    <svg-icon name="check" :color="colorVariables.colorSuccess" @click="onOk" />
+    <svg-icon name="close" :color="colorVariables.colorDanger" @click="editing = false" />
   </span>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import variables from '@/assets/css/_variables.scss'
 
 @Component({
   name: 'CuteEditInput',
@@ -18,6 +19,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ default: '' }) private value!: string
   @Prop({ default: false }) private textarea!: boolean
+  private colorVariables = variables
   private editing = false
   private onOk() {
     this.editing = false

@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-07-19 17:02:59
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-20 09:22:39
  * @Description: 复杂表格2
 -->
 <template>
@@ -23,27 +23,30 @@
 
           <el-form-item prop="host">
             <cute-remind-select
-              :data="hostOptions"
+              v-model="conditions.host"
+              :options="hostOptions"
               :placeholder="'请选择主机名'"
-              :model="conditions.host"
               :title="'主机名称'"
+              @change="changeFun"
             />
           </el-form-item>
           <el-form-item prop="environment">
             <cute-remind-select
-              :data="hostEnvironmentOptions"
+              v-model="conditions.environment"
+              :options="hostEnvironmentOptions"
               :placeholder="'请选择主机环境'"
-              :model="conditions.environment"
               :title="'环境名称'"
+              @change="changeFun1"
             />
           </el-form-item>
 
           <el-form-item prop="cpu">
             <cute-remind-select
-              :data="cpuOptions"
+              v-model="conditions.cpu"
+              :options="cpuOptions"
               :placeholder="'请选择CPU利用率'"
-              :model="conditions.cpu"
               :title="'cpu利用率'"
+              @change="changeFun2"
             />
           </el-form-item>
           <el-form-item class="table-tools__conditions__buttons">
@@ -53,7 +56,7 @@
         </el-form>
         <div class="table-button">
           <div class="table-button_left">
-            <cute-selected-input :data="selectedData" :option-data="optionData" />
+            <cute-selected-input :checked-list="selectedData" :options="optionData" />
 
             <el-button type="primary"> + 新增按钮 </el-button>
             <el-button @click="resetConditions">次按钮</el-button>
@@ -310,6 +313,16 @@ export default class extends Vue {
     { label: '> =', value: 1 },
     { label: '< =', value: 2 },
   ]
+  //子组件修改父组件的值
+  private changeFun(key) {
+    this.conditions.host = key
+  }
+  private changeFun1(key) {
+    this.conditions.environment = key
+  }
+  private changeFun2(key) {
+    this.conditions.cpu = key
+  }
 }
 </script>
 <style lang="scss" scoped>

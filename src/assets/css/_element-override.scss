@@ -1355,60 +1355,153 @@
 
 /* Upload
 -------------------------- */
-.el-upload {
-  width: 80px;
-  height: 80px;
-  background: $upload-fill;
-
-  .avatar-uploader-icon {
-    font-size: 18px;
-    color: $text-color-light-1;
-    width: 30px;
-    height: 30px;
-    line-height: 80px;
-    align-items: center;
-  }
-}
-
-.sub-upload {
-  .el-upload,
-  .upload-demo {
-    width: 100%;
-    height: 100%;
-  }
-
-  .el-upload {
+@mixin uploader-success {
+  .el-upload-list__item.is-success .el-upload-list__item-name{
+    color: $color-grey-1;
+    font-size: $text-size-small;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    &:hover,&:focus,&:active{
+      color: $color-grey-1;
+    }
+  }
+  .el-icon-document:before{
+    font-family: "cute-icons" !important;
+    font-style: normal;
+    content: '\ea3e';
+    font-size: $text-size-large;
+  }
+  .el-upload-list__item:hover{
+    background: $color-grey-9;
+  }
+  .el-icon-close::before{
+    font-family: "cute-icons" !important;
+    font-style: normal;
+    content: '\ea70' !important;
+    font-size: $text-size-large;
+  }
+  .el-upload__tip{
+    color: $color-grey-2;
+    font-size: $text-size-small;
+    margin: 8px 0 10px 0;
+  }
+  .el-icon-circle-check::before{
+    font-family: "cute-icons" !important;
+    font-style: normal;
+    content: '\ea64' !important;
+    font-size: $text-size-large;
+  }
+}
+//小文件
+.small-uploader{
+  width: 316px;
+  padding: 20px;
+  border: 1px solid $border-color-primary;
+  @include uploader-success()
+}
+//图片上传
+.picture-uploader{
+  display: flex;
+  margin-bottom: 10px;
+  .el-upload--picture-card{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    background-color: $color-white;
+    background: $color-grey-11;
+    .el-icon-plus{
+      font-size: 18px;
+      color: $text-color-light-1;
+    }
+  } 
+  .el-upload-list__item.is-uploading{
+    width: 80px;
+    height: 80px;
+    background-color: $color-grey-11;
+    border: 1px dashed $loading-default-border;
+  }
+  .el-upload-list--picture-card .el-progress{
+    width: 50px !important;
+  }
+ .el-upload-list--picture-card .el-upload-list__item{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .el-upload-list__item-status-label{
+      display: none;
+    }
+ }
+  .el-progress-circle{
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .el-upload-list--picture-card{
+    display: flex;
+    .el-upload-list__item-thumbnail{
+      width: 68px;
+      height: 68px;
+    }
+  }  
+  .el-icon-delete::before{
+    content: '\ea70';
+    font-family: "cute-icons" !important;
+    font-style: normal;
+  }
+
+} 
+//文件上传
+.file-uploader{
+  width: 320px;
+  margin: 24px 0;
+  border-radius: 2px;
+  @include uploader-success();
+  .file-uploader_content{
+    width: 320px;
+    height: 80px;
+    border: 1px solid $border-color-primary;
+  }
+  &:hover {
+    border-color: $color-master-1;
+  }
+  .sub-svg-text {
+    margin-top: 18px;
+
+    svg {
+      color: $color-master-1;
+      margin-right: 10px;
+    }
+
+    span {
+      font-size: 12px;
+      color: $color-master-1;
+    }
   }
 }
 
-.el-upload-dragger {
-  background-color: $upload-fill;
-}
-
-.avatar-uploader {
-  .el-upload.el-upload--text {
-    border: 1px dashed $border-color-primary;
-    border-radius: 2px;
+//拖拽上传
+.drag-uploader{
+  width: 360px;
+  .el-upload-dragger {
+    background-color: $upload-fill;
+    .el-icon-upload {
+      width: 33px !important;
+      height: 42px !important;
+      margin-top: 38px;
+      color: $color-master-1;
+    }
   }
+  @include uploader-success()
 }
-
-.el-upload__tip {
-  font-size: 12px;
-  color: $text-color-light-2;
-  margin: 11px 0 14px 0;
-}
-
 .el-upload__text {
   b {
     font-size: 12px;
     margin-top: 20px;
     line-height: 20px;
-  }
-
+   }
   div {
     font-size: 12px;
     color: $text-color-light-2;

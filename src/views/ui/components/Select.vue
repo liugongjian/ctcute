@@ -49,7 +49,13 @@
       <h3>带提示</h3>
       <div class="line">
         <div class="line__left">
-          <cute-remind-select :data="options1" :title="name" :placeholder="name" :model="value9" />
+          <cute-remind-select
+            v-model="value9"
+            :options="options1"
+            :title="name"
+            :placeholder="name"
+            @change="changeFun"
+          />
         </div>
       </div>
     </div>
@@ -113,9 +119,9 @@
       <h3>操作已选项</h3>
       <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
       <el-row>
-        <cute-selected-input :data="checkList" :option-data="optionData" @request="request" />
+        <cute-selected-input :checked-list="checkedList" :options="optionData" @change="change" />
       </el-row>
-      <el-checkbox-group v-model="checkList">
+      <el-checkbox-group v-model="checkedList">
         <el-row>
           <el-checkbox label="未选中项"></el-checkbox>
         </el-row>
@@ -146,7 +152,7 @@ export default class extends Vue {
     updateTime: '2022.07.12',
   }
 
-  private checkList = ['已选中项']
+  private checkedList = ['已选中项']
   private name = '数据资源名称'
   private selectValue = []
   private value = []
@@ -159,7 +165,6 @@ export default class extends Vue {
   private value7 = ''
   private value8 = ''
   private value9 = ''
-
   private text = ''
   private options = [
     {
@@ -207,7 +212,7 @@ export default class extends Vue {
     },
   ]
 
-  optionData = [
+  private optionData = [
     {
       label: '退订',
       value: '1',
@@ -217,9 +222,13 @@ export default class extends Vue {
       value: '2',
     },
   ]
-
-  private request(data) {
+  //选中数据
+  private change(data) {
     console.log(data)
+  }
+  //子组件修改父组件的值
+  private changeFun(key) {
+    this.value9 = key
   }
 }
 </script>

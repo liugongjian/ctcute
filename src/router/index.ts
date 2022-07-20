@@ -14,7 +14,7 @@ export const constantRoutes: RouteConfig[] = [
   },
   {
     path: '/component',
-    redirect: '/component/base/cute-select',
+    redirect: '/component/base',
     meta: { hidden: true },
   },
 ]

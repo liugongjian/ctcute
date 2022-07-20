@@ -100,4 +100,8 @@
   &:last-child {
     margin-bottom: 0;
   }
+
+  h2 {
+    padding-top: $padding-medium;
+  }
 }

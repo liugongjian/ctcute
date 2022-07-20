@@ -112,8 +112,8 @@
       <el-row>
         <cute-remind-input
           v-model="state1"
-          :restaurants="restaurants"
           :placeholder="placeholder"
+          label="数据资源名称"
           @change="changeFun"
         />
       </el-row>
@@ -222,13 +222,6 @@ export default class extends Vue {
       { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'change' },
     ],
   }
-
-  private restaurants = [
-    { value: '三全鲜食（北新泾店）', address: '长宁区新渔路144号' },
-    { value: 'Hot honey 首尔炸鸡（仙霞路）', address: '上海市长宁区淞虹路661号' },
-    { value: '新旺角茶餐厅', address: '上海市普陀区真北路988号创邑金沙谷6号楼113' },
-    { value: '泷千家(天山西路店)', address: '天山西路438号' },
-  ]
 
   // . 替换成 *
   private changeValue(value: string, type?: boolean) {

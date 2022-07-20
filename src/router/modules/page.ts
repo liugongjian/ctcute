@@ -30,15 +30,6 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
-      {
-        path: 'page-master',
-        name: 'PageMaster',
-        component: () => import('@/views/page/Guides/PageMaster.vue'),
-        meta: {
-          title: '页面维护信息',
-          breadcrumb: true,
-        },
-      },
     ],
   },
   // 弹窗

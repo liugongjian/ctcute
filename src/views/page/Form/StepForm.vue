@@ -151,7 +151,8 @@
             30
           </el-descriptions-item>
         </el-descriptions>
-        <el-result v-show="active > 2" icon="success" sub-title="恭喜你提交成功"> </el-result>
+        <el-result v-show="active > 2" icon="success" sub-title="恭喜你提交成功" style="width: 350px">
+        </el-result>
       </div>
 
       <div class="footer">

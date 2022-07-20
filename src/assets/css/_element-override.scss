@@ -1157,6 +1157,10 @@
   right: 10px;
 }
 
+.el-step.is-horizontal:last-child {
+  flex-basis: auto !important;
+}
+
 .el-steps.max.el-steps--horizontal {
   .el-step__line {
     top: 15px;

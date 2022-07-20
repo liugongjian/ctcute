@@ -5,12 +5,12 @@
       "path": "@/views/page/CardList/Card3.vue"
     },
     {
-      "name": "Card.d.ts",
-      "path": "@/types/Card.d.ts"
+      "name": "Card3.d.ts",
+      "path": "@/types/Card3.d.ts"
     },
     {
-      "name": "api/card.ts",
-      "path": "@/api/card.ts"
+      "name": "api/Card3.ts",
+      "path": "@/api/card3.ts"
     }
   ]
 }

@@ -68,8 +68,8 @@
 </template>
 <script lang="ts">
 import { Component, Ref, Vue } from 'vue-property-decorator'
-import { getCardList } from '@/api/card'
-import type { CardListItem } from '@/types/Card'
+import { getCardList } from '@/api/card1'
+import type { CardListItem } from '@/types/Card1'
 import type { ElForm } from 'element-ui/types/form'
 
 @Component({

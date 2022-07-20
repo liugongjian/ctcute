@@ -62,8 +62,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import * as CardList from '@/types/Card'
-import { getCardData } from '@/api/card'
+import * as CardList from '@/types/Card3'
+import { getCardData } from '@/api/card3'
 
 @Component({
   name: 'Card3',

@@ -84,8 +84,8 @@
 <script lang="ts">
 import CuteEditInput from '@/components/CuteEditInput/index.vue'
 import { Component, Vue } from 'vue-property-decorator'
-import { getCardList } from '@/api/card'
-import type { CardListItem } from '@/types/Card'
+import { getCardList } from '@/api/card2'
+import type { CardListItem } from '@/types/Card2'
 
 @Component({
   name: 'Card1',

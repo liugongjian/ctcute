@@ -11,6 +11,10 @@
     {
       "name": "api/simpleDetail.ts",
       "path": "@/api/simpleDetail.ts"
+    },
+    {
+      "name": "dics/simpleDetail",
+      "path": "@/dics/simpleDetail"
     }
   ]
 }

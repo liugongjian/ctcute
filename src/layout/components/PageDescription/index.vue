@@ -2,11 +2,13 @@
  * @Author: 胡佳婷
  * @Date: 2022-07-15 21:08:21
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-18 12:39:32
+ * @LastEditTime: 2022-07-20 10:13:43
  * @Description:
 -->
 <template>
-  <cute-mavon-editor :content="descriptionInfo" class="page-desc"></cute-mavon-editor>
+  <div v-if="descriptionInfo">
+    <cute-mavon-editor :content="descriptionInfo" class="page-desc"></cute-mavon-editor>
+  </div>
 </template>
 
 <script lang="ts">
@@ -52,7 +54,7 @@ export default class extends Vue {
     if (descObj !== null && descObj !== undefined) {
       this.descriptionInfo = descObj.descriptionInfo
     } else {
-      this.descriptionInfo = '待补充'
+      this.descriptionInfo = ''
     }
   }
 }

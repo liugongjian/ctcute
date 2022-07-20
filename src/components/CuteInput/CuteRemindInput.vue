@@ -1,16 +1,15 @@
 <template>
-  <el-autocomplete
+  <el-input
     class="inline-input"
     :placeholder="placeholder"
-    :fetch-suggestions="querySearch"
     :trigger-on-focus="false"
     :value="value"
     @input="myChange($event)"
   >
     <span slot="suffix" class="prompt-title"
-      ><div>{{ value ? placeholder : '' }}</div>
+      ><div>{{ value ? label : '' }}</div>
     </span>
-  </el-autocomplete>
+  </el-input>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Model, Emit } from 'vue-property-decorator'
@@ -20,24 +19,13 @@ import { Vue, Component, Prop, Model, Emit } from 'vue-property-decorator'
 })
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) restaurants?: []
-  @Prop({ type: String, default: '' }) placeholder?: ''
+  @Prop({ type: String, default: '' }) placeholder?: '' //placeholder
+  @Prop({ type: String, default: '' }) label?: '' //label
+
   @Model('change', { type: String }) value: string
   @Emit('change')
   myChange(key) {
     return key
-  }
-
-  private querySearch(queryString, cb) {
-    const restaurants = this.restaurants
-    const results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants
-    // 调用 callback 返回建议列表的数据
-    cb(results)
-  }
-
-  private createFilter(queryString) {
-    return restaurant => {
-      return restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
-    }
   }
 }
 </script>

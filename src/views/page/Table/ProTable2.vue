@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-20 17:02:38
+ * @LastEditTime: 2022-07-20 17:37:48
  * @Description: 复杂表格2
 -->
 <template>
@@ -21,7 +21,7 @@
             <cute-remind-input
               v-model="conditions.name"
               :placeholder="placeholder"
-              :restaurants="restaurants"
+              label="数据资源名称"
               @change="cahngeFun3"
             >
             </cute-remind-input>
@@ -206,14 +206,6 @@ export default class extends Vue {
 
   // 表格数据
   private tableData: ProTable2.Host[] = null
-
-  //提示输入
-  private restaurants = [
-    { value: '三全鲜食（北新泾店）', address: '长宁区新渔路144号' },
-    { value: 'Hot honey尔炸鸡（仙霞路）', address: '上海市长宁区淞虹路661号' },
-    { value: '新旺角茶餐厅', address: '上海市普陀区真北路988号创邑金沙谷6号楼113' },
-    { value: '泷千家(天山西路店)', address: '天山西路438号' },
-  ]
 
   /**
    * 页面Mounted

@@ -9,7 +9,7 @@
   <div class="selected-input">
     <el-select ref="select" v-model="sele" :class="flag ? 'select-field' : 'el-select'" @change="change">
       <el-option
-        v-for="(v, i) in optionData"
+        v-for="(v, i) in options"
         :key="i"
         :label="v.label"
         :value="v.value"
@@ -27,30 +27,30 @@ import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
   name: 'CuteSelectedInput',
 })
 export default class extends Vue {
-  @Prop({ type: Array, default: [] }) data?: []
-  @Prop({ type: Array, default: [] }) optionData?: []
+  @Prop({ type: Array, default: [] }) checkedList?: [] //已选中数据
+  @Prop({ type: Array, default: [] }) options?: [] //下拉数据
   private sele = ''
   private flag = false
   private created() {
-    if (this.data.length > 0) {
+    if (this.checkedList.length > 0) {
       this.flag = true
-      this.sele = `操作已选项(${this.data.length})`
+      this.sele = `操作已选项(${this.checkedList.length})`
     } else {
       this.flag = false
       this.sele = '操作已选项'
     }
   }
 
-  @Watch('data')
+  @Watch('checkedList')
   private change() {
-    if (this.data.length > 0) {
+    if (this.checkedList.length > 0) {
       this.flag = true
-      this.sele = `操作已选项(${this.data.length})`
+      this.sele = `操作已选项(${this.checkedList.length})`
     } else {
       this.flag = false
       this.sele = '操作已选项'
     }
-    this.$emit('request', this.data)
+    this.$emit('change', this.checkedList)
   }
 }
 </script>

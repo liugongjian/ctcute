@@ -1,7 +1,7 @@
 <template>
-  <div class="navbar">
+  <div class="navbar desc-nav">
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
-    <description></description>
+    <description class="desc"></description>
   </div>
 </template>
 
@@ -19,3 +19,13 @@ import Description from '../Description/index.vue'
 })
 export default class extends Vue {}
 </script>
+<style lang="scss" scoped>
+.desc-nav {
+  display: flex;
+
+  .desc {
+    margin-top: 2px;
+    margin-left: 10px;
+  }
+}
+</style>

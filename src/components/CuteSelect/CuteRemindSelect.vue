@@ -6,21 +6,25 @@
  * @Description: 带提示的选择器
 -->
 <template>
-  <el-select v-model="model" filterable :placeholder="placeholder" clearable>
-    <span slot="prefix" class="prefix-placeholder">{{ model ? title : '' }}</span>
-    <el-option v-for="item in data" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+  <el-select filterable :placeholder="placeholder" clearable :value="value" @change="myChange($event)">
+    <span slot="prefix" class="prefix-placeholder">{{ value ? title : '' }}</span>
+    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
   </el-select>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop, Model, Emit } from 'vue-property-decorator'
 @Component({
   name: 'CuteRemindSelect',
 })
 export default class extends Vue {
-  @Prop({ type: Array, default: [] }) data?: [] // 下拉数据
+  @Prop({ type: Array, default: [] }) options?: [] // 下拉数据
   @Prop({ type: String, default: '' }) placeholder?: '' // placeholder
   @Prop({ type: String, default: '' }) title?: '' // 提示文案
-  @Prop({ type: String, default: '' }) model?: '' // v-mdel 信息
+  @Model('change', { type: String, default: '' }) value: string
+  @Emit('change')
+  myChange(key) {
+    return key
+  }
 }
 </script>
 

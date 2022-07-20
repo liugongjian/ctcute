@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-07-19 17:02:59
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-20 17:02:38
  * @Description: 复杂表格2
 -->
 <template>
@@ -18,32 +18,41 @@
           @submit.native.prevent
         >
           <el-form-item prop="name">
-            <cute-remind-input :placeholder="placeholder" :model="conditions.name"> </cute-remind-input>
+            <cute-remind-input
+              v-model="conditions.name"
+              :placeholder="placeholder"
+              :restaurants="restaurants"
+              @change="cahngeFun3"
+            >
+            </cute-remind-input>
           </el-form-item>
 
           <el-form-item prop="host">
             <cute-remind-select
-              :data="hostOptions"
+              v-model="conditions.host"
+              :options="hostOptions"
               :placeholder="'请选择主机名'"
-              :model="conditions.host"
               :title="'主机名称'"
+              @change="changeFun"
             />
           </el-form-item>
           <el-form-item prop="environment">
             <cute-remind-select
-              :data="hostEnvironmentOptions"
+              v-model="conditions.environment"
+              :options="hostEnvironmentOptions"
               :placeholder="'请选择主机环境'"
-              :model="conditions.environment"
               :title="'环境名称'"
+              @change="changeFun1"
             />
           </el-form-item>
 
           <el-form-item prop="cpu">
             <cute-remind-select
-              :data="cpuOptions"
+              v-model="conditions.cpu"
+              :options="cpuOptions"
               :placeholder="'请选择CPU利用率'"
-              :model="conditions.cpu"
               :title="'cpu利用率'"
+              @change="changeFun2"
             />
           </el-form-item>
           <el-form-item class="table-tools__conditions__buttons">
@@ -53,7 +62,7 @@
         </el-form>
         <div class="table-button">
           <div class="table-button_left">
-            <cute-selected-input :data="selectedData" :option-data="optionData" />
+            <cute-selected-input :checked-list="selectedData" :options="optionData" />
 
             <el-button type="primary"> + 新增按钮 </el-button>
             <el-button @click="resetConditions">次按钮</el-button>
@@ -198,6 +207,14 @@ export default class extends Vue {
   // 表格数据
   private tableData: ProTable2.Host[] = null
 
+  //提示输入
+  private restaurants = [
+    { value: '三全鲜食（北新泾店）', address: '长宁区新渔路144号' },
+    { value: 'Hot honey尔炸鸡（仙霞路）', address: '上海市长宁区淞虹路661号' },
+    { value: '新旺角茶餐厅', address: '上海市普陀区真北路988号创邑金沙谷6号楼113' },
+    { value: '泷千家(天山西路店)', address: '天山西路438号' },
+  ]
+
   /**
    * 页面Mounted
    */
@@ -310,6 +327,20 @@ export default class extends Vue {
     { label: '> =', value: 1 },
     { label: '< =', value: 2 },
   ]
+
+  /** * 下子组件修改父组件的值*/
+  private changeFun(key) {
+    this.conditions.host = key
+  }
+  private changeFun1(key) {
+    this.conditions.environment = key
+  }
+  private changeFun2(key) {
+    this.conditions.cpu = key
+  }
+  private cahngeFun3(key) {
+    this.conditions.name = key
+  }
 }
 </script>
 <style lang="scss" scoped>

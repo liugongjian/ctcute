@@ -1,18 +1,19 @@
 <template>
   <el-autocomplete
-    v-model="model"
     class="inline-input"
     :placeholder="placeholder"
     :fetch-suggestions="querySearch"
     :trigger-on-focus="false"
+    :value="value"
+    @input="myChange($event)"
   >
     <span slot="suffix" class="prompt-title"
-      ><div>{{ model ? placeholder : '' }}</div>
+      ><div>{{ value ? placeholder : '' }}</div>
     </span>
   </el-autocomplete>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop, Model, Emit } from 'vue-property-decorator'
 
 @Component({
   name: 'CuteRemindInput',
@@ -20,9 +21,11 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) restaurants?: []
   @Prop({ type: String, default: '' }) placeholder?: ''
-  @Prop({ type: String, default: '' }) model?: ''
-
-  private flag = false
+  @Model('change', { type: String }) value: string
+  @Emit('change')
+  myChange(key) {
+    return key
+  }
 
   private querySearch(queryString, cb) {
     const restaurants = this.restaurants

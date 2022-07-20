@@ -164,7 +164,11 @@
     <h3>可多选表格(3个以上操作)</h3>
     <div class="sub-table">
       <div style="margin-bottom: 20px">
-        <cute-selected-input :data="multipleSelectionOver3" placeholder="请选择" :option-data="optionData">
+        <cute-selected-input
+          :checked-list="multipleSelectionOver3"
+          placeholder="请选择"
+          :options="optionData"
+        >
         </cute-selected-input>
       </div>
       <el-table

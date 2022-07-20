@@ -1,7 +1,8 @@
-import 'egg';
+import 'egg'
 
 declare module 'egg' {
   interface Application {
-    BizErrorHandler: any;
+    BizErrorHandler: any
+    manifestMapping: any
   }
 }

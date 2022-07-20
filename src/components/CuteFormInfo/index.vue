@@ -1,3 +1,10 @@
+<!--
+ * @Author: 朱凌浩
+ * @Date: 2022-07-12 14:03:28
+ * @LastEditors: 朱凌浩
+ * @LastEditTime: 2022-07-20 14:36:02
+ * @Description: 提示信息，hover时展示
+-->
 <template>
   <el-popover
     placement="top-start"
@@ -7,7 +14,7 @@
     :open-delay="300"
     :content="content"
   >
-    <svg-icon slot="reference" class="form-item__info" name="question-circle" />
+    <svg-icon slot="reference" class="form-item__info" name="info-circle" />
   </el-popover>
 </template>
 <script lang="ts">

@@ -2,27 +2,31 @@
  * @Author: 胡佳婷
  * @Date: 2022-07-15 21:08:21
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-20 13:21:07
+ * @LastEditTime: 2022-07-20 15:31:09
  * @Description:
 -->
 <template>
-  <div v-if="descriptionInfo">
-    <cute-mavon-editor :content="descriptionInfo" class="page-desc"></cute-mavon-editor>
+  <div v-if="descriptionInfo.length">
+    <el-popover placement="top-start" width="400" trigger="hover" :open-delay="100">
+      <svg-icon slot="reference" class="form-item__info" name="info-circle" />
+      <div v-for="(item, index) in descriptionInfo" :key="index">{{ item }}</div>
+      <!-- <cute-mavon-editor :content="descriptionInfo" class="page-desc"></cute-mavon-editor> -->
+    </el-popover>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { Route } from 'vue-router'
-import CuteMavonEditor from '@/views/page/Guides/components/CuteMavonEditor.vue'
+// import CuteMavonEditor from '@/views/page/Guides/components/CuteMavonEditor.vue'
 import pageDescription from 'scripts/genPageDescription/pageDescription'
 import componentDescription from 'scripts/genComponentDescription/componentDescription'
 
 @Component({
   name: 'CuteDescription',
-  components: {
-    CuteMavonEditor,
-  },
+  // components: {
+  //   CuteMavonEditor,
+  // },
 })
 export default class extends Vue {
   /**
@@ -38,7 +42,7 @@ export default class extends Vue {
   /**
    * @description: 页面描述信息
    */
-  private descriptionInfo = ''
+  private descriptionInfo = []
 
   @Watch('$route')
   private onRouteChange(route: Route) {
@@ -65,9 +69,9 @@ export default class extends Vue {
       descObj = componentDescription.find(item => item.name === last.name)
     }
     if (descObj !== null && descObj !== undefined) {
-      this.descriptionInfo = descObj.descriptionInfo
+      this.descriptionInfo = descObj.descriptionInfo.split('\n')
     } else {
-      this.descriptionInfo = ''
+      this.descriptionInfo = []
     }
   }
 }

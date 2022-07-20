@@ -1,8 +1,8 @@
 <!--
  * @Author: 张晨曦
  * @Date: 2022-07-10 13:13:36
- * @LastEditors: 张晨曦
- * @LastEditTime: 2022-07-18 14:00:22
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-19 22:12:12
  * @Description: 复杂表格3
 -->
 <template>
@@ -83,7 +83,7 @@
       </div>
       <div class="table-tools__bottom">
         <div class="table-tools__left">
-          <cute-selected-input :data="selectedData" :option-data="optionData" />
+          <cute-selected-input :checked-list="selectedData" :options="optionData" />
           <el-button type="primary" class="ml-20">+ 新增按钮</el-button>
           <el-button class="ml-12">次按钮</el-button>
         </div>

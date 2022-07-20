@@ -110,7 +110,12 @@
     <h3 class="sub-title">带提示的输入框</h3>
     <div class="sub-input">
       <el-row>
-        <cute-remind-input :restaurants="restaurants" :placeholder="placeholder" :model="state1" />
+        <cute-remind-input
+          v-model="state1"
+          :restaurants="restaurants"
+          :placeholder="placeholder"
+          @change="changeFun"
+        />
       </el-row>
     </div>
     <h3>长文本域</h3>
@@ -198,9 +203,7 @@ export default class extends Vue {
   private information = '这是一条备注信息'
   private information1 = ''
   private information2 = ''
-
   private state1 = ''
-
   private address = '' // 地址
   private height = '' // 身高
   private url = '' // url
@@ -255,6 +258,10 @@ export default class extends Vue {
       this.changeValue(this.formData.password, true)
       this.flag = true
     }
+  }
+  private changeFun(key) {
+    console.log(key, '1234')
+    this.state1 = key
   }
 }
 </script>

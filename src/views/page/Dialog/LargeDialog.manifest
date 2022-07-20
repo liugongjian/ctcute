@@ -1,6 +1,8 @@
-[
-  {
-    "name": "LargeDialog.vue",
-    "path": "@/views/page/Dialog/LargeDialog.vue"
-  }
-]
+{
+  "files": [
+    {
+      "name": "LargeDialog.vue",
+      "path": "@/views/page/Dialog/LargeDialog.vue"
+    }
+  ]
+}

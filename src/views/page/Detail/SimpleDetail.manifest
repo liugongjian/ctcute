@@ -14,7 +14,7 @@
     },
     {
       "name": "dics/simpleDetail",
-      "path": "@/dics/simpleDetail"
+      "path": "@/dics/simpleDetail.ts"
     }
   ]
 }

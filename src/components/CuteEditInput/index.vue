@@ -1,9 +1,9 @@
 <template>
   <span v-if="!editing"
-    >{{ value }} <svg-icon class="edit-input-icon" name="edit" @click="editing = true"
+    >{{ syncedValue }} <svg-icon class="edit-input-icon" name="edit" @click="editing = true"
   /></span>
   <span v-else class="wrap">
-    <el-input v-model="value" :type="textarea ? 'textarea' : 'text'" placeholder="请输入"></el-input>
+    <el-input v-model="syncedValue" :type="textarea ? 'textarea' : 'text'" placeholder="请输入"></el-input>
     <svg-icon name="check" :color="colorVariables.colorSuccess" @click="onOk" />
     <svg-icon name="close" :color="colorVariables.colorDanger" @click="editing = false" />
   </span>
@@ -17,7 +17,7 @@ import variables from '@/assets/css/_variables.scss'
   name: 'CuteEditInput',
 })
 export default class extends Vue {
-  @VModel({ type: String }) value!: string
+  @VModel({ type: String }) syncedValue!: string
   @Prop({ default: false }) private textarea!: boolean
   private colorVariables = variables
   private editing = false

@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱玉豆
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 朱玉豆
- * @LastEditTime: 2022-07-18 14:02:38
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2022-07-21 10:40:42
  * @Description: 复杂详情2
 -->
 <template>
@@ -102,10 +102,6 @@
             </cute-titled-block>
             <cute-titled-block title="分区字段信息">
               <el-table :data="proDetail2.zoonsInfo1">
-                <template slot="empty">
-                  <img src="./Image/not-have.svg" alt="" />
-                  <span>暂无数据</span>
-                </template>
                 <el-table-column prop="id" label="序号"> </el-table-column>
                 <el-table-column prop="name" label="字段名称"> </el-table-column>
                 <el-table-column prop="type" label="类型"> </el-table-column>
@@ -122,10 +118,6 @@
             </cute-titled-block>
             <cute-titled-block title="分区字段信息">
               <el-table :data="proDetail2.zoonsInfo2">
-                <template slot="empty">
-                  <img src="./Image/not-have.svg" alt="" />
-                  <span>暂无数据</span>
-                </template>
                 <el-table-column prop="id" label="序号"> </el-table-column>
                 <el-table-column prop="name" label="字段名称"> </el-table-column>
                 <el-table-column prop="type" label="类型"> </el-table-column>

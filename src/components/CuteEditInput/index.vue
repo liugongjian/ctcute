@@ -10,14 +10,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, VModel, Vue } from 'vue-property-decorator'
 import variables from '@/assets/css/_variables.scss'
 
 @Component({
   name: 'CuteEditInput',
 })
 export default class extends Vue {
-  @Prop({ default: '' }) private value!: string
+  @VModel({ type: String }) value!: string
   @Prop({ default: false }) private textarea!: boolean
   private colorVariables = variables
   private editing = false

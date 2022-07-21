@@ -30,10 +30,10 @@
     <div class="routine-input">
       <h3>编辑输入框</h3>
       <el-row>
-        <cute-edit-input value="单行描述" class="input-demo" />
+        <cute-edit-input v-model="editValue1" class="input-demo" />
       </el-row>
       <el-row>
-        <cute-edit-input :textarea="true" value="多行描述" class="input-demo" />
+        <cute-edit-input v-model="editValue2" :textarea="true" class="input-demo" />
       </el-row>
     </div>
     <h3>搜索输入框</h3>
@@ -191,6 +191,8 @@ export default class extends Vue {
 
   private flag = true
   private value1 = ''
+  private editValue1 = '单行描述'
+  private editValue2 = '多行描述'
   private placeholder = '数据资源名称'
   private num = 1
   private num1 = 1

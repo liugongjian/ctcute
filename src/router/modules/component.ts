@@ -30,6 +30,33 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'cute-titled-block',
+        name: 'CuteTitledBlock',
+        component: () => import('@/views/component/Base/CuteTitledBlock/index.vue'),
+        meta: {
+          title: 'CuteTitledBlock',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-edit-input',
+        name: 'CuteEditInput',
+        component: () => import('@/views/component/Base/CuteEditInput/index.vue'),
+        meta: {
+          title: 'CuteEditInput',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-tag',
+        name: 'CuteTag',
+        component: () => import('@/views/component/Base/CuteTag/index.vue'),
+        meta: {
+          title: 'CuteTag',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

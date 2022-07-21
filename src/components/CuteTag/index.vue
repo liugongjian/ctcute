@@ -1,8 +1,8 @@
 <template>
   <div class="cute-tag-add">
     <el-tag
-      v-for="tag in dynamicTags"
-      :key="tag"
+      v-for="(tag, index) in syncedDynamicTags"
+      :key="index"
       type="info"
       :size="tagSize"
       :class="tagClass"
@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, PropSync } from 'vue-property-decorator'
 const TYPE_CLASSES_MAP = {
   large: 'input-large-tag',
 }
@@ -50,7 +50,7 @@ export default class extends Vue {
   /** input的自定义class 选填 */
   @Prop({ default: '', required: false }) private readonly inputClass: string
   /** tag 默认显示的数组 */
-  @Prop({ type: Array, default: [], required: true }) dynamicTags!: string[]
+  @PropSync('dynamicTags', { type: Array, default: [] }) private syncedDynamicTags!: string[]
   // 新增标签input框是否可见
   private inputVisible = false
   // 新增标签input框输入值
@@ -63,7 +63,7 @@ export default class extends Vue {
   private handleInputConfirm() {
     const inputValue = this.inputValue
     if (inputValue) {
-      this.dynamicTags.push(inputValue)
+      this.syncedDynamicTags.push(inputValue)
     }
     this.inputVisible = false
     this.inputValue = ''
@@ -80,7 +80,7 @@ export default class extends Vue {
   }
   /* 关闭标签 */
   private handleClose(tag) {
-    this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
+    this.syncedDynamicTags.splice(this.syncedDynamicTags.indexOf(tag), 1)
   }
 }
 </script>

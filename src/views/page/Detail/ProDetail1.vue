@@ -10,7 +10,7 @@
     <div class="detail-header">
       <div class="detail-header__left">
         <span class="tags-title">这是一个名称</span>
-        <cute-tag :dynamic-tags="dynamicTags" tag-name="+ 标签"></cute-tag>
+        <cute-tag :dynamic-tags.sync="dynamicTags" tag-name="+ 标签"></cute-tag>
       </div>
       <div class="detail-header__right">
         <cute-button-group :data="buttonData" :max="2" />
@@ -23,31 +23,31 @@
             <el-descriptions class="margin-top" :column="2" border>
               <el-descriptions-item>
                 <template slot="label">内部标识符</template>
-                {{ ProDetail1Info.basic.innerIdentity }}
+                {{ ProDetail1Info && ProDetail1Info.basic && ProDetail1Info.basic.innerIdentity }}
               </el-descriptions-item>
               <el-descriptions-item>
                 <template slot="label">标识符</template>
-                {{ ProDetail1Info.basic.showIdentity }}
+                {{ ProDetail1Info && ProDetail1Info.basic && ProDetail1Info.basic.showIdentity }}
               </el-descriptions-item>
               <el-descriptions-item>
                 <template slot="label">中文名称</template>
-                {{ ProDetail1Info.basic.chineseName }}
+                {{ ProDetail1Info && ProDetail1Info.basic && ProDetail1Info.basic.chineseName }}
               </el-descriptions-item>
               <el-descriptions-item>
                 <template slot="label">英文名称</template>
-                {{ ProDetail1Info.basic.englishName }}
+                {{ ProDetail1Info && ProDetail1Info.basic && ProDetail1Info.basic.englishName }}
               </el-descriptions-item>
               <el-descriptions-item>
                 <template slot="label">语境</template>
-                {{ ProDetail1Info.basic.context }}
+                {{ ProDetail1Info && ProDetail1Info.basic && ProDetail1Info.basic.context }}
               </el-descriptions-item>
               <el-descriptions-item>
                 <template slot="label">版本</template>
-                {{ ProDetail1Info.basic.version }}
+                {{ ProDetail1Info && ProDetail1Info.basic && ProDetail1Info.basic.version }}
               </el-descriptions-item>
               <el-descriptions-item :span="2">
                 <template slot="label">同义名称</template>
-                {{ ProDetail1Info.basic.synonyms }}
+                {{ ProDetail1Info && ProDetail1Info.basic && ProDetail1Info.basic.synonyms }}
               </el-descriptions-item>
             </el-descriptions>
           </div>
@@ -56,7 +56,10 @@
           <div slot="header">分批管理</div>
           <div class="operate-card__left">
             <cute-titled-block title="第一批次">
-              <el-table :data="ProDetail1Info.batches.firstBatch" class="table">
+              <el-table
+                :data="ProDetail1Info && ProDetail1Info.batches && ProDetail1Info.batches.firstBatch"
+                class="table"
+              >
                 <el-table-column prop="area" label="可用区"></el-table-column>
                 <el-table-column prop="date" label="编辑下发事件"></el-table-column>
                 <el-table-column prop="status" label="状态">
@@ -68,7 +71,10 @@
               </el-table>
             </cute-titled-block>
             <cute-titled-block title="手动第二批次">
-              <el-table :data="ProDetail1Info.batches.secondBatch" class="table">
+              <el-table
+                :data="ProDetail1Info && ProDetail1Info.batches && ProDetail1Info.batches.secondBatch"
+                class="table"
+              >
                 <el-table-column prop="area" label="可用区"></el-table-column>
                 <el-table-column prop="date" label="编辑下发事件"></el-table-column>
                 <el-table-column prop="status" label="状态">
@@ -89,7 +95,7 @@
               <div class="timeline-content sub-complex">
                 <el-timeline>
                   <el-timeline-item
-                    v-for="(item, index) in ProDetail1Info.updateList"
+                    v-for="(item, index) in ProDetail1Info && ProDetail1Info.updateList"
                     :key="index"
                     :timestamp="item.title"
                     placement="top"

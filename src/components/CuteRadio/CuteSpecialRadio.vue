@@ -1,25 +1,36 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-07-15 10:12:49
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-20 18:38:40
+ * @Description: 
+-->
 <template>
   <div class="special-radio">
-    <el-radio-group v-model="radio1" :size="size">
+    <el-radio-group :value="value" :size="size">
       <el-radio-button
-        v-for="(item, i) in data"
+        v-for="(item, i) in options"
         :key="i"
         :label="item.label"
         :disabled="item.disabled"
+        @change="myChange($event)"
       ></el-radio-button>
     </el-radio-group>
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop, Model, Emit } from 'vue-property-decorator'
 @Component({
   name: 'CuteSpecialRadio',
 })
 export default class extends Vue {
-  @Prop({ type: Array, default: [] }) data?: []
+  @Prop({ type: Array, default: [] }) options?: []
   @Prop({ type: String, default: '' }) size?: ''
-
-  private radio1 = 'Active'
+  @Model('change', { type: String, default: '' }) value: string
+  @Emit('change')
+  myChange(key) {
+    return key
+  }
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row align="middle" :style="{ 'max-width': maxWidth }">
-      <el-col v-if="goButton" :span="1">
+      <el-col v-if="hasGoButton" :span="1">
         <div class="button-col point-style" @click="goPre">
           <i :class="['el-icon-arrow-left', disableLeft ? 'disabled' : '']"></i>
         </div>
@@ -19,7 +19,7 @@
             v-for="(s, index) in steps"
             v-show="getShow(index)"
             :key="index"
-            :title="gettitle(s, index)"
+            :title="getTitle(s, index)"
             :status="s.status"
             :class="{ stepErr: s.disabled }"
             :style="{ minWidth: widthArr[index] }"
@@ -28,7 +28,7 @@
           </el-step>
         </el-steps>
       </el-col>
-      <el-col v-if="goButton" :span="1">
+      <el-col v-if="hasGoButton" :span="1">
         <div class="button-col point-style" @click="goNext">
           <i :class="['el-icon-arrow-right', disableRight ? 'disabled' : '']"></i>
         </div>
@@ -47,10 +47,10 @@ export default class extends Vue {
   @Prop({ type: String, default: '100%' }) maxWidth?: string // 步骤条长度
   @Prop({ type: String }) direction?: string // 步骤条方向
   @Prop({ type: Number, default: 0 }) active?: number // 激活
-  @Prop({ type: Number, default: 300 }) space?: number // 激活
+  @Prop({ type: Number, default: 300 }) space?: number // 每个 step 的间距，不填写将自适应间距。支持百分比。
   @Prop(Array) readonly steps: any // step数据
   @Prop({ type: Number, default: 1 }) stepSize?: number // 多步骤条时使用，显示几个步骤
-  @Prop({ type: Boolean, default: false }) goButton?: boolean // 是否展示前后退按钮
+  @Prop({ type: Boolean, default: false }) hasGoButton?: boolean // 是否展示前后退按钮
   width = '0'
   disableLeft = false
   disableRight = false
@@ -104,7 +104,7 @@ export default class extends Vue {
     return false
   }
 
-  gettitle(s: any, index: number) {
+  getTitle(s: any, index: number) {
     if (index === this.active) {
       return '正在处理'
     } else if (index === this.active + 1) {

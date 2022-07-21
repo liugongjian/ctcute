@@ -2098,9 +2098,14 @@
     margin-bottom: 15px;
   }
 }
-/* sidebar
+/* Sidebar
 -------------------------- */
 
 .el-submenu__icon-arrow.el-icon-arrow-down::before {
   content: '\e790';
+}
+/* Divider
+-------------------------- */
+.el-divider.el-divider--horizontal{
+  background-color: $color-grey-7;
 }

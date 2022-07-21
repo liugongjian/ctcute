@@ -1,3 +1,10 @@
+/*
+ * @Author: huanglulu
+ * @Date: 2022-07-20 10:15:03
+ * @LastEditors: huanglulu
+ * @LastEditTime: 2022-07-21 17:06:47
+ * @Description: 
+ */
 import Layout from '@/layout/component.vue'
 
 const componentRoutes = [
@@ -53,7 +60,15 @@ const componentRoutes = [
         name: 'CuteTag',
         component: () => import('@/views/component/Base/CuteTag/index.vue'),
         meta: {
-          title: 'CuteTag',
+          title: 'CuteTag'
+        },
+      },
+      {
+        path: 'cute-sort-table',
+        name: 'CuteSortTable',
+        component: () => import('@/views/component/Base/CuteSortTable/index.vue'),
+        meta: {
+          title: 'CuteSortTable',
           breadcrumb: true,
         },
       },

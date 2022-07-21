@@ -30,15 +30,10 @@
     <div class="routine-input">
       <h3>编辑输入框</h3>
       <el-row>
-        <cute-edit-input class="input-demo" :value="editValue1" @input="editValue1 = $event" />
+        <cute-edit-input v-model="editValue1" class="input-demo" />
       </el-row>
       <el-row>
-        <cute-edit-input
-          :textarea="true"
-          :value="editValue2"
-          class="input-demo"
-          @input="editValue2 = $event"
-        />
+        <cute-edit-input v-model="editValue2" :textarea="true" class="input-demo" />
       </el-row>
     </div>
     <h3>搜索输入框</h3>

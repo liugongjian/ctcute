@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2022-07-21 13:16:09
+ * @LastEditTime: 2022-07-21 15:34:26
  * @Description: 复杂详情2
 -->
 <template>
@@ -27,7 +27,7 @@
               draggable
               :default-expanded-keys="['1', '2', '3', '21']"
               :indent="10"
-              style="margin-top: 9px;"
+              style="margin-top: 9px"
             >
               <span slot-scope="{ node, data }" class="node-content">
                 <span class="node-icon">

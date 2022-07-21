@@ -1,10 +1,10 @@
 /* 小卡片 */
-.card1 {
+.card1-page {
   .card-tools {
     display: flex;
     justify-content: space-between;
 
-    .el-button + .el-button,
+    .el-button+.el-button,
     .card-tolls__btn {
       margin-left: 10px;
     }
@@ -58,7 +58,7 @@
       margin-top: 16px;
       border-top: 1px solid $border-color-primary;
 
-      & > div {
+      &>div {
         flex: 1;
         text-align: center;
         border-right: 1px solid $border-color-primary;
@@ -170,7 +170,7 @@
         color: $color-grey-3;
         cursor: pointer;
 
-        & > * {
+        &>* {
           margin: 0 10px;
         }
       }
@@ -194,7 +194,7 @@
         display: flex;
         flex-flow: wrap;
 
-        & > * {
+        &>* {
           background: rgba(0, 0, 0, 4%);
           border: 1px solid rgba(0, 0, 0, 8%);
           border-radius: 2px;
@@ -222,6 +222,7 @@
 }
 
 .card1 {
+
   // 小卡片较少
   .card-box-less {
     .el-card__body {
@@ -278,7 +279,7 @@
         display: flex;
         flex-direction: column;
 
-        & > div {
+        &>div {
           flex: 1;
           display: flex;
           justify-content: center;
@@ -291,7 +292,7 @@
           }
         }
 
-        & > div:hover {
+        &>div:hover {
           cursor: pointer;
           opacity: 0.9;
         }

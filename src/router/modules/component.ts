@@ -39,6 +39,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'cute-edit-input',
+        name: 'CuteEditInput',
+        component: () => import('@/views/component/Base/CuteEditInput/index.vue'),
+        meta: {
+          title: 'CuteEditInput',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

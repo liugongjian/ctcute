@@ -51,6 +51,7 @@ $color-tag-warning-1: #fcd68a;
 $color-tag-warning-2: #fef6e7;
 
 /* 灰色 */
+$color-grey-0: #000;
 $color-grey-1: #333;
 $color-grey-2: #666;
 $color-grey-3: #777;
@@ -199,6 +200,23 @@ $transition-time: 200ms;
   colorInfo: $color-status-info;
   colorDisabled: $disabled-fill;
   colorWhite: $color-white;
+  colorGrey0: $color-grey-0;
   colorGrey1: $color-grey-1;
   colorGrey6: $color-grey-6;
+  // 图表颜色
+  chartColor1:#8ECDFB;
+  chartColor2:#94E794;
+  chartColor3:#FAAD15;
+  chartColor4:#F96965;
+  chartColor5:#B4B4B4;
+  chartColor6:#F7C99C;
+  chartColor7:#FDF5ED;
+  chartColor8:#FDF5ED;
+  chartColor9:#F3AD68;
+  chartColor10:$color-other-3;
+  chartColor11:$color-grey-1;
+  chartColor12:#AAD85F;
+  chartColor13:$color-grey-0;
+  chartColor14:$color-grey-4;
+  
 }

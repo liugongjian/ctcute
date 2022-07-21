@@ -127,6 +127,7 @@
   </el-card>
 </template>
 <script lang="ts">
+import variables from '../../../assets/css/_variables.scss'
 import CuteChartCard from '@/components/CuteCharts/CuteChartCard.vue'
 import CuteChart from '@/components/CuteCharts/CuteChart.vue'
 import { Component, Vue } from 'vue-property-decorator'
@@ -146,7 +147,13 @@ export default class extends Vue {
 
   // 饼图
   option = {
-    color: ['#8ECDFB', '#94E794', '#FAAD15', '#F96965', '#B4B4B4'],
+    color: [
+      variables.chartColor1,
+      variables.chartColor2,
+      variables.chartColor3,
+      variables.chartColor4,
+      variables.chartColor5,
+    ],
     title: {
       text: '流程状态数量',
       subtext: '34567',
@@ -158,17 +165,17 @@ export default class extends Vue {
         fontFamily: '微软雅黑',
         fontSize: 12,
         fontWeight: 400,
-        color: '#333',
+        color: variables.chartColor11,
       },
       subtextStyle: {
         fontSize: 16,
         fontWeight: 500,
         fontFamily: '微软雅黑',
-        color: '#333',
+        color: variables.chartColor11,
       },
     },
     textStyle: {
-      color: '#333',
+      color: variables.chartColor11,
     },
     tooltip: {
       trigger: 'none',
@@ -181,7 +188,7 @@ export default class extends Vue {
       show: true,
       textStyle: {
         fontSize: 12, // 字体大小
-        color: '#333', // 字体颜色
+        color: variables.chartColor11, // 字体颜色
       },
       icon: 'circle',
       top: '20%',
@@ -199,30 +206,8 @@ export default class extends Vue {
             length: 2,
           },
           lineStyle: {
-            color: '#333',
+            color: variables.chartColor11,
           },
-        },
-        label: {
-          // normal: {
-          //   show: true,
-          //   position: 'center',
-          //   color: '#4c4a4a',
-          //   formatter: '{active|流程状态数量}' + '\n\r' + '34567',
-          //   rich: {
-          //     total: {
-          //       fontSize: 16,
-          //       fontWeight: 500,
-          //       fontFamily: '微软雅黑',
-          //       color: '#333'
-          //     },
-          //     active: {
-          //       fontFamily: '微软雅黑',
-          //       fontSize: 12,
-          //       color: '#6c7a89',
-          //       lineHeight: 30,
-          //     },
-          //   }
-          // },
         },
         fontSize: 12, // 字体大小
         type: 'pie',
@@ -239,7 +224,7 @@ export default class extends Vue {
           normal: {
             label: {
               fontSize: 12, // 字体大小
-              color: '#333',
+              color: variables.chartColor11,
               show: true,
               padding: [5, 10],
               // formatter:  '{b} \n {c} ({d}%)'
@@ -260,13 +245,13 @@ export default class extends Vue {
       bottom: '3%',
       containLabel: true,
     },
-    color: ['#F7C99C', '#FDF5ED', '#FAAD15', '#F96965', '#B4B4B4'],
+    color: [variables.chartColor6, variables.chartColor7],
     tooltip: {
       trigger: 'axis',
       axisPointer: {
         type: 'cross',
         label: {
-          backgroundColor: '#333',
+          backgroundColor: variables.chartColor11,
         },
       },
     },
@@ -275,7 +260,7 @@ export default class extends Vue {
       show: true,
       textStyle: {
         fontSize: 12, // 字体大小
-        color: '#333', // 字体颜色
+        color: variables.chartColor11, // 字体颜色
       },
       icon: 'circle',
       top: '6%',
@@ -321,9 +306,9 @@ export default class extends Vue {
         },
         symbol: 'none',
         lineStyle: {
-          color: '#F3AD68',
+          color: variables.chartColor9,
           normal: {
-            color: '#F3AD68',
+            color: variables.chartColor9,
           },
         },
         data: [0, 0, 0, 0, 0, 0, 7, 7, 7, 12, 12, 12, 12],
@@ -337,9 +322,9 @@ export default class extends Vue {
         },
         symbol: 'none',
         lineStyle: {
-          color: '#000',
+          color: variables.chartColor13,
           normal: {
-            color: '#F3AD68',
+            color: variables.chartColor9,
           },
         },
         data: [5, 5, 5, 5, 12, 12, 12, 12, 12, 12, 12, 12, 12],
@@ -355,10 +340,10 @@ export default class extends Vue {
       bottom: '3%',
       containLabel: true,
     },
-    color: ['#8BB2F9'],
+    color: [variables.chartColor10],
     tooltip: {
       trigger: 'axis',
-      color: '#333',
+      color: variables.chartColor11,
       formatter: '{b}' + '<br />' + '流程定义数：{c}',
       axisPointer: {
         type: 'shadow',
@@ -408,7 +393,7 @@ export default class extends Vue {
       axisPointer: {
         type: 'cross',
         crossStyle: {
-          color: '#999',
+          color: variables.chartColor14,
         },
       },
     },
@@ -417,7 +402,7 @@ export default class extends Vue {
       show: true,
       textStyle: {
         fontSize: 12, // 字体大小
-        color: '#333', // 字体颜色
+        color: variables.chartColor11, // 字体颜色
       },
       icon: 'circle',
       top: '0%',
@@ -493,7 +478,7 @@ export default class extends Vue {
             return value + ' ml'
           },
         },
-        color: ['#AAD85F'],
+        color: [variables.chartColor12],
         barWidth: 26,
         data: [30, 28, 25, 24, 21, 20, 16, 15, 13, 12, 10, 7, 3],
       },
@@ -501,7 +486,7 @@ export default class extends Vue {
         name: '完成率（%）',
         type: 'line',
         symbol: 'none',
-        color: ['#8BB2F9'],
+        color: [variables.chartColor10],
         align: 'right',
         yAxisIndex: 1,
         tooltip: {
@@ -521,6 +506,7 @@ export default class extends Vue {
    * 页面Mounted
    */
   created() {
+    console.log('variables', variables)
     this.tableData = []
     for (let i = 1; i < 22; i++) {
       const item = {

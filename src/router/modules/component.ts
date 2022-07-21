@@ -30,6 +30,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'cute-titled-block',
+        name: 'CuteTitledBlock',
+        component: () => import('@/views/component/Base/CuteTitledBlock/index.vue'),
+        meta: {
+          title: 'CuteTitledBlock',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

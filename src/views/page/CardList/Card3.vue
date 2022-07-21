@@ -6,7 +6,7 @@
  * @Description: 卡片3
 -->
 <template>
-  <div class="card3">
+  <div class="card-big">
     <el-card shadow="always">
       <div class="card-btn">
         <el-button type="primary">+ 新增组件类型</el-button>

@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:30
  * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-21 15:32:23
+ * @LastEditTime: 2022-07-21 17:25:34
  * @Description: 
 -->
 <template>
@@ -10,7 +10,7 @@
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
       <h1>CuteSortTable / 可移动排序的表格</h1>
-      <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
+      <p>可移动排序的表格</p>
       <component-demo path="@/views/component/Base/CuteSortTable/Demo1.vue">
         <demo1 />
       </component-demo>

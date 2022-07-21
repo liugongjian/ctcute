@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:14:48
  * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-21 15:32:28
+ * @LastEditTime: 2022-07-21 17:46:33
  * @Description: 
 -->
 <template>
@@ -86,4 +86,10 @@ export default class extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+</style>

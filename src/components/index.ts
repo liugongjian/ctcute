@@ -1,3 +1,10 @@
+/*
+ * @Author: huanglulu
+ * @Date: 2022-07-18 15:05:01
+ * @LastEditors: huanglulu
+ * @LastEditTime: 2022-07-21 17:22:27
+ * @Description: 
+ */
 /**
  * 仅注册使用频率高的，轻量级的组件
  */
@@ -8,6 +15,7 @@ const componentsList = [
   require('./CuteInput/CuteRemindInput.vue'),
   require('./CuteSelect/CuteRemindSelect'),
   require('./CuteSelect/CuteSelectedInput.vue'),
+  require('./CuteTable/CuteSortTable.vue'),
 ]
 
 export default {

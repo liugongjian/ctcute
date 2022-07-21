@@ -48,6 +48,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'cute-tag',
+        name: 'CuteTag',
+        component: () => import('@/views/component/Base/CuteTag/index.vue'),
+        meta: {
+          title: 'CuteTag',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:23
  * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-21 17:57:12
+ * @LastEditTime: 2022-07-22 17:23:30
  * @Description: 
 -->
 <template>
@@ -14,8 +14,10 @@
     :current-page.sync="page"
     :page-size.sync="limit"
     @refresh="refresh"
-    @handle-sort="handleSort"
   >
+    <template #name="{ scope }">
+      <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
+    </template>
     <template #label="{ scope }">
       <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
       <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
@@ -53,12 +55,18 @@
         </el-dropdown-menu>
       </el-dropdown>
     </template>
+    <template #priority="{ scope }">
+      <div class="sort-table">
+        <svg-icon name="sort" />
+      </div>
+    </template>
   </cute-sort-table>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { HEALTH } from '@/dics/simpleTable'
 import data from '../../../../utils/mock'
+import Sortable from 'sortablejs'
 
 @Component({
   name: 'Demo3',
@@ -66,19 +74,25 @@ import data from '../../../../utils/mock'
 export default class extends Vue {
   private tableData = data.tableData10
   private tableColumns = [
-    { prop: 'name', label: '主机别名' },
+    { prop: 'name', label: '主机别名', slot: 'name' },
     { prop: 'status', label: '实例状态' },
     { prop: 'time', label: '时间', width: '150px', sortable: true },
     { prop: 'label', label: '标签', width: 150, slot: 'label' },
     { prop: 'description', label: '描述', width: '150px', slot: 'description' },
     { prop: 'healthy', label: '健康状态', slot: 'healthy' },
     { prop: 'operation', label: '操作', width: 190, slot: 'operation' },
+    { prop: 'priority', label: '优先级', width: 150, slot: 'priority' },
   ]
   private HEALTH = HEALTH
   private total = 100
   private page = 4
   private limit = 10
   private flag = false
+  sortable: any
+
+  private mounted() {
+    this.rowDrop()
+  }
 
   private openDropdown(e) {
     e ? (this.flag = true) : (this.flag = false)
@@ -90,13 +104,22 @@ export default class extends Vue {
     this.limit = val.pageSize
   }
 
-  private handleSort(val) {
-    const currRow = this.tableData.splice(val.oldIndex, 1)[0]
-    this.tableData.splice(val.newIndex, 0, currRow)
-    const newArray = this.tableData.slice(0)
-    this.tableData = []
-    this.$nextTick(function () {
-      this.tableData = newArray
+  // 行拖拽排序, .sort-table 可拖拽元素
+  private rowDrop() {
+    const table = this.$refs.sortTable as any
+    const tbody = table.$el.querySelectorAll('tbody')
+
+    this.sortable = Sortable.create(tbody[0], {
+      handle: '.sort-table',
+      onEnd: ({ newIndex, oldIndex }) => {
+        const currRow = this.tableData.splice(oldIndex, 1)[0]
+        this.tableData.splice(newIndex, 0, currRow)
+        const newArray = this.tableData.slice(0)
+        this.tableData = []
+        this.$nextTick(function () {
+          this.tableData = newArray
+        })
+      },
     })
   }
 }

@@ -56,14 +56,14 @@ module.exports = {
     config.resolve.alias.set('scripts', path.join(__dirname, 'scripts'))
     // set svg-sprite-loader
    config.module.rule('svg').exclude
-      .add(path.join(__dirname, 'packages/bases/assets/icons'))
+      .add(path.join(__dirname, 'packages/base/assets/icons'))
       .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
       .end()
     config.module
       .rule('icons')
       .test(/\.svg$/)
       .include
-      .add(path.join(__dirname, 'packages/bases/assets/icons'))
+      .add(path.join(__dirname, 'packages/base/assets/icons'))
       .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
       .end()
       .use('svg-sprite-loader')

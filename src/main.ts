@@ -7,7 +7,6 @@ import i18n from '@/i18n'
 import mavonEditor from 'mavon-editor'
 import '@/permission'
 import 'mavon-editor/dist/css/index.css'
-import './assets/css/index.scss'
 
 Vue.use(mavonEditor)
 Vue.use(CuteComponent)

@@ -11,7 +11,11 @@ import './components/ElementUI/settings'
 import './assets/css/element-variables.scss'
 import './assets/fonts/iconfont.css'
 import './assets/icons/index'
+import './assets/css/index.scss'
 
+/**
+ * 组件清单
+ */
 import CuteChart from './components/CuteCharts/CuteChart.vue'
 import CuteChartCard from './components/CuteCharts/CuteChartCard.vue'
 import CuteButtonGroup from './components/CuteCombinationButton/CuteButtonGroup.vue'

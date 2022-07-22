@@ -102,7 +102,11 @@
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit border @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" />
-      <el-table-column prop="name" label="主机别名" />
+      <el-table-column prop="name" label="主机别名">
+        <template slot-scope="{ row }">
+          <router-link to="/">{{ row.name }}</router-link>
+        </template>
+      </el-table-column>
       <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
       <el-table-column prop="ip" label="IP地址" />
       <el-table-column prop="cpu" label="CPU利用率(%)" />
@@ -203,8 +207,8 @@ export default class extends Vue {
   // 分页信息
   private pager = {
     page: 1,
-    limit: 10,
-    total: 20,
+    limit: 20,
+    total: 40,
   }
 
   // 加载状态

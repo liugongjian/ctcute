@@ -10,7 +10,7 @@
     },
     {
       "name": "api/ProTable3.ts",
-      "path": "@/api/ProTable3.ts"
+      "path": "@/api/proTable3.ts"
     },
     {
       "name": "dics/proTable3.ts",

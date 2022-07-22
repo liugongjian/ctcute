@@ -1,8 +1,8 @@
 {
   "files": [
     {
-      "name": "proTable1.vue",
-      "path": "@/views/page/Table/proTable1.vue"
+      "name": "ProTable1.vue",
+      "path": "@/views/page/Table/ProTable1.vue"
     },
     {
       "name": "ProTable1.d.ts",

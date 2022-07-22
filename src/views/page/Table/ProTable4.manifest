@@ -2,7 +2,7 @@
   "files": [
     {
       "name": "ProTable4.vue",
-      "path": "@/views/page/table/ProTable4.vue"
+      "path": "@/views/page/Table/ProTable4.vue"
     },
     {
       "name": "ProTable4.d.ts",

@@ -55,11 +55,16 @@ module.exports = {
     // 配置alias
     config.resolve.alias.set('scripts', path.join(__dirname, 'scripts'))
     // set svg-sprite-loader
-    config.module.rule('svg').exclude.add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons')).end()
+   config.module.rule('svg').exclude
+      .add(path.join(__dirname, 'package/bases/assets/icons'))
+      .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
+      .end()
     config.module
       .rule('icons')
       .test(/\.svg$/)
-      .include.add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
+      .include
+      .add(path.join(__dirname, 'package/bases/assets/icons'))
+      .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
       .end()
       .use('svg-sprite-loader')
       .loader('svg-sprite-loader')

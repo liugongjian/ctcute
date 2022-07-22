@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 朱凌浩
- * @LastEditTime: 2022-07-18 13:56:24
+ * @LastEditTime: 2022-07-22 15:14:06
  * @Description: 基础表格
 -->
 <template>
@@ -90,8 +90,8 @@ export default class extends Vue {
   // 分页信息
   private pager = {
     page: 1,
-    limit: 10,
-    total: 20,
+    limit: 20,
+    total: 40,
   }
 
   // 加载状态

@@ -3,7 +3,7 @@
  * @Date: 2022-07-20 10:15:03
  * @LastEditors: huanglulu
  * @LastEditTime: 2022-07-21 17:06:47
- * @Description: 
+ * @Description:
  */
 import Layout from '@/layout/component.vue'
 
@@ -60,7 +60,7 @@ const componentRoutes = [
         name: 'CuteTag',
         component: () => import('@/views/component/Base/CuteTag/index.vue'),
         meta: {
-          title: 'CuteTag'
+          title: 'CuteTag',
         },
       },
       {

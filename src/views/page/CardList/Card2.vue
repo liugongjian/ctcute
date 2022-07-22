@@ -6,7 +6,7 @@
  * @Description: 卡片2
 -->
 <template>
-  <el-card class="card1">
+  <el-card class="card-small">
     <div class="card-tools">
       <div class="card-tools__left">
         <el-button type="primary">+ 新增质检方案</el-button>

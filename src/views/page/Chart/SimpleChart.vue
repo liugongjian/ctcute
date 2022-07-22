@@ -127,9 +127,8 @@
   </el-card>
 </template>
 <script lang="ts">
-import variables from '../../../assets/css/_variables.scss'
-import CuteChartCard from '@/components/CuteCharts/CuteChartCard.vue'
-import CuteChart from '@/components/CuteCharts/CuteChart.vue'
+import variables from '@cutedesign/base/assets/css/_variables.scss'
+import { CuteChartCard, CuteChart } from '@cutedesign/base'
 import { Component, Vue } from 'vue-property-decorator'
 @Component({
   name: 'SimpleChart',

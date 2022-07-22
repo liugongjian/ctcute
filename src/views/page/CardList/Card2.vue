@@ -82,7 +82,7 @@
   </el-card>
 </template>
 <script lang="ts">
-import CuteEditInput from '@/components/CuteEditInput/index.vue'
+import { CuteEditInput } from '@cutedesign/base'
 import { Component, Vue } from 'vue-property-decorator'
 import { getCardList } from '@/api/card2'
 import type { CardListItem } from '@/types/Card2'

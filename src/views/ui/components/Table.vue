@@ -588,10 +588,8 @@ import { Component, Vue } from 'vue-property-decorator'
 import data from '../../../utils/mock'
 import { HEALTH, STATUS2 } from '@/dics/simpleTable'
 import Sortable from 'sortablejs'
-// import CuteSelectedInput from '@/components/CuteSelect/CuteSelectedInput.vue'
 @Component({
   name: 'UiTable',
-  // components: { CuteSelectedInput },
 })
 export default class extends Vue {
   private data = data

@@ -205,7 +205,7 @@
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import * as ProForm1 from '@/types/ProForm1'
-import CuteTitledBlock from '@/components/CuteTitledBlock/index.vue'
+import { CuteTitledBlock } from '@cutedesign/base'
 import { getAlertTarget } from '@/api/simpleForm'
 import { createProForm1 } from '@/api/proForm1'
 

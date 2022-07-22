@@ -1,0 +1,18 @@
+{
+  "name": "@cutedesign/base",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "components/index.ts",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.ctyuncdn.cn/ct-basic/cute-design-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

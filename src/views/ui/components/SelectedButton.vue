@@ -38,7 +38,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteSpecialRadio from '@/components/CuteRadio/CuteSpecialRadio.vue'
+import { CuteSpecialRadio } from '@cutedesign/base'
 
 @Component({
   name: 'UiSelectedButton',

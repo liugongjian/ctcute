@@ -1,0 +1,107 @@
+.app-wrapper {
+  @include clearfix;
+
+  position: relative;
+  width: 100%;
+}
+
+/* 侧边栏样式 */
+.layout-sidebar {
+  transition: width 0.28s;
+  height: 100%;
+  position: fixed;
+  font-size: 0;
+  top: $header-height;
+  bottom: 0;
+  left: 0;
+  background: $sidebar-fill;
+  z-index: 10;
+
+  &__title {
+    font-size: 14px;
+    color: $text-color-primary;
+    padding: 15px 0 10px 20px;
+    font-weight: bold;
+  }
+
+  .scrollbar-wrapper {
+    overflow-x: hidden !important;
+  }
+
+  .el-scrollbar__view {
+    height: 100%;
+  }
+
+  .el-scrollbar__bar {
+    &.is-vertical {
+      right: 0;
+    }
+
+    &.is-horizontal {
+      display: none;
+    }
+  }
+
+  &__menu {
+    padding-bottom: 50px;
+  }
+
+  .el-menu {
+    border: none;
+  }
+
+  .el-menu-item,
+  .el-submenu__title {
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .el-submenu.is-active > .el-submenu__title {
+    color: $text-color-primary;
+  }
+
+  .el-menu-item,
+  .el-submenu > .el-submenu__title,
+  .el-submenu .el-menu-item {
+    min-width: calc($sidebar-width - 40px);
+    background-color: $sidebar-sub-fill;
+    border-right: 2px solid transparent;
+
+    &.is-active,
+    &:hover {
+      background-color: $sidebar-sub-hover !important;
+      border-right: 2px solid $color-master-1;
+    }
+  }
+}
+
+/* 主容器样式 */
+.layout-container {
+  position: relative;
+  min-height: 100%;
+  transition: margin-left 0.28s;
+  padding: $header-height 15px 15px;
+
+  .navbar {
+    margin-top: 15px;
+  }
+
+  .app-main > .el-card.is-always-shadow {
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    color: inherit;
+  }
+}
+
+.component__container {
+  padding-bottom: $padding-medium;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    padding-top: $padding-medium;
+  }
+}

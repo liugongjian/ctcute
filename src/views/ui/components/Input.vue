@@ -171,7 +171,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteEditInput from '@/components/CuteEditInput/index.vue'
+import { CuteEditInput } from '@cutedesign/base'
 @Component({
   name: 'UiInput',
   components: {

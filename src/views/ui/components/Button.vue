@@ -72,7 +72,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteButtonGroup from '@/components/CuteCombinationButton/CuteButtonGroup.vue'
+import { CuteButtonGroup } from '@cutedesign/base'
 
 @Component({
   name: 'UiButton',

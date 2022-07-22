@@ -134,12 +134,9 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-// import CuteRemindSelect from '@/components/CuteSelect/CuteRemindSelect.vue'
-// import CuteSelectedInput from '@/components/CuteSelect/CuteSelectedInput.vue'
 
 @Component({
   name: 'UiSelect',
-  // components: { CuteSelectedInput },
 })
 export default class extends Vue {
   public static title = {

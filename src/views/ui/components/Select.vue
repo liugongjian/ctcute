@@ -62,6 +62,7 @@
     <div class="sub-down">
       <h3>日期/时间选择</h3>
       <div class="sub-date">
+        <el-date-picker v-model="value1" type="date" placeholder="选择日期"> </el-date-picker>
         <el-time-select
           v-model="text"
           :picker-options="{
@@ -72,7 +73,12 @@
           placeholder="选择时间"
         >
         </el-time-select>
-
+      </div>
+      <div class="sub-date">
+        <el-date-picker v-model="value1" size="mini" type="date" placeholder="选择日期"> </el-date-picker>
+        <el-date-picker v-model="value6" type="datetime" placeholder="选择时间" size="mini"> </el-date-picker>
+      </div>
+      <div class="sub-date1">
         <el-date-picker
           v-model="value4"
           type="daterange"
@@ -91,9 +97,7 @@
         >
         </el-date-picker>
       </div>
-      <div class="sub-date">
-        <el-date-picker v-model="value6" type="datetime" placeholder="选择时间" size="mini"> </el-date-picker>
-
+      <div class="sub-date1">
         <el-date-picker
           v-model="value7"
           type="daterange"
@@ -267,13 +271,20 @@ export default class extends Vue {
 }
 
 .sub-date {
-  width: 908px;
-  display: flex;
   margin-bottom: 24px;
+
+  .el-date-editor + .el-date-editor {
+    margin-left: 178px;
+  }
 }
 
-.el-date-editor + .el-date-editor {
-  margin-left: 48px;
+.sub-date1 {
+  display: flex;
+  margin-bottom: 24px;
+
+  .el-date-editor + .el-date-editor {
+    margin-left: 48px;
+  }
 }
 
 .auxiliary-message:after {

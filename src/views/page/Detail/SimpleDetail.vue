@@ -95,7 +95,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteTitledBlock from '@/components/CuteTitledBlock/index.vue'
+import { CuteTitledBlock } from '@cutedesign/base'
 import * as SimpleDetail from '@/types/SimpleDetail'
 import { getSimpleDetail } from '@/api/simpleDetail'
 import { STATUS, PROGRESS } from '@/dics/simpleDetail'

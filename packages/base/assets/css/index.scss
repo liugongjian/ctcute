@@ -40,7 +40,11 @@ a {
 
 a:focus,
 a:hover {
-  color: $color-master-1;
+  color: $color-master-3;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 div:focus {

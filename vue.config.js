@@ -39,8 +39,8 @@ module.exports = {
     'style-resources-loader': {
       preProcessor: 'scss',
       patterns: [
-        path.resolve(__dirname, 'src/assets/css/_variables.scss'),
-        path.resolve(__dirname, 'src/assets/css/_mixins.scss'),
+        path.resolve(__dirname, 'node_modules/@cutedesign/base/assets/css/_variables.scss'),
+        path.resolve(__dirname, 'node_modules/@cutedesign/base/assets/css/_mixins.scss'),
       ],
     },
   },
@@ -55,11 +55,16 @@ module.exports = {
     // 配置alias
     config.resolve.alias.set('scripts', path.join(__dirname, 'scripts'))
     // set svg-sprite-loader
-    config.module.rule('svg').exclude.add(path.join(__dirname, 'src/assets/icons')).end()
+   config.module.rule('svg').exclude
+      .add(path.join(__dirname, 'packages/base/assets/icons'))
+      .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
+      .end()
     config.module
       .rule('icons')
       .test(/\.svg$/)
-      .include.add(path.join(__dirname, 'src/assets/icons'))
+      .include
+      .add(path.join(__dirname, 'packages/base/assets/icons'))
+      .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
       .end()
       .use('svg-sprite-loader')
       .loader('svg-sprite-loader')

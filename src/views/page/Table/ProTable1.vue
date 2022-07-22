@@ -97,7 +97,8 @@ import { Component, Vue } from 'vue-property-decorator'
 import * as ProTable1 from '@/types/ProTable1'
 import { getTable, getHosts } from '@/api/proTable1'
 import { STATUS, HEALTH } from '@/dics/proTable1'
-import CuteTableFilter from '@/components/CuteTable/CuteTableFilter.vue'
+import { CuteTableFilter } from '@cutedesign/base'
+
 @Component({
   name: 'SimpleTable',
   components: { CuteTableFilter },

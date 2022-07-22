@@ -48,6 +48,10 @@
 
   .el-menu {
     border: none;
+
+    a:hover {
+      text-decoration: none;
+    }
   }
 
   .el-menu-item,

@@ -1,0 +1,19 @@
+{
+  "name": "@cutedesign/base",
+  "version": "1.0.1",
+  "description": "",
+  "type": "module",
+  "main": "index.ts",
+  "devDependencies": {},
+  "scripts": {
+    "patch": "npm version patch",
+    "publish": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.ctyuncdn.cn/ct-basic/cute-design-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

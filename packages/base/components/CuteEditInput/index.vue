@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Component, Prop, VModel, Vue } from 'vue-property-decorator'
-import variables from '@/assets/css/_variables.scss'
+import variables from '../../assets/css/_variables.scss'
 
 @Component({
   name: 'CuteEditInput',

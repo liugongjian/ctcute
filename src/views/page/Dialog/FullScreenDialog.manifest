@@ -6,7 +6,7 @@
     }，
     {
       "name": "FullScreenDialog.d.ts",
-      "path": "@/types/FullScreenDialog.d.ts"
+      "path": "@/types/FullscreenDialog.d.ts"
     },
     {
       "name": "api/fullScreenDialog.ts",

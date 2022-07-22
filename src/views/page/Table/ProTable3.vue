@@ -2,7 +2,7 @@
  * @Author: 张晨曦
  * @Date: 2022-07-10 13:13:36
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-19 22:12:12
+ * @LastEditTime: 2022-07-22 17:51:23
  * @Description: 复杂表格3
 -->
 <template>
@@ -148,7 +148,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import * as ProTable3 from '@/types/ProTable3'
 import { getTable, getHosts, getEnvs } from '@/api/proTable3'
-import { STATUS, HEALTH } from '@/dics/simpleTable'
+import { STATUS, HEALTH } from '@/dics/proTable3'
 import { ElForm } from 'element-ui/types/form'
 
 @Component({

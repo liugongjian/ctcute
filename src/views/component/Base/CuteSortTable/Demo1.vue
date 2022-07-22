@@ -1,8 +1,8 @@
 <!--
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:23
- * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-22 17:23:30
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-22 17:57:49
  * @Description: 
 -->
 <template>
@@ -65,7 +65,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { HEALTH } from '@/dics/simpleTable'
-import data from '../../../../utils/mock'
+import data from '@/utils/mock'
 import Sortable from 'sortablejs'
 
 @Component({

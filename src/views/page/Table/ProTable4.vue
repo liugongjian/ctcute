@@ -2,7 +2,7 @@
  * @Author: 肖仁
  * @Date: 2022-07-12 16:20:34
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-22 21:12:26
+ * @LastEditTime: 2022-07-22 21:20:41
  * @Description: 复杂表格4
 -->
 <template>
@@ -97,15 +97,11 @@ import { Component, Vue } from 'vue-property-decorator'
 import * as SimpleTable from '@/types/ProTable4'
 import { getTable, getHosts, getTrees } from '@/api/proTable4'
 import { STATUS, HEALTH } from '@/dics/proTable4'
-import Data from '@/utils/mock'
 
 @Component({
   name: 'SimpleTable',
 })
 export default class extends Vue {
-  // 树数据
-  public data = Data
-
   // 健康状态字典
   private HEALTH = HEALTH
 

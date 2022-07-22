@@ -9,8 +9,8 @@
       "path": "@/types/FullscreenDialog.d.ts"
     },
     {
-      "name": "api/fullScreenDialog.ts",
-      "path": "@/api/fullScreenDialog.ts"
+      "name": "api/fullscreenDialog.ts",
+      "path": "@/api/fullscreenDialog.ts"
     }
   ]
 }

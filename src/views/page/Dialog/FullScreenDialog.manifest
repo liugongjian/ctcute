@@ -3,7 +3,7 @@
     {
       "name": "FullScreenDialog.vue",
       "path": "@/views/page/Dialog/FullScreenDialog.vue"
-    }，
+    },
     {
       "name": "FullScreenDialog.d.ts",
       "path": "@/types/FullscreenDialog.d.ts"

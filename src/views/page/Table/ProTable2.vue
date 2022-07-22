@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-20 17:37:48
+ * @LastEditTime: 2022-07-22 14:24:26
  * @Description: 复杂表格2
 -->
 <template>
@@ -133,7 +133,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import * as ProTable2 from '@/types/ProTable2'
 import { getTable, getHosts } from '@/api/proTable2'
-import { STATUS, HEALTH } from '@/dics/simpleTable'
+import { STATUS, HEALTH } from '@/dics/proTable2'
 @Component({
   name: 'ProTable2',
 })

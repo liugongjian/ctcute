@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-07-18 13:43:19
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-22 10:50:42
  * @Description: 复杂表单1
 -->
 <template>
@@ -206,8 +206,7 @@
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import * as ProForm1 from '@/types/ProForm1'
 import CuteTitledBlock from '@/components/CuteTitledBlock/index.vue'
-import { getAlertTarget } from '@/api/simpleForm'
-import { createProForm1 } from '@/api/proForm1'
+import { createProForm1, getAlertTarget } from '@/api/proForm1'
 
 @Component({
   name: 'ProForm1',

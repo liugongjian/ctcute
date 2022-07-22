@@ -15,10 +15,6 @@
     {
       "name": "dics/proTable4.ts",
       "path": "@/dics/proTable4.ts"
-    },
-    {
-      "name": "utils/mock.js",
-      "path": "@/utils/mock.js"
     }
   ]
 }

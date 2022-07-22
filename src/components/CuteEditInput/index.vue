@@ -23,7 +23,7 @@ export default class extends Vue {
   private editing = false
   private onOk() {
     this.editing = false
-    this.$emit('edit-input-save', syncedValue)
+    this.$emit('edit-input-save', this.syncedValue)
   }
 }
 </script>

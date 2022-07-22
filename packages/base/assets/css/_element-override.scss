@@ -610,7 +610,7 @@
   .el-input__icon.el-icon-time {
     line-height: 32px;
   }
-  .el-input__icon.el-icon-date{
+  .el-input__icon.el-icon-date {
     line-height: 32px;
   }
 }
@@ -834,8 +834,6 @@
 }
 
 .el-table {
-  max-height: 638px;
-  overflow-y: scroll;
   margin: 16px 0 11px 0 !important;
 }
 
@@ -1329,27 +1327,27 @@
   font-size: 12px;
 }
 //日期下拉宽度
-.el-date-range-picker{
+.el-date-range-picker {
   width: 540px !important;
 }
-.el-date-picker .el-picker-panel__content{
-  width: 240PX;
+.el-date-picker .el-picker-panel__content {
+  width: 240px;
 }
-.el-date-picker{
+.el-date-picker {
   width: 270px !important;
 }
-.el-time-spinner__list::before{
+.el-time-spinner__list::before {
   height: 0;
 }
-.el-time-panel__content::before{
+.el-time-panel__content::before {
   top: 19px;
   border: 0;
   background-color: $color-master-7;
 }
-.el-time-panel__content.has-seconds::before{
+.el-time-panel__content.has-seconds::before {
   margin: -15px 0;
 }
-.el-time-spinner__item.active:not(.disabled){
+.el-time-spinner__item.active:not(.disabled) {
   margin-top: 4px;
 }
 /* Slider
@@ -1481,7 +1479,7 @@
     font-family: 'cute-icons' !important;
     font-style: normal;
   }
-  .el-progress-circle svg path:nth-child(2){
+  .el-progress-circle svg path:nth-child(2) {
     stroke: $color-master-1;
   }
 }
@@ -2133,6 +2131,6 @@
 }
 /* Divider
 -------------------------- */
-.el-divider.el-divider--horizontal{
+.el-divider.el-divider--horizontal {
   background-color: $color-grey-7;
 }

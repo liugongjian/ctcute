@@ -23,7 +23,7 @@ export default class extends Vue {
   private editing = false
   private onOk() {
     this.editing = false
-    this.$emit('edit-input-save')
+    this.$emit('edit-input-save', this.syncedValue)
   }
 }
 </script>
@@ -38,7 +38,6 @@ export default class extends Vue {
   &:hover {
     color: $color-master-1;
   }
-
   &.svg-icon {
     vertical-align: sub;
   }
@@ -47,7 +46,6 @@ export default class extends Vue {
 .wrap {
   width: 100%;
   display: inline-block;
-
   .el-input,
   .el-textarea {
     width: calc(100% - 84px);

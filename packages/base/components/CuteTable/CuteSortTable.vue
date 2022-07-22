@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:14:48
  * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-21 17:46:33
+ * @LastEditTime: 2022-07-22 17:25:35
  * @Description: 
 -->
 <template>
@@ -17,24 +17,21 @@
           :width="item.width"
           :min-width="item.minWidth"
           :sortable="item.sortable"
+          :show-overflow-tooltip="item.ellipsis"
+          :fixed="item.fixed"
+          :align="item.align"
           v-bind="item.props"
         >
           <template slot-scope="scope">
-            <span v-if="item.type === 'name'" class="text-ellipsis name-primary" style="width: 100%">{{
-              scope.row.name
-            }}</span>
+            <span v-if="item.type === 'index'">{{ scope.$index + 1 }}</span>
             <slot v-else-if="item.slot" :name="item.slot" :scope="scope" />
             <span v-else>{{ scope.row[item.prop] }}</span>
           </template>
         </el-table-column>
       </template>
-      <el-table-column label="优先级">
-        <div class="sort-table">
-          <svg-icon name="sort" />
-        </div>
-      </el-table-column>
     </el-table>
     <el-pagination
+      v-if="isShowPagination"
       class="pagination"
       :current-page="currentPage"
       :page-size="pageSize"
@@ -47,20 +44,16 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import Sortable from 'sortablejs'
 @Component({
   name: 'CuteSortTable',
 })
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) tableData?: [] // 表格数据
   @Prop({ type: Array, default: [] }) tableColumns?: [] // 表头数据
+  @Prop({ type: Boolean, default: true }) isShowPagination?: true
   @Prop({ type: Number, default: 100 }) total?: 100 // 分页器的总计
   @Prop({ type: Number, default: 4 }) currentPage?: 4 // 分页器的当前页
   @Prop({ type: Number, default: 10 }) pageSize?: 20 // 分页器的每页数据
-  sortable: any
-  private mounted() {
-    this.rowDrop()
-  }
 
   private handleSizeChange(val) {
     console.log(`每页 ${val} 条`)
@@ -70,18 +63,6 @@ export default class extends Vue {
   private handleCurrentChange(val) {
     console.log(`当前页: ${val}`)
     this.$emit('refresh', { pageSize: this.pageSize, pageNum: val })
-  }
-  // 行拖拽排序, .sort-table 可拖拽元素
-  private rowDrop() {
-    const table = this.$refs.sortTable as any
-    const tbody = table.$el.querySelectorAll('tbody')
-
-    this.sortable = Sortable.create(tbody[0], {
-      handle: '.sort-table',
-      onEnd: ({ newIndex, oldIndex }) => {
-        this.$emit('handleSort', { newIndex, oldIndex })
-      },
-    })
   }
 }
 </script>

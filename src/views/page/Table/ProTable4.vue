@@ -1,8 +1,8 @@
 <!--
  * @Author: 肖仁
  * @Date: 2022-07-12 16:20:34
- * @LastEditors: 朱玉豆
- * @LastEditTime: 2022-07-19 10:12:02
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-22 21:12:26
  * @Description: 复杂表格4
 -->
 <template>
@@ -10,7 +10,7 @@
     <el-col :span="4">
       <div class="tree-wrap">
         <h3 class="tree-title">这是一个标题</h3>
-        <el-tree :data="data.threeFour" node-key="key" draggable :default-expanded-keys="[2]" :indent="10">
+        <el-tree :data="treeData" node-key="key" draggable :default-expanded-keys="[2]" :indent="10">
           <span slot-scope="{ node, data }" class="node-content">
             <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
@@ -95,8 +95,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import * as SimpleTable from '@/types/ProTable4'
-import { getTable, getHosts } from '@/api/simpleTable'
-import { STATUS, HEALTH } from '@/dics/simpleTable'
+import { getTable, getHosts, getTrees } from '@/api/proTable4'
+import { STATUS, HEALTH } from '@/dics/proTable4'
 import Data from '@/utils/mock'
 
 @Component({
@@ -118,6 +118,9 @@ export default class extends Vue {
   // 主机信息下拉框选项
   private hostOptions = []
 
+  // 树形数据
+  private treeData = []
+
   // 分页信息
   private pager = {
     page: 1,
@@ -137,6 +140,7 @@ export default class extends Vue {
   private mounted() {
     this.getHosts()
     this.getTable()
+    this.getTrees()
   }
 
   /**
@@ -145,7 +149,19 @@ export default class extends Vue {
   private async getHosts() {
     try {
       const res = await getHosts()
+
       this.hostOptions = res.data
+    } catch (e) {
+      this.$message.error(e)
+    }
+  }
+  /** * 获取树形列表 */
+  private async getTrees() {
+    try {
+      const res = await getTrees()
+      res.data[0].children[0].key = 2
+      this.treeData = res.data
+      console.log(res.data)
     } catch (e) {
       this.$message.error(e)
     }

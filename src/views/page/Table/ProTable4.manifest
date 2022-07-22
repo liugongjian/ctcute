@@ -9,12 +9,12 @@
       "path": "@/types/ProTable4.d.ts"
     },
     {
-      "name": "api/ProTable4.ts",
-      "path": "@/api/ProTable4.ts"
+      "name": "api/proTable4.ts",
+      "path": "@/api/proTable4.ts"
     },
     {
-      "name": "dics/simpleTable.ts",
-      "path": "@/dics/simpleTable.ts"
+      "name": "dics/proTable4.ts",
+      "path": "@/dics/proTable4.ts"
     },
     {
       "name": "utils/mock.js",

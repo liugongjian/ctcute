@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-07-13 13:41:05
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-07-18 13:52:38
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-22 14:28:13
  * @Description: 中弹窗
 -->
 <template>
@@ -66,7 +66,8 @@
 <script lang="ts">
 import { Component, Vue, Prop, Ref } from 'vue-property-decorator'
 import * as MediumDialog from '@/types/MediumDialog'
-import { createMediumDialog } from '@/api/MediumDialog'
+import { createMediumDialog } from '@/api/mediumDialog'
+
 @Component({
   name: 'MediumDialog',
 })

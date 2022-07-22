@@ -5,8 +5,8 @@
       "path": "@/views/page/Table/ProTable2.vue"
     },
     {
-      "name": "proTable2.d.ts",
-      "path": "@/types/proTable2.d.ts"
+      "name": "ProTable2.d.ts",
+      "path": "@/types/ProTable2.d.ts"
     },
     {
       "name": "api/proTable2.ts",

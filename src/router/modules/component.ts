@@ -30,6 +30,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'cute-table-column-settings',
+        name: 'CuteTableColumnSettings',
+        component: () => import('@/views/component/Base/CuteTableColumnSettings/index.vue'),
+        meta: {
+          title: 'CuteTableColumnSettings',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

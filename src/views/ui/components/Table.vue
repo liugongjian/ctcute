@@ -40,12 +40,7 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button
-              type="text"
-              size="small"
-              class="bt-operation"
-              @click="handleClick(scope.$index, scope.row)"
-            >
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">
               挂载
             </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
@@ -53,10 +48,8 @@
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
               <span class="el-dropdown-link">
-                更多<i
-                  class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
-                ></i>
+                更多<i class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
@@ -68,13 +61,8 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
-        class="pagination"
-        :current-page="currentPage4"
-        :total="153"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-      >
+      <el-pagination class="pagination" :current-page="currentPage4" :total="153" @size-change="handleSizeChange"
+        @current-change="handleCurrentChange">
       </el-pagination>
     </div>
 
@@ -84,13 +72,8 @@
         <el-button type="primary" :disabled="!multipleSelection.length" size="small">主按钮</el-button>
         <el-button :disabled="!multipleSelection.length" size="small">次按钮</el-button>
       </div>
-      <el-table
-        ref="multipleTable"
-        :data="data.tableData10"
-        tooltip-effect="dark"
-        border
-        @selection-change="handleSelectionChange"
-      >
+      <el-table ref="multipleTable" :data="data.tableData10" tooltip-effect="dark" border
+        @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" width="150px" label="主机别名">
           <template slot-scope="scope">
@@ -123,12 +106,7 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button
-              type="text"
-              size="small"
-              class="bt-operation"
-              @click="handleClick(scope.$index, scope.row)"
-            >
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">
               挂载
             </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
@@ -136,10 +114,8 @@
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
               <span class="el-dropdown-link">
-                更多<i
-                  class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
-                ></i>
+                更多<i class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
@@ -151,13 +127,8 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
-        class="pagination"
-        :current-page="currentPage4"
-        :total="100"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-      >
+      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
+        @current-change="handleCurrentChange">
       </el-pagination>
     </div>
 
@@ -167,13 +138,8 @@
         <cute-selected-input :data="multipleSelectionOver3" placeholder="请选择" :option-data="optionData">
         </cute-selected-input>
       </div>
-      <el-table
-        ref="multipleTable"
-        tooltip-effect="dark"
-        :data="data.tableData10"
-        border
-        @selection-change="handleSelectionChangeOver3"
-      >
+      <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData10" border
+        @selection-change="handleSelectionChangeOver3">
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" label="主机别名">
           <template slot-scope="scope">
@@ -208,12 +174,7 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button
-              type="text"
-              size="small"
-              class="bt-operation"
-              @click="handleClick(scope.$index, scope.row)"
-            >
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">
               挂载
             </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
@@ -221,10 +182,8 @@
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
               <span class="el-dropdown-link">
-                更多<i
-                  class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
-                ></i>
+                更多<i class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
@@ -236,13 +195,8 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
-        class="pagination"
-        :current-page="currentPage4"
-        :total="100"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-      >
+      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
+        @current-change="handleCurrentChange">
       </el-pagination>
     </div>
 
@@ -281,12 +235,7 @@
         </el-table-column>
         <el-table-column label="操作" width="190px" fixed="right">
           <template slot-scope="scope">
-            <el-button
-              type="text"
-              size="small"
-              class="bt-operation"
-              @click="handleClick(scope.$index, scope.row)"
-            >
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">
               挂载
             </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
@@ -294,10 +243,8 @@
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
               <span class="el-dropdown-link">
-                更多<i
-                  class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
-                ></i>
+                更多<i class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
@@ -309,13 +256,8 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
-        class="pagination"
-        :current-page="currentPage4"
-        :total="100"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-      >
+      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
+        @current-change="handleCurrentChange">
       </el-pagination>
     </div>
     <h3>横向展示列表</h3>
@@ -388,7 +330,7 @@
         <el-table-column label="排行">
           <template slot-scope="scope">
             <span :class="scope.$index < 3 ? 'sub-index sub-index-top3' : 'sub-index'">{{
-              scope.$index + 1
+                scope.$index + 1
             }}</span>
           </template>
         </el-table-column>
@@ -409,21 +351,73 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
-        class="pagination"
-        :current-page="currentPage4"
-        :total="100"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-      >
+      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
+        @current-change="handleCurrentChange">
+      </el-pagination>
+    </div>
+
+    <h3>带列设置的表格</h3>
+    <div class="sub-table-settings">
+      <!-- 列设置选择表单 -->
+      <el-popover placement="bottom-end" trigger="click" class="sub-table-settings__popover" @show="handlePopverShow"
+        @hide="handlePopverhide">
+        <!-- 固定的，用来全选 -->
+        <el-checkbox v-model="allSelected" label="全选" @change="handleSelectedChange"></el-checkbox>
+        <!-- 分割线 -->
+        <el-divider class="sub-table-settings__divider"></el-divider>
+        <!-- 列出全部选项 -->
+        <el-checkbox-group v-model="selectedOptions" class="sub-table-settings__label-group">
+          <el-checkbox v-for="(v, i) in allOptions" :key="v.label" :label="v.label" :disabled="v.disabled">
+          </el-checkbox>
+        </el-checkbox-group>
+
+        <!-- 列设置图标 -->
+        <div slot="reference" :class="['head-title', { 'sub-table-settings__svg--active': popverShow }]">
+          <svg-icon name="setting" width="14" height="14" style="margin-right: 6px" />
+          <span>列设置</span>
+        </div>
+      </el-popover>
+
+      <!-- 表格 -->
+      <el-table :data="data.tableData10" fit border>
+        <el-table-column v-for="(v, i) in selectedOptionsWithProp" :key="v.prop" :prop="v.prop" :label="v.label">
+          <template slot-scope="{ row }">
+            <span v-if="v.prop === 'healthy'">
+              <span class="health-dot" :class="`health-dot--${row.healthy}`" />{{ HEALTH[row.healthy] }}
+            </span>
+
+            <span v-else-if="v.prop === 'name'">
+              <span class="text-ellipsis name-primary" style="width: 100%">{{ row.name }}</span>
+            </span>
+
+            <span v-else-if="v.prop === 'label'">
+              <el-tag type="info" size="small" style="margin-right: 8px">{{ row.label[0] }}</el-tag>
+              <el-tag type="info" size="small">{{ row.label[1] }}</el-tag>
+            </span>
+
+            <span v-else>{{ row[v.prop] }}</span>
+          </template>
+        </el-table-column>
+
+        <el-table-column label="操作">
+          <template>
+            <el-button size="mini">Edit</el-button>
+            <el-button size="mini" type="danger">Delete</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+
+      <!-- 分页 -->
+      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
+        @current-change="handleCurrentChange">
       </el-pagination>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Watch } from 'vue-property-decorator'
 import data from '../../../utils/mock'
-import { HEALTH } from '@/dics/simpleTable'
+import { STATUS, HEALTH } from '@/dics/simpleTable'
 // import CuteSelectedInput from '@/components/CuteSelect/CuteSelectedInput.vue'
 @Component({
   name: 'UiTable',
@@ -552,6 +546,129 @@ export default class extends Vue {
   private openDropdown(e) {
     e ? (this.flag = true) : (this.flag = false)
   }
+
+  // popver 状态变量
+  private popverShow = false
+
+  public handlePopverShow() {
+    this.popverShow = true
+  }
+
+  public handlePopverhide() {
+    this.popverShow = false
+  }
+
+  // 全选状态变量
+  private allSelected = false
+
+  // 判断是否已全选
+  public isAllSelected() {
+    if (this.selectedOptions.length === this.allOptions.length) {
+      this.allSelected = true
+    } else {
+      this.allSelected = false
+    }
+  }
+
+  // 全选按钮 全选事件
+  // 根据全选状态变量，来判断将要做什么
+  public handleSelectedChange() {
+    const data = []
+    if (!this.allSelected) {
+      this.allOptions.forEach((v: any) => {
+        if (this.disabledOptions.some(item => item === v.label)) {
+          data.push(v.label)
+        }
+      })
+    } else {
+      this.allOptions.forEach((v: any) => {
+        data.push(v.label)
+      })
+    }
+    this.selectedOptions = data
+  }
+
+  private allOptions = [
+    {
+      label: '主机别名',
+      prop: 'name',
+      disabled: true,
+    },
+    {
+      label: '实例状态',
+      prop: 'status',
+      disabled: true,
+    },
+    {
+      label: 'IP地址',
+      prop: 'ip',
+      disabled: false,
+    },
+    {
+      label: '时间',
+      prop: 'time',
+      disabled: false,
+    },
+    {
+      label: '标签',
+      prop: 'label',
+      disabled: false,
+    },
+    {
+      label: '描述',
+      prop: 'description',
+      disabled: false,
+    },
+    {
+      label: '健康状态',
+      prop: 'healthy',
+      disabled: false,
+    },
+  ]
+  private selectedOptions = ['主机别名', '实例状态', 'IP地址', '时间', '健康状态']
+  private selectedOptionsWithProp = [
+    {
+      label: '主机别名',
+      prop: 'name',
+    },
+    {
+      label: '实例状态',
+      prop: 'status',
+    },
+    {
+      label: 'IP地址',
+      prop: 'ip',
+    },
+    {
+      label: '时间',
+      prop: 'time',
+    },
+    {
+      label: '健康状态',
+      prop: 'healthy',
+    },
+  ]
+
+  // 监听selectedOptions，判断是否需要修改全选按钮
+  @Watch('selectedOptions')
+  onChangeValue() {
+    this.isAllSelected() // 判断是否已全选
+    this.syncSelectedOptions() // 同步
+  }
+
+  private syncSelectedOptions() {
+    const data = []
+    this.allOptions.forEach((v: { label: string; prop: string }) => {
+      if (this.selectedOptions.some(item => item === v.label)) {
+        data.push({ label: v.label, prop: v.prop })
+      }
+    })
+    this.selectedOptionsWithProp = data
+  }
+
+  private disabledOptions = ['主机别名', '实例状态']
+
+  private STATUS = STATUS
 }
 </script>
 
@@ -690,5 +807,63 @@ export default class extends Vue {
 
 .top-fill {
   transform: rotate(180deg);
+}
+
+.sub-table-settings {
+  &__popover {
+    float: right;
+    cursor: pointer;
+
+    .head-title {
+      margin-bottom: 13px;
+    }
+  }
+
+  &__divider {
+    margin: 10px 0 !important;
+  }
+
+  &__label-group {
+    // 设置高度，超出滚动
+    max-height: 300px;
+    overflow: auto;
+
+    label {
+      margin-bottom: 10px;
+      display: block;
+    }
+  }
+
+  &__svg--active {
+    color: $color-master-3;
+  }
+
+  .health-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 100%;
+
+    &--1 {
+      background: $color-status-success;
+    }
+
+    &--2 {
+      background: $color-status-warning;
+    }
+
+    &--3 {
+      background: $color-status-danger;
+    }
+
+    &--4 {
+      background: $color-status-info;
+    }
+
+    &--5 {
+      background: $disabled-color;
+    }
+  }
 }
 </style>

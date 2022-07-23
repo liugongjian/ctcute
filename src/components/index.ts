@@ -8,6 +8,7 @@ const componentsList = [
   require('./CuteInput/CuteRemindInput.vue'),
   require('./CuteSelect/CuteRemindSelect'),
   require('./CuteSelect/CuteSelectedInput.vue'),
+  require('./CuteTable/CuteTableColumnSettings.vue'),
 ]
 
 export default {

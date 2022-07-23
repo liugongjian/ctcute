@@ -1,13 +1,13 @@
 /*
  * @Author: 马妍
  * @Date: 2022-07-22 00:06:08
- * @LastEditors: 马妍
- * @LastEditTime: 2022-07-22 20:53:13
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2022-07-24 07:19:22
  * @Description:
  */
 import request from '@/utils/request'
 import { AxiosPromise } from 'axios'
-import * as SimpleTable from '@/types/SimpleTable'
+import * as SimpleTable from '@/types/ProTable4'
 
 /**
  * 获取表格数据

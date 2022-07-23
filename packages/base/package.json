@@ -1,6 +1,6 @@
 {
   "name": "@cutedesign/base",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "type": "module",
   "main": "index.ts",

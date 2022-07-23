@@ -18,7 +18,6 @@ import { Vue, Component, Prop, Model, Emit } from 'vue-property-decorator'
   name: 'CuteRemindInput',
 })
 export default class extends Vue {
-  @Prop({ type: Array, default: [] }) restaurants?: []
   @Prop({ type: String, default: '' }) placeholder?: '' //placeholder
   @Prop({ type: String, default: '' }) label?: '' //label
 

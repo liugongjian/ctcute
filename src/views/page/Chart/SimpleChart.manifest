@@ -4,15 +4,6 @@
       "name": "SimpleChart.vue",
       "path": "@/views/page/Chart/SimpleChart.vue"
     }
-  ],
-  "package": {
-    "dependencies": {
-      "echarts": "^5.3.3",
-      "vue-echarts": "^6.0.2"
-    },
-    "devDependencies": {
-      "@vue/composition-api": "^1.4.9"
-    }
-  }
+  ]
 }
 

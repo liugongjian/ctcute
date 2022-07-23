@@ -5,8 +5,9 @@ import store from './store'
 import CuteComponent from '@cutedesign/base'
 import i18n from '@/i18n'
 import mavonEditor from 'mavon-editor'
-import '@/permission'
 import 'mavon-editor/dist/css/index.css'
+import '@/permission'
+import '@/assets/icons'
 
 Vue.use(mavonEditor)
 Vue.use(CuteComponent)

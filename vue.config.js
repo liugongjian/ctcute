@@ -71,6 +71,7 @@ module.exports = {
       .exclude
       .add(path.join(__dirname, 'packages/base/assets/icons'))
       .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
+      .add(path.join(__dirname, 'src/assets/icons'))
       .end()
     
     config.module
@@ -79,6 +80,7 @@ module.exports = {
       .include
       .add(path.join(__dirname, 'packages/base/assets/icons'))
       .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
+      .add(path.join(__dirname, 'src/assets/icons'))
       .end()
       .use('svg-sprite-loader')
       .loader('svg-sprite-loader')

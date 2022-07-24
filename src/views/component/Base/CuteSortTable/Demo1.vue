@@ -1,8 +1,8 @@
 <!--
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:23
- * @LastEditors: 马妍
- * @LastEditTime: 2022-07-22 17:57:49
+ * @LastEditors: huanglulu
+ * @LastEditTime: 2022-07-24 13:15:18
  * @Description:
 -->
 <template>
@@ -55,7 +55,7 @@
         </el-dropdown-menu>
       </el-dropdown>
     </template>
-    <template #priority="{ scope }">
+    <template #priority="{}">
       <div class="sort-table">
         <svg-icon name="sort" />
       </div>

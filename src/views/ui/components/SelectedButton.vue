@@ -1,3 +1,10 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-07-19 16:30:50
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-20 19:09:28
+ * @Description: 
+-->
 <template>
   <div>
     <h2>默认单选块</h2>
@@ -11,11 +18,11 @@
     </div>
     <h2>特殊单选块(用于订购页)</h2>
     <div class="sub-sample">
-      <cute-special-radio :data="buutonData" />
+      <cute-special-radio v-model="radio0" :options="buutonData" @change="changeFun" />
     </div>
     <h2>小单选块</h2>
     <div class="sub-sample">
-      <cute-special-radio :data="buutonData" :size="size" />
+      <cute-special-radio v-model="radio1" :options="buutonData" :size="size" @change="changeFun" />
     </div>
     <h2>多选块</h2>
     <div class="sub-sample">
@@ -31,7 +38,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteSpecialRadio from '@/components/CuteRadio/CuteSpecialRadio.vue'
+import { CuteSpecialRadio } from '@cutedesign/base'
 
 @Component({
   name: 'UiSelectedButton',
@@ -64,5 +71,8 @@ export default class extends Vue {
   private radio0 = 'Active'
   private radio1 = 'Active'
   private radio2 = ['多选选中', '不可用选中']
+  private changeFun(key) {
+    this.radio0 = key
+  }
 }
 </script>

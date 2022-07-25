@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-18 14:09:52
+ * @LastEditTime: 2022-07-22 17:06:19
  * @Description:简单表单页
 -->
 <template>
@@ -62,7 +62,7 @@
           <el-table :data="item.detail">
             <el-table-column prop="goodsId" label="商品编码">
               <template slot-scope="scope">
-                <span class="table-key">{{ scope.row.goodsId }}</span>
+                <router-link to="/">{{ scope.row.goodsId }}</router-link>
               </template>
             </el-table-column>
             <el-table-column prop="goodsName" label="商品名称"></el-table-column>
@@ -95,7 +95,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteTitledBlock from '@/components/CuteTitledBlock/index.vue'
+import { CuteTitledBlock } from '@cutedesign/base'
 import * as SimpleDetail from '@/types/SimpleDetail'
 import { getSimpleDetail } from '@/api/simpleDetail'
 import { STATUS, PROGRESS } from '@/dics/simpleDetail'

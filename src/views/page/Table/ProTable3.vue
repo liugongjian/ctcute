@@ -1,8 +1,8 @@
 <!--
  * @Author: 张晨曦
  * @Date: 2022-07-10 13:13:36
- * @LastEditors: 张晨曦
- * @LastEditTime: 2022-07-18 14:00:22
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-22 17:51:23
  * @Description: 复杂表格3
 -->
 <template>
@@ -83,7 +83,7 @@
       </div>
       <div class="table-tools__bottom">
         <div class="table-tools__left">
-          <cute-selected-input :data="selectedData" :option-data="optionData" />
+          <cute-selected-input :checked-list="selectedData" :options="optionData" />
           <el-button type="primary" class="ml-20">+ 新增按钮</el-button>
           <el-button class="ml-12">次按钮</el-button>
         </div>
@@ -102,7 +102,11 @@
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit border @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" />
-      <el-table-column prop="name" label="主机别名" />
+      <el-table-column prop="name" label="主机别名">
+        <template slot-scope="{ row }">
+          <router-link to="/">{{ row.name }}</router-link>
+        </template>
+      </el-table-column>
       <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
       <el-table-column prop="ip" label="IP地址" />
       <el-table-column prop="cpu" label="CPU利用率(%)" />
@@ -144,7 +148,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import * as ProTable3 from '@/types/ProTable3'
 import { getTable, getHosts, getEnvs } from '@/api/proTable3'
-import { STATUS, HEALTH } from '@/dics/simpleTable'
+import { STATUS, HEALTH } from '@/dics/proTable3'
 import { ElForm } from 'element-ui/types/form'
 
 @Component({
@@ -203,8 +207,8 @@ export default class extends Vue {
   // 分页信息
   private pager = {
     page: 1,
-    limit: 10,
-    total: 20,
+    limit: 20,
+    total: 40,
   }
 
   // 加载状态

@@ -7,7 +7,7 @@
         <el-step
           v-for="(s, index) in steps"
           :key="index"
-          :title="gettitle(s, index)"
+          :title="getTitle(s, index)"
           :status="s.status"
           :class="{ stepErr: s.disabled }"
         ></el-step>
@@ -31,7 +31,7 @@
         <el-step
           v-for="(s, index) in steps"
           :key="index"
-          :title="gettitle(s, index)"
+          :title="getTitle(s, index)"
           :status="s.status"
           :class="{ stepErr: s.disabled }"
         ></el-step>
@@ -55,7 +55,7 @@
         :active="activeMulti"
         :steps="multisteps"
         max-width="60%"
-        :go-button="true"
+        :has-go-button="true"
         @clickStep="clickmulti"
         @change="goMulti"
       ></cute-steps-multi>
@@ -79,7 +79,7 @@
         :space="400"
         max-width="100%"
         :step-size="3"
-        :go-button="true"
+        :has-go-button="true"
         @clickStep="clickmultimini"
         @change="goMultiMini"
       ></cute-steps-multi>
@@ -100,7 +100,8 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteStepsMulti from '@/components/CuteSteps/CuteStepsMulti.vue'
+import { CuteStepsMulti } from '@cutedesign/base'
+
 @Component({
   name: 'UiSteps',
   components: { CuteStepsMulti },
@@ -198,7 +199,7 @@ export default class extends Vue {
     }
   }
 
-  private gettitle(s: any, index: number) {
+  private getTitle(s: any, index: number) {
     if (index === this.active) {
       return '正在处理'
     } else if (index === this.active + 1) {

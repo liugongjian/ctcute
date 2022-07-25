@@ -6,7 +6,7 @@
  * @Description: 卡片1
 -->
 <template>
-  <el-card class="card1">
+  <el-card class="card1-page">
     <div class="card-tools">
       <div class="card-tools__left">
         <el-button type="primary">+ 新增质检方案</el-button>
@@ -68,8 +68,8 @@
 </template>
 <script lang="ts">
 import { Component, Ref, Vue } from 'vue-property-decorator'
-import { getCardList } from '@/api/card'
-import type { CardListItem } from '@/types/Card'
+import { getCardList } from '@/api/card1'
+import type { CardListItem } from '@/types/Card1'
 import type { ElForm } from 'element-ui/types/form'
 
 @Component({

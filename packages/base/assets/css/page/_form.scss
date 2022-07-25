@@ -1,0 +1,206 @@
+@mixin form {
+  padding-top: 5px;
+
+  .el-input,
+  .el-select,
+  .el-textarea {
+    width: 50%;
+    max-width: 745px;
+    /* 1920页面宽度下，右侧面板50%的像素值 */
+    min-width: 468px;
+    /* 1366页面宽度下，右侧面板50%的像素值 */
+  }
+
+  .el-select .el-input.el-input--suffix {
+    width: 100%;
+  }
+
+  .el-input-number .el-input {
+    width: auto;
+    min-width: 0;
+  }
+
+  .form-item--short {
+    .el-input,
+    .el-select,
+    .el-textarea,
+    .el-input-number {
+      width: 150px;
+      min-width: 0;
+    }
+  }
+
+  .form-item__tip {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: $text-color-light-1;
+    font-size: $text-size-primary;
+    line-height: $text-size-primary;
+    padding-top: 3px;
+
+    &:before {
+      font-family: 'cute-icons';
+      content: '\eb5b';
+      color: $icon-color;
+      font-size: 14px;
+      vertical-align: top;
+      margin-right: $margin-tiny;
+    }
+  }
+
+  .el-form-item.is-error .form-item__tip {
+    position: relative;
+    top: auto;
+  }
+
+  .form-item__info {
+    margin-left: $margin-small;
+  }
+}
+
+@mixin formTitle {
+  .block__title {
+    line-height: 14px;
+    height: 14px;
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: $color-grey-1;
+    margin: 0 0 24px 40px;
+    font-weight: 500;
+  }
+}
+
+@mixin formBottom {
+  .pro-form-bottom {
+    box-shadow: -2px 2px 8px 0 rgba(200, 201, 204, 0.5);
+    position: fixed;
+    left: $sidebar-width;
+    bottom: 0;
+    width: unquote('-webkit-calc(100% - #{$sidebar-width})');
+    background: $color-white;
+    line-height: 48px;
+    transition: 0.3s;
+    z-index: 11;
+  }
+}
+
+/* 简单表单 */
+.simple-form {
+  @include form();
+}
+
+/* 复杂表单1 */
+.pro-form1 {
+  @include formTitle();
+  @include formBottom();
+
+  .el-divider--horizontal {
+    width: 95%;
+    margin: 24px;
+    margin-left: 40px;
+  }
+
+  .el-table {
+    margin: 16px 0 0 0 !important;
+  }
+
+  @include form();
+
+  .el-input,
+  .el-select,
+  .el-textarea {
+    min-width: 0;
+  }
+}
+
+/* 复杂表单2 */
+.pro-form2 {
+  @include formTitle();
+  @include formBottom();
+
+  .pro-form-bottom {
+    display: flex;
+    justify-content: end;
+    height: 48px;
+    align-items: center;
+  }
+
+  .el-divider--horizontal {
+    width: 93%;
+    margin: 24px;
+    margin-left: 34px;
+  }
+
+  .form-items {
+    margin: 0 40px 0 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    > div {
+      width: 31%;
+
+      .el-select {
+        width: 100%;
+      }
+
+      .el-input {
+        width: 100%;
+      }
+    }
+
+    .sub-tags {
+      .el-input {
+        width: 70px;
+      }
+    }
+  }
+
+  @include form();
+
+  .block__title {
+    margin: 0 0 24px 35px;
+  }
+
+  .el-input,
+  .el-select {
+    min-width: 0;
+  }
+}
+
+/* 分步表单 */
+.step-form {
+  @include form();
+  padding: 24px;
+
+  .steps {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-content {
+    margin-top: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+  }
+
+  .cute-tag-add {
+    .el-input {
+      min-width: 70px;
+    }
+  }
+
+  .form-item-tip {
+    font-size: 12px;
+    color: #666666;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  .footer {
+    padding-left: 130px; // 与form-label宽度对齐
+    margin: 0px auto;
+    max-width: 800px;
+  }
+}

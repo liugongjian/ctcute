@@ -48,7 +48,7 @@
     <h2>组合按钮</h2>
     <div class="sub-sample">
       <p>组合按钮常用于复杂详情页</p>
-      <button-group :data="buttonData" :max="2" />
+      <cute-button-group :data="buttonData" :max="2" />
     </div>
     <h2>按钮布局</h2>
     <div class="sub-sample">
@@ -72,7 +72,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteButtonGroup from '@/components/CuteCombinationButton/CuteButtonGroup.vue'
+import { CuteButtonGroup } from '@cutedesign/base'
 
 @Component({
   name: 'UiButton',

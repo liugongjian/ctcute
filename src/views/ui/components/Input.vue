@@ -30,10 +30,10 @@
     <div class="routine-input">
       <h3>编辑输入框</h3>
       <el-row>
-        <cute-edit-input value="单行描述" class="input-demo" />
+        <cute-edit-input v-model="editValue1" class="input-demo" />
       </el-row>
       <el-row>
-        <cute-edit-input :textarea="true" value="多行描述" class="input-demo" />
+        <cute-edit-input v-model="editValue2" :textarea="true" class="input-demo" />
       </el-row>
     </div>
     <h3>搜索输入框</h3>
@@ -110,7 +110,12 @@
     <h3 class="sub-title">带提示的输入框</h3>
     <div class="sub-input">
       <el-row>
-        <cute-remind-input :restaurants="restaurants" :placeholder="placeholder" :model="state1" />
+        <cute-remind-input
+          v-model="state1"
+          :placeholder="placeholder"
+          label="数据资源名称"
+          @change="changeFun"
+        />
       </el-row>
     </div>
     <h3>长文本域</h3>
@@ -166,7 +171,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteEditInput from '@/components/CuteEditInput/index.vue'
+import { CuteEditInput } from '@cutedesign/base'
 @Component({
   name: 'UiInput',
   components: {
@@ -186,6 +191,8 @@ export default class extends Vue {
 
   private flag = true
   private value1 = ''
+  private editValue1 = '单行描述'
+  private editValue2 = '多行描述'
   private placeholder = '数据资源名称'
   private num = 1
   private num1 = 1
@@ -198,9 +205,7 @@ export default class extends Vue {
   private information = '这是一条备注信息'
   private information1 = ''
   private information2 = ''
-
   private state1 = ''
-
   private address = '' // 地址
   private height = '' // 身高
   private url = '' // url
@@ -219,13 +224,6 @@ export default class extends Vue {
       { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'change' },
     ],
   }
-
-  private restaurants = [
-    { value: '三全鲜食（北新泾店）', address: '长宁区新渔路144号' },
-    { value: 'Hot honey 首尔炸鸡（仙霞路）', address: '上海市长宁区淞虹路661号' },
-    { value: '新旺角茶餐厅', address: '上海市普陀区真北路988号创邑金沙谷6号楼113' },
-    { value: '泷千家(天山西路店)', address: '天山西路438号' },
-  ]
 
   // . 替换成 *
   private changeValue(value: string, type?: boolean) {
@@ -255,6 +253,10 @@ export default class extends Vue {
       this.changeValue(this.formData.password, true)
       this.flag = true
     }
+  }
+  private changeFun(key) {
+    console.log(key, '1234')
+    this.state1 = key
   }
 }
 </script>

@@ -1,5 +1,18 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-07-19 22:03:32
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-20 09:04:34
+ * @Description: 
+-->
 <template>
-  <cute-remind-select :data="options" :title="name" :placeholder="name" :model="value" />
+  <cute-remind-select
+    v-model="value"
+    :options="options"
+    :title="name"
+    :placeholder="name"
+    @change="changeFun"
+  />
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
@@ -32,5 +45,9 @@ export default class extends Vue {
       label: '北京烤鸭',
     },
   ]
+  //子组件修改父组件的值
+  private changeFun(key) {
+    this.value = key
+  }
 }
 </script>

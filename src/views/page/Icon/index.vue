@@ -26,7 +26,7 @@ export default class extends Vue {
   private icons = null
 
   private mounted() {
-    const req = require.context('@/assets/icons/svg', true, /\.svg$/)
+    const req = require.context('@cutedesign/base/assets/icons/svg', true, /\.svg$/)
     this.icons = req
       .keys()
       .map(k => k.replace(/\.\/|\.svg/g, ''))

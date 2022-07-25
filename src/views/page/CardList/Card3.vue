@@ -6,7 +6,7 @@
  * @Description: 卡片3
 -->
 <template>
-  <div class="card3">
+  <div class="card-big">
     <el-card shadow="always">
       <div class="card-btn">
         <el-button type="primary">+ 新增组件类型</el-button>
@@ -62,8 +62,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import * as CardList from '@/types/Card'
-import { getCardData } from '@/api/card'
+import * as CardList from '@/types/Card3'
+import { getCardData } from '@/api/card3'
 
 @Component({
   name: 'Card3',

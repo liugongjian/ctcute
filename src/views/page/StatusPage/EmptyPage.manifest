@@ -6,7 +6,7 @@
     },
     {
       "name": "empty-page.svg",
-      "path": "@/views/page/StatusPage/Image/page-403.svg"
+      "path": "@/views/page/StatusPage/Image/empty-page.svg"
     }
   ]
 }

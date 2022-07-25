@@ -15,7 +15,7 @@
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
-        <el-table-column prop="ip" label="IP地址"> </el-table-column>
+        <el-table-column prop="ip" label="IP地址" width="100px"> </el-table-column>
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
@@ -81,7 +81,7 @@
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
-        <el-table-column prop="ip" label="IP地址"> </el-table-column>
+        <el-table-column prop="ip" label="IP地址" width="100px"> </el-table-column>
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
         <el-table-column prop="label" label="标签" width="150px">
           <template slot-scope="scope">
@@ -135,7 +135,7 @@
     <h3>可多选表格(3个以上操作)</h3>
     <div class="sub-table">
       <div style="margin-bottom: 20px">
-        <cute-selected-input :data="multipleSelectionOver3" placeholder="请选择" :option-data="optionData">
+        <cute-selected-input :checked-list="multipleSelectionOver3" placeholder="请选择" :options="optionData">
         </cute-selected-input>
       </div>
       <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData10" border
@@ -147,7 +147,7 @@
           </template>
         </el-table-column>
         <el-table-column prop="status" label="实例状态"> </el-table-column>
-        <el-table-column prop="ip" label="IP地址"> </el-table-column>
+        <el-table-column prop="ip" label="IP地址" width="100px"> </el-table-column>
         <el-table-column prop="time" label="时间" sortable width="150px">
           2022-05-20 18:00:05
         </el-table-column>
@@ -254,6 +254,141 @@
               </el-dropdown-menu>
             </el-dropdown>
           </template>
+        </el-table-column>
+      </el-table>
+      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
+        @current-change="handleCurrentChange">
+      </el-pagination>
+    </div>
+
+    <h3>列表中同时存在两列状态栏</h3>
+    <div class="sub-table">
+      <el-table :data="data.tableDataWithStatus" border>
+        <el-table-column prop="name" label="主机别名" width="150px">
+          <template slot-scope="scope">
+            <div>
+              <span class="text-ellipsis name-primary" :title="scope.row.name">{{ scope.row.name }}</span>
+            </div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="status" label="实例状态"> </el-table-column>
+        <el-table-column prop="ip" label="IP地址" width="100px"> </el-table-column>
+        <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
+        <el-table-column prop="label" label="标签" width="150px">
+          <template slot-scope="scope">
+            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="描述" width="150px">
+          <template slot-scope="scope">
+            <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+              <span class="text-ellipsis">{{ scope.row.description }}</span>
+            </el-tooltip>
+          </template>
+        </el-table-column>
+        <el-table-column prop="healthy" label="健康状态">
+          <template slot-scope="scope">
+            <div>
+              <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
+              <span>{{ HEALTH[scope.row.healthy] }}</span>
+            </div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="status2" label="其他状态">
+          <template slot-scope="scope">
+            <el-tag :type="scope.row.status2 && STATUS2[scope.row.status2].color" size="small">{{
+                scope.row.status2 && STATUS2[scope.row.status2].text
+            }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="操作" width="190px">
+          <template slot-scope="scope">
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">
+              挂载
+            </el-button>
+            <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+            <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+            <el-divider direction="vertical"></el-divider>
+            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+              <span class="el-dropdown-link">
+                更多<i class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>退订</el-dropdown-item>
+                <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
+                <el-dropdown-item>创建</el-dropdown-item>
+                <el-dropdown-item disabled>Disabled</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </template>
+        </el-table-column>
+      </el-table>
+      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
+        @current-change="handleCurrentChange">
+      </el-pagination>
+    </div>
+
+    <h3>可移动排序的表格</h3>
+    <div class="sub-table">
+      <el-table ref="sortTable" :data="data.tableData10" tooltip-effect="dark" border>
+        <el-table-column prop="name" label="主机别名">
+          <template slot-scope="scope">
+            <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="status" label="实例状态"> </el-table-column>
+        <el-table-column prop="time" label="时间" sortable width="150px">
+          2022-05-20 18:00:05
+        </el-table-column>
+        <el-table-column prop="label" label="标签" width="150px">
+          <template slot-scope="scope">
+            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="描述" width="150px">
+          <template slot-scope="scope">
+            <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+              <span class="text-ellipsis">{{ scope.row.description }}</span>
+            </el-tooltip>
+          </template>
+        </el-table-column>
+        <el-table-column prop="healthy" label="健康状态">
+          <template slot-scope="scope">
+            <div>
+              <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
+              <span>{{ HEALTH[scope.row.healthy] }}</span>
+            </div>
+          </template>
+        </el-table-column>
+        <el-table-column label="操作" width="190px">
+          <template slot-scope="scope">
+            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">
+              挂载
+            </el-button>
+            <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+            <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+            <el-divider direction="vertical"></el-divider>
+            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+              <span class="el-dropdown-link">
+                更多<i class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>退订</el-dropdown-item>
+                <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
+                <el-dropdown-item>创建</el-dropdown-item>
+                <el-dropdown-item disabled>Disabled</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </template>
+        </el-table-column>
+        <el-table-column label="优先级">
+          <div class="sort-table">
+            <svg-icon name="sort" />
+          </div>
         </el-table-column>
       </el-table>
       <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
@@ -416,17 +551,18 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
-import data from '../../../utils/mock'
-import { STATUS, HEALTH } from '@/dics/simpleTable'
+import { STATUS, HEALTH, STATUS2 } from '@/dics/simpleTable'
 // import CuteSelectedInput from '@/components/CuteSelect/CuteSelectedInput.vue'
+import data from '@/utils/mock'
+import Sortable from 'sortablejs'
 @Component({
   name: 'UiTable',
-  // components: { CuteSelectedInput },
 })
 export default class extends Vue {
   private data = data
 
   private HEALTH = HEALTH
+  private STATUS2 = STATUS2
   private multipleSelection = []
   private multipleSelectionOver3 = []
   private selectedCount = ''
@@ -510,7 +646,10 @@ export default class extends Vue {
       disabled: true,
     },
   ]
-
+  sortable: any
+  private mounted() {
+    this.rowDrop()
+  }
   private handleSizeChange(val) {
     console.log(`每页 ${val} 条`)
   }
@@ -669,6 +808,24 @@ export default class extends Vue {
   private disabledOptions = ['主机别名', '实例状态']
 
   private STATUS = STATUS
+  // 行拖拽排序, .sort-table 可拖拽元素
+  private rowDrop() {
+    const table = this.$refs.sortTable as any
+    const tbody = table.$el.querySelectorAll('tbody')
+
+    this.sortable = Sortable.create(tbody[0], {
+      handle: '.sort-table',
+      onEnd: ({ newIndex, oldIndex }) => {
+        const currRow = this.data.tableData10.splice(oldIndex, 1)[0]
+        this.data.tableData10.splice(newIndex, 0, currRow)
+        const newArray = this.data.tableData10.slice(0)
+        this.data.tableData10 = []
+        this.$nextTick(function () {
+          this.data.tableData10 = newArray
+        })
+      },
+    })
+  }
 }
 </script>
 
@@ -717,12 +874,12 @@ export default class extends Vue {
 }
 
 .sub-table:not(:last-child) {
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid $color-grey-7;
   padding-bottom: 24px;
 }
 
 .sub-table-horizon {
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid $color-grey-7;
   padding-bottom: 24px;
 }
 

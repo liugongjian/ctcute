@@ -6,7 +6,7 @@
  * @Description: 卡片2
 -->
 <template>
-  <el-card class="card1">
+  <el-card class="card-small">
     <div class="card-tools">
       <div class="card-tools__left">
         <el-button type="primary">+ 新增质检方案</el-button>
@@ -82,10 +82,10 @@
   </el-card>
 </template>
 <script lang="ts">
-import CuteEditInput from '@/components/CuteEditInput/index.vue'
+import { CuteEditInput } from '@cutedesign/base'
 import { Component, Vue } from 'vue-property-decorator'
-import { getCardList } from '@/api/card'
-import type { CardListItem } from '@/types/Card'
+import { getCardList } from '@/api/card2'
+import type { CardListItem } from '@/types/Card2'
 
 @Component({
   name: 'Card1',

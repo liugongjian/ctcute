@@ -1,3 +1,10 @@
+/*
+ * @Author: huanglulu
+ * @Date: 2022-07-20 10:15:03
+ * @LastEditors: huanglulu
+ * @LastEditTime: 2022-07-21 17:06:47
+ * @Description:
+ */
 import Layout from '@/layout/component.vue'
 
 const componentRoutes = [
@@ -37,6 +44,40 @@ const componentRoutes = [
         meta: {
           title: 'CuteTableColumnSettings',
           breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-titled-block',
+        name: 'CuteTitledBlock',
+        component: () => import('@/views/component/Base/CuteTitledBlock/index.vue'),
+        meta: {
+          title: 'CuteTitledBlock',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-edit-input',
+        name: 'CuteEditInput',
+        component: () => import('@/views/component/Base/CuteEditInput/index.vue'),
+        meta: {
+          title: 'CuteEditInput',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-tag',
+        name: 'CuteTag',
+        component: () => import('@/views/component/Base/CuteTag/index.vue'),
+        meta: {
+          title: 'CuteTag',
+        },
+      },
+      {
+        path: 'cute-sort-table',
+        name: 'CuteSortTable',
+        component: () => import('@/views/component/Base/CuteSortTable/index.vue'),
+        meta: {
+          title: 'CuteSortTable',
         },
       },
     ],

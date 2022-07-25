@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2022-07-18 14:02:38
+ * @LastEditTime: 2022-07-21 15:34:26
  * @Description: 复杂详情2
 -->
 <template>
@@ -22,10 +22,10 @@
           <div class="container__left">
             <span class="tree-title">这是一个标题</span>
             <el-tree
-              :data="proDetail2.folders"
+              :data="proDetail2 && proDetail2.folders"
               node-key="key"
               draggable
-              :default-expanded-keys="['1', '2']"
+              :default-expanded-keys="['1', '2', '3', '21']"
               :indent="10"
               style="margin-top: 9px"
             >
@@ -68,44 +68,40 @@
           <div class="container__right">
             <cute-titled-block title="标识">
               <div class="sub-table-horizon">
-                <el-descriptions class="margin-top" :column="2" :size="size" border>
+                <el-descriptions class="margin-top" :column="2" border>
                   <el-descriptions-item>
                     <template slot="label"> 内部标识符 </template>
-                    {{ proDetail2.basic.innerIdentity }}
+                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.innerIdentity }}
                   </el-descriptions-item>
                   <el-descriptions-item>
                     <template slot="label"> 标识符 </template>
-                    {{ proDetail2.basic.showIdentity }}
+                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.showIdentity }}
                   </el-descriptions-item>
                   <el-descriptions-item>
                     <template slot="label"> 中文名称 </template>
-                    {{ proDetail2.basic.chineseName }}
+                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.chineseName }}
                   </el-descriptions-item>
                   <el-descriptions-item>
                     <template slot="label"> 英文名称 </template>
-                    {{ proDetail2.basic.englishName }}
+                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.englishName }}
                   </el-descriptions-item>
                   <el-descriptions-item>
                     <template slot="label"> 语境</template>
-                    {{ proDetail2.basic.context }}
+                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.context }}
                   </el-descriptions-item>
                   <el-descriptions-item>
                     <template slot="label"> 版本 </template>
-                    {{ proDetail2.basic.version }}
+                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.version }}
                   </el-descriptions-item>
                   <el-descriptions-item :span="2">
                     <template slot="label"> 同义名称 </template>
-                    {{ proDetail2.basic.synonyms }}
+                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.synonyms }}
                   </el-descriptions-item>
                 </el-descriptions>
               </div>
             </cute-titled-block>
             <cute-titled-block title="分区字段信息">
-              <el-table :data="proDetail2.zoonsInfo1">
-                <template slot="empty">
-                  <img src="./Image/not-have.svg" alt="" />
-                  <span>暂无数据</span>
-                </template>
+              <el-table :data="proDetail2 && proDetail2.zoonsInfo1">
                 <el-table-column prop="id" label="序号"> </el-table-column>
                 <el-table-column prop="name" label="字段名称"> </el-table-column>
                 <el-table-column prop="type" label="类型"> </el-table-column>
@@ -121,11 +117,7 @@
               </el-table>
             </cute-titled-block>
             <cute-titled-block title="分区字段信息">
-              <el-table :data="proDetail2.zoonsInfo2">
-                <template slot="empty">
-                  <img src="./Image/not-have.svg" alt="" />
-                  <span>暂无数据</span>
-                </template>
+              <el-table :data="proDetail2 && proDetail2.zoonsInfo2">
                 <el-table-column prop="id" label="序号"> </el-table-column>
                 <el-table-column prop="name" label="字段名称"> </el-table-column>
                 <el-table-column prop="type" label="类型"> </el-table-column>
@@ -150,8 +142,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteButtonGroup from '@/components/CuteCombinationButton/CuteButtonGroup.vue'
-import CuteTitledBlock from '@/components/CuteTitledBlock/index.vue'
+import { CuteButtonGroup, CuteTitledBlock } from '@cutedesign/base'
 import { getProDetail } from '@/api/proDetail2'
 import * as ProDetail2 from '@/types/ProDetail2'
 @Component({

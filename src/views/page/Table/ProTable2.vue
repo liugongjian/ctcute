@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-07-19 17:02:59
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-22 14:24:26
  * @Description: 复杂表格2
 -->
 <template>
@@ -18,32 +18,41 @@
           @submit.native.prevent
         >
           <el-form-item prop="name">
-            <cute-remind-input :placeholder="placeholder" :model="conditions.name"> </cute-remind-input>
+            <cute-remind-input
+              v-model="conditions.name"
+              :placeholder="placeholder"
+              label="数据资源名称"
+              @change="cahngeFun3"
+            >
+            </cute-remind-input>
           </el-form-item>
 
           <el-form-item prop="host">
             <cute-remind-select
-              :data="hostOptions"
+              v-model="conditions.host"
+              :options="hostOptions"
               :placeholder="'请选择主机名'"
-              :model="conditions.host"
               :title="'主机名称'"
+              @change="changeFun"
             />
           </el-form-item>
           <el-form-item prop="environment">
             <cute-remind-select
-              :data="hostEnvironmentOptions"
+              v-model="conditions.environment"
+              :options="hostEnvironmentOptions"
               :placeholder="'请选择主机环境'"
-              :model="conditions.environment"
               :title="'环境名称'"
+              @change="changeFun1"
             />
           </el-form-item>
 
           <el-form-item prop="cpu">
             <cute-remind-select
-              :data="cpuOptions"
+              v-model="conditions.cpu"
+              :options="cpuOptions"
               :placeholder="'请选择CPU利用率'"
-              :model="conditions.cpu"
               :title="'cpu利用率'"
+              @change="changeFun2"
             />
           </el-form-item>
           <el-form-item class="table-tools__conditions__buttons">
@@ -53,7 +62,7 @@
         </el-form>
         <div class="table-button">
           <div class="table-button_left">
-            <cute-selected-input :data="selectedData" :option-data="optionData" />
+            <cute-selected-input :checked-list="selectedData" :options="optionData" />
 
             <el-button type="primary"> + 新增按钮 </el-button>
             <el-button @click="resetConditions">次按钮</el-button>
@@ -69,7 +78,11 @@
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit border @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55"> </el-table-column>
-      <el-table-column prop="name" label="主机别名" />
+      <el-table-column prop="name" label="主机别名">
+        <template slot-scope="{ row }">
+          <router-link to="/">{{ row.name }}</router-link>
+        </template>
+      </el-table-column>
       <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
       <el-table-column prop="ip" label="IP地址" />
       <el-table-column prop="cpu" label="CPU利用率(%)" />
@@ -124,7 +137,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import * as ProTable2 from '@/types/ProTable2'
 import { getTable, getHosts } from '@/api/proTable2'
-import { STATUS, HEALTH } from '@/dics/simpleTable'
+import { STATUS, HEALTH } from '@/dics/proTable2'
 @Component({
   name: 'ProTable2',
 })
@@ -188,8 +201,8 @@ export default class extends Vue {
   // 分页信息
   private pager = {
     page: 1,
-    limit: 10,
-    total: 20,
+    limit: 20,
+    total: 40,
   }
 
   // 加载状态
@@ -310,6 +323,20 @@ export default class extends Vue {
     { label: '> =', value: 1 },
     { label: '< =', value: 2 },
   ]
+
+  /** * 下子组件修改父组件的值*/
+  private changeFun(key) {
+    this.conditions.host = key
+  }
+  private changeFun1(key) {
+    this.conditions.environment = key
+  }
+  private changeFun2(key) {
+    this.conditions.cpu = key
+  }
+  private cahngeFun3(key) {
+    this.conditions.name = key
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -1,7 +1,6 @@
 import { Service } from 'egg'
 import fs = require('fs')
 import path = require('path')
-import glob = require('glob')
 
 /**
  * Code Service
@@ -10,19 +9,13 @@ export default class Code extends Service {
   // 页面模版路径
   private pagePath = path.resolve(__dirname, '../../../src')
 
-  // Manifest列表
-  private manifestList: string[] = glob.sync(`${this.pagePath}/views/page/**/*.manifest`)
-
-  // 模版名称和Manifest 映射关系
-  private manifestMapping = this.generateManifestMapping(this.manifestList)
-
   /**
    * 获得代码清单
    * @param name 模块名称
    * @return {string} 清单JSON
    */
   public async getManifest(name: string) {
-    const manifestPath = this.manifestMapping[name]
+    const manifestPath = this.app.manifestMapping[name]
     if (manifestPath) {
       const manifest = fs.readFileSync(manifestPath, { encoding: 'utf8' })
       try {
@@ -104,7 +97,7 @@ export default class Code extends Service {
    * @return {string[]} 页面名称列表
    */
   public async getAllPageName() {
-    return Object.keys(this.manifestMapping)
+    return Object.keys(this.app.manifestMapping)
   }
 
   /**
@@ -114,19 +107,5 @@ export default class Code extends Service {
    */
   private replaceAtSymbol(filePath) {
     return filePath.replace('@', this.pagePath)
-  }
-
-  /**
-   * 获取模版名称和Manifest映射关系
-   * @param manifestList Manifest列表
-   * @returns 映射关系
-   */
-  private generateManifestMapping(manifestList) {
-    const mapping = {}
-    manifestList.forEach(manifestPath => {
-      const name = manifestPath.replace(/(.*\/)*([^.]+).manifest/gi, '$2')
-      mapping[name] = manifestPath
-    })
-    return mapping
   }
 }

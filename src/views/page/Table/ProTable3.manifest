@@ -9,12 +9,12 @@
       "path": "@/types/ProTable3.d.ts"
     },
     {
-      "name": "api/ProTable3.ts",
-      "path": "@/api/ProTable3.ts"
+      "name": "api/proTable3.ts",
+      "path": "@/api/proTable3.ts"
     },
     {
-      "name": "dics/ProTable3.ts",
-      "path": "@/dics/simpleTable.ts"
+      "name": "dics/proTable3.ts",
+      "path": "@/dics/proTable3.ts"
     }
   ]
 }

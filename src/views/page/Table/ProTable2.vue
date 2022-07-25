@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-22 14:24:26
+ * @LastEditTime: 2022-07-25 14:23:55
  * @Description: 复杂表格2
 -->
 <template>
@@ -21,7 +21,7 @@
             <cute-remind-input
               v-model="conditions.name"
               :placeholder="placeholder"
-              label="数据资源名称"
+              title="数据资源名称"
               @change="cahngeFun3"
             >
             </cute-remind-input>

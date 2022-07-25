@@ -1,3 +1,10 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-07-22 21:14:49
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-25 14:23:08
+ * @Description: 
+-->
 <template>
   <el-input
     class="inline-input"
@@ -7,7 +14,7 @@
     @input="myChange($event)"
   >
     <span slot="suffix" class="prompt-title"
-      ><div>{{ value ? label : '' }}</div>
+      ><div>{{ value ? title : '' }}</div>
     </span>
   </el-input>
 </template>
@@ -19,7 +26,7 @@ import { Vue, Component, Prop, Model, Emit } from 'vue-property-decorator'
 })
 export default class extends Vue {
   @Prop({ type: String, default: '' }) placeholder?: '' //placeholder
-  @Prop({ type: String, default: '' }) label?: '' //label
+  @Prop({ type: String, default: '' }) title?: '' //label
 
   @Model('change', { type: String }) value: string
   @Emit('change')

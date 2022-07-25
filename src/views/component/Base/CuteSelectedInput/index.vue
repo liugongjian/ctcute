@@ -39,14 +39,14 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 export default class extends Vue {
   private prop = [
     {
-      name: 'data',
+      name: 'checkList',
       desc: '选中项',
       type: 'Array',
       options: null,
       default: null,
     },
     {
-      name: 'option-data',
+      name: 'options',
       desc: '选项列表',
       type: 'Array',
       options: null,
@@ -56,7 +56,7 @@ export default class extends Vue {
 
   private event = [
     {
-      name: 'request',
+      name: 'change',
       desc: '选中值发生变化时触发	',
       callback: '选中项',
     },

@@ -376,6 +376,31 @@ const pageRoutes = [
       },
     ],
   },
+
+  //文档预览
+  {
+    path: '/page/review',
+    redirect: '/page/preview/simple-preview',
+    component: Layout,
+    name: 'Preview',
+    meta: {
+      title: 'Preview 文档预览',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'Preview',
+        component: () =>
+          import(/* webpackChunkName: "simplepreview" */ '@/views/page/Preview/SimplePreview.vue'),
+        name: 'Preview',
+        meta: {
+          title: 'SimplePreview 文档预览',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
   // 其他
   {
     path: '/page/other',

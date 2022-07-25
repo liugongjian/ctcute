@@ -1,12 +1,19 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-07-25 14:18:26
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-25 17:26:37
+ * @Description: 
+-->
 <template>
   <div>
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
-      <h1>CuteRemindSelect / 带提示选择器</h1>
-      <component-demo path="@/views/component/Base/CuteRemindSelect/Demo1.vue">
+      <h1>CuteRemindInput / 带提示选择器</h1>
+      <component-demo path="@/views/component/Base/CuteRemindInput/Demo1.vue">
         <demo1 />
       </component-demo>
-      <h2>CuteRemindSelect Attributes</h2>
+      <h2>CuteRemindInput Attributes</h2>
       <el-table :data="prop" fit border>
         <el-table-column prop="name" label="参数" />
         <el-table-column prop="desc" label="说明" />
@@ -23,7 +30,7 @@ import Demo1 from './Demo1.vue'
 import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 
 @Component({
-  name: 'CuteRemindSelect',
+  name: 'CuteRemindInput',
   components: {
     ComponentDemo,
     Demo1,
@@ -39,7 +46,7 @@ export default class extends Vue {
       default: null,
     },
     {
-      name: 'data',
+      name: 'options',
       desc: '选项列表',
       type: 'Array',
       options: null,
@@ -64,7 +71,7 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .component__container {
-  .el-select {
+  .el-input {
     width: 300px;
   }
 }

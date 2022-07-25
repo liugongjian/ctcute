@@ -2,16 +2,17 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:14:48
  * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-22 17:25:35
+ * @LastEditTime: 2022-07-25 10:04:26
  * @Description: 
 -->
 <template>
   <div>
     <el-table ref="sortTable" :data="tableData" tooltip-effect="dark" border>
+      <el-table-column v-if="isShowSelection" width="55" type="selection" />
       <template v-for="(item, index) in tableColumns">
         <el-table-column
           :key="index + item.prop"
-          :type="item.type"
+          :type="item.type && item.type !== 'selection' ? item.type : ''"
           :prop="item.prop"
           :label="item.label"
           :width="item.width"
@@ -51,6 +52,7 @@ export default class extends Vue {
   @Prop({ type: Array, default: [] }) tableData?: [] // 表格数据
   @Prop({ type: Array, default: [] }) tableColumns?: [] // 表头数据
   @Prop({ type: Boolean, default: true }) isShowPagination?: true
+  @Prop({ type: Boolean, default: true }) isShowSelection?: true
   @Prop({ type: Number, default: 100 }) total?: 100 // 分页器的总计
   @Prop({ type: Number, default: 4 }) currentPage?: 4 // 分页器的当前页
   @Prop({ type: Number, default: 10 }) pageSize?: 20 // 分页器的每页数据

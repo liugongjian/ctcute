@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:30
  * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-24 13:17:53
+ * @LastEditTime: 2022-07-25 08:55:09
  * @Description: 
 -->
 <template>
@@ -24,9 +24,9 @@
       </el-table>
       <h2>CuteSortTable Events</h2>
       <el-table :data="event" fit border>
-        <el-table-column prop="name" label="参数" />
+        <el-table-column prop="name" label="事件名" />
         <el-table-column prop="desc" label="说明" />
-        <el-table-column prop="callback" label="回调参数" />
+        <el-table-column prop="callback" label="参数" />
       </el-table>
     </div>
   </div>
@@ -274,15 +274,95 @@ export default class extends Vue {
       desc: '渲染嵌套数据的配置选项	',
       type: 'Object',
       options: null,
-      default: '{ hasChildren: \'hasChildren\', children: \'children\' }',
+      default: "{ hasChildren: 'hasChildren', children: 'children' }",
     },
   ]
 
   private event = [
     {
-      name: 'request',
-      desc: '选中值发生变化时触发	',
-      callback: '选中项',
+      name: 'select',
+      desc: '当用户手动勾选数据行的 Checkbox 时触发的事件	',
+      callback: 'selection, row',
+    },
+    {
+      name: 'select-all',
+      desc: '当用户手动勾选全选 Checkbox 时触发的事件	',
+      callback: 'selection',
+    },
+    {
+      name: 'selection-change',
+      desc: '当选择项发生变化时会触发该事件 ',
+      callback: 'selection',
+    },
+    {
+      name: 'cell-mouse-enter',
+      desc: '当单元格 hover 进入时会触发该事件 ',
+      callback: 'row, column, cell, event',
+    },
+    {
+      name: 'cell-mouse-leave',
+      desc: '当单元格 hover 退出时会触发该事件 ',
+      callback: 'row, column, cell, event',
+    },
+    {
+      name: 'cell-click',
+      desc: '当某个单元格被点击时会触发该事件 ',
+      callback: 'row, column, cell, event',
+    },
+    {
+      name: 'cell-dblclick',
+      desc: '当某个单元格被双击击时会触发该事件 ',
+      callback: 'row, column, cell, event',
+    },
+    {
+      name: 'row-click',
+      desc: '当某一行被点击时会触发该事件 ',
+      callback: 'row, column, event',
+    },
+    {
+      name: 'row-contextmenu',
+      desc: '当某一行被鼠标右键点击时会触发该事件 ',
+      callback: 'row, column, event',
+    },
+    {
+      name: 'row-dblclick',
+      desc: '当某一行被双击时会触发该事件 ',
+      callback: 'row, column, event',
+    },
+    {
+      name: 'header-click',
+      desc: '当某一列的表头被点击时会触发该事件 ',
+      callback: 'column, event',
+    },
+    {
+      name: 'header-contextmenu',
+      desc: '当某一列的表头被鼠标右键点击时触发该事件 ',
+      callback: 'column, event',
+    },
+    {
+      name: 'sort-change',
+      desc: '当表格的排序条件发生变化的时候会触发该事件 ',
+      callback: '{ column, prop, order }',
+    },
+    {
+      name: 'filter-change',
+      desc: '当表格的筛选条件发生变化的时候会触发该事件，参数的值是一个对象，对象的 key 是 column 的 columnKey，对应的 value 为用户选择的筛选条件的数组。 ',
+      callback: 'filters',
+    },
+    {
+      name: 'current-change',
+      desc: '当表格的当前行发生变化的时候会触发该事件，如果要高亮当前行，请打开表格的 highlight-current-row 属性 ',
+      callback: 'currentRow, oldCurrentRow',
+    },
+    {
+      name: 'header-dragend',
+      desc: '当拖动表头改变了列的宽度的时候会触发该事件 ',
+      callback: 'newWidth, oldWidth, column, event',
+    },
+    {
+      name: 'expand-change',
+      desc: '当用户对某一行展开或者关闭的时候会触发该事件（展开行时，回调的第二个参数为 expandedRows；树形表格时第二参数为 expanded） ',
+      callback: 'row, (expandedRows | expanded)',
     },
   ]
 }

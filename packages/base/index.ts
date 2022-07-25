@@ -31,6 +31,7 @@ import CuteSortTable from './components/CuteTable/CuteSortTable.vue'
 import CuteTableFilter from './components/CuteTable/CuteTableFilter.vue'
 import CuteTag from './components/CuteTag/index.vue'
 import CuteTitledBlock from './components/CuteTitledBlock/index.vue'
+import CuteTableColumnSettings from './components/CuteTable/CuteTableColumnSettings.vue'
 
 export {
   CuteChart,
@@ -48,6 +49,7 @@ export {
   CuteTableFilter,
   CuteTag,
   CuteTitledBlock,
+  CuteTableColumnSettings,
 }
 
 /**
@@ -61,6 +63,7 @@ const componentsList = [
   CuteRemindSelect,
   CuteSelectedInput,
   CuteSortTable,
+  CuteTableColumnSettings,
 ]
 
 export default {

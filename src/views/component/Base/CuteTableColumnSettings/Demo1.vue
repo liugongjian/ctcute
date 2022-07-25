@@ -10,8 +10,10 @@
 </template>
 
 <script lang="ts">
+// 由于未知问题：直接引入不显示组件，但是放入到频率高的组件列表中就可使用
+// import { CuteTableColumnSettings } from '@cutedesign/base'
 import { Vue, Component } from 'vue-property-decorator'
-import * as CuteTableColumnSettings from '@/types/CuteTableColumnSettings'
+import * as CuteTableColumnSettingsTypes from '@/types/CuteTableColumnSettings'
 import { getTable } from '@/api/cuteTableColumnSettings'
 
 @Component({
@@ -57,7 +59,7 @@ export default class extends Vue {
   private myName = 'myClassName'
 
   // 表格数据
-  private tableData: CuteTableColumnSettings.Host[] = null
+  private tableData: CuteTableColumnSettingsTypes.Host[] = null
   // 分页信息
   private pager = {
     page: 1,
@@ -81,7 +83,7 @@ export default class extends Vue {
   private async getTable() {
     try {
       // 分页信息和搜索条件
-      const params: CuteTableColumnSettings.TableParams = {
+      const params: CuteTableColumnSettingsTypes.TableParams = {
         page: this.pager.page,
         limit: this.pager.limit,
       }

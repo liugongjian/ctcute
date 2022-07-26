@@ -107,22 +107,18 @@ export default class extends Vue {
     this.tableHook.query()
   }
 
-  private beforeDestroy() { 
+  private beforeDestroy() {
     this.tableHook.removeLazyLoadEvent()
   }
 
- /**
+  /**
    * 获取表格数据
    */
-  private getTable: Function = async (param) => { 
-    try {
-          const res = await getTable(param)
-          this.tableHook.setResult(res.data.list, res.data.total)
-        } catch (e) {
-          console.error(e)
-        }
+  private async getTable(param) {
+    const res = await getTable(param)
+    this.tableHook.setResult(res.data.list, res.data.total)
   }
-  
+
   /**
    * 获取主机列表
    */
@@ -134,7 +130,6 @@ export default class extends Vue {
       this.$message.error(e)
     }
   }
-
 
   /**
    * 重置搜索表单

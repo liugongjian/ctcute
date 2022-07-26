@@ -1579,7 +1579,7 @@
   $iconColor: $color-status-master,
   $bgColor: $color-tag-master-2
 ) {
-  .sub-all-alert {
+  .is-alert-tip {
     .el-alert--#{$class}.is-light {
       border: 1px solid $bdcolor;
       color: $text-color-primary;
@@ -1603,6 +1603,11 @@
   width: auto;
 }
 
+.el-alert__title {
+  font-size: $text-size-primary;
+  line-height: 20px;
+}
+
 .el-alert__content {
   padding-right: 0;
 }
@@ -1611,7 +1616,7 @@
   padding-left: 0;
 }
 
-.sub-all-alert {
+.is-alert-tip {
   .el-alert__closebtn {
     position: static;
     margin-left: 16px;
@@ -1621,10 +1626,6 @@
     font-size: $text-size-primary;
     top: 8px;
   }
-}
-
-.el-alert + .el-alert {
-  margin-left: 49px;
 }
 
 /* Progress
@@ -1807,20 +1808,18 @@
 
 /* Drawer
 -------------------------- */
-.sub-drawer {
-  .sub-content {
-    .el-form {
-      .el-form-item--medium .el-form-item__label {
-        line-height: 30px;
-        font-weight: 400;
-        color: $text-color-primary;
-        font-size: $text-size-primary;
-      }
+.el-drawer {
+  .el-form {
+    .el-form-item--medium .el-form-item__label {
+      line-height: 30px;
+      font-weight: 400;
+      color: $text-color-primary;
+      font-size: $text-size-primary;
     }
   }
 }
 
-.el-drawer.rtl.sub-simple {
+.el-drawer.rtl {
   .el-drawer__header {
     padding-bottom: 20px;
     border-bottom: 1px solid $border-color-light-1;
@@ -2040,10 +2039,8 @@
 
 /* Timeline
 -------------------------- */
-.sub-timeline {
-  ul {
-    padding-inline-start: 12px;
-  }
+.el-timeline {
+  padding-inline-start: 12px;
 
   .el-timeline-item__wrapper {
     padding-left: 18px;
@@ -2078,7 +2075,7 @@
   $iconColor:icon颜色;
 */
 @mixin contentareatips-page($class: info, $color: $text-color-light-1, $iconColor: $icon-color) {
-  .sub-contentareatips {
+  .is-content-area-tip {
     .el-alert--#{$class}.is-light {
       background-color: $color-white;
       color: $color;
@@ -2093,11 +2090,6 @@
 @include contentareatips-page();
 @include contentareatips-page(warning, #fa9a34, $color-status-warning);
 @include contentareatips-page(error, $color-status-danger, $color-status-danger);
-
-.el-alert__title {
-  font-size: $text-size-primary;
-  line-height: 20px;
-}
 
 /* Tooltip
 -------------------------- */

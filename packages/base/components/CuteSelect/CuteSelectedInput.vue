@@ -2,12 +2,13 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-20 13:25:15
+ * @LastEditTime: 2022-07-26 16:44:58
  * @Description: 操作已选项
 -->
 <template>
   <div class="selected-input">
-    <el-select ref="select" v-model="sele" :class="flag ? 'select-field' : 'el-select'" @change="change">
+    <el-select ref="select" :value="''" placeholder="" @change="handelSelectChange">
+      <span slot="prefix" :class="flag ? 'select-field' : 'select-uncheck'">{{ sele }}</span>
       <el-option
         v-for="(v, i) in options"
         :key="i"
@@ -40,7 +41,6 @@ export default class extends Vue {
       this.sele = '操作已选项'
     }
   }
-
   @Watch('checkedList')
   private change() {
     if (this.checkedList.length > 0) {
@@ -50,7 +50,10 @@ export default class extends Vue {
       this.flag = false
       this.sele = '操作已选项'
     }
-    this.$emit('change', this.checkedList)
+  }
+
+  private handelSelectChange(e) {
+    this.$emit('change', { checkedList: this.checkedList, value: e })
   }
 }
 </script>
@@ -68,11 +71,15 @@ export default class extends Vue {
   }
 }
 
+.select-uncheck {
+  padding-right: 0;
+  color: $color-grey-1;
+  padding-left: 11px;
+}
+
 .select-field {
-  ::v-deep.el-input__inner {
-    padding-right: 0;
-    color: $color-master-1;
-    padding-left: 11px;
-  }
+  padding-right: 0;
+  color: $color-master-1;
+  padding-left: 11px;
 }
 </style>

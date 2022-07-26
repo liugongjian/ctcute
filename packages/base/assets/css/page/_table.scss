@@ -371,9 +371,6 @@
 .pro-table-2 {
   /* 表格工具栏 */
   .table-tools {
-    display: flex;
-    justify-content: space-between;
-
     /* 筛选表单 */
     &__conditions {
       margin-bottom: 16px;
@@ -429,12 +426,15 @@
   }
 
   .el-form {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
     .el-form-item {
       margin-bottom: 16px !important;
+    }
+
+    .table-tools_top,
+    .table-tools_bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 

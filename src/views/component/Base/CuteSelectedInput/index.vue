@@ -1,3 +1,10 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-07-25 17:54:37
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-26 16:52:01
+ * @Description: 
+-->
 <template>
   <div>
     <!-- 多个DEMO请复制此段 -->
@@ -57,7 +64,7 @@ export default class extends Vue {
   private event = [
     {
       name: 'change',
-      desc: '选中值发生变化时触发	',
+      desc: '点击操作时触发	',
       callback: '选中项',
     },
   ]

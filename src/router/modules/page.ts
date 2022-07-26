@@ -221,6 +221,15 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'scrolled-to-load-table',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ScrolledToLoadTable.vue'),
+        name: 'ScrolledToLoadTable',
+        meta: {
+          title: 'ScrolledToLoadTable 滚动查询表格',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 卡片

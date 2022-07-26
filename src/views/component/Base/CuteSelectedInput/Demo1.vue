@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-19 22:03:32
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-20 13:46:46
+ * @LastEditTime: 2022-07-26 17:20:24
  * @Description: 
 -->
 <template>
@@ -27,8 +27,8 @@ export default class extends Vue {
     },
   ]
 
-  private change(data) {
-    console.log(data)
+  private change(e) {
+    console.log(e, '选中数据,value')
   }
 }
 </script>

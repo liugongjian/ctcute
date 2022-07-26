@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-21 17:22:27
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2022-07-26 16:24:33
  * @Description:
  */
 import ElementUI from 'element-ui'
@@ -10,6 +10,7 @@ import ElementUIOverride from './components/ElementUI'
 import './components/ElementUI/settings'
 import './assets/css/element-variables.scss'
 import './assets/fonts/iconfont.css'
+import './assets/fonts/bahnschrift.css'
 import './assets/icons/index'
 import './assets/css/index.scss'
 

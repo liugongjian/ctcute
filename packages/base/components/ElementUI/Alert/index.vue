@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex">
+  <div style="display: flex" :class="[contentAreaTip ? 'is-content-area-tip' : 'is-alert-tip']">
     <transition name="el-alert-fade">
       <div
         v-show="visible"
@@ -42,6 +42,10 @@ export default {
   name: 'ElAlert',
 
   props: {
+    contentAreaTip: {
+      type: Boolean,
+      default: false,
+    },
     title: {
       type: String,
       default: '',

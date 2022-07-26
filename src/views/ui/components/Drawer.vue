@@ -12,7 +12,7 @@
         <h3>简单样式</h3>
         <el-button @click="drawer = true">简单样式 </el-button>
         <!-- 抽屉 -->
-        <el-drawer title="抽屉" :visible.sync="drawer" custom-class="sub-simple">
+        <el-drawer title="抽屉" :visible.sync="drawer">
           <div class="sub-content">
             <div class="el-form">
               抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到到原任务。
@@ -27,7 +27,7 @@
         <h3>复杂样式</h3>
         <el-button @click="drawer1 = true">复杂样式 </el-button>
         <!-- 抽屉 -->
-        <el-drawer title="小弹窗(提示框)" :visible.sync="drawer1" custom-class="sub-simple">
+        <el-drawer title="小弹窗(提示框)" :visible.sync="drawer1">
           <div class="sub-content">
             <el-form
               ref="ruleForm"

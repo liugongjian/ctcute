@@ -40,7 +40,12 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
               挂载
             </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
@@ -48,8 +53,10 @@
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
               <span class="el-dropdown-link">
-                更多<i class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"></i>
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
               </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
@@ -61,8 +68,13 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination class="pagination" :current-page="currentPage4" :total="153" @size-change="handleSizeChange"
-        @current-change="handleCurrentChange">
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="153"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
       </el-pagination>
     </div>
 
@@ -72,8 +84,13 @@
         <el-button type="primary" :disabled="!multipleSelection.length" size="small">主按钮</el-button>
         <el-button :disabled="!multipleSelection.length" size="small">次按钮</el-button>
       </div>
-      <el-table ref="multipleTable" :data="data.tableData10" tooltip-effect="dark" border
-        @selection-change="handleSelectionChange">
+      <el-table
+        ref="multipleTable"
+        :data="data.tableData10"
+        tooltip-effect="dark"
+        border
+        @selection-change="handleSelectionChange"
+      >
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" width="150px" label="主机别名">
           <template slot-scope="scope">
@@ -106,7 +123,12 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
               挂载
             </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
@@ -114,8 +136,10 @@
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
               <span class="el-dropdown-link">
-                更多<i class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"></i>
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
               </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
@@ -127,19 +151,33 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
-        @current-change="handleCurrentChange">
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="100"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
       </el-pagination>
     </div>
 
     <h3>可多选表格(3个以上操作)</h3>
     <div class="sub-table">
       <div style="margin-bottom: 20px">
-        <cute-selected-input :checked-list="multipleSelectionOver3" placeholder="请选择" :options="optionData">
+        <cute-selected-input
+          :checked-list="multipleSelectionOver3"
+          placeholder="请选择"
+          :options="optionData"
+        >
         </cute-selected-input>
       </div>
-      <el-table ref="multipleTable" tooltip-effect="dark" :data="data.tableData10" border
-        @selection-change="handleSelectionChangeOver3">
+      <el-table
+        ref="multipleTable"
+        tooltip-effect="dark"
+        :data="data.tableData10"
+        border
+        @selection-change="handleSelectionChangeOver3"
+      >
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="name" label="主机别名">
           <template slot-scope="scope">
@@ -174,7 +212,12 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
               挂载
             </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
@@ -182,8 +225,10 @@
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
               <span class="el-dropdown-link">
-                更多<i class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"></i>
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
               </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
@@ -195,8 +240,13 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
-        @current-change="handleCurrentChange">
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="100"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
       </el-pagination>
     </div>
 
@@ -235,7 +285,12 @@
         </el-table-column>
         <el-table-column label="操作" width="190px" fixed="right">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
               挂载
             </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
@@ -243,8 +298,10 @@
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
               <span class="el-dropdown-link">
-                更多<i class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"></i>
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
               </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
@@ -256,8 +313,13 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
-        @current-change="handleCurrentChange">
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="100"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
       </el-pagination>
     </div>
 
@@ -298,13 +360,18 @@
         <el-table-column prop="status2" label="其他状态">
           <template slot-scope="scope">
             <el-tag :type="scope.row.status2 && STATUS2[scope.row.status2].color" size="small">{{
-                scope.row.status2 && STATUS2[scope.row.status2].text
+              scope.row.status2 && STATUS2[scope.row.status2].text
             }}</el-tag>
           </template>
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
               挂载
             </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
@@ -312,8 +379,10 @@
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
               <span class="el-dropdown-link">
-                更多<i class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"></i>
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
               </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
@@ -325,8 +394,13 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
-        @current-change="handleCurrentChange">
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="100"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
       </el-pagination>
     </div>
 
@@ -365,7 +439,12 @@
         </el-table-column>
         <el-table-column label="操作" width="190px">
           <template slot-scope="scope">
-            <el-button type="text" size="small" class="bt-operation" @click="handleClick(scope.$index, scope.row)">
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
               挂载
             </el-button>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
@@ -373,8 +452,10 @@
             <el-divider direction="vertical"></el-divider>
             <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
               <span class="el-dropdown-link">
-                更多<i class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"></i>
+                更多<i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                ></i>
               </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>退订</el-dropdown-item>
@@ -387,12 +468,17 @@
         </el-table-column>
         <el-table-column label="优先级">
           <div class="sort-table">
-            <svg-icon name="sort" />
+            <svg-icon name="sort" class="sort-icon" />
           </div>
         </el-table-column>
       </el-table>
-      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
-        @current-change="handleCurrentChange">
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="100"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
       </el-pagination>
     </div>
     <h3>横向展示列表</h3>
@@ -465,7 +551,7 @@
         <el-table-column label="排行">
           <template slot-scope="scope">
             <span :class="scope.$index < 3 ? 'sub-index sub-index-top3' : 'sub-index'">{{
-                scope.$index + 1
+              scope.$index + 1
             }}</span>
           </template>
         </el-table-column>
@@ -486,16 +572,26 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
-        @current-change="handleCurrentChange">
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="100"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
       </el-pagination>
     </div>
 
     <h3>带列设置的表格</h3>
     <div class="sub-table-settings">
       <!-- 列设置选择表单 -->
-      <el-popover placement="bottom-end" trigger="click" class="sub-table-settings__popover" @show="handlePopverShow"
-        @hide="handlePopverhide">
+      <el-popover
+        placement="bottom-end"
+        trigger="click"
+        class="sub-table-settings__popover"
+        @show="handlePopverShow"
+        @hide="handlePopverhide"
+      >
         <!-- 固定的，用来全选 -->
         <el-checkbox v-model="allSelected" label="全选" @change="handleSelectedChange"></el-checkbox>
         <!-- 分割线 -->
@@ -515,7 +611,12 @@
 
       <!-- 表格 -->
       <el-table :data="data.tableData10" fit border>
-        <el-table-column v-for="(v, i) in selectedOptionsWithProp" :key="v.prop" :prop="v.prop" :label="v.label">
+        <el-table-column
+          v-for="(v, i) in selectedOptionsWithProp"
+          :key="v.prop"
+          :prop="v.prop"
+          :label="v.label"
+        >
           <template slot-scope="{ row }">
             <span v-if="v.prop === 'healthy'">
               <span class="health-dot" :class="`health-dot--${row.healthy}`" />{{ HEALTH[row.healthy] }}
@@ -543,8 +644,13 @@
       </el-table>
 
       <!-- 分页 -->
-      <el-pagination class="pagination" :current-page="currentPage4" :total="100" @size-change="handleSizeChange"
-        @current-change="handleCurrentChange">
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="100"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
       </el-pagination>
     </div>
   </div>
@@ -1021,6 +1127,12 @@ export default class extends Vue {
     &--5 {
       background: $disabled-color;
     }
+  }
+}
+.sort-icon {
+  cursor: pointer;
+  &:hover {
+    color: $color-master-1;
   }
 }
 </style>

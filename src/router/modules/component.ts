@@ -1,3 +1,10 @@
+/*
+ * @Author: huanglulu
+ * @Date: 2022-07-20 10:15:03
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-07-25 17:27:10
+ * @Description:
+ */
 import Layout from '@/layout/component.vue'
 
 const componentRoutes = [
@@ -31,6 +38,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'cute-table-column-settings',
+        name: 'CuteTableColumnSettings',
+        component: () => import('@/views/component/Base/CuteTableColumnSettings/index.vue'),
+        meta: {
+          title: 'CuteTableColumnSettings',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'cute-titled-block',
         name: 'CuteTitledBlock',
         component: () => import('@/views/component/Base/CuteTitledBlock/index.vue'),
@@ -54,6 +70,31 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteTag/index.vue'),
         meta: {
           title: 'CuteTag',
+        },
+      },
+      {
+        path: 'cute-sort-table',
+        name: 'CuteSortTable',
+        component: () => import('@/views/component/Base/CuteSortTable/index.vue'),
+        meta: {
+          title: 'CuteSortTable',
+        },
+      },
+      {
+        path: 'cute-remind-input',
+        name: 'CuteRemindInput',
+        component: () => import('@/views/component/Base/CuteRemindInput/index.vue'),
+        meta: {
+          title: 'CuteRemindInput',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-special-radio',
+        name: 'CuteSpecialRadio',
+        component: () => import('@/views/component/Base/CuteSpecialRadio/index.vue'),
+        meta: {
+          title: 'CuteSpecialRadio',
           breadcrumb: true,
         },
       },

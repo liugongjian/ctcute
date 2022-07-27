@@ -1,0 +1,8 @@
+{
+  "files": [
+    {
+      "name": "SimplePreview.vue",
+      "path": "@/views/page/Preview/SimplePreview.vue"
+    }
+  ]
+}

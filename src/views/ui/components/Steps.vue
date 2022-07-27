@@ -100,7 +100,8 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteStepsMulti from '@/components/CuteSteps/CuteStepsMulti.vue'
+import { CuteStepsMulti } from '@cutedesign/base'
+
 @Component({
   name: 'UiSteps',
   components: { CuteStepsMulti },

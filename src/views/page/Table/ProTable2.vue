@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-20 17:37:48
+ * @LastEditTime: 2022-07-26 17:14:04
  * @Description: 复杂表格2
 -->
 <template>
@@ -17,48 +17,51 @@
           label-width="130px"
           @submit.native.prevent
         >
-          <el-form-item prop="name">
-            <cute-remind-input
-              v-model="conditions.name"
-              :placeholder="placeholder"
-              label="数据资源名称"
-              @change="cahngeFun3"
-            >
-            </cute-remind-input>
-          </el-form-item>
+          <div class="table-tools_top">
+            <el-form-item prop="name">
+              <cute-remind-input
+                v-model="conditions.name"
+                :placeholder="placeholder"
+                title="数据资源名称"
+                @change="cahngeFun3"
+              >
+              </cute-remind-input>
+            </el-form-item>
 
-          <el-form-item prop="host">
-            <cute-remind-select
-              v-model="conditions.host"
-              :options="hostOptions"
-              :placeholder="'请选择主机名'"
-              :title="'主机名称'"
-              @change="changeFun"
-            />
-          </el-form-item>
-          <el-form-item prop="environment">
-            <cute-remind-select
-              v-model="conditions.environment"
-              :options="hostEnvironmentOptions"
-              :placeholder="'请选择主机环境'"
-              :title="'环境名称'"
-              @change="changeFun1"
-            />
-          </el-form-item>
-
-          <el-form-item prop="cpu">
-            <cute-remind-select
-              v-model="conditions.cpu"
-              :options="cpuOptions"
-              :placeholder="'请选择CPU利用率'"
-              :title="'cpu利用率'"
-              @change="changeFun2"
-            />
-          </el-form-item>
-          <el-form-item class="table-tools__conditions__buttons">
-            <el-button type="primary" @click="search">查询</el-button>
-            <el-button @click="resetConditions">重置</el-button>
-          </el-form-item>
+            <el-form-item prop="host">
+              <cute-remind-select
+                v-model="conditions.host"
+                :options="hostOptions"
+                :placeholder="'请选择主机名'"
+                :title="'主机名称'"
+                @change="changeFun"
+              />
+            </el-form-item>
+            <el-form-item prop="environment">
+              <cute-remind-select
+                v-model="conditions.environment"
+                :options="hostEnvironmentOptions"
+                :placeholder="'请选择主机环境'"
+                :title="'环境名称'"
+                @change="changeFun1"
+              />
+            </el-form-item>
+          </div>
+          <div class="table-tools_bottom">
+            <el-form-item prop="cpu">
+              <cute-remind-select
+                v-model="conditions.cpu"
+                :options="cpuOptions"
+                :placeholder="'请选择CPU利用率'"
+                :title="'cpu利用率'"
+                @change="changeFun2"
+              />
+            </el-form-item>
+            <el-form-item class="table-tools__conditions__buttons">
+              <el-button type="primary" @click="search">查询</el-button>
+              <el-button @click="resetConditions">重置</el-button>
+            </el-form-item>
+          </div>
         </el-form>
         <div class="table-button">
           <div class="table-button_left">
@@ -78,7 +81,11 @@
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit border @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55"> </el-table-column>
-      <el-table-column prop="name" label="主机别名" />
+      <el-table-column prop="name" label="主机别名">
+        <template slot-scope="{ row }">
+          <router-link to="/">{{ row.name }}</router-link>
+        </template>
+      </el-table-column>
       <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
       <el-table-column prop="ip" label="IP地址" />
       <el-table-column prop="cpu" label="CPU利用率(%)" />
@@ -133,7 +140,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import * as ProTable2 from '@/types/ProTable2'
 import { getTable, getHosts } from '@/api/proTable2'
-import { STATUS, HEALTH } from '@/dics/simpleTable'
+import { STATUS, HEALTH } from '@/dics/proTable2'
 @Component({
   name: 'ProTable2',
 })
@@ -197,8 +204,8 @@ export default class extends Vue {
   // 分页信息
   private pager = {
     page: 1,
-    limit: 10,
-    total: 20,
+    limit: 20,
+    total: 40,
   }
 
   // 加载状态

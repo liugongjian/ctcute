@@ -127,9 +127,10 @@
   </el-card>
 </template>
 <script lang="ts">
-import CuteChartCard from '@/components/CuteCharts/CuteChartCard.vue'
-import CuteChart from '@/components/CuteCharts/CuteChart.vue'
+import color from '@cutedesign/base/assets/css/_variables.scss'
+import { CuteChartCard, CuteChart } from '@cutedesign/base'
 import { Component, Vue } from 'vue-property-decorator'
+
 @Component({
   name: 'SimpleChart',
   components: {
@@ -138,381 +139,22 @@ import { Component, Vue } from 'vue-property-decorator'
   },
 })
 export default class extends Vue {
+  private get variables(): any {
+    return color
+  }
   statusDate = ''
   activeName = 'first'
   value1 = [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)]
   // 表格数据
   tableData = []
-
   // 饼图
-  option = {
-    color: ['#8ECDFB', '#94E794', '#FAAD15', '#F96965', '#B4B4B4'],
-    title: {
-      text: '流程状态数量',
-      subtext: '34567',
-      itemGap: 10,
-      textAlign: 'center',
-      x: '31.4%',
-      y: '43.5%',
-      textStyle: {
-        fontFamily: '微软雅黑',
-        fontSize: 12,
-        fontWeight: 400,
-        color: '#333',
-      },
-      subtextStyle: {
-        fontSize: 16,
-        fontWeight: 500,
-        fontFamily: '微软雅黑',
-        color: '#333',
-      },
-    },
-    textStyle: {
-      color: '#333',
-    },
-    tooltip: {
-      trigger: 'none',
-      show: true,
-      feature: {
-        mark: { show: true },
-      },
-    },
-    legend: {
-      show: true,
-      textStyle: {
-        fontSize: 12, // 字体大小
-        color: '#333', // 字体颜色
-      },
-      icon: 'circle',
-      top: '20%',
-      right: '10%',
-      itemWidth: 10,
-      itemGap: 20,
-      itemHeight: 10,
-      orient: 'vertical',
-    },
-    series: [
-      {
-        selectedMode: false,
-        labelLine: {
-          normal: {
-            length: 2,
-          },
-          lineStyle: {
-            color: '#333',
-          },
-        },
-        label: {
-          // normal: {
-          //   show: true,
-          //   position: 'center',
-          //   color: '#4c4a4a',
-          //   formatter: '{active|流程状态数量}' + '\n\r' + '34567',
-          //   rich: {
-          //     total: {
-          //       fontSize: 16,
-          //       fontWeight: 500,
-          //       fontFamily: '微软雅黑',
-          //       color: '#333'
-          //     },
-          //     active: {
-          //       fontFamily: '微软雅黑',
-          //       fontSize: 12,
-          //       color: '#6c7a89',
-          //       lineHeight: 30,
-          //     },
-          //   }
-          // },
-        },
-        fontSize: 12, // 字体大小
-        type: 'pie',
-        radius: ['42%', '64%'],
-        center: ['32%', '50%'],
-        data: [
-          { value: 40, name: '成功' },
-          { value: 16, name: '正在运行' },
-          { value: 5, name: '暂停' },
-          { value: 2, name: '失败' },
-          { value: 3, name: '停止' },
-        ],
-        itemStyle: {
-          normal: {
-            label: {
-              fontSize: 12, // 字体大小
-              color: '#333',
-              show: true,
-              padding: [5, 10],
-              // formatter:  '{b} \n {c} ({d}%)'
-              formatter: '{b}  {c}',
-            },
-            labelLine: { show: true },
-          },
-        },
-      },
-    ],
-  }
-
+  option = {}
   // 线图
-  option2 = {
-    grid: {
-      left: '3%',
-      right: '2%',
-      bottom: '3%',
-      containLabel: true,
-    },
-    color: ['#F7C99C', '#FDF5ED', '#FAAD15', '#F96965', '#B4B4B4'],
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'cross',
-        label: {
-          backgroundColor: '#333',
-        },
-      },
-    },
-    legend: {
-      data: ['昨日', '今日'],
-      show: true,
-      textStyle: {
-        fontSize: 12, // 字体大小
-        color: '#333', // 字体颜色
-      },
-      icon: 'circle',
-      top: '6%',
-      right: '12px',
-      itemWidth: 10,
-      itemGap: 20,
-      itemHeight: 10,
-    },
-    xAxis: [
-      {
-        type: 'category',
-        boundaryGap: false,
-        data: ['0', '02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24'],
-        nameLocation: 'start',
-        verticalAlign: 'bottom',
-        name: '小时',
-      },
-    ],
-    yAxis: {
-      type: 'value',
-      nameLocation: 'end',
-      name: '数量',
-      nameTextStyle: {
-        padding: [0, 40, 0, 0],
-      },
-      splitLine: {
-        lineStyle: {
-          type: 'dashed',
-        },
-      },
-      max: 12,
-      // axisLabel: {
-      //   formatter: '{value} %'
-      // }
-    },
-    series: [
-      {
-        name: '昨日',
-        type: 'line',
-        areaStyle: {},
-        emphasis: {
-          focus: 'series',
-        },
-        symbol: 'none',
-        lineStyle: {
-          color: '#F3AD68',
-          normal: {
-            color: '#F3AD68',
-          },
-        },
-        data: [0, 0, 0, 0, 0, 0, 7, 7, 7, 12, 12, 12, 12],
-      },
-      {
-        name: '今日',
-        type: 'line',
-        areaStyle: {},
-        emphasis: {
-          focus: 'series',
-        },
-        symbol: 'none',
-        lineStyle: {
-          color: '#000',
-          normal: {
-            color: '#F3AD68',
-          },
-        },
-        data: [5, 5, 5, 5, 12, 12, 12, 12, 12, 12, 12, 12, 12],
-      },
-    ],
-  }
-
+  option2 = {}
   // 柱状图
-  option3 = {
-    grid: {
-      left: '3%',
-      right: '3%',
-      bottom: '3%',
-      containLabel: true,
-    },
-    color: ['#8BB2F9'],
-    tooltip: {
-      trigger: 'axis',
-      color: '#333',
-      formatter: '{b}' + '<br />' + '流程定义数：{c}',
-      axisPointer: {
-        type: 'shadow',
-      },
-    },
-    xAxis: {
-      type: 'category',
-      data: ['用户 1', '用户 2', '用户 3', '用户 4', '用户 5'],
-      nameLocation: 'start',
-      verticalAlign: 'bottom',
-      name: '用户',
-    },
-    yAxis: {
-      type: 'value',
-      nameLocation: 'end',
-      name: '数量',
-      nameTextStyle: {
-        padding: [0, 40, 0, 0],
-      },
-      splitLine: {
-        lineStyle: {
-          type: 'dashed',
-        },
-      },
-    },
-    series: [
-      {
-        data: [23, 20, 15, 8, 7, 11, 13],
-        type: 'bar',
-
-        barWidth: 26,
-      },
-    ],
-  }
-
+  option3 = {}
   // 柱折混合
-  option4 = {
-    grid: {
-      left: '2%',
-      right: '2%',
-      top: '72px',
-      bottom: '0',
-      containLabel: true,
-    },
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'cross',
-        crossStyle: {
-          color: '#999',
-        },
-      },
-    },
-    legend: {
-      data: ['实际数量', '完成率（%）'],
-      show: true,
-      textStyle: {
-        fontSize: 12, // 字体大小
-        color: '#333', // 字体颜色
-      },
-      icon: 'circle',
-      top: '0%',
-      right: '9px',
-      itemWidth: 10,
-      itemGap: 20,
-      itemHeight: 10,
-    },
-    xAxis: [
-      {
-        type: 'category',
-        data: [
-          '00：00',
-          '02：00',
-          '04：00',
-          '06：00',
-          '08：00',
-          '10：00',
-          '12：00',
-          '14：00',
-          '16：00',
-          '18：00',
-          '20：00',
-          '22：00',
-          '24：00',
-        ],
-        nameLocation: 'start',
-        verticalAlign: 'bottom',
-        name: '时间',
-        axisPointer: {
-          type: 'shadow',
-        },
-      },
-    ],
-    yAxis: [
-      {
-        splitLine: {
-          lineStyle: {
-            type: 'dashed',
-          },
-        },
-        type: 'value',
-        name: '实际数量',
-        min: 0,
-        max: 30,
-        interval: 50,
-        axisLabel: {
-          formatter: '{value}',
-        },
-      },
-      {
-        splitLine: {
-          lineStyle: {
-            type: 'dashed',
-          },
-        },
-        type: 'value',
-        name: '完成率（%）',
-        min: 0,
-        max: 30,
-        interval: 5,
-        axisLabel: {
-          formatter: '{value} %',
-        },
-      },
-    ],
-    series: [
-      {
-        name: '实际数量',
-        type: 'bar',
-        tooltip: {
-          valueFormatter: function (value: number) {
-            return value + ' ml'
-          },
-        },
-        color: ['#AAD85F'],
-        barWidth: 26,
-        data: [30, 28, 25, 24, 21, 20, 16, 15, 13, 12, 10, 7, 3],
-      },
-      {
-        name: '完成率（%）',
-        type: 'line',
-        symbol: 'none',
-        color: ['#8BB2F9'],
-        align: 'right',
-        yAxisIndex: 1,
-        tooltip: {
-          valueFormatter: function (value: number) {
-            return value + ' %'
-          },
-        },
-        data: [13, 18, 22, 20, 26, 18, 15, 14, 13, 16, 16, 16, 11],
-      },
-    ],
-  }
+  option4 = {}
 
   // 加载状态
   loading = false
@@ -521,6 +163,7 @@ export default class extends Vue {
    * 页面Mounted
    */
   created() {
+    console.log('this.variables', color)
     this.tableData = []
     for (let i = 1; i < 22; i++) {
       const item = {
@@ -530,6 +173,360 @@ export default class extends Vue {
         status: Math.floor(Math.random() * 4) + 1,
       }
       this.tableData.push(item)
+    }
+
+    // 饼图
+    this.option = {
+      color: [
+        this.variables.chartColor1,
+        this.variables.chartColor2,
+        this.variables.chartColor3,
+        this.variables.chartColor4,
+        this.variables.chartColor5,
+      ],
+      title: {
+        text: '流程状态数量',
+        subtext: '34567',
+        itemGap: 10,
+        textAlign: 'center',
+        x: '31.4%',
+        y: '43.5%',
+        textStyle: {
+          fontFamily: '微软雅黑',
+          fontSize: 12,
+          fontWeight: 400,
+          color: this.variables.chartColor11,
+        },
+        subtextStyle: {
+          fontSize: 16,
+          fontWeight: 500,
+          fontFamily: '微软雅黑',
+          color: this.variables.chartColor11,
+        },
+      },
+      textStyle: {
+        color: this.variables.chartColor11,
+      },
+      tooltip: {
+        trigger: 'none',
+        show: true,
+        feature: {
+          mark: { show: true },
+        },
+      },
+      legend: {
+        show: true,
+        textStyle: {
+          fontSize: 12, // 字体大小
+          color: this.variables.chartColor11, // 字体颜色
+        },
+        icon: 'circle',
+        top: '20%',
+        right: '10%',
+        itemWidth: 10,
+        itemGap: 20,
+        itemHeight: 10,
+        orient: 'vertical',
+      },
+      series: [
+        {
+          selectedMode: false,
+          labelLine: {
+            normal: {
+              length: 2,
+            },
+            lineStyle: {
+              color: this.variables.chartColor11,
+            },
+          },
+          fontSize: 12, // 字体大小
+          type: 'pie',
+          radius: ['42%', '64%'],
+          center: ['32%', '50%'],
+          data: [
+            { value: 40, name: '成功' },
+            { value: 16, name: '正在运行' },
+            { value: 5, name: '暂停' },
+            { value: 2, name: '失败' },
+            { value: 3, name: '停止' },
+          ],
+          itemStyle: {
+            normal: {
+              label: {
+                fontSize: 12, // 字体大小
+                color: this.variables.chartColor11,
+                show: true,
+                padding: [5, 10],
+                // formatter:  '{b} \n {c} ({d}%)'
+                formatter: '{b}  {c}',
+              },
+              labelLine: { show: true },
+            },
+          },
+        },
+      ],
+    }
+
+    // 线图
+    this.option2 = {
+      grid: {
+        left: '3%',
+        right: '2%',
+        bottom: '3%',
+        containLabel: true,
+      },
+      color: [this.variables.chartColor6, this.variables.chartColor7],
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'cross',
+          label: {
+            backgroundColor: this.variables.chartColor11,
+          },
+        },
+      },
+      legend: {
+        data: ['昨日', '今日'],
+        show: true,
+        textStyle: {
+          fontSize: 12, // 字体大小
+          color: this.variables.chartColor11, // 字体颜色
+        },
+        icon: 'circle',
+        top: '6%',
+        right: '12px',
+        itemWidth: 10,
+        itemGap: 20,
+        itemHeight: 10,
+      },
+      xAxis: [
+        {
+          type: 'category',
+          boundaryGap: false,
+          data: ['0', '02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24'],
+          nameLocation: 'start',
+          verticalAlign: 'bottom',
+          name: '小时',
+        },
+      ],
+      yAxis: {
+        type: 'value',
+        nameLocation: 'end',
+        name: '数量',
+        nameTextStyle: {
+          padding: [0, 40, 0, 0],
+        },
+        splitLine: {
+          lineStyle: {
+            type: 'dashed',
+          },
+        },
+        max: 12,
+        // axisLabel: {
+        //   formatter: '{value} %'
+        // }
+      },
+      series: [
+        {
+          name: '昨日',
+          type: 'line',
+          areaStyle: {},
+          emphasis: {
+            focus: 'series',
+          },
+          symbol: 'none',
+          lineStyle: {
+            color: this.variables.chartColor9,
+            normal: {
+              color: this.variables.chartColor9,
+            },
+          },
+          data: [0, 0, 0, 0, 0, 0, 7, 7, 7, 12, 12, 12, 12],
+        },
+        {
+          name: '今日',
+          type: 'line',
+          areaStyle: {},
+          emphasis: {
+            focus: 'series',
+          },
+          symbol: 'none',
+          lineStyle: {
+            color: this.variables.chartColor13,
+            normal: {
+              color: this.variables.chartColor9,
+            },
+          },
+          data: [5, 5, 5, 5, 12, 12, 12, 12, 12, 12, 12, 12, 12],
+        },
+      ],
+    }
+
+    // 柱状图
+    this.option3 = {
+      grid: {
+        left: '3%',
+        right: '3%',
+        bottom: '3%',
+        containLabel: true,
+      },
+      color: [this.variables.chartColor10],
+      tooltip: {
+        trigger: 'axis',
+        color: this.variables.chartColor11,
+        formatter: '{b}' + '<br />' + '流程定义数：{c}',
+        axisPointer: {
+          type: 'shadow',
+        },
+      },
+      xAxis: {
+        type: 'category',
+        data: ['用户 1', '用户 2', '用户 3', '用户 4', '用户 5'],
+        nameLocation: 'start',
+        verticalAlign: 'bottom',
+        name: '用户',
+      },
+      yAxis: {
+        type: 'value',
+        nameLocation: 'end',
+        name: '数量',
+        nameTextStyle: {
+          padding: [0, 40, 0, 0],
+        },
+        splitLine: {
+          lineStyle: {
+            type: 'dashed',
+          },
+        },
+      },
+      series: [
+        {
+          data: [23, 20, 15, 8, 7, 11, 13],
+          type: 'bar',
+
+          barWidth: 26,
+        },
+      ],
+    }
+
+    // 柱折混合
+    this.option4 = {
+      grid: {
+        left: '2%',
+        right: '2%',
+        top: '72px',
+        bottom: '0',
+        containLabel: true,
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'cross',
+          crossStyle: {
+            color: this.variables.chartColor14,
+          },
+        },
+      },
+      legend: {
+        data: ['实际数量', '完成率（%）'],
+        show: true,
+        textStyle: {
+          fontSize: 12, // 字体大小
+          color: this.variables.chartColor11, // 字体颜色
+        },
+        icon: 'circle',
+        top: '0%',
+        right: '9px',
+        itemWidth: 10,
+        itemGap: 20,
+        itemHeight: 10,
+      },
+      xAxis: [
+        {
+          type: 'category',
+          data: [
+            '00：00',
+            '02：00',
+            '04：00',
+            '06：00',
+            '08：00',
+            '10：00',
+            '12：00',
+            '14：00',
+            '16：00',
+            '18：00',
+            '20：00',
+            '22：00',
+            '24：00',
+          ],
+          nameLocation: 'start',
+          verticalAlign: 'bottom',
+          name: '时间',
+          axisPointer: {
+            type: 'shadow',
+          },
+        },
+      ],
+      yAxis: [
+        {
+          splitLine: {
+            lineStyle: {
+              type: 'dashed',
+            },
+          },
+          type: 'value',
+          name: '实际数量',
+          min: 0,
+          max: 30,
+          interval: 50,
+          axisLabel: {
+            formatter: '{value}',
+          },
+        },
+        {
+          splitLine: {
+            lineStyle: {
+              type: 'dashed',
+            },
+          },
+          type: 'value',
+          name: '完成率（%）',
+          min: 0,
+          max: 30,
+          interval: 5,
+          axisLabel: {
+            formatter: '{value} %',
+          },
+        },
+      ],
+      series: [
+        {
+          name: '实际数量',
+          type: 'bar',
+          tooltip: {
+            valueFormatter: function (value: number) {
+              return value + ' ml'
+            },
+          },
+          color: [this.variables.chartColor12],
+          barWidth: 26,
+          data: [30, 28, 25, 24, 21, 20, 16, 15, 13, 12, 10, 7, 3],
+        },
+        {
+          name: '完成率（%）',
+          type: 'line',
+          symbol: 'none',
+          color: [this.variables.chartColor10],
+          align: 'right',
+          yAxisIndex: 1,
+          tooltip: {
+            valueFormatter: function (value: number) {
+              return value + ' %'
+            },
+          },
+          data: [13, 18, 22, 20, 26, 18, 15, 14, 13, 16, 16, 16, 11],
+        },
+      ],
     }
   }
 }

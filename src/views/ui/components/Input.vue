@@ -113,7 +113,7 @@
         <cute-remind-input
           v-model="state1"
           :placeholder="placeholder"
-          label="数据资源名称"
+          title="数据资源名称"
           @change="changeFun"
         />
       </el-row>
@@ -171,7 +171,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteEditInput from '@/components/CuteEditInput/index.vue'
+import { CuteEditInput } from '@cutedesign/base'
 @Component({
   name: 'UiInput',
   components: {

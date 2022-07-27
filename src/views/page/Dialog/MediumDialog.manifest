@@ -9,8 +9,8 @@
       "path": "@/types/MediumDialog.d.ts"
     },
     {
-      "name": "api/MediumDialog.ts",
-      "path": "@/api/MediumDialog.ts"
+      "name": "api/mediumDialog.ts",
+      "path": "@/api/mediumDialog.ts"
     }
   ]
 }

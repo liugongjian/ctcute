@@ -221,6 +221,15 @@ const pageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'scrolled-to-load-table',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ScrolledToLoadTable.vue'),
+        name: 'ScrolledToLoadTable',
+        meta: {
+          title: 'ScrolledToLoadTable 滚动查询表格',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 卡片
@@ -371,6 +380,31 @@ const pageRoutes = [
         name: 'SimpleChart',
         meta: {
           title: 'SimpleChart 基础图表',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+
+  //文档预览
+  {
+    path: '/page/review',
+    redirect: '/page/preview/simple-preview',
+    component: Layout,
+    name: 'Preview',
+    meta: {
+      title: 'Preview 文档预览',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'Preview',
+        component: () =>
+          import(/* webpackChunkName: "simplepreview" */ '@/views/page/Preview/SimplePreview.vue'),
+        name: 'Preview',
+        meta: {
+          title: 'SimplePreview 文档预览',
           breadcrumb: true,
         },
       },

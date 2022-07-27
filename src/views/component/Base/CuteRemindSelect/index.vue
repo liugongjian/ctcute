@@ -32,7 +32,7 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 export default class extends Vue {
   private prop = [
     {
-      name: 'model',
+      name: 'v-model',
       desc: '绑定值',
       type: 'string | number | boolean',
       options: null,

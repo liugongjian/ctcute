@@ -11,10 +11,12 @@
   />
 </template>
 <script lang="ts">
+import { mavonEditor } from 'mavon-editor'
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({
   name: 'CuteMavonEditor',
+  components: { mavonEditor },
 })
 export default class extends Vue {
   @Prop({ type: String, required: true }) content: ''

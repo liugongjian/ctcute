@@ -56,6 +56,7 @@ export default class extends Vue {
   .chart-card-cont-warp {
     width: 240px;
     h3 {
+      font-family: 'bahnschrift';
       font-size: 30px;
       line-height: 42px;
       margin: 0;

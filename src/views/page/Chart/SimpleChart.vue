@@ -6,125 +6,132 @@
  * @Description: 基础图表
 -->
 <template>
-  <el-card class="simple-table">
-    <!-- 统计数据 -->
-    <el-row :gutter="22">
-      <el-col :span="8">
-        <cute-chart-card
-          :loading="loading"
-          icon="sever"
-          title="数据库总数(个)"
-          total="20"
-          background="139, 178, 249"
-        ></cute-chart-card>
-      </el-col>
-      <el-col :span="8">
-        <cute-chart-card
-          :loading="loading"
-          icon="sever"
-          title="总表数(个)"
-          total="295"
-          background="182, 221, 119"
-        ></cute-chart-card>
-      </el-col>
-      <el-col :span="8">
-        <cute-chart-card
-          :loading="loading"
-          icon="sever"
-          title="总存储量(GB)"
-          total="0.67"
-          background="248, 211, 76"
-        ></cute-chart-card>
-      </el-col>
-    </el-row>
-    <el-row :gutter="22" class="simple-table-box">
-      <el-col :span="12">
-        <el-card class="chart-card-box">
-          <div slot="header" class="chart-card-header">
-            <span>实例状态统计</span>
-            <el-date-picker v-model="statusDate" type="date" placeholder="选择日期"> </el-date-picker>
-          </div>
-          <div class="chart-box">
-            <CuteChart :option="option" :height="'280px'" :width="'100%'" />
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="12">
-        <el-card class="chart-card-box">
-          <div slot="header" class="chart-card-header">
-            <span>周期实例完成统计</span>
-            <el-tabs v-model="activeName" class="chart-card-tabs">
-              <el-tab-pane label="选项一" name="first"></el-tab-pane>
-              <el-tab-pane label="选项二" name="second"></el-tab-pane>
-            </el-tabs>
-          </div>
-          <div class="chart-box">
-            <CuteChart :option="option2" :height="'280px'" :width="'100%'" />
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="12">
-        <el-card class="chart-card-box">
-          <div slot="header" class="chart-card-header">
-            <span>流程数量定义统计</span>
-          </div>
-          <div class="chart-box">
-            <CuteChart :option="option3" :height="'280px'" :width="'100%'" />
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="12">
-        <el-card class="chart-card-box">
-          <div slot="header" class="chart-card-header">
-            <span>流程数量定义统计</span>
-            <el-date-picker
-              v-model="value1"
-              type="datetimerange"
-              range-separator="至"
-              start-placeholder="开始日期"
-              end-placeholder="结束日期"
-            >
-            </el-date-picker>
-          </div>
-          <div class="chart-box">
-            <el-table :data="tableData" style="width: 100%" stripe class="chart-table" height="250">
-              <el-table-column prop="index" label="排行" width="56" align="center">
-                <template slot-scope="scope">
-                  <span class="solt" :class="'solt' + scope.row.index">{{ scope.row.index }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column prop="name" label="工作流名称"></el-table-column>
-              <el-table-column prop="time" label="耗时"></el-table-column>
-              <el-table-column prop="status" label="状态" width="80" align="center">
-                <template slot-scope="scope">
-                  <span class="status" :class="'status' + scope.row.status">
-                    <span v-if="scope.row.status === 1">停止</span>
-                    <span v-else-if="scope.row.status === 2">失败</span>
-                    <span v-else-if="scope.row.status === 3">暂停</span>
-                    <span v-else>成功</span>
-                  </span>
-                </template>
-              </el-table-column>
-            </el-table>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="24">
-        <el-card class="chart-card-box">
-          <div slot="header" class="chart-card-header">
-            <span>工作流实例与完成率统计</span>
-            <el-tabs v-model="activeName" class="chart-card-tabs">
-              <el-tab-pane label="选项一" name="first"></el-tab-pane>
-              <el-tab-pane label="选项二" name="second"></el-tab-pane>
-            </el-tabs>
-          </div>
-          <div class="chart-box chart-box-linebar">
-            <CuteChart :option="option4" :height="'310px'" :width="'100%'" />
-          </div>
-        </el-card>
-      </el-col>
-    </el-row>
-  </el-card>
+  <div class="chart-cont">
+    <!-- <el-tabs v-model="activeName" class="chart-card-tabs">
+      <el-tab-pane label="选项一" name="first"></el-tab-pane>
+      <el-tab-pane label="禁用项" disabled name="disabled"></el-tab-pane>
+      <el-tab-pane label="选项二" name="second"></el-tab-pane>
+    </el-tabs> -->
+    <el-card class="simple-table" shadow="never">
+      <!-- 统计数据 -->
+      <el-row :gutter="22">
+        <el-col :span="8">
+          <cute-chart-card
+            :loading="loading"
+            icon="sever"
+            title="数据库总数(个)"
+            total="20"
+            background="139, 178, 249"
+          ></cute-chart-card>
+        </el-col>
+        <el-col :span="8">
+          <cute-chart-card
+            :loading="loading"
+            icon="sever"
+            title="总表数(个)"
+            total="295"
+            background="182, 221, 119"
+          ></cute-chart-card>
+        </el-col>
+        <el-col :span="8">
+          <cute-chart-card
+            :loading="loading"
+            icon="sever"
+            title="总存储量(GB)"
+            total="0.67"
+            background="248, 211, 76"
+          ></cute-chart-card>
+        </el-col>
+      </el-row>
+      <el-row :gutter="22" class="simple-table-box">
+        <el-col :span="12">
+          <el-card class="chart-card-box">
+            <div slot="header" class="chart-card-header">
+              <span>实例状态统计</span>
+              <el-date-picker v-model="statusDate" type="date" placeholder="选择日期"> </el-date-picker>
+            </div>
+            <div class="chart-box">
+              <CuteChart :option="option" :height="'280px'" :width="'100%'" />
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="12">
+          <el-card class="chart-card-box">
+            <div slot="header" class="chart-card-header">
+              <span>周期实例完成统计</span>
+              <el-tabs v-model="activeName" class="chart-card-tabs">
+                <el-tab-pane label="选项一" name="first"></el-tab-pane>
+                <el-tab-pane label="选项二" name="second"></el-tab-pane>
+              </el-tabs>
+            </div>
+            <div class="chart-box">
+              <CuteChart :option="option2" :height="'280px'" :width="'100%'" />
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="12">
+          <el-card class="chart-card-box">
+            <div slot="header" class="chart-card-header">
+              <span>流程数量定义统计</span>
+            </div>
+            <div class="chart-box">
+              <CuteChart :option="option3" :height="'280px'" :width="'100%'" />
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="12">
+          <el-card class="chart-card-box">
+            <div slot="header" class="chart-card-header">
+              <span>流程数量定义统计</span>
+              <el-date-picker
+                v-model="value1"
+                type="datetimerange"
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期"
+              >
+              </el-date-picker>
+            </div>
+            <div class="chart-box">
+              <el-table :data="tableData" style="width: 100%" stripe class="chart-table" height="250">
+                <el-table-column prop="index" label="排行" width="56" align="center">
+                  <template slot-scope="scope">
+                    <span class="solt" :class="'solt' + scope.row.index">{{ scope.row.index }}</span>
+                  </template>
+                </el-table-column>
+                <el-table-column prop="name" label="工作流名称"></el-table-column>
+                <el-table-column prop="time" label="耗时"></el-table-column>
+                <el-table-column prop="status" label="状态" width="80" align="center">
+                  <template slot-scope="scope">
+                    <span class="status" :class="'status' + scope.row.status">
+                      <span v-if="scope.row.status === 1">停止</span>
+                      <span v-else-if="scope.row.status === 2">失败</span>
+                      <span v-else-if="scope.row.status === 3">暂停</span>
+                      <span v-else>成功</span>
+                    </span>
+                  </template>
+                </el-table-column>
+              </el-table>
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="24">
+          <el-card class="chart-card-box">
+            <div slot="header" class="chart-card-header">
+              <span>工作流实例与完成率统计</span>
+              <el-tabs v-model="activeName" class="chart-card-tabs">
+                <el-tab-pane label="选项一" name="first"></el-tab-pane>
+                <el-tab-pane label="选项二" name="second"></el-tab-pane>
+              </el-tabs>
+            </div>
+            <div class="chart-box chart-box-linebar">
+              <CuteChart :option="option4" :height="'310px'" :width="'100%'" />
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </el-card>
+  </div>
 </template>
 <script lang="ts">
 import color from '@cutedesign/base/assets/css/_variables.scss'
@@ -163,7 +170,6 @@ export default class extends Vue {
    * 页面Mounted
    */
   created() {
-    console.log('this.variables', color)
     this.tableData = []
     for (let i = 1; i < 22; i++) {
       const item = {
@@ -281,7 +287,7 @@ export default class extends Vue {
         axisPointer: {
           type: 'cross',
           label: {
-            backgroundColor: this.variables.chartColor11,
+            backgroundColor: this.variables.chartColor9,
           },
         },
       },
@@ -419,11 +425,18 @@ export default class extends Vue {
         containLabel: true,
       },
       tooltip: {
+        // trigger: 'axis',
+        // axisPointer: {
+        //   type: 'cross',
+        //   crossStyle: {
+        //     color: this.variables.chartColor14,
+        //   },
+        // },
         trigger: 'axis',
         axisPointer: {
           type: 'cross',
-          crossStyle: {
-            color: this.variables.chartColor14,
+          label: {
+            backgroundColor: this.variables.chartColor10,
           },
         },
       },
@@ -532,12 +545,25 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.chart-card-tabs {
+}
 .simple-table-box {
   ::v-deep .el-col {
     margin-top: 22px;
   }
 }
-
+.chart-cont .el-card {
+  background: none;
+  & ::v-deep > .el-card__body {
+    padding: 0;
+    .el-card {
+      background: $color-white;
+      .el-card__body {
+        padding: 20px;
+      }
+    }
+  }
+}
 .chart-card-box {
   ::v-deep .el-card__header {
     padding: 0 22px;
@@ -596,6 +622,7 @@ export default class extends Vue {
   }
 
   .chart-table.el-table {
+    margin: 0 !important;
     .solt {
       margin: 0 auto;
       background: $color-other-2;

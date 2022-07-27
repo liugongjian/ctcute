@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:23
  * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-24 13:15:18
+ * @LastEditTime: 2022-07-27 09:08:03
  * @Description:
 -->
 <template>
@@ -57,7 +57,7 @@
     </template>
     <template #priority="{}">
       <div class="sort-table">
-        <svg-icon name="sort" />
+        <svg-icon name="sort" class="sort-icon" />
       </div>
     </template>
   </cute-sort-table>
@@ -231,5 +231,11 @@ export default class extends Vue {
 
 .top-fill {
   transform: rotate(180deg);
+}
+.sort-icon {
+  cursor: pointer;
+  &:hover {
+    color: $color-master-1;
+  }
 }
 </style>

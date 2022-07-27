@@ -52,7 +52,7 @@ export default class extends Vue {
   private routes
 
   @Prop()
-  private title
+  public title
 
   @Prop()
   private type
@@ -61,17 +61,17 @@ export default class extends Vue {
     this.setLayoutPadding()
   }
 
-  private isShowMenu = true
+  public isShowMenu = true
 
-  private isActiveModule = 'home'
+  public isActiveModule = 'home'
 
-  private moduleList = []
+  public moduleList = []
 
-  private get isShowModule(): boolean {
+  public get isShowModule(): boolean {
     return this.moduleList && this.moduleList.length > 0
   }
 
-  private get activeMenu(): string {
+  public get activeMenu(): string {
     const route = this.$route
     const { meta, path } = route
     // if set path, the sidebar will highlight the path you set
@@ -81,7 +81,7 @@ export default class extends Vue {
     return path
   }
 
-  private get currentRoutes(): any {
+  public get currentRoutes(): any {
     const routes = this.routes || PermissionModule.routes
     return routes.filter(route => route.meta.type === this.type)
   }
@@ -96,12 +96,12 @@ export default class extends Vue {
     }
   }
 
-  private toggleSideBar() {
+  public toggleSideBar() {
     this.isShowMenu = !this.isShowMenu
     this.setLayoutPadding()
   }
 
-  private clickModule(item) {
+  public clickModule(item) {
     this.isActiveModule = item.name
   }
 }

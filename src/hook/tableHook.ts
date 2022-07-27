@@ -25,10 +25,10 @@ export default class tableHook {
   public loading: Boolean = false
 
   // 分页数量选项
-  public pageSizes = [20, 30, 40, 50, 100]
+  public pageSizes: Number[] = [20, 30, 40, 50, 100]
 
   // 分页布局
-  public paginationLayout = 'total, prev, pager, next, sizes, jumper'
+  public paginationLayout: String = 'total, prev, pager, next, sizes, jumper'
 
   // 查询条件表单
   private queryForm

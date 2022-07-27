@@ -53,7 +53,7 @@ export default class TableHook {
    */
   constructor(
     form: object = {},
-    queryMethod: (param: any) => Promise<void> = undefined,
+    queryMethod: (param: any) => Promise<void> | VoidFunction = undefined,
     ref: InstanceType<typeof ElTable> | undefined = undefined,
     lazy: boolean = false
   ) {

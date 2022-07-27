@@ -6,10 +6,9 @@
  * @Description: 表格分页工具，包含定义分页
  */
 import * as Request from '@/types/Request'
-import * as Response from '@/types/Response'
 import { ElTable } from 'element-ui/types/table'
 
-export default class tableHook {
+export default class TableHook {
   public tableData = []
 
   // 分页参数
@@ -19,16 +18,16 @@ export default class tableHook {
   }
 
   // 表格总数
-  public total: Number = 0
+  public total: number = 0
 
   // 表格loading效果
-  public loading: Boolean = false
+  public loading: boolean = false
 
   // 分页数量选项
-  public pageSizes: Number[] = [20, 30, 40, 50, 100]
+  public pageSizes: number[] = [20, 30, 40, 50, 100]
 
   // 分页布局
-  public paginationLayout: String = 'total, prev, pager, next, sizes, jumper'
+  public paginationLayout: string = 'total, prev, pager, next, sizes, jumper'
 
   // 查询条件表单
   private queryForm
@@ -45,11 +44,18 @@ export default class tableHook {
   // 防抖，仅 isLazy = true 时生效
   private queryTimes = null
 
+  /**
+   *
+   * @param form 表格查询用的请求参数
+   * @param queryImpl 表格查询的实现方法
+   * @param ref  表格元素
+   * @param lazy 是否开启滚动到底部加载 需要定义ref
+   */
   constructor(
-    form: Object = {},
+    form: object = {},
     queryImpl: Function = undefined,
     ref: InstanceType<typeof ElTable> | undefined = undefined,
-    lazy: Boolean = false
+    lazy: boolean = false
   ) {
     this.queryForm = form
     this.queryEvent = queryImpl
@@ -59,7 +65,7 @@ export default class tableHook {
   }
 
   // 绑定表格滚动底部加载事件
-  bindLazyLoadEvent() {
+  private bindLazyLoadEvent() {
     if (this.isLazy && this.tableRef) {
       this.tableRef.addEventListener('scroll', this.handleScroll)
       // TODO 添加loading提示语
@@ -67,13 +73,15 @@ export default class tableHook {
     }
   }
 
-  removeLazyLoadEvent() {
+  // 去除表格滚动底部加载事件
+  public removeLazyLoadEvent() {
     if (this.isLazy && this.tableRef) {
       this.tableRef.removeEventListener('scroll', this.handleScroll)
     }
   }
 
-  handleScroll(e) {
+  // 监听表格滚动条
+  private handleScroll(e) {
     // 获取dom滚动距离 添加1px的偏移量
     const scrollTop = e.target.scrollTop + 1
     // 获取可视区的高度
@@ -93,7 +101,8 @@ export default class tableHook {
     }
   }
 
-  async query() {
+  // 表格查询实现方法，主动开启loading效果、主动合并分页参数
+  public async query() {
     this.setLoading()
     try {
       const param = Object.assign(this.queryForm, this.pager)
@@ -105,7 +114,7 @@ export default class tableHook {
   }
 
   /* 设定列表数据 */
-  setResult(list, total) {
+  public setResult(list, total) {
     if (this.isLazy) {
       this.tableData = this.tableData.concat(list)
     } else {
@@ -118,7 +127,7 @@ export default class tableHook {
    * 切换分页数量
    * @param limit {number} 分页数
    */
-  handleSizeChange(limit) {
+  public handleSizeChange(limit) {
     this.pager.limit = limit
     this.query()
   }
@@ -127,18 +136,18 @@ export default class tableHook {
    * 切换分页页码
    * @param page {number} 分页码
    */
-  handleCurrentChange(current) {
+  public handleCurrentChange(current) {
     this.pager.page = current
     this.query()
   }
 
-  setLoading() {
+  private setLoading() {
     if (!this.loading) {
       this.loading = true
     }
   }
 
-  resetLoading() {
+  private resetLoading() {
     this.loading = false
   }
 }

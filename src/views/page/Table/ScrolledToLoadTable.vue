@@ -1,6 +1,6 @@
 <!--
  * @Author: 朱凌浩
- * @Date: 2022-06-18 13:13:36
+ * @Date: 2022-07-26 15:13:36
  * @LastEditors: 何晋升
  * @LastEditTime: 2022-07-26 17:44:06
  * @Description: 基础表格 - 滚动底部加载
@@ -71,7 +71,7 @@ import { ElTable } from 'element-ui/types/table'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTable, getHosts } from '@/api/simpleTable'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
-import tableHookClass from '@/hook/tableHook'
+import TableHookClass from '@/hook/TableHook'
 
 @Component({
   name: 'ScrolledToLoadTable',
@@ -96,19 +96,15 @@ export default class extends Vue {
   // 主机信息下拉框选项
   private hostOptions = []
 
-  public tableHook = new tableHookClass()
+  public tableHook = new TableHookClass()
 
   /**
    * 页面Mounted
    */
   private mounted() {
     this.getHosts()
-    this.tableHook = new tableHookClass(this.conditions, this.getTable, this.tableRef, true)
+    this.tableHook = new TableHookClass(this.conditions, this.getTable, this.tableRef, true)
     this.tableHook.query()
-  }
-
-  private beforeDestroy() {
-    this.tableHook.removeLazyLoadEvent()
   }
 
   /**

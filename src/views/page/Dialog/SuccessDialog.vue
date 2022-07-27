@@ -1,8 +1,8 @@
 <!--
  * @Author: 李志伟
  * @Date: 2022-07-08 13:45:09
- * @LastEditors: 李志伟
- * @LastEditTime: 2022-07-18 13:55:33
+ * @LastEditors: lizhiwei
+ * @LastEditTime: 2022-07-27 14:50:48
  * @Description: 成功弹窗
 -->
 <template>
@@ -24,7 +24,7 @@
       </div>
       <div class="success-dialog--btns">
         <el-button @click="close">{{ cancelButtonText }}</el-button>
-        <el-button type="primary">{{ confirmButtonText }}</el-button>
+        <el-button type="primary" @click="confirm">{{ confirmButtonText }}</el-button>
       </div>
     </el-dialog>
   </el-card>
@@ -40,13 +40,17 @@ export default class extends Vue {
   @Prop({ default: '以后再说' }) readonly cancelButtonText: string
   @Prop({ default: '前往配置' }) readonly confirmButtonText: string
 
-  private visible = false
-  private title = '成功提示'
-  private open() {
+  public visible = false
+  public title = '成功提示'
+  public open() {
     this.visible = true
   }
-  private close() {
+  public close() {
     this.visible = false
+  }
+  public confirm() {
+    this.$emit('confirm')
+    this.close()
   }
 }
 </script>

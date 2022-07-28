@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-25 17:27:10
+ * @LastEditTime: 2022-07-28 10:25:26
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -95,6 +95,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteSpecialRadio/index.vue'),
         meta: {
           title: 'CuteSpecialRadio',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-select-tree',
+        name: 'CuteSelectTree',
+        component: () => import('@/views/component/Base/CuteSelectTree/index.vue'),
+        meta: {
+          title: 'CuteSelectTree',
           breadcrumb: true,
         },
       },

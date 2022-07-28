@@ -60,9 +60,33 @@
       </div>
     </div>
     <div class="sub-down">
+      <h3>树形选择/单选</h3>
+      <div class="line">
+        <div class="line__left">
+          <cute-select-tree v-model="treeData" :value="treeDataValue" :options="treeOptions" />
+        </div>
+      </div>
+    </div>
+    <div class="sub-down">
+      <h3>树形选择/多选</h3>
+      <div class="line">
+        <div class="line__left">
+          <cute-select-tree
+            v-model="multiTreeData"
+            :value="multiTsreeDataValue"
+            :options="treeOptions"
+            multiple
+            @remove-tag="handelRemove"
+            @change="changeTree"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-down">
       <h3>日期/时间选择</h3>
       <div class="sub-date">
-        <el-date-picker v-model="value1" type="date" placeholder="选择日期"> </el-date-picker>
+        <el-date-picker v-model="date" type="date" placeholder="选择日期"> </el-date-picker>
         <el-time-select
           v-model="text"
           :picker-options="{
@@ -75,7 +99,7 @@
         </el-time-select>
       </div>
       <div class="sub-date">
-        <el-date-picker v-model="value1" size="mini" type="date" placeholder="选择日期"> </el-date-picker>
+        <el-date-picker v-model="date1" size="mini" type="date" placeholder="选择日期"> </el-date-picker>
         <el-date-picker v-model="value6" type="datetime" placeholder="选择时间" size="mini"> </el-date-picker>
       </div>
       <div class="sub-date1">
@@ -167,6 +191,13 @@ export default class extends Vue {
   private value8 = ''
   private value9 = ''
   private text = ''
+  private treeData = '' //单选树形
+  private treeDataValue = '' //单选树形value
+  private multiTreeData = [] //多选树形
+  private multiTsreeDataValue = '' //多选树形value
+  private date = ''
+  private date1 = ''
+
   private options = [
     {
       value: '选项1',
@@ -223,6 +254,58 @@ export default class extends Vue {
       value: '2',
     },
   ]
+  //单选树形option
+  treeOptions = [
+    {
+      id: 1,
+      label: '一级 1',
+      children: [
+        {
+          id: 4,
+          label: '二级 1-1',
+        },
+      ],
+    },
+    {
+      id: 2,
+      label: '一级 2',
+      children: [
+        {
+          id: 5,
+          label: '二级 2-1',
+        },
+        {
+          id: 6,
+          label: '二级 2-2',
+          children: [
+            {
+              id: 9,
+              label: '三级 2-2-1',
+            },
+            {
+              id: 10,
+              label: '三级 2-2-2',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 3,
+      label: '一级 3',
+      children: [
+        {
+          id: 7,
+          label: '二级 3-1',
+        },
+        {
+          id: 8,
+          label: '二级 3-2',
+        },
+      ],
+    },
+  ]
+
   //选中数据
   private change(data) {
     console.log(data)
@@ -230,6 +313,18 @@ export default class extends Vue {
   //子组件修改父组件的值
   private changeFun(key) {
     this.value9 = key
+  }
+  private changeTree(e) {
+    console.log(e)
+  }
+  //删除tag
+
+  private handelRemove(e, value) {
+    value.forEach(item => {
+      if (e === item) {
+        value.splice(item, 1)
+      }
+    })
   }
 }
 </script>

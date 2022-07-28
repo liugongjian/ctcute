@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-07-13 13:41:05
- * @LastEditors: 马妍
- * @LastEditTime: 2022-07-22 14:28:13
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-07-28 10:12:56
  * @Description: 中弹窗
 -->
 <template>
@@ -45,7 +45,7 @@
               <el-input v-model="form.password" value="" placeholder="请输入SSH密码"></el-input>
             </el-form-item>
             <el-form-item label="标签" class="sub-tags">
-              <cute-tag :dynamic-tags="form.dynamicTags" tag-name="+ 标签"></cute-tag>
+              <cute-tag :dynamic-tags="form.dynamicTags" tag-name="+ 新标签"></cute-tag>
             </el-form-item>
             <el-form-item label="监控插件端口" prop="port">
               <el-input v-model="form.port" value="" placeholder="请输入监控插件端口"></el-input>

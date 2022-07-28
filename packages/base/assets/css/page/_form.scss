@@ -21,6 +21,7 @@
   }
 
   .form-item--short {
+
     .el-input,
     .el-select,
     .el-textarea,
@@ -95,10 +96,28 @@
   @include formTitle();
   @include formBottom();
 
+  .el-form {
+    margin-top: 10px;
+  }
+
+  .el-card__body {
+    padding: 20px 20px 0 0;
+  }
+
+  .block__title {
+    margin-bottom: 21px !important;
+  }
+
+  .block__content {
+    box-sizing: border-box;
+    margin-left: -10px;
+  }
+
+  padding-bottom: 33px;
+
   .el-divider--horizontal {
     width: 95%;
-    margin: 24px;
-    margin-left: 40px;
+    margin: 24px 0 24px 40px;
   }
 
   .el-table {
@@ -119,6 +138,34 @@
   @include formTitle();
   @include formBottom();
 
+  .el-form {
+    margin-top: 10px;
+  }
+
+  .el-table {
+    margin: 0 !important;
+  }
+
+  .el-card__body {
+    padding: 20px 20px 0 0;
+  }
+
+  .block {
+    margin-bottom: 0 !important;
+
+    &__title {
+      margin: 0 0 24px 40px !important;
+    }
+  }
+
+  .el-form-item__label {
+    line-height: 24px;
+    padding: 0 0 8px 0;
+  }
+
+  padding-bottom: 33px;
+
+
   .pro-form-bottom {
     display: flex;
     justify-content: end;
@@ -127,18 +174,18 @@
   }
 
   .el-divider--horizontal {
-    width: 93%;
-    margin: 24px;
-    margin-left: 34px;
+    width: 96%;
+    margin: 0 24px 24px 40px;
+    // margin-left: 34px;
   }
 
   .form-items {
-    margin: 0 40px 0 35px;
+    margin: 0 20px 0 40px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 
-    > div {
+    >div {
       width: 31%;
 
       .el-select {

@@ -85,7 +85,6 @@ export default class extends Vue {
       font-size: 12px;
       line-height: 20px;
       font-weight: 400;
-      margin-bottom: 24px;
     }
 
     h2 {

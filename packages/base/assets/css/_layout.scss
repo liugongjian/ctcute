@@ -87,6 +87,7 @@
 /* 主容器样式 */
 .layout-container {
   display: flex;
+  flex: 1;
   flex-direction: column;
   position: relative;
   min-width: 0;

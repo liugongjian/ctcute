@@ -6,13 +6,15 @@
       本脚手架指定显示了页面规范下的路由表。
       如不需要标题，可直接删除title属性。
     -->
-    <sidebar class="layout-sidebar" :title="sidebarTitle" type="component" />
-    <!-- id在sidebar中被使用，勿随意删改 -->
-    <div id="layout-container" class="layout-container">
-      <navbar />
-      <el-card>
-        <app-main />
-      </el-card>
+    <div class="layout-wrap">
+      <sidebar class="layout-sidebar" :title="sidebarTitle" type="component" />
+      <!-- id在sidebar中被使用，勿随意删改 -->
+      <div id="layout-container" class="layout-container">
+        <navbar />
+        <el-card>
+          <app-main />
+        </el-card>
+      </div>
     </div>
   </div>
 </template>

@@ -468,7 +468,7 @@
         </el-table-column>
         <el-table-column label="优先级">
           <div class="sort-table">
-            <svg-icon name="sort" class="sort-icon" />
+            <svg-icon name="menu" class="sort-icon" />
           </div>
         </el-table-column>
       </el-table>
@@ -1131,6 +1131,7 @@ export default class extends Vue {
 }
 .sort-icon {
   cursor: pointer;
+  color: #777;
   &:hover {
     color: $color-master-1;
   }

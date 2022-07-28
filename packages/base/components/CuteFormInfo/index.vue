@@ -9,7 +9,7 @@
   <el-popover
     placement="top-start"
     :title="title"
-    width="400"
+    :width="width"
     trigger="hover"
     :open-delay="300"
     :content="content"
@@ -26,6 +26,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ default: '' }) private title: string
   @Prop({ default: '' }) private content: string
+  @Prop() private width: number
 }
 </script>
 <style lang="scss" scoped>

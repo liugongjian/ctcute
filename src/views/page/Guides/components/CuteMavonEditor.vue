@@ -1,3 +1,10 @@
+<!--
+ * @Author: 胡佳婷
+ * @Date: 2022-07-27 16:40:53
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2022-07-28 07:36:08
+ * @Description:
+-->
 <template>
   <mavon-editor
     ref="md"
@@ -12,6 +19,7 @@
 </template>
 <script lang="ts">
 import { mavonEditor } from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({

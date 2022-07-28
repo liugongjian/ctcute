@@ -88,10 +88,13 @@
   position: relative;
   min-height: 100%;
   transition: margin-left 0.28s;
-  padding: $header-height 15px 15px;
+  padding: $header-height $margin-medium $margin-medium;
 
   .navbar {
-    margin-top: 15px;
+    margin-left: -24px;
+    margin-right: -24px;
+    padding: $padding-medium;
+    margin-bottom: $margin-medium;
   }
 
   .app-main > .el-card.is-always-shadow {

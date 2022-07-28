@@ -72,7 +72,6 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .app-breadcrumb.el-breadcrumb {
-  margin: 5px 0 15px;
   display: inline-block;
 }
 </style>

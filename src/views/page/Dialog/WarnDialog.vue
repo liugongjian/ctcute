@@ -1,8 +1,8 @@
 <!--
  * @Author: 李志伟
  * @Date: 2022-07-08 13:45:09
- * @LastEditors: 李志伟
- * @LastEditTime: 2022-07-18 13:55:51
+ * @LastEditors: lizhiwei
+ * @LastEditTime: 2022-07-27 14:50:27
  * @Description: 告警弹窗
 -->
 <template>
@@ -17,12 +17,14 @@
       @close="close"
     >
       <div class="warn-dialog--content">
-        <slot name="icon"><svg-icon name="info-circle-fill" /></slot>
+        <slot name="icon">
+          <svg-icon name="info-circle-fill" />
+        </slot>
         <slot name="content">此操作将永久删除该文件，是否继续？</slot>
       </div>
       <div class="warn-dialog--btns">
         <el-button @click="close">{{ cancelButtonText }}</el-button>
-        <el-button type="primary">{{ confirmButtonText }}</el-button>
+        <el-button type="primary" @click="confirm">{{ confirmButtonText }}</el-button>
       </div>
     </el-dialog>
   </el-card>
@@ -38,12 +40,15 @@ export default class extends Vue {
   @Prop({ default: '取消' }) readonly cancelButtonText: string
   @Prop({ default: '确定' }) readonly confirmButtonText: string
 
-  private visible = false
-  private title = '警告提示'
-  private open() {
+  public visible = false
+  public title = '警告提示'
+  public open() {
     this.visible = true
   }
-  private close() {
+  public close() {
+    this.visible = false
+  }
+  public confirm() {
     this.visible = false
   }
 }

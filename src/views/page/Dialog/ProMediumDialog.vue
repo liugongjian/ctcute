@@ -36,7 +36,7 @@
       <el-scrollbar
         ref="scrollBar"
         class="log-dialog--content"
-        :wrap-style="{ maxHeight: isFullscreen ? '100%' : '70vh', width: '100%' }"
+        :wrap-style="{ maxHeight: isFullscreen ? '100%' : '483px', width: '100%' }"
       >
         <slot name="content">
           <pre class="log-dialog--pre">
@@ -149,7 +149,7 @@ export default class extends Vue {
   @Ref('scrollBar') private readonly scrollBar!: Vue & { update: () => void }
 
   private isFullscreen = false
-  private title = '特殊弹窗-中示例'
+  private title = '特殊弹窗-中 示例'
   private visible = false
 
   @Watch('visible')

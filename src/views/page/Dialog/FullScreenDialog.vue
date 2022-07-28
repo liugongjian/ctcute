@@ -42,6 +42,7 @@
           </el-table>
           <!--分页-->
           <el-pagination
+            style="float: right"
             :current-page="pager.page"
             :page-size="pager.limit"
             :total="pager.total"
@@ -58,7 +59,7 @@
   </el-card>
 </template>
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import * as FullscreenDialog from '@/types/FullscreenDialog'
 import { getTable } from '@/api/fullscreenDialog'
 
@@ -92,11 +93,10 @@ export default class extends Vue {
       { name: '不一致', value: 3 },
     ]
   }
-  /**
-   * 页面Mounted
-   */
-  private mounted() {
-    this.getTable()
+
+  @Watch('visible')
+  onVisibleChange(val) {
+    if (val) this.getTable()
   }
 
   /**
@@ -115,7 +115,7 @@ export default class extends Vue {
       this.pager.total = res.data.total
       this.tableData = res.data.list
     } catch (e) {
-      console.error(e)
+      this.$message.error(e)
     } finally {
       this.loading = false
     }

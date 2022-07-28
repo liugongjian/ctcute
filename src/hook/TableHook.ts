@@ -47,18 +47,18 @@ export default class TableHook {
   /**
    *
    * @param form 表格查询用的请求参数
-   * @param queryImpl 表格查询的实现方法
+   * @param queryMethod 表格查询的实现方法
    * @param ref  表格元素
    * @param lazy 是否开启滚动到底部加载 需要定义ref
    */
   constructor(
     form: object = {},
-    queryImpl: Function = undefined,
+    queryMethod: (param: any) => Promise<void> | VoidFunction = undefined,
     ref: InstanceType<typeof ElTable> | undefined = undefined,
     lazy: boolean = false
   ) {
     this.queryForm = form
-    this.queryEvent = queryImpl
+    this.queryEvent = queryMethod
     this.tableRef = ref?.$el.querySelector('.el-table__body-wrapper')
     this.isLazy = lazy
     this.bindLazyLoadEvent()
@@ -68,8 +68,6 @@ export default class TableHook {
   private bindLazyLoadEvent() {
     if (this.isLazy && this.tableRef) {
       this.tableRef.addEventListener('scroll', this.handleScroll)
-      // TODO 添加loading提示语
-      // this.tableRef.append('<span>...加载中，请稍等</span>')
     }
   }
 

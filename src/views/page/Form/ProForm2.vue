@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-07-18 13:43:47
+ * @LastEditTime: 2022-07-28 10:20:25
  * @Description: 复杂表单2
 -->
 <template>
@@ -80,7 +80,7 @@
         <!-- <div class="form-titles">基本信息</div> -->
         <el-divider></el-divider>
         <cute-titled-block title="告警规则">
-          <el-form-item label="模板类型" prop="templateType" style="margin: 0 40px 0 35px">
+          <el-form-item label="模板类型" prop="templateType" style="margin: 0 20px 0 40px">
             <el-table border style="width: 100%" :data="form.tableData">
               <el-table-column min-width="153" label="监控指标">
                 <template slot-scope="scope">
@@ -197,7 +197,7 @@
               </el-table-column>
             </el-table>
             <el-button
-              style="width: 97%; height: 42px; box-shadow: 0 1px 0 0 #ddd"
+              style="width: 100%; height: 42px; box-shadow: 0 1px 0 0 #ddd; margin-bottom: 24px"
               type="text"
               @click="addCondit"
               >+添加条件</el-button
@@ -209,7 +209,7 @@
           <div class="form-items">
             <el-form-item label="标签">
               <div class="sub-tags">
-                <cute-tag tag-name="+ 标签" :dynamic-tags="form.dynamicTags"></cute-tag>
+                <cute-tag tag-name="+ 新标签" :dynamic-tags="form.dynamicTags"></cute-tag>
               </div>
             </el-form-item>
             <el-form-item label="六字标题测试">

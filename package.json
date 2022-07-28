@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow yarn",
     "serve": "vue-cli-service serve --fix --mode local",
     "serve:https": "vue-cli-service serve --fix --mode local --https",
     "build": "vue-cli-service build --mode prod",

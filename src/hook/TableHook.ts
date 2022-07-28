@@ -18,16 +18,16 @@ export default class TableHook {
   }
 
   // 表格总数
-  public total: number = 0
+  public total = 0
 
   // 表格loading效果
-  public loading: boolean = false
+  public loading = false
 
   // 分页数量选项
-  public pageSizes: number[] = [20, 30, 40, 50, 100]
+  public pageSizes = [20, 30, 40, 50, 100]
 
   // 分页布局
-  public paginationLayout: string = 'total, prev, pager, next, sizes, jumper'
+  public paginationLayout = 'total, prev, pager, next, sizes, jumper'
 
   // 查询条件表单
   private queryForm

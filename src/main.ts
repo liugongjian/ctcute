@@ -11,7 +11,6 @@ import router from './router'
 import store from './store'
 import CuteComponent from '@cutedesign/base'
 import i18n from '@/i18n'
-import 'mavon-editor/dist/css/index.css'
 import '@/permission'
 import '@/assets/icons'
 

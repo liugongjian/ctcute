@@ -5,15 +5,16 @@
   width: 100%;
 }
 
+.layout-wrap {
+  display: flex;
+  margin-top: $header-height;
+  height: calc(100vh - $header-height);
+}
+
 /* 侧边栏样式 */
 .layout-sidebar {
   transition: width 0.28s;
-  height: 100%;
-  position: fixed;
   font-size: 0;
-  top: $header-height;
-  bottom: 0;
-  left: 0;
   background: $sidebar-fill;
   z-index: 10;
 
@@ -85,16 +86,21 @@
 
 /* 主容器样式 */
 .layout-container {
+  display: flex;
+  flex-direction: column;
   position: relative;
+  min-width: 0;
   min-height: 100%;
   transition: margin-left 0.28s;
-  padding: $header-height $margin-medium $margin-medium;
 
   .navbar {
-    margin-left: -24px;
-    margin-right: -24px;
     padding: $padding-medium;
-    margin-bottom: $margin-medium;
+  }
+
+  .app-main {
+    flex: 1;
+    overflow: auto;
+    padding: $padding-medium;
   }
 
   .app-main > .el-card.is-always-shadow {

@@ -58,7 +58,7 @@ export default class extends Vue {
   private type
 
   mounted() {
-    this.setLayoutPadding()
+    // this.setLayoutPadding()
   }
 
   public isShowMenu = true
@@ -98,7 +98,7 @@ export default class extends Vue {
 
   public toggleSideBar() {
     this.isShowMenu = !this.isShowMenu
-    this.setLayoutPadding()
+    // this.setLayoutPadding()
   }
 
   public clickModule(item) {
@@ -114,6 +114,7 @@ export default class extends Vue {
 
 .sidebar {
   display: flex;
+  position: relative;
 
   &--left {
     width: 50px;

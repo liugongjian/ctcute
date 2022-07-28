@@ -4,7 +4,7 @@
     <h2>特殊按钮</h2>
     <div class="sub-special">
       <el-button type="danger">特殊按钮</el-button>
-      <el-button type="primary" disabled>不可用特殊按钮</el-button>
+      <el-button disabled>不可用特殊按钮</el-button>
     </div>
     <h2>不同尺寸</h2>
     <div class="sub-sample">
@@ -53,7 +53,7 @@
     <h2>按钮布局</h2>
     <div class="sub-sample">
       <p>
-        两个字的按钮中间需要加入一个空格，按钮之间常规间距为8px，弹窗的确定和取消间距为16px，主按钮一般放在左侧，仅在弹窗下方确定放在取消的右侧。
+        两个字的按钮中间需要加入一个空格，按钮之间常规间距为12px，弹窗的确定和取消间距为16px，主按钮一般放在左侧，仅在弹窗下方确定放在取消的右侧。
       </p>
       <div class="button-layout">
         <el-button type="primary">主按钮</el-button>

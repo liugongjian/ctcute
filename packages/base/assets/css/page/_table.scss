@@ -309,6 +309,8 @@
 
 /* 复杂表格1 */
 .pro-table-1 {
+  overflow: inherit !important;
+
   /* 表格工具栏 */
   .table-tools {
     display: flex;

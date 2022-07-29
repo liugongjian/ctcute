@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-25 17:54:37
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-28 10:35:59
+ * @LastEditTime: 2022-07-28 18:11:55
  * @Description: 
 -->
 <template>
@@ -87,7 +87,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .component__container {
   .el-select {
-    width: 300px;
+    width: 300px !important;
   }
 }
 </style>

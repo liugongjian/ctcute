@@ -2,18 +2,23 @@
  * @Author: 马妍
  * @Date: 2022-07-19 22:03:32
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-28 10:23:15
+ * @LastEditTime: 2022-07-28 18:12:32
  * @Description: 
 -->
 <template>
-  <cute-select-tree
-    v-model="multiTreeData"
-    :value="multiTsreeDataValue"
-    :options="treeOptions"
-    multiple
-    @change="changeFun2"
-    @remove-tag="handelRemove"
-  />
+  <div>
+    <h3>多选</h3>
+    <cute-select-tree
+      v-model="multiTreeData"
+      :value="multiTsreeDataValue"
+      :options="treeOptions"
+      multiple
+      @remove-tag="handelRemove"
+    />
+
+    <h3>单选</h3>
+    <cute-select-tree v-model="treeData" :value="treeDataValue" :options="treeOptions" />
+  </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
@@ -25,6 +30,8 @@ export default class extends Vue {
   private checkList = ['已选中项']
   private multiTreeData = []
   private multiTsreeDataValue = []
+  private treeData = ''
+  private treeDataValue = ''
 
   treeOptions = [
     {
@@ -71,9 +78,6 @@ export default class extends Vue {
     },
   ]
 
-  private changeFun2(key) {
-    this.multiTreeData = key
-  }
   //删除tag
   private handelRemove(e, value) {
     value.forEach(item => {
@@ -84,3 +88,10 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.component__container {
+  .el-select {
+    width: 300px;
+  }
+}
+</style>

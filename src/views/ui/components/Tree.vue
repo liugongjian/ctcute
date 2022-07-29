@@ -1,5 +1,23 @@
 <template>
   <div class="sub-tree">
+    <div class="simple-tree">
+      <h3>基础树形</h3>
+      <div class="line">
+        <el-tree :data="treeData1" node-key="key" default-expand-all></el-tree>
+      </div>
+    </div>
+    <div class="simple-tree">
+      <h3>树节点的选择和禁用</h3>
+      <div class="line">
+        <el-tree
+          show-checkbox
+          :data="treeData"
+          node-key="key"
+          default-expand-all
+          :default-checked-keys="[2, 4, 5]"
+        ></el-tree>
+      </div>
+    </div>
     <el-row>
       <el-col :span="5">
         <h3>四层树状菜单标题</h3>
@@ -72,10 +90,56 @@
         </el-tree>
       </el-col>
     </el-row>
+    <div>
+      <h3>四层树状菜单带搜索</h3>
+      <div class="tree-search">
+        <el-input v-model="filterText" placeholder="请输入" size="mini">
+          <i slot="suffix" class="el-icon-close" @click="filterText = ''"></i>
+        </el-input>
+
+        <el-tree
+          ref="tree"
+          class="filter-tree"
+          :data="data.threeFour"
+          :props="defaultProps"
+          :filter-node-method="filterNode"
+          :indent="10"
+          draggable
+          :default-expanded-keys="[2]"
+          node-key="key"
+        >
+          <span slot-scope="{ node, data }" class="node-content">
+            <span class="node-icon">
+              <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
+              <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
+            </span>
+            {{ node.label }}
+            <div class="handler-menu">
+              <el-button v-if="!node.isLeaf" slot="reference" type="text">
+                <svg-icon name="plus-square" class="handler-icon" @click.stop="() => {}" />
+              </el-button>
+              <div class="hover-wrapper">
+                <el-button v-if="data.key !== 1" type="text">
+                  <svg-icon name="ellipsis-square" class="handler-icon" @click.stop />
+                </el-button>
+                <div class="pop-tooltip tree-node-popover el-tooltip__popper">
+                  <div class="tooltip-content">
+                    <el-button v-if="!node.isLeaf" size="mini" type="text" @click.stop>重命名</el-button>
+                    <el-button v-if="!node.isLeaf" size="mini" type="text" @click.stop>删除</el-button>
+                    <el-button v-if="node.isLeaf" size="mini" type="text" @click.stop>移动</el-button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
+        </el-tree>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Watch } from 'vue-property-decorator'
+import { Tree } from 'element-ui'
 import Data from '@/utils/mock'
 @Component({
   name: 'UiTree',
@@ -92,6 +156,148 @@ export default class extends Vue {
   }
 
   public data = Data
+  private filterText = ''
+  private defaultProps = {
+    children: 'children',
+    label: 'label',
+  }
+
+  private treeData = [
+    {
+      label: 'test1',
+      children: [
+        {
+          label: '部分选择',
+          children: [
+            {
+              label: '未选中项',
+              key: '1',
+            },
+
+            {
+              label: '已选项失效',
+              key: '2',
+              disabled: true,
+            },
+            {
+              key: '3',
+              label: '未选中项失效',
+              disabled: true,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'test2',
+      children: [
+        {
+          label: '已选中项',
+          key: '6',
+          children: [
+            {
+              label: '已选中项',
+              key: '4',
+            },
+          ],
+        },
+        {
+          label: '未选中项',
+          key: '7',
+
+          children: [
+            {
+              label: '未选中项',
+              key: '8',
+            },
+          ],
+        },
+
+        {
+          label: '未选失效项',
+          disabled: true,
+          key: '9',
+
+          children: [
+            {
+              label: '未选中项',
+              key: '10',
+            },
+            {
+              label: '未选中失效项',
+              disabled: true,
+              key: '11',
+            },
+          ],
+        },
+        {
+          label: '部分选中失效',
+          disabled: true,
+          key: '5',
+          children: [
+            {
+              label: '已选中项',
+              key: '12',
+            },
+            {
+              label: '未选失效项',
+              disabled: true,
+              key: '13',
+            },
+          ],
+        },
+      ],
+    },
+  ]
+  private treeData1 = [
+    {
+      label: 'test1',
+      children: [
+        {
+          label: 'test1-1',
+          children: [
+            {
+              label: 'test1-5',
+              key: '1',
+            },
+            {
+              label: 'test1-6',
+              key: '2',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'test2',
+      children: [
+        {
+          label: 'test3',
+          children: [
+            {
+              label: 'test1-6 (不可用)',
+              key: '3',
+              disabled: true,
+            },
+            {
+              label: 'test1-6',
+              key: '1',
+            },
+          ],
+        },
+      ],
+    },
+  ]
+
+  private filterNode(value, data) {
+    if (!value) return true
+    return data.label.indexOf(value) !== -1
+  }
+  @Watch('filterText')
+  private cahnge(val) {
+    let ref = <Tree>this.$refs.tree
+    ref.filter(val)
+  }
 }
 </script>
 
@@ -199,5 +405,26 @@ export default class extends Vue {
     right: 0;
     background: $color-white;
   }
+}
+
+.simple-tree {
+  border-bottom: 1px solid $border-color-light-1;
+  padding-bottom: 24px;
+}
+
+.simple-tree:nth-child(2) {
+  margin-bottom: 24px;
+}
+//基础树形
+.line {
+  width: 500px;
+  border: 1px solid #ddd;
+  padding: 10px 20px 20px;
+}
+//带搜索树形
+.tree-search {
+  width: 240px;
+  padding: 20px;
+  border-right: 1px solid $border-color-light-1;
 }
 </style>

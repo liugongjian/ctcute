@@ -115,12 +115,9 @@ export default class extends Vue {
   private async previewExcel(url: string) {
     try {
       axios
-        .get(
-          'https://s3.datadex.cn/uploads/a92126d0f32043518e3a1589e38e2f50/20220726152547/%E5%A4%A7%E5%B1%8F%E5%8A%9F%E8%83%BD%E6%B8%85%E5%8D%95.xlsx',
-          {
-            responseType: 'arraybuffer', // 设置响应体类型为arraybuffer
-          }
-        )
+        .get(url, {
+          responseType: 'arraybuffer', // 设置响应体类型为arraybuffer
+        })
         .then(({ data }) => {
           const workbook = XLSX.read(new Uint8Array(data), { type: 'array' }) // 解析数据
           const worksheet = workbook.Sheets[workbook.SheetNames[0]] // workbook.SheetNames 下存的是该文件每个工作表名字,这里取出第一个工作表

@@ -65,7 +65,7 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Ref } from 'vue-property-decorator'
 import { ElTable } from 'element-ui/types/table'
-import TableHookClass from '@/hook/TableHook'
+import TableHookClass from '@cutedesign/base/hook/TableHook'
 
 @Component({
   name: 'CuteTableColumnSettings',
@@ -146,7 +146,7 @@ export default class extends Vue {
 
   public tableHook = new TableHookClass()
 
-  private async getTable() {
+  private async innerGetTable() {
     // 此处是外部只传入获取接口方法的情况下
     // const res = await this.getTable(param)
     // this.tableHook.setResult(res.data.list, res.data.total)
@@ -155,7 +155,7 @@ export default class extends Vue {
   }
 
   mounted() {
-    this.tableHook = new TableHookClass({}, this.getTable, this.tableRef, false)
+    this.tableHook = new TableHookClass({}, this.innerGetTable, this.tableRef, false)
     this.tableHook.query()
     this.initSelectedColumns()
     this.isAllSelected() // 判断是否已全选

@@ -5,12 +5,13 @@
   "type": "module",
   "main": "index.ts",
   "dependencies": {
+    "@vue/composition-api": "^1.4.9",
     "echarts": "^5.3.3",
-    "vue-echarts": "^6.0.2",
     "sortablejs": "^1.15.0",
-    "@vue/composition-api": "^1.4.9"
+    "vue-echarts": "^6.0.2",
+    "xlsx": "^0.18.5"
   },
-  "devDependencies": {},
+   "devDependencies": {},
   "scripts": {
     "patch": "npm version patch",
     "publish": "npm publish"

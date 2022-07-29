@@ -637,8 +637,8 @@
 
         <el-table-column label="操作">
           <template>
-            <el-button size="mini">Edit</el-button>
-            <el-button size="mini" type="danger">Delete</el-button>
+            <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+            <el-button type="text" size="small" class="bt-operation">扩容</el-button>
           </template>
         </el-table-column>
       </el-table>

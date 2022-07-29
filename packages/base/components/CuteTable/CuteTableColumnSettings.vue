@@ -1,15 +1,20 @@
 <template>
   <div :class="tableColumnSettingsClass">
     <!-- 列设置选择表单 -->
-    <el-popover placement="bottom-end" trigger="click" class="table-column-settings__popover" @show="handlePopoverShow"
-      @hide="handlePopoverHide">
-      <!-- 固定的，用来反选 -->
+    <el-popover
+      placement="bottom-end"
+      trigger="click"
+      class="table-column-settings__popover"
+      @show="handlePopoverShow"
+      @hide="handlePopoverHide"
+    >
+      <!-- 固定的，用来全选 -->
       <el-checkbox v-model="allSelected" label="全选" @change="handleSelectedChange"></el-checkbox>
       <!-- 分割线 -->
       <el-divider class="table-column-settings__divider"></el-divider>
       <!-- 列出全部选项 -->
-      <el-checkbox-group v-model="innerSelectedOptions" class="table-column-settings__label-group">
-        <el-checkbox v-for="(v, i) in allOptionsWithDisable" :key="v.label" :label="v.label" :disabled="v.disabled">
+      <el-checkbox-group v-model="selectedColumns" class="table-column-settings__label-group">
+        <el-checkbox v-for="(v, i) in tableColumns" :key="v.label" :label="v.label" :disabled="v.isDisabled">
         </el-checkbox>
       </el-checkbox-group>
 
@@ -21,44 +26,55 @@
     </el-popover>
 
     <!-- 表格 -->
-    <el-table :data="data" fit border>
-      <el-table-column v-for="(v, i) in selectedOptionsWithProp" :key="v.prop" :prop="v.prop" :label="v.label">
-        <template slot-scope="{ row }">
-          <span v-if="v.prop === 'health'">
-            <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
-          </span>
-
-          <span v-else-if="v.prop === 'status'">{{ STATUS[row[v.prop]] }}</span>
-          <span v-else>{{ row[v.prop] }}</span>
-        </template>
-      </el-table-column>
-
-      <el-table-column v-if="$slots.default" prop="actions" label="操作">
-        <slot></slot>
-      </el-table-column>
+    <el-table ref="tableRef" v-loading="tableHook.loading" :data="tableHook.tableData" fit border>
+      <template v-for="(item, index) in tableColumns" v-if="selectedColumns.some(v => v === item.label)">
+        <el-table-column
+          :key="index + item.prop"
+          :prop="item.prop"
+          :label="item.label"
+          :width="item.width"
+          :min-width="item.minWidth"
+          :sortable="item.sortable"
+          :show-overflow-tooltip="item.ellipsis"
+          :fixed="item.fixed"
+          :align="item.align"
+          v-bind="item.props"
+        >
+          <template slot-scope="scope">
+            <slot v-if="item.slot" :name="item.slot" :scope="scope" />
+            <span v-else>{{ scope.row[item.prop] }}</span>
+          </template>
+        </el-table-column>
+      </template>
     </el-table>
 
     <!-- 分页 -->
     <div style="height: 20px">
-      <el-pagination :current-page="pager.page" :page-size="pager.limit" :total="pager.total"
-        class="table-column-settings__page" @size-change="handleSizeChange" @current-change="handleCurrentChange" />
+      <el-pagination
+        class="table-column-settings__page"
+        :current-page="tableHook.pager.page"
+        :page-size="tableHook.pager.limit"
+        :total="tableHook.total"
+        @size-change="tableHook.handleSizeChange"
+        @current-change="tableHook.handleCurrentChange"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Watch, Emit } from 'vue-property-decorator'
+import { Vue, Component, Prop, Watch, Ref } from 'vue-property-decorator'
+import { ElTable } from 'element-ui/types/table'
+import TableHookClass from '@/hook/TableHook'
 
 @Component({
   name: 'CuteTableColumnSettings',
 })
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) data?: []
-  @Prop({ type: Array, default: [] }) allOptions?: []
-  @Prop({ type: Array, default: [] }) selectedOptions?: []
-  @Prop({ type: Array, default: [] }) disabledOptions?: []
+  @Prop({ type: Function, default: null }) getTable?: any
+  @Prop({ type: Array, default: [] }) tableColumns?: []
   @Prop({ type: String, default: '' }) className?: string
-  @Prop({ type: Object, default: null }) pager?: null
 
   // 合并外部传入命名空间
   private get tableColumnSettingsClass() {
@@ -85,56 +101,24 @@ export default class extends Vue {
 
   // 判断是否已全选
   public isAllSelected() {
-    if (this.innerSelectedOptions.length === this.allOptions.length) {
+    if (this.tableColumns.length === this.selectedColumns.length) {
       this.allSelected = true
     } else {
       this.allSelected = false
     }
   }
 
-  private innerSelectedOptions = []
-  private initInnerSelectedOptions() {
-    this.allOptions.forEach((v: any) => {
-      if (this.selectedOptions.some(item => item === v.prop)) {
-        this.innerSelectedOptions.push(v.label)
-      }
-    })
-  }
-
-  @Emit('handleSizeChangeEmit')
-  private handleSizeChange(limit: number) {
-    return limit
-  }
-  @Emit('handleCurrentChangeEmit')
-  private handleCurrentChange(page: number) {
-    return page
-  }
-
-  private get allOptionsWithDisable() {
+  private selectedColumns = []
+  private initSelectedColumns() {
     const data = []
-    this.allOptions.forEach((v: any) => {
-      if (this.disabledOptions.some(item => item === v.prop)) {
-        data.push({ ...v, disabled: true })
-      } else {
-        data.push({ ...v, disabled: false })
-      }
+    this.tableColumns?.forEach((item: any) => {
+      if (item.isSelected) data.push(item.label)
     })
-
-    return data
-  }
-
-  private get selectedOptionsWithProp() {
-    const data = []
-    this.allOptions.forEach((v: any) => {
-      if (this.innerSelectedOptions.some(item => item === v.label)) {
-        data.push(v)
-      }
-    })
-    return data
+    this.selectedColumns = data
   }
 
   // 监听innerSelectedOptions，判断是否需要修改全选按钮
-  @Watch('innerSelectedOptions')
+  @Watch('selectedColumns')
   onChangeValue() {
     this.isAllSelected() // 判断是否已全选
   }
@@ -144,39 +128,36 @@ export default class extends Vue {
   public handleSelectedChange() {
     const data = []
     if (!this.allSelected) {
-      this.allOptions.forEach((v: any) => {
-        if (this.disabledOptions.some(item => item === v.prop)) {
+      this.tableColumns.forEach((v: any) => {
+        if (v.isDisabled) {
           data.push(v.label)
         }
       })
     } else {
-      this.allOptions.forEach((v: any) => {
+      this.tableColumns.forEach((v: any) => {
         data.push(v.label)
       })
     }
-    this.innerSelectedOptions = data
+    this.selectedColumns = data
   }
 
-  // 健康状态字典
-  private HEALTH = {
-    1: '健康',
-    2: '警告',
-    3: '危险',
-    4: '进行中',
-    5: '失联',
-    6: '成功',
-    7: '失败',
-    8: '停止',
-    9: '暂停',
-  }
-  // 实例状态字典
-  private STATUS = {
-    1: '待分配',
-    2: '已部署',
+  @Ref('tableRef')
+  private tableRef: ElTable
+
+  public tableHook = new TableHookClass()
+
+  private async getTable() {
+    // 此处是外部只传入获取接口方法的情况下
+    // const res = await this.getTable(param)
+    // this.tableHook.setResult(res.data.list, res.data.total)
+    // 此处是外部传入数据的情况下
+    this.tableHook.setResult(this.data, 100)
   }
 
   mounted() {
-    this.initInnerSelectedOptions() // 复制 prop，用来内部操作
+    this.tableHook = new TableHookClass({}, this.getTable, this.tableRef, false)
+    this.tableHook.query()
+    this.initSelectedColumns()
     this.isAllSelected() // 判断是否已全选
   }
 }
@@ -210,34 +191,6 @@ export default class extends Vue {
 
   &__svg--active {
     color: $color-master-3;
-  }
-
-  .health-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin-right: 8px;
-    border-radius: 100%;
-
-    &--1 {
-      background: $color-status-success;
-    }
-
-    &--2 {
-      background: $color-status-warning;
-    }
-
-    &--3 {
-      background: $color-status-danger;
-    }
-
-    &--4 {
-      background: $color-status-info;
-    }
-
-    &--5 {
-      background: $disabled-color;
-    }
   }
 
   &__page {

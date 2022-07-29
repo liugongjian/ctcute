@@ -8,8 +8,14 @@
       </component-demo>
 
       <h2>CuteTableColumnSettings Attributes</h2>
-      <el-table :data="prop" fit border default-expand-all row-key="name"
-        :tree-props="{ children: 'children', hasChildren: 'hasChildren' }">
+      <el-table
+        :data="prop"
+        fit
+        border
+        default-expand-all
+        row-key="name"
+        :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
+      >
         <el-table-column prop="name" label="参数" />
         <el-table-column prop="desc" label="说明" />
         <el-table-column prop="type" label="类型" />
@@ -45,40 +51,17 @@ export default class extends Vue {
       desc: '数据',
       type: 'Array',
       options: null,
-      default: null,
+      default: '在URL没有办法使用的情况下，可以自己提供数据',
     },
     {
-      name: 'pager',
-      desc: '分页设置',
-      type: 'Object',
+      name: 'getTable',
+      desc: '数据请求方法',
+      type: 'Function',
       options: null,
-      default: null,
-      children: [
-        {
-          name: 'page',
-          desc: '当前页数',
-          type: 'number',
-          options: null,
-          default: null,
-        },
-        {
-          name: 'limit',
-          desc: '每页显示条目个数',
-          type: 'number',
-          options: null,
-          default: null,
-        },
-        {
-          name: 'total',
-          desc: '总条目数',
-          type: 'number',
-          options: null,
-          default: null,
-        },
-      ],
+      default: '',
     },
     {
-      name: 'allOptions',
+      name: 'tableColumns',
       desc: '全部字段',
       type: 'Array',
       options: null,
@@ -86,33 +69,82 @@ export default class extends Vue {
       children: [
         {
           name: 'label',
-          desc: '表格标签',
+          desc: '显示的标题',
           type: 'string',
           options: null,
           default: null,
         },
         {
           name: 'prop',
-          desc: '数据渲染对应key值',
+          desc: '对应列内容的字段名',
           type: 'string',
           options: null,
           default: null,
         },
+        {
+          name: 'isSelected',
+          desc: '展示该字段',
+          type: 'boolean',
+          options: 'true, false',
+          default: false,
+        },
+        {
+          name: 'slot',
+          desc: '具名插槽名称，与自己提供的插槽名称对应',
+          type: 'string',
+          options: null,
+          default: null,
+        },
+        {
+          name: 'isDisabled',
+          desc: '禁止设置该字段',
+          type: 'boolean',
+          options: null,
+          default: null,
+        },
+        {
+          name: 'width',
+          desc: '对应列的宽度',
+          type: 'string',
+          options: null,
+          default: null,
+        },
+        {
+          name: 'min-width',
+          desc: '对应列的最小宽度',
+          type: 'string',
+          options: null,
+          default: null,
+        },
+        {
+          name: 'sortable',
+          desc: '对应列是否可以排序',
+          type: 'boolean, string',
+          options: 'true, false, \'custom\'',
+          default: false,
+        },
+        {
+          name: 'show-overflow-tooltip',
+          desc: '当内容过长被隐藏时显示 tooltip',
+          type: 'boolean',
+          options: null,
+          default: false,
+        },
+        {
+          name: 'fixed',
+          desc: '列是否固定在左侧或者右侧，true 表示固定在左侧',
+          type: 'string, boolean',
+          options: 'true, left, right',
+          default: null,
+        },
+        {
+          name: 'align',
+          desc: '对齐方式',
+          type: 'string',
+          options: 'left/center/right',
+          default: 'left',
+        },
       ],
-    },
-    {
-      name: 'selectedOptions',
-      desc: '默认选择字段',
-      type: 'Array',
-      options: null,
-      default: null,
-    },
-    {
-      name: 'disabledOptions',
-      desc: '禁止选择字段',
-      type: 'Array',
-      options: null,
-      default: null,
     },
     {
       name: 'className',
@@ -120,19 +152,6 @@ export default class extends Vue {
       type: 'string',
       options: null,
       default: null,
-    },
-  ]
-
-  private event = [
-    {
-      name: 'handleSizeChangeEmit',
-      desc: 'pageSize 改变时会触发',
-      callback: '每页条数',
-    },
-    {
-      name: 'handleCurrentChangeEmit',
-      desc: 'currentPage 改变时会触发',
-      callback: '当前页',
     },
   ]
 }

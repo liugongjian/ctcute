@@ -310,4 +310,10 @@ export default class extends Vue {
 .el-textarea {
   max-width: 300px;
 }
+
+.input-icon {
+  .el-input {
+    width: 200px;
+  }
+}
 </style>

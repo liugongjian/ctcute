@@ -219,7 +219,9 @@
     color: $color-master-3;
   }
 }
-
+.el-link.is-underline:hover:after {
+  border-bottom: none;
+}
 /* Form
 -------------------------- */
 .el-form-item__label {
@@ -258,7 +260,8 @@
   }
 
   .el-input__suffix {
-    line-height: 32px;
+    display: flex;
+    align-items: center;
     right: 12px;
   }
 }
@@ -628,6 +631,31 @@
 
 /* Tree
 -------------------------- */
+.el-tree {
+  margin-top: 10px;
+}
+
+.el-tree-node__content:not(.el-tree-node:focus > .el-tree-node__content):not(.el-tree-node:disabled
+    > .el-tree-node__content):hover {
+  color: $color-master-1 !important;
+}
+.el-tree-node:not(.el-tree-node.is-focusable) {
+  .el-tree-node__content {
+    .el-tree-node__label {
+      color: $color-grey-4;
+    }
+    &:hover {
+      background: #fff;
+    }
+  }
+}
+.el-tree-node__content:hover {
+  .el-checkbox:not(.el-checkbox.is-disabled) {
+    .el-checkbox__inner {
+      border-color: $color-master-1;
+    }
+  }
+}
 .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
   background: #f3f3f3;
 }
@@ -1415,6 +1443,9 @@
     font-style: normal;
     content: '\ea64' !important;
     font-size: $text-size-large;
+  }
+  .el-upload-list__item-name {
+    text-decoration-line: none;
   }
 }
 //小文件

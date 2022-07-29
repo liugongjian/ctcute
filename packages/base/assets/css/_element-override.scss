@@ -1444,6 +1444,9 @@
     content: '\ea64' !important;
     font-size: $text-size-large;
   }
+  .el-upload-list__item-name {
+    text-decoration-line: none;
+  }
 }
 //小文件
 .small-uploader {

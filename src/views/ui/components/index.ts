@@ -16,6 +16,7 @@ const componentsList = [
   require('./Rate.vue'),
   require('./Slider.vue'),
   require('./Upload.vue'),
+  require('./Appendix.vue'),
   require('./Switch.vue'),
   require('./Popover.vue'),
   require('./Tooltip.vue'),

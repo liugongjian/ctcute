@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-26 16:24:33
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-07-29 14:13:49
  * @Description:
  */
 import ElementUI from 'element-ui'
@@ -33,7 +33,7 @@ import CuteTableFilter from './components/CuteTable/CuteTableFilter.vue'
 import CuteTag from './components/CuteTag/index.vue'
 import CuteTitledBlock from './components/CuteTitledBlock/index.vue'
 import CuteTableColumnSettings from './components/CuteTable/CuteTableColumnSettings.vue'
-
+import CuteAppendix from './components/CuteAppendix/index.vue'
 export {
   CuteChart,
   CuteChartCard,
@@ -51,6 +51,7 @@ export {
   CuteTag,
   CuteTitledBlock,
   CuteTableColumnSettings,
+  CuteAppendix,
 }
 
 /**

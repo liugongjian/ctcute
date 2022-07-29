@@ -29,7 +29,27 @@ const _componentRoutes = componentRoutes.map((route: any) => {
   return route
 })
 
-export const asyncRoutes: RouteConfig[] = [..._pageRoutes, ..._componentRoutes, ...uiRoutes]
+// TODO 除了404，其他需要配合后端接口的状态跳转
+const _statusRoutes = [
+  {
+    path: '/404',
+    component: () => import('@/views/page/StatusPage/Page404.vue'),
+    meta: { hidden: true },
+  },
+  {
+    path: '/403',
+    component: () => import('@/views/page/StatusPage/Page403.vue'),
+    meta: { hidden: true },
+  },
+  {
+    path: '/500',
+    component: () => import('@/views/page/StatusPage/Page500.vue'),
+    meta: { hidden: true },
+  },
+  { path: '*', redirect: '/404', meta: { hidden: true } },
+]
+
+export const asyncRoutes: RouteConfig[] = [..._pageRoutes, ..._componentRoutes, ...uiRoutes, ..._statusRoutes]
 
 const router = new Router({
   mode: 'history',

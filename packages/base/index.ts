@@ -1,8 +1,13 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
+<<<<<<< HEAD
  * @LastEditors: 秦瑞斌
  * @LastEditTime: 2022-07-29 14:13:49
+=======
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-07-28 14:59:39
+>>>>>>> e3643910015c6fbcb381c4056ab64677e6488c42
  * @Description:
  */
 import ElementUI from 'element-ui'
@@ -33,7 +38,12 @@ import CuteTableFilter from './components/CuteTable/CuteTableFilter.vue'
 import CuteTag from './components/CuteTag/index.vue'
 import CuteTitledBlock from './components/CuteTitledBlock/index.vue'
 import CuteTableColumnSettings from './components/CuteTable/CuteTableColumnSettings.vue'
+<<<<<<< HEAD
 import CuteAppendix from './components/CuteAppendix/index.vue'
+=======
+import CuteSelectTree from './components/CuteSelect/CuteSelectTree.vue'
+
+>>>>>>> e3643910015c6fbcb381c4056ab64677e6488c42
 export {
   CuteChart,
   CuteChartCard,
@@ -51,7 +61,11 @@ export {
   CuteTag,
   CuteTitledBlock,
   CuteTableColumnSettings,
+<<<<<<< HEAD
   CuteAppendix,
+=======
+  CuteSelectTree,
+>>>>>>> e3643910015c6fbcb381c4056ab64677e6488c42
 }
 
 /**
@@ -66,6 +80,7 @@ const componentsList = [
   CuteSelectedInput,
   CuteSortTable,
   CuteTableColumnSettings,
+  CuteSelectTree,
 ]
 
 export default {

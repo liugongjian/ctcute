@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-07-26 15:13:36
- * @LastEditors: 何晋升
- * @LastEditTime: 2022-07-26 17:44:06
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-07-28 14:56:56
  * @Description: 基础表格 - 滚动底部加载
 -->
 <template>
@@ -71,8 +71,7 @@ import { ElTable } from 'element-ui/types/table'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTable, getHosts } from '@/api/simpleTable'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
-import TableHookClass from '@/hook/TableHook'
-
+import TableHookClass from '@cutedesign/base/hook/TableHook'
 @Component({
   name: 'ScrolledToLoadTable',
 })

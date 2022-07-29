@@ -2,14 +2,14 @@
  * @Author: 马妍
  * @Date: 2022-07-08 20:57:32
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-18 13:52:21
+ * @LastEditTime: 2022-07-27 18:01:31
  * @Description: 大弹窗
 -->
 <template>
   <el-card>
     <h2>大弹窗</h2>
     <div>
-      <p>最大宽度为 1000px，最大高度为640px</p>
+      <p>全屏弹窗除外，弹窗最大宽度为 1000px，最大高度为640px</p>
       <el-button type="primary" @click="handleClick">大弹窗</el-button>
     </div>
     <el-dialog

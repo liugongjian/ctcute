@@ -79,7 +79,7 @@ export default class TableHook {
   }
 
   // 监听表格滚动条
-  private handleScroll(e) {
+  private handleScroll(e: any) {
     // 获取dom滚动距离 添加1px的偏移量
     const scrollTop = e.target.scrollTop + 1
     // 获取可视区的高度
@@ -112,7 +112,7 @@ export default class TableHook {
   }
 
   /* 设定列表数据 */
-  public setResult(list, total) {
+  public setResult(list: any[], total: number) {
     if (this.isLazy) {
       this.tableData = this.tableData.concat(list)
     } else {
@@ -125,7 +125,7 @@ export default class TableHook {
    * 切换分页数量
    * @param limit {number} 分页数
    */
-  public handleSizeChange(limit) {
+  public handleSizeChange(limit: number) {
     this.pager.limit = limit
     this.query()
   }
@@ -134,7 +134,7 @@ export default class TableHook {
    * 切换分页页码
    * @param page {number} 分页码
    */
-  public handleCurrentChange(current) {
+  public handleCurrentChange(current: number) {
     this.pager.page = current
     this.query()
   }

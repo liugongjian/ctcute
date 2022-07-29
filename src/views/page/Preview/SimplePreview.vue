@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-25 15:58:42
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-25 17:07:50
+ * @LastEditTime: 2022-07-29 16:55:18
  * @Description: 
 -->
 <template>
@@ -42,14 +42,100 @@
     <div class="document-preview-content_file">
       <p>我是其他内容，我可能是一些提示文案。也许有也许没有。</p>
       <h3>2个附件：</h3>
+      <div>
+        <div>
+          <cute-appendix
+            :append="true"
+            :type="'file'"
+            title="EDR终端安全加强指引"
+            size="1.3MB"
+            @download="downPdf"
+          ></cute-appendix>
+        </div>
+        <div>
+          <cute-appendix
+            :append="true"
+            :type="'pdf'"
+            :show-eye="true"
+            title="这是一个PDF文件"
+            size="1.3MB"
+            :svg-name="'file-pdf-fill'"
+            svg-color="#FF535A"
+            :url="url"
+            @preview="downPdf"
+            @download="downPdf"
+          ></cute-appendix>
+        </div>
+        <div>
+          <cute-appendix
+            value="组件123.csv"
+            :textarea="false"
+            :type="'csv'"
+            :url="url"
+            @download="downloadExcel"
+          ></cute-appendix>
+        </div>
+        <div>
+          <cute-appendix
+            value="组件123.jpg"
+            :textarea="false"
+            :show-eye="true"
+            :url="url"
+            :type="'img'"
+            @preview="downloadImg"
+            @download="downloadImg"
+          ></cute-appendix>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { CuteAppendix } from '@cutedesign/base'
+import { createImg, createPdf, createExcel } from '@/api/appendix'
 
 @Component({
   name: 'SimpleDocumentPreview',
+  components: { CuteAppendix },
 })
-export default class extends Vue {}
+export default class extends Vue {
+  private url = ''
+
+  /**
+   * excel
+   */
+  private async downloadExcel() {
+    try {
+      const res = await createExcel()
+      this.url = res.data.url
+    } catch (e) {
+      this.$message.error(e)
+    }
+  }
+
+  /**
+   * pdf下载
+   */
+  private async downPdf() {
+    try {
+      const res = await createPdf()
+      this.url = res.data.url
+    } catch (e) {
+      this.$message.error(e)
+    }
+  }
+
+  /**
+   * 图片
+   */
+  private async downloadImg() {
+    try {
+      const res = await createImg()
+      this.url = res.data.url
+    } catch (e) {
+      this.$message.error(e)
+    }
+  }
+}
 </script>

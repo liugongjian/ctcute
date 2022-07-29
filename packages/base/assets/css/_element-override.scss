@@ -219,7 +219,9 @@
     color: $color-master-3;
   }
 }
-
+.el-link.is-underline:hover:after {
+  border-bottom: none;
+}
 /* Form
 -------------------------- */
 .el-form-item__label {

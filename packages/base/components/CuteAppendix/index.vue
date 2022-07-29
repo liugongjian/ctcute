@@ -154,8 +154,9 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .cute-appendix {
-  margin-top: 8px;
+  margin-top: 10px;
 }
+
 .appendix-link-icon {
   margin-right: 4px;
   color: $color-grey-3;
@@ -204,7 +205,7 @@ export default class extends Vue {
         color: $color-grey-1;
         line-height: 20px;
         font-weight: 500;
-        margin: 5px 0 5px 0;
+        margin: 5px 0;
       }
 
       p:nth-child(2) {

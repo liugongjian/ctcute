@@ -45,10 +45,15 @@
       </el-row>
       <el-row :gutter="22" class="simple-table-box">
         <el-col :span="12">
-          <el-card class="chart-card-box">
+          <el-card class="chart-card-box" shadow="never">
             <div slot="header" class="chart-card-header">
               <span>实例状态统计</span>
-              <el-date-picker v-model="statusDate" type="date" placeholder="选择日期"> </el-date-picker>
+              <el-date-picker
+                v-model="statusDate"
+                type="date"
+                placeholder="选择日期"
+                size="mini"
+              ></el-date-picker>
             </div>
             <div class="chart-box">
               <CuteChart :option="option" :height="'280px'" :width="'100%'" />
@@ -56,7 +61,7 @@
           </el-card>
         </el-col>
         <el-col :span="12">
-          <el-card class="chart-card-box">
+          <el-card class="chart-card-box" shadow="never">
             <div slot="header" class="chart-card-header">
               <span>周期实例完成统计</span>
               <el-tabs v-model="activeName" class="chart-card-tabs">
@@ -70,7 +75,7 @@
           </el-card>
         </el-col>
         <el-col :span="12">
-          <el-card class="chart-card-box">
+          <el-card class="chart-card-box" shadow="never">
             <div slot="header" class="chart-card-header">
               <span>流程数量定义统计</span>
             </div>
@@ -80,11 +85,12 @@
           </el-card>
         </el-col>
         <el-col :span="12">
-          <el-card class="chart-card-box">
+          <el-card class="chart-card-box" shadow="never">
             <div slot="header" class="chart-card-header">
               <span>流程数量定义统计</span>
               <el-date-picker
                 v-model="value1"
+                size="mini"
                 type="datetimerange"
                 range-separator="至"
                 start-placeholder="开始日期"
@@ -116,7 +122,7 @@
           </el-card>
         </el-col>
         <el-col :span="24">
-          <el-card class="chart-card-box">
+          <el-card class="chart-card-box" shadow="never">
             <div slot="header" class="chart-card-header">
               <span>工作流实例与完成率统计</span>
               <el-tabs v-model="activeName" class="chart-card-tabs">
@@ -391,6 +397,22 @@ export default class extends Vue {
         nameLocation: 'start',
         verticalAlign: 'bottom',
         name: '用户',
+        nameTextStyle: {
+          color: this.variables.colorGrey2,
+        },
+        axisLine: {
+          // 设置颜色
+          lineStyle: {
+            color: this.variables.colorGrey6,
+          },
+        },
+        axisLabel: {
+          //x轴文字的配置
+          show: true,
+          textStyle: {
+            color: this.variables.colorGrey2,
+          },
+        },
       },
       yAxis: {
         type: 'value',
@@ -477,6 +499,22 @@ export default class extends Vue {
           name: '时间',
           axisPointer: {
             type: 'shadow',
+          },
+          nameTextStyle: {
+            color: this.variables.colorGrey2,
+          },
+          axisLine: {
+            // 设置颜色
+            lineStyle: {
+              color: this.variables.colorGrey6,
+            },
+          },
+          axisLabel: {
+            //x轴文字的配置
+            show: true,
+            textStyle: {
+              color: this.variables.colorGrey2,
+            },
           },
         },
       ],
@@ -581,7 +619,7 @@ export default class extends Vue {
       ::v-deep .el-tabs__header {
         margin: 0;
         height: 40px;
-        margin-top: 18px;
+        margin-top: 12px;
       }
 
       ::v-deep .el-tabs__active-bar {
@@ -596,16 +634,12 @@ export default class extends Vue {
     span {
       font-size: 14px;
       color: $color-grey-1;
-      line-height: 58px;
+      line-height: 52px;
       font-weight: bold;
     }
 
     .el-date-editor {
       margin-left: auto;
-    }
-
-    ::v-deep .el-input__prefix {
-      top: -2.4px;
     }
 
     ::v-deep .el-range-separator {

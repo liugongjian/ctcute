@@ -1,5 +1,5 @@
 <template>
-  <el-card v-loading="loading" class="chart-card" :bordered="false">
+  <el-card v-loading="loading" class="chart-card" :bordered="false" :shadow="shadow">
     <div class="chart-card-icon-warp" :style="'background-color:rgb(' + background + ',0.2)'">
       <div class="chart-card-icon" :style="'background-color:rgb(' + background + ')'">
         <svg-icon :name="icon" :color="svgColor" width="28" height="28" />
@@ -25,13 +25,14 @@ export default class extends Vue {
   @Prop({ type: String, default: '139, 178, 249' }) background?: '139, 178, 249' // 背景颜色 如果是rgb(139, 178, 249) 只取中间的 139, 178, 249
   @Prop({ type: String, default: '#FFF' }) svgColor?: '#FFF' // 图标颜色
   @Prop({ type: Boolean, default: false }) loading?: false // 加载状态
+  @Prop({ type: String, default: 'never' }) shadow?: 'never' // 卡片是否有阴影
 }
 </script>
 
 <style lang="scss" scoped>
+// box-shadow: 0 2px 8px 0 $shadow-table-card;
 .chart-card {
   display: flex;
-  box-shadow: 0 2px 8px 0 $shadow-table-card;
   border-radius: 4px;
   ::v-deep .el-card__body {
     display: flex;

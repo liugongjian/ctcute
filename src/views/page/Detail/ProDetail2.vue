@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱玉豆
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 朱玉豆
- * @LastEditTime: 2022-07-21 15:34:26
+ * @LastEditors: 赵昕
+ * @LastEditTime: 2022-08-08 08:51:24
  * @Description: 复杂详情2
 -->
 <template>
@@ -10,7 +10,7 @@
     <div class="detail-header">
       <div class="detail-header__left">
         <span class="tags-title">这是一个名称</span>
-        <cute-tag tag-name="+ 标签" :dynamic-tags="dynamicTags"></cute-tag>
+        <cute-tag tag-name="+ 新标签" :dynamic-tags="dynamicTags"></cute-tag>
       </div>
       <div class="detail-header__right">
         <cute-button-group :data="buttonData" :max="2" />

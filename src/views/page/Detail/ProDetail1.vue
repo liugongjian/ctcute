@@ -2,7 +2,7 @@
  * @Author: 赵昕
  * @Date: 2022-07-18 13:11:31
  * @LastEditors: 赵昕
- * @LastEditTime: 2022-07-18 14:02:05
+ * @LastEditTime: 2022-08-08 08:50:52
  * @Description: 复杂详情1
 -->
 <template>
@@ -10,7 +10,7 @@
     <div class="detail-header">
       <div class="detail-header__left">
         <span class="tags-title">这是一个名称</span>
-        <cute-tag :dynamic-tags.sync="dynamicTags" tag-name="+ 标签"></cute-tag>
+        <cute-tag :dynamic-tags.sync="dynamicTags" tag-name="+ 新标签"></cute-tag>
       </div>
       <div class="detail-header__right">
         <cute-button-group :data="buttonData" :max="2" />

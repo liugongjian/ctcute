@@ -58,6 +58,10 @@
   .form-item__info {
     margin-left: $margin-small;
   }
+
+  .el-button + .el-button {
+    margin-left: $button-margin;
+  }
 }
 
 @mixin formTitle {

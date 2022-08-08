@@ -7,7 +7,7 @@
 -->
 <template>
   <el-card class="simple-form">
-    <el-form ref="simpleForm" :model="form" :rules="rules" label-width="130px" class="simple-form">
+    <el-form ref="simpleForm" :model="form" :rules="rules" label-width="90px" class="simple-form">
       <el-form-item label="输入查询" prop="name">
         <el-input v-model="form.name" placeholder="请输入策略名称" />
         <div class="form-item__tip">策略格式为XXXXXXXXXXXXXXXXX</div>

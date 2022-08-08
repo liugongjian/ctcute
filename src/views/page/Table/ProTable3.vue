@@ -69,8 +69,8 @@
             <el-col :span="8" class="mb-16">
               <el-form-item>
                 <div class="table-tools__conditions__buttons">
-                  <el-button type="primary" @click="search">查询</el-button>
-                  <el-button @click="resetConditions">重置</el-button>
+                  <el-button type="primary" @click="search">查 询</el-button>
+                  <el-button @click="resetConditions">重 置</el-button>
                   <span class="table-tools__conditions__buttons__txt" @click="openConditions">
                     <span>{{ conditionsOpenFlag ? '收起' : '展开' }}</span>
                     <svg-icon :name="conditionsOpenFlag ? 'up' : 'down'" class="ml-6" />

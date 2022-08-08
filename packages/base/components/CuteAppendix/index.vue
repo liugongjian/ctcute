@@ -6,7 +6,7 @@
       <svg-icon
         v-if="showEye"
         class="appendix-eye-icon"
-        name="eye"
+        name="preview"
         :width="16"
         :height="16"
         @click="openPreview"
@@ -32,7 +32,7 @@
           <svg-icon
             v-if="showEye"
             class="appendix-eye-icon"
-            name="eye"
+            name="preview"
             :width="16"
             :height="16"
             @click="openPreview"

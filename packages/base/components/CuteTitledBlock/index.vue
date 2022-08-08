@@ -1,8 +1,18 @@
+<!--
+ * @Author: 胡佳婷
+ * @Date: 2022-07-23 06:09:04
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2022-08-08 14:00:49
+ * @Description:
+-->
 <template>
   <div class="block">
-    <div class="block__title">{{ title }}</div>
+    <div class="block__title">
+      <div class="block__title__text">{{ title }}</div>
+      <slot name="extra" class="block__title__extra"></slot>
+    </div>
     <div class="block__content">
-      <slot></slot>
+      <slot name="content"></slot>
     </div>
   </div>
 </template>
@@ -24,21 +34,27 @@ export default class extends Vue {
   margin-bottom: 24px;
 
   &__title {
-    color: $text-color-primary;
-    font-weight: 500;
-    line-height: 20px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 16px;
-    font-size: 14px;
 
-    &:before {
-      width: 4px;
-      height: 14px;
-      background-color: $color-master-1;
-      margin-right: 12px;
-      content: ' ';
-      display: inline-block;
+    &__text {
+      color: $text-color-primary;
+      font-weight: 500;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+
+      &:before {
+        width: 4px;
+        height: 14px;
+        background-color: $color-master-1;
+        margin-right: 12px;
+        content: ' ';
+        display: inline-block;
+      }
     }
   }
 

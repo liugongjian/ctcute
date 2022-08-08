@@ -2,94 +2,102 @@
  * @Author: 胡佳婷
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-22 17:06:19
+ * @LastEditTime: 2022-08-08 14:26:19
  * @Description:简单表单页
 -->
 <template>
   <el-card class="simple-detail">
     <cute-titled-block title="基础信息">
-      <el-descriptions :column="2" border>
-        <el-descriptions-item>
-          <template slot="label"> 内部标识符 </template>
-          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.innerIdentity }}
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 标识符 </template>
-          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.showIdentity }}
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 中文名称 </template>
-          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.chineseName }}
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 英文名称 </template>
-          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.englishName }}
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 语境</template>
-          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.context }}
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 版本 </template>
-          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.version }}
-        </el-descriptions-item>
-        <el-descriptions-item :span="2">
-          <template slot="label"> 同义名称 </template>
-          {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.synonyms }}
-        </el-descriptions-item>
-      </el-descriptions>
+      <template #content>
+        <el-descriptions :column="2" border>
+          <el-descriptions-item>
+            <template slot="label"> 内部标识符 </template>
+            {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.innerIdentity }}
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 标识符 </template>
+            {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.showIdentity }}
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 中文名称 </template>
+            {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.chineseName }}
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 英文名称 </template>
+            {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.englishName }}
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 语境</template>
+            {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.context }}
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 版本 </template>
+            {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.version }}
+          </el-descriptions-item>
+          <el-descriptions-item :span="2">
+            <template slot="label"> 同义名称 </template>
+            {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.synonyms }}
+          </el-descriptions-item>
+        </el-descriptions>
+      </template>
     </cute-titled-block>
     <cute-titled-block title="融合">
-      <el-descriptions :column="2" border>
-        <el-descriptions-item>
-          <template slot="label"> 融合单位类型 </template>
-          {{ simpleDetailInfo && simpleDetailInfo.fusion && simpleDetailInfo.fusion.type }}
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 融合单位数据元编码 </template>
-          {{ simpleDetailInfo && simpleDetailInfo.fusion && simpleDetailInfo.fusion.encode }}
-        </el-descriptions-item>
-      </el-descriptions>
+      <template #content>
+        <el-descriptions :column="2" border>
+          <el-descriptions-item>
+            <template slot="label"> 融合单位类型 </template>
+            {{ simpleDetailInfo && simpleDetailInfo.fusion && simpleDetailInfo.fusion.type }}
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 融合单位数据元编码 </template>
+            {{ simpleDetailInfo && simpleDetailInfo.fusion && simpleDetailInfo.fusion.encode }}
+          </el-descriptions-item>
+        </el-descriptions>
+      </template>
     </cute-titled-block>
     <cute-titled-block title="退货商品">
-      <el-collapse seperate>
-        <el-collapse-item
-          v-for="(item, index) in simpleDetailInfo && simpleDetailInfo.returnGoods"
-          :key="item.type"
-          :title="item.type"
-          :name="index"
-        >
-          <el-table :data="item.detail">
-            <el-table-column prop="goodsId" label="商品编码">
-              <template slot-scope="scope">
-                <router-link to="/">{{ scope.row.goodsId }}</router-link>
-              </template>
-            </el-table-column>
-            <el-table-column prop="goodsName" label="商品名称"></el-table-column>
-            <el-table-column prop="goodsCode" label="商品条码"></el-table-column>
-            <el-table-column prop="price" label="单价"></el-table-column>
-            <el-table-column prop="count" label="数量"></el-table-column>
-            <el-table-column prop="totalPrice" label="总价"></el-table-column>
-          </el-table>
-        </el-collapse-item>
-      </el-collapse>
+      <template #content>
+        <el-collapse seperate>
+          <el-collapse-item
+            v-for="(item, index) in simpleDetailInfo && simpleDetailInfo.returnGoods"
+            :key="item.type"
+            :title="item.type"
+            :name="index"
+          >
+            <el-table :data="item.detail">
+              <el-table-column prop="goodsId" label="商品编码">
+                <template slot-scope="scope">
+                  <router-link to="/">{{ scope.row.goodsId }}</router-link>
+                </template>
+              </el-table-column>
+              <el-table-column prop="goodsName" label="商品名称"></el-table-column>
+              <el-table-column prop="goodsCode" label="商品条码"></el-table-column>
+              <el-table-column prop="price" label="单价"></el-table-column>
+              <el-table-column prop="count" label="数量"></el-table-column>
+              <el-table-column prop="totalPrice" label="总价"></el-table-column>
+            </el-table>
+          </el-collapse-item>
+        </el-collapse>
+      </template>
     </cute-titled-block>
     <cute-titled-block title="退货进度">
-      <el-table :data="simpleDetailInfo && simpleDetailInfo.returnGoodsProgress">
-        <el-table-column prop="time" label="时间"></el-table-column>
-        <el-table-column prop="progress" label="当前进度">
-          <template slot-scope="{ row }">
-            {{ PROGRESS[row.progress] }}
-          </template>
-        </el-table-column>
-        <el-table-column prop="status" label="状态">
-          <template slot-scope="{ row }">
-            <span class="status-dot" :class="`status-dot--${row.status}`" />{{ STATUS[row.status] }}
-          </template>
-        </el-table-column>
-        <el-table-column prop="operatorId" label="操作员id"></el-table-column>
-        <el-table-column prop="duration" label="耗时"> </el-table-column>
-      </el-table>
+      <template #content>
+        <el-table :data="simpleDetailInfo && simpleDetailInfo.returnGoodsProgress">
+          <el-table-column prop="time" label="时间"></el-table-column>
+          <el-table-column prop="progress" label="当前进度">
+            <template slot-scope="{ row }">
+              {{ PROGRESS[row.progress] }}
+            </template>
+          </el-table-column>
+          <el-table-column prop="status" label="状态">
+            <template slot-scope="{ row }">
+              <span class="status-dot" :class="`status-dot--${row.status}`" />{{ STATUS[row.status] }}
+            </template>
+          </el-table-column>
+          <el-table-column prop="operatorId" label="操作员id"></el-table-column>
+          <el-table-column prop="duration" label="耗时"> </el-table-column>
+        </el-table>
+      </template>
     </cute-titled-block>
   </el-card>
 </template>

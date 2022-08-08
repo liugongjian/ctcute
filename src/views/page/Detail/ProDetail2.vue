@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱玉豆
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 赵昕
- * @LastEditTime: 2022-08-08 08:51:24
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2022-08-08 14:25:23
  * @Description: 复杂详情2
 -->
 <template>
@@ -67,70 +67,76 @@
           </div>
           <div class="container__right">
             <cute-titled-block title="标识">
-              <div class="sub-table-horizon">
-                <el-descriptions class="margin-top" :column="2" border>
-                  <el-descriptions-item>
-                    <template slot="label"> 内部标识符 </template>
-                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.innerIdentity }}
-                  </el-descriptions-item>
-                  <el-descriptions-item>
-                    <template slot="label"> 标识符 </template>
-                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.showIdentity }}
-                  </el-descriptions-item>
-                  <el-descriptions-item>
-                    <template slot="label"> 中文名称 </template>
-                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.chineseName }}
-                  </el-descriptions-item>
-                  <el-descriptions-item>
-                    <template slot="label"> 英文名称 </template>
-                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.englishName }}
-                  </el-descriptions-item>
-                  <el-descriptions-item>
-                    <template slot="label"> 语境</template>
-                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.context }}
-                  </el-descriptions-item>
-                  <el-descriptions-item>
-                    <template slot="label"> 版本 </template>
-                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.version }}
-                  </el-descriptions-item>
-                  <el-descriptions-item :span="2">
-                    <template slot="label"> 同义名称 </template>
-                    {{ proDetail2 && proDetail2.basic && proDetail2.basic.synonyms }}
-                  </el-descriptions-item>
-                </el-descriptions>
-              </div>
+              <template #content>
+                <div class="sub-table-horizon">
+                  <el-descriptions class="margin-top" :column="2" border>
+                    <el-descriptions-item>
+                      <template slot="label"> 内部标识符 </template>
+                      {{ proDetail2 && proDetail2.basic && proDetail2.basic.innerIdentity }}
+                    </el-descriptions-item>
+                    <el-descriptions-item>
+                      <template slot="label"> 标识符 </template>
+                      {{ proDetail2 && proDetail2.basic && proDetail2.basic.showIdentity }}
+                    </el-descriptions-item>
+                    <el-descriptions-item>
+                      <template slot="label"> 中文名称 </template>
+                      {{ proDetail2 && proDetail2.basic && proDetail2.basic.chineseName }}
+                    </el-descriptions-item>
+                    <el-descriptions-item>
+                      <template slot="label"> 英文名称 </template>
+                      {{ proDetail2 && proDetail2.basic && proDetail2.basic.englishName }}
+                    </el-descriptions-item>
+                    <el-descriptions-item>
+                      <template slot="label"> 语境</template>
+                      {{ proDetail2 && proDetail2.basic && proDetail2.basic.context }}
+                    </el-descriptions-item>
+                    <el-descriptions-item>
+                      <template slot="label"> 版本 </template>
+                      {{ proDetail2 && proDetail2.basic && proDetail2.basic.version }}
+                    </el-descriptions-item>
+                    <el-descriptions-item :span="2">
+                      <template slot="label"> 同义名称 </template>
+                      {{ proDetail2 && proDetail2.basic && proDetail2.basic.synonyms }}
+                    </el-descriptions-item>
+                  </el-descriptions>
+                </div>
+              </template>
             </cute-titled-block>
             <cute-titled-block title="分区字段信息">
-              <el-table :data="proDetail2 && proDetail2.zoonsInfo1">
-                <el-table-column prop="id" label="序号"> </el-table-column>
-                <el-table-column prop="name" label="字段名称"> </el-table-column>
-                <el-table-column prop="type" label="类型"> </el-table-column>
-                <el-table-column prop="description" label="描述" width="150px">
-                  <template slot-scope="scope">
-                    <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
-                      <span class="text-ellipsis">{{ scope.row.description }}</span>
-                    </el-tooltip>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="title1" label="标题1"> </el-table-column>
-                <el-table-column prop="title2" label="标题2"> </el-table-column>
-              </el-table>
+              <template #content>
+                <el-table :data="proDetail2 && proDetail2.zoonsInfo1">
+                  <el-table-column prop="id" label="序号"> </el-table-column>
+                  <el-table-column prop="name" label="字段名称"> </el-table-column>
+                  <el-table-column prop="type" label="类型"> </el-table-column>
+                  <el-table-column prop="description" label="描述" width="150px">
+                    <template slot-scope="scope">
+                      <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+                        <span class="text-ellipsis">{{ scope.row.description }}</span>
+                      </el-tooltip>
+                    </template>
+                  </el-table-column>
+                  <el-table-column prop="title1" label="标题1"> </el-table-column>
+                  <el-table-column prop="title2" label="标题2"> </el-table-column>
+                </el-table>
+              </template>
             </cute-titled-block>
             <cute-titled-block title="分区字段信息">
-              <el-table :data="proDetail2 && proDetail2.zoonsInfo2">
-                <el-table-column prop="id" label="序号"> </el-table-column>
-                <el-table-column prop="name" label="字段名称"> </el-table-column>
-                <el-table-column prop="type" label="类型"> </el-table-column>
-                <el-table-column prop="description" label="描述" width="150px">
-                  <template slot-scope="scope">
-                    <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
-                      <span class="text-ellipsis">{{ scope.row.description }}</span>
-                    </el-tooltip>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="title1" label="标题1"> </el-table-column>
-                <el-table-column prop="title2" label="标题2"> </el-table-column>
-              </el-table>
+              <template #content>
+                <el-table :data="proDetail2 && proDetail2.zoonsInfo2">
+                  <el-table-column prop="id" label="序号"> </el-table-column>
+                  <el-table-column prop="name" label="字段名称"> </el-table-column>
+                  <el-table-column prop="type" label="类型"> </el-table-column>
+                  <el-table-column prop="description" label="描述" width="150px">
+                    <template slot-scope="scope">
+                      <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+                        <span class="text-ellipsis">{{ scope.row.description }}</span>
+                      </el-tooltip>
+                    </template>
+                  </el-table-column>
+                  <el-table-column prop="title1" label="标题1"> </el-table-column>
+                  <el-table-column prop="title2" label="标题2"> </el-table-column>
+                </el-table>
+              </template>
             </cute-titled-block>
           </div>
         </div>

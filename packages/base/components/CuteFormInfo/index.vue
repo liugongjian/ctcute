@@ -13,8 +13,9 @@
     trigger="hover"
     :open-delay="300"
     :content="content"
+    :popper-class="`form-item__info--${effect}`"
   >
-    <svg-icon slot="reference" class="form-item__info" name="info-circle" />
+    <svg-icon slot="reference" class="form-item__info" name="question-circle" />
   </el-popover>
 </template>
 <script lang="ts">
@@ -24,6 +25,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   name: 'CuteFormInfo',
 })
 export default class extends Vue {
+  @Prop({ default: 'dark' }) private effect: string
   @Prop({ default: '' }) private title: string
   @Prop({ default: '' }) private content: string
   @Prop() private width: number
@@ -34,5 +36,21 @@ export default class extends Vue {
   color: $icon-color;
   width: 15px;
   height: 15px;
+}
+</style>
+<style lang="scss">
+.form-item__info {
+  &--dark {
+    background: $color-grey-1;
+    color: $color-grey-10;
+
+    .el-popover__title {
+      color: $color-white;
+    }
+
+    &.el-popper[x-placement^='top'] .popper__arrow:after {
+      border-top-color: $color-grey-1;
+    }
+  }
 }
 </style>

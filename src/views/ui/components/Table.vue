@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-lone-template -->
 <template>
   <div>
     <p>在单表格简单场景下默认展示20条，其他情况默认展示10条。</p>
@@ -631,6 +632,7 @@
         </el-table-column>
 
         <el-table-column label="操作">
+          // eslint-disable-next-line vue/no-lone-template
           <template>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>

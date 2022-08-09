@@ -1,6 +1,25 @@
 import Layout from '@/layout/index.vue'
 
 const pageRoutes = [
+  // 更新日志
+  {
+    path: '/changelog',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'ChangeLog',
+        component: () => import('@/views/page/ChangeLog/index.vue'),
+        meta: {
+          title: '更新日志',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
   // 开发指南
   {
     path: '/guide',

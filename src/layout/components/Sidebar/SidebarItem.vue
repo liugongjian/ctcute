@@ -68,7 +68,7 @@ export default class extends Vue {
   }
 
   get theOnlyOneChild(): any {
-    if (this.showingChildNumber > 0 || (this.item.meta && this.item.meta.alwaysShow)) {
+    if (this.showingChildNumber > 1 || (this.item.meta && this.item.meta.alwaysShow)) {
       return null
     }
     if (this.item.children) {

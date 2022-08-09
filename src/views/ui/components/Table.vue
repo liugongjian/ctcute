@@ -598,7 +598,7 @@
         <el-divider class="sub-table-settings__divider"></el-divider>
         <!-- 列出全部选项 -->
         <el-checkbox-group v-model="selectedOptions" class="sub-table-settings__label-group">
-          <el-checkbox v-for="(v, i) in allOptions" :key="v.label" :label="v.label" :disabled="v.disabled">
+          <el-checkbox v-for="v in allOptions" :key="v.label" :label="v.label" :disabled="v.disabled">
           </el-checkbox>
         </el-checkbox-group>
 
@@ -611,12 +611,7 @@
 
       <!-- 表格 -->
       <el-table :data="data.tableData10" fit border>
-        <el-table-column
-          v-for="(v, i) in selectedOptionsWithProp"
-          :key="v.prop"
-          :prop="v.prop"
-          :label="v.label"
-        >
+        <el-table-column v-for="v in selectedOptionsWithProp" :key="v.prop" :prop="v.prop" :label="v.label">
           <template slot-scope="{ row }">
             <span v-if="v.prop === 'healthy'">
               <span class="health-dot" :class="`health-dot--${row.healthy}`" />{{ HEALTH[row.healthy] }}
@@ -1129,9 +1124,11 @@ export default class extends Vue {
     }
   }
 }
+
 .sort-icon {
   cursor: pointer;
   color: #777;
+
   &:hover {
     color: $color-master-1;
   }

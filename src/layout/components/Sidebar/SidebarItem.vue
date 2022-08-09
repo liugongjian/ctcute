@@ -71,12 +71,21 @@ export default class extends Vue {
   }
 
   get theOnlyOneChild(): any {
-    if (this.showingChildNumber > 0 || (this.item.meta && this.item.meta.alwaysShow)) {
+    if (this.showingChildNumber > 1 || (this.item.meta && this.item.meta.alwaysShow)) {
       return null
     }
     if (this.item.children) {
       for (const child of this.item.children) {
         if (!child.meta || !child.meta.hidden) {
+          // 如果子菜单全部为hidden，删除整个children
+          if (
+            child.children &&
+            child.children.every(grandchild => {
+              return grandchild.meta && grandchild.meta.hidden
+            })
+          ) {
+            child.children = null
+          }
           return child
         }
       }

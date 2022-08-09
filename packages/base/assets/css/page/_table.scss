@@ -46,6 +46,10 @@
       &__buttons {
         margin-left: 24px;
         margin-right: 0;
+
+        .el-button + .el-button {
+          margin-left: $button-margin;
+        }
       }
     }
   }
@@ -150,6 +154,10 @@
       &__buttons {
         margin-right: 0;
         float: right;
+
+        .el-button + .el-button {
+          margin-left: $button-margin;
+        }
 
         &__txt {
           font-size: 12px;
@@ -299,6 +307,10 @@
         &__buttons {
           margin-left: 24px;
           margin-right: 0;
+
+          .el-button + .el-button {
+            margin-left: $button-margin;
+          }
         }
       }
     }
@@ -336,6 +348,10 @@
       &__buttons {
         margin-left: 24px;
         margin-right: 0;
+
+        .el-button + .el-button {
+          margin-left: $button-margin;
+        }
       }
     }
   }
@@ -393,6 +409,10 @@
       &__buttons {
         margin-left: 24px;
         margin-right: 0;
+
+        .el-button + .el-button {
+          margin-left: $button-margin;
+        }
       }
     }
   }

@@ -1,8 +1,8 @@
 <!--
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:30
- * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-25 08:55:09
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-08-09 09:34:53
  * @Description: 
 -->
 <template>
@@ -274,7 +274,7 @@ export default class extends Vue {
       desc: '渲染嵌套数据的配置选项	',
       type: 'Object',
       options: null,
-      default: "{ hasChildren: 'hasChildren', children: 'children' }",
+      default: '{·hasChildren:·\'hasChildren\',·children:·\'children\'·}',
     },
   ]
 

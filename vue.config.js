@@ -56,29 +56,27 @@ module.exports = {
     config.resolve.alias.set('scripts', path.join(__dirname, 'scripts'))
 
     // tree-shaking指定目录
-    config.module
-      .rule('cutedesign')
-      .include
-      .add(path.join(__dirname, 'packages/base'))
-      .add(path.join(__dirname, 'node_modules/@cutedesign/base'))
-      .end()
-      .sideEffects(false)
-      .end()
+    // config.module
+    //   .rule('cutedesign')
+    //   .include
+    //   .add(path.join(__dirname, 'packages/base'))
+    //   .add(path.join(__dirname, 'node_modules/@cutedesign/base'))
+    //   .end()
+    //   .sideEffects(false)
+    //   .end()
 
     // set svg-sprite-loader
     config.module
       .rule('svg')
-      .exclude
-      .add(path.join(__dirname, 'packages/base/assets/icons'))
+      .exclude.add(path.join(__dirname, 'packages/base/assets/icons'))
       .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
       .add(path.join(__dirname, 'src/assets/icons'))
       .end()
-    
+
     config.module
       .rule('icons')
       .test(/\.svg$/)
-      .include
-      .add(path.join(__dirname, 'packages/base/assets/icons'))
+      .include.add(path.join(__dirname, 'packages/base/assets/icons'))
       .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
       .add(path.join(__dirname, 'src/assets/icons'))
       .end()

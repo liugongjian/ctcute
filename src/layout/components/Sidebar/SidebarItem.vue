@@ -17,7 +17,10 @@
       <template slot="title">
         <span v-if="item.meta && item.meta.title" slot="title">{{ item.meta.title }}</span>
       </template>
-      <template v-if="item.children">
+      <div
+        v-if="item.children"
+        :class="['vertical-bar', { 'vertical-bar__one': item.children.length === 1 }]"
+      >
         <sidebar-item
           v-for="child in item.children"
           :key="child.path"
@@ -27,7 +30,7 @@
           :base-path="resolvePath(child.path)"
           class="nest-menu"
         />
-      </template>
+      </div>
     </el-submenu>
   </div>
 </template>
@@ -48,9 +51,9 @@ import SidebarItemLink from './SidebarItemLink.vue'
   },
 })
 export default class extends Vue {
-  @Prop({ required: true }) private item!: RouteConfig
-  @Prop({ default: false }) private isCollapse!: boolean
-  @Prop({ default: true }) private isFirstLevel!: boolean
+  @Prop({ required: true }) public item!: RouteConfig
+  @Prop({ default: false }) public isCollapse!: boolean
+  @Prop({ default: true }) public isFirstLevel!: boolean
   @Prop({ default: '' }) private basePath!: string
 
   get showingChildNumber(): any {
@@ -83,7 +86,7 @@ export default class extends Vue {
     return { ...this.item, path: '' }
   }
 
-  private resolvePath(routePath: string) {
+  public resolvePath(routePath: string) {
     if (isExternal(routePath)) {
       return routePath
     }

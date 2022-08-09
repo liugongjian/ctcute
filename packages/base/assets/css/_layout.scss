@@ -57,11 +57,11 @@
   .el-menu-item,
   .el-submenu__title {
     height: 40px;
-    line-height: 40px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-right: 30px;
+    line-height: 38px;
+  }
+
+  .el-submenu__title * {
+    vertical-align: baseline !important;
   }
 
   .el-submenu.is-active > .el-submenu__title {
@@ -74,11 +74,84 @@
     min-width: calc($sidebar-width - 40px);
     background-color: $sidebar-sub-fill;
     border-right: 2px solid transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &.is-active,
     &:hover {
-      background-color: $sidebar-sub-hover !important;
+      color: $color-master-1;
     }
+  }
+
+  // .el-submenu > .el-submenu__title {
+  //   &.is-active,
+  //   &:hover {
+  //     background-color: $sidebar-sub-hover  !important;
+  //     color: $color-master-1;
+  //   }
+  // }
+
+  .el-submenu {
+    .el-menu-item {
+      padding-left: 10px !important;
+      padding-right: 20px !important;
+    }
+    .el-submenu__title {
+      &:hover {
+        background-color: $sidebar-sub-hover  !important;
+        color: $color-master-1;
+      }
+    }
+    &.is-active {
+      .el-submenu__title {
+        color: $color-master-1 !important;
+        display: flex;
+        align-items: center;
+        &::before {
+          content: '';
+          background-color: $color-master-1;
+          width: 2px;
+          height: 13px;
+          position: relative;
+          right: 8px;
+          bottom: 1px;
+        }
+      }
+    }
+  }
+
+  .vertical-bar {
+    border-left: 2px solid $color-grey-exception-1;
+    margin: 14px 0 18px 30px;
+    max-height: calc(100% - 40px);
+    > div:first-child {
+      .el-menu-item {
+        height: 26px;
+        line-height: 12px;
+      }
+    }
+    > div:last-child {
+      .el-menu-item {
+        height: 29px;
+        line-height: 40px;
+      }
+    }
+    &__one {  
+      > div:last-child {
+        .el-menu-item {
+          height: 16px;
+          line-height: 16px;
+          > span {
+            line-height: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .el-submenu__icon-arrow {
+    color: $color-grey-2;
   }
 }
 

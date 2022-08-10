@@ -1,6 +1,6 @@
 {
   "name": "@cutedesign/base",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "type": "module",
   "main": "index.ts",
@@ -11,7 +11,7 @@
     "vue-echarts": "^6.0.2",
     "xlsx": "^0.18.5"
   },
-   "devDependencies": {},
+  "devDependencies": {},
   "scripts": {
     "patch": "npm version patch",
     "publish": "npm publish"

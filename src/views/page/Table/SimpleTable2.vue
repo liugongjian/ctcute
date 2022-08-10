@@ -2,19 +2,21 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 马妍
- * @LastEditTime: 2022-08-10 16:39:27
+ * @LastEditTime: 2022-08-10 17:07:13
  * @Description: 基础表格
 -->
 <template>
-  <el-card class="simple-table">
+  <el-card class="simple-table2">
     <!--表格工具栏-->
     <div class="table-tools">
-      <div class="table-tools__left">
-        <el-button type="primary">+ 新增按钮</el-button>
-        <el-button>次按钮</el-button>
-      </div>
-      <div class="table-tools__right table-tools__conditions">
+      <div class="table-tools__conditions">
         <el-form ref="conditions" :model="conditions" inline @submit.native.prevent>
+          <el-form-item prop="ip">
+            <el-select v-model="conditions.ip" placeholder="请选择IP">
+              <el-option v-for="item in hostOptions" :key="item" :label="item" :value="item" />
+            </el-select>
+          </el-form-item>
+
           <el-form-item prop="host">
             <el-select v-model="conditions.host" placeholder="请选择主机">
               <el-option v-for="item in hostOptions" :key="item" :label="item" :value="item" />
@@ -67,9 +69,9 @@
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import { ElForm } from 'element-ui/types/form'
-import * as SimpleTable from '@/types/SimpleTable'
-import { getTable, getHosts } from '@/api/simpleTable'
-import { STATUS, HEALTH } from '@/dics/simpleTable'
+import * as SimpleTable2 from '@/types/SimpleTable2'
+import { getTable, getHosts } from '@/api/simpleTable2'
+import { STATUS, HEALTH } from '@/dics/simpleTable2'
 
 @Component({
   name: 'SimpleTable',
@@ -79,7 +81,8 @@ export default class extends Vue {
   private HEALTH = HEALTH
 
   // 搜索信息
-  private conditions: SimpleTable.Conditions = {
+  private conditions: SimpleTable2.Conditions = {
+    ip: '',
     host: '',
     name: '',
   }
@@ -102,7 +105,7 @@ export default class extends Vue {
   private loading = false
 
   // 表格数据
-  private tableData: SimpleTable.Host[] = null
+  private tableData: SimpleTable2.Host[] = null
 
   /**
    * 页面Mounted
@@ -131,7 +134,7 @@ export default class extends Vue {
     try {
       this.loading = true
       // 分页信息和搜索条件
-      const params: SimpleTable.TableParams = {
+      const params: SimpleTable2.TableParams = {
         page: this.pager.page,
         limit: this.pager.limit,
         ...this.conditions,
@@ -182,7 +185,7 @@ export default class extends Vue {
    * 查看详情
    * @param data {SimpleTable.Host} 表格行对象
    */
-  private gotoDetail(data: SimpleTable.Host) {
+  private gotoDetail(data: SimpleTable2.Host) {
     this.$message.success(`前往${data.name}详情页面`)
   }
 
@@ -190,7 +193,7 @@ export default class extends Vue {
    * 查看监控指标
    * @param data {SimpleTable.Host} 表格行对象
    */
-  private gotoDashboard(data: SimpleTable.Host) {
+  private gotoDashboard(data: SimpleTable2.Host) {
     this.$message.info(`前往${data.name}监控指标页面`)
   }
 
@@ -198,7 +201,7 @@ export default class extends Vue {
    * 使用字典格式化实例状态
    * @param data {SimpleTable.Host} 表格行对象
    */
-  private statusFormatter(data: SimpleTable.Host) {
+  private statusFormatter(data: SimpleTable2.Host) {
     return STATUS[data.status]
   }
 }

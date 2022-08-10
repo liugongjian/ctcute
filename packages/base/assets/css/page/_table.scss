@@ -44,7 +44,45 @@
       }
 
       &__buttons {
-        margin-left: 24px;
+        margin-left: 10px;
+        margin-right: 0;
+
+        .el-button + .el-button {
+          margin-left: $button-margin;
+        }
+      }
+    }
+  }
+
+  @include table();
+}
+
+.simple-table2 {
+  /* 表格工具栏 */
+  .table-tools {
+    /* 筛选表单 */
+    &__conditions {
+      .el-form {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .el-form-item {
+        margin-bottom: 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .el-input,
+      .el-select {
+        width: 304px;
+      }
+
+      &__buttons {
+        margin-left: 10px;
         margin-right: 0;
 
         .el-button + .el-button {
@@ -346,7 +384,7 @@
       }
 
       &__buttons {
-        margin-left: 24px;
+        margin-left: 10px;
         margin-right: 0;
 
         .el-button + .el-button {

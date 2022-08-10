@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 马妍
- * @LastEditTime: 2022-08-10 10:49:26
+ * @LastEditTime: 2022-08-10 17:22:53
  * @Description: 基础表格
 -->
 <template>
@@ -18,10 +18,10 @@
           </el-form-item>
           <el-form-item prop="name">
             <el-input v-model="conditions.name" placeholder="请输入主机别名" />
-            <el-form-item class="table-tools__conditions__buttons">
-              <el-button type="primary" @click="search">查询</el-button>
-              <el-button @click="resetConditions">重置</el-button>
-            </el-form-item>
+          </el-form-item>
+          <el-form-item class="table-tools__conditions__buttons">
+            <el-button type="primary" @click="search">查询</el-button>
+            <el-button @click="resetConditions">重置</el-button>
           </el-form-item>
         </el-form>
       </div>

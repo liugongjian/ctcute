@@ -205,6 +205,15 @@ const pageRoutes = [
         },
       },
       {
+        path: 'simple-table2',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/SimpleTable2.vue'),
+        name: 'SimpleTable2',
+        meta: {
+          title: 'SimpleTable2 基础表格2',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'pro-table1',
         component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable1.vue'),
         name: 'ProTable1',

@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-22 14:24:39
+ * @LastEditTime: 2022-08-10 16:40:29
  * @Description: 复杂表格1
 -->
 <template>
@@ -22,10 +22,10 @@
           </el-form-item>
           <el-form-item prop="name">
             <el-input v-model="conditions.name" placeholder="请输入主机别名" />
-            <el-form-item class="table-tools__conditions__buttons">
-              <el-button type="primary" @click="search">查 询</el-button>
-              <el-button @click="resetConditions">重 置</el-button>
-            </el-form-item>
+          </el-form-item>
+          <el-form-item class="table-tools__conditions__buttons">
+            <el-button type="primary" @click="search">查 询</el-button>
+            <el-button @click="resetConditions">重 置</el-button>
           </el-form-item>
         </el-form>
       </div>

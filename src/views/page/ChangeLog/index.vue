@@ -48,6 +48,15 @@ export default class extends Vue {
       date: '2022-08-09',
       features: [
         {
+          name: 'Page-Table',
+          desc: [
+            {
+              text: '新增Preview组件',
+              link: ['SimpleTable2'],
+            },
+          ],
+        },
+        {
           name: 'Page-Preview',
           desc: [
             {

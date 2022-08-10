@@ -1,0 +1,111 @@
+@mixin table {
+  /* 分页 */
+  .el-pagination {
+    text-align: right;
+  }
+
+  .el-table {
+    /* 操作按钮 */
+    .actions.el-table__cell {
+      .el-button--text + .el-button--text {
+        margin-left: 16px;
+
+        &:before {
+          content: ' ';
+          position: relative;
+          left: -8px;
+          border-left: 1px solid $border-color-primary;
+        }
+      }
+    }
+
+    .cell {
+      .el-table__expand-icon {
+        .el-icon-arrow-right:before {
+          font-family: cute-icons;
+          content: '\ea6e';
+        }
+      }
+    }
+  }
+}
+
+/* 简单表格 */
+.simple-menu {
+  .el-radio-group .el-radio-button:last-child .el-radio-button__inner {
+    background-color: $color-white;
+    color: $color-master-1;
+  }
+
+  /* alert样式 */
+  .is-alert-tip .el-alert--info.is-light {
+    border: none;
+    background-color: #fff;
+    color: $color-grey-2;
+  }
+
+  .el-alert--info .el-alert__description {
+    color: $color-grey-2;
+    line-height: 20px;
+    margin: 0;
+  }
+
+  .el-alert__title.is-bold {
+    font-weight: normal;
+
+    &:before {
+      font-family: cute-icons;
+      content: '\eb32';
+      margin: 0 5px 0 -17px;
+    }
+  }
+
+  .medium-dialog .el-dialog {
+    max-height: 590px;
+  }
+
+  .segmentation {
+    width: 512px;
+    color: $color-grey-7;
+  }
+
+  /* 表格工具栏 */
+  .table-tools {
+    display: flex;
+    justify-content: flex-start;
+
+    /* 筛选表单 */
+    &__conditions {
+      .el-form-item {
+        margin-bottom: 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .el-input,
+      .el-select {
+        width: 268px;
+      }
+
+      &__buttons {
+        margin-left: 24px;
+        margin-right: 0;
+
+        .el-button + .el-button {
+          margin-left: $button-margin;
+        }
+      }
+    }
+  }
+
+  .simple-form {
+    .el-input,
+    .el-select {
+      min-width: 400px;
+    }
+  }
+
+  @include table();
+}

@@ -1,3 +1,10 @@
+/*
+ * @Author: 马妍
+ * @Date: 2022-07-29 10:25:03
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-08-09 10:15:41
+ * @Description:
+ */
 import Vue from 'vue'
 import Router, { RouteConfig } from 'vue-router'
 import pageRoutes from '@/router/modules/page'
@@ -15,6 +22,11 @@ export const constantRoutes: RouteConfig[] = [
   {
     path: '/component',
     redirect: '/component/base',
+    meta: { hidden: true },
+  },
+  {
+    path: '/permission',
+    redirect: '/permission/User',
     meta: { hidden: true },
   },
 ]

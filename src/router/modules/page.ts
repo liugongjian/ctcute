@@ -461,6 +461,50 @@ const pageRoutes = [
       },
     ],
   },
+  //权限
+  {
+    path: '/Permission/Menu',
+    redirect: '/page/Menu/simple-user',
+    component: Layout,
+    name: 'Permission',
+    meta: {
+      title: 'Permission 权限',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'User',
+        component: () =>
+          import(/* webpackChunkName: "simplemenu" */ '@/views/permission/User/SimpleUser.vue'),
+        name: 'User',
+        meta: {
+          title: 'SimpleUser 用户管理',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'Role',
+        component: () =>
+          import(/* webpackChunkName: "simpleuser" */ '@/views/permission/Role/SimpleRole.vue'),
+        name: 'Role',
+        meta: {
+          title: 'SimpleRole 角色管理',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'Menu',
+        component: () =>
+          import(/* webpackChunkName: "simpleprole" */ '@/views/permission/Menu/SimpleMenu.vue'),
+        name: 'Menu',
+        meta: {
+          title: 'SimpleMenu 菜单管理',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
 ]
 
 export default pageRoutes

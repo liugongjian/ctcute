@@ -84,14 +84,6 @@
     }
   }
 
-  // .el-submenu > .el-submenu__title {
-  //   &.is-active,
-  //   &:hover {
-  //     background-color: $sidebar-sub-hover  !important;
-  //     color: $color-master-1;
-  //   }
-  // }
-
   .el-submenu {
     .el-menu-item {
       padding-left: 10px !important;
@@ -163,8 +155,7 @@
   padding: $header-height $margin-medium $margin-medium;
 
   .navbar {
-    margin-left: -24px;
-    margin-right: -24px;
+    margin-left: -23px;
     padding: $padding-medium;
     margin-bottom: $margin-medium;
   }

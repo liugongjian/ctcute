@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-28 13:40:22
+ * @LastEditTime: 2022-08-11 15:34:32
  * @Description: 带提示的选择器
 -->
 <template>
@@ -24,7 +24,7 @@
   </el-select>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Model, Emit } from 'vue-property-decorator'
+import { Vue, Component, Prop, Model } from 'vue-property-decorator'
 import { Tree } from 'element-ui'
 @Component({
   name: 'CuteSelectTree',
@@ -40,13 +40,13 @@ export default class extends Vue {
     children: 'children',
     label: 'label',
   }
-  private handleNodeClick(data, node, nodeData) {
+  private handleNodeClick(data) {
     if (this.multiple) {
       //多选
-      let ref = <Tree>this.$refs.tree
+      const ref: Tree = this.$refs.tree as Tree
       this.checkedTreeData = ref.getCurrentNode()
-      let treeData1 = Array.from(this.treeData)
-      let value1 = Array.from(this.value)
+      const treeData1 = Array.from(this.treeData)
+      const value1 = Array.from(this.value)
       treeData1.push(this.checkedTreeData['label'])
 
       value1.push({

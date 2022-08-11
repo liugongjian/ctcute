@@ -295,7 +295,7 @@ export default class extends Vue {
   }
   @Watch('filterText')
   private cahnge(val) {
-    let ref = <Tree>this.$refs.tree
+    const ref: Tree = this.$refs.tree as Tree
     ref.filter(val)
   }
 }

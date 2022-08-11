@@ -52,7 +52,6 @@ export default class extends Vue {
           desc: [
             {
               text: '新增Preview组件',
-              link: ['SimpleTable2'],
             },
           ],
         },

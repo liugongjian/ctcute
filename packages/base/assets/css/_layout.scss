@@ -89,17 +89,20 @@
       padding-left: 10px !important;
       padding-right: 20px !important;
     }
+
     .el-submenu__title {
       &:hover {
-        background-color: $sidebar-sub-hover  !important;
+        background-color: $sidebar-sub-hover !important;
         color: $color-master-1;
       }
     }
+
     &.is-active {
       .el-submenu__title {
         color: $color-master-1 !important;
         position: relative;
-        &::before {
+
+        &:before {
           content: '';
           display: inline-block;
           background-color: $color-master-1;
@@ -117,23 +120,27 @@
     border-left: 2px solid $color-grey-exception-1;
     margin: 14px 0 18px 30px;
     max-height: calc(100% - 40px);
+
     > div:first-child {
       .el-menu-item {
         height: 26px;
         line-height: 12px;
       }
     }
+
     > div:last-child {
       .el-menu-item {
         height: 29px;
         line-height: 40px;
       }
     }
+
     &__one {
       > div:last-child {
         .el-menu-item {
           height: 16px;
           line-height: 16px;
+
           > span {
             line-height: 16px;
           }
@@ -159,6 +166,9 @@
     margin-right: -16px;
     padding: $padding-medium;
     margin-bottom: $margin-medium;
+    display: flex;
+    align-items: center;
+    background: $color-white;
   }
 
   .app-main > .el-card.is-always-shadow {

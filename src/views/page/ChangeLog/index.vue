@@ -12,10 +12,7 @@
             <div v-for="(feature, index) in item.features" :key="index" class="content__item">
               <div>{{ feature.name }}</div>
               <ul>
-                <div v-for="(desc, j) in feature.desc" :key="j">
-                  <li>{{ desc.text }}</li>
-                  <el-link v-for="(v, i) in desc.link" :key="i">{{ v }}</el-link>
-                </div>
+                <li v-for="(desc, j) in feature.desc" :key="j">{{ desc.text }}</li>
               </ul>
             </div>
           </div>
@@ -56,20 +53,34 @@ export default class extends Vue {
           ],
         },
         {
-          name: 'Page-Preview',
+          name: 'Page-SimplePreview',
           desc: [
             {
-              text: '新增Preview组件',
-              link: ['SimplePreview'],
+              text: '新增SimplePreview组件',
             },
           ],
         },
         {
-          name: 'Page-Permission',
+          name: 'Page-SimpleUser',
           desc: [
             {
-              text: '新增Permission组件',
-              link: ['SimpleUser', 'SimpleMenu', 'SimpleRole'],
+              text: '新增SimpleUser组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-SimpleMenu',
+          desc: [
+            {
+              text: '新增SimpleMenu组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-SimpleRole',
+          desc: [
+            {
+              text: '新增SimpleRole组件',
             },
           ],
         },
@@ -386,81 +397,235 @@ export default class extends Vue {
           ],
         },
         {
-          name: 'Page-Dialog',
+          name: 'Page-SmallDialog',
           desc: [
             {
-              text: '新增Dialog组件',
-              link: [
-                'SmallDialog',
-                'MediumDialog',
-                'LargeDialog',
-                'FullScreenDialog',
-                'SuccessDialog',
-                'WarnDialog',
-                'ProSmallDialog',
-                'ProMediumDialog ',
-              ],
+              text: '新增SmallDialog组件',
             },
           ],
         },
         {
-          name: 'Page-Form',
+          name: 'Page-MediumDialog',
           desc: [
             {
-              text: '新增Form组件',
-              link: ['SimpleForm', 'ProForm1', 'ProForm2', 'StepForm'],
+              text: '新增MediumDialog组件',
             },
           ],
         },
         {
-          name: 'Page-Table',
+          name: 'Page-LargeDialog',
           desc: [
             {
-              text: '新增Table组件',
-              link: [
-                'SimpleTable',
-                'ProTable1',
-                'ProTable2',
-                'ProTable3',
-                'ProTable4',
-                'ScrolledToLoadTable',
-              ],
+              text: '新增LargeDialog组件',
             },
           ],
         },
         {
-          name: 'Page-CardList',
+          name: 'Page-FullScreenDialog',
           desc: [
             {
-              text: '新增CardList组件',
-              link: ['Card1', 'Card2', 'Card3'],
+              text: '新增FullScreenDialog组件',
             },
           ],
         },
         {
-          name: 'Page-Detail',
+          name: 'Page-SuccessDialog',
           desc: [
             {
-              text: '新增Detail组件',
-              link: ['SimpleDetail', 'ProDetail1', 'ProDetail2'],
+              text: '新增SuccessDialog组件',
             },
           ],
         },
         {
-          name: 'Page-Status',
+          name: 'Page-WarnDialog',
           desc: [
             {
-              text: '新增Status组件',
-              link: ['Page403', 'Page404', 'Page500', 'EmptyPage'],
+              text: '新增WarnDialog组件',
             },
           ],
         },
         {
-          name: 'Page-Chart',
+          name: 'Page-ProSmallDialog',
           desc: [
             {
-              text: '新增Chart组件',
-              link: ['SimpleChart'],
+              text: '新增ProSmallDialog组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-ProMediumDialog',
+          desc: [
+            {
+              text: '新增ProMediumDialog组件',
+            },
+          ],
+        },
+
+        {
+          name: 'Page-SimpleForm',
+          desc: [
+            {
+              text: '新增SimpleForm组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-ProForm1',
+          desc: [
+            {
+              text: '新增ProForm1组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-ProForm2',
+          desc: [
+            {
+              text: '新增ProForm2组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-StepForm',
+          desc: [
+            {
+              text: '新增StepForm组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-SimpleTable',
+          desc: [
+            {
+              text: '新增SimpleTable组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-ProTable1',
+          desc: [
+            {
+              text: '新增ProTable1组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-ProTable2',
+          desc: [
+            {
+              text: '新增ProTable2组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-ProTable3',
+          desc: [
+            {
+              text: '新增ProTable3组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-ProTable4',
+          desc: [
+            {
+              text: '新增ProTable4组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-ScrolledToLoadTable',
+          desc: [
+            {
+              text: '新增ScrolledToLoadTable组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-Card1',
+          desc: [
+            {
+              text: '新增Card1组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-Card2',
+          desc: [
+            {
+              text: '新增Card2组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-Card3',
+          desc: [
+            {
+              text: '新增Card3组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-SimpleDetail',
+          desc: [
+            {
+              text: '新增SimpleDetail组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-ProDetail1',
+          desc: [
+            {
+              text: '新增ProDetail1组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-ProDetail2',
+          desc: [
+            {
+              text: '新增ProDetail2组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-Page403',
+          desc: [
+            {
+              text: '新增Page403组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-Page404',
+          desc: [
+            {
+              text: '新增Page404组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-Page500',
+          desc: [
+            {
+              text: '新增Page500组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-EmptyPage',
+          desc: [
+            {
+              text: '新增EmptyPage组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-SimpleChart',
+          desc: [
+            {
+              text: '新增SimpleChart组件',
             },
           ],
         },

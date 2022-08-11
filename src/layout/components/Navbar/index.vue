@@ -21,10 +21,6 @@ export default class extends Vue {}
 </script>
 <style lang="scss" scoped>
 .desc-nav {
-  display: flex;
-  align-items: center;
-  background: $color-white;
-
   .desc {
     margin-left: 10px;
   }

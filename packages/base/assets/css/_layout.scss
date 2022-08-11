@@ -95,21 +95,26 @@
         color: $color-master-1;
       }
     }
-    &.is-active {
-      .el-submenu__title {
-        color: $color-master-1 !important;
-        position: relative;
-        &::before {
-          content: '';
-          display: inline-block;
-          background-color: $color-master-1;
-          width: 2px;
-          height: 12px;
-          position: absolute;
-          left: 12px;
-          top: 12px;
-        }
-      }
+  }
+  .el-submenu.is-active .el-submenu__title,
+  .el-menu > div.first-level > a > li.is-active {
+    color: $color-master-1  !important;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      background-color: $color-master-1;
+      width: 2px;
+      height: 12px;
+      position: absolute;
+      left: 12px;
+      top: 13px;
+    }
+  }
+  .el-menu > div.first-level > a > li.is-active {
+    &::before {
+      top: 14px;
     }
   }
 

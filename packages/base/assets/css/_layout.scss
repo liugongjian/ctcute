@@ -129,7 +129,7 @@
         line-height: 40px;
       }
     }
-    &__one {  
+    &__one {
       > div:last-child {
         .el-menu-item {
           height: 16px;
@@ -156,6 +156,7 @@
 
   .navbar {
     margin-left: -23px;
+    margin-right: -16px;
     padding: $padding-medium;
     margin-bottom: $margin-medium;
   }

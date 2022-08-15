@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-07-08 13:45:09
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-20 13:24:16
+ * @LastEditTime: 2022-08-15 09:52:00
  * @Description: 快速开始
 -->
 <template>
@@ -41,6 +41,9 @@ cuted madd [.cuted.json]
 ## 代码仓库
 [https://gitlab.ctyuncdn.cn/ct-basic/cute-design-web.git](https://gitlab.ctyuncdn.cn/ct-basic/cute-design-web.git)
 如果您没有权限，请联系胡佳婷（企业微信）帮您开通开发权限。
+
+## 详细文档说明
+[https://cloud.ctcdn.cn/s/KcdnYB45fg9bMZM](https://cloud.ctcdn.cn/s/KcdnYB45fg9bMZM)
 `
 }
 </script>

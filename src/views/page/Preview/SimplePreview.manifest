@@ -7,6 +7,10 @@
     {
       "name":"appendix.ts",
       "path":"@/api/appendix.ts"
+    },
+    {
+      "name":"Appendix.d.ts",
+      "path":"@/types/Appendix.d.ts"
     }
   ],
   "package": {

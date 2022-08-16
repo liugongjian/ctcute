@@ -416,19 +416,13 @@
         <template #name="{ scope }">
           <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
         </template>
-        <template #label="{ scope }">
-          <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
-          <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
-        </template>
-        <template #description="{ scope }">
-          <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
-            <span class="text-ellipsis">{{ scope.row.description }}</span>
-          </el-tooltip>
+        <template #status="{ scope }">
+          <span>{{ statusFormatter(scope.row) }}</span>
         </template>
         <template #healthy="{ scope }">
           <div>
-            <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
-            <span>{{ HEALTH[scope.row.healthy] }}</span>
+            <span class="sub-spot" :class="`sub-spot--${scope.row.health}`"></span>
+            <span>{{ HEALTH[scope.row.health] }}</span>
           </div>
         </template>
         <template #operation="{ scope }">
@@ -644,6 +638,8 @@ import { STATUS, HEALTH, STATUS2 } from '@/dics/simpleTable'
 import { ElTable } from 'element-ui/types/table'
 import TableHookClass from '@cutedesign/base/hook/TableHook'
 import CuteSortTable from '@cutedesign/sort-table'
+import { getTable } from '@/api/cuteSortTable'
+import * as SimpleTable from '@/types/SimpleTable'
 import data from '@/utils/mock'
 @Component({
   name: 'UiTable',
@@ -659,10 +655,11 @@ export default class extends Vue {
 
   private tableColumns = [
     { prop: 'name', label: '主机别名', slot: 'name' },
-    { prop: 'status', label: '实例状态' },
-    { prop: 'time', label: '时间', width: '150px', sortable: true },
-    { prop: 'label', label: '标签', width: 150, slot: 'label' },
-    { prop: 'description', label: '描述', width: '150px', slot: 'description' },
+    { prop: 'status', label: '实例状态', slot: 'status' },
+    { prop: 'ip', label: 'IP地址' },
+    { prop: 'cpu', label: 'CPU利用率(%)' },
+    { prop: 'memory', label: '内存利用率(%)' },
+    { prop: 'disk', label: '磁盘利用率(%)' },
     { prop: 'healthy', label: '健康状态', slot: 'healthy' },
     { prop: 'operation', label: '操作', width: 190, slot: 'operation' },
   ]
@@ -680,12 +677,18 @@ export default class extends Vue {
   /**
    * 获取表格数据
    */
-  private async getTable() {
+  private async getTable(param) {
     // 接口
-    // const res = await getTable(param)
-    // this.tableHook.setResult(res.data.list, res.data.total)
-    // 静态
-    this.tableHook.setResult(data.tableData10, 100)
+    const res = await getTable(param)
+    this.tableHook.setResult(res.data.list, res.data.total)
+  }
+
+  /**
+   * 使用字典格式化实例状态
+   * @param data {SimpleTable.Host} 表格行对象
+   */
+  private statusFormatter(data: SimpleTable.Host) {
+    return STATUS[data.status]
   }
 
   private handleSort(val) {

@@ -39,8 +39,6 @@ module.exports = {
     'style-resources-loader': {
       preProcessor: 'scss',
       patterns: [
-        // path.resolve(__dirname, 'node_modules/@cutedesign/base/assets/css/_variables.scss'),
-        // path.resolve(__dirname, 'node_modules/@cutedesign/base/assets/css/_mixins.scss'),
         path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_variables.scss'),
         path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_mixins.scss'),
       ],

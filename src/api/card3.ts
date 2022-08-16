@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 import { AxiosPromise } from 'axios'
-import { CardListItem, CardListResponse } from '@/types/Card1'
+import { CardListItem, CardListResponse } from '@/types/Card3'
 
 export const getCardList = (): AxiosPromise<CardListItem[]> => {
   return request({ url: '/mock/175/card-list1' })

@@ -1,14 +1,14 @@
 {
   "name": "@cutedesign/base",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "",
   "type": "module",
   "main": "index.ts",
-  "dependencies": {},
-  "devDependencies": {},
-  "peerDependencies": {
+  "dependencies": {
     "@cutedesign/theme": "^1.0.0"
   },
+  "devDependencies": {},
+  "peerDependencies": {},
   "scripts": {
     "patch": "npm version patch",
     "publish": "npm publish"

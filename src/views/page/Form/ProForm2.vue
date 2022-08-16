@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-08-08 14:28:32
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-08-16 14:14:02
  * @Description: 复杂表单2
 -->
 <template>
@@ -209,7 +209,7 @@
         </cute-titled-block>
         <el-divider></el-divider>
         <cute-titled-block title="通知设置">
-          <template #contnet>
+          <template #content>
             <div class="form-items">
               <el-form-item label="标签">
                 <div class="sub-tags">

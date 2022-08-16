@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 import { AxiosPromise } from 'axios'
-import * as Appendix from '@/types/appendix'
+import * as Appendix from '@/types/Appendix'
 export const createImg = (): AxiosPromise<Appendix.Response> =>
   request({
     url: 'mock/175/appendix/picture',

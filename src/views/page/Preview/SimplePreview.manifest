@@ -6,8 +6,8 @@
     }
   ],
   "package": {
-    "dependencies": [
-      {'name': '@cutedesign/appendix', "version": "^1.0.0"}
-    ],
+    "dependencies":  {
+      "@cutedesign/appendix": "^1.0.0"
+    }
   }
 }

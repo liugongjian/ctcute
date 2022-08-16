@@ -430,7 +430,7 @@ const pageRoutes = [
         path: 'Preview',
         component: () =>
           import(/* webpackChunkName: "simplepreview" */ '@/views/page/Preview/SimplePreview.vue'),
-        name: 'Preview',
+        name: 'SimplePreview',
         meta: {
           title: 'SimplePreview 文档预览',
           breadcrumb: true,

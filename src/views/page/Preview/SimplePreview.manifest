@@ -3,6 +3,10 @@
     {
       "name": "SimplePreview.vue",
       "path": "@/views/page/Preview/SimplePreview.vue"
+    },
+    {
+      "name":"appendix.ts",
+      "path":"@//api/appendix.ts"
     }
   ],
   "package": {

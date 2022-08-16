@@ -6,12 +6,9 @@
     }
   ],
   "package": {
-    "dependencies": [
-      {
-        "name": "@cutedesign/chart",
-        "version": "^1.0.0"
-      }
-    ]
+    "dependencies": {
+      "@cutedesign/chart":  "^1.0.0"
+    }
   }
 }
 

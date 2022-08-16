@@ -7,13 +7,13 @@
  */
 import request from '@/utils/request'
 import { AxiosPromise } from 'axios'
-import * as SimpleTable from '@/types/ProTable4'
+import * as ProTable4 from '@/types/ProTable4'
 
 /**
  * 获取表格数据
  * @returns 表格数据
  */
-export const getTable = (params: SimpleTable.TableParams): AxiosPromise<SimpleTable.TableData> =>
+export const getTable = (params: ProTable4.TableParams): AxiosPromise<ProTable4.TableData> =>
   request({
     url: '/mock/175/table',
     method: 'get',

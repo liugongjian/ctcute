@@ -6,7 +6,7 @@
     },
     {
       "name":"appendix.ts",
-      "path":"@//api/appendix.ts"
+      "path":"@/api/appendix.ts"
     }
   ],
   "package": {

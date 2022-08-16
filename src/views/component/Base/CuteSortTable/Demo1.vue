@@ -74,11 +74,15 @@ import { HEALTH } from '@/dics/simpleTable'
 import { Vue, Component, Ref } from 'vue-property-decorator'
 import { ElTable } from 'element-ui/types/table'
 import TableHookClass from '@cutedesign/base/hook/TableHook'
+import CuteSortTable from '@cutedesign/sort-table'
 
 import data from '@/utils/mock'
 
 @Component({
   name: 'Demo3',
+  components: {
+    CuteSortTable,
+  },
 })
 export default class extends Vue {
   @Ref('tableRef')
@@ -175,11 +179,13 @@ export default class extends Vue {
     height: 1000px;
   }
 }
+
 .pagination {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
+
 .sub-table:not(:last-child) {
   border-bottom: 1px solid $color-grey-7;
   padding-bottom: 24px;
@@ -244,9 +250,11 @@ export default class extends Vue {
 .top-fill {
   transform: rotate(180deg);
 }
+
 .sort-icon {
   cursor: pointer;
   color: #777;
+
   &:hover {
     color: $color-master-1;
   }

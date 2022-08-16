@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Component, Prop, VModel, Vue } from 'vue-property-decorator'
-import variables from '../../assets/css/_variables.scss'
+import variables from '@cutedesign/theme/css/_variables.scss'
 
 @Component({
   name: 'CuteEditInput',
@@ -38,6 +38,7 @@ export default class extends Vue {
   &:hover {
     color: $color-master-1;
   }
+
   &.svg-icon {
     vertical-align: sub;
   }
@@ -46,6 +47,7 @@ export default class extends Vue {
 .wrap {
   width: 100%;
   display: inline-block;
+
   .el-input,
   .el-textarea {
     width: calc(100% - 84px);

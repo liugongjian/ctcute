@@ -81,6 +81,10 @@
     "vue-template-compiler": "2.6.14"
   },
   "workspaces": [
-    "packages/base"
+    "packages/theme",
+    "packages/base",
+    "packages/chart",
+    "packages/appendix",
+    "packages/sort-table"
   ]
 }

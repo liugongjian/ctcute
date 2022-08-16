@@ -4,14 +4,11 @@
   "description": "",
   "type": "module",
   "main": "index.ts",
-  "dependencies": {
-    "@vue/composition-api": "^1.4.9",
-    "echarts": "^5.3.3",
-    "sortablejs": "^1.15.0",
-    "vue-echarts": "^6.0.2",
-    "xlsx": "^0.18.5"
-  },
+  "dependencies": {},
   "devDependencies": {},
+  "peerDependencies": {
+    "@cutedesign/theme": "^1.0.0"
+  },
   "scripts": {
     "patch": "npm version patch",
     "publish": "npm publish"

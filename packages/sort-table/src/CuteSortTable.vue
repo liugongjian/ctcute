@@ -3,7 +3,7 @@
  * @Date: 2022-07-21 10:14:48
  * @LastEditors: huanglulu
  * @LastEditTime: 2022-07-28 13:45:51
- * @Description: 
+ * @Description:
 -->
 <template>
   <div>
@@ -80,9 +80,11 @@ export default class extends Vue {
   justify-content: flex-end;
   align-items: center;
 }
+
 .sort-icon {
   cursor: pointer;
   color: #777;
+
   &:hover {
     color: $color-master-1;
   }

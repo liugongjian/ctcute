@@ -41,6 +41,8 @@ module.exports = {
       patterns: [
         path.resolve(__dirname, 'node_modules/@cutedesign/base/assets/css/_variables.scss'),
         path.resolve(__dirname, 'node_modules/@cutedesign/base/assets/css/_mixins.scss'),
+        path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_variables.scss'),
+        path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_mixins.scss'),
       ],
     },
   },
@@ -58,12 +60,10 @@ module.exports = {
     // tree-shaking指定目录
     config.module
       .rule('cutedesign')
-      .include
-      .add(path.join(__dirname, 'packages/base'))
+      .include.add(path.join(__dirname, 'packages/base'))
       .add(path.join(__dirname, 'node_modules/@cutedesign/base'))
       .end()
-      .exclude
-      .add(path.join(__dirname, 'packages/base/assets'))
+      .exclude.add(path.join(__dirname, 'packages/base/assets'))
       .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets'))
       .end()
       .sideEffects(false)
@@ -72,16 +72,16 @@ module.exports = {
     // set svg-sprite-loader
     config.module
       .rule('svg')
-      .exclude.add(path.join(__dirname, 'packages/base/assets/icons'))
-      .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
+      .exclude.add(path.join(__dirname, 'packages/theme/icons'))
+      .add(path.join(__dirname, 'node_modules/@cutedesign/theme/icons'))
       .add(path.join(__dirname, 'src/assets/icons'))
       .end()
 
     config.module
       .rule('icons')
       .test(/\.svg$/)
-      .include.add(path.join(__dirname, 'packages/base/assets/icons'))
-      .add(path.join(__dirname, 'node_modules/@cutedesign/base/assets/icons'))
+      .include.add(path.join(__dirname, 'packages/theme/icons'))
+      .add(path.join(__dirname, 'node_modules/@cutedesign/theme/icons'))
       .add(path.join(__dirname, 'src/assets/icons'))
       .end()
       .use('svg-sprite-loader')

@@ -140,8 +140,8 @@
   </div>
 </template>
 <script lang="ts">
-import color from '@cutedesign/base/assets/css/_variables.scss'
-import { CuteChartCard, CuteChart } from '@cutedesign/base'
+import color from '@cutedesign/theme/css/_variables.scss'
+import { CuteChartCard, CuteChart } from '@cutedesign/chart'
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
@@ -585,23 +585,29 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .chart-card-tabs {
 }
+
 .simple-table-box {
   ::v-deep .el-col {
     margin-top: 22px;
   }
 }
+
 .chart-cont .el-card {
   background: none;
+
   & ::v-deep > .el-card__body {
     padding: 0;
+
     .el-card {
       background: $color-white;
+
       .el-card__body {
         padding: 20px;
       }
     }
   }
 }
+
 .chart-card-box {
   ::v-deep .el-card__header {
     padding: 0 22px;
@@ -657,6 +663,7 @@ export default class extends Vue {
 
   .chart-table.el-table {
     margin: 0 !important;
+
     .solt {
       margin: 0 auto;
       background: $color-other-2;

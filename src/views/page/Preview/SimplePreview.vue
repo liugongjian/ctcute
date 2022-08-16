@@ -3,7 +3,7 @@
  * @Date: 2022-07-25 15:58:42
  * @LastEditors: 马妍
  * @LastEditTime: 2022-07-29 16:55:18
- * @Description: 
+ * @Description:
 -->
 <template>
   <div class="document-preview">
@@ -92,7 +92,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { CuteAppendix } from '@cutedesign/base'
+import { CuteAppendix } from '@cutedesign/appendix'
 import { createImg, createPdf, createExcel } from '@/api/appendix'
 
 @Component({

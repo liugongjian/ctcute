@@ -4,5 +4,10 @@
       "name": "SimplePreview.vue",
       "path": "@/views/page/Preview/SimplePreview.vue"
     }
-  ]
+  ],
+  "package": {
+    "dependencies": [
+      {'name': '@cutedesign/appendix', "version": "^1.0.0"}
+    ],
+  }
 }

@@ -4,6 +4,11 @@
       "name": "SimpleChart.vue",
       "path": "@/views/page/Chart/SimpleChart.vue"
     }
-  ]
+  ],
+  "package": {
+    "dependencies": [
+      {'name': '@cutedesign/chart', "version": "^1.0.0"}
+    ],
+  }
 }
 

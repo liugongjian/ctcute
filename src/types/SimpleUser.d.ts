@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-08-09 13:38:40
  * @LastEditors: 马妍
- * @LastEditTime: 2022-08-09 13:38:51
+ * @LastEditTime: 2022-08-15 19:52:25
  * @Description:
  */
 import * as Request from './Request'
@@ -27,9 +27,11 @@ export type Conditions = {
   status: string
   name: string
 }
-
+export type Token = {
+  Authorization: string
+}
 /* 获取表格请求类型 */
-export type TableParams = Request.Pager & Conditions
+export type TableParams = Request.Pager & Conditions & Token
 
 /* 返回列表 */
 export type TableData = {

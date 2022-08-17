@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 马妍
- * @LastEditTime: 2022-08-10 10:47:36
+ * @LastEditTime: 2022-08-16 17:01:54
  * @Description: 基础表格
 -->
 <template>
@@ -155,14 +155,14 @@ export default class extends Vue {
     try {
       this.loading = true
       // 分页信息和搜索条件
-      const params: SimpleUser.TableParams = {
-        page: this.pager.page,
-        limit: this.pager.limit,
-        ...this.conditions,
-      }
-      const res = await getUsers(params)
-      this.pager.total = res.data.total
-      this.tableData = res.data.list
+      // const params: SimpleUser.TableParams = {
+      //   page: this.pager.page,
+      //   limit: this.pager.limit,
+      //   ...this.conditions,
+      // }
+      // const res = await getUsers(params)
+      // this.pager.total = res.data.total
+      // this.tableData = res.data.list
     } catch (e) {
       console.error(e)
     } finally {

@@ -48,11 +48,11 @@ export default class extends Vue {
   }
   //退出登录
   private async outLogin() {
-    const res = await Logout()
-    if ((res as any).code === 200) {
-      this.$router.push('/login')
-      sessionStorage.clear()
-    }
+    const res = await Logout({ Authorization: token })
+    console.log(res)
+
+    this.$router.push('/login')
+    sessionStorage.clear() //清空本地信息
   }
 }
 </script>

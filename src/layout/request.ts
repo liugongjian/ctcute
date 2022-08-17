@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-22 00:06:08
  * @LastEditors: 马妍
- * @LastEditTime: 2022-08-16 22:00:21
+ * @LastEditTime: 2022-08-16 21:56:23
  * @Description:
  */
 import axios from 'axios'
@@ -27,12 +27,8 @@ service.interceptors.request.use(
       }
       // config.params.requestTime = Date.now()
     }
-
-    //将token挂载到请求头上
-    if (sessionStorage.getItem('token')) {
-      config.headers['Authorization'] = sessionStorage.getItem('token')
-    }
-
+    if(sessionStorage.getItem('token') )
+    config.headers['Authorization'] = || ''
     return config
   },
   error => {

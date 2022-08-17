@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 马妍
- * @LastEditTime: 2022-08-10 10:53:48
+ * @LastEditTime: 2022-08-16 23:23:25
  * @Description: 基础表格
 -->
 <template>
@@ -62,22 +62,25 @@
 
       <div class="medium-dialog--footer">
         <el-button @click="visible = false">取 消</el-button>
-        <el-button type="primary" :loading="submitting" @click="confirm">确 定</el-button>
+        <el-button type="primary" @click="confirm">确 定</el-button>
       </div>
     </el-dialog>
 
     <!--表格-->
     <el-table
       :data="tableData"
-      style="width: 100%; margin-bottom: 20px"
       row-key="id"
       border
       default-expand-all
       :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
     >
-      <el-table-column prop="date" label="日期" sortable width="180"> </el-table-column>
-      <el-table-column prop="name" label="姓名" sortable width="180"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
+      <el-table-column prop="name" label="名称" sortable width="180"> </el-table-column>
+      <el-table-column prop="menuType" label="类型" sortable width="180"> </el-table-column>
+      <el-table-column prop="orderNum" label="排序"> </el-table-column>
+      <el-table-column prop="url" label="路由"> </el-table-column>
+      <el-table-column prop="parentId" label="标识"> </el-table-column>
+      <el-table-column prop="address" label="别名"> </el-table-column>
+
       <el-table-column prop="actions" label="操作" width="250" fixed="right" class-name="actions">
         <template slot-scope="{ row }">
           <el-button type="text" @click="gotoEdit(row)">编辑</el-button>
@@ -97,10 +100,9 @@
   </el-card>
 </template>
 <script lang="ts">
-import { Component, Vue, Ref } from 'vue-property-decorator'
-import { ElForm } from 'element-ui/types/form'
-import * as SimpleUser from '@/types/SimpleUser'
-import { getUsers } from '@/api/simpleUser'
+import { Component, Vue } from 'vue-property-decorator'
+// import { ElForm } from 'element-ui/types/form'
+import { getMenus } from '@/api/simpleMenu'
 
 @Component({
   name: 'SimpleTable',
@@ -111,57 +113,57 @@ export default class extends Vue {
   private labels = '菜单'
   //弹窗开关
   private visible = false
-
-  // 搜索信息
-  private conditions: SimpleUser.Conditions = {
-    status: '',
-    name: '',
-  }
+  private tableData = []
+  // // 搜索信息
+  // private conditions: SimpleUser.Conditions = {
+  //   status: '',
+  //   name: '',
+  // }
 
   // 条件搜索表单
-  @Ref('conditions')
-  private conditionsForm: ElForm
+  // @Ref('conditions')
+  // private conditionsForm: ElForm
 
-  private tableData = [
-    {
-      id: 1,
-      date: '2016-05-02',
-      name: '王小虎',
-      address: '上海市普陀区金沙江路 1518 弄',
-    },
-    {
-      id: 2,
-      date: '2016-05-04',
-      name: '王小虎',
-      address: '上海市普陀区金沙江路 1517 弄',
-    },
-    {
-      id: 3,
-      date: '2016-05-01',
-      name: '王小虎',
-      address: '上海市普陀区金沙江路 1519 弄',
-      children: [
-        {
-          id: 31,
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄',
-        },
-        {
-          id: 32,
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄',
-        },
-      ],
-    },
-    {
-      id: 4,
-      date: '2016-05-03',
-      name: '王小虎',
-      address: '上海市普陀区金沙江路 1516 弄',
-    },
-  ]
+  // private tableData = [
+  //   {
+  //     id: 1,
+  //     date: '2016-05-02',
+  //     name: '王小虎',
+  //     address: '上海市普陀区金沙江路 1518 弄',
+  //   },
+  //   {
+  //     id: 2,
+  //     date: '2016-05-04',
+  //     name: '王小虎',
+  //     address: '上海市普陀区金沙江路 1517 弄',
+  //   },
+  //   {
+  //     id: 3,
+  //     date: '2016-05-01',
+  //     name: '王小虎',
+  //     address: '上海市普陀区金沙江路 1519 弄',
+  //     children: [
+  //       {
+  //         id: 31,
+  //         date: '2016-05-01',
+  //         name: '王小虎',
+  //         address: '上海市普陀区金沙江路 1519 弄',
+  //       },
+  //       {
+  //         id: 32,
+  //         date: '2016-05-01',
+  //         name: '王小虎',
+  //         address: '上海市普陀区金沙江路 1519 弄',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     id: 4,
+  //     date: '2016-05-03',
+  //     name: '王小虎',
+  //     address: '上海市普陀区金沙江路 1516 弄',
+  //   },
+  // ]
 
   // 主机信息下拉框选项
   private statusOptions = [
@@ -203,17 +205,23 @@ export default class extends Vue {
    * 获取表格数据
    */
   private async getTable() {
+    const res = await getMenus()
+    console.log(res)
+    if ((res as any).code === 200) {
+      this.tableData = res.data.result
+    }
+
     try {
       this.loading = true
       // 分页信息和搜索条件
-      const params: SimpleUser.TableParams = {
-        page: this.pager.page,
-        limit: this.pager.limit,
-        ...this.conditions,
-      }
-      const res = await getUsers(params)
-      this.pager.total = res.data.total
-      //   this.tableData = res.data.list
+      // const params: SimpleMenu.TableParams = {
+      //   page: this.pager.page,
+      //   limit: this.pager.limit,
+      //   // ...this.conditions,
+      // }
+
+      // this.pager.total = res.data.total
+      // this.tableData = res.data.list
     } catch (e) {
       console.error(e)
     } finally {
@@ -272,6 +280,9 @@ export default class extends Vue {
    */
   private gotoDetail() {
     console.log('删除')
+  }
+  private close() {
+    this.visible = false
   }
 }
 </script>

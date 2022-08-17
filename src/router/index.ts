@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-29 10:25:03
  * @LastEditors: 马妍
- * @LastEditTime: 2022-08-09 10:15:41
+ * @LastEditTime: 2022-08-11 17:56:05
  * @Description:
  */
 import Vue from 'vue'
@@ -10,15 +10,22 @@ import Router, { RouteConfig } from 'vue-router'
 import pageRoutes from '@/router/modules/page'
 import componentRoutes from '@/router/modules/component'
 import uiRoutes from '@/router/modules/ui'
+import loginRouter from '@/router/modules/login'
 
 Vue.use(Router)
 
 export const constantRoutes: RouteConfig[] = [
   {
     path: '/',
+    redirect: '/Login',
+    meta: { hidden: true },
+  },
+  {
+    path: '/guide',
     redirect: '/guide/quick-start',
     meta: { hidden: true },
   },
+
   {
     path: '/component',
     redirect: '/component/base',
@@ -61,7 +68,13 @@ const _statusRoutes = [
   { path: '*', redirect: '/404', meta: { hidden: true } },
 ]
 
-export const asyncRoutes: RouteConfig[] = [..._pageRoutes, ..._componentRoutes, ...uiRoutes, ..._statusRoutes]
+export const asyncRoutes: RouteConfig[] = [
+  ..._pageRoutes,
+  ..._componentRoutes,
+  ...uiRoutes,
+  ..._statusRoutes,
+  ...loginRouter,
+]
 
 const router = new Router({
   mode: 'history',

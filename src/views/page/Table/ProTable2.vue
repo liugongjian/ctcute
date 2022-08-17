@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2022-08-10 16:33:34
+ * @LastEditTime: 2022-08-11 16:57:06
  * @Description: 复杂表格2
 -->
 <template>
@@ -71,8 +71,8 @@
             <el-button @click="resetConditions">次按钮</el-button>
           </div>
           <div>
-            <el-button type="text"><svg-icon name="download" />下载</el-button>
-            <el-button type="text"> <svg-icon name="Import" />导出 </el-button>
+            <el-button type="text" plain><svg-icon name="download" />下载</el-button>
+            <el-button type="text" plain> <svg-icon name="Import" />导出 </el-button>
           </div>
         </div>
       </div>

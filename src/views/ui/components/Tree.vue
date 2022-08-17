@@ -21,7 +21,7 @@
     <el-row>
       <el-col :span="5">
         <h3>四层树状菜单标题</h3>
-        <el-tree :data="data.threeFour" node-key="key" draggable :default-expanded-keys="[2]" :indent="10">
+        <el-tree :data="fourTree" node-key="key" draggable :default-expanded-keys="[2]" :indent="10">
           <span slot-scope="{ node, data }" class="node-content">
             <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
@@ -50,7 +50,7 @@
       </el-col>
       <el-col :span="5">
         <h3>三层树状菜单标题</h3>
-        <el-tree :data="data.threeTree" draggable node-key="key" :default-expanded-keys="[3]" :indent="10">
+        <el-tree :data="threeTree" draggable node-key="key" :default-expanded-keys="[3]" :indent="10">
           <span slot-scope="{ node }" class="node-content">
             <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
@@ -64,7 +64,7 @@
     <el-row>
       <el-col :span="5">
         <h3>两层树状菜单标题</h3>
-        <el-tree :data="data.twoTree" node-key="key" :default-expanded-keys="[4]" :indent="10">
+        <el-tree :data="twoTree" node-key="key" :default-expanded-keys="[4]" :indent="10">
           <span slot-scope="{ node }" class="node-content">
             <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
@@ -76,7 +76,7 @@
       </el-col>
       <el-col :span="5">
         <h3>三层树状菜单加icon</h3>
-        <el-tree :data="data.threeTree" node-key="key" :default-expanded-keys="[3]" :indent="10">
+        <el-tree :data="threeTree" node-key="key" :default-expanded-keys="[3]" :indent="10">
           <span slot-scope="{ node }" class="node-content">
             <span class="node-icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
@@ -100,7 +100,7 @@
         <el-tree
           ref="tree"
           class="filter-tree"
-          :data="data.threeFour"
+          :data="fourTree"
           :props="defaultProps"
           :filter-node-method="filterNode"
           :indent="10"
@@ -140,7 +140,8 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { Tree } from 'element-ui'
-import Data from '@/utils/mock'
+import { getThreeTrees, getTwoTrees } from '@/api/tree'
+import { getTrees } from '@/api/proTable4'
 @Component({
   name: 'UiTree',
 })
@@ -154,8 +155,9 @@ export default class extends Vue {
     version: 'v1.0',
     updateTime: '2022.07.12',
   }
-
-  public data = Data
+  private fourTree = []
+  private threeTree = []
+  private twoTree = []
   private filterText = ''
   private defaultProps = {
     children: 'children',
@@ -288,6 +290,48 @@ export default class extends Vue {
       ],
     },
   ]
+  /** * 页面Mounted */
+  private mounted() {
+    this.getFourTree()
+    this.getThreeTree()
+    this.getTwoTree()
+  }
+
+  /** * 获取两级树形数据 */
+  private async getTwoTree() {
+    try {
+      const res = await getTwoTrees()
+      res.data[0].children[0].key = 4
+      this.twoTree = res.data
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  /** * 获取三级树形数据 */
+  private async getThreeTree() {
+    try {
+      const res = await getThreeTrees()
+      console.log(res, '三级菜单')
+
+      res.data[0].children[0].key = 3
+      this.threeTree = res.data
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  /** * 获取四级树形数据 */
+  private async getFourTree() {
+    try {
+      const res = await getTrees()
+      res.data[0].children[0].children[0].key = 2
+      this.fourTree = res.data
+      console.log(res.data)
+    } catch (e) {
+      this.$message.error(e)
+    }
+  }
 
   private filterNode(value, data) {
     if (!value) return true

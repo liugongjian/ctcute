@@ -48,7 +48,7 @@ export default class extends Vue {
   }
   //退出登录
   private async outLogin() {
-    const res = await Logout({ Authorization: token })
+    const res = await Logout()
     console.log(res)
 
     this.$router.push('/login')

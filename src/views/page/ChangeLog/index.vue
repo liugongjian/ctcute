@@ -41,7 +41,83 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
-      version: '0.0.5',
+      version: '1.0.9',
+      date: '2022-8-18',
+      features: [
+        {
+          name: 'ui-Select',
+          desc: [
+            {
+              text: '新增新增日期选择框带快捷选项 组件',
+            },
+          ],
+        },
+        {
+          name: 'ui-Table',
+          desc: [
+            {
+              text: '新增可在表头进行筛选的table 组件',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      version: '1.0.8',
+      date: '2022-8-15',
+      features: [
+        {
+          name: 'Doc',
+          desc: [
+            {
+              text: '增加脚手架使用文档链接',
+            },
+            {
+              text: '拆分主题和有三方依赖的基础组件为业务组件',
+            },
+            {
+              text: '把theme和第三方依赖组件单独打包后,修改相关的配置',
+            },
+          ],
+        },
+        {
+          name: 'page-simpleTable2',
+          desc: [
+            {
+              text: '新增simpleTable2页面',
+            },
+          ],
+        },
+        {
+          name: 'page-Login',
+          desc: [
+            {
+              text: '新增Login页面',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: 'ui-Tbale',
+          desc: [
+            {
+              text: '修改table数据来源使用yapi',
+            },
+          ],
+        },
+        {
+          name: 'ui-Tree',
+          desc: [
+            {
+              text: '修改tree数据来源使用yapi',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      version: '1.0.5',
       date: '2022-08-09',
       features: [
         {
@@ -177,7 +253,7 @@ export default class extends Vue {
       ],
     },
     {
-      version: '0.0.4',
+      version: '1.0.4',
       date: '2022-07-25',
       features: [
         {

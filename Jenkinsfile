@@ -140,9 +140,9 @@ pipeline {
           //}else {
           //  DEPLOY_BASE_DIR = 'deploy/test'
           //}
-          when {
-                expression { BRANCH_NAME ==~ env.DEV_BRANCH || BRANCH_NAME ==~ env.QA_BRANCH }
-            }
+          //when {
+          //      expression { BRANCH_NAME ==~ env.DEV_BRANCH || BRANCH_NAME ==~ env.QA_BRANCH }
+           // }
 
           steps {
               // 替换占位，不能直接用环境变量获取
@@ -151,6 +151,15 @@ pipeline {
               //    sed -i 's#{{SERVICE_TARGET_PORT}}#'$SERVICE_TARGET_PORT'#g' ${DEPLOY_BASE_DIR}/service.yaml
               //"""
               script {
+                  if (BRANCH_NAME == env.DEV_BRANCH) {
+                    DEPLOY_BASE_DIR = 'deploy/dev'
+                  }else {
+                    DEPLOY_BASE_DIR = 'deploy/test'
+                  }
+                  sh """
+                    sed -i 's#{{DEPLOYMENT_NAME}}#'$DEPLOYMENT_NAME'#g' ${DEPLOY_BASE_DIR}/deployment.yaml ${DEPLOY_BASE_DIR}/service.yaml
+                    sed -i 's#{{SERVICE_TARGET_PORT}}#'$SERVICE_TARGET_PORT'#g' ${DEPLOY_BASE_DIR}/service.yaml
+                  """
                   container('tools') {
                       // create configmap and ingress
                       // devops.deploy("", "${DEPLOY_VIP_DIR}/ingress.yaml","",false).start()

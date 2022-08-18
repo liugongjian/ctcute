@@ -135,7 +135,7 @@ pipeline {
         }
 
         stage('Deploy') {
-          if (BRANCH_NAME = env.DEV_BRANCH) {
+          if (BRANCH_NAME =~ env.DEV_BRANCH) {
             DEPLOY_BASE_DIR = 'deploy/dev'
           }else {
             DEPLOY_BASE_DIR = 'deploy/test'

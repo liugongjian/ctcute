@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-08-09 13:41:43
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-18 14:55:36
+ * @LastEditTime: 2022-08-18 19:37:43
  * @Description:
  */
 import request from '@/utils/request'
@@ -17,4 +17,13 @@ export const getRoles = (params): AxiosPromise<any> =>
     url: '/v1/auth/roles',
     method: 'get',
     params,
+  })
+
+/**
+ * 复制角色
+ */
+export const copyRoles = (params): AxiosPromise<any> =>
+  request({
+    url: `/v1/auth/roles/${params._id}/copy`,
+    method: 'post',
   })

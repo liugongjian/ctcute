@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-08-11 16:27:09
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-18 16:43:16
+ * @LastEditTime: 2022-08-18 19:47:16
  * @Description: 
 -->
 <template>
@@ -95,7 +95,12 @@ export default class extends Vue {
         //登录信息存到本地
         sessionStorage.setItem('token', res.data.token)
         sessionStorage.setItem('username', this.form.username)
-        this.$router.push('/guide')
+        const redirect_url = this.$route.query.redirect
+        if (redirect_url) {
+          window.location.href = decodeURIComponent(redirect_url as string)
+        } else {
+          window.location.href = '/guide'
+        }
       } else {
         this.$message.error((res as any).msg)
         this.loading = false

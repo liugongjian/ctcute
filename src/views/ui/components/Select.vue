@@ -87,6 +87,8 @@
       <h3>日期/时间选择</h3>
       <div class="sub-date">
         <el-date-picker v-model="date" type="date" placeholder="选择日期"> </el-date-picker>
+        <el-date-picker v-model="date4" type="date" placeholder="选择日期" :picker-options="pickerOptions">
+        </el-date-picker>
         <el-time-select
           v-model="text"
           :picker-options="{
@@ -100,6 +102,14 @@
       </div>
       <div class="sub-date">
         <el-date-picker v-model="date1" size="mini" type="date" placeholder="选择日期"> </el-date-picker>
+        <el-date-picker
+          v-model="date5"
+          type="date"
+          placeholder="选择日期"
+          :picker-options="pickerOptions"
+          size="mini"
+        >
+        </el-date-picker>
         <el-date-picker v-model="value6" type="datetime" placeholder="选择时间" size="mini"> </el-date-picker>
       </div>
       <div class="sub-date1">
@@ -197,6 +207,37 @@ export default class extends Vue {
   private multiTsreeDataValue = '' //多选树形value
   private date = ''
   private date1 = ''
+  private date4 = ''
+  private date5 = ''
+  private pickerOptions = {
+    // disabledDate(time) {
+    //   return time.getTime() > Date.now()
+    // },
+    shortcuts: [
+      {
+        text: '昨天',
+        onClick(picker) {
+          const date = new Date()
+          date.setTime(date.getTime() - 3600 * 1000 * 24)
+          picker.$emit('pick', date)
+        },
+      },
+      {
+        text: '今天',
+        onClick(picker) {
+          picker.$emit('pick', new Date())
+        },
+      },
+      {
+        text: '一周前',
+        onClick(picker) {
+          const date = new Date()
+          date.setTime(date.getTime() - 3600 * 1000 * 24 * 7)
+          picker.$emit('pick', date)
+        },
+      },
+    ],
+  }
 
   private options = [
     {

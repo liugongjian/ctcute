@@ -462,6 +462,87 @@
         @current-change="tableHook.handleCurrentChange"
       />
     </div>
+    <h3>可在表头进行筛选的表格</h3>
+    <el-table :data="data.tableData" border height="614px">
+      <el-table-column prop="name" label="主机别名" width="150px">
+        <template slot-scope="scope">
+          <div>
+            <span class="text-ellipsis name-primary" :title="scope.row.name">{{ scope.row.name }}</span>
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column prop="status" label="实例状态"> </el-table-column>
+      <el-table-column prop="ip" label="IP地址" width="100px"> </el-table-column>
+      <el-table-column
+        prop="time"
+        label="时间"
+        width="150"
+        sortable
+        :filters="[
+          { text: '2022-08-14', value: '1' },
+          { text: '2022-08-15', value: '2' },
+          { text: '2022-08-16', value: '3' },
+          { text: '2022-08-17', value: '4' },
+          { text: '2022-08-18', value: '5' },
+          { text: '2022-08-19', value: '6' },
+        ]"
+        filter-placement="bottom-start"
+      >
+      </el-table-column>
+
+      <el-table-column prop="label" label="标签" width="150px">
+        <template slot-scope="scope">
+          <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+          <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column prop="description" label="描述" width="150px">
+        <template slot-scope="scope">
+          <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+            <span class="text-ellipsis">{{ scope.row.description }}</span>
+          </el-tooltip>
+        </template>
+      </el-table-column>
+      <el-table-column prop="healthy" label="健康状态">
+        <template slot-scope="scope">
+          <div>
+            <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
+            <span>{{ HEALTH[scope.row.healthy] }}</span>
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="190px">
+        <template slot-scope="scope">
+          <el-button
+            type="text"
+            size="small"
+            class="bt-operation"
+            @click="handleClick(scope.$index, scope.row)"
+          >
+            挂载
+          </el-button>
+          <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+          <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+          <el-divider direction="vertical"></el-divider>
+          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+            <span class="el-dropdown-link">
+              更多<i
+                class="el-icon-arrow-down el-icon--right"
+                :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+              ></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>退订</el-dropdown-item>
+              <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
+              <el-dropdown-item>创建</el-dropdown-item>
+              <el-dropdown-item disabled>Disabled</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </template>
+      </el-table-column>
+    </el-table>
+
+    <div></div>
     <h3>横向展示列表</h3>
     <div class="sub-table-horizon" border>
       <el-table :data="tableData" :span-method="row">

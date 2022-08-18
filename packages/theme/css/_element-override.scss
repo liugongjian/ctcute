@@ -784,6 +784,47 @@
 
 /* Table
 -------------------------- */
+.el-table__column-filter-trigger i {
+  color: $color-grey-3;
+  &::before {
+    font-family: 'cute-icons' !important;
+    content: '\eb5c' !important;
+  }
+}
+.el-table-filter__content {
+  min-width: 190px;
+}
+.el-table-filter__checkbox-group {
+  padding: 0;
+}
+.el-table-filter__bottom {
+  padding-top: 12px;
+  button:last-child {
+    color: $color-master-1;
+  }
+}
+.el-table-filter__checkbox-group .el-checkbox:first-child {
+  margin-top: 5px;
+}
+.el-table-filter__checkbox-group .el-checkbox:last-child {
+  margin-bottom: 5px;
+}
+.el-table-filter__checkbox-group label.el-checkbox {
+  height: 30px;
+  margin: 0;
+  line-height: 30px;
+  margin-bottom: 5px;
+  &:hover {
+    background-color: $color-master-7;
+    .el-checkbox__label {
+      color: $color-master-1;
+    }
+  }
+
+  .el-checkbox__inner {
+    margin-left: 12px;
+  }
+}
 .bt-operation {
   color: $color-master-1;
 }

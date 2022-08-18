@@ -463,7 +463,7 @@
       />
     </div>
     <h3>可在表头进行筛选的表格</h3>
-    <el-table :data="data.tableData" border height="614px">
+    <el-table :data="tableComponentData && tableComponentData.tableData" border height="614px">
       <el-table-column prop="name" label="主机别名" width="150px">
         <template slot-scope="scope">
           <div>

@@ -26,7 +26,6 @@
 // import { CuteTableColumnSettings } from '@cutedesign/base'
 import { Vue, Component } from 'vue-property-decorator'
 import { getTable } from '@/api/cuteTableColumnSettings'
-import data from '@/utils/mock'
 import { HEALTH } from '@/dics/simpleTable'
 
 @Component({
@@ -86,7 +85,7 @@ export default class extends Vue {
   private getTable = getTable
 
   // 在URL 地址不通的情况下，先传入一个 data 数据
-  private tableData = data.tableData10
+  private tableData = []
 }
 </script>
 

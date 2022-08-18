@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 马妍
- * @LastEditTime: 2022-08-10 17:22:53
+ * @LastEditTime: 2022-08-16 23:04:24
  * @Description: 基础表格
 -->
 <template>
@@ -28,16 +28,23 @@
     </div>
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit border>
-      <el-table-column prop="name" label="主机别名">
-        <template slot-scope="{ row }">
-          <router-link to="/">{{ row.name }}</router-link>
+      <el-table-column prop="_id" label="ID"></el-table-column>
+      <el-table-column prop="name" label="用户名" />
+      <el-table-column prop="name" label="姓名" />
+      <el-table-column prop="lastUpdatedTime" label="创建时间">
+        <template slot-scope="scope">
+          <div>
+            {{ formatDatetime(scope.row.lastUpdatedTime) }}
+          </div>
         </template>
       </el-table-column>
-      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
-      <el-table-column prop="ip" label="IP地址" />
-      <el-table-column prop="cpu" label="CPU利用率(%)" />
-      <el-table-column prop="memory" label="内存利用率(%)" />
-      <el-table-column prop="disk" label="磁盘利用率(%)" />
+      <el-table-column prop="lastLoginTime" label="最后登录时间">
+        <template slot-scope="scope">
+          <div>
+            {{ formatDatetime(scope.row.lastLoginTime) }}
+          </div>
+        </template>
+      </el-table-column>
       <el-table-column prop="actions" label="操作" width="200" fixed="right" class-name="actions">
         <template slot-scope="{ row }">
           <el-button type="text" @click="setRoles(row)">设置角色</el-button>
@@ -111,6 +118,7 @@ import { ElForm } from 'element-ui/types/form'
 import * as SimpleUser from '@/types/SimpleUser'
 import { getUsers } from '@/api/simpleUser'
 import { HEALTH } from '@/dics/simpleTable'
+import { formatDatetime } from '@/utils/date'
 
 @Component({
   name: 'SimpleTable',
@@ -119,6 +127,7 @@ export default class extends Vue {
   private checkList = []
   //弹窗标题
   private title = ''
+  private token = localStorage.getItem('token')
 
   //弹窗开关
   private visible = false
@@ -137,6 +146,7 @@ export default class extends Vue {
     status: '',
     name: '',
   }
+  private formatDatetime = formatDatetime
 
   // 条件搜索表单
   @Ref('conditions')
@@ -169,7 +179,7 @@ export default class extends Vue {
   private loading = false
 
   // 表格数据
-  private tableData: SimpleUser.Host[] = null
+  private tableData = []
 
   /**
    * 页面Mounted
@@ -177,22 +187,30 @@ export default class extends Vue {
   private mounted() {
     this.getTable()
   }
-
+  private created() {
+    this.getTable()
+  }
   /**
    * 获取表格数据
    */
   private async getTable() {
     try {
-      this.loading = true
-      // 分页信息和搜索条件
-      const params: SimpleUser.TableParams = {
-        page: this.pager.page,
-        limit: this.pager.limit,
-        ...this.conditions,
+      const res = await getUsers({ isPaging: 0 })
+      if ((res as any).code === 200) {
+        this.tableData = res.data.result
       }
-      const res = await getUsers(params)
-      this.pager.total = res.data.total
-      this.tableData = res.data.list
+
+      this.loading = true
+
+      // 分页信息和搜索条件
+      // const params: SimpleUser.TableParams = {
+      //   page: this.pager.page,
+      //   limit: this.pager.limit,
+      //   ...this.conditions,
+      // }
+
+      // this.pager.total = res.data.total
+      // this.tableData = res.data.list
     } catch (e) {
       console.error(e)
     } finally {

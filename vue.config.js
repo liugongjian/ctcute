@@ -14,6 +14,12 @@ module.exports = {
       errors: true,
     },
     proxy: {
+       '/v1/auth/': {
+        target: 'http://fed.ctyuncdn.cn:8088',
+        https: true,
+        changeOrigin: true,
+        secure: false,
+      },
       /**
        * Node.js接口
        */
@@ -31,6 +37,8 @@ module.exports = {
         changeOrigin: true,
         secure: false,
       },
+
+     
     },
     historyApiFallback: true,
     disableHostCheck: true,

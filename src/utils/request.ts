@@ -1,12 +1,13 @@
 /*
  * @Author: 马妍
  * @Date: 2022-07-22 00:06:08
- * @LastEditors: 马妍
- * @LastEditTime: 2022-08-16 22:00:21
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-08-18 16:35:12
  * @Description:
  */
 import axios from 'axios'
 import settings from '@/settings'
+import { Message } from 'element-ui'
 
 /** 创建axios实例 */
 const service = axios.create({
@@ -47,6 +48,16 @@ service.interceptors.response.use(
     return Promise.resolve(response.data)
   },
   error => {
+    debugger
+    if (error.response.status === 401) {
+      Message({
+        message: '登录失效, 请重新登录! ',
+        type: 'error',
+        duration: 5 * 1000,
+      })
+      sessionStorage.clear()
+      window.location.href = `/login?redirect=${location.pathname}${location.search}`
+    }
     return Promise.reject(error)
   }
 )

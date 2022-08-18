@@ -26,7 +26,7 @@
   /* 表格工具栏 */
   .table-tools {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 
     /* 筛选表单 */
     &__conditions {

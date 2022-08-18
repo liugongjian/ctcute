@@ -13,7 +13,7 @@
     <!-- 用户信息 -->
     <div class="login-info">
       <div class="block"><el-avatar :size="28" :src="circleUrl"></el-avatar></div>
-      <span @click="flag = !flag">{{ username ? username : '未登录' }}</span>
+      <span class="user-name" @click="flag = !flag">{{ username ? username : '未登录' }}</span>
       <svg-icon :name="!flag ? 'caret-down' : 'caret-up'" />
 
       <ul v-if="flag">
@@ -69,6 +69,9 @@ export default class extends Vue {
   align-items: center;
   color: #c2c2c2;
   position: relative;
+  .user-name {
+    cursor: pointer;
+  }
 
   .svg-icon {
     margin-left: 5px;
@@ -93,6 +96,7 @@ export default class extends Vue {
       height: 32px;
       line-height: 32px;
       text-align: center;
+      cursor: pointer;
 
       &:hover {
         background: #272b39;

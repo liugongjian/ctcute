@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
- * @LastEditors: 马妍
- * @LastEditTime: 2022-08-16 17:01:54
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-08-18 15:00:45
  * @Description: 基础表格
 -->
 <template>
@@ -50,14 +50,10 @@
 
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit border>
-      <el-table-column prop="id" label="id">
-        <template slot-scope="{ row }">
-          <router-link to="/">{{ row.name }}</router-link>
-        </template>
-      </el-table-column>
-      <el-table-column prop="name" label="角色名" :formatter="statusFormatter"> </el-table-column>
-      <el-table-column prop="logo" label="角色标识" />
-      <el-table-column prop="note" label="备注" />
+      <el-table-column prop="_id" label="ID"> </el-table-column>
+      <el-table-column prop="name" label="角色名"> </el-table-column>
+      <el-table-column prop="code" label="角色标识" />
+      <el-table-column prop="remark" label="备注" />
       <el-table-column prop="actions" label="操作" width="250" fixed="right" class-name="actions">
         <template slot-scope="{ row }">
           <el-button type="text" @click="gotoEdit(row)">编辑</el-button>
@@ -73,6 +69,7 @@
       :current-page="pager.page"
       :page-size="pager.limit"
       :total="pager.total"
+      :hide-on-single-page="false"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
     />
@@ -81,8 +78,8 @@
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import { ElForm } from 'element-ui/types/form'
-import * as SimpleUser from '@/types/SimpleUser'
-import { getUsers } from '@/api/simpleUser'
+import * as SimpleRole from '@/types/SimpleRole'
+import { getRoles } from '@/api/simpleRole'
 
 @Component({
   name: 'SimpleTable',
@@ -102,44 +99,22 @@ export default class extends Vue {
   //设置用户啊弹窗内容
   private setFlag = false
 
-  // 搜索信息
-  private conditions: SimpleUser.Conditions = {
-    status: '',
-    name: '',
-  }
-
   // 条件搜索表单
   @Ref('conditions')
   private conditionsForm: ElForm
 
-  // 主机信息下拉框选项
-  private statusOptions = [
-    {
-      value: '1',
-      label: '全部',
-    },
-    {
-      value: '2',
-      label: '正常',
-    },
-    {
-      value: '选项3',
-      label: '冻结',
-    },
-  ]
-
   // 分页信息
   private pager = {
     page: 1,
-    limit: 20,
-    total: 40,
+    limit: 10,
+    total: 0,
   }
 
   // 加载状态
   private loading = false
 
   // 表格数据
-  private tableData: SimpleUser.Host[] = null
+  private tableData: SimpleRole.Role[] = null
 
   /**
    * 页面Mounted
@@ -153,16 +128,18 @@ export default class extends Vue {
    */
   private async getTable() {
     try {
-      this.loading = true
       // 分页信息和搜索条件
-      // const params: SimpleUser.TableParams = {
-      //   page: this.pager.page,
-      //   limit: this.pager.limit,
-      //   ...this.conditions,
-      // }
-      // const res = await getUsers(params)
-      // this.pager.total = res.data.total
-      // this.tableData = res.data.list
+      const params: SimpleRole.TableParams = {
+        page: this.pager.page,
+        limit: this.pager.limit,
+      }
+      this.loading = true
+      const res = await getRoles(params)
+      if ((res as any).code === 200) {
+        this.loading = false
+        this.tableData = res.data.result
+        this.pager.total = res.data.pageInfo.totalItems
+      }
     } catch (e) {
       console.error(e)
     } finally {

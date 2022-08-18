@@ -1,8 +1,8 @@
 /*
  * @Author: 马妍
  * @Date: 2022-08-09 13:41:43
- * @LastEditors: 马妍
- * @LastEditTime: 2022-08-16 23:05:03
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-08-18 15:09:10
  * @Description:
  */
 import request from '@/utils/request'
@@ -20,11 +20,58 @@ export const getUsers = (params): AxiosPromise<any> =>
   })
 
 /**
- * 获取获取告警对象
- * @returns 告警对象数组
+ * 冻结某一个用户
  */
-export const getHosts = (): AxiosPromise<string[]> =>
+export const freezeUsers = (params): AxiosPromise<any> =>
   request({
-    url: '/mock/175/table/hosts',
-    method: 'get',
+    url: `/v1/auth/users/${params._id}/freeze`,
+    method: 'put',
+  })
+
+/**
+ * 解冻某一个用户
+ */
+export const unfreezeUsers = (params): AxiosPromise<any> =>
+  request({
+    url: `/v1/auth/users/${params._id}/unfreeze`,
+    method: 'put',
+  })
+
+/**
+ * 删除某一个用户
+ */
+export const delUsers = (data): AxiosPromise<any> =>
+  request({
+    url: '/v1/auth/users',
+    method: 'delete',
+    data: data,
+  })
+
+/**
+ * 某一个用户密码重置
+ */
+export const resetPWDUsers = (params): AxiosPromise<any> =>
+  request({
+    url: `/v1/auth/users/${params._id}/password/reset`,
+    method: 'put',
+  })
+
+/**
+ * 修改某一个用户
+ */
+export const editUsers = (id, data): AxiosPromise<any> =>
+  request({
+    url: `/v1/auth/users/${id}`,
+    method: 'put',
+    data: data,
+  })
+
+/**
+ * 添加某一个用户
+ */
+export const addUsers = (data): AxiosPromise<any> =>
+  request({
+    url: '/v1/auth/users',
+    method: 'post',
+    data: data,
   })

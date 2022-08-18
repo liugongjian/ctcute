@@ -1,3 +1,10 @@
+/*
+ * @Author: 黄璐璐
+ * @Date: 2022-07-07 15:45:48
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-08-17 11:22:23
+ * @Description:
+ */
 /**
  * 判断是否是外部的URL
  * @param path string
@@ -26,4 +33,25 @@ export const isArray = (arg: any) => {
     return Object.prototype.toString.call(arg) === '[object Array]'
   }
   return Array.isArray(arg)
+}
+
+/**
+ * validate email
+ * @param email
+ * @returns {boolean}
+ */
+export const validateEmail = (email: string) => {
+  const re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  return re.test(email)
+}
+
+/**
+ * validate phone
+ * @param phone
+ * @returns {boolean}
+ */
+export const validPhone = (phone: string) => {
+  const reg = /^1[3|4|5|7|8|9][0-9]\d{8}$/
+  return reg.test(phone)
 }

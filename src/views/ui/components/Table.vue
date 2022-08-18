@@ -7,7 +7,7 @@
     </p>
     <h3>基础表格</h3>
     <div class="sub-table">
-      <el-table :data="data.tableData" border height="614px">
+      <el-table :data="tableComponentData && tableComponentData.tableData" border height="614px">
         <el-table-column prop="name" label="主机别名" width="150px">
           <template slot-scope="scope">
             <div>
@@ -87,7 +87,7 @@
       </div>
       <el-table
         ref="multipleTable"
-        :data="data.tableData10"
+        :data="tableComponentData && tableComponentData.tableData10"
         tooltip-effect="dark"
         border
         @selection-change="handleSelectionChange"
@@ -175,7 +175,7 @@
       <el-table
         ref="multipleTable"
         tooltip-effect="dark"
-        :data="data.tableData10"
+        :data="tableComponentData && tableComponentData.tableData10"
         border
         @selection-change="handleSelectionChangeOver3"
       >
@@ -253,7 +253,7 @@
 
     <h3>展示不全的表格</h3>
     <div class="sub-table">
-      <el-table :data="data.tableData10" border>
+      <el-table :data="tableComponentData && tableComponentData.tableData10" border>
         <el-table-column type="selection" width="55" fixed> </el-table-column>
         <el-table-column prop="name" label="主机别名" width="120">
           <template slot-scope="scope">
@@ -326,7 +326,7 @@
 
     <h3>列表中同时存在两列状态栏</h3>
     <div class="sub-table">
-      <el-table :data="data.tableDataWithStatus" border>
+      <el-table :data="tableComponentData && tableComponentData.tableDataWithStatus" border>
         <el-table-column prop="name" label="主机别名" width="150px">
           <template slot-scope="scope">
             <div>
@@ -528,7 +528,7 @@
     </div>
     <h3>小表格</h3>
     <div>
-      <el-table :data="data.smallTable" border size="small">
+      <el-table :data="tableComponentData && tableComponentData.smallTable" border size="small">
         <el-table-column label="排行">
           <template slot-scope="scope">
             <span :class="scope.$index < 3 ? 'sub-index sub-index-top3' : 'sub-index'">{{
@@ -591,7 +591,7 @@
       </el-popover>
 
       <!-- 表格 -->
-      <el-table :data="data.tableData10" fit border>
+      <el-table :data="tableComponentData && tableComponentData.tableData10" fit border>
         <el-table-column v-for="v in selectedOptionsWithProp" :key="v.prop" :prop="v.prop" :label="v.label">
           <template slot-scope="{ row }">
             <span v-if="v.prop === 'healthy'">
@@ -612,7 +612,6 @@
         </el-table-column>
 
         <el-table-column label="操作">
-          // eslint-disable-next-line vue/no-lone-template
           <template>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
@@ -640,7 +639,8 @@ import TableHookClass from '@cutedesign/base/hook/TableHook'
 import CuteSortTable from '@cutedesign/sort-table'
 import { getTable } from '@/api/cuteSortTable'
 import * as SimpleTable from '@/types/SimpleTable'
-import data from '@/utils/mock'
+import { getTableComponent } from '@/api/tableComponent'
+import * as TableComponent from '@/types/TableComponent'
 @Component({
   name: 'UiTable',
   components: {
@@ -666,12 +666,14 @@ export default class extends Vue {
   private HEALTH = HEALTH
   private flag = false
 
+  private tableComponentData: TableComponent.TableComponentData = null
   /**
    * 页面Mounted
    */
   private mounted() {
     this.tableHook = new TableHookClass({}, this.getTable, this.tableRef, false)
     this.tableHook.query()
+    this.getTableComponentData()
   }
 
   /**
@@ -681,6 +683,15 @@ export default class extends Vue {
     // 接口
     const res = await getTable(param)
     this.tableHook.setResult(res.data.list, res.data.total)
+  }
+
+  /**
+   * 获取表格数据
+   */
+  private async getTableComponentData() {
+    // 接口
+    const res = await getTableComponent()
+    this.tableComponentData = res.data
   }
 
   /**
@@ -704,8 +715,6 @@ export default class extends Vue {
   private openDropdown(e) {
     e ? (this.flag = true) : (this.flag = false)
   }
-
-  private data = data
 
   private STATUS2 = STATUS2
   private multipleSelection = []

@@ -7,7 +7,7 @@
     </p>
     <h3>基础表格</h3>
     <div class="sub-table">
-      <el-table :data="data.tableData" border height="614px">
+      <el-table :data="tableComponentData && tableComponentData.tableData" border height="614px">
         <el-table-column prop="name" label="主机别名" width="150px">
           <template slot-scope="scope">
             <div>
@@ -87,7 +87,7 @@
       </div>
       <el-table
         ref="multipleTable"
-        :data="data.tableData10"
+        :data="tableComponentData && tableComponentData.tableData10"
         tooltip-effect="dark"
         border
         @selection-change="handleSelectionChange"
@@ -175,7 +175,7 @@
       <el-table
         ref="multipleTable"
         tooltip-effect="dark"
-        :data="data.tableData10"
+        :data="tableComponentData && tableComponentData.tableData10"
         border
         @selection-change="handleSelectionChangeOver3"
       >
@@ -253,7 +253,7 @@
 
     <h3>展示不全的表格</h3>
     <div class="sub-table">
-      <el-table :data="data.tableData10" border>
+      <el-table :data="tableComponentData && tableComponentData.tableData10" border>
         <el-table-column type="selection" width="55" fixed> </el-table-column>
         <el-table-column prop="name" label="主机别名" width="120">
           <template slot-scope="scope">
@@ -326,7 +326,7 @@
 
     <h3>列表中同时存在两列状态栏</h3>
     <div class="sub-table">
-      <el-table :data="data.tableDataWithStatus" border>
+      <el-table :data="tableComponentData && tableComponentData.tableDataWithStatus" border>
         <el-table-column prop="name" label="主机别名" width="150px">
           <template slot-scope="scope">
             <div>
@@ -462,6 +462,87 @@
         @current-change="tableHook.handleCurrentChange"
       />
     </div>
+    <h3>可在表头进行筛选的表格</h3>
+    <el-table :data="tableComponentData && tableComponentData.tableData" border height="614px">
+      <el-table-column prop="name" label="主机别名" width="150px">
+        <template slot-scope="scope">
+          <div>
+            <span class="text-ellipsis name-primary" :title="scope.row.name">{{ scope.row.name }}</span>
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column prop="status" label="实例状态"> </el-table-column>
+      <el-table-column prop="ip" label="IP地址" width="100px"> </el-table-column>
+      <el-table-column
+        prop="time"
+        label="时间"
+        width="150"
+        sortable
+        :filters="[
+          { text: '2022-08-14', value: '1' },
+          { text: '2022-08-15', value: '2' },
+          { text: '2022-08-16', value: '3' },
+          { text: '2022-08-17', value: '4' },
+          { text: '2022-08-18', value: '5' },
+          { text: '2022-08-19', value: '6' },
+        ]"
+        filter-placement="bottom-start"
+      >
+      </el-table-column>
+
+      <el-table-column prop="label" label="标签" width="150px">
+        <template slot-scope="scope">
+          <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+          <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column prop="description" label="描述" width="150px">
+        <template slot-scope="scope">
+          <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+            <span class="text-ellipsis">{{ scope.row.description }}</span>
+          </el-tooltip>
+        </template>
+      </el-table-column>
+      <el-table-column prop="healthy" label="健康状态">
+        <template slot-scope="scope">
+          <div>
+            <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
+            <span>{{ HEALTH[scope.row.healthy] }}</span>
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="190px">
+        <template slot-scope="scope">
+          <el-button
+            type="text"
+            size="small"
+            class="bt-operation"
+            @click="handleClick(scope.$index, scope.row)"
+          >
+            挂载
+          </el-button>
+          <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+          <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+          <el-divider direction="vertical"></el-divider>
+          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+            <span class="el-dropdown-link">
+              更多<i
+                class="el-icon-arrow-down el-icon--right"
+                :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+              ></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>退订</el-dropdown-item>
+              <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
+              <el-dropdown-item>创建</el-dropdown-item>
+              <el-dropdown-item disabled>Disabled</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </template>
+      </el-table-column>
+    </el-table>
+
+    <div></div>
     <h3>横向展示列表</h3>
     <div class="sub-table-horizon" border>
       <el-table :data="tableData" :span-method="row">
@@ -528,7 +609,7 @@
     </div>
     <h3>小表格</h3>
     <div>
-      <el-table :data="data.smallTable" border size="small">
+      <el-table :data="tableComponentData && tableComponentData.smallTable" border size="small">
         <el-table-column label="排行">
           <template slot-scope="scope">
             <span :class="scope.$index < 3 ? 'sub-index sub-index-top3' : 'sub-index'">{{
@@ -591,7 +672,7 @@
       </el-popover>
 
       <!-- 表格 -->
-      <el-table :data="data.tableData10" fit border>
+      <el-table :data="tableComponentData && tableComponentData.tableData10" fit border>
         <el-table-column v-for="v in selectedOptionsWithProp" :key="v.prop" :prop="v.prop" :label="v.label">
           <template slot-scope="{ row }">
             <span v-if="v.prop === 'healthy'">
@@ -612,7 +693,6 @@
         </el-table-column>
 
         <el-table-column label="操作">
-          // eslint-disable-next-line vue/no-lone-template
           <template>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
@@ -640,7 +720,8 @@ import TableHookClass from '@cutedesign/base/hook/TableHook'
 import CuteSortTable from '@cutedesign/sort-table'
 import { getTable } from '@/api/cuteSortTable'
 import * as SimpleTable from '@/types/SimpleTable'
-import data from '@/utils/mock'
+import { getTableComponent } from '@/api/tableComponent'
+import * as TableComponent from '@/types/TableComponent'
 @Component({
   name: 'UiTable',
   components: {
@@ -666,12 +747,14 @@ export default class extends Vue {
   private HEALTH = HEALTH
   private flag = false
 
+  private tableComponentData: TableComponent.TableComponentData = null
   /**
    * 页面Mounted
    */
   private mounted() {
     this.tableHook = new TableHookClass({}, this.getTable, this.tableRef, false)
     this.tableHook.query()
+    this.getTableComponentData()
   }
 
   /**
@@ -681,6 +764,15 @@ export default class extends Vue {
     // 接口
     const res = await getTable(param)
     this.tableHook.setResult(res.data.list, res.data.total)
+  }
+
+  /**
+   * 获取表格数据
+   */
+  private async getTableComponentData() {
+    // 接口
+    const res = await getTableComponent()
+    this.tableComponentData = res.data
   }
 
   /**
@@ -704,8 +796,6 @@ export default class extends Vue {
   private openDropdown(e) {
     e ? (this.flag = true) : (this.flag = false)
   }
-
-  private data = data
 
   private STATUS2 = STATUS2
   private multipleSelection = []

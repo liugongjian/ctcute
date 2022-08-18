@@ -2,14 +2,14 @@
  * @Author: 马妍
  * @Date: 2022-08-11 16:27:09
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-18 16:41:50
+ * @LastEditTime: 2022-08-18 16:43:16
  * @Description: 
 -->
 <template>
   <div class="login">
     <div class="login-content">
-      <img src="../../../packages/theme/images/login/插画2倍.png" alt="" class="login-content_img" />
-      <img src="../../../packages/theme/images/login/组件1倍.png" alt="" class="login-content_image" />
+      <img src="../../assets/images/login/插画2倍.png" alt="" class="login-content_img" />
+      <img src="../../assets/images/login/组件1倍.png" alt="" class="login-content_image" />
       <div class="content-desc">
         <div class="content-desc_from">
           <h3>登录 Cute Design</h3>

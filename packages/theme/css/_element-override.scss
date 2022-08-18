@@ -1402,12 +1402,27 @@
 .el-date-range-picker {
   width: 540px !important;
 }
-.el-date-picker .el-picker-panel__content {
-  width: 240px;
-}
-.el-date-picker {
+
+.el-date-picker:not(.el-picker-panel.el-date-picker.el-popper.has-sidebar) {
   width: 270px !important;
+  .el-picker-panel__content {
+    width: 240px;
+  }
 }
+.el-picker-panel.el-date-picker.el-popper.has-sidebar {
+  .el-picker-panel__sidebar {
+    padding-top: 12px;
+    .el-picker-panel__shortcut {
+      font-size: 12px;
+      font-weight: 400;
+      color: $color-grey-1;
+      &:hover {
+        color: $color-master-1;
+      }
+    }
+  }
+}
+
 .el-time-spinner__list::before {
   height: 0;
 }

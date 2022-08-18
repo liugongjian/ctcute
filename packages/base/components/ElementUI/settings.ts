@@ -8,7 +8,7 @@ Pagination.props.pageSize = {
   default: 20,
 }
 Pagination.props.pageSizes = {
-  default: () => [10, 20, 30, 40],
+  default: () => [10, 20, 30, 50, 100],
 }
 Pagination.props.popperClass = {
   default: 'pagination__dropdown',

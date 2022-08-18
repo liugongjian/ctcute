@@ -52,7 +52,7 @@ pipeline {
                 }
             }
         }
-        stage('node_mpdules') {
+        stage('node_modules') {
             when {
                 expression { BRANCH_NAME ==~ env.DEV_BRANCH || BRANCH_NAME ==~ env.QA_TAG }
             }
@@ -60,6 +60,7 @@ pipeline {
                 script {
                     container('tools') {
                         sh """
+                        npm config set registry http://verdaccio.ctcdn.cn
                         if [ ! -d "node_modules" ];then npm install -verbose --unsafe-perm=true --allow-root;fi
                         """
                     }
@@ -146,7 +147,7 @@ pipeline {
                     sed -i 's#{{DEPLOYMENT_NAME}}#'$DEPLOYMENT_NAME'#g' ${DEPLOY_BASE_DIR}/deployment.yaml ${DEPLOY_BASE_DIR}/service.yaml
                     sed -i 's#{{SERVICE_TARGET_PORT}}#'$SERVICE_TARGET_PORT'#g' ${DEPLOY_BASE_DIR}/service.yaml
                   """
-                  
+
                   container('tools') {
                       // create configmap and ingress
                       // devops.deploy("", "${DEPLOY_VIP_DIR}/ingress.yaml","",false).start()

@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-18 15:00:45
+ * @LastEditTime: 2022-08-18 19:36:57
  * @Description: 基础表格
 -->
 <template>
@@ -44,7 +44,7 @@
       </div>
       <div class="medium-dialog--footer">
         <el-button @click="visible = false">取 消</el-button>
-        <el-button type="primary" :loading="submitting" @click="confirm">确 定</el-button>
+        <el-button type="primary" :loading="false" @click="confirm">确 定</el-button>
       </div>
     </el-dialog>
 
@@ -64,6 +64,18 @@
       </el-table-column>
     </el-table>
 
+    <!-- 复制角色 弹窗 -->
+    <warn-dialog
+      v-if="copyVisible"
+      :id="copyId"
+      :visible.sync="copyVisible"
+      title="确定拷贝角色吗? "
+      message="拷贝会拷贝角色以及相关权限, 是否继续？"
+      cancel-button-text="取消"
+      confirm-button-text="确定"
+      @confirm="handleCopy"
+    />
+
     <!--分页-->
     <el-pagination
       :current-page="pager.page"
@@ -76,13 +88,14 @@
   </el-card>
 </template>
 <script lang="ts">
-import { Component, Vue, Ref } from 'vue-property-decorator'
-import { ElForm } from 'element-ui/types/form'
+import { Component, Vue } from 'vue-property-decorator'
+import WarnDialog from './components/WarnDialog.vue'
 import * as SimpleRole from '@/types/SimpleRole'
-import { getRoles } from '@/api/simpleRole'
+import { getRoles, copyRoles } from '@/api/simpleRole'
 
 @Component({
   name: 'SimpleTable',
+  components: { WarnDialog },
 })
 export default class extends Vue {
   private value = [1, 4]
@@ -99,9 +112,9 @@ export default class extends Vue {
   //设置用户啊弹窗内容
   private setFlag = false
 
-  // 条件搜索表单
-  @Ref('conditions')
-  private conditionsForm: ElForm
+  // 复制角色
+  private copyVisible = false
+  private copyId = ''
 
   // 分页信息
   private pager = {
@@ -185,13 +198,39 @@ export default class extends Vue {
     this.visible = true
     this.title = '设置用户'
   }
-
+  private confirm() {}
   /**
    *  关闭弹窗
    */
 
   private close() {
     this.visible = false
+  }
+
+  /**
+   *  复制角色按钮
+   */
+  private gotoCopy(row) {
+    this.copyVisible = true
+    this.copyId = row._id
+  }
+
+  private async handleCopy(id) {
+    try {
+      const params = {
+        _id: id,
+      }
+      const res = await copyRoles(params)
+      if ((res as any).code === 200) {
+        this.copyVisible = false
+        this.$message.success('复制角色成功! ')
+        this.copyId = ''
+        this.getTable()
+      }
+    } catch (e) {
+      console.error(e)
+    } finally {
+    }
   }
 }
 </script>

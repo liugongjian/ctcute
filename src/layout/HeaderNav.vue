@@ -42,7 +42,6 @@ export default class extends Vue {
   private circleUrl = 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
   private flag = false
   private username = sessionStorage.getItem('username')
-  private token = sessionStorage.getItem('token')
   private get currentPath() {
     return this.$route.path
   }

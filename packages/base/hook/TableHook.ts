@@ -24,10 +24,10 @@ export default class TableHook {
   public loading = false
 
   // 分页数量选项
-  public pageSizes = [20, 30, 40, 50, 100]
+  public pageSizes = [10, 20, 30, 50, 100]
 
   // 分页布局
-  public paginationLayout = 'total, prev, pager, next, sizes, jumper'
+  public paginationLayout = 'sizes,total, prev, pager, next'
 
   // 查询条件表单
   private queryForm
@@ -55,7 +55,7 @@ export default class TableHook {
     form: object = {},
     queryMethod: (param: any) => Promise<void> | VoidFunction = undefined,
     ref: InstanceType<typeof ElTable> | undefined = undefined,
-    lazy: boolean = false
+    lazy = false
   ) {
     this.queryForm = form
     this.queryEvent = queryMethod

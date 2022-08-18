@@ -44,6 +44,9 @@ spec:
             - "portal-iam-test.ctyuncdn.cn"
             - "portal-iam-online.ctyuncdn.cn"
             - "eapd.develop.ctcdn.cn"
+        - ip: "36.111.140.224"
+          hostnames:
+            - "verdaccio.ctcdn.cn"
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}

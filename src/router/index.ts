@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-29 10:25:03
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-18 20:10:37
+ * @LastEditTime: 2022-08-18 20:53:31
  * @Description:
  */
 import Vue from 'vue'
@@ -89,13 +89,11 @@ export const asyncRoutes: RouteConfig[] = [
   // ..._statusRoutes,
   // ...loginRouter,
 ]
-console.log('dadada', constantRoutes)
 
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: constantRoutes,
 })
-console.log('dadada111', router)
 
 export default router

@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-07-13 13:41:05
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-18 11:26:14
+ * @LastEditTime: 2022-08-19 12:34:03
  * @Description: 添加用户
 -->
 <template>
@@ -85,14 +85,6 @@ export default class extends Vue {
   }
   private isFullscreen = false
 
-  //表单对象
-  // private form = {
-  //   _id: '',
-  //   name: '',
-  //   phone: '',
-  //   email: '',
-  //   remark: '',
-  // }
   //校验规则
   private rules = {
     name: [

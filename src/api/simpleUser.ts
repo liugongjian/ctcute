@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-08-09 13:41:43
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-18 15:09:10
+ * @LastEditTime: 2022-08-19 12:38:28
  * @Description:
  */
 import request from '@/utils/request'
@@ -74,4 +74,19 @@ export const addUsers = (data): AxiosPromise<any> =>
     url: '/v1/auth/users',
     method: 'post',
     data: data,
+  })
+
+//获取用户的所有角色
+export const getUserRoles = (params): AxiosPromise<any> =>
+  request({
+    url: `/v1/auth/users/${params._id}/roles`,
+    method: 'get',
+  })
+
+//设置用户的角色
+export const setUserRole = (data): AxiosPromise<any> =>
+  request({
+    url: `/v1/auth/users/${data._id}/roles`,
+    method: 'put',
+    data,
   })

@@ -34,10 +34,10 @@ spec:
                     values:
                       - "{{NODE_LABEL_VAL}}"
       containers:
-        - image: {{imageUrl}}
-          imagePullPolicy: IfNotPresent
-          name: {{DEPLOYMENT_NAME}}
-        hostAliases:
+      - image: {{imageUrl}}
+        imagePullPolicy: IfNotPresent
+        name: {{DEPLOYMENT_NAME}}
+      hostAliases:
         - ip: "36.111.140.220"
           hostnames:
             - "iam-test.ctcdn.cn"

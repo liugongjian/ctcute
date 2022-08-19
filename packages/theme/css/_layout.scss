@@ -5,15 +5,16 @@
   width: 100%;
 }
 
+.layout-wrap {
+  display: flex;
+  margin-top: $header-height;
+  height: calc(100vh - $header-height);
+}
+
 /* 侧边栏样式 */
 .layout-sidebar {
   transition: width 0.28s;
-  height: 100%;
-  position: fixed;
   font-size: 0;
-  top: $header-height;
-  bottom: 0;
-  left: 0;
   background: $sidebar-fill;
   z-index: 10;
 
@@ -64,12 +65,12 @@
     vertical-align: baseline !important;
   }
 
-  .el-submenu.is-active > .el-submenu__title {
+  .el-submenu.is-active>.el-submenu__title {
     color: $text-color-primary;
   }
 
   .el-menu-item,
-  .el-submenu > .el-submenu__title,
+  .el-submenu>.el-submenu__title,
   .el-submenu .el-menu-item {
     min-width: calc($sidebar-width - 40px);
     background-color: $sidebar-sub-fill;
@@ -97,9 +98,10 @@
       }
     }
   }
+
   .el-submenu.is-active .el-submenu__title,
-  .el-menu > div.first-level > a > li.is-active {
-    color: $color-master-1  !important;
+  .el-menu>div.first-level>a>li.is-active {
+    color: $color-master-1 !important;
     position: relative;
 
     &::before {
@@ -113,7 +115,8 @@
       top: 13px;
     }
   }
-  .el-menu > div.first-level > a > li.is-active {
+
+  .el-menu>div.first-level>a>li.is-active {
     &::before {
       top: 14px;
     }
@@ -124,14 +127,14 @@
     margin: 14px 0 18px 30px;
     max-height: calc(100% - 40px);
 
-    > div:first-child {
+    >div:first-child {
       .el-menu-item {
         height: 26px;
         line-height: 12px;
       }
     }
 
-    > div:last-child {
+    >div:last-child {
       .el-menu-item {
         height: 29px;
         line-height: 40px;
@@ -139,12 +142,12 @@
     }
 
     &__one {
-      > div:last-child {
+      >div:last-child {
         .el-menu-item {
           height: 16px;
           line-height: 16px;
 
-          > span {
+          >span {
             line-height: 16px;
           }
         }
@@ -159,10 +162,14 @@
 
 /* 主容器样式 */
 .layout-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   position: relative;
+  padding: 0 $padding-medium $padding-medium;
+  min-width: 0;
   min-height: 100%;
   transition: margin-left 0.28s;
-  padding: $header-height $margin-medium $margin-medium;
 
   .navbar {
     margin-left: -23px;
@@ -174,11 +181,22 @@
     background: $color-white;
   }
 
-  .app-main > .el-card.is-always-shadow {
+  .app-main {
+    flex: 1;
+    overflow: auto;
+  }
+
+  .app-main>.el-card.is-always-shadow {
     box-shadow: none;
     border-radius: 0;
     border: none;
     color: inherit;
+  }
+
+  // 组件规范页需要支持滚动
+  >.el-card {
+    height: 100%;
+    overflow: auto;
   }
 }
 

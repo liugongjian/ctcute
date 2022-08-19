@@ -59,7 +59,7 @@ export default class extends Vue {
   private type
 
   mounted() {
-    this.setLayoutPadding()
+    this.setSidbarWidth()
   }
 
   public isShowMenu = true
@@ -89,19 +89,13 @@ export default class extends Vue {
     return routes.filter(route => route.meta.type === this.type)
   }
 
-  private setLayoutPadding() {
-    const layoutContainer = document.getElementById('layout-container')
-    const moduleWidth = this.isShowModule ? 50 : 0 // 左侧图片栏宽度
-    if (this.isShowMenu) {
-      layoutContainer.style.marginLeft = `${moduleWidth + 190 + 8}px` // 190px菜单宽度，8px是间隔
-    } else {
-      layoutContainer.style.marginLeft = `${moduleWidth + 8}px`
-    }
+  private setSidbarWidth() {
+    (this.$el as HTMLElement).style.width = this.isShowMenu ? '190px' : '0px'
   }
 
   public toggleSideBar() {
     this.isShowMenu = !this.isShowMenu
-    this.setLayoutPadding()
+    this.setSidbarWidth()
   }
 
   public clickModule(item) {
@@ -117,6 +111,7 @@ export default class extends Vue {
 
 .sidebar {
   display: flex;
+  position: relative;
 
   &--left {
     width: 50px;

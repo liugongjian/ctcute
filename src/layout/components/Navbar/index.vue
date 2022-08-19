@@ -2,6 +2,7 @@
   <div class="navbar desc-nav">
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
     <description class="desc"></description>
+    <code-viewer />
   </div>
 </template>
 

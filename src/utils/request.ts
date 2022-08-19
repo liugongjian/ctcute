@@ -1,8 +1,8 @@
 /*
  * @Author: 马妍
  * @Date: 2022-07-22 00:06:08
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-18 16:35:12
+ * @LastEditors: 王月功
+ * @LastEditTime: 2022-08-19 16:15:05
  * @Description:
  */
 import axios from 'axios'
@@ -48,7 +48,6 @@ service.interceptors.response.use(
     return Promise.resolve(response.data)
   },
   error => {
-    debugger
     if (error.response.status === 401) {
       Message({
         message: '登录失效, 请重新登录! ',

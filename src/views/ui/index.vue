@@ -62,6 +62,15 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+// TODO 由于 ui 组件页的布局模式和规范页不统一，因此使用布局样式时，会有差异，待优化
+.layout-sidebar {
+   height: 100%;
+  position: fixed;
+  top: $header-height;
+  bottom: 0;
+  left: 0;
+}
+
 .ui__container {
   margin-left: 230px;
   margin-top: $header-height;

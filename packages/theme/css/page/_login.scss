@@ -26,11 +26,19 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 470px;
+      width: 463px;
       height: 100%;
-      background-image: url('../../../src/assets/images/login/毛玻璃矩形.png');
       display: flex;
       justify-content: center;
+
+      .blur {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 20px;
+        background-color: #f5f7f9;
+      }
 
       .content-desc_from {
         margin-top: 128px;

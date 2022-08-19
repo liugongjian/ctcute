@@ -784,11 +784,16 @@
 
 /* Table
 -------------------------- */
-.el-table__column-filter-trigger i {
-  color: $color-grey-3;
-  &::before {
+.el-table__column-filter-trigger {
+  .el-icon-arrow-down::before {
     font-family: 'cute-icons' !important;
     content: '\eb5c' !important;
+    color: $color-grey-3;
+  }
+  .el-icon-arrow-up::before {
+    font-family: 'cute-icons' !important;
+    content: '\ea80' !important;
+    color: $color-grey-3;
   }
 }
 .el-table-filter__content {
@@ -799,9 +804,6 @@
 }
 .el-table-filter__bottom {
   padding-top: 12px;
-  button:last-child {
-    color: $color-master-1;
-  }
 }
 .el-table-filter__checkbox-group .el-checkbox:first-child {
   margin-top: 5px;
@@ -1402,14 +1404,20 @@
 .el-date-range-picker {
   width: 540px !important;
 }
-
+.el-picker-panel.el-date-range-picker.el-popper.has-sidebar {
+  width: 639px !important;
+}
+.el-date-range-picker__time-header > .el-icon-arrow-right {
+  font-size: 14px !important;
+}
 .el-date-picker:not(.el-picker-panel.el-date-picker.el-popper.has-sidebar) {
   width: 270px !important;
   .el-picker-panel__content {
     width: 240px;
   }
 }
-.el-picker-panel.el-date-picker.el-popper.has-sidebar {
+.el-picker-panel.el-date-picker.el-popper.has-sidebar,
+.el-picker-panel.el-date-range-picker.el-popper.has-sidebar {
   .el-picker-panel__sidebar {
     padding-top: 12px;
     .el-picker-panel__shortcut {

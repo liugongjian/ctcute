@@ -1,16 +1,16 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-08-11 16:27:09
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-18 19:47:16
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-08-19 17:08:29
  * @Description: 
 -->
 <template>
   <div class="login">
     <div class="login-content">
-      <img src="../../assets/images/login/插画2倍.png" alt="" class="login-content_img" />
-      <img src="../../assets/images/login/组件1倍.png" alt="" class="login-content_image" />
+      <img src="../../assets/images/login/cute背景打包.png" alt="" class="login-content_img" />
       <div class="content-desc">
+        <p class="blur"></p>
         <div class="content-desc_from">
           <h3>登录 Cute Design</h3>
           <p>这是一句Cute Design的介绍，我应该会有两行以上，长长的效果感觉会好一点呢</p>
@@ -33,7 +33,7 @@
                 @keyup.enter.native="submitForm('ruleForm')"
                 ><svg-icon slot="prefix" name="safety certificate" />
               </el-input>
-              <div class="code" v-html="codeUrl"></div>
+              <div class="code" @click="refreshCode" v-html="codeUrl"></div>
             </el-form-item>
             <el-form-item class="content-desc_from-pass">
               <div class="remember"><el-checkbox></el-checkbox>记住密码</div>
@@ -71,7 +71,10 @@ export default class extends Vue {
   private created() {
     this.getCode()
   }
-
+  //刷新验证码
+  private refreshCode() {
+    this.getCode()
+  }
   //获取验证码
   private async getCode() {
     try {

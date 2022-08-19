@@ -35,6 +35,7 @@ pipeline {
         //QA_TAG = "v\\d+\\.\\d+.\\d+(-\\d+)?" // v1.0.0-01
 
         // DEPLOY_BASE_DIR = "deploy"
+        KUBECONFIG = "/root/.kube/datahouse-dev/datahouse-dev"
     }
 
     stages {
@@ -60,8 +61,10 @@ pipeline {
                 script {
                     container('tools') {
                         sh """
+                        echo "36.111.140.224 verdaccio.ctcdn.cn" >> /etc/hosts
                         npm config set registry http://verdaccio.ctcdn.cn
-                        if [ ! -d "node_modules" ];then npm install -verbose --unsafe-perm=true --allow-root;fi
+                        npm install -g yarn
+                        yarn
                         """
                     }
                 }

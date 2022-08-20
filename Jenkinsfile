@@ -17,7 +17,6 @@ pipeline {
 		gitLabConnection('gitlab')
 	}
     environment {
-        K8S="datahouse-dev"
         TPL="others"
         DEV_NAMESPACE = "fe-dev"
         QA_NAMESPACE = "fe-test"

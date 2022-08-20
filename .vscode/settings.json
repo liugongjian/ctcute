@@ -9,6 +9,12 @@
   "editor.formatOnType": true,
   "stylelint.validate": ["vue", "css", "less", "scss"],
   "colorize.colorized_variables": ["SASS"],
+  "[yaml]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
   "fileheader.customMade": {
     // Author字段是文件的创建者
     "Author": "git config user.name", // 用户名
@@ -17,7 +23,5 @@
     "LastEditTime": "Do not edit",
     "Description": ""
   },
-  "i18n-ally.localesPaths": [
-    "src/i18n"
-  ]
+  "i18n-ally.localesPaths": ["src/i18n"]
 }

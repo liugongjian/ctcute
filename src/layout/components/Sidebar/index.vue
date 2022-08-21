@@ -90,7 +90,11 @@ export default class extends Vue {
   }
 
   private setSidbarWidth() {
-    (this.$el as HTMLElement).style.width = this.isShowMenu ? '190px' : '0px'
+    const moduleWidth = this.isShowModule ? 50 : 0 // 左侧图片栏宽度
+
+    ;(this.$el as HTMLElement).style.width = this.isShowMenu
+      ? `${moduleWidth + 190}px`
+      : `${moduleWidth + 0}px`
   }
 
   public toggleSideBar() {

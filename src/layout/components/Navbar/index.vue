@@ -10,12 +10,14 @@
 import { Component, Vue } from 'vue-property-decorator'
 import Breadcrumb from '../Breadcrumb/index.vue'
 import Description from '../Description/index.vue'
+import CodeViewer from '../CodeViewer/index.vue'
 
 @Component({
   name: 'Navbar',
   components: {
     Breadcrumb,
     Description,
+    CodeViewer,
   },
 })
 export default class extends Vue {}

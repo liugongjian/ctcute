@@ -20,7 +20,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { AppMain, Navbar, Sidebar, LayoutHeader } from './components'
-import CodeViewer from './components/CodeViewer/index.vue'
 
 @Component({
   name: 'Layout',
@@ -29,7 +28,6 @@ import CodeViewer from './components/CodeViewer/index.vue'
     Navbar,
     Sidebar,
     LayoutHeader,
-    CodeViewer,
   },
 })
 export default class extends Vue {

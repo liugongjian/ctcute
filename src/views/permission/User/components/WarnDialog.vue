@@ -1,8 +1,8 @@
 <!--
- * @Author: 李志伟
+ * @Author: 黄璐璐
  * @Date: 2022-07-08 13:45:09
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-18 09:46:53
+ * @LastEditTime: 2022-08-22 14:52:37
  * @Description: 告警弹窗
 -->
 <template>
@@ -39,6 +39,7 @@ export default class extends Vue {
   @Prop({ type: String, default: '' }) title?: ''
   @Prop({ type: String, default: '' }) message?: ''
   @Prop({ type: String, default: '' }) id?: ''
+  @Prop({ type: String, default: '' }) type?: ''
 
   get visibleDia() {
     return this.visible
@@ -52,6 +53,9 @@ export default class extends Vue {
   }
   public close() {
     this.visibleDia = false
+    if (this.type) {
+      this.$emit('pwdCancel')
+    }
   }
 }
 </script>

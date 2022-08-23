@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2022-08-11 15:34:32
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-08-23 14:33:47
  * @Description: 带提示的选择器
 -->
 <template>
@@ -12,7 +12,8 @@
     :multiple="multiple ? true : false"
     @remove-tag="handelRemove"
   >
-    <el-option :value="value" style="height: auto">
+    <el-option :value="value" style="height: auto"
+      >{{ value }}
       <el-tree
         ref="tree"
         :data="options"
@@ -58,6 +59,7 @@ export default class extends Vue {
     } else {
       //单选
       this.$emit('updateParent', data.label)
+      this.$emit('change', data)
     }
   }
   private handelRemove(e) {

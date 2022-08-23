@@ -1,8 +1,8 @@
 <!--
- * @Author: 秦瑞斌
+ * @Author: 黄璐璐
  * @Date: 2022-07-13 13:41:05
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-19 12:34:03
+ * @LastEditTime: 2022-08-22 17:47:17
  * @Description: 添加用户
 -->
 <template>
@@ -113,16 +113,6 @@ export default class extends Vue {
       callback(new Error('请填写正确的邮箱地址!'))
     } else {
       callback()
-    }
-  }
-
-  private mounted() {
-    this.form = {
-      _id: '',
-      name: '',
-      phone: '',
-      email: '',
-      remark: '',
     }
   }
   get form() {

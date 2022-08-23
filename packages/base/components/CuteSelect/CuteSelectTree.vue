@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-23 14:33:47
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-08-23 17:38:16
  * @Description: 带提示的选择器
 -->
 <template>
@@ -12,8 +12,7 @@
     :multiple="multiple ? true : false"
     @remove-tag="handelRemove"
   >
-    <el-option :value="value" style="height: auto"
-      >{{ value }}
+    <el-option :value="value" style="height: auto">
       <el-tree
         ref="tree"
         :data="options"
@@ -42,6 +41,8 @@ export default class extends Vue {
     label: 'label',
   }
   private handleNodeClick(data) {
+    console.log(this.treeData, '编辑', this.value, data.label)
+
     if (this.multiple) {
       //多选
       const ref: Tree = this.$refs.tree as Tree
@@ -58,7 +59,7 @@ export default class extends Vue {
       this.$emit('change', { id: this.checkedTreeData['id'], label: this.checkedTreeData['label'] })
     } else {
       //单选
-      this.$emit('updateParent', data.label)
+      this.treeData ? (this.treeData = data.label) : this.$emit('updateParent', data.label)
       this.$emit('change', data)
     }
   }

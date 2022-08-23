@@ -1,8 +1,8 @@
 <!--
  * @Author: 黄璐璐
  * @Date: 2022-07-13 13:41:05
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-23 14:35:00
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-08-23 16:37:31
  * @Description: 添加用户
 -->
 <template>
@@ -183,7 +183,7 @@ export default class extends Vue {
           menus.push(o)
         })
         const arr = [].concat(this.treeRef.getCheckedKeys()).concat(this.treeRef.getHalfCheckedKeys())
-        this.form.menus = arr
+        this.form.menus = arr as any
         this.$emit('confirm', this.form)
       } else {
         return false

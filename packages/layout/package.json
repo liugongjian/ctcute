@@ -1,0 +1,22 @@
+{
+    "name": "@cutedesign/layout",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "typings": "types/index.d.ts",
+    "main": "index.ts",
+    "dependencies": {},
+    "devDependencies": {},
+    "peerDependencies": {},
+    "scripts": {
+        "patch": "npm version patch",
+        "minor": "npm version minor",
+        "major": "npm version major",
+        "publish": "npm publish"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://gitlab.ctyuncdn.cn/ct-basic/cute-design-web.git"
+    },
+    "license": "ISC"
+}

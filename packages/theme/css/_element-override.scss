@@ -451,21 +451,23 @@
       border-right: 1px solid $color-master-1;
     }
   }
-
-  .el-radio-button:last-child .el-radio-button__inner {
-    background-color: #f8f8f8;
-    color: rgba(0, 0, 0, 30%);
-    font-weight: 400;
-    border-radius: 0 2px 2px 0;
-  }
 }
 
 .el-radio-button:not(.is-active) .el-radio-button__inner {
   border-color: $color-grey-6;
 }
 
+.el-radio-button.el-radio-button--medium.is-active.is-disabled {
+  .el-radio-button__inner {
+    background-color: $color-white;
+    border-color: $color-grey-6;
+    color: $color-grey-4;
+  }
+}
 .el-radio-button.is-disabled .el-radio-button__inner {
-  color: $color-grey-4;
+  background-color: #f8f8f8;
+  color: rgba(0, 0, 0, 30%);
+  font-weight: 400;
 }
 
 .el-radio__input.is-disabled.is-checked .el-radio__inner::after {

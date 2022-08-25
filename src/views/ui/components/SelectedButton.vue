@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-19 16:30:50
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-20 19:09:28
+ * @LastEditTime: 2022-08-25 16:11:10
  * @Description: 
 -->
 <template>
@@ -12,10 +12,17 @@
       <el-radio-group v-model="radio">
         <el-radio-button label="默认选项"></el-radio-button>
         <el-radio-button label="选中选项"></el-radio-button>
-        <el-radio-button label="选中不可选" disabled></el-radio-button>
         <el-radio-button label="禁用选项" disabled></el-radio-button>
       </el-radio-group>
+      <div class="disabled">
+        <el-radio-group v-model="radios">
+          <el-radio-button label="禁用选项" disabled></el-radio-button>
+
+          <el-radio-button label="选中不可选" disabled></el-radio-button>
+        </el-radio-group>
+      </div>
     </div>
+
     <h2>特殊单选块(用于订购页)</h2>
     <div class="sub-sample">
       <cute-special-radio v-model="radio0" :options="buutonData" @change="changeFun" />
@@ -71,8 +78,15 @@ export default class extends Vue {
   private radio0 = 'Active'
   private radio1 = 'Active'
   private radio2 = ['多选选中', '不可用选中']
+  private radios = '选中不可选'
   private changeFun(key) {
     this.radio0 = key
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.disabled {
+  margin-top: 24px;
+}
+</style>

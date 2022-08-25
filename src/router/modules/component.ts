@@ -107,6 +107,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'cute-area',
+        name: 'CuteArea',
+        component: () => import('@/views/component/Base/CuteArea/index.vue'),
+        meta: {
+          title: 'CuteArea',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

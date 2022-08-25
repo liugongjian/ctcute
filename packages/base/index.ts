@@ -27,6 +27,7 @@ import CuteTag from './components/CuteTag/index.vue'
 import CuteTitledBlock from './components/CuteTitledBlock/index.vue'
 import CuteTableColumnSettings from './components/CuteTable/CuteTableColumnSettings.vue'
 import CuteSelectTree from './components/CuteSelect/CuteSelectTree.vue'
+import CuteArea from './components/CuteArea/index.vue'
 export {
   CuteButtonGroup,
   CuteEditInput,
@@ -42,6 +43,7 @@ export {
   CuteTitledBlock,
   CuteTableColumnSettings,
   CuteSelectTree,
+  CuteArea,
 }
 
 /**
@@ -56,6 +58,7 @@ const componentsList = [
   CuteSelectedInput,
   CuteTableColumnSettings,
   CuteSelectTree,
+  CuteArea,
 ]
 
 export default {
@@ -64,7 +67,7 @@ export default {
     Vue.use(ElementUIOverride)
 
     componentsList.map((component: any) => {
-      Vue.component(component.options.name, component)
+      Vue.component(component.options ? component.options.name : component.name, component)
     })
   },
 }

@@ -8,6 +8,8 @@
       :column="4"
       popper-width="560px"
       :format="format"
+      :recent-data="recentData"
+      :show-recent="showRecent"
       @change="selectCityClick"
     >
       <span slot="other" class="suffix-other"
@@ -25,6 +27,14 @@ import { Vue, Component } from 'vue-property-decorator'
 export default class extends Vue {
   private value = ''
   otherCount = 2
+
+  showRecent = true
+  recentData =  [
+    { label: '深圳', value: 'shenzhen', count: 2 },
+    { label: '广州', value: 'guangzhou', count: 20 },
+    { label: '西安', value: 'xian', count: 27 },
+    { label: '兰州', value: 'lanzhou', count: 28 },
+  ]
 
   areas = [
     {

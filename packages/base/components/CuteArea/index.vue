@@ -52,6 +52,12 @@
           :class="{ 'is-empty': data.length === 0 }"
           v-show="data && data.length">
           <div class="el-scrollbar__view el-select-dropdown__list">
+            <cute-area-recent
+              v-if="showRecent && recentData && recentData.length"
+              :data="recentData"
+              :format="format"
+              :column-width="columnWidth"
+              @change="selectCityClick"></cute-area-recent>
             <cute-area-option
               v-for="item in columnData" 
               :key="item.id" 
@@ -79,6 +85,7 @@ import Locale from 'element-ui/src/mixins/locale';
 import ElInput from 'element-ui/packages/input';
 import ElSelectMenu from 'element-ui/packages/select/src/select-dropdown.vue';
 import CuteAreaOption from './option.vue';
+import CuteAreaRecent from './recent.vue';
 import Clickoutside from 'element-ui/src/utils/clickoutside';
 import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
 import scrollIntoView from 'element-ui/src/utils/scroll-into-view';
@@ -170,7 +177,8 @@ export default {
   components: {
     ElInput,
     ElSelectMenu,
-    CuteAreaOption
+    CuteAreaOption,
+    CuteAreaRecent
   },
 
   directives: { Clickoutside },
@@ -213,14 +221,22 @@ export default {
     },
     data: {
       type: Array,
-      default: []
+      default: () => []
     },
     popperWidth: String,
     column: {
       type: Number,
       default: 4
     },
-    format: Function
+    format: Function,
+    showRecent: {
+      type: Boolean,
+      default: false
+    },
+    recentData: {
+      type: Array,
+      default: () => []
+    },
   },
 
   data() {

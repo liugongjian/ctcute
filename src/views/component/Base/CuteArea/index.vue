@@ -84,6 +84,20 @@ export default class extends Vue {
       options: null,
       default: null,
     },
+    {
+      name: 'rencent-data',
+      desc: '最近访问列表',
+      type: 'Array',
+      options: null,
+      default: null,
+    },
+    {
+      name: 'show-recent',
+      desc: '是否显示最近访问列表',
+      type: 'Boolean',
+      options: null,
+      default: 'false',
+    },
   ]
 
   private event = [

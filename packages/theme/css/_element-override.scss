@@ -111,7 +111,7 @@
   }
 }
 
-.el-button.el-button--default:not(.is-disabled):hover {
+.el-button.el-button--default:not(.is-disabled, .el-button--primary):hover {
   background: $color-white;
   border-color: $color-master-1;
 }

@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-22 18:10:34
+ * @LastEditTime: 2022-08-26 15:25:43
  * @Description: 基础表格
 -->
 <template>
@@ -102,7 +102,7 @@ import { Component, Vue, Ref } from 'vue-property-decorator'
 import { ElTable } from 'element-ui/types/table'
 import { ElTransfer } from 'element-ui/types/transfer'
 import WarnDialog from './components/WarnDialog.vue'
-import { getRoles, copyRoles, delRoles, editRoles, addRoles, getRoleUser, setRole } from '@/api/simpleRole'
+import { getRoles, copyRoles, delRoles, getRoleUser, setRole } from '@/api/simpleRole'
 import { getUsers } from '@/api/simpleUser'
 import TableHookClass from '@cutedesign/base/hook/TableHook'
 import AddOrEditRoleDialog from './components/AddOrEditRoleDialog.vue'
@@ -194,37 +194,8 @@ export default class extends Vue {
     this.roleDialogStatus = 'update'
     this.editRow = { ...row }
   }
-  private async handleAddOrEidt(form) {
-    if (form._id) {
-      //编辑
-      try {
-        const res = await editRoles(form._id, form)
-        if ((res as any).code === 200) {
-          this.roleDialogVisible = false
-          this.$message.success('编辑成功! ')
-          this.tableHook.query()
-        } else {
-          this.$message.error((res as any).msg)
-          this.tableHook.query()
-        }
-      } catch (e) {
-        console.error(e)
-      } finally {
-      }
-    } else {
-      //新增
-      try {
-        const res = await addRoles(form)
-        if ((res as any).code === 200) {
-          this.roleDialogVisible = false
-          this.$message.success('添加成功! ')
-          this.tableHook.query()
-        }
-      } catch (e) {
-        console.error(e)
-      } finally {
-      }
-    }
+  private handleAddOrEidt() {
+    this.tableHook.query()
   }
   /**
    * 设置角色

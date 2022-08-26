@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
- * @LastEditors: 马妍
- * @LastEditTime: 2022-08-24 09:55:00
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-08-26 15:35:18
  * @Description: 基础表格
 -->
 <template>
@@ -70,7 +70,10 @@
 
       <div class="medium-dialog--footer">
         <el-button @click="visible = false">取 消</el-button>
-        <el-button type="primary" @click="title === '添加菜单' ? createData() : updateData()"
+        <el-button
+          type="primary"
+          :loading="addEditLoading"
+          @click="title === '添加菜单' ? createData() : updateData()"
           >确 定</el-button
         >
       </div>
@@ -138,6 +141,7 @@ export default class extends Vue {
   @Ref('menusRef')
   private menusRef: ElForm
   //新建菜单、编辑菜单弹窗标题
+  private addEditLoading = false
   private title = '添加菜单'
   private visible = false
   private menusForm = {
@@ -254,7 +258,6 @@ export default class extends Vue {
     }
   }
   private handleTree(data) {
-    console.log('daaaa', data)
     this.menusForm.parentId = data._id
     this.menusForm.parents = data.label
   }
@@ -270,12 +273,15 @@ export default class extends Vue {
   private createData() {
     this.menusRef.validate(async valid => {
       if (valid) {
+        this.addEditLoading = true
         if (this.menusForm.url === '' && this.menusForm.menuType === 1) {
           this.$message.error('请输入路由地址')
+          this.addEditLoading = false
           return
         }
         if (this.menusForm.perms === '' && this.menusForm.menuType === 2) {
           this.$message.error('请输入授权标识')
+          this.addEditLoading = false
           return
         }
 
@@ -283,6 +289,7 @@ export default class extends Vue {
 
         try {
           const res = await addMenus(this.menusForm)
+          this.addEditLoading = false
           if ((res as any).code === 200) {
             this.visible = false
             this.$message.success('添加成功! ')
@@ -311,18 +318,22 @@ export default class extends Vue {
   private updateData() {
     this.menusRef.validate(async valid => {
       if (valid) {
+        this.addEditLoading = true
         if (this.menusForm.url === '' && this.menusForm.menuType === 1) {
           this.$message.error('请输入路由地址')
+          this.addEditLoading = false
           return
         }
         if (this.menusForm.perms === '' && this.menusForm.menuType === 2) {
           this.$message.error('请输入授权标识')
+          this.addEditLoading = false
           return
         }
         const tempData = Object.assign({}, this.menusForm)
         delete tempData.parents
         try {
           const res = await editMenus(tempData)
+          this.addEditLoading = false
           if ((res as any).code === 200) {
             this.visible = false
             this.$message.success('编辑成功! ')

@@ -2,7 +2,7 @@
  * @Author: 黄璐璐
  * @Date: 2022-07-13 13:41:05
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-22 17:47:17
+ * @LastEditTime: 2022-08-26 15:13:29
  * @Description: 添加用户
 -->
 <template>
@@ -44,7 +44,7 @@
       </el-scrollbar>
       <div class="medium-dialog--footer">
         <el-button @click="close">{{ cancelButtonText }}</el-button>
-        <el-button type="primary" @click="confirm">{{ confirmButtonText }}</el-button>
+        <el-button type="primary" :loading="loading" @click="confirm">{{ confirmButtonText }}</el-button>
       </div>
     </el-dialog>
   </el-card>
@@ -52,6 +52,7 @@
 <script lang="ts">
 import { validPhone, validateEmail } from '@/utils/validate'
 import { Component, Vue, Prop, Ref } from 'vue-property-decorator'
+import { editUsers, addUsers } from '@/api/simpleUser'
 
 @Component({
   name: 'MediumDialog',
@@ -84,6 +85,7 @@ export default class extends Vue {
     this.$emit('update:visible', val)
   }
   private isFullscreen = false
+  private loading = false
 
   //校验规则
   private rules = {
@@ -116,7 +118,6 @@ export default class extends Vue {
     }
   }
   get form() {
-    console.log('this.editRow', this.editRow)
     return this.editRow
   }
   set form(val) {
@@ -130,11 +131,56 @@ export default class extends Vue {
   private confirm() {
     this.ruleForm.validate(valid => {
       if (valid) {
-        this.$emit('confirm', this.form)
+        this.handleAddOrEidt()
       } else {
         return false
       }
     })
+  }
+  private async handleAddOrEidt() {
+    this.loading = true
+    if (this.form._id) {
+      //编辑
+      try {
+        const data = {
+          _id: this.form._id,
+          name: this.form.name,
+          remark: this.form.remark,
+        }
+        const res = await editUsers(data._id, data)
+        this.loading = false
+        if ((res as any).code === 200) {
+          this.visibleDia = false
+          this.$message.success('编辑成功! ')
+          // this.tableHook.query()
+          this.$emit('confirm')
+        } else {
+          this.$message.error((res as any).msg)
+        }
+      } catch (e) {
+        console.error(e)
+      } finally {
+      }
+    } else {
+      //新增
+      try {
+        const res = await addUsers(this.form)
+        this.loading = false
+        if ((res as any).code === 200) {
+          this.visibleDia = false
+          this.$emit('confirm', {
+            copyPWDVisible: true,
+            resetPWDMessage: `密码: ${(res as any).data.password}`,
+          })
+        } else {
+          this.visibleDia = false
+          this.$message.error((res as any).msg)
+        }
+      } catch (e) {
+        console.error(e)
+      } finally {
+      }
+    }
   }
 }
 </script>

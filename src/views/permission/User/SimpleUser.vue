@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-22 17:57:30
+ * @LastEditTime: 2022-08-26 15:21:20
  * @Description: 基础表格
 -->
 <template>
@@ -103,7 +103,7 @@
       </el-scrollbar>
       <div class="medium-dialog--footer">
         <el-button @click="roleVisible = false">取 消</el-button>
-        <el-button type="primary" @click="handleSetRole">确 定</el-button>
+        <el-button type="primary" :loading="setRoleLoading" @click="handleSetRole">确 定</el-button>
       </div>
     </el-dialog>
     <!-- 编辑、添加用户 弹窗 -->
@@ -197,8 +197,6 @@ import {
   unfreezeUsers,
   delUsers,
   resetPWDUsers,
-  editUsers,
-  addUsers,
   getUserRoles,
   setUserRole,
 } from '@/api/simpleUser'
@@ -231,6 +229,7 @@ export default class extends Vue {
   private roleCheckList = []
   private isFullscreen = false
   private roles = []
+  private setRoleLoading = false
 
   //添加用户、编辑用户弹窗
   private userDialogStatus = 'create'
@@ -339,44 +338,14 @@ export default class extends Vue {
     this.userDialogVisible = true
     this.editRow = { ...row }
   }
-
-  private async handleAddOrEidt(form) {
-    if (form._id) {
-      //编辑
-      try {
-        const data = {
-          _id: form._id,
-          name: form.name,
-          remark: form.remark,
-        }
-        const res = await editUsers(data._id, data)
-        if ((res as any).code === 200) {
-          this.userDialogVisible = false
-          this.$message.success('编辑成功! ')
-          this.tableHook.query()
-        } else {
-          this.$message.error((res as any).msg)
-        }
-      } catch (e) {
-        console.error(e)
-      } finally {
-      }
+  private handleAddOrEidt(data) {
+    if (data) {
+      // 创建 跳出复制密码弹窗
+      this.copyPWDVisible = data.copyPWDVisible
+      this.resetPWDMessage = data.resetPWDMessage
     } else {
-      //新增
-      try {
-        const res = await addUsers(form)
-        if ((res as any).code === 200) {
-          this.userDialogVisible = false
-          this.copyPWDVisible = true
-          this.resetPWDMessage = `密码: ${(res as any).data.password}`
-        } else {
-          this.userDialogVisible = false
-          this.$message.error((res as any).msg)
-        }
-      } catch (e) {
-        console.error(e)
-      } finally {
-      }
+      // edit 重新获取数据
+      this.tableHook.query()
     }
   }
 
@@ -423,12 +392,14 @@ export default class extends Vue {
    * 角色确认事件
    */
   private async handleSetRole() {
+    this.setRoleLoading = true
     const data = {
       _id: this.roleRow._id,
       roles: this.roleCheckList,
     }
     try {
       const res = await setUserRole(data)
+      this.setRoleLoading = false
       if ((res as any).code === 200) {
         this.$message.success('设置角色成功')
         this.tableHook.query()

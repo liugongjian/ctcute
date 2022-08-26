@@ -11,7 +11,7 @@
       <router-link to="/ui" :class="{ active: currentPath.startsWith('/ui') }">UI规范</router-link>
     </div>
     <!-- 用户信息 -->
-    <div class="login-info">
+    <div v-if="username" class="login-info">
       <div class="block"><el-avatar :size="28" :src="circleUrl"></el-avatar></div>
       <span class="user-name" @click="flag = !flag">{{ username ? username : '未登录' }}</span>
       <svg-icon :name="!flag ? 'caret-down' : 'caret-up'" />
@@ -23,6 +23,9 @@
         <li>文字</li>
         <li @click="outLogin">退出登录</li>
       </ul>
+    </div>
+    <div v-else class="login-info">
+      <el-button type="primary" @click="toLogin">登 录</el-button>
     </div>
   </div>
 </template>
@@ -53,6 +56,9 @@ export default class extends Vue {
       this.$router.push('/login')
       sessionStorage.clear()
     }
+  }
+  private toLogin() {
+    this.$router.push('/login')
   }
 }
 </script>

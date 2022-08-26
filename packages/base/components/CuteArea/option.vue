@@ -33,6 +33,10 @@ export default {
       type: String,
       default: '25%',
     },
+    valueKey: {
+      type: String,
+      default: 'value'
+    },
     format: {
       type: Function,
       default: null,
@@ -50,7 +54,7 @@ export default {
 
   methods: {
     itemSelected(target) {
-      return this.area.value === target.value
+      return this.area.value === target[this.valueKey]
     },
     formatLabel(city) {
       return this.format ? this.format(city) : city.label

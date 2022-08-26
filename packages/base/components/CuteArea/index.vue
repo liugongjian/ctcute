@@ -63,6 +63,7 @@
               :key="item.id" 
               :width="columnWidth"
               :data="item.data"
+              :value-key="valueKey"
               :format="format"
               @change="selectCityClick"></cute-area-option>
           </div>
@@ -89,7 +90,7 @@ import CuteAreaRecent from './recent.vue';
 import Clickoutside from 'element-ui/src/utils/clickoutside';
 import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
 import scrollIntoView from 'element-ui/src/utils/scroll-into-view';
-import { getValueByPath, valueEquals, isIE, isEdge } from 'element-ui/src/utils/util';
+import { valueEquals, isIE, isEdge } from 'element-ui/src/utils/util';
 import NavigationMixin from 'element-ui/packages/select/src/navigation-mixin';
 import { isKorean } from 'element-ui/src/utils/shared';
 
@@ -355,13 +356,9 @@ export default {
 
     getOption(value) {
       let option;
-      const isObject = Object.prototype.toString.call(value).toLowerCase() === '[object object]';
-
       for (let i = this.cachedOptions.length - 1; i >= 0; i--) {
         const cachedOption = this.cachedOptions[i];
-        const isEqual = isObject
-          ? getValueByPath(cachedOption.value, this.valueKey) === getValueByPath(value, this.valueKey)
-          : cachedOption.value === value;
+        const isEqual = cachedOption[this.valueKey] === value;
         if (isEqual) {
           option = cachedOption;
           break;
@@ -449,24 +446,6 @@ export default {
       }
     },
 
-    getValueIndex(arr = [], value) {
-      const isObject = Object.prototype.toString.call(value).toLowerCase() === '[object object]';
-      if (!isObject) {
-        return arr.indexOf(value);
-      } else {
-        const valueKey = this.valueKey;
-        let index = -1;
-        arr.some((item, i) => {
-          if (getValueByPath(item, valueKey) === getValueByPath(value, valueKey)) {
-            index = i;
-            return true;
-          }
-          return false;
-        });
-        return index;
-      }
-    },
-
     toggleMenu() {
       if (!this.selectDisabled) {
         if (this.menuVisibleOnFocus) {
@@ -492,14 +471,6 @@ export default {
 
     handleResize() {
       this.resetInputWidth();
-    },
-
-    getValueKey(item) {
-      if (Object.prototype.toString.call(item.value).toLowerCase() !== '[object object]') {
-        return item.value;
-      } else {
-        return getValueByPath(item.value, this.valueKey);
-      }
     }
   },
 

@@ -78,6 +78,13 @@ export default class extends Vue {
       default: null,
     },
     {
+      name: 'value-key',
+      desc: '可以指定选项的键名作为实际取值的key',
+      type: 'String',
+      options: null,
+      default: 'value',
+    },
+    {
       name: 'format',
       desc: '展示格式化函数，参数为单条数据项',
       type: 'Function',

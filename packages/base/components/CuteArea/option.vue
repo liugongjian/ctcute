@@ -70,19 +70,22 @@ export default {
   float: left;
   .cute-area-wrap {
     margin-bottom: 40px;
+    text-align: center;
     .cute-area-head {
-      margin: 10px;
-      padding: 0 10px;
-      color: $color-grey-4;
+      margin: 15px 5px;
+      color: $color-grey-3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .cute-area-body {
-      margin: 0 10px;
+      padding: 0 2px;
       .cute-area-city {
         position: relative;
+        margin: 10px 0;
         height: 30px;
         line-height: 30px;
-        padding: 0 10px;
-        color: $color-grey-2;
+        color: $color-grey-1;
         font-size: $text-size-primary;
         white-space: nowrap;
         overflow: hidden;

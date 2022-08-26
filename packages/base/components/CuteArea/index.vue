@@ -51,7 +51,7 @@
           class="el-scrollbar__wrap"
           :class="{ 'is-empty': data.length === 0 }"
           v-show="data && data.length">
-          <div class="el-scrollbar__view el-select-dropdown__list">
+          <div class="el-scrollbar__view el-select-dropdown__list" style="margin: 10px">
             <cute-area-recent
               v-if="showRecent && recentData && recentData.length"
               :data="recentData"

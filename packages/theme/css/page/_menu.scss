@@ -32,11 +32,6 @@
 
 /* 简单表格 */
 .simple-menu {
-  .el-radio-group .el-radio-button:last-child .el-radio-button__inner {
-    background-color: $color-white;
-    color: $color-master-1;
-  }
-
   /* alert样式 */
   .is-alert-tip .el-alert--info.is-light {
     border: none;

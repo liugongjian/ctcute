@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-23 14:33:48
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-08-24 09:55:00
  * @Description: 基础表格
 -->
 <template>
@@ -201,7 +201,7 @@ export default class extends Vue {
           this.tableData = this.o(res_menus, '')
           this.dataOptions = [
             {
-              id: '',
+              id: '999999',
               label: '一级菜单',
               children: this.tableData,
             },
@@ -210,7 +210,7 @@ export default class extends Vue {
           this.tableData = []
           this.dataOptions = [
             {
-              id: '',
+              id: '9999999',
               label: '一级菜单',
             },
           ]
@@ -303,13 +303,7 @@ export default class extends Vue {
    */
   private gotoEdit(row) {
     this.resetMenusForm()
-    this.menusForm = Object.assign({}, row) // copy obj
-    this.tableDataTemp.forEach(item => {
-      if (item._id === this.menusForm.parentId) {
-        this.menusForm.parents = item.name
-      }
-    })
-
+    this.menusForm = { ...row, parents: row.parentId }
     this.visible = true
     this.title = '编辑菜单'
   }

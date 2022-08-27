@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-18 21:10:50
+ * @LastEditTime: 2022-08-26 15:25:43
  * @Description: 基础表格
 -->
 <template>
@@ -11,42 +11,6 @@
     <div class="table-tools">
       <el-button type="primary" @click="addRoles">+ 添 加</el-button>
     </div>
-
-    <!--弹窗-->
-    <el-dialog
-      class="medium-dialog"
-      :title="title"
-      :visible="visible"
-      :close-on-click-modal="false"
-      @close="close"
-    >
-      <!--新增-->
-      <div v-if="title === '新建'">
-        <el-form :model="form" :rules="rules" label-width="90px" class="simple-form">
-          <el-form-item label="角色名" prop="remark">
-            <el-input placeholder="请输入角色名" />
-          </el-form-item>
-          <el-form-item label="角色标识" prop="disabledSelect">
-            <el-input placeholder="请输入角色标识" />
-          </el-form-item>
-
-          <el-form-item label="备注" prop="disabledInput">
-            <el-input placeholder="请输入备注" />
-          </el-form-item>
-          <el-form-item label="角色权限" prop="disabledInput">
-            <cute-select-tree multiple />
-          </el-form-item>
-        </el-form>
-      </div>
-      <!-- 设置用户 -->
-      <div v-if="title === '设置用户'">
-        <el-transfer v-model="value" :data="data"></el-transfer>
-      </div>
-      <div class="medium-dialog--footer">
-        <el-button @click="visible = false">取 消</el-button>
-        <el-button type="primary" :loading="false" @click="confirm">确 定</el-button>
-      </div>
-    </el-dialog>
 
     <!--表格-->
     <el-table ref="tableRef" v-loading="tableHook.loading" :data="tableHook.tableData" fit border>
@@ -63,7 +27,42 @@
         </template>
       </el-table-column>
     </el-table>
-
+    <!--设置用户弹窗-->
+    <el-dialog
+      class="medium-dialog"
+      title="设置用户"
+      :visible="setUserVisible"
+      :close-on-click-modal="false"
+      @close="setUserVisible = false"
+    >
+      <el-scrollbar
+        ref="scrollBar"
+        class="medium-dialog--scroll"
+        :wrap-style="{ maxHeight: isFullscreen ? '100%' : '461px', width: '100%' }"
+      >
+        <div class="medium-dialog--content" style="margin-bottom: 24px">
+          <el-transfer
+            ref="myTransfer"
+            v-model="roleValue"
+            v-loading="roleLoading"
+            :titles="['用户', '角色下已有用户']"
+            :data="roleData"
+            filterable
+            filter-placeholder="请输入姓名或手机号"
+            @change="handleChange"
+          ></el-transfer>
+        </div>
+      </el-scrollbar>
+    </el-dialog>
+    <!-- 编辑、添加角色 弹窗 -->
+    <add-or-edit-role-dialog
+      v-if="roleDialogVisible"
+      :id="editRow._id"
+      :edit-row="editRow"
+      :visible.sync="roleDialogVisible"
+      :role-dialog-status="roleDialogStatus"
+      @confirm="handleAddOrEidt"
+    />
     <!-- 复制角色 弹窗 -->
     <warn-dialog
       v-if="copyVisible"
@@ -101,32 +100,47 @@
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import { ElTable } from 'element-ui/types/table'
+import { ElTransfer } from 'element-ui/types/transfer'
 import WarnDialog from './components/WarnDialog.vue'
-import { getRoles, copyRoles, delRoles } from '@/api/simpleRole'
+import { getRoles, copyRoles, delRoles, getRoleUser, setRole } from '@/api/simpleRole'
+import { getUsers } from '@/api/simpleUser'
 import TableHookClass from '@cutedesign/base/hook/TableHook'
-
+import AddOrEditRoleDialog from './components/AddOrEditRoleDialog.vue'
 @Component({
   name: 'SimpleTable',
-  components: { WarnDialog },
+  components: { WarnDialog, AddOrEditRoleDialog },
 })
 export default class extends Vue {
   @Ref('tableRef')
   private tableRef: ElTable
   public tableHook = new TableHookClass()
+  @Ref('myTransfer')
+  private myTransfer: ElTransfer
 
-  private value = [1, 4]
+  private isFullscreen = false
 
-  //弹窗标题
-  private title = ''
+  //添加角色、编辑角色弹窗
+  private roleDialogStatus = 'create'
+  private roleDialogVisible = false
+  private editRow = {
+    _id: '',
+    name: '',
+    email: '',
+    remark: '',
+    menus: [],
+  }
 
-  //弹窗标题
-  private visible = false
-
-  //新增弹窗内容
-  private addFlag = false
-
-  //设置用户啊弹窗内容
-  private setFlag = false
+  //设置用户弹窗内容
+  private setUserVisible = false
+  private roleLoading = false
+  private roleValue = []
+  private roleData = []
+  private setRoleUserRow = {
+    _id: '',
+  }
+  private roleListQuery = {
+    searchkey: '',
+  }
 
   //复制角色
   private copyVisible = false
@@ -162,22 +176,132 @@ export default class extends Vue {
    * 新增角色
    */
   private addRoles() {
-    this.addFlag = true
-    this.visible = true
-    this.title = '新建'
+    this.roleDialogVisible = true
+    this.roleDialogStatus = 'create'
+    this.editRow = {
+      _id: '',
+      name: '',
+      email: '',
+      remark: '',
+      menus: [],
+    }
   }
-  private gotoSetUser() {
-    this.setFlag = true
-    this.visible = true
-    this.title = '设置用户'
-  }
-  private confirm() {}
   /**
-   *  关闭弹窗
+   * 编辑角色
    */
-
-  private close() {
-    this.visible = false
+  private gotoEdit(row) {
+    this.roleDialogVisible = true
+    this.roleDialogStatus = 'update'
+    this.editRow = { ...row }
+  }
+  private handleAddOrEidt() {
+    this.tableHook.query()
+  }
+  /**
+   * 设置角色
+   */
+  private gotoSetUser(row) {
+    this.setRoleUserRow = Object.assign({}, row)
+    setTimeout(() => {
+      this.myTransfer.clearQuery('right')
+    }, 10)
+    this.getRoles()
+    this.infoGetRole()
+    this.setUserVisible = true
+  }
+  // 查询所有用户
+  private async getRoles() {
+    this.roleLoading = true
+    try {
+      const res = await getUsers({
+        isPaging: 0,
+        ...this.roleListQuery,
+      })
+      if ((res as any).code === 200) {
+        const data = res.data.result
+        this.roleData = []
+        data.forEach(item => {
+          this.roleData.push({
+            label: item.name + '(' + item.phone + ')',
+            key: item._id,
+            id: item._id,
+          })
+        })
+      }
+    } catch (e) {
+      console.error(e)
+    } finally {
+    }
+  }
+  // 获取当前角色下的所有用户
+  private async infoGetRole() {
+    this.roleValue = []
+    try {
+      const res = await getRoleUser(this.setRoleUserRow)
+      if ((res as any).code === 200) {
+        const arr = res.data
+        arr.forEach(item => {
+          this.roleValue.push(item._id)
+        })
+        this.roleLoading = false
+      }
+    } catch (e) {
+      console.error(e)
+    } finally {
+    }
+  }
+  // 左右触发事件
+  private handleChange(value, direction, movedKeys) {
+    this.roleLoading = true
+    const arr = this.getMoveId(value)
+    // 设置角色用户接口
+    setRole({ _id: this.setRoleUserRow._id, users: arr })
+      .then(res => {
+        this.roleLoading = false
+        this.$message({
+          message: res.data,
+          type: 'success',
+        })
+      })
+      .catch(res => {
+        this.$message.error(res.msg)
+      })
+    // 获取移动的项
+    const moveId = this.getMoveId(movedKeys)
+    // 移除角色下已有用户时改变原zen用户下相同用户disable状态(若不移除会出现两个相同用户只是一个不可选择一个可选择)
+    if (direction === 'left') {
+      moveId.forEach(item => {
+        // 过滤出移动项id与整个数组相同id的数据项
+        this.roleData
+          .filter(_item => {
+            return _item.id === item
+          })
+          .map((str, _index, newArr) => {
+            // 右侧数据改变时左侧去重并改变disable
+            if (newArr.length > 1) {
+              if (str.disabled) {
+                str.disabled = false
+              } else {
+                this.roleData.splice(this.roleData.indexOf(str), 1)
+              }
+            }
+          })
+      })
+    }
+  }
+  // 封装通过key查找相应id值
+  getMoveId(val) {
+    const arr = []
+    val.forEach(item => {
+      this.roleData
+        .filter(data => {
+          return data.key === item
+        })
+        .map(_item => {
+          arr.push(_item.id)
+        })
+    })
+    return arr
   }
 
   /**
@@ -215,7 +339,7 @@ export default class extends Vue {
     this.delId = row._id
   }
   /**
-   *  复制角色事件
+   *  删除角色事件
    */
   private async handleDel(id) {
     try {
@@ -236,32 +360,4 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.health-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 8px;
-  border-radius: 100%;
-
-  &--1 {
-    background: $color-status-success;
-  }
-
-  &--2 {
-    background: $color-status-warning;
-  }
-
-  &--3 {
-    background: $color-status-danger;
-  }
-
-  &--4 {
-    background: $color-status-info;
-  }
-
-  &--5 {
-    background: $disabled-color;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

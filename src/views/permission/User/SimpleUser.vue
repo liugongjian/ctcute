@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-19 12:53:00
+ * @LastEditTime: 2022-08-26 15:21:20
  * @Description: 基础表格
 -->
 <template>
@@ -10,7 +10,7 @@
     <!--表格工具栏-->
     <div class="table-tools">
       <div class="table-tools__left">
-        <el-button type="primary" @click="addUser">+ 新增按钮</el-button>
+        <el-button type="primary" @click="addUser">+ 添加用户</el-button>
       </div>
       <div class="table-tools__right table-tools__conditions">
         <el-form ref="conditions" :model="conditions" inline @submit.native.prevent>
@@ -103,12 +103,13 @@
       </el-scrollbar>
       <div class="medium-dialog--footer">
         <el-button @click="roleVisible = false">取 消</el-button>
-        <el-button type="primary" @click="handleSetRole">确 定</el-button>
+        <el-button type="primary" :loading="setRoleLoading" @click="handleSetRole">确 定</el-button>
       </div>
     </el-dialog>
     <!-- 编辑、添加用户 弹窗 -->
     <add-or-edit-user-dialog
       v-if="userDialogVisible"
+      :id="editRow._id"
       :edit-row="editRow"
       :visible.sync="userDialogVisible"
       :user-dialog-status="userDialogStatus"
@@ -118,6 +119,7 @@
     <warn-dialog
       v-if="freezeVisible"
       :id="freezeId"
+      type=""
       :visible.sync="freezeVisible"
       title="确定冻结用户吗? "
       message="冻结后会导致该用户不能登录, 是否继续？"
@@ -129,6 +131,7 @@
     <warn-dialog
       v-if="unfreezeVisible"
       :id="unfreezeId"
+      type=""
       :visible.sync="unfreezeVisible"
       title="确定解冻用户吗? "
       message="解冻后该用户即可正常登录, 是否继续？"
@@ -140,6 +143,7 @@
     <warn-dialog
       v-if="resetPWDVisible"
       :id="resetPWDId"
+      type=""
       :visible.sync="resetPWDVisible"
       title="确认要重置密码吗? "
       message="重置后会导致原密码不可用, 是否继续？"
@@ -151,17 +155,20 @@
     <warn-dialog
       v-if="copyPWDVisible"
       id=""
+      type="pwd"
       :visible.sync="copyPWDVisible"
       :title="resetPWDId ? '重置密码成功' : '添加用户成功'"
       :message="resetPWDMessage"
       cancel-button-text="取消"
       confirm-button-text="复制密码"
       @confirm="handleCopyPWD"
+      @pwdCancel="tableHook.query()"
     />
     <!-- 解冻 弹窗 -->
     <warn-dialog
       v-if="delVisible"
       :id="delId"
+      type=""
       :visible.sync="delVisible"
       title="确定删除用户吗? "
       message="此操作将永久删除用户, 是否继续？"
@@ -190,8 +197,6 @@ import {
   unfreezeUsers,
   delUsers,
   resetPWDUsers,
-  editUsers,
-  addUsers,
   getUserRoles,
   setUserRole,
 } from '@/api/simpleUser'
@@ -224,6 +229,7 @@ export default class extends Vue {
   private roleCheckList = []
   private isFullscreen = false
   private roles = []
+  private setRoleLoading = false
 
   //添加用户、编辑用户弹窗
   private userDialogStatus = 'create'
@@ -264,7 +270,7 @@ export default class extends Vue {
 
   private formatDatetime = formatDatetime
 
-  // 主机信息下拉框选项
+  // 状态下拉框选项
   private statusOptions = [
     {
       value: '',
@@ -315,6 +321,13 @@ export default class extends Vue {
   private addUser() {
     this.userDialogStatus = 'create'
     this.userDialogVisible = true
+    this.editRow = {
+      _id: '',
+      name: '',
+      phone: '',
+      email: '',
+      remark: '',
+    }
   }
 
   /**
@@ -325,42 +338,14 @@ export default class extends Vue {
     this.userDialogVisible = true
     this.editRow = { ...row }
   }
-
-  private async handleAddOrEidt(form) {
-    if (form._id) {
-      //编辑
-      try {
-        const data = {
-          _id: form._id,
-          name: form.name,
-          remark: form.remark,
-        }
-        const res = await editUsers(data._id, data)
-        if ((res as any).code === 200) {
-          this.userDialogVisible = false
-          this.$message.success('编辑成功! ')
-          this.tableHook.query()
-        } else {
-          this.$message.error((res as any).msg)
-          this.tableHook.query()
-        }
-      } catch (e) {
-        console.error(e)
-      } finally {
-      }
+  private handleAddOrEidt(data) {
+    if (data) {
+      // 创建 跳出复制密码弹窗
+      this.copyPWDVisible = data.copyPWDVisible
+      this.resetPWDMessage = data.resetPWDMessage
     } else {
-      //新增
-      try {
-        const res = await addUsers(form)
-        if ((res as any).code === 200) {
-          this.userDialogVisible = false
-          this.copyPWDVisible = true
-          this.resetPWDMessage = `密码: ${(res as any).data.password}`
-        }
-      } catch (e) {
-        console.error(e)
-      } finally {
-      }
+      // edit 重新获取数据
+      this.tableHook.query()
     }
   }
 
@@ -407,12 +392,14 @@ export default class extends Vue {
    * 角色确认事件
    */
   private async handleSetRole() {
+    this.setRoleLoading = true
     const data = {
       _id: this.roleRow._id,
       roles: this.roleCheckList,
     }
     try {
       const res = await setUserRole(data)
+      this.setRoleLoading = false
       if ((res as any).code === 200) {
         this.$message.success('设置角色成功')
         this.tableHook.query()
@@ -504,7 +491,6 @@ export default class extends Vue {
         this.delVisible = false
         this.$message.success('删除成功! ')
         this.delId = ''
-        // this.getTable()
         this.tableHook.query()
       }
     } catch (e) {
@@ -552,32 +538,4 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.health-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 8px;
-  border-radius: 100%;
-
-  &--1 {
-    background: $color-status-success;
-  }
-
-  &--2 {
-    background: $color-status-warning;
-  }
-
-  &--3 {
-    background: $color-status-danger;
-  }
-
-  &--4 {
-    background: $color-status-info;
-  }
-
-  &--5 {
-    background: $disabled-color;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

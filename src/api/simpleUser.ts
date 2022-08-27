@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-08-09 13:41:43
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-19 12:38:28
+ * @LastEditTime: 2022-08-22 14:38:36
  * @Description:
  */
 import request from '@/utils/request'
@@ -63,7 +63,7 @@ export const editUsers = (id, data): AxiosPromise<any> =>
   request({
     url: `/v1/auth/users/${id}`,
     method: 'put',
-    data: data,
+    data,
   })
 
 /**

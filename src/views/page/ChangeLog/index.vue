@@ -41,9 +41,25 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
-      version: '1.1.0',
+      version: '1.0.9',
       date: '2022-8-26',
       features: [
+        {
+          name: 'ui-Select',
+          desc: [
+            {
+              text: '新增新增日期选择框带快捷选项 组件',
+            },
+          ],
+        },
+        {
+          name: 'ui-Table',
+          desc: [
+            {
+              text: '新增可在表头进行筛选的table 组件',
+            },
+          ],
+        },
         {
           name: 'component-CuteArea',
           desc: [
@@ -86,28 +102,6 @@ export default class extends Vue {
           desc: [
             {
               text: '修复WarnDialog中button hover样式',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      version: '1.0.9',
-      date: '2022-8-18',
-      features: [
-        {
-          name: 'ui-Select',
-          desc: [
-            {
-              text: '新增新增日期选择框带快捷选项 组件',
-            },
-          ],
-        },
-        {
-          name: 'ui-Table',
-          desc: [
-            {
-              text: '新增可在表头进行筛选的table 组件',
             },
           ],
         },

@@ -1,5 +1,11 @@
 # 一、版本日志
 
+## v1.0.2
+
+- 修改
+  - 修复 selectedButton 禁用样式
+  - 修复 WarnDialog 中 button hover 样式
+
 ## v1.0.1
 
 - 新增

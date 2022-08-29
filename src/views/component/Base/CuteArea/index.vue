@@ -71,6 +71,13 @@ export default class extends Vue {
       default: null,
     },
     {
+      name: 'popper-max-height',
+      desc: '弹窗最大高度',
+      type: 'String',
+      options: null,
+      default: null,
+    },
+    {
       name: 'data',
       desc: '列表数据',
       type: 'Array',

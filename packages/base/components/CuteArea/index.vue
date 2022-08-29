@@ -50,6 +50,7 @@
         <div 
           class="el-scrollbar__wrap"
           :class="{ 'is-empty': data.length === 0 }"
+          :style="popperHeightStyle"
           v-show="data && data.length">
           <div class="el-scrollbar__view el-select-dropdown__list" style="margin: 10px">
             <cute-area-recent
@@ -157,6 +158,14 @@ export default {
       return style;
     },
 
+    popperHeightStyle() {
+      let style = {};
+      if (this.popperMaxHeight) {
+        style.maxHeight = this.popperMaxHeight;
+      }
+      return style;
+    },
+
     columnWidth() {
       let column = this.column > 2 ? this.column : 2; // 最小两列
       return 100 / column + '%'
@@ -225,6 +234,7 @@ export default {
       default: () => []
     },
     popperWidth: String,
+    popperMaxHeight: String,
     column: {
       type: Number,
       default: 4
@@ -288,13 +298,6 @@ export default {
         this.selectedLabel = '';
         this.inputLength = 20;
         this.menuVisibleOnFocus = false;
-        // this.$nextTick(() => {
-        //   if (this.$refs.input &&
-        //     this.$refs.input.value === '' &&
-        //     this.selected.length === 0) {
-        //     this.currentPlaceholder = this.cachedPlaceHolder;
-        //   }
-        // });
         if (this.selected && this.selected.label) {
           this.selectedLabel = this.format ? this.format(this.selected) : this.selected.label
         }

@@ -51,7 +51,7 @@
           class="el-scrollbar__wrap"
           :class="{ 'is-empty': data.length === 0 }"
           :style="popperHeightStyle"
-          v-show="data && data.length">
+          v-if="data && data.length">
           <div class="el-scrollbar__view el-select-dropdown__list" style="margin: 10px">
             <cute-area-recent
               v-if="showRecent && recentData && recentData.length"
@@ -172,15 +172,18 @@ export default {
     },
 
     columnData() {
-      let wrapData = [];
-      let column = this.column > 2 ? this.column : 2; // 最小两列
-      for (let i = 0; i < column; i++) {
-        wrapData.push({
-          id: `cute-area-option-${i}`,
-          data: this.data.filter((item, index) => index % column === i)
-        })
+      if (this.data && this.data.length) {
+        let wrapData = [];
+        let column = this.column > 2 ? this.column : 2; // 最小两列
+        for (let i = 0; i < column; i++) {
+          wrapData.push({
+            id: `cute-area-option-${i}`,
+            data: this.data.filter((item, index) => index % column === i)
+          })
+        }
+        return wrapData
       }
-      return wrapData
+      return []
     }
   },
 

@@ -43,16 +43,25 @@ export default {
     },
   },
 
+  watch: {
+    data(val) {
+      this.backFill()
+    },
+  },
+
   created() {
-    this.data.forEach(area => {
-      area.city.forEach(city => {
-        this.area.options.push(city)
-        this.area.cachedOptions.push(city)
-      })
-    })
+    this.backFill()
   },
 
   methods: {
+    backFill() {
+      this.data.forEach(area => {
+        area.city.forEach(city => {
+          this.area.options.push(city)
+          this.area.cachedOptions.push(city)
+        })
+      })
+    },
     itemSelected(target) {
       return this.area.value === target[this.valueKey]
     },

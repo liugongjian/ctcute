@@ -12,9 +12,7 @@
       :show-recent="showRecent"
       @change="selectCityClick"
     >
-      <span slot="other" class="suffix-other"
-        >其他区域<span>{{ otherCount }}</span></span
-      >
+      <span slot="other" class="suffix-other">其他区域<span>{{ otherCount }}</span></span>
     </cute-area>
   </div>
 </template>

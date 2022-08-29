@@ -123,7 +123,7 @@ export default {
     },
 
     readonly() {
-      return (!isIE() && !isEdge() && !this.visible);
+      return !isIE() && !isEdge();
     },
 
     iconClass() {
@@ -288,14 +288,14 @@ export default {
         this.selectedLabel = '';
         this.inputLength = 20;
         this.menuVisibleOnFocus = false;
-        this.$nextTick(() => {
-          if (this.$refs.input &&
-            this.$refs.input.value === '' &&
-            this.selected.length === 0) {
-            this.currentPlaceholder = this.cachedPlaceHolder;
-          }
-        });
-        if (this.selected) {
+        // this.$nextTick(() => {
+        //   if (this.$refs.input &&
+        //     this.$refs.input.value === '' &&
+        //     this.selected.length === 0) {
+        //     this.currentPlaceholder = this.cachedPlaceHolder;
+        //   }
+        // });
+        if (this.selected && this.selected.label) {
           this.selectedLabel = this.format ? this.format(this.selected) : this.selected.label
         }
       } else {

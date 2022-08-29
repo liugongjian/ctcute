@@ -321,8 +321,9 @@ export default {
 
   methods: {
     selectCityClick(city) {
-      this.visible = false;
+      this.setSelected(city[this.valueKey])
       this.$emit('change', city)
+      this.visible = false
     },
     handleNavigate(direction) {
       if (this.isOnComposition) return;
@@ -370,8 +371,8 @@ export default {
       return option;
     },
 
-    setSelected() {
-      let option = this.getOption(this.value);
+    setSelected(value) {
+      let option = this.getOption(value || this.value);
       if (option) {
         this.selectedLabel = option.label
         this.selected = option;

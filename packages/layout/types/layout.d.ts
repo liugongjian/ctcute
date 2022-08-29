@@ -2,10 +2,10 @@ import { CurrentInfo } from './user'
 import { IamMenuItem, CtyunMenuItem } from './menu'
 
 export interface LayoutConfig {
-  CONTAINER_ID: string // 容器 id
-  URL_PREFIX: string // url 前缀
-  JS_URL: string
-  CSS_URL: string
+  containerId: string // 容器 id
+  urlPrefix: string // url 前缀
+  jsUrl: string
+  cssUrl: string
 }
 
 export type LayoutConfigOptions = Partial<LayoutConfig>

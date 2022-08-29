@@ -23,16 +23,25 @@ export type CtyunMenuItem = MenuItem & {
   target?: '_self' | '_blank'
 }
 
-// TODO cute 模板需要的格式
+// cute/authenticate 需要的格式
+export enum MENU_TYPE {
+  'menu' = 1,
+  'button' = 2,
+}
 export type CuteItem = {
-  name: string
+  // name: string
+  url?: string
+  perms?: string
+  menuType: typeof MENU_TYPE[keyof typeof MENU_TYPE]
 }
 
 export declare const IamMenu: {
   fetchUrl: string
-  dataFormat(list: IamMenuItem[]): CuteItem[]
+  menuDataFormat(list: IamMenuItem[]): CuteItem[]
+  buttonDataFormat(list: IamMenuItem[]): CuteItem[]
 }
 export declare const CtyunMenu: {
   fetchUrl: string
-  dataFormat(list: IamMenuItem[]): CuteItem[]
+  menuDataFormat(list: CtyunMenuItem[]): CuteItem[]
+  buttonDataFormat(list: CtyunMenuItem[]): CuteItem[]
 }

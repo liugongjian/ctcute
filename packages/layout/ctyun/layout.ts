@@ -2,7 +2,7 @@ import BaseLayout from '../common/BaseLayout'
 import { loadJs, loadCss } from '../common/utils'
 import { LayoutConfigOptions, CtyunLayoutInitOptions } from '../types/layout'
 
-export class CtyunLayout extends BaseLayout {
+export default class CtyunLayout extends BaseLayout {
   constructor(options?: LayoutConfigOptions) {
     super()
 
@@ -10,10 +10,10 @@ export class CtyunLayout extends BaseLayout {
   }
 
   protected config = {
-    CONTAINER_ID: 'ctcloud-console', // 容器 id 固定使用这个，修改没有意义
-    URL_PREFIX: '/ctyun', // url 前缀，可按需调整
-    JS_URL: '/layout/ctcloud-layout.min.js',
-    CSS_URL: '/layout/static/css/app.css',
+    containerId: 'ctcloud-console', // 容器 id 固定使用这个，修改没有意义
+    urlPrefix: '/ctyun', // url 前缀，可按需调整
+    jsUrl: '/layout/ctcloud-layout.min.js',
+    cssUrl: '/layout/static/css/app.css',
   }
 
   /**
@@ -21,10 +21,10 @@ export class CtyunLayout extends BaseLayout {
    */
   async init({ consoleInitArgs, useAd }: CtyunLayoutInitOptions = { useAd: true }) {
     try {
-      const { URL_PREFIX, CSS_URL, JS_URL } = this.config
+      const { urlPrefix, cssUrl, jsUrl } = this.config
 
-      loadCss(`${URL_PREFIX}${CSS_URL}`)
-      await loadJs(`${URL_PREFIX}${JS_URL}`)
+      loadCss(`${urlPrefix}${cssUrl}`)
+      await loadJs(`${urlPrefix}${jsUrl}`)
 
       const { consoleLayout, fixedSidebarAd } = window.CtcloudLayout
 

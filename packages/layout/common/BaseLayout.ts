@@ -7,10 +7,10 @@ export default abstract class Base {
 
   // 配置信息
   protected config: LayoutConfig = {
-    CONTAINER_ID: '', // 容器 id
-    URL_PREFIX: '/', // url 前缀
-    JS_URL: '/layout.js',
-    CSS_URL: '/layout.css',
+    containerId: '', // 容器 id
+    urlPrefix: '/', // url 前缀
+    jsUrl: '/layout.js',
+    cssUrl: '/layout.css',
   }
 
   // 读配置

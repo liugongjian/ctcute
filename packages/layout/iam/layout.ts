@@ -2,7 +2,7 @@ import BaseLayout from '../common/BaseLayout'
 import { loadJs, loadCss } from '../common/utils'
 import { LayoutConfigOptions, IamLayoutInitOptions } from '../types/layout'
 
-export class IamLayout extends BaseLayout {
+export default class IamLayout extends BaseLayout {
   constructor(options?: LayoutConfigOptions) {
     super()
 
@@ -10,10 +10,10 @@ export class IamLayout extends BaseLayout {
   }
 
   protected config = {
-    CONTAINER_ID: 'alogic-console', // 容器id使用这个，或 iam-console-container
-    URL_PREFIX: '/iam', // url 前缀，可按需调整
-    JS_URL: '/layout/alogic-layout.js',
-    CSS_URL: '/layout/alogic-layout.css',
+    containerId: 'alogic-console', // 容器id使用这个，或 iam-console-container
+    urlPrefix: '/iam', // url 前缀，可按需调整
+    jsUrl: '/layout/alogic-layout.js',
+    cssUrl: '/layout/alogic-layout.css',
   }
 
   /**
@@ -21,15 +21,15 @@ export class IamLayout extends BaseLayout {
    */
   async init({ containerId }: IamLayoutInitOptions = {}) {
     try {
-      const { URL_PREFIX, CSS_URL, JS_URL } = this.config
+      const { urlPrefix, cssUrl, jsUrl } = this.config
 
-      loadCss(`${URL_PREFIX}${CSS_URL}`)
-      await loadJs(`${URL_PREFIX}${JS_URL}`)
+      loadCss(`${urlPrefix}${cssUrl}`)
+      await loadJs(`${urlPrefix}${jsUrl}`)
 
       const { consoleContainer } = window.AlogicLayout
 
       consoleContainer.init({
-        baseNode: document.getElementById(containerId || this.config.CONTAINER_ID),
+        baseNode: document.getElementById(containerId || this.config.containerId),
       })
 
       return consoleContainer

@@ -85,9 +85,15 @@ location /ctyun/gw {
 
 本模块主要提供菜单的`请求地址`（使用时需要配置接口代理规则）和菜单内容的差异抹平。
 
+由于 `@cute/authenticate` 包中的菜单鉴权方案为：获取用户拥有的权限列表（包含菜单+按钮），然后按需使用路由配置的 `perms` 属性进行匹配过滤，因此本包按照这种思路提供了 format 方法支持。同时在这种情况下，osp 中的菜单配置仅 `菜单代码 ucode` 和 `权限控制 plist` 有实际意义了。
+
 如果使用 IAM 系统的菜单权限控制功能，则需要在 osp 中进行对应的菜单配置，相关说明可以参考：[按需在 osp 中创建新控制台的服务并进行配置](https://devops.ctcdn.cn/confluence/pages/viewpage.action?pageId=39996428)，其中和前端关系比较密切的是 `角色配置` 和 `菜单配置`。
 
 ctyun 的菜单在 oss 管理（IT 运维中心维护），该平台拿权限比较费劲，可以考虑参考 cdn 的解决方案，把菜单放到 osp 这边进行维护，相关[解决方案](https://devops.ctcdn.cn/confluence/pages/viewpage.action?pageId=46993083)。
+
+## 四、workspace (routerBeforeEach)
+
+由于 IAM 的权限控制是基于工作区概念的，因此所有的服务都需要明确 workspaceId （在 Ctyun 中，使用 userId 作为 workspaceId）。这里提供了一个路由守卫，如果存在则继续执行路由跳转，如果不存在则按需跳到对应页面（IAM 跳到工作区列表选择页，Ctyun 直接跳到登录页）。
 
 ## 其它
 

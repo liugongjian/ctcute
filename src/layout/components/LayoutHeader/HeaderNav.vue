@@ -33,7 +33,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Search from '../Search/index.vue'
-import { Logout } from '@/api/login'
 @Component({
   name: 'LayoutHeaderNav',
   components: {
@@ -51,11 +50,18 @@ export default class extends Vue {
   }
   //退出登录
   private async outLogin() {
-    const res = await Logout()
-    if ((res as any).code === 200) {
-      this.$router.push('/login')
+    const successCb = () => {
       sessionStorage.clear()
     }
+    this.$auth.logout({
+      successCb,
+      instance: this,
+    })
+    // const res = await Logout()
+    // if ((res as any).code === 200) {
+    //   this.$router.push('/login')
+    //   sessionStorage.clear()
+    // }
   }
   private toLogin() {
     this.$router.push('/login')
@@ -75,6 +81,7 @@ export default class extends Vue {
   align-items: center;
   color: #c2c2c2;
   position: relative;
+
   .user-name {
     cursor: pointer;
   }

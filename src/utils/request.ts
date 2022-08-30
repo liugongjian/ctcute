@@ -29,11 +29,6 @@ service.interceptors.request.use(
       // config.params.requestTime = Date.now()
     }
 
-    //将token挂载到请求头上
-    if (sessionStorage.getItem('token')) {
-      config.headers['Authorization'] = sessionStorage.getItem('token')
-    }
-
     return config
   },
   error => {
@@ -48,14 +43,12 @@ service.interceptors.response.use(
     return Promise.resolve(response.data)
   },
   error => {
-    if (error.response.status === 401) {
+    if (error.response && error.response.status === 500) {
       Message({
-        message: '登录失效, 请重新登录! ',
+        message: '服务器开小差了，请稍后重试! ',
         type: 'error',
         duration: 5 * 1000,
       })
-      sessionStorage.clear()
-      window.location.href = `/login?redirect=${location.pathname}${location.search}`
     }
     return Promise.reject(error)
   }

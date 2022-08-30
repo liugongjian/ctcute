@@ -9,7 +9,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { PermissionModule } from '@/store/modules/permission'
 import SidebarItem from './SidebarItem.vue'
 
 @Component({
@@ -36,7 +35,7 @@ export default class extends Vue {
   }
 
   private get currentRoutes(): any {
-    return this.routes || PermissionModule.routes
+    return this.routes || (this.$auth && this.$auth.getRoutes())
   }
 }
 </script>

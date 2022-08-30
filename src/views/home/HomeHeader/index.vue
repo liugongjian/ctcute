@@ -11,7 +11,7 @@
         <Search />
       </div>
       <div class="home-header__nav">
-        <router-link to="/" :class="{ active: currentPath.startsWith('/page') }">页面规范</router-link>
+        <router-link to="/guide" :class="{ active: currentPath.startsWith('/page') }">页面规范</router-link>
         <router-link to="/component" :class="{ active: currentPath.startsWith('/component') }"
           >组件规范</router-link
         >
@@ -71,6 +71,7 @@ export default class extends Vue {
       }
     }
   }
+
   &__right {
     display: flex;
     align-items: center;
@@ -79,12 +80,14 @@ export default class extends Vue {
   &__search {
     margin-right: 64px;
   }
+
   .layout-header__search--input {
     margin-top: 5px;
+
     ::v-deep .el-input__inner {
       width: 200px;
       height: 30px;
-      background: rgba(0, 0, 0, 0.04);
+      background: rgba(0, 0, 0, 4%);
       font-size: 12px;
       color: $color-grey-4;
       line-height: 30px;
@@ -93,14 +96,16 @@ export default class extends Vue {
       padding-left: 36px;
       border: none;
     }
+
     ::v-deep .el-input__prefix {
       margin-left: 5px;
     }
 
     .svg-icon {
-      color: rgba(0, 0, 0, 0.04);
+      color: rgba(0, 0, 0, 4%);
     }
   }
+
   &__nav {
     a {
       color: $color-grey-1;

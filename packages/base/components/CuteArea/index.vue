@@ -50,8 +50,9 @@
         <div 
           class="el-scrollbar__wrap"
           :class="{ 'is-empty': data.length === 0 }"
-          v-show="data && data.length">
-          <div class="el-scrollbar__view el-select-dropdown__list">
+          :style="popperHeightStyle"
+          v-if="data && data.length">
+          <div class="el-scrollbar__view el-select-dropdown__list" style="margin: 10px">
             <cute-area-recent
               v-if="showRecent && recentData && recentData.length"
               :data="recentData"
@@ -123,7 +124,7 @@ export default {
     },
 
     readonly() {
-      return (!isIE() && !isEdge() && !this.visible);
+      return !isIE() && !isEdge();
     },
 
     iconClass() {
@@ -157,21 +158,32 @@ export default {
       return style;
     },
 
+    popperHeightStyle() {
+      let style = {};
+      if (this.popperMaxHeight) {
+        style.maxHeight = this.popperMaxHeight;
+      }
+      return style;
+    },
+
     columnWidth() {
       let column = this.column > 2 ? this.column : 2; // 最小两列
       return 100 / column + '%'
     },
 
     columnData() {
-      let wrapData = [];
-      let column = this.column > 2 ? this.column : 2; // 最小两列
-      for (let i = 0; i < column; i++) {
-        wrapData.push({
-          id: `cute-area-option-${i}`,
-          data: this.data.filter((item, index) => index % column === i)
-        })
+      if (this.data && this.data.length) {
+        let wrapData = [];
+        let column = this.column > 2 ? this.column : 2; // 最小两列
+        for (let i = 0; i < column; i++) {
+          wrapData.push({
+            id: `cute-area-option-${i}`,
+            data: this.data.filter((item, index) => index % column === i)
+          })
+        }
+        return wrapData
       }
-      return wrapData
+      return []
     }
   },
 
@@ -225,6 +237,7 @@ export default {
       default: () => []
     },
     popperWidth: String,
+    popperMaxHeight: String,
     column: {
       type: Number,
       default: 4
@@ -288,14 +301,7 @@ export default {
         this.selectedLabel = '';
         this.inputLength = 20;
         this.menuVisibleOnFocus = false;
-        this.$nextTick(() => {
-          if (this.$refs.input &&
-            this.$refs.input.value === '' &&
-            this.selected.length === 0) {
-            this.currentPlaceholder = this.cachedPlaceHolder;
-          }
-        });
-        if (this.selected) {
+        if (this.selected && this.selected.label) {
           this.selectedLabel = this.format ? this.format(this.selected) : this.selected.label
         }
       } else {
@@ -318,8 +324,9 @@ export default {
 
   methods: {
     selectCityClick(city) {
-      this.visible = false;
+      this.setSelected(city[this.valueKey])
       this.$emit('change', city)
+      this.visible = false
     },
     handleNavigate(direction) {
       if (this.isOnComposition) return;
@@ -367,8 +374,8 @@ export default {
       return option;
     },
 
-    setSelected() {
-      let option = this.getOption(this.value);
+    setSelected(value) {
+      let option = this.getOption(value || this.value);
       if (option) {
         this.selectedLabel = option.label
         this.selected = option;

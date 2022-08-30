@@ -42,7 +42,7 @@ export default class extends Vue {
   private timeline = [
     {
       version: '1.0.9',
-      date: '2022-8-18',
+      date: '2022-8-26',
       features: [
         {
           name: 'ui-Select',
@@ -57,6 +57,51 @@ export default class extends Vue {
           desc: [
             {
               text: '新增可在表头进行筛选的table 组件',
+            },
+          ],
+        },
+        {
+          name: 'component-CuteArea',
+          desc: [
+            {
+              text: '新增CuteArea组件',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: 'Cascader',
+          desc: [
+            {
+              text: '修复固定面包屑引发的 code viewer 和 侧边栏未兼容图片侧栏的问题',
+            },
+            {
+              text: '修复固定面包屑引发的 code viewer 和 侧边栏未兼容图片侧栏的问题',
+            },
+          ],
+        },
+        {
+          name: 'component-selectTree',
+          desc: [
+            {
+              text: '修复selectTree组件通过id回显label',
+            },
+          ],
+        },
+        {
+          name: 'Ui-selectButton',
+          desc: [
+            {
+              text: '修复selectedButton禁用样式',
+            },
+          ],
+        },
+        {
+          name: 'Page-WarnDialog ',
+          desc: [
+            {
+              text: '修复WarnDialog中button hover样式',
             },
           ],
         },

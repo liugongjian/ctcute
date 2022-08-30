@@ -46,11 +46,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .cute-area-recent {
-  margin-bottom: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed $color-grey-6;
   .cute-area-recent-head {
-    margin: 10px 10px 0;
-    padding: 0 10px;
+    padding: 0 2px;
     color: $color-grey-1;
+    font-size: $text-size-medium;
   }
 
   .cute-area-recent-body {
@@ -61,14 +62,14 @@ export default {
     }
     .cute-area-recent-option {
       float: left;
-      padding: 0 10px;
-      margin-top: 10px;
+      padding: 0 2px;
+      margin-top: 15px;
+      text-align: center;
       .cute-area-recent-item {
         position: relative;
         height: 30px;
         line-height: 30px;
-        padding: 0 10px;
-        color: $color-grey-2;
+        color: $color-grey-1;
         font-size: $text-size-primary;
         white-space: nowrap;
         overflow: hidden;

@@ -35,12 +35,8 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import SvgIcons from '../components/SvgIcons/index.vue'
 @Component({
   name: 'HomeFooter',
-  components: {
-    SvgIcons,
-  },
 })
 export default class extends Vue {}
 </script>

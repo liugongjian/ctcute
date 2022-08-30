@@ -1,8 +1,8 @@
 <!--
  * @Author: 黄璐璐
  * @Date: 2022-07-13 13:41:05
- * @LastEditors: 马妍
- * @LastEditTime: 2022-08-23 16:37:31
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-08-26 15:26:47
  * @Description: 添加用户
 -->
 <template>
@@ -37,7 +37,7 @@
               ></el-input>
             </el-form-item>
             <el-form-item label="角色权限" prop="menus">
-              <div class="line">
+              <div v-loading="treeLoding" class="line">
                 <el-tree
                   ref="treeRef"
                   show-checkbox
@@ -55,7 +55,7 @@
       </el-scrollbar>
       <div class="medium-dialog--footer">
         <el-button @click="close">{{ cancelButtonText }}</el-button>
-        <el-button type="primary" @click="confirm">{{ confirmButtonText }}</el-button>
+        <el-button type="primary" :loading="loading" @click="confirm">{{ confirmButtonText }}</el-button>
       </div>
     </el-dialog>
   </el-card>
@@ -64,6 +64,7 @@
 import { Component, Vue, Prop, Ref } from 'vue-property-decorator'
 import { getMenus } from '@/api/simpleMenu'
 import { ElTree } from 'element-ui/types/tree'
+import { editRoles, addRoles } from '@/api/simpleRole'
 @Component({
   name: 'MediumDialog',
 })
@@ -95,6 +96,8 @@ export default class extends Vue {
     update: '编辑角色',
     create: '添加角色',
   }
+  private loading = false
+  private treeLoding = false
   get visibleDia() {
     return this.visible
   }
@@ -141,8 +144,11 @@ export default class extends Vue {
     })
   }
   private async getPermList() {
+    this.treeLoding = true
     try {
       const res = await getMenus()
+      this.treeLoding = false
+
       if ((res as any).code === 200) {
         if (res.data && res.data.result.length > 0) {
           const res_menus = res.data.result
@@ -184,11 +190,47 @@ export default class extends Vue {
         })
         const arr = [].concat(this.treeRef.getCheckedKeys()).concat(this.treeRef.getHalfCheckedKeys())
         this.form.menus = arr as any
-        this.$emit('confirm', this.form)
+        this.handleAddOrEidt()
       } else {
         return false
       }
     })
+  }
+  private async handleAddOrEidt() {
+    this.loading = true
+    if (this.form._id) {
+      //编辑
+      try {
+        const res = await editRoles(this.form._id, this.form)
+        this.loading = false
+        if ((res as any).code === 200) {
+          this.visibleDia = false
+          this.$message.success('编辑成功! ')
+          // this.tableHook.query()
+          this.$emit('confirm')
+        } else {
+          this.$message.error((res as any).msg)
+        }
+      } catch (e) {
+        console.error(e)
+      } finally {
+      }
+    } else {
+      //新增
+      try {
+        const res = await addRoles(this.form)
+        this.loading = false
+        if ((res as any).code === 200) {
+          this.visibleDia = false
+          this.$message.success('添加成功! ')
+          this.$emit('confirm')
+          // this.tableHook.query()
+        }
+      } catch (e) {
+        console.error(e)
+      } finally {
+      }
+    }
   }
 }
 </script>

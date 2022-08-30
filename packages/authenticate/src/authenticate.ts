@@ -74,6 +74,18 @@ export default class VueAuthenticate {
           return options.providers[options.authenticateType]
         },
       },
+
+      userInfo: {
+        get() {
+          return this.permStorage.getItem('userInfo')
+        },
+      },
+
+      isLogin: {
+        get() {
+          return this.permStorage.getItem('isLogin')
+        },
+      },
     })
     this.preCheck()
     this.setupInterceptors()
@@ -210,11 +222,10 @@ export default class VueAuthenticate {
    */
   async isAuthenticated() {
     let isLogin = this.permStorage.getItem('isLogin')
-    if (isLogin !== 'true' && isLogin !== 'false') {
+    if (isLogin !== true && isLogin !== false) {
       await this.authenticate()
     }
     isLogin = this.permStorage.getItem('isLogin')
-    isLogin = isLogin === 'true' ? true : false
     // 如果需要加载权限模块，则请求权限接口
     if (this.options.enableAuthorize && isLogin) {
       await this.getPermInfo()
@@ -235,7 +246,7 @@ export default class VueAuthenticate {
    * @param {String|Object} token
    */
   setToken(response, tokenPath) {
-    this.permStorage.setItem('isLogin', 'true')
+    this.permStorage.setItem('isLogin', true)
     if (response[this.options.responseDataKey]) {
       response = response[this.options.responseDataKey]
     }
@@ -249,6 +260,8 @@ export default class VueAuthenticate {
   }
 
   removeToken() {
+    this.permStorage.removeItem('userInfo')
+    this.permStorage.removeItem('isLogin')
     this.tokenStorage.removeItem(this.tokenName)
   }
 
@@ -319,11 +332,12 @@ export default class VueAuthenticate {
         .then(response => {
           return dataHandler(response)
         })
-        .then(response => {
+        .then(async response => {
           if (response.code === 200) {
             successCb(response)
             // 设置token
             this.setToken(response, 'token')
+            await this.authenticate()
             // 处理redirect
             const redirect_url = instance.$route.query.redirect || '/'
             this.options.router.push(redirect_url)
@@ -400,8 +414,7 @@ export default class VueAuthenticate {
           .then(response => {
             if (response.code === 200) {
               successCb(response)
-              this.permStorage.setItem('isLogin', 'false')
-              this.tokenStorage.removeItem(this.tokenName)
+              this.removeToken()
               instance.$router.push('/login')
             } else {
               errorCb(response)
@@ -414,7 +427,7 @@ export default class VueAuthenticate {
           .finally(response => finallyCb(response))
       })
     } else {
-      this.tokenStorage.removeItem(this.tokenName)
+      this.removeToken()
       return Promise.resolve()
     }
   }
@@ -437,15 +450,25 @@ export default class VueAuthenticate {
 
       requestOptions.url = ifLoginConfig.url
       return this.$http(requestOptions)
-        .then(response => {
-          return lodashGet(response, ifLoginConfig.responseDataKey)
+        .then(data => {
+          if (ifLoginConfig.dataHandler && isFunction(ifLoginConfig.dataHandler)) {
+            return ifLoginConfig.dataHandler.call(this, data)
+          } else {
+            return data
+          }
         })
-        .then(isLogin => {
-          this.permStorage.setItem('isLogin', `${isLogin}`)
-          return resolve(isLogin)
+        .then(data => {
+          const {
+            data: { isLoggedIn, property },
+          } = data
+          this.permStorage.setItem('isLogin', isLoggedIn)
+          if (isLoggedIn) {
+            this.permStorage.setItem('userInfo', property)
+          }
+          return resolve(isLoggedIn)
         })
         .catch(err => {
-          this.permStorage.setItem('isLogin', 'false')
+          this.permStorage.setItem('isLogin', false)
           reject(err)
         })
     })

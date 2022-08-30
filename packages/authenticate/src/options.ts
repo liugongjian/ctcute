@@ -22,7 +22,6 @@ export function getRedirectUri(uri) {
  */
 export default {
   baseUrl: null,
-  tokenPath: 'access_token',
   tokenName: 'token',
   tokenPrefix: 'vueauth',
   tokenHeader: 'Authorization',
@@ -114,7 +113,6 @@ export default {
       ifLogin: {
         url: '/iam/gw/auth/Current', // 检查用户是否登录的线上接口
         method: 'GET',
-        responseDataKey: 'data.isLoggedIn',
       },
       perms: {
         url: '/iam/gw/workspace/menu/GetTree',
@@ -130,7 +128,6 @@ export default {
       ifLogin: {
         url: '/gw/auth/Current', // 检查用户是否登录的线上接口
         method: 'GET',
-        responseDataKey: 'data.isLoggedIn',
       },
     },
     local: {
@@ -139,7 +136,7 @@ export default {
       ifLogin: {
         url: '/v1/auth/account/ifLogin',
         method: 'GET',
-        responseDataKey: 'data.isLoggedIn',
+        dataHandler: data => data,
       },
       // TODO 以后考虑多个接口，改成数组
       perms: {

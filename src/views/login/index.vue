@@ -95,7 +95,7 @@ export default class extends Vue {
         verifyCode: this.form.verifyCode,
       }
       const successCb = () => {
-        sessionStorage.setItem('username', this.form.username)
+        // sessionStorage.setItem('username', this.form.username)
       }
       const errorCb = response => {
         this.$message.error((response as any).msg)

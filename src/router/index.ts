@@ -1,8 +1,8 @@
 /*
  * @Author: 马妍
  * @Date: 2022-07-29 10:25:03
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-18 20:53:31
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-08-30 14:56:51
  * @Description:
  */
 import Vue from 'vue'
@@ -64,8 +64,14 @@ const _statusRoutes = [
 const base = [
   {
     path: '/',
-    redirect: '/guide',
-    meta: { hidden: true },
+    // redirect: '/guide',
+    name: 'Home',
+    component: () => import('@/views/home/index.vue'),
+    meta: {
+      title: '首页',
+      breadcrumb: false,
+    },
+    // meta: { hidden: true },
   },
   {
     path: '/component',

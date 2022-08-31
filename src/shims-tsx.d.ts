@@ -1,3 +1,4 @@
+import { BizAuthConfigOptions } from '@cutedesign/authenticate/types/index.d'
 import Vue, { VNode } from 'vue'
 
 declare global {
@@ -11,6 +12,6 @@ declare global {
     }
   }
   interface Window {
-    commonConfig: any
+    commonConfig: BizAuthConfigOptions
   }
 }

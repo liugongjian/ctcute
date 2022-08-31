@@ -1,22 +1,26 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import lodashGet from 'lodash.get'
+import { AxiosInstance } from 'axios'
+import { Route, NavigationGuardNext } from 'vue-router'
 import { objectExtend, isFunction, getObjectProperty } from './utils'
 import defaultOptions from './options'
 import StorageFactory from './storage'
 import { hasPermission, filterAsyncRouter } from './permissions'
-import { RequestOptions, RequestParams } from '../types'
+import { RequestOptions, RequestParams, BizAuthConfigOptions, CommonAuthProvider, UserInfo } from '../types'
 
 export default class VueAuthenticate {
-  private options: any
-  private authenticateType: 'local' | 'ctyun' | 'iam'
-  private authorizeType: 'local' | 'iam'
-  private currentProvider: any
-  private permStorage: any
-  private $http: any
-  private tokenStorage: any
-  private tokenName: string
+  public options: BizAuthConfigOptions
+  public authenticateType: 'local' | 'ctyun' | 'iam'
+  public authorizeType: 'local' | 'iam'
+  public currentProvider: CommonAuthProvider
+  public permStorage: any
+  public $http: AxiosInstance
+  public tokenStorage: any
+  public tokenName: string
+  public userInfo: UserInfo
+  public isLogin: boolean
 
-  constructor($http, overrideOptions) {
+  constructor($http: AxiosInstance, overrideOptions: BizAuthConfigOptions) {
     let options = objectExtend({}, defaultOptions)
     options = objectExtend(options, overrideOptions)
     const tokenStorage = StorageFactory('cookieStorage', options)
@@ -140,7 +144,7 @@ export default class VueAuthenticate {
   beforeEach() {
     // 执行beforeEach拦截
     if (this.options.router) {
-      this.options.router.beforeEach(async (to, from, next) => {
+      this.options.router.beforeEach(async (to: Route, from: Route, next: NavigationGuardNext) => {
         console.log('inner beforeEach')
         if (this.options.beforeEachStartHook && isFunction(this.options.beforeEachStartHook)) {
           this.options.beforeEachStartHook(to, from, next)
@@ -250,14 +254,12 @@ export default class VueAuthenticate {
    * Set new authentication token
    * @param {String|Object} token
    */
-  setToken(response, tokenPath) {
-    // this.permStorage.setItem('isLogin', true)
+  setToken(response, tokenPath: string) {
     if (response[this.options.responseDataKey]) {
       response = response[this.options.responseDataKey]
     }
 
-    const responseTokenPath = tokenPath || this.options.tokenPath
-    const token = getObjectProperty(response, responseTokenPath)
+    const token = getObjectProperty(response, tokenPath)
 
     if (token) {
       this.tokenStorage.setItem(this.tokenName, token)
@@ -355,8 +357,8 @@ export default class VueAuthenticate {
         .catch(err => {
           console.log(err)
         })
-        .finally(response => {
-          finallyCb(response)
+        .finally(() => {
+          finallyCb()
         })
     })
   }
@@ -430,7 +432,7 @@ export default class VueAuthenticate {
           .catch(e => {
             console.log(e)
           })
-          .finally(response => finallyCb(response))
+          .finally(() => finallyCb())
       })
     } else {
       this.removeToken()

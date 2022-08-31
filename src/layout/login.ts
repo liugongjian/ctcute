@@ -17,17 +17,6 @@ export const getCodes = (): AxiosPromise<any> =>
     method: 'get',
   })
 /**
- * 超级用户登录
- * @returns 登录
- */
-export const getSuperLogin = (params): AxiosPromise<any> =>
-  request({
-    url: '/v1/auth/login',
-    method: 'post',
-    data: params,
-  })
-
-/**
  * 退出登录
  * @returns 退出登录
  */

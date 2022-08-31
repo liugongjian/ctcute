@@ -1,4 +1,5 @@
 import { Message } from 'element-ui'
+import { AxiosRequestConfig } from 'axios'
 import { isUndefined, loadJs, loadCss } from './utils'
 
 export function getCookieDomainUrl() {
@@ -50,7 +51,7 @@ export default {
     if ($auth.options.authenticateType === 'local') {
       const tokenHeader = $auth.options.tokenHeader
 
-      $auth.$http.interceptors.request.use(config => {
+      $auth.$http.interceptors.request.use((config: AxiosRequestConfig) => {
         if ($auth.getToken()) {
           if ($auth.options.tokenType) {
             config.headers[tokenHeader] = [$auth.options.tokenType, $auth.getToken()].join(' ')

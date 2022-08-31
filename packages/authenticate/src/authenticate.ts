@@ -145,7 +145,7 @@ export default class VueAuthenticate {
         if (to.path === '/500') {
           return next()
         }
-        // ! 写法2： 白名单的不走接口，导致需要权限的接口没机会走
+        // ! 写法1： 白名单的不走接口，login页面在已登录状态下不会自动跳转，并且可能导致需要权限的接口没机会走
         try {
           if (to.meta && to.meta.withoutLogin) {
             next()
@@ -178,7 +178,7 @@ export default class VueAuthenticate {
           next()
         }
 
-        // ! 写法1：所有接口都先过一遍isAuthenticated，不需要登录的接口也先请求了ifLogin，是否合理
+        // ! 写法2：所有接口都先过一遍isAuthenticated，不需要登录的接口也先请求了ifLogin，是否合理
         // try {
         //   const isLogin = await this.isAuthenticated()
         //   if (this.authenticateType === 'local') {
@@ -220,24 +220,19 @@ export default class VueAuthenticate {
   }
 
   /**
-   * Check if user is authenticated
-   * @author Sahat Yalkabov <https://github.com/sahat>
-   * @copyright Method taken from https://github.com/sahat/satellizer
-   * @return {Boolean}
+   * 判断是否已登录
+   * @param judgeCache 是否强制走接口，默认会判断缓存，false的时候强制调用接口
+   * @returns 用户是否已登录
    */
-  async isAuthenticated() {
-    let isLogin = this.permStorage.getItem('isLogin')
-    if (isLogin !== true && isLogin !== false) {
-      await this.authenticate()
+  async isAuthenticated(judgeCache = true) {
+    if (judgeCache) {
+      const isLogin = this.permStorage.getItem('isLogin')
+      if (isLogin === true || isLogin === false) {
+        return isLogin
+      }
     }
-    isLogin = this.permStorage.getItem('isLogin')
-    // 如果需要加载权限模块，则请求权限接口
-    if (this.options.enableAuthorize && isLogin) {
-      await this.getPermInfo()
-    }
-    return isLogin
+    return await this.authenticate()
   }
-
   /**
    * Get token if user is authenticated
    * @return {String} Authentication token
@@ -342,7 +337,8 @@ export default class VueAuthenticate {
             successCb(response)
             // 设置token
             this.setToken(response, 'token')
-            await this.isAuthenticated()
+            // 走认证接口拿用户信息和权限信息
+            await this.isAuthenticated(false)
             // 处理redirect
             const redirect_url = instance.$route.query.redirect || '/'
             this.options.router.push(redirect_url)
@@ -462,13 +458,17 @@ export default class VueAuthenticate {
             return data
           }
         })
-        .then(data => {
+        .then(async data => {
           const {
             data: { isLoggedIn, property },
           } = data
           this.permStorage.setItem('isLogin', isLoggedIn)
           if (isLoggedIn) {
             this.permStorage.setItem('userInfo', property)
+            // 如果需要加载权限模块，则请求权限接口
+            if (this.options.enableAuthorize) {
+              await this.getPermInfo()
+            }
           }
           return resolve(isLoggedIn)
         })

@@ -141,6 +141,14 @@ export default {
     )
   },
 
+  // 在插件路由的beforeEach钩子最开始执行的钩子函数
+  beforeEachStartHook: async function (to, from, next) {},
+
+  // 在插件路由的beforeEach钩子报错时执行的钩子函数
+  beforeEachErrorHook: async function (to, from, next) {
+    next()
+  },
+
   // 加载静态资源
   loadLayout: function ($auth) {
     const container = document.querySelector($auth.options.containerId)

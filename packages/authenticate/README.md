@@ -165,6 +165,7 @@ export default {
         method: 'GET',
       },
       perms: {
+        domain: '', // 菜单接口对应的domain，业务方自行配置
         url: '/iam/gw/workspace/menu/GetTree', // 获取用户权限的接口
         method: 'GET',
         responseDataKey: 'data.items', // 可以拿到数据的key

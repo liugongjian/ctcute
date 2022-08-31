@@ -491,6 +491,11 @@ export default class VueAuthenticate {
       const requestOptions: RequestOptions = {}
       requestOptions.method = permConfig.method
       requestOptions.withCredentials = this.options.withCredentials
+      if (permConfig.domain) {
+        requestOptions.params = {
+          domain: permConfig.domain,
+        }
+      }
 
       requestOptions.url = permConfig.url
       return this.$http(requestOptions)

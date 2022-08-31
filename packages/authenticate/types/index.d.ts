@@ -2,6 +2,8 @@ export type RequestOptions = {
   url?: string
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
   withCredentials?: boolean
+  params?: object
+  data?: object
 }
 
 export interface RequestParams {

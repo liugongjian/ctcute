@@ -146,70 +146,75 @@ export default class VueAuthenticate {
           return next()
         }
         // ! 写法2： 白名单的不走接口，导致需要权限的接口没机会走
-        // if (to.meta && to.meta.withoutLogin) {
-        //   next()
-        // } else {
+        try {
+          if (to.meta && to.meta.withoutLogin) {
+            next()
+          } else {
+            const isLogin = await this.isAuthenticated()
+            if (this.authenticateType === 'local') {
+              if (isLogin) {
+                if (to.path === '/login') {
+                  next('/')
+                } else {
+                  if (hasPermission(this.getAllMenus(), to)) {
+                    next()
+                  } else {
+                    next('/404')
+                  }
+                }
+              } else {
+                const redirect_url = to.path === '/login' ? '/' : to.path
+                next(`/login?redirect=${redirect_url}`)
+              }
+            } else {
+              if (!isLogin) {
+                window.location.href = this.currentProvider.loginUrl
+              } else {
+                next()
+              }
+            }
+          }
+        } catch (e) {
+          next()
+        }
+
+        // ! 写法1：所有接口都先过一遍isAuthenticated，不需要登录的接口也先请求了ifLogin，是否合理
+        // try {
         //   const isLogin = await this.isAuthenticated()
         //   if (this.authenticateType === 'local') {
         //     if (isLogin) {
+        //       // 如果已登录
         //       if (to.path === '/login') {
         //         next('/')
         //       } else {
         //         if (hasPermission(this.getAllMenus(), to)) {
         //           next()
         //         } else {
+        //           // ! 文档里需要说明，强制有404
         //           next('/404')
         //         }
         //       }
         //     } else {
-        //       const redirect_url = to.path === '/login' ? '/' : to.path
-        //       next(`/login?redirect=${redirect_url}`)
+        //       // 白名单中的不用登录
+        //       if (to.meta && to.meta.withoutLogin) {
+        //         next()
+        //       } else {
+        //         const redirect_url = to.path === '/login' ? '/' : to.path
+        //         next(`/login?redirect=${redirect_url}`)
+        //       }
         //     }
         //   } else {
         //     if (!isLogin) {
+        //       // 跳转到单点登录这一块，是怎么做的？
         //       window.location.href = this.currentProvider.loginUrl
         //     } else {
+        //       // TODO 如果是IAM，登录相关的是否还有别的设置？
         //       next()
         //     }
         //   }
+        // } catch (e) {
+        //   next()
         // }
-        // ! 写法1：所有接口都先过一遍isAuthenticated，当status为500时，拦截器一直请求ifLogin接口，死循环
-        try {
-          const isLogin = await this.isAuthenticated()
-          if (this.authenticateType === 'local') {
-            if (isLogin) {
-              // 如果已登录
-              if (to.path === '/login') {
-                next('/')
-              } else {
-                if (hasPermission(this.getAllMenus(), to)) {
-                  next()
-                } else {
-                  // ! 文档里需要说明，强制有404
-                  next('/404')
-                }
-              }
-            } else {
-              // 白名单中的不用登录
-              if (to.meta && to.meta.withoutLogin) {
-                next()
-              } else {
-                const redirect_url = to.path === '/login' ? '/' : to.path
-                next(`/login?redirect=${redirect_url}`)
-              }
-            }
-          } else {
-            if (!isLogin) {
-              // 跳转到单点登录这一块，是怎么做的？
-              window.location.href = this.currentProvider.loginUrl
-            } else {
-              // TODO 如果是IAM，登录相关的是否还有别的设置？
-              next()
-            }
-          }
-        } catch (e) {
-          next()
-        }
       })
     }
   }
@@ -246,7 +251,7 @@ export default class VueAuthenticate {
    * @param {String|Object} token
    */
   setToken(response, tokenPath) {
-    this.permStorage.setItem('isLogin', true)
+    // this.permStorage.setItem('isLogin', true)
     if (response[this.options.responseDataKey]) {
       response = response[this.options.responseDataKey]
     }
@@ -337,7 +342,7 @@ export default class VueAuthenticate {
             successCb(response)
             // 设置token
             this.setToken(response, 'token')
-            await this.authenticate()
+            await this.isAuthenticated()
             // 处理redirect
             const redirect_url = instance.$route.query.redirect || '/'
             this.options.router.push(redirect_url)

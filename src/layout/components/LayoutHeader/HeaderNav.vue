@@ -42,9 +42,9 @@ import Search from '../Search/index.vue'
 export default class extends Vue {
   private keyword = ''
   private circleUrl = 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
-  private isLogin = this.$auth.isLogin
+  private isLogin = this.$auth.isLogin || ''
   private flag = false
-  private username = this.$auth.userInfo?.name
+  private username = this.$auth.userInfo?.name || ''
   private get currentPath() {
     return this.$route.path
   }
@@ -67,9 +67,12 @@ export default class extends Vue {
     this.$router.push('/login')
   }
   private getAuthInfo() {
-    debugger
     this.isLogin = this.$auth.isLogin
     this.username = this.$auth.userInfo?.name
+  }
+  @Watch('$route')
+  private onRouteChange() {
+    this.getAuthInfo()
   }
 }
 </script>

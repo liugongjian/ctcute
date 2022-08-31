@@ -1,6 +1,7 @@
 import './utils'
 import VueAuthenticate from './authenticate'
 import hasPermissionDirective from './directive'
+import IsAuthorizedComponent from './component.vue'
 import { AuthInstance, BizAuthConfigOptions } from '../types'
 
 declare module 'vue/types/vue' {
@@ -11,6 +12,7 @@ declare module 'vue/types/vue' {
 
 const install = function (Vue: any, options: BizAuthConfigOptions) {
   Vue.directive('permission', hasPermissionDirective)
+  Vue.component('IsAuthorized', IsAuthorizedComponent)
 
   preCheck(options)
 

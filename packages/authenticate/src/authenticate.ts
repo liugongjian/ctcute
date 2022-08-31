@@ -242,6 +242,11 @@ export default class VueAuthenticate {
     }
     return await this.authenticate()
   }
+
+  isAuthorized(permissions) {
+    const allAuth = this.getAllButtons()
+    return allAuth.some(auth => permissions.includes(auth))
+  }
   /**
    * Get token if user is authenticated
    * @return {String} Authentication token

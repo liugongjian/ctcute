@@ -142,8 +142,8 @@ export default class VueAuthenticate {
     if (this.options.router) {
       this.options.router.beforeEach(async (to, from, next) => {
         console.log('inner beforeEach')
-        if (to.path === '/500') {
-          return next()
+        if (this.options.beforeEachStartHook && isFunction(this.options.beforeEachStartHook)) {
+          this.options.beforeEachStartHook(to, from, next)
         }
         // ! 写法1： 白名单的不走接口，login页面在已登录状态下不会自动跳转，并且可能导致需要权限的接口没机会走
         try {
@@ -175,7 +175,12 @@ export default class VueAuthenticate {
             }
           }
         } catch (e) {
-          next()
+          // next()
+          if (this.options.beforeEachErrorHook && isFunction(this.options.beforeEachErrorHook)) {
+            this.options.beforeEachErrorHook(to, from, next)
+          } else {
+            next()
+          }
         }
 
         // ! 写法2：所有接口都先过一遍isAuthenticated，不需要登录的接口也先请求了ifLogin，是否合理

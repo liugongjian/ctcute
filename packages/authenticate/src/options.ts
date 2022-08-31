@@ -90,6 +90,12 @@ export default {
     )
   },
 
+  beforeEachStartHook: async function (to, from, next) { },
+
+  beforeEachErrorHook: async function (to, from, next) {
+    next()
+  },
+
   // 加载静态资源
   loadLayout: function ($auth) {
     const container = document.querySelector($auth.options.containerId)

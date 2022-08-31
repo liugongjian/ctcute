@@ -49,6 +49,7 @@ service.interceptors.response.use(
         type: 'error',
         duration: 5 * 1000,
       })
+      // window.location.href = '/500'
     }
     return Promise.reject(error)
   }

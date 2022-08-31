@@ -38,9 +38,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { PermissionModule } from '@/store/modules/permission'
 import SidebarItem from './SidebarItem.vue'
-import { constantRoutes } from '@/router'
 
 @Component({
   name: 'SideBar',
@@ -83,9 +81,7 @@ export default class extends Vue {
   }
 
   public get currentRoutes(): any {
-    // todo
-    // const routes = this.routes || PermissionModule.routes
-    const routes = constantRoutes || PermissionModule.routes
+    const routes = this.routes || (this.$auth && this.$auth.getRoutes())
     return routes.filter(route => route.meta.type === this.type)
   }
 

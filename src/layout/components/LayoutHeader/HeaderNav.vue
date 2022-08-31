@@ -4,16 +4,16 @@
       <Search />
     </div>
     <div class="layout-header__nav">
-      <router-link to="/" :class="{ active: currentPath.startsWith('/page') }">页面规范</router-link>
+      <router-link to="/guide" :class="{ active: currentPath.startsWith('/page') }">页面规范</router-link>
       <router-link to="/component" :class="{ active: currentPath.startsWith('/component') }"
         >组件规范</router-link
       >
       <router-link to="/ui" :class="{ active: currentPath.startsWith('/ui') }">UI规范</router-link>
     </div>
     <!-- 用户信息 -->
-    <div v-if="username" class="login-info">
+    <div v-if="isLogin" class="login-info">
       <div class="block"><el-avatar :size="28" :src="circleUrl"></el-avatar></div>
-      <span class="user-name" @click="flag = !flag">{{ username ? username : '未登录' }}</span>
+      <span class="user-name" @click="flag = !flag">{{ isLogin ? username : '未登录' }}</span>
       <svg-icon :name="!flag ? 'caret-down' : 'caret-up'" />
 
       <ul v-if="flag">
@@ -31,9 +31,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Watch } from 'vue-property-decorator'
 import Search from '../Search/index.vue'
-import { Logout } from '@/api/login'
 @Component({
   name: 'LayoutHeaderNav',
   components: {
@@ -43,22 +42,37 @@ import { Logout } from '@/api/login'
 export default class extends Vue {
   private keyword = ''
   private circleUrl = 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
+  private isLogin = this.$auth.isLogin || ''
   private flag = false
-  private username = sessionStorage.getItem('username')
-  private token = sessionStorage.getItem('token')
+  private username = this.$auth.userInfo?.name || ''
   private get currentPath() {
     return this.$route.path
   }
   //退出登录
   private async outLogin() {
-    const res = await Logout()
-    if ((res as any).code === 200) {
-      this.$router.push('/login')
+    const successCb = () => {
       sessionStorage.clear()
     }
+    this.$auth.logout({
+      successCb,
+      instance: this,
+    })
+    // const res = await Logout()
+    // if ((res as any).code === 200) {
+    //   this.$router.push('/login')
+    //   sessionStorage.clear()
+    // }
   }
   private toLogin() {
     this.$router.push('/login')
+  }
+  private getAuthInfo() {
+    this.isLogin = this.$auth.isLogin
+    this.username = this.$auth.userInfo?.name
+  }
+  @Watch('$route')
+  private onRouteChange() {
+    this.getAuthInfo()
   }
 }
 </script>
@@ -75,6 +89,7 @@ export default class extends Vue {
   align-items: center;
   color: #c2c2c2;
   position: relative;
+
   .user-name {
     cursor: pointer;
   }

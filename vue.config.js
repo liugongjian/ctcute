@@ -14,10 +14,11 @@ module.exports = {
       errors: true,
     },
     proxy: {
-       '/v1/auth/': {
+      '/v1/auth/': {
         // target: 'http://fed.ctyuncdn.cn:8088', // 线上服务
         // target: 'http://172.24.12.7:7002', //hjt 后端服务
-         target: 'http://172.21.65.214:8088/',
+        //  target: 'http://172.21.65.214:8088/',
+        target: 'http://localhost:7002',
         https: true,
         changeOrigin: true,
         secure: false,
@@ -39,8 +40,6 @@ module.exports = {
         changeOrigin: true,
         secure: false,
       },
-
-     
     },
     historyApiFallback: true,
     disableHostCheck: true,

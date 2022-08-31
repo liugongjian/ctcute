@@ -3,7 +3,7 @@
  * @Date: 2022-08-11 16:27:09
  * @LastEditors: 马妍
  * @LastEditTime: 2022-08-19 17:08:29
- * @Description: 
+ * @Description:
 -->
 <template>
   <div class="login">
@@ -51,7 +51,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { getCodes, getSuperLogin } from '@/api/login'
+import { getCodes } from '@/api/login'
 import { encryptAes } from '@/utils/AES'
 
 @Component({
@@ -88,27 +88,30 @@ export default class extends Vue {
   private async Login() {
     try {
       this.loading = true
-      const res = await getSuperLogin({
+      // 使用this.$auth插件，把setToken的事情交给插件内部
+      const user = {
         username: this.form.username,
         password: encryptAes(this.form.password.trim()),
         verifyCode: this.form.verifyCode,
-      })
-      if ((res as any).code === 200) {
-        this.loading = false
-        //登录信息存到本地
-        sessionStorage.setItem('token', res.data.token)
-        sessionStorage.setItem('username', this.form.username)
-        const redirect_url = this.$route.query.redirect
-        if (redirect_url) {
-          window.location.href = decodeURIComponent(redirect_url as string)
-        } else {
-          window.location.href = '/guide'
-        }
-      } else {
-        this.$message.error((res as any).msg)
+      }
+      const successCb = () => {
+        // sessionStorage.setItem('username', this.form.username)
+      }
+      const errorCb = response => {
+        this.$message.error((response as any).msg)
         this.loading = false
         this.getCode()
       }
+      const finallyCb = () => {
+        this.loading = false
+      }
+      this.$auth.login({
+        user,
+        successCb,
+        errorCb,
+        finallyCb,
+        instance: this,
+      })
     } catch (e) {
       this.loading = false
       console.log(e)

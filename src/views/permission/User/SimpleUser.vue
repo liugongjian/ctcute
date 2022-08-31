@@ -10,7 +10,9 @@
     <!--表格工具栏-->
     <div class="table-tools">
       <div class="table-tools__left">
-        <el-button type="primary" @click="addUser">+ 添加用户</el-button>
+        <el-button v-permission="['/permission/user/:add']" type="primary" @click="addUser"
+          >+ 添加用户</el-button
+        >
       </div>
       <div class="table-tools__right table-tools__conditions">
         <el-form ref="conditions" :model="conditions" inline @submit.native.prevent>

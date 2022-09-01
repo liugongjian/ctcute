@@ -4,7 +4,7 @@ import { isUndefined, loadJs, loadCss } from './utils'
 export function getCookieDomainUrl() {
   try {
     return window.location.hostname
-  } catch (e) { }
+  } catch (e) {}
 
   return ''
 }
@@ -12,7 +12,7 @@ export function getCookieDomainUrl() {
 export function getRedirectUri(uri) {
   try {
     return !isUndefined(uri) ? `${window.location.origin}${uri}` : window.location.origin
-  } catch (e) { }
+  } catch (e) {}
 
   return uri || null
 }
@@ -81,6 +81,7 @@ export default {
             type: 'error',
             duration: 5 * 1000,
           })
+          $auth.permStorage.removeItem('isLogin')
           $auth.permStorage.removeItem('allPerms')
           $auth.removeToken()
           window.location.href = $auth.currentProvider.loginUrl

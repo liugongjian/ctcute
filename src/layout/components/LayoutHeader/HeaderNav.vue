@@ -67,7 +67,6 @@ export default class extends Vue {
     this.$router.push('/login')
   }
   private getAuthInfo() {
-    debugger
     this.isLogin = this.$auth.isLogin
     this.username = this.$auth.userInfo?.name
   }

@@ -143,7 +143,7 @@ export default class VueAuthenticate {
       this.options.router.beforeEach(async (to, from, next) => {
         console.log('inner beforeEach')
         if (this.options.beforeEachStartHook && isFunction(this.options.beforeEachStartHook)) {
-          this.options.beforeEachStartHook(to, from, next)
+          this.options.beforeEachStartHook.call(this, this, to, from, next)
         }
         // ! 写法1： 白名单的不走接口，login页面在已登录状态下不会自动跳转，并且可能导致需要权限的接口没机会走
         try {
@@ -469,6 +469,11 @@ export default class VueAuthenticate {
           } = data
           this.permStorage.setItem('isLogin', isLoggedIn)
           if (isLoggedIn) {
+            // 按需执行登录后的处理
+            if (ifLoginConfig.afterLogin && isFunction(ifLoginConfig.afterLogin)) {
+              ifLoginConfig.afterLogin.call(this, data)
+            }
+
             this.permStorage.setItem('userInfo', property)
             // 如果需要加载权限模块，则请求权限接口
             if (this.options.enableAuthorize) {

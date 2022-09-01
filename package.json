@@ -89,6 +89,7 @@
     "packages/chart",
     "packages/appendix",
     "packages/sort-table",
-    "packages/authenticate"
+    "packages/authenticate",
+    "packages/layout"
   ]
 }

@@ -1,18 +1,15 @@
-import { AxiosRequestConfig } from 'axios'
-
 export default {
   fetchUrl: '/iam/gw/auth/Current',
 
-  // axios 请求拦截器，为请求默认带上 workspaceId 请求参数（固定放在 params 中）
-  requestInterceptor: (workspaceId: string | number) => (config: AxiosRequestConfig) => {
-    if (!config.params) {
-      config.params = {}
-    }
-    config.params.workspaceId = workspaceId
+  loginUrl: `/sign/in?returnUrl=${encodeURIComponent(window.location.href)}`, // 对应业务后端的登录地址
+  logoutUrl: '/sign/out', // 对应业务后端的退出地址，按需重写
 
-    return config
+  // 支持外部设置
+  setConfig({ loginUrl, logoutUrl }: { loginUrl?: string; logoutUrl?: string } = {}) {
+    if (loginUrl) this.loginUrl = loginUrl
+    if (logoutUrl) this.logoutUrl = logoutUrl
   },
 
   // axios 响应拦截器，暂不存在需求
-  // ResponseInterceptor: response => response,
+  // responseInterceptor: response => response,
 }

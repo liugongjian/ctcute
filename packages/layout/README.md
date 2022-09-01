@@ -91,7 +91,9 @@ location /ctyun/gw {
 
 ctyun 的菜单在 oss 管理（IT 运维中心维护），该平台拿权限比较费劲，可以考虑参考 cdn 的解决方案，把菜单放到 osp 这边进行维护，相关[解决方案](https://devops.ctcdn.cn/confluence/pages/viewpage.action?pageId=46993083)。
 
-## 四、workspace (routerBeforeEach)
+ps：oss 相关的平台已经不知道怎么访问了，有需要可以咨询 王汕（产品），cdn 已经切到 iam 管理。
+
+## 四、workspace
 
 由于 IAM 的权限控制是基于工作区概念的，因此所有的服务都需要明确 workspaceId （在 Ctyun 中，使用 userId 作为 workspaceId）。这里提供了一个路由守卫，如果存在则继续执行路由跳转，如果不存在则按需跳到对应页面（IAM 跳到工作区列表选择页，Ctyun 直接跳到登录页）。
 

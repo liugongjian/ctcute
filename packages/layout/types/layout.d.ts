@@ -96,7 +96,7 @@ declare namespace CtcloudLayout {
   export interface consoleLayout {
     // 控制台顶部头像下拉框列表(不可嵌套)
     init(args?: CtcloudLayout.consoleInitArgs): MvvmInstance
-    // 侧边栏高亮
+    // 侧边栏高亮， domian 使用的是接口 GetTree?domain=console.leftbar 中的 id
     match(args: { domain?: string; key?: string }): void
   }
   // 右下角客服

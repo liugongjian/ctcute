@@ -1,11 +1,21 @@
 import { Message } from 'element-ui'
+import {
+  IamLayout,
+  CtyunLayout,
+  IamUser,
+  CtyunUser,
+  IamMenu,
+  CtyunMenu,
+  IamWorkspace,
+  CtyunWorkspace,
+} from '@cutedesign/layout'
+import { isUndefined } from './utils'
 import { AxiosRequestConfig } from 'axios'
-import { isUndefined, loadJs, loadCss } from './utils'
 
 export function getCookieDomainUrl() {
   try {
     return window.location.hostname
-  } catch (e) { }
+  } catch (e) {}
 
   return ''
 }
@@ -13,7 +23,7 @@ export function getCookieDomainUrl() {
 export function getRedirectUri(uri) {
   try {
     return !isUndefined(uri) ? `${window.location.origin}${uri}` : window.location.origin
-  } catch (e) { }
+  } catch (e) {}
 
   return uri || null
 }
@@ -48,7 +58,8 @@ export default {
    * @context {VueAuthenticate}
    */
   bindRequestInterceptor: function ($auth) {
-    if ($auth.options.authenticateType === 'local') {
+    const { authenticateType } = $auth.options
+    if (authenticateType === 'local') {
       const tokenHeader = $auth.options.tokenHeader
 
       $auth.$http.interceptors.request.use((config: AxiosRequestConfig) => {
@@ -63,13 +74,17 @@ export default {
         }
         return config
       })
+    } else if (authenticateType === 'iam') {
+      $auth.$http.interceptors.request.use(IamWorkspace.requestInterceptor)
+    } else if (authenticateType === 'ctyun') {
+      $auth.$http.interceptors.request.use(CtyunWorkspace.requestInterceptor)
     }
   },
   // bindResponseInterceptor
   bindResponseInterceptor: function ($auth) {
     $auth.$http.interceptors.response.use(
       response => {
-        // iam未登录状态
+        // iam未登录状态 TODO 该 code 码为业务侧的，需要考虑由业务侧自定义拦截器
         if (response.code === 'core.e1019') {
           window.location.href = $auth.currentProvider.loginUrl
         }
@@ -92,7 +107,14 @@ export default {
   },
 
   // 在插件路由的beforeEach钩子最开始执行的钩子函数
-  beforeEachStartHook: async function (to, from, next) { },
+  beforeEachStartHook: async function ($auth, to, from, next) {
+    const { authenticateType } = $auth.options
+    if (authenticateType === 'iam') {
+      IamWorkspace.routerBeforeEach(to, from, next)
+    } else if (authenticateType === 'ctyun') {
+      CtyunWorkspace.routerBeforeEach(to, from, next)
+    }
+  },
 
   // 在插件路由的beforeEach钩子报错时执行的钩子函数
   beforeEachErrorHook: async function (to, from, next) {
@@ -102,41 +124,65 @@ export default {
   // 加载静态资源
   loadLayout: function ($auth) {
     const container = document.querySelector($auth.options.containerId)
-    container.id = $auth.options.providers[$auth.authenticateType].containerId
-    if ($auth.authenticateType === 'iam') {
-      loadCss('/iam/layout/alogic-layout.css')
-      loadJs('/iam/layout/alogic-layout.js')
-    } else if ($auth.authenticateType === 'ctyun') {
-      loadCss('/layout/static/css/app.css')
-      loadJs('/layout/ctcloud-layout.min.js')
+    const { authenticateType, providers } = $auth.options
+    const { containerId, sidbarMatchDomain } = providers[authenticateType].layout
+    container.id = containerId
+    if (authenticateType === 'iam') {
+      const layout = new IamLayout()
+      layout.init({ containerId }).then(console => {
+        // 侧边栏高亮
+        console.match({ domain: sidbarMatchDomain })
+      })
+    } else if (authenticateType === 'ctyun') {
+      const layout = new CtyunLayout()
+      layout.init().then(console1 => {
+        // 侧边栏高亮
+        console1.match({ domain: sidbarMatchDomain })
+      })
     }
   },
 
   // 三种用户权限相关的配置
   providers: {
     iam: {
-      containerId: 'iam-console-container',
-      loginUrl: `/sign/in?returnUrl=${encodeURIComponent(window.location.href)}`, // 对应后端的登录地址
-      logoutUrl: 'https://iam.ctcdn.cn/iam/sign/out', // 对应后端或者iam的退出地址
+      layout: {
+        containerId: 'iam-console-container',
+        sidbarMatchDomain: '', // 侧边栏高亮配置，按需重写
+      },
+      loginUrl: IamUser.loginUrl, // 对应业务后端的登录地址
+      logoutUrl: IamUser.logoutUrl, // 对应业务后端的退出地址，按需重写
       ifLogin: {
-        url: '/iam/gw/auth/Current', // 检查用户是否登录的线上接口
+        url: IamUser.fetchUrl, // 检查用户是否登录的线上接口
         method: 'GET',
+        // dataHandler: data => data, // 数据格式转换，转换成统一的格式，按需提供
+        // afterLogin: userinfo => {}, // 登录成功后，拿到用户信息执行一些操作
       },
       perms: {
-        domain: '', // 菜单接口对应的domain，业务方自行配置
-        url: '/iam/gw/workspace/menu/GetTree', // 获取用户权限的接口，需要传workspaceId和domain两个参数
+        domain: '', // 菜单接口对应的domain （osp 中的菜单代码），业务方按需重写
+        url: IamMenu.fetchUrl, // 获取用户权限的接口
         method: 'GET',
         responseDataKey: 'data.items', // 可以拿到数据的key
-        dataHandler: data => data, // 数据格式转换，转换成统一的格式
+        dataHandler: IamMenu.dataFormat, // 数据格式转换，转换成统一的格式
       },
     },
     ctyun: {
-      containerId: 'ctcloud-console',
-      loginUrl: `/sign/in?returnUrl=${encodeURIComponent(window.location.href)}`,
-      logoutUrl: 'https://www.ctyun.cn/sign/out',
+      layout: {
+        containerId: 'ctcloud-console', // 注意：该 id 不要重写，会导致 ctyun layout 初始化异常
+        sidbarMatchDomain: '', // 侧边栏高亮配置，按需重写
+      },
+      loginUrl: CtyunUser.loginUrl,
+      logoutUrl: CtyunUser.logoutUrl,
       ifLogin: {
-        url: '/gw/auth/Current', // 检查用户是否登录的线上接口
+        url: CtyunUser.fetchUrl,
         method: 'GET',
+        afterLogin: userinfo => CtyunWorkspace.setWorkspaceId(userinfo.userId),
+      },
+      perms: {
+        domain: '', // 菜单接口对应的domain （oss 中的菜单代码），业务方按需重写
+        url: CtyunMenu.fetchUrl, // 获取用户权限的接口
+        method: 'GET',
+        responseDataKey: 'data.list', // 可以拿到数据的key
+        dataHandler: CtyunMenu.dataFormat, // 数据格式转换，转换成统一的格式
       },
     },
     local: {

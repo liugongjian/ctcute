@@ -1,5 +1,3 @@
-import { AxiosRequestConfig } from 'axios'
-
 // user 数据
 export interface UserProperty {
   userId: string
@@ -20,11 +18,17 @@ export interface CurrentInfo {
   property: UserProperty
 }
 
-export declare const IamUser: {
-  fetchUrl: string
-  requestInterceptor: (userId: string | number) => (config: AxiosRequestConfig) => AxiosRequestConfig
+export interface UserConfigOptions {
+  loginUrl?: string
+  logoutUrl?: string
 }
-export declare const CtyunUser: {
+
+interface User {
   fetchUrl: string
-  requestInterceptor: (userId: string | number) => (config: AxiosRequestConfig) => AxiosRequestConfig
+  loginUrl: string
+  logoutUrl: string
+  setConfig: (options: UserConfigOptions) => void
 }
+
+export declare const IamUser: User
+export declare const CtyunUser: User

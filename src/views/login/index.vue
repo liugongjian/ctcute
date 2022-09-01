@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-08-11 16:27:09
- * @LastEditors: 马妍
- * @LastEditTime: 2022-08-19 17:08:29
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-09-01 13:44:16
  * @Description:
 -->
 <template>
@@ -59,8 +59,8 @@ import { encryptAes } from '@/utils/AES'
 })
 export default class extends Vue {
   private form = {
-    password: 'alQNm7#JLQ=4', //密码
-    username: 'super@chinatelecom.cn', //用户名
+    password: '', //密码
+    username: '', //用户名
     verifyCode: '', //验证码
   }
   private loading = false

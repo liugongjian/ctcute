@@ -1,14 +1,14 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-08-11 16:27:09
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-09-01 13:44:16
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-09-01 22:13:43
  * @Description:
 -->
 <template>
   <div class="login">
     <div class="login-content">
-      <img src="../../assets/images/login/cute背景打包.png" alt="" class="login-content_img" />
+      <img src="../../assets/images/login/cute-login.png" alt="" class="login-content_img" />
       <div class="content-desc">
         <p class="blur"></p>
         <div class="content-desc_from">

@@ -68,7 +68,35 @@ this.$auth.isLogin
 <el-button v-permission="['/permission/user/:add']">+ 新增按钮</el-button>
 ```
 
-其中`'/permission/user/:add'`是配置的按钮 code
+其中`'/permission/user/:add'`是配置的权限 code
+
+5. 对于一块的内容可通过`<is-authorized>`组件实现，举例如下：
+
+```
+<is-authorized :permissions="['/permission/user/:add']">
+  <!-- Elements to show if user can update resource -->
+  胡佳婷test
+</is-authorized>
+```
+
+其中`'/permission/user/:add'`是配置的权限 code
+同时，`is-authorized`组件暴露了`is-authorized-component`样式，可进行覆盖，如:
+
+```
+.is-authorized-component {
+  background: red;
+}
+```
+
+6. 对于`el-tabs`组件，某个 tab 的显示隐藏无法直接通过`v-permission`或者`<is-authorized>`实现，可通过插件暴露的`isAuthorized`方法直接控制，举例如下：
+
+```
+<el-tab-pane
+  v-if="$auth.isAuthorized(['/permission/user/:add'])"
+  label="默认项"
+  name="second"
+></el-tab-pane>
+```
 
 ## 配置项
 
@@ -141,6 +169,14 @@ export default {
     )
   },
 
+  // 在插件路由的beforeEach钩子最开始执行的钩子函数
+  beforeEachStartHook: async function (to, from, next) {},
+
+  // 在插件路由的beforeEach钩子报错时执行的钩子函数
+  beforeEachErrorHook: async function (to, from, next) {
+    next()
+  },
+
   // 加载静态资源
   loadLayout: function ($auth) {
     const container = document.querySelector($auth.options.containerId)
@@ -165,6 +201,7 @@ export default {
         method: 'GET',
       },
       perms: {
+        domain: '', // 菜单接口对应的domain，业务方自行配置
         url: '/iam/gw/workspace/menu/GetTree', // 获取用户权限的接口
         method: 'GET',
         responseDataKey: 'data.items', // 可以拿到数据的key

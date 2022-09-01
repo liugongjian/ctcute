@@ -1,4 +1,11 @@
 import { NavigationGuard } from 'vue-router'
+import { AxiosRequestConfig } from 'axios'
 
-export declare const IamRouterBeforeEach: NavigationGuard
-export declare const CtyunRouterBeforeEach: NavigationGuard
+interface Workspace {
+  setWorkspaceId: (workspaceId: string) => void
+  routerBeforeEach: NavigationGuard
+  requestInterceptor: (userId: string | number) => (config: AxiosRequestConfig) => AxiosRequestConfig
+}
+
+export declare const IamWorkspace: Workspace
+export declare const CtyunWorkspace: Workspace

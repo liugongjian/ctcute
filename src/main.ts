@@ -22,6 +22,11 @@ Vue.use(CuteAuthenticate, {
   router,
   routes,
   http,
+  beforeEachStartHook: async (to, from, next) => {
+    if (to.path === '/500') {
+      return next()
+    }
+  },
 })
 
 Vue.use(CuteComponent)

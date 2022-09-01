@@ -1,9 +1,11 @@
+import { MENU_TYPE } from '../common/config'
+
 // menu 项
 interface MenuItem {
   enable: 'true' | 'false' // 是否可用
   state?: 'online' | 'offline' // 是否上线
   name: string
-  renderer: 'menu' | 'seperator' | 'submenu' | 'blank' // 渲染类型
+  renderer: 'menu' | 'button' | 'seperator' | 'submenu' | 'blank' // 渲染类型
   href: string
   hrefLocal?: string
   parentId?: string
@@ -24,10 +26,7 @@ export type CtyunMenuItem = MenuItem & {
 }
 
 // cute/authenticate 需要的格式
-export enum MENU_TYPE {
-  'menu' = 1,
-  'button' = 2,
-}
+
 export type CuteItem = {
   // name: string
   url?: string
@@ -37,11 +36,9 @@ export type CuteItem = {
 
 export declare const IamMenu: {
   fetchUrl: string
-  menuDataFormat(list: IamMenuItem[]): CuteItem[]
-  buttonDataFormat(list: IamMenuItem[]): CuteItem[]
+  dataFormat(list: IamMenuItem[]): CuteItem[]
 }
 export declare const CtyunMenu: {
   fetchUrl: string
-  menuDataFormat(list: CtyunMenuItem[]): CuteItem[]
-  buttonDataFormat(list: CtyunMenuItem[]): CuteItem[]
+  dataFormat(list: CtyunMenuItem[]): CuteItem[]
 }

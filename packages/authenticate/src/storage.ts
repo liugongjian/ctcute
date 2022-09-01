@@ -2,8 +2,9 @@ import CookieStorage from './storage/CookieStorage'
 import LocalStorage from './storage/LocalStorage'
 import MemoryStorage from './storage/MemoryStorage'
 import SessionStorage from './storage/SessionStorage'
+import { AuthConfigOptions } from '../types'
 
-export default function StorageFactory(storageType, options) {
+export default function StorageFactory(storageType: string, options: AuthConfigOptions) {
   switch (storageType) {
     case 'localStorage':
       try {

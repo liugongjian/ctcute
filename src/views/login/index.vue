@@ -51,7 +51,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { getCodes, getSuperLogin } from '@/api/login'
+import { getCodes } from '@/api/login'
 import { encryptAes } from '@/utils/AES'
 
 @Component({

@@ -1,5 +1,5 @@
 import { isObject } from './utils'
-import { LayoutConfig, LayoutConfigOptions } from '../types/layout'
+import { LayoutConfig, LayoutConfigOptions } from '../../types/layout'
 
 export default abstract class Base {
   // eslint-disable-next-line @typescript-eslint/no-empty-function

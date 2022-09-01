@@ -1,4 +1,4 @@
-import { CtyunMenuItem, CuteItem } from '../types/menu'
+import { CtyunMenuItem, CuteItem } from '../../types/menu'
 import { MENU_TYPE } from '../common/config'
 
 export default {

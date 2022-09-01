@@ -84,10 +84,6 @@ export default {
   bindResponseInterceptor: function ($auth) {
     $auth.$http.interceptors.response.use(
       response => {
-        // iam未登录状态 TODO 该 code 码为业务侧的，需要考虑由业务侧自定义拦截器
-        if (response.code === 'core.e1019') {
-          window.location.href = $auth.currentProvider.loginUrl
-        }
         return response
       },
       error => {
@@ -135,9 +131,9 @@ export default {
       })
     } else if (authenticateType === 'ctyun') {
       const layout = new CtyunLayout()
-      layout.init().then(console1 => {
+      layout.init().then(console => {
         // 侧边栏高亮
-        console1.match({ domain: sidbarMatchDomain })
+        console.match({ domain: sidbarMatchDomain })
       })
     }
   },

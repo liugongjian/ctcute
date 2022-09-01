@@ -1,10 +1,10 @@
 {
     "name": "@cutedesign/layout",
     "version": "1.0.0",
-    "description": "",
+    "description": "IAM Ctyun 两种对接方式的差异抹平",
     "type": "module",
     "typings": "types/index.d.ts",
-    "main": "index.ts",
+    "main": "src/index.ts",
     "dependencies": {},
     "devDependencies": {},
     "peerDependencies": {

@@ -327,9 +327,9 @@ export default class VueAuthenticate {
   login({
     user,
     requestOptions = {},
-    successCb = () => { },
-    errorCb = () => { },
-    finallyCb = () => { },
+    successCb = () => {},
+    errorCb = () => {},
+    finallyCb = () => {},
     dataHandler = data => data,
     instance,
   }: RequestParams) {
@@ -401,9 +401,9 @@ export default class VueAuthenticate {
    */
   logout({
     requestOptions = {},
-    successCb = () => { },
-    errorCb = () => { },
-    finallyCb = () => { },
+    successCb = () => {},
+    errorCb = () => {},
+    finallyCb = () => {},
     dataHandler = data => data,
     instance,
   }: RequestParams) {

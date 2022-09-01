@@ -93,6 +93,7 @@ export default {
             type: 'error',
             duration: 5 * 1000,
           })
+          $auth.permStorage.removeItem('isLogin')
           $auth.permStorage.removeItem('allPerms')
           $auth.removeToken()
           window.location.href = $auth.currentProvider.loginUrl

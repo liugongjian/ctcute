@@ -2,14 +2,14 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-26 15:35:18
+ * @LastEditTime: 2022-09-01 10:36:01
  * @Description: 基础表格
 -->
 <template>
   <el-card class="simple-menu">
     <!--表格工具栏-->
     <div class="table-tools">
-      <el-button type="primary" @click="addMenus">+ 添 加</el-button>
+      <el-button v-permission="['/permission/menu:add']" type="primary" @click="addMenus">+ 添 加</el-button>
     </div>
 
     <!--弹窗-->
@@ -105,8 +105,12 @@
 
       <el-table-column prop="actions" label="操作" width="250" fixed="right" class-name="actions">
         <template slot-scope="{ row }">
-          <el-button type="text" @click="gotoEdit(row)">编辑</el-button>
-          <el-button type="text" @click="gotoDetail(row)">删除</el-button>
+          <el-button v-permission="['/permission/menu:edit']" type="text" @click="gotoEdit(row)"
+            >编辑</el-button
+          >
+          <el-button v-permission="['/permission/menu:del']" type="text" @click="gotoDetail(row)"
+            >删除</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -194,6 +198,7 @@ export default class extends Vue {
     try {
       this.loading = true
       const res = await getMenus()
+
       if ((res as any).code === 200) {
         const res_menus = res.data.result.map(item => {
           item.label = item.name
@@ -219,10 +224,11 @@ export default class extends Vue {
             },
           ]
         }
-        this.loading = false
       }
+      this.loading = false
     } catch (e) {
       console.error(e)
+      this.loading = false
     } finally {
     }
   }

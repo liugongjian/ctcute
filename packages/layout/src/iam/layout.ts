@@ -1,6 +1,6 @@
 import BaseLayout from '../common/BaseLayout'
 import { loadJs, loadCss } from '../common/utils'
-import { LayoutConfigOptions, IamLayoutInitOptions } from '../types/layout'
+import { LayoutConfigOptions, IamLayoutInitOptions } from '../../types/layout'
 
 export default class IamLayout extends BaseLayout {
   constructor(options?: LayoutConfigOptions) {

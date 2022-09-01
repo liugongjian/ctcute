@@ -31,10 +31,15 @@ interface ApiConfig extends RequestOptions {
   domain?: string
 }
 export interface CommonAuthProvider {
-  containerId?: string
+  layout: {
+    containerId: string
+    sidbarMatchDomain?: string
+  }
   loginUrl: string
   logoutUrl: string
-  ifLogin: ApiConfig
+  ifLogin: ApiConfig & {
+    afterLogin: (userinfo: any) => any
+  }
   perms?: ApiConfig
 }
 

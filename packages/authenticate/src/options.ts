@@ -10,6 +10,7 @@ import {
   CtyunWorkspace,
 } from '@cutedesign/layout'
 import { isUndefined } from './utils'
+import { AxiosRequestConfig } from 'axios'
 
 export function getCookieDomainUrl() {
   try {
@@ -61,7 +62,7 @@ export default {
     if (authenticateType === 'local') {
       const tokenHeader = $auth.options.tokenHeader
 
-      $auth.$http.interceptors.request.use(config => {
+      $auth.$http.interceptors.request.use((config: AxiosRequestConfig) => {
         if ($auth.getToken()) {
           if ($auth.options.tokenType) {
             config.headers[tokenHeader] = [$auth.options.tokenType, $auth.getToken()].join(' ')
@@ -105,6 +106,7 @@ export default {
     )
   },
 
+  // 在插件路由的beforeEach钩子最开始执行的钩子函数
   beforeEachStartHook: async function ($auth, to, from, next) {
     const { authenticateType } = $auth.options
     if (authenticateType === 'iam') {
@@ -114,6 +116,7 @@ export default {
     }
   },
 
+  // 在插件路由的beforeEach钩子报错时执行的钩子函数
   beforeEachErrorHook: async function (to, from, next) {
     next()
   },

@@ -52,7 +52,7 @@
           :class="{ 'is-empty': data.length === 0 }"
           :style="popperHeightStyle"
           v-if="data && data.length">
-          <div class="el-scrollbar__view el-select-dropdown__list" style="margin: 10px">
+          <div class="el-scrollbar__view" style="margin: 12px">
             <cute-area-recent
               v-if="showRecent && recentData && recentData.length"
               :data="recentData"

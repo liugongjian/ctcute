@@ -16,7 +16,8 @@
     "axios": "^0.26.1",
     "vue": "2.6.14",
     "element-ui": "^2.15.6",
-    "@cutedesign/layout": "^1.0.0"
+    "@cutedesign/layout": "^1.0.0",
+    "vue-router": "^3.2.0"
   },
   "repository": {
     "type": "git",

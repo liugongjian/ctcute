@@ -182,7 +182,9 @@ export default {
       },
     },
     local: {
-      containerId: 'container',
+      layout: {
+        containerId: 'container',
+      },
       loginUrl: `/login?redirect=${encodeURIComponent(window.location.href)}`,
       ifLogin: {
         url: '/v1/auth/account/ifLogin',

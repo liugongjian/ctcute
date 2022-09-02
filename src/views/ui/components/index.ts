@@ -11,6 +11,7 @@ const componentsList = [
   require('./Steps.vue'),
   require('./Input.vue'),
   require('./Select.vue'),
+  require('./CascadeSelect.vue'),
   require('./Radio.vue'),
   require('./Checkbox.vue'),
   require('./Rate.vue'),

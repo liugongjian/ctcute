@@ -1,6 +1,6 @@
 <template>
   <header class="layout-header">
-    <div class="layout-header__logo">
+    <div class="layout-header__logo" @click="toHome">
       <!-- 天翼云LOGO -->
       <img class="layout-header__logo--ct" src="./images/ct-logo.svg" />
       <!-- 项目LOGO -->
@@ -22,7 +22,11 @@ import HeaderNav from './HeaderNav.vue'
     HeaderNav,
   },
 })
-export default class extends Vue {}
+export default class extends Vue {
+  private toHome() {
+    this.$router.push('/')
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -58,6 +62,9 @@ export default class extends Vue {}
         margin-top: 3px; // 因包含字母g，向下偏移3个像素，让视觉水平居中
       }
     }
+  }
+  &__logo:hover {
+    cursor: pointer;
   }
 }
 </style>

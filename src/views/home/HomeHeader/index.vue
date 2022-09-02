@@ -11,11 +11,9 @@
         <Search />
       </div>
       <div class="home-header__nav">
-        <router-link to="/guide" :class="{ active: currentPath.startsWith('/page') }">页面规范</router-link>
-        <router-link to="/component" :class="{ active: currentPath.startsWith('/component') }"
-          >组件规范</router-link
-        >
-        <router-link to="/ui" :class="{ active: currentPath.startsWith('/ui') }">UI规范</router-link>
+        <router-link to="/guide">页面规范</router-link>
+        <router-link to="/component">组件规范</router-link>
+        <router-link to="/ui">UI规范</router-link>
       </div>
     </div>
   </header>
@@ -30,11 +28,7 @@ import Search from '@/layout/components/Search/index.vue'
     Search,
   },
 })
-export default class extends Vue {
-  get currentPath() {
-    return this.$route.path
-  }
-}
+export default class extends Vue {}
 </script>
 <style lang="scss" scoped>
 .home-header {

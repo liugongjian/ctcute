@@ -1464,7 +1464,26 @@
 }
 
 .el-cascader__dropdown {
+  margin-bottom: 5px !important;
+  margin-top: 4px !important;
   transform: none;
+
+  .el-cascader-node:hover {
+    background-color: $color-master-7;
+  }
+
+  .in-active-path {
+    background-color: $color-master-7;
+  }
+
+  .el-radio,
+  .el-checkbox {
+    padding-right: 8px;
+  }
+
+  .el-cascader-node__label {
+    padding: 0;
+  }
 
   .el-icon-arrow-right::before {
     content: '\e791';

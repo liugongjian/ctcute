@@ -23,6 +23,7 @@ export type CtyunMenuItem = MenuItem & {
   order: string // ctyun 排序，数字型字符串
   menuCode: string // ctyun
   target?: '_self' | '_blank'
+  items?: Array<CtyunMenuItem>
 }
 
 // cute/authenticate 需要的格式

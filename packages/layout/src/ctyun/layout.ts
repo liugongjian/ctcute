@@ -16,16 +16,21 @@ export default class CtyunLayout extends BaseLayout {
     cssUrl: '/layout/static/css/app.css',
   }
 
-  /**
-   * 执行初始化
-   */
-  async init({ consoleInitArgs, useAd }: CtyunLayoutInitOptions = { useAd: true }) {
+  // 资源加载
+  async load() {
     try {
       const { urlPrefix, cssUrl, jsUrl } = this.config
 
       loadCss(`${urlPrefix}${cssUrl}`)
       await loadJs(`${urlPrefix}${jsUrl}`)
+    } catch (err) {
+      return Promise.reject(`Ctyun Layout 加载失败：${err}`)
+    }
+  }
 
+  // 初始化
+  init({ consoleInitArgs, useAd }: CtyunLayoutInitOptions = { useAd: true }) {
+    try {
       const { consoleLayout, fixedSidebarAd } = window.CtcloudLayout
 
       consoleLayout.init(consoleInitArgs)
@@ -33,7 +38,7 @@ export default class CtyunLayout extends BaseLayout {
       // 初始化客服入口
       useAd && fixedSidebarAd.init()
 
-      return consoleLayout
+      return Promise.resolve(consoleLayout)
     } catch (err) {
       return Promise.reject(`Ctyun Layout 初始化失败：${err}`)
     }

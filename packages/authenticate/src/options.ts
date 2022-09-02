@@ -114,23 +114,29 @@ export default {
   },
 
   // 加载静态资源
-  loadLayout: function ($auth) {
-    const container = document.querySelector($auth.options.containerId)
-    const { authenticateType, providers } = $auth.options
-    const { containerId, sidbarMatchDomain } = providers[authenticateType].layout
-    container.id = containerId
-    if (authenticateType === 'iam') {
-      const layout = new IamLayout()
-      layout.init({ containerId }).then(console => {
+  loadLayout: async function ($auth) {
+    try {
+      const container = document.querySelector($auth.options.containerId)
+      const { authenticateType, providers } = $auth.options
+      const { containerId, sidbarMatchDomain } = providers[authenticateType].layout
+      if (authenticateType === 'iam') {
+        const layout = new IamLayout()
+        await layout.load()
+        // 由于 layout 加载完后会立即执行一次初始化，因此容器 id 的赋予要滞后到按需资源加载之后、初始化之前
+        container.id = containerId
+        const console = await layout.init({ containerId })
         // 侧边栏高亮
         console.match({ domain: sidbarMatchDomain })
-      })
-    } else if (authenticateType === 'ctyun') {
-      const layout = new CtyunLayout()
-      layout.init().then(console => {
+      } else if (authenticateType === 'ctyun') {
+        const layout = new CtyunLayout()
+        await layout.load()
+        container.id = containerId
+        const console = await layout.init()
         // 侧边栏高亮
         console.match({ domain: sidbarMatchDomain })
-      })
+      }
+    } catch (err) {
+      console.error(err)
     }
   },
 

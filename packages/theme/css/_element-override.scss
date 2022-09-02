@@ -1432,18 +1432,40 @@
     content: '\e790';
   }
 
+  .el-icon-circle-close:before {
+    font-family: 'cute-icons' !important;
+    content: '\ea4f';
+
+  }
+
   .el-input--medium .el-input__icon {
     line-height: 32px;
+
   }
 
   .el-input__suffix {
-    height: 32px;
+    height: 37px;
     line-height: 32px;
-    right: 3px;
+    right: 2px;
+  }
+
+  .el-cascader__tags {
+    .el-tag>span {
+      background: $color-grey-10;
+    }
+
+    .el-icon-close:before {
+      color: $color-white;
+      background-color: $color-grey-4;
+      border-radius: 50%;
+      line-height: 17px;
+    }
   }
 }
 
 .el-cascader__dropdown {
+  transform: none;
+
   .el-icon-arrow-right::before {
     content: '\e791';
   }

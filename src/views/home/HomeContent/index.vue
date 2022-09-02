@@ -2,37 +2,25 @@
   <div class="home-content">
     <h3>标准化流程</h3>
     <div class="home-content-inner">
-      <div>
-        <img
-          class="content-img1"
-          :src="src1"
-          alt=""
-          @mouseleave="changeImageSrc(1, '')"
-          @mouseenter="changeImageSrc(1, 'hover')"
-        />
-        <div class="text1" @mouseenter.stop>{{ text1 }}</div>
+      <div @mouseleave="changeImageSrc(1, '')" @mouseenter="changeImageSrc(1, 'hover')">
+        <div class="content-background1" :style="active1"></div>
+        <h4 class="text1" @mouseenter.stop>{{ text1 }}</h4>
+        <img class="content-img1" :src="src1" alt="" />
         <p>产品原型</p>
       </div>
-      <div>
-        <img
-          class="content-img2"
-          :src="src2"
-          alt=""
-          @mouseleave="changeImageSrc(2, '')"
-          @mouseenter="changeImageSrc(2, 'hover')"
-        />
-        <div class="text2">{{ text2 }}</div>
+
+      <div @mouseleave="changeImageSrc(2, '')" @mouseenter="changeImageSrc(2, 'hover')">
+        <div class="content-background2" :style="active2"></div>
+        <h4 class="text2">{{ text2 }}</h4>
+        <img class="content-img2" :src="src2" alt="" />
+
         <p>UI规范</p>
       </div>
-      <div>
-        <img
-          class="content-img3"
-          :src="src3"
-          alt=""
-          @mouseleave="changeImageSrc(3, '')"
-          @mouseenter="changeImageSrc(3, 'hover')"
-        />
-        <div class="text3">{{ text3 }}</div>
+      <div @mouseleave="changeImageSrc(3, '')" @mouseenter="changeImageSrc(3, 'hover')">
+        <div class="content-background3" :style="active3"></div>
+        <h4 class="text3">{{ text3 }}</h4>
+        <img class="content-img3" :src="src3" alt="" />
+
         <p>前端开发</p>
       </div>
     </div>
@@ -52,26 +40,23 @@ export default class extends Vue {
   private src1 = require('./images/产品原型.svg')
   private src2 = require('./images/UI规范.svg')
   private src3 = require('./images/前端开发.svg')
+  private active1 = ''
+  private active2 = ''
+  private active3 = ''
 
   private changeImageSrc(key, way) {
     switch (key) {
       //通过传递的参数  分别让不同的部件执行不同的内容
       case 1:
-        way === 'hover'
-          ? (this.src1 = require('./images/产品原型hover.svg'))
-          : (this.src1 = require('./images/产品原型.svg'))
+        way === 'hover' ? (this.active1 = 'background: #cfdce6;') : (this.active1 = '')
         way === 'hover' ? (this.text1 = '标准化多场景元件库') : (this.text1 = '') //悬停时更改文字
         break
       case 2:
-        way === 'hover'
-          ? (this.src2 = require('./images/UI规范hover.svg'))
-          : (this.src2 = require('./images/UI规范.svg'))
+        way === 'hover' ? (this.active2 = 'background: #cfdce6;') : (this.active2 = '')
         way === 'hover' ? (this.text2 = '统一高复用UI规范') : (this.text2 = '') //悬停时更改文字
         break
       case 3:
-        way === 'hover'
-          ? (this.src3 = require('./images/前端开发hover.svg'))
-          : (this.src3 = require('./images/前端开发.svg'))
+        way === 'hover' ? (this.active3 = 'background: #cfdce6;') : (this.active3 = '')
         way === 'hover' ? (this.text3 = '标准组件库自动化页面生成工具') : (this.text3 = '') //悬停时更改文字
         break
     }
@@ -102,16 +87,23 @@ export default class extends Vue {
       position: relative;
       width: 380px;
       height: 305px;
+      > div {
+        position: absolute;
+        width: 380px;
+        height: 213px;
+        background: #ebf3f9;
+        border-radius: 10px;
+      }
       > img {
         position: absolute;
-        left: -19px;
-        top: 2px;
+        left: -20px;
+        top: 16px;
       }
-      > div {
+      > h4 {
         position: absolute;
         z-index: 999;
         left: 120px;
-        top: 17px;
+        top: -4px;
         font-family: PingFangSC-Regular;
         font-size: 14px;
         color: $color-grey-1;
@@ -130,39 +122,22 @@ export default class extends Vue {
       > p {
         position: absolute;
         left: 157px;
-        top: 275px;
+        top: 273px;
         font-size: 16px;
         color: $color-grey-1;
         font-weight: 500;
         margin: 0;
-        margin-top: 19px;
       }
     }
-    .content-img1:hover {
-      left: -65px;
-      top: -52px;
-      display: block;
-      cursor: pointer;
-    }
     .content-img2 {
-      left: -1px;
-      top: 2px;
-    }
-    .content-img2:hover {
-      left: -62px;
-      top: -52px;
-      display: block;
-      cursor: pointer;
+      left: 85px;
+      top: 52px;
+      border-radius: 5px;
+      box-shadow: 0 0 8px 0 rgba(200, 201, 204, 40%);
     }
     .content-img3 {
-      left: -23px;
-      top: -122px;
-    }
-    .content-img3:hover {
-      left: -62px;
-      top: -122px;
-      display: block;
-      cursor: pointer;
+      left: 100px;
+      top: 41px;
     }
   }
   &-video {

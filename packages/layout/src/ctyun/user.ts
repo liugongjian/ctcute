@@ -1,5 +1,5 @@
 export default {
-  fetchUrl: '/ctyun/gw/auth/Current',
+  fetchUrl: '/gw/auth/Current',
 
   loginUrl: `/sign/in?returnUrl=${encodeURIComponent(window.location.href)}`, // 对应业务后端的登录地址
   logoutUrl: '/sign/out', // 对应业务后端的退出地址，按需重写

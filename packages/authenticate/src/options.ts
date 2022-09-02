@@ -96,7 +96,7 @@ export default {
           $auth.permStorage.removeItem('isLogin')
           $auth.permStorage.removeItem('allPerms')
           $auth.removeToken()
-          window.location.href = $auth.currentProvider.loginUrl
+          window.location.href = $auth.currentProvider.user.loginUrl
         }
         return Promise.reject(error)
       }
@@ -104,13 +104,8 @@ export default {
   },
 
   // 在插件路由的beforeEach钩子最开始执行的钩子函数
-  beforeEachStartHook: async function ($auth, to, from, next) {
-    const { authenticateType } = $auth.options
-    if (authenticateType === 'iam') {
-      IamWorkspace.routerBeforeEach(to, from, next)
-    } else if (authenticateType === 'ctyun') {
-      CtyunWorkspace.routerBeforeEach(to, from, next)
-    }
+  beforeEachStartHook: async function (to, from, next) {
+    next()
   },
 
   // 在插件路由的beforeEach钩子报错时执行的钩子函数
@@ -146,13 +141,23 @@ export default {
         containerId: 'iam-console-container',
         sidbarMatchDomain: '', // 侧边栏高亮配置，按需重写
       },
-      loginUrl: IamUser.loginUrl, // 对应业务后端的登录地址
-      logoutUrl: IamUser.logoutUrl, // 对应业务后端的退出地址，按需重写
+      user: {
+        loginUrl: IamUser.loginUrl, // 对应业务后端的登录地址
+        logoutUrl: IamUser.logoutUrl, // 对应业务后端的退出地址，按需重写
+        setUrl(baseUrl) {
+          const loginUrl = `${baseUrl}${IamUser.loginUrl}`
+          const logoutUrl = `${baseUrl}${IamUser.logoutUrl}`
+          this.loginUrl = loginUrl
+          this.logoutUrl = logoutUrl
+          IamUser.setConfig({ loginUrl, logoutUrl })
+        },
+      },
       ifLogin: {
         url: IamUser.fetchUrl, // 检查用户是否登录的线上接口
         method: 'GET',
         // dataHandler: data => data, // 数据格式转换，转换成统一的格式，按需提供
         // afterLogin: userinfo => {}, // 登录成功后，拿到用户信息执行一些操作
+        routerBeforeEach: IamWorkspace.routerBeforeEach,
       },
       perms: {
         domain: '', // 菜单接口对应的domain （osp 中的菜单代码），业务方按需重写
@@ -167,12 +172,15 @@ export default {
         containerId: 'ctcloud-console', // 注意：该 id 不要重写，会导致 ctyun layout 初始化异常
         sidbarMatchDomain: '', // 侧边栏高亮配置，按需重写
       },
-      loginUrl: CtyunUser.loginUrl,
-      logoutUrl: CtyunUser.logoutUrl,
+      user: {
+        loginUrl: CtyunUser.loginUrl,
+        logoutUrl: CtyunUser.logoutUrl,
+      },
       ifLogin: {
         url: CtyunUser.fetchUrl,
         method: 'GET',
         afterLogin: userinfo => CtyunWorkspace.setWorkspaceId(userinfo.userId),
+        routerBeforeEach: CtyunWorkspace.routerBeforeEach,
       },
       perms: {
         domain: '', // 菜单接口对应的domain （oss 中的菜单代码），业务方按需重写
@@ -186,7 +194,9 @@ export default {
       layout: {
         containerId: 'container',
       },
-      loginUrl: `/login?redirect=${encodeURIComponent(window.location.href)}`,
+      user: {
+        loginUrl: `/login?redirect=${encodeURIComponent(window.location.href)}`,
+      },
       ifLogin: {
         url: '/v1/auth/account/ifLogin',
         method: 'GET',

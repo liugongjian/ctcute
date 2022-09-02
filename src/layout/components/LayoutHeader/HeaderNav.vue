@@ -12,7 +12,7 @@
     </div>
     <!-- 用户信息 -->
     <div v-if="isLogin" class="login-info">
-      <div class="block"><el-avatar :size="28" :src="circleUrl"></el-avatar></div>
+      <img class="img" src="./images/cute-portrait.svg" alt="" />
       <span class="user-name" @click="flag = !flag">{{ isLogin ? username : '未登录' }}</span>
       <svg-icon :name="!flag ? 'caret-down' : 'caret-up'" />
 
@@ -33,6 +33,7 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import Search from '../Search/index.vue'
+
 @Component({
   name: 'LayoutHeaderNav',
   components: {
@@ -41,7 +42,6 @@ import Search from '../Search/index.vue'
 })
 export default class extends Vue {
   private keyword = ''
-  private circleUrl = 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
   private isLogin = this.$auth.isLogin || ''
   private flag = false
   private username = this.$auth.userInfo?.name || ''
@@ -98,7 +98,7 @@ export default class extends Vue {
     margin-left: 5px;
   }
 
-  .el-avatar {
+  .img {
     margin-right: 10px;
   }
 

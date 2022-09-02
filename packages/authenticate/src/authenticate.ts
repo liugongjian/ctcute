@@ -101,6 +101,15 @@ export default class VueAuthenticate {
   preCheck() {
     // 匹配的认证和权限的组合
     const compatibleCombination = ['local,local', 'iam,local', 'ctyun,local', 'iam,iam']
+    // 认证的 url 需要加上业务前缀
+    const { authenticateType, providers } = this.options
+    if (providers[authenticateType] && providers[authenticateType].user) {
+      if (providers[authenticateType].user.setUrl && isFunction(providers[authenticateType].user.setUrl)) {
+        providers[authenticateType].user.setUrl(this.options.baseUrl)
+      }
+    }
+    console.log(this.options)
+
     // 如果开启了权限
     if (this.options.enableAuthorize) {
       // 检查权限与认证是类型是否匹配
@@ -147,7 +156,7 @@ export default class VueAuthenticate {
       this.options.router.beforeEach(async (to: Route, from: Route, next: NavigationGuardNext) => {
         console.log('inner beforeEach')
         if (this.options.beforeEachStartHook && isFunction(this.options.beforeEachStartHook)) {
-          this.options.beforeEachStartHook.call(this, this, to, from, next)
+          this.options.beforeEachStartHook(to, from, next)
         }
         // ! 写法1： 白名单的不走接口，login页面在已登录状态下不会自动跳转，并且可能导致需要权限的接口没机会走
         try {
@@ -172,13 +181,21 @@ export default class VueAuthenticate {
               }
             } else {
               if (!isLogin) {
-                window.location.href = this.currentProvider.loginUrl
+                window.location.href = this.currentProvider.user.loginUrl
               } else {
-                next()
+                if (
+                  this.currentProvider.ifLogin.routerBeforeEach &&
+                  isFunction(this.currentProvider.ifLogin.routerBeforeEach)
+                ) {
+                  this.currentProvider.ifLogin.routerBeforeEach(to, from, next)
+                } else {
+                  next()
+                }
               }
             }
           }
         } catch (e) {
+          console.error(e)
           // next()
           if (this.options.beforeEachErrorHook && isFunction(this.options.beforeEachErrorHook)) {
             this.options.beforeEachErrorHook(to, from, next)

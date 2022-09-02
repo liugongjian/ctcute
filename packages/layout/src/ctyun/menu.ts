@@ -2,9 +2,9 @@ import { CtyunMenuItem, CuteItem } from '../../types/menu'
 import { MENU_TYPE } from '../common/config'
 
 export default {
-  fetchUrl: '/ctyun/gw/v1/portal/menu/GetTree',
+  fetchUrl: '/gw/v1/portal/menu/GetTree',
   // 其实 ctyun 可以直接关掉鉴权
-  dataFormat(list: CtyunMenuItem[]) {
+  dataFormat(list: CtyunMenuItem[] = []) {
     return list
       .filter(item => item.enable === 'true')
       .map(item => {

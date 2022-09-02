@@ -22,6 +22,8 @@ export default {
       workspaceId = to.query.workspaceId = __workspaceId__
     }
 
+    console.log(__workspaceId__)
+
     // 自动填充 query: workspaceId
     if (workspaceId) {
       if (/.*\?(.*&)?workspaceId=[^\s]+/.test(to.fullPath)) {
@@ -43,6 +45,7 @@ export default {
     if (!config.params) {
       config.params = {}
     }
+    console.log(__workspaceId__)
     config.params.workspaceId = __workspaceId__
 
     return config

@@ -1,6 +1,6 @@
 import { VueInstance } from 'vue'
 import { AxiosInstance } from 'axios'
-import Router, { RouteConfig, Route, NavigationGuardNext } from 'vue-router'
+import Router, { RouteConfig, Route, NavigationGuardNext, NavigationGuard } from 'vue-router'
 export interface RequestOptions {
   url?: string
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
@@ -35,10 +35,14 @@ export interface CommonAuthProvider {
     containerId: string
     sidbarMatchDomain?: string
   }
-  loginUrl: string
-  logoutUrl: string
+  user: {
+    loginUrl: string
+    logoutUrl: string
+    setUrl?: (baseUrl: string) => any
+  }
   ifLogin: ApiConfig & {
     afterLogin: (userinfo: any) => any
+    routerBeforeEach: NavigationGuard
   }
   perms?: ApiConfig
 }

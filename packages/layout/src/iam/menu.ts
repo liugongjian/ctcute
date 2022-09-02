@@ -5,7 +5,7 @@ export default {
   fetchUrl: '/iam/gw/workspace/menu/GetTree',
 
   // TODO ，拍平数组，然后根据 render 类型区分类型？弄到同一个菜单里获取
-  dataFormat(list: IamMenuItem[]) {
+  dataFormat(list: IamMenuItem[] = []) {
     return list
       .filter(item => item.enable === 'true')
       .map(item => {

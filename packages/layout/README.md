@@ -75,7 +75,7 @@ location /iam/gw {
 ### 2、CTYUN user
 
 ```nginx
-location /ctyun/gw {
+location ^/gw {
   proxy_set_header Host www.ctyun.cn;
   proxy_pass https://www.ctyun.cn/gw;
 }

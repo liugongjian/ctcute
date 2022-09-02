@@ -1,10 +1,21 @@
 import { Message } from 'element-ui'
-import { isUndefined, loadJs, loadCss } from './utils'
+import {
+  IamLayout,
+  CtyunLayout,
+  IamUser,
+  CtyunUser,
+  IamMenu,
+  CtyunMenu,
+  IamWorkspace,
+  CtyunWorkspace,
+} from '@cutedesign/layout'
+import { isUndefined } from './utils'
+import { AxiosRequestConfig } from 'axios'
 
 export function getCookieDomainUrl() {
   try {
     return window.location.hostname
-  } catch (e) { }
+  } catch (e) {}
 
   return ''
 }
@@ -12,7 +23,7 @@ export function getCookieDomainUrl() {
 export function getRedirectUri(uri) {
   try {
     return !isUndefined(uri) ? `${window.location.origin}${uri}` : window.location.origin
-  } catch (e) { }
+  } catch (e) {}
 
   return uri || null
 }
@@ -21,37 +32,37 @@ export function getRedirectUri(uri) {
  * Default configuration
  */
 export default {
-  baseUrl: null,
-  tokenPath: 'access_token',
-  tokenName: 'token',
-  tokenPrefix: 'vueauth',
-  tokenHeader: 'Authorization',
-  tokenType: null,
-  loginUrl: '/v1/auth/login',
-  logoutUrl: '/v1/auth/logout',
-  // registerUrl: '/auth/register',
-  storageNamespace: 'vue-authenticate',
+  baseUrl: null, // 后端接口的基础路径
+  tokenName: 'token', // 自建用户体系token的名字
+  tokenPrefix: 'vueauth', // 自建用户体系token的前缀
+  tokenHeader: 'Authorization', // 自建用户体系接口中传的tokenHeader字段名
+  tokenType: null, // 自建用户体系token类型，常用的是'Bear'
+  loginUrl: '/v1/auth/login', // 自建用户体系登录接口
+  logoutUrl: '/v1/auth/logout', // 自建用户体系退出接口
+  storageNamespace: 'vue-authenticate', // 内部存储的namespace
   cookieStorage: {
+    // 内部存储cookie的一些参数
     domain: getCookieDomainUrl(),
     path: '/',
     secure: false,
   },
-  withCredentials: true,
-  requestDataKey: 'data',
-  responseDataKey: 'data',
-  authenticateType: 'local',
-  containerId: '#container',
-  enableAuthorize: false,
-  authorizeType: 'local',
+  withCredentials: true, // 请求接口的时候是否带上cookie
+  requestDataKey: 'data', // 请求的key
+  responseDataKey: 'data', // 响应的key
+  authenticateType: 'local', // 需要集成的用户类型
+  containerId: '#container', // 入口DOM的id，在app外层
+  enableAuthorize: false, // 是否需要集成权限
+  authorizeType: 'local', // 需要集成的权限类型
   /**
    * Default request interceptor for Axios library
    * @context {VueAuthenticate}
    */
   bindRequestInterceptor: function ($auth) {
-    if ($auth.options.authenticateType === 'local') {
+    const { authenticateType } = $auth.options
+    if (authenticateType === 'local') {
       const tokenHeader = $auth.options.tokenHeader
 
-      $auth.$http.interceptors.request.use(config => {
+      $auth.$http.interceptors.request.use((config: AxiosRequestConfig) => {
         if ($auth.getToken()) {
           if ($auth.options.tokenType) {
             config.headers[tokenHeader] = [$auth.options.tokenType, $auth.getToken()].join(' ')
@@ -63,16 +74,16 @@ export default {
         }
         return config
       })
+    } else if (authenticateType === 'iam') {
+      $auth.$http.interceptors.request.use(IamWorkspace.requestInterceptor)
+    } else if (authenticateType === 'ctyun') {
+      $auth.$http.interceptors.request.use(CtyunWorkspace.requestInterceptor)
     }
   },
   // bindResponseInterceptor
   bindResponseInterceptor: function ($auth) {
     $auth.$http.interceptors.response.use(
       response => {
-        // iam未登录状态
-        if (response.code === 'core.e1019') {
-          window.location.href = $auth.currentProvider.loginUrl
-        }
         return response
       },
       error => {
@@ -82,64 +93,114 @@ export default {
             type: 'error',
             duration: 5 * 1000,
           })
+          $auth.permStorage.removeItem('isLogin')
           $auth.permStorage.removeItem('allPerms')
           $auth.removeToken()
-          window.location.href = $auth.currentProvider.loginUrl
+          window.location.href = $auth.currentProvider.user.loginUrl
         }
         return Promise.reject(error)
       }
     )
   },
 
+  // 在插件路由的beforeEach钩子最开始执行的钩子函数
+  beforeEachStartHook: async function (to, from, next) {
+    next()
+  },
+
+  // 在插件路由的beforeEach钩子报错时执行的钩子函数
+  beforeEachErrorHook: async function (to, from, next) {
+    next()
+  },
+
+  // 加载静态资源
   loadLayout: function ($auth) {
     const container = document.querySelector($auth.options.containerId)
-    container.id = $auth.options.providers[$auth.authenticateType].containerId
-    if ($auth.authenticateType === 'iam') {
-      loadCss('/iam/layout/alogic-layout.css')
-      loadJs('/iam/layout/alogic-layout.js')
-    } else if ($auth.authenticateType === 'ctyun') {
-      loadCss('/layout/static/css/app.css')
-      loadJs('/layout/ctcloud-layout.min.js')
+    const { authenticateType, providers } = $auth.options
+    const { containerId, sidbarMatchDomain } = providers[authenticateType].layout
+    container.id = containerId
+    if (authenticateType === 'iam') {
+      const layout = new IamLayout()
+      layout.init({ containerId }).then(console => {
+        // 侧边栏高亮
+        console.match({ domain: sidbarMatchDomain })
+      })
+    } else if (authenticateType === 'ctyun') {
+      const layout = new CtyunLayout()
+      layout.init().then(console => {
+        // 侧边栏高亮
+        console.match({ domain: sidbarMatchDomain })
+      })
     }
   },
 
+  // 三种用户权限相关的配置
   providers: {
     iam: {
-      // TODO 是每个项目固定的吗？
-      workspaceId: '10000000',
-      domain: 'osp.main',
-      containerId: 'iam-console-container',
-      loginUrl: `/sign/in?returnUrl=${encodeURIComponent(window.location.href)}`,
-      logoutUrl: 'https://iam.ctcdn.cn/iam/sign/out',
+      layout: {
+        containerId: 'iam-console-container',
+        sidbarMatchDomain: '', // 侧边栏高亮配置，按需重写
+      },
+      user: {
+        loginUrl: IamUser.loginUrl, // 对应业务后端的登录地址
+        logoutUrl: IamUser.logoutUrl, // 对应业务后端的退出地址，按需重写
+        setUrl(baseUrl) {
+          const loginUrl = `${baseUrl}${IamUser.loginUrl}`
+          const logoutUrl = `${baseUrl}${IamUser.logoutUrl}`
+          this.loginUrl = loginUrl
+          this.logoutUrl = logoutUrl
+          IamUser.setConfig({ loginUrl, logoutUrl })
+        },
+      },
       ifLogin: {
-        url: '/iam/gw/auth/Current', // 检查用户是否登录的线上接口
+        url: IamUser.fetchUrl, // 检查用户是否登录的线上接口
         method: 'GET',
-        responseDataKey: 'data.isLoggedIn',
+        // dataHandler: data => data, // 数据格式转换，转换成统一的格式，按需提供
+        // afterLogin: userinfo => {}, // 登录成功后，拿到用户信息执行一些操作
+        routerBeforeEach: IamWorkspace.routerBeforeEach,
       },
       perms: {
-        url: '/iam/gw/workspace/menu/GetTree',
+        domain: '', // 菜单接口对应的domain （osp 中的菜单代码），业务方按需重写
+        url: IamMenu.fetchUrl, // 获取用户权限的接口
         method: 'GET',
-        responseDataKey: 'data.items',
-        dataHandler: data => data, // TODO
+        responseDataKey: 'data.items', // 可以拿到数据的key
+        dataHandler: IamMenu.dataFormat, // 数据格式转换，转换成统一的格式
       },
     },
     ctyun: {
-      containerId: 'ctcloud-console',
-      loginUrl: `/sign/in?returnUrl=${encodeURIComponent(window.location.href)}`,
-      logoutUrl: 'https://www.ctyun.cn/sign/out',
+      layout: {
+        containerId: 'ctcloud-console', // 注意：该 id 不要重写，会导致 ctyun layout 初始化异常
+        sidbarMatchDomain: '', // 侧边栏高亮配置，按需重写
+      },
+      user: {
+        loginUrl: CtyunUser.loginUrl,
+        logoutUrl: CtyunUser.logoutUrl,
+      },
       ifLogin: {
-        url: '/gw/auth/Current', // 检查用户是否登录的线上接口
+        url: CtyunUser.fetchUrl,
         method: 'GET',
-        responseDataKey: 'data.isLoggedIn',
+        afterLogin: userinfo => CtyunWorkspace.setWorkspaceId(userinfo.userId),
+        routerBeforeEach: CtyunWorkspace.routerBeforeEach,
+      },
+      perms: {
+        domain: '', // 菜单接口对应的domain （oss 中的菜单代码），业务方按需重写
+        url: CtyunMenu.fetchUrl, // 获取用户权限的接口
+        method: 'GET',
+        responseDataKey: 'data.list', // 可以拿到数据的key
+        dataHandler: CtyunMenu.dataFormat, // 数据格式转换，转换成统一的格式
       },
     },
     local: {
-      containerId: 'container',
-      loginUrl: `/login?redirect=${encodeURIComponent(window.location.href)}`,
+      layout: {
+        containerId: 'container',
+      },
+      user: {
+        loginUrl: `/login?redirect=${encodeURIComponent(window.location.href)}`,
+      },
       ifLogin: {
         url: '/v1/auth/account/ifLogin',
         method: 'GET',
-        responseDataKey: 'data.isLoggedIn',
+        dataHandler: data => data,
       },
       // TODO 以后考虑多个接口，改成数组
       perms: {

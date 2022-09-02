@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-26 15:21:20
+ * @LastEditTime: 2022-09-01 09:52:49
  * @Description: 基础表格
 -->
 <template>
@@ -10,7 +10,9 @@
     <!--表格工具栏-->
     <div class="table-tools">
       <div class="table-tools__left">
-        <el-button type="primary" @click="addUser">+ 添加用户</el-button>
+        <el-button v-permission="['/permission/user/:add']" type="primary" @click="addUser"
+          >+ 添加用户</el-button
+        >
       </div>
       <div class="table-tools__right table-tools__conditions">
         <el-form ref="conditions" :model="conditions" inline @submit.native.prevent>
@@ -63,12 +65,30 @@
       </el-table-column>
       <el-table-column prop="actions" label="操作" width="300" fixed="right" class-name="actions">
         <template slot-scope="{ row }">
-          <el-button type="text" @click="editUser(row)">编辑</el-button>
-          <el-button type="text" @click="setRoles(row)">设置角色</el-button>
-          <el-button type="text" @click="resetPassword(row)">重置密码</el-button>
-          <el-button v-if="row.status === 0" type="text" @click="freeze(row)">冻结</el-button>
-          <el-button v-if="row.status === -2" type="text" @click="unfreeze(row)">解冻</el-button>
-          <el-button type="text" @click="del(row)">删除</el-button>
+          <el-button v-permission="['/permission/user/:edit']" type="text" @click="editUser(row)"
+            >编辑</el-button
+          >
+          <el-button v-permission="['/permission/user/:setrole']" type="text" @click="setRoles(row)"
+            >设置角色</el-button
+          >
+          <el-button v-permission="['/permission/user/:reset']" type="text" @click="resetPassword(row)"
+            >重置密码</el-button
+          >
+          <el-button
+            v-if="row.status === 0"
+            v-permission="['/permission/user/:freeze']"
+            type="text"
+            @click="freeze(row)"
+            >冻结</el-button
+          >
+          <el-button
+            v-if="row.status === -2"
+            v-permission="['/permission/user/:unfreeze']"
+            type="text"
+            @click="unfreeze(row)"
+            >解冻</el-button
+          >
+          <el-button v-permission="['/permission/user/:del']" type="text" @click="del(row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>

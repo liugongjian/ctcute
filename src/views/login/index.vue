@@ -2,13 +2,13 @@
  * @Author: 马妍
  * @Date: 2022-08-11 16:27:09
  * @LastEditors: 马妍
- * @LastEditTime: 2022-08-19 17:08:29
+ * @LastEditTime: 2022-09-01 22:13:43
  * @Description:
 -->
 <template>
   <div class="login">
     <div class="login-content">
-      <img src="../../assets/images/login/cute背景打包.png" alt="" class="login-content_img" />
+      <img src="../../assets/images/login/cute-login.png" alt="" class="login-content_img" />
       <div class="content-desc">
         <p class="blur"></p>
         <div class="content-desc_from">
@@ -51,7 +51,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { getCodes, getSuperLogin } from '@/api/login'
+import { getCodes } from '@/api/login'
 import { encryptAes } from '@/utils/AES'
 
 @Component({
@@ -59,8 +59,8 @@ import { encryptAes } from '@/utils/AES'
 })
 export default class extends Vue {
   private form = {
-    password: 'alQNm7#JLQ=4', //密码
-    username: 'super@chinatelecom.cn', //用户名
+    password: '', //密码
+    username: '', //用户名
     verifyCode: '', //验证码
   }
   private loading = false
@@ -95,7 +95,7 @@ export default class extends Vue {
         verifyCode: this.form.verifyCode,
       }
       const successCb = () => {
-        sessionStorage.setItem('username', this.form.username)
+        // sessionStorage.setItem('username', this.form.username)
       }
       const errorCb = response => {
         this.$message.error((response as any).msg)

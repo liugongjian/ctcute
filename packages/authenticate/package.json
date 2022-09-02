@@ -1,6 +1,6 @@
 {
   "name": "@cutedesign/authenticate",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "用户权限模块",
   "type": "module",
   "main": "src/index.ts",
@@ -15,7 +15,9 @@
   "peerDependencies": {
     "axios": "^0.26.1",
     "vue": "2.6.14",
-    "element-ui": "^2.15.6"
+    "element-ui": "^2.15.6",
+    "@cutedesign/layout": "^1.0.0",
+    "vue-router": "^3.2.0"
   },
   "repository": {
     "type": "git",

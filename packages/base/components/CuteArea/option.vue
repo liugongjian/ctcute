@@ -80,9 +80,14 @@ export default {
   .cute-area-wrap {
     margin-bottom: 40px;
     text-align: center;
+    &:last-child {
+      margin-bottom: 12px;
+    }
     .cute-area-head {
-      margin: 15px 5px;
-      color: $color-grey-3;
+      margin: 12px 2px 0;
+      color: $color-grey-2;
+      font-size: $text-size-small;
+      line-height: 20px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -91,11 +96,11 @@ export default {
       padding: 0 2px;
       .cute-area-city {
         position: relative;
-        margin: 10px 0;
+        margin-top: 10px;
         height: 30px;
         line-height: 30px;
         color: $color-grey-1;
-        font-size: $text-size-primary;
+        font-size: $text-size-small;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;

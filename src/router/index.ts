@@ -1,8 +1,8 @@
 /*
  * @Author: 马妍
  * @Date: 2022-07-29 10:25:03
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-08-30 14:56:51
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-09-01 10:55:00
  * @Description:
  */
 import Vue from 'vue'
@@ -109,7 +109,7 @@ export const asyncRoutes: RouteConfig[] = [
         meta: {
           title: 'SimpleUser 用户管理',
           breadcrumb: true,
-          prems: ['/permission/user'],
+          perms: ['/permission/user'],
         },
       },
       {

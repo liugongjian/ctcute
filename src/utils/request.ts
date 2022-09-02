@@ -1,8 +1,8 @@
 /*
  * @Author: 马妍
  * @Date: 2022-07-22 00:06:08
- * @LastEditors: 王月功
- * @LastEditTime: 2022-08-19 16:15:05
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-09-01 11:05:52
  * @Description:
  */
 import axios from 'axios'
@@ -43,9 +43,16 @@ service.interceptors.response.use(
     return Promise.resolve(response.data)
   },
   error => {
+    console.log('dddd', error.response)
     if (error.response && error.response.status === 500) {
       Message({
         message: '服务器开小差了，请稍后重试! ',
+        type: 'error',
+        duration: 5 * 1000,
+      })
+    } else {
+      Message({
+        message: error.response.data.msg,
         type: 'error',
         duration: 5 * 1000,
       })

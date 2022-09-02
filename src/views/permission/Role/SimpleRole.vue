@@ -2,14 +2,14 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-26 15:25:43
+ * @LastEditTime: 2022-08-31 10:02:40
  * @Description: 基础表格
 -->
 <template>
   <el-card class="simple-menu">
     <!--表格工具栏-->
     <div class="table-tools">
-      <el-button type="primary" @click="addRoles">+ 添 加</el-button>
+      <el-button v-permission="['/permission/role:add']" type="primary" @click="addRoles">+ 添 加</el-button>
     </div>
 
     <!--表格-->
@@ -20,10 +20,18 @@
       <el-table-column prop="remark" label="备注" />
       <el-table-column prop="actions" label="操作" width="250" fixed="right" class-name="actions">
         <template slot-scope="{ row }">
-          <el-button type="text" @click="gotoEdit(row)">编辑</el-button>
-          <el-button type="text" @click="gotoCopy(row)">复制</el-button>
-          <el-button type="text" @click="gotoDel(row)">删除</el-button>
-          <el-button type="text" @click="gotoSetUser(row)">设置用户</el-button>
+          <el-button v-permission="['/permission/role:edit']" type="text" @click="gotoEdit(row)"
+            >编辑</el-button
+          >
+          <el-button v-permission="['/permission/role:copy']" type="text" @click="gotoCopy(row)"
+            >复制</el-button
+          >
+          <el-button v-permission="['/permission/role:del']" type="text" @click="gotoDel(row)"
+            >删除</el-button
+          >
+          <el-button v-permission="['/permission/role:setuser']" type="text" @click="gotoSetUser(row)"
+            >设置用户</el-button
+          >
         </template>
       </el-table-column>
     </el-table>

@@ -1,22 +1,26 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import lodashGet from 'lodash.get'
+import { AxiosInstance } from 'axios'
+import { Route, NavigationGuardNext } from 'vue-router'
 import { objectExtend, isFunction, getObjectProperty } from './utils'
 import defaultOptions from './options'
 import StorageFactory from './storage'
 import { hasPermission, filterAsyncRouter } from './permissions'
-import { RequestOptions, RequestParams } from '../types'
+import { RequestOptions, RequestParams, BizAuthConfigOptions, CommonAuthProvider, UserInfo } from '../types'
 
 export default class VueAuthenticate {
-  private options: any
-  private authenticateType: 'local' | 'ctyun' | 'iam'
-  private authorizeType: 'local' | 'iam'
-  private currentProvider: any
-  private permStorage: any
-  private $http: any
-  private tokenStorage: any
-  private tokenName: string
+  public options: BizAuthConfigOptions
+  public authenticateType: 'local' | 'ctyun' | 'iam'
+  public authorizeType: 'local' | 'iam'
+  public currentProvider: CommonAuthProvider
+  public permStorage: any
+  public $http: AxiosInstance
+  public tokenStorage: any
+  public tokenName: string
+  public userInfo: UserInfo
+  public isLogin: boolean
 
-  constructor($http, overrideOptions) {
+  constructor($http: AxiosInstance, overrideOptions: BizAuthConfigOptions) {
     let options = objectExtend({}, defaultOptions)
     options = objectExtend(options, overrideOptions)
     const tokenStorage = StorageFactory('cookieStorage', options)
@@ -74,6 +78,18 @@ export default class VueAuthenticate {
           return options.providers[options.authenticateType]
         },
       },
+
+      userInfo: {
+        get() {
+          return this.permStorage.getItem('userInfo')
+        },
+      },
+
+      isLogin: {
+        get() {
+          return this.permStorage.getItem('isLogin')
+        },
+      },
     })
     this.preCheck()
     this.setupInterceptors()
@@ -85,6 +101,15 @@ export default class VueAuthenticate {
   preCheck() {
     // 匹配的认证和权限的组合
     const compatibleCombination = ['local,local', 'iam,local', 'ctyun,local', 'iam,iam']
+    // 认证的 url 需要加上业务前缀
+    const { authenticateType, providers } = this.options
+    if (providers[authenticateType] && providers[authenticateType].user) {
+      if (providers[authenticateType].user.setUrl && isFunction(providers[authenticateType].user.setUrl)) {
+        providers[authenticateType].user.setUrl(this.options.baseUrl)
+      }
+    }
+    console.log(this.options)
+
     // 如果开启了权限
     if (this.options.enableAuthorize) {
       // 检查权限与认证是类型是否匹配
@@ -128,100 +153,79 @@ export default class VueAuthenticate {
   beforeEach() {
     // 执行beforeEach拦截
     if (this.options.router) {
-      this.options.router.beforeEach(async (to, from, next) => {
+      this.options.router.beforeEach(async (to: Route, from: Route, next: NavigationGuardNext) => {
         console.log('inner beforeEach')
-        if (to.path === '/500') {
-          return next()
+        if (this.options.beforeEachStartHook && isFunction(this.options.beforeEachStartHook)) {
+          this.options.beforeEachStartHook(to, from, next)
         }
-        // ! 写法2： 白名单的不走接口，导致需要权限的接口没机会走
-        // if (to.meta && to.meta.withoutLogin) {
-        //   next()
-        // } else {
-        //   const isLogin = await this.isAuthenticated()
-        //   if (this.authenticateType === 'local') {
-        //     if (isLogin) {
-        //       if (to.path === '/login') {
-        //         next('/')
-        //       } else {
-        //         if (hasPermission(this.getAllMenus(), to)) {
-        //           next()
-        //         } else {
-        //           next('/404')
-        //         }
-        //       }
-        //     } else {
-        //       const redirect_url = to.path === '/login' ? '/' : to.path
-        //       next(`/login?redirect=${redirect_url}`)
-        //     }
-        //   } else {
-        //     if (!isLogin) {
-        //       window.location.href = this.currentProvider.loginUrl
-        //     } else {
-        //       next()
-        //     }
-        //   }
-        // }
-        // ! 写法1：所有接口都先过一遍isAuthenticated，当status为500时，拦截器一直请求ifLogin接口，死循环
+        // ! 写法1： 白名单的不走接口，login页面在已登录状态下不会自动跳转，并且可能导致需要权限的接口没机会走
         try {
-          const isLogin = await this.isAuthenticated()
-          if (this.authenticateType === 'local') {
-            if (isLogin) {
-              // 如果已登录
-              if (to.path === '/login') {
-                next('/')
-              } else {
-                if (hasPermission(this.getAllMenus(), to)) {
-                  next()
+          if (to.meta && to.meta.withoutLogin) {
+            next()
+          } else {
+            const isLogin = await this.isAuthenticated()
+            if (this.authenticateType === 'local') {
+              if (isLogin) {
+                if (to.path === '/login') {
+                  next('/')
                 } else {
-                  // ! 文档里需要说明，强制有404
-                  next('/404')
+                  if (hasPermission(this.getAllMenus(), to)) {
+                    next()
+                  } else {
+                    next('/404')
+                  }
                 }
-              }
-            } else {
-              // 白名单中的不用登录
-              if (to.meta && to.meta.withoutLogin) {
-                next()
               } else {
                 const redirect_url = to.path === '/login' ? '/' : to.path
                 next(`/login?redirect=${redirect_url}`)
               }
-            }
-          } else {
-            if (!isLogin) {
-              // 跳转到单点登录这一块，是怎么做的？
-              window.location.href = this.currentProvider.loginUrl
             } else {
-              // TODO 如果是IAM，登录相关的是否还有别的设置？
-              next()
+              if (!isLogin) {
+                window.location.href = this.currentProvider.user.loginUrl
+              } else {
+                if (
+                  this.currentProvider.ifLogin.routerBeforeEach &&
+                  isFunction(this.currentProvider.ifLogin.routerBeforeEach)
+                ) {
+                  this.currentProvider.ifLogin.routerBeforeEach(to, from, next)
+                } else {
+                  next()
+                }
+              }
             }
           }
         } catch (e) {
-          next()
+          console.error(e)
+          // next()
+          if (this.options.beforeEachErrorHook && isFunction(this.options.beforeEachErrorHook)) {
+            this.options.beforeEachErrorHook(to, from, next)
+          } else {
+            next()
+          }
         }
       })
     }
   }
 
   /**
-   * Check if user is authenticated
-   * @author Sahat Yalkabov <https://github.com/sahat>
-   * @copyright Method taken from https://github.com/sahat/satellizer
-   * @return {Boolean}
+   * 判断是否已登录
+   * @param judgeCache 是否强制走接口，默认会判断缓存，false的时候强制调用接口
+   * @returns 用户是否已登录
    */
-  async isAuthenticated() {
-    let isLogin = this.permStorage.getItem('isLogin')
-    if (isLogin !== 'true' && isLogin !== 'false') {
-      await this.authenticate()
+  async isAuthenticated(judgeCache = true) {
+    if (judgeCache) {
+      const isLogin = this.permStorage.getItem('isLogin')
+      if (isLogin === true || isLogin === false) {
+        return isLogin
+      }
     }
-    isLogin = this.permStorage.getItem('isLogin')
-    isLogin = isLogin === 'true' ? true : false
-    // 如果需要加载权限模块，则请求权限接口
-    if (this.options.enableAuthorize && isLogin) {
-      await this.getPermInfo()
-    }
-    return isLogin
+    return await this.authenticate()
   }
 
+  isAuthorized(permissions) {
+    const allAuth = this.getAllButtons()
+    return allAuth.some(auth => permissions.includes(auth))
+  }
   /**
    * Get token if user is authenticated
    * @return {String} Authentication token
@@ -234,14 +238,12 @@ export default class VueAuthenticate {
    * Set new authentication token
    * @param {String|Object} token
    */
-  setToken(response, tokenPath) {
-    this.permStorage.setItem('isLogin', 'true')
+  setToken(response, tokenPath: string) {
     if (response[this.options.responseDataKey]) {
       response = response[this.options.responseDataKey]
     }
 
-    const responseTokenPath = tokenPath || this.options.tokenPath
-    const token = getObjectProperty(response, responseTokenPath)
+    const token = getObjectProperty(response, tokenPath)
 
     if (token) {
       this.tokenStorage.setItem(this.tokenName, token)
@@ -249,6 +251,8 @@ export default class VueAuthenticate {
   }
 
   removeToken() {
+    this.permStorage.removeItem('userInfo')
+    this.permStorage.removeItem('isLogin')
     this.tokenStorage.removeItem(this.tokenName)
   }
 
@@ -319,11 +323,13 @@ export default class VueAuthenticate {
         .then(response => {
           return dataHandler(response)
         })
-        .then(response => {
+        .then(async response => {
           if (response.code === 200) {
             successCb(response)
             // 设置token
             this.setToken(response, 'token')
+            // 走认证接口拿用户信息和权限信息
+            await this.isAuthenticated(false)
             // 处理redirect
             const redirect_url = instance.$route.query.redirect || '/'
             this.options.router.push(redirect_url)
@@ -335,8 +341,8 @@ export default class VueAuthenticate {
         .catch(err => {
           console.log(err)
         })
-        .finally(response => {
-          finallyCb(response)
+        .finally(() => {
+          finallyCb()
         })
     })
   }
@@ -400,8 +406,7 @@ export default class VueAuthenticate {
           .then(response => {
             if (response.code === 200) {
               successCb(response)
-              this.permStorage.setItem('isLogin', 'false')
-              this.tokenStorage.removeItem(this.tokenName)
+              this.removeToken()
               instance.$router.push('/login')
             } else {
               errorCb(response)
@@ -411,10 +416,10 @@ export default class VueAuthenticate {
           .catch(e => {
             console.log(e)
           })
-          .finally(response => finallyCb(response))
+          .finally(() => finallyCb())
       })
     } else {
-      this.tokenStorage.removeItem(this.tokenName)
+      this.removeToken()
       return Promise.resolve()
     }
   }
@@ -437,15 +442,34 @@ export default class VueAuthenticate {
 
       requestOptions.url = ifLoginConfig.url
       return this.$http(requestOptions)
-        .then(response => {
-          return lodashGet(response, ifLoginConfig.responseDataKey)
+        .then(data => {
+          if (ifLoginConfig.dataHandler && isFunction(ifLoginConfig.dataHandler)) {
+            return ifLoginConfig.dataHandler.call(this, data)
+          } else {
+            return data
+          }
         })
-        .then(isLogin => {
-          this.permStorage.setItem('isLogin', `${isLogin}`)
-          return resolve(isLogin)
+        .then(async data => {
+          const {
+            data: { isLoggedIn, property },
+          } = data
+          this.permStorage.setItem('isLogin', isLoggedIn)
+          if (isLoggedIn) {
+            // 按需执行登录后的处理
+            if (ifLoginConfig.afterLogin && isFunction(ifLoginConfig.afterLogin)) {
+              ifLoginConfig.afterLogin.call(this, data)
+            }
+
+            this.permStorage.setItem('userInfo', property)
+            // 如果需要加载权限模块，则请求权限接口
+            if (this.options.enableAuthorize) {
+              await this.getPermInfo()
+            }
+          }
+          return resolve(isLoggedIn)
         })
         .catch(err => {
-          this.permStorage.setItem('isLogin', 'false')
+          this.permStorage.setItem('isLogin', false)
           reject(err)
         })
     })
@@ -468,6 +492,11 @@ export default class VueAuthenticate {
       const requestOptions: RequestOptions = {}
       requestOptions.method = permConfig.method
       requestOptions.withCredentials = this.options.withCredentials
+      if (permConfig.domain) {
+        requestOptions.params = {
+          domain: permConfig.domain,
+        }
+      }
 
       requestOptions.url = permConfig.url
       return this.$http(requestOptions)

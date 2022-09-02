@@ -23,6 +23,8 @@ export interface IamLayoutInitOptions {
   containerId?: string
 }
 export declare class IamLayout extends BaseLayout {
+  // 加载资源
+  load(): Promise<null>
   // 初始化
   init(options?: IamLayoutInitOptions): Promise<AlogicLayout.consoleContainer>
 }
@@ -31,6 +33,8 @@ export interface CtyunLayoutInitOptions {
   useAd?: boolean
 }
 export declare class CtyunLayout extends BaseLayout {
+  // 加载资源
+  load(): Promise<null>
   // 初始化
   init(options?: CtyunLayoutInitOptions): Promise<CtcloudLayout.consoleLayout>
 }

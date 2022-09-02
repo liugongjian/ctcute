@@ -46,3 +46,20 @@ export const loadCss = (url: string) => {
     })
   })
 }
+
+// 递归拍平对象数组
+export const flatObjectArray = <T>(arr: Array<T> = [], childrenKey = 'children'): Array<T> => {
+  if (!Array.isArray(arr)) return []
+
+  return arr
+    .map(item => {
+      let children: Array<T> = []
+
+      if (item[childrenKey]) {
+        children = flatObjectArray(item[childrenKey], childrenKey)
+      }
+
+      return [item, ...children]
+    })
+    .flat()
+}

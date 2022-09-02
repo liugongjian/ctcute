@@ -16,23 +16,28 @@ export default class IamLayout extends BaseLayout {
     cssUrl: '/layout/alogic-layout.css',
   }
 
-  /**
-   * 执行初始化
-   */
-  async init({ containerId }: IamLayoutInitOptions = {}) {
+  // 资源加载
+  async load() {
     try {
       const { urlPrefix, cssUrl, jsUrl } = this.config
 
       loadCss(`${urlPrefix}${cssUrl}`)
       await loadJs(`${urlPrefix}${jsUrl}`)
+    } catch (err) {
+      return Promise.reject(`Iam Layout 加载失败：${err}`)
+    }
+  }
 
+  // 初始化
+  init({ containerId }: IamLayoutInitOptions = {}) {
+    try {
       const { consoleContainer } = window.AlogicLayout
 
       consoleContainer.init({
         baseNode: document.getElementById(containerId || this.config.containerId),
       })
 
-      return consoleContainer
+      return Promise.resolve(consoleContainer)
     } catch (err) {
       return Promise.reject(`Iam Layout 初始化失败：${err}`)
     }

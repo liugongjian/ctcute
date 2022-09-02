@@ -26,6 +26,8 @@ export default class VueAuthenticate {
     const tokenStorage = StorageFactory('cookieStorage', options)
     const permStorage = StorageFactory('memoryStorage', options)
 
+    console.log(options)
+
     Object.defineProperties(this, {
       $http: {
         get() {
@@ -108,7 +110,6 @@ export default class VueAuthenticate {
         providers[authenticateType].user.setUrl(this.options.baseUrl)
       }
     }
-    console.log(this.options)
 
     // 如果开启了权限
     if (this.options.enableAuthorize) {
@@ -477,46 +478,40 @@ export default class VueAuthenticate {
 
   /**
    * Authenticate user using authentication provider
-   *
+   * @param  {Boolean} refresh 是否强制刷新
    * @return {Promise}               获取用户权限
    */
-  async getPermInfo() {
-    return new Promise((resolve, reject) => {
-      if (this.permStorage.getItem('allPerms')) {
-        return resolve(this.permStorage.getItem('allPerms'))
+  async getPermInfo(refresh = false) {
+    if (!refresh && this.permStorage.getItem('allPerms')) {
+      return this.permStorage.getItem('allPerms')
+    }
+    if (!this.currentProvider) {
+      return Promise.reject(new Error('Unknown provider'))
+    }
+
+    const permConfig = this.currentProvider.perms
+    const requestOptions: RequestOptions = {}
+    requestOptions.method = permConfig.method
+    requestOptions.withCredentials = this.options.withCredentials
+    if (permConfig.domain) {
+      requestOptions.params = {
+        domain: permConfig.domain,
       }
-      if (!this.currentProvider) {
-        return reject(new Error('Unknown provider'))
-      }
-      const permConfig = this.currentProvider.perms
-      const requestOptions: RequestOptions = {}
-      requestOptions.method = permConfig.method
-      requestOptions.withCredentials = this.options.withCredentials
-      if (permConfig.domain) {
-        requestOptions.params = {
-          domain: permConfig.domain,
-        }
+    }
+
+    try {
+      requestOptions.url = permConfig.url
+      const response = await this.$http(requestOptions)
+      let data = lodashGet(response, permConfig.responseDataKey || this.options.responseDataKey)
+      if (permConfig.dataHandler && isFunction(permConfig.dataHandler)) {
+        data = permConfig.dataHandler.call(this, data)
       }
 
-      requestOptions.url = permConfig.url
-      return this.$http(requestOptions)
-        .then(response => {
-          return lodashGet(response, permConfig.responseDataKey || this.options.responseDataKey)
-        })
-        .then(data => {
-          if (permConfig.dataHandler && isFunction(permConfig.dataHandler)) {
-            return permConfig.dataHandler.call(this, data)
-          } else {
-            return data
-          }
-        })
-        .then(data => {
-          this.permStorage.setItem('allPerms', JSON.stringify(data))
-          return resolve(data)
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
+      this.permStorage.setItem('allPerms', JSON.stringify(data))
+
+      return data
+    } catch (err) {
+      return Promise.reject(err)
+    }
   }
 }

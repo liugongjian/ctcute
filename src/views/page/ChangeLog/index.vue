@@ -41,6 +41,92 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
+      version: '1.1.2',
+      date: '2022-9-2',
+      features: [
+        {
+          name: 'Ui-CascadeSelect',
+          desc: [
+            {
+              text: '新增CascadeSelect组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-Home',
+          desc: [
+            {
+              text: '新增Home页面',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: 'Layout',
+          desc: [
+            {
+              text: '支持菜单数据拍平，支持 getPermInfo 二次请求',
+            },
+            {
+              text: '完善登录头像',
+            },
+            {
+              text: '调整 layout 包目录结构',
+            },
+            {
+              text: '将 layout 初步接入到 auth',
+            },
+          ],
+        },
+        {
+          name: 'Page-Login',
+          desc: [
+            {
+              text: '修改login页面图片路径',
+            },
+            {
+              text: '登录改掉用户名和密码',
+            },
+            {
+              text: '完善按钮权限',
+            },
+            {
+              text: '修复用户名显示不正确的bug',
+            },
+          ],
+        },
+        {
+          name: 'Cascader',
+          desc: [
+            {
+              text: '重置 config',
+            },
+            {
+              text: '补充beforeEach钩子函数的说明',
+            },
+            {
+              text: '增加权限插件的文档说明',
+            },
+            {
+              text: '调整nginx配置',
+            },
+          ],
+        },
+        {
+          name: 'component-CuteArea',
+          desc: [
+            {
+              text: '修复CuteArea选项回填bug',
+            },
+            {
+              text: 'CuteArea添加弹窗最大高度',
+            },
+          ],
+        },
+      ],
+    },
+    {
       version: '1.0.9',
       date: '2022-8-26',
       features: [

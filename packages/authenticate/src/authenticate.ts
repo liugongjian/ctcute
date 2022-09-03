@@ -465,7 +465,7 @@ export default class VueAuthenticate {
           if (isLoggedIn) {
             // 按需执行登录后的处理
             if (ifLoginConfig.afterLogin && isFunction(ifLoginConfig.afterLogin)) {
-              ifLoginConfig.afterLogin.call(this, data)
+              ifLoginConfig.afterLogin.call(this, this, property.userId)
             }
 
             this.permStorage.setItem('userInfo', property)

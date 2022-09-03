@@ -190,13 +190,33 @@ export default {
       user: {
         loginUrl: CtyunUser.loginUrl,
         logoutUrl: CtyunUser.logoutUrl,
+        setUrl(baseUrl) {
+          const loginUrl = `${baseUrl}${CtyunUser.loginUrl}`
+          const logoutUrl = `${baseUrl}${CtyunUser.logoutUrl}`
+          this.loginUrl = loginUrl
+          this.logoutUrl = logoutUrl
+          CtyunUser.setConfig({ loginUrl, logoutUrl })
+        },
       },
       ifLogin: {
         url: CtyunUser.fetchUrl,
         method: 'GET',
-        afterLogin: userinfo => CtyunWorkspace.setWorkspaceId(userinfo.userId),
+        afterLogin: ($auth, userId) => {
+          const { router } = $auth.options
+          const { currentRoute } = router
+          // ctyun 需要将 userId 当成 workspaceId 处理
+          router.push({
+            name: currentRoute.name,
+            query: {
+              ...currentRoute.query,
+              workspaceId: userId,
+            },
+            params: currentRoute.params,
+          })
+        },
         routerBeforeEach: CtyunWorkspace.routerBeforeEach,
       },
+      // TODO ctyun 不需要鉴权，这个配置的意义主要在于菜单上下线，存在意义待定
       perms: {
         domain: '', // 菜单接口对应的domain （oss 中的菜单代码），业务方按需重写
         url: CtyunMenu.fetchUrl, // 获取用户权限的接口

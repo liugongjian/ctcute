@@ -41,7 +41,7 @@ export interface CommonAuthProvider {
     setUrl?: (baseUrl: string) => any
   }
   ifLogin: ApiConfig & {
-    afterLogin: (userinfo: any) => any
+    afterLogin: ($auth: AuthInstance, userId: string) => any
     routerBeforeEach: NavigationGuard
   }
   perms?: ApiConfig

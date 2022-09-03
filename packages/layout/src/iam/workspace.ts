@@ -25,7 +25,9 @@ export default {
     // 自动填充 query: workspaceId
     if (workspaceId) {
       if (/.*\?(.*&)?workspaceId=[^\s]+/.test(to.fullPath)) {
-        next()
+        // 说明：标准 next 的执行交给上层自行处理，当前 beforeEach 只处理异常情况
+        // next()
+        return true
       } else {
         next({
           name: to.name as string,
@@ -34,7 +36,7 @@ export default {
         })
       }
     } else {
-      to.name === 'interceptor' ? next() : next({ name: 'interceptor' })
+      return to.name === 'interceptor' ? true : next({ name: 'interceptor' })
     }
   },
 

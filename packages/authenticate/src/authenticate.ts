@@ -184,13 +184,20 @@ export default class VueAuthenticate {
               if (!isLogin) {
                 window.location.href = this.currentProvider.user.loginUrl
               } else {
+                // 前置处理，如果满足 wid 的要求则继续乡下下执行
                 if (
                   this.currentProvider.ifLogin.routerBeforeEach &&
                   isFunction(this.currentProvider.ifLogin.routerBeforeEach)
                 ) {
-                  this.currentProvider.ifLogin.routerBeforeEach(to, from, next)
-                } else {
+                  const hasWid = this.currentProvider.ifLogin.routerBeforeEach(to, from, next)
+                  if (!hasWid) return
+                }
+
+                // TODO 此时权限数据的获取可能滞后于路由跳转，待观察优化
+                if (hasPermission(this.getAllMenus(), to)) {
                   next()
+                } else {
+                  next('/404')
                 }
               }
             }
@@ -307,9 +314,9 @@ export default class VueAuthenticate {
   login({
     user,
     requestOptions = {},
-    successCb = () => { },
-    errorCb = () => { },
-    finallyCb = () => { },
+    successCb = () => {},
+    errorCb = () => {},
+    finallyCb = () => {},
     dataHandler = data => data,
     instance,
   }: RequestParams) {
@@ -381,9 +388,9 @@ export default class VueAuthenticate {
    */
   logout({
     requestOptions = {},
-    successCb = () => { },
-    errorCb = () => { },
-    finallyCb = () => { },
+    successCb = () => {},
+    errorCb = () => {},
+    finallyCb = () => {},
     dataHandler = data => data,
     instance,
   }: RequestParams) {

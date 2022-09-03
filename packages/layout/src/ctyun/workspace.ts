@@ -27,7 +27,8 @@ export default {
     // 自动填充 query: workspaceId
     if (workspaceId) {
       if (/.*\?(.*&)?workspaceId=[^\s]+/.test(to.fullPath)) {
-        next()
+        // next()
+        return true
       } else {
         next({
           name: to.name as string,

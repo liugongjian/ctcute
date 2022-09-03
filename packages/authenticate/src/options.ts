@@ -113,39 +113,48 @@ export default {
     next()
   },
 
-  // 加载静态资源
-  loadLayout: async function ($auth) {
+  // 加载静态资源，使用惰性单例，避免二次执行
+  loadLayout: (function (fn) {
+    let result
+    return function ($auth) {
+      return result || (result = fn($auth))
+    }
+  })(async function ($auth) {
     try {
       const container = document.querySelector($auth.options.containerId)
       const { authenticateType, providers } = $auth.options
-      const { containerId, sidbarMatchDomain } = providers[authenticateType].layout
+      const { containerId, bizDomain } = providers[authenticateType].layout
       if (authenticateType === 'iam') {
-        const layout = new IamLayout()
-        await layout.load()
-        // 由于 layout 加载完后会立即执行一次初始化，因此容器 id 的赋予要滞后到按需资源加载之后、初始化之前
-        container.id = containerId
-        const console = await layout.init({ containerId })
-        // 侧边栏高亮
-        console.match({ domain: sidbarMatchDomain })
+        if (!window.AlogicLayout) {
+          const layout = new IamLayout()
+          await layout.load()
+          // 由于 layout 加载完后会立即执行一次初始化，因此容器 id 的赋予要滞后到按需资源加载之后、初始化之前
+          container.id = containerId
+          const console = await layout.init({ containerId })
+          // 侧边栏高亮
+          console.match({ domain: bizDomain })
+        }
       } else if (authenticateType === 'ctyun') {
-        const layout = new CtyunLayout()
-        await layout.load()
-        container.id = containerId
-        const console = await layout.init()
-        // 侧边栏高亮
-        console.match({ domain: sidbarMatchDomain })
+        if (!window.CtcloudLayout) {
+          const layout = new CtyunLayout()
+          await layout.load()
+          container.id = containerId
+          const console = await layout.init()
+          // 侧边栏高亮
+          console.match({ domain: bizDomain })
+        }
       }
     } catch (err) {
       console.error(err)
     }
-  },
+  }),
 
   // 三种用户权限相关的配置
   providers: {
     iam: {
       layout: {
         containerId: 'iam-console-container',
-        sidbarMatchDomain: '', // 侧边栏高亮配置，按需重写
+        bizDomain: '', // 侧边栏高亮配置，按需重写
       },
       user: {
         loginUrl: IamUser.loginUrl, // 对应业务后端的登录地址
@@ -176,7 +185,7 @@ export default {
     ctyun: {
       layout: {
         containerId: 'ctcloud-console', // 注意：该 id 不要重写，会导致 ctyun layout 初始化异常
-        sidbarMatchDomain: '', // 侧边栏高亮配置，按需重写
+        bizDomain: '', // 侧边栏高亮配置，按需重写
       },
       user: {
         loginUrl: CtyunUser.loginUrl,

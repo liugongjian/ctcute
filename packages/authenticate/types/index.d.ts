@@ -33,7 +33,7 @@ interface ApiConfig extends RequestOptions {
 export interface CommonAuthProvider {
   layout: {
     containerId: string
-    sidbarMatchDomain?: string
+    bizDomain?: string
   }
   user: {
     loginUrl: string

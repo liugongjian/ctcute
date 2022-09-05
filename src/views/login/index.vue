@@ -59,8 +59,8 @@ import { encryptAes } from '@/utils/AES'
 })
 export default class extends Vue {
   private form = {
-    password: '', //密码
-    username: '', //用户名
+    password: 'alQNm7#JLQ=4', //密码
+    username: 'super@chinatelecom.cn', //用户名
     verifyCode: '', //验证码
   }
   private loading = false

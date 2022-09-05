@@ -11,12 +11,12 @@
       <router-link to="/ui" :class="{ active: currentPath.startsWith('/ui') }">UI规范</router-link>
     </div>
     <!-- 用户信息 -->
-    <div v-if="isLogin" class="login-info">
+    <div v-if="isLogin" class="login-info" @click="flag = !flag">
       <img class="img" src="./images/cute-portrait.svg" alt="" />
-      <span class="user-name" @click="flag = !flag">{{ isLogin ? username : '未登录' }}</span>
+      <span class="user-name">{{ isLogin ? username : '未登录' }}</span>
       <svg-icon :name="!flag ? 'caret-down' : 'caret-up'" />
 
-      <ul v-if="flag">
+      <ul v-if="flag" :class="flag ? 'down' : 'ul'">
         <li>文字</li>
         <li>文字</li>
         <li>文字</li>
@@ -102,10 +102,15 @@ export default class extends Vue {
     margin-right: 10px;
   }
 
-  ul {
+  .down {
+    transform-origin: center bottom;
+  }
+
+  .ul,
+  .down {
     width: 120px;
     position: absolute;
-    top: 40px;
+    top: 39px;
     left: 0;
     background: #3a3e4c;
     color: #c2c2c2;

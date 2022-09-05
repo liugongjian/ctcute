@@ -15,7 +15,7 @@ import { AxiosRequestConfig } from 'axios'
 export function getCookieDomainUrl() {
   try {
     return window.location.hostname
-  } catch (e) {}
+  } catch (e) { }
 
   return ''
 }
@@ -23,7 +23,7 @@ export function getCookieDomainUrl() {
 export function getRedirectUri(uri) {
   try {
     return !isUndefined(uri) ? `${window.location.origin}${uri}` : window.location.origin
-  } catch (e) {}
+  } catch (e) { }
 
   return uri || null
 }
@@ -88,6 +88,7 @@ export default {
       },
       error => {
         if (error.response && error.response.status === 401) {
+          // 认证失败的后端状态码，建议对接的后端用这种方式统一拦截
           Message({
             message: '登录失效, 请重新登录! ',
             type: 'error',

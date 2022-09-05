@@ -89,10 +89,7 @@ export default class extends Vue {
   align-items: center;
   color: #c2c2c2;
   position: relative;
-
-  .user-name {
-    cursor: pointer;
-  }
+  cursor: pointer;
 
   .svg-icon {
     margin-left: 5px;

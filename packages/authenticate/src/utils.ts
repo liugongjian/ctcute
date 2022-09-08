@@ -1,3 +1,12 @@
+import _lodashGet from 'lodash.get'
+
+export function lodashGet(data, key) {
+  // 当 key 未设置或者设置为空时，直接返回
+  if (!key) return data
+
+  return _lodashGet(data, key)
+}
+
 export function camelCase(name) {
   return name.replace(/([\:\-\_]+(.))/g, function (_, separator, letter, offset) {
     return offset ? letter.toUpperCase() : letter

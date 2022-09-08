@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import lodashGet from 'lodash.get'
 import { AxiosInstance } from 'axios'
 import { Route, NavigationGuardNext } from 'vue-router'
-import { objectExtend, isFunction, getObjectProperty } from './utils'
+import { objectExtend, isFunction, getObjectProperty, lodashGet } from './utils'
 import defaultOptions from './options'
 import StorageFactory from './storage'
 import { hasPermission, filterAsyncRouter } from './permissions'
@@ -329,6 +328,7 @@ export default class VueAuthenticate {
     return new Promise(resolve => {
       return this.$http(requestOptions)
         .then(response => {
+          response = lodashGet(response, this.options.responseDataKey)
           return dataHandler(response)
         })
         .then(async response => {
@@ -409,6 +409,7 @@ export default class VueAuthenticate {
       return new Promise(resolve => {
         return this.$http(requestOptions)
           .then(response => {
+            response = lodashGet(response, this.options.responseDataKey)
             return dataHandler(response)
           })
           .then(response => {
@@ -451,6 +452,7 @@ export default class VueAuthenticate {
       requestOptions.url = ifLoginConfig.url
       return this.$http(requestOptions)
         .then(data => {
+          data = lodashGet(data, this.options.responseDataKey)
           if (ifLoginConfig.dataHandler && isFunction(ifLoginConfig.dataHandler)) {
             return ifLoginConfig.dataHandler.call(this, data)
           } else {
@@ -458,9 +460,7 @@ export default class VueAuthenticate {
           }
         })
         .then(async data => {
-          const {
-            data: { isLoggedIn, property },
-          } = data
+          const { isLoggedIn, property } = data
           this.permStorage.setItem('isLogin', isLoggedIn)
           if (isLoggedIn) {
             // 按需执行登录后的处理

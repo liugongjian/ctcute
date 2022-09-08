@@ -15,11 +15,12 @@
   $bdColor:边框颜色;
   $color:字体颜色;
 */
-@mixin button-disabled($type: default,
+@mixin button-disabled(
+  $type: default,
   $bgColor: $disabled-fill,
   $bdColor: $disabled-border,
-  $color: $disabled-color) {
-
+  $color: $disabled-color
+) {
   .el-button--#{$type}.is-plain.is-disabled,
   .el-button--#{$type}.is-disabled {
     background-color: $bgColor;
@@ -54,12 +55,12 @@
   border-color: $loading-default-border;
 }
 
-.el-button+.el-dropdown {
+.el-button + .el-dropdown {
   margin-left: 16px;
   margin-right: 16px;
 }
 
-.el-button+.el-button {
+.el-button + .el-button {
   margin-left: $button-margin;
 }
 
@@ -121,7 +122,6 @@
 }
 
 .el-button--primary {
-
   &:hover,
   &:active,
   &:focus {
@@ -135,7 +135,6 @@
 }
 
 .el-dropdown {
-
   .el-button:hover,
   .el-button:focus {
     .svg-icon {
@@ -364,7 +363,6 @@
   }
 
   .el-icon-view {
-    padding-right: 15px;
     font-size: 16px;
     vertical-align: text-bottom;
   }
@@ -387,7 +385,7 @@
   }
 }
 
-.suffix-forgot+.el-link {
+.suffix-forgot + .el-link {
   height: 16px;
   line-height: 32px;
 }
@@ -430,7 +428,7 @@
 
 /* Radio
 -------------------------- */
-.el-radio-button__orig-radio:checked+.el-radio-button__inner {
+.el-radio-button__orig-radio:checked + .el-radio-button__inner {
   color: $color-master-1;
   background-color: $color-master-7;
 }
@@ -573,7 +571,7 @@
   }
 }
 
-.el-checkbox-group+.el-form-item__error {
+.el-checkbox-group + .el-form-item__error {
   padding-top: 0;
 }
 
@@ -657,7 +655,8 @@
   margin-top: 10px;
 }
 
-.el-tree-node__content:not(.el-tree-node:focus > .el-tree-node__content):not(.el-tree-node:disabled > .el-tree-node__content):hover {
+.el-tree-node__content:not(.el-tree-node:focus > .el-tree-node__content):not(.el-tree-node:disabled
+    > .el-tree-node__content):hover {
   color: $color-master-1 !important;
 }
 
@@ -681,7 +680,7 @@
   }
 }
 
-.el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
+.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
   background: #f3f3f3;
 }
 
@@ -695,7 +694,7 @@
   }
 }
 
-.el-tree-node:focus>.el-tree-node__content {
+.el-tree-node:focus > .el-tree-node__content {
   background-color: $color-master-1;
   color: $color-white;
 }
@@ -796,7 +795,7 @@
   background-color: $border-color-primary;
 }
 
-.el-tabs--card>.el-tabs__header {
+.el-tabs--card > .el-tabs__header {
   border-bottom: 1px solid $border-color-primary;
 
   .el-tabs__item.is-active.is-closable {
@@ -876,8 +875,8 @@
   background-color: $border-color-primary;
 }
 
-.el-table__body-wrapper.is-scrolling-none~.el-table__fixed,
-.el-table__body-wrapper.is-scrolling-none~.el-table__fixed-right {
+.el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed,
+.el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed-right {
   &::before {
     background-color: transparent;
   }
@@ -936,7 +935,7 @@
 }
 
 .el-table .el-table__header tr,
-.el-table .el-table__header .el-table th.el-table-column--selection>.cell {
+.el-table .el-table__header .el-table th.el-table-column--selection > .cell {
   padding-left: 14px;
 }
 
@@ -956,7 +955,7 @@
   height: inherit;
 }
 
-.el-table th.el-table__cell>.cell {
+.el-table th.el-table__cell > .cell {
   padding-top: 2px;
   padding-bottom: 2px;
 }
@@ -1111,7 +1110,7 @@
     margin: 0 20px 0 10px;
   }
 
-  .el-pager li+li {
+  .el-pager li + li {
     margin-left: 10px;
   }
 
@@ -1173,7 +1172,6 @@
 }
 
 .el-breadcrumb__item:last-child {
-
   .el-breadcrumb__inner,
   .el-breadcrumb__inner:hover {
     color: $text-color-primary;
@@ -1194,10 +1192,12 @@
    $color:字体颜色
    $bgColor:背景颜色
 */
-@mixin steps-page($class: is-success,
+@mixin steps-page(
+  $class: is-success,
   $bdColor: $color-master-1,
   $color: $color-master-1,
-  $bgColor: $color-white) {
+  $bgColor: $color-white
+) {
   .el-step__head.#{$class} {
     border-color: $bdColor;
     color: $color;
@@ -1435,12 +1435,10 @@
   .el-icon-circle-close:before {
     font-family: 'cute-icons' !important;
     content: '\ea4f';
-
   }
 
   .el-input--medium .el-input__icon {
     line-height: 32px;
-
   }
 
   .el-input__suffix {
@@ -1450,7 +1448,7 @@
   }
 
   .el-cascader__tags {
-    .el-tag>span {
+    .el-tag > span {
       background: $color-grey-10;
     }
 
@@ -1515,7 +1513,7 @@
   width: 639px !important;
 }
 
-.el-date-range-picker__time-header>.el-icon-arrow-right {
+.el-date-range-picker__time-header > .el-icon-arrow-right {
   font-size: 14px !important;
 }
 
@@ -1785,7 +1783,7 @@
 
 /* Switch
 -------------------------- */
-.el-switch+.el-switch {
+.el-switch + .el-switch {
   margin-left: 30px;
 }
 
@@ -1816,10 +1814,12 @@
   $iconColor:icon颜色;
   $bgColor:背景颜色;
 */
-@mixin global-tips($class: info,
+@mixin global-tips(
+  $class: info,
   $bdcolor: $color-tag-master-1,
   $iconColor: $color-status-master,
-  $bgColor: $color-tag-master-2) {
+  $bgColor: $color-tag-master-2
+) {
   .is-alert-tip {
     .el-alert--#{$class}.is-light {
       border: 1px solid $bdcolor;
@@ -1853,7 +1853,7 @@
   padding-right: 0;
 }
 
-.el-alert>.el-alert__content:first-child {
+.el-alert > .el-alert__content:first-child {
   padding-left: 0;
 }
 
@@ -1900,10 +1900,12 @@
 
 /* Tag
 -------------------------- */
-@mixin global-tag($class: info,
+@mixin global-tag(
+  $class: info,
   $bdcolor: $disabled-border,
   $fontColor: $text-color-primary,
-  $bgColor: $disabled-fill) {
+  $bgColor: $disabled-fill
+) {
   .el-tag.el-tag--#{$class} {
     border: 1px solid $bdcolor;
     color: $fontColor;
@@ -2197,7 +2199,7 @@
     background-color: $color-master-7;
   }
 
-  .el-checkbox__input.is-checked+.el-checkbox__label {
+  .el-checkbox__input.is-checked + .el-checkbox__label {
     color: $text-color-primary;
   }
 

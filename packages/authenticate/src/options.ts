@@ -15,7 +15,7 @@ import { AxiosRequestConfig } from 'axios'
 export function getCookieDomainUrl() {
   try {
     return window.location.hostname
-  } catch (e) { }
+  } catch (e) {}
 
   return ''
 }
@@ -23,7 +23,7 @@ export function getCookieDomainUrl() {
 export function getRedirectUri(uri) {
   try {
     return !isUndefined(uri) ? `${window.location.origin}${uri}` : window.location.origin
-  } catch (e) { }
+  } catch (e) {}
 
   return uri || null
 }
@@ -181,6 +181,7 @@ export default {
         method: 'GET',
         responseDataKey: 'data.items', // 可以拿到数据的key
         dataHandler: IamMenu.dataFormat, // 数据格式转换，转换成统一的格式
+        setWorkspaceId: IamWorkspace.setWorkspaceId,
       },
     },
     ctyun: {
@@ -224,6 +225,7 @@ export default {
         method: 'GET',
         responseDataKey: 'data.list', // 可以拿到数据的key
         dataHandler: CtyunMenu.dataFormat, // 数据格式转换，转换成统一的格式
+        setWorkspaceId: CtyunWorkspace.setWorkspaceId,
       },
     },
     local: {

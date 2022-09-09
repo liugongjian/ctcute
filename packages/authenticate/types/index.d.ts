@@ -29,6 +29,7 @@ interface ApiConfig extends RequestOptions {
   responseDataKey?: string
   dataHandler?: (data: any) => any
   domain?: string
+  setWorkspaceId?: (data: any) => any
 }
 export interface CommonAuthProvider {
   layout: {

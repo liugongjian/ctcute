@@ -7,6 +7,8 @@ import StorageFactory from './storage'
 import { hasPermission, filterAsyncRouter } from './permissions'
 import { RequestOptions, RequestParams, BizAuthConfigOptions, CommonAuthProvider, UserInfo } from '../types'
 
+let __permInfoInstance__: any
+
 export default class VueAuthenticate {
   public options: BizAuthConfigOptions
   public authenticateType: 'local' | 'ctyun' | 'iam'
@@ -158,48 +160,58 @@ export default class VueAuthenticate {
         if (this.options.beforeEachStartHook && isFunction(this.options.beforeEachStartHook)) {
           this.options.beforeEachStartHook(to, from, next)
         }
-        // ! 写法1： 白名单的不走接口，login页面在已登录状态下不会自动跳转，并且可能导致需要权限的接口没机会走
+        // 不需要登录
+        if (to.meta && to.meta.withoutLogin) {
+          next()
+          return
+        }
+
         try {
-          if (to.meta && to.meta.withoutLogin) {
+          const isLogin = await this.isAuthenticated()
+          // 需要但未登录
+          if (!isLogin) {
+            if (this.authenticateType === 'local') {
+              const redirect_url = to.path === '/login' ? '/' : to.path
+              next(`/login?redirect=${redirect_url}`)
+            } else {
+              window.location.href = this.currentProvider.user.loginUrl
+            }
+            return
+          }
+
+          // 一些特殊的处理
+          if (this.authenticateType === 'local') {
+            if (to.path === '/login') {
+              next('/')
+              return
+            }
+          } else {
+            // 前置处理，如果满足 wid 的要求则继续乡下下执行
+            if (
+              this.currentProvider.ifLogin.routerBeforeEach &&
+              isFunction(this.currentProvider.ifLogin.routerBeforeEach)
+            ) {
+              const hasWid = this.currentProvider.ifLogin.routerBeforeEach(to, from, next)
+              if (!hasWid) return
+            }
+          }
+
+          // 已登录但并不需要权限
+          if (to.meta && !to.meta.perms) {
+            next()
+            return
+          }
+
+          // 已登录，需要鉴权
+          if (this.options.enableAuthorize) {
+            await this.getPermInfo()
+          }
+
+          // 通用的鉴权判断
+          if (hasPermission(this.getAllMenus(), to)) {
             next()
           } else {
-            const isLogin = await this.isAuthenticated()
-            if (this.authenticateType === 'local') {
-              if (isLogin) {
-                if (to.path === '/login') {
-                  next('/')
-                } else {
-                  if (hasPermission(this.getAllMenus(), to)) {
-                    next()
-                  } else {
-                    next('/404')
-                  }
-                }
-              } else {
-                const redirect_url = to.path === '/login' ? '/' : to.path
-                next(`/login?redirect=${redirect_url}`)
-              }
-            } else {
-              if (!isLogin) {
-                window.location.href = this.currentProvider.user.loginUrl
-              } else {
-                // 前置处理，如果满足 wid 的要求则继续乡下下执行
-                if (
-                  this.currentProvider.ifLogin.routerBeforeEach &&
-                  isFunction(this.currentProvider.ifLogin.routerBeforeEach)
-                ) {
-                  const hasWid = this.currentProvider.ifLogin.routerBeforeEach(to, from, next)
-                  if (!hasWid) return
-                }
-
-                // TODO 此时权限数据的获取可能滞后于路由跳转，待观察优化
-                if (hasPermission(this.getAllMenus(), to)) {
-                  next()
-                } else {
-                  next('/404')
-                }
-              }
-            }
+            next('/403')
           }
         } catch (e) {
           console.error(e)
@@ -469,10 +481,6 @@ export default class VueAuthenticate {
             }
 
             this.permStorage.setItem('userInfo', property)
-            // 如果需要加载权限模块，则请求权限接口
-            if (this.options.enableAuthorize) {
-              await this.getPermInfo()
-            }
           }
           return resolve(isLoggedIn)
         })
@@ -488,37 +496,42 @@ export default class VueAuthenticate {
    * @param  {Boolean} refresh 是否强制刷新
    * @return {Promise}               获取用户权限
    */
-  async getPermInfo(refresh = false) {
-    if (!refresh && this.permStorage.getItem('allPerms')) {
-      return this.permStorage.getItem('allPerms')
-    }
-    if (!this.currentProvider) {
-      return Promise.reject(new Error('Unknown provider'))
-    }
-
-    const permConfig = this.currentProvider.perms
-    const requestOptions: RequestOptions = {}
-    requestOptions.method = permConfig.method
-    requestOptions.withCredentials = this.options.withCredentials
-    if (permConfig.domain) {
-      requestOptions.params = {
-        domain: permConfig.domain,
+  getPermInfo(refresh = false) {
+    if (__permInfoInstance__) return __permInfoInstance__
+    return (__permInfoInstance__ = new Promise(async (resolve, reject) => {
+      if (!refresh && this.permStorage.getItem('allPerms')) {
+        return this.permStorage.getItem('allPerms')
       }
-    }
-
-    try {
-      requestOptions.url = permConfig.url
-      const response = await this.$http(requestOptions)
-      let data = lodashGet(response, permConfig.responseDataKey || this.options.responseDataKey)
-      if (permConfig.dataHandler && isFunction(permConfig.dataHandler)) {
-        data = permConfig.dataHandler.call(this, data)
+      if (!this.currentProvider) {
+        return Promise.reject(new Error('Unknown provider'))
       }
 
-      this.permStorage.setItem('allPerms', JSON.stringify(data))
+      const permConfig = this.currentProvider.perms
+      const requestOptions: RequestOptions = {}
+      requestOptions.method = permConfig.method
+      requestOptions.withCredentials = this.options.withCredentials
+      if (permConfig.domain) {
+        requestOptions.params = {
+          domain: permConfig.domain,
+        }
+      }
 
-      return data
-    } catch (err) {
-      return Promise.reject(err)
-    }
+      try {
+        requestOptions.url = permConfig.url
+        const response = await this.$http(requestOptions)
+
+        let data = lodashGet(response, permConfig.responseDataKey || this.options.responseDataKey)
+        if (permConfig.dataHandler && isFunction(permConfig.dataHandler)) {
+          data = permConfig.dataHandler.call(this, data)
+        }
+
+        this.permStorage.setItem('allPerms', JSON.stringify(data))
+        __permInfoInstance__ = null
+
+        resolve(data)
+      } catch (err) {
+        reject(err)
+      }
+    }))
   }
 }

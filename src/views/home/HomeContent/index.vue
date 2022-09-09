@@ -5,21 +5,21 @@
       <div @mouseleave="changeImageSrc(1, '')" @mouseenter="changeImageSrc(1, 'hover')">
         <div class="content-background1" :style="active1"></div>
         <h4 class="text1" @mouseenter.stop>{{ text1 }}</h4>
-        <img class="content-img1" :src="src1" alt="" />
+        <img class="content-img1" src="./images/product.svg" alt="" />
         <p>产品原型</p>
       </div>
 
       <div @mouseleave="changeImageSrc(2, '')" @mouseenter="changeImageSrc(2, 'hover')">
         <div class="content-background2" :style="active2"></div>
         <h4 class="text2">{{ text2 }}</h4>
-        <img class="content-img2" :src="src2" alt="" />
+        <img class="content-img2" src="./images/ui.svg" alt="" />
 
         <p>UI规范</p>
       </div>
       <div @mouseleave="changeImageSrc(3, '')" @mouseenter="changeImageSrc(3, 'hover')">
         <div class="content-background3" :style="active3"></div>
         <h4 class="text3">{{ text3 }}</h4>
-        <img class="content-img3" :src="src3" alt="" />
+        <img class="content-img3" src="./images/fe.svg" alt="" />
 
         <p>前端开发</p>
       </div>
@@ -37,9 +37,6 @@ export default class extends Vue {
   private text1 = ''
   private text2 = ''
   private text3 = ''
-  private src1 = require('./images/产品原型.svg')
-  private src2 = require('./images/UI规范.svg')
-  private src3 = require('./images/前端开发.svg')
   private active1 = ''
   private active2 = ''
   private active3 = ''

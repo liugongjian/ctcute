@@ -41,6 +41,41 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
+      version: '1.1.5',
+      date: '2022-9-9',
+      bugfix: [
+        {
+          name: 'Ui-Input',
+          desc: {
+            text: '修复input show-password 样式',
+          },
+        },
+        {
+          name: 'Cascader',
+          desc: [
+            {
+              text: '调整 lodashGet 方法，支持 dataKey 为空，即直接返回数据本身',
+            },
+          ],
+        },
+
+        {
+          name: 'layout',
+          desc: [
+            {
+              text: '修复整个退出登录元素的 cursor: pointer',
+            },
+            {
+              text: '调整 auth 中对 iam 路由鉴权的逻辑顺序',
+            },
+            {
+              text: '调整 auth 中 layout 加载为 once',
+            },
+          ],
+        },
+      ],
+    },
+    {
       version: '1.1.2',
       date: '2022-9-2',
       features: [

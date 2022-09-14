@@ -191,8 +191,8 @@ export default class VueAuthenticate {
               this.currentProvider.ifLogin.routerBeforeEach &&
               isFunction(this.currentProvider.ifLogin.routerBeforeEach)
             ) {
-              const hasWid = this.currentProvider.ifLogin.routerBeforeEach(to, from, next)
-              if (!hasWid) return
+              const _to = this.currentProvider.ifLogin.routerBeforeEach(to, from, next)
+              if (_to) next(_to)
             }
           }
 

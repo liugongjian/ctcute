@@ -128,7 +128,9 @@ export default {
       if (authenticateType === 'iam') {
         if (!window.AlogicLayout) {
           const layout = new IamLayout()
-          await layout.load()
+          // 当静态资源使用缓存时，会出出现 layout int 在 new Vue 之前执行并操作了 DOM ，而导致实例创建为空
+          // await layout.load()
+          await Promise.all([layout.load(), new Promise(resolve => setTimeout(() => resolve(void 0), 300))])
           // 由于 layout 加载完后会立即执行一次初始化，因此容器 id 的赋予要滞后到按需资源加载之后、初始化之前
           container.id = containerId
           const console = await layout.init({ containerId })
@@ -138,7 +140,7 @@ export default {
       } else if (authenticateType === 'ctyun') {
         if (!window.CtcloudLayout) {
           const layout = new CtyunLayout()
-          await layout.load()
+          await Promise.all([layout.load(), new Promise(resolve => setTimeout(() => resolve(void 0), 300))])
           container.id = containerId
           const console = await layout.init()
           // 侧边栏高亮

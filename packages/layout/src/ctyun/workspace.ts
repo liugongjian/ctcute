@@ -1,4 +1,4 @@
-import { Route, NavigationGuardNext } from 'vue-router'
+import { Route } from 'vue-router'
 import { AxiosRequestConfig } from 'axios'
 
 import user from './user'
@@ -10,7 +10,7 @@ export default {
   setWorkspaceId: (workspaceId: string) => {
     __workspaceId__ = workspaceId
   },
-  routerBeforeEach: (to: Route, from: Route, next: NavigationGuardNext) => {
+  routerBeforeEach: (to: Route) => {
     // 从 route 中获取 workspaceId ，做一次写操作
     let { workspaceId } = to.query
 
@@ -19,22 +19,24 @@ export default {
       // 处理2个同名参数引起的登录异常问题
       const wid = typeof workspaceId === 'string' ? workspaceId : (workspaceId[0] as string)
 
-      __workspaceId__ = to.query.workspaceId = wid
+      __workspaceId__ = wid
     } else {
-      workspaceId = to.query.workspaceId = __workspaceId__
+      workspaceId = __workspaceId__
     }
 
     // 自动填充 query: workspaceId
     if (workspaceId) {
-      if (/.*\?(.*&)?workspaceId=[^\s]+/.test(to.fullPath)) {
-        // next()
-        return true
-      } else {
-        next({
+      if (!/.*\?(.*&)?workspaceId=[^\s]+/.test(to.fullPath)) {
+        return {
           name: to.name as string,
           params: to.params,
-          query: to.query,
-        })
+          query: {
+            ...to.query,
+            workspaceId,
+          },
+        }
+      } else {
+        return void 0
       }
     } else {
       window.location.href = user.loginUrl

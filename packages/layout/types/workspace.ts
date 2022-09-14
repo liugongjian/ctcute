@@ -1,9 +1,9 @@
-import { NavigationGuard } from 'vue-router'
+import { Route } from 'vue-router'
 import { AxiosRequestConfig } from 'axios'
 
 interface Workspace {
   setWorkspaceId: (workspaceId: string) => void
-  routerBeforeEach: NavigationGuard
+  routerBeforeEach: (to: Route) => Route | undefined
   requestInterceptor: (userId: string | number) => (config: AxiosRequestConfig) => AxiosRequestConfig
 }
 

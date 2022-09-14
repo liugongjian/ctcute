@@ -1,52 +1,85 @@
+import Button from './Button.vue'
+import TextButton from './TextButton.vue'
+import IconButton from './IconButton.vue'
+import Link from './Link.vue'
+import Breadcrumb from './Breadcrumb.vue'
+import Pagination from './Pagination.vue'
+import Steps from './Steps.vue'
+import Input from './Input.vue'
+import Select from './Select.vue'
+import CascadeSelect from './CascadeSelect.vue'
+import Radio from './Radio.vue'
+import Checkbox from './Checkbox.vue'
+import Rate from './Rate.vue'
+import Slider from './Slider.vue'
+import Upload from './Upload.vue'
+import Appendix from './Appendix.vue'
+import Switch from './Switch.vue'
+import Popover from './Popover.vue'
+import Tooltip from './Tooltip.vue'
+import Tabs from './Tabs.vue'
+import SelectedButton from './SelectedButton.vue'
+import Table from './Table.vue'
+import Alert from './Alert.vue'
+import ContentAreaTips from './ContentAreaTips.vue'
+import Tag from './Tag.vue'
+import Tree from './Tree.vue'
+import State from './State.vue'
+import Notification from './Notification.vue'
+import Progress from './Progress.vue'
+import Toast from './Toast.vue'
+import Drawer from './Drawer.vue'
+import Transfer from './Transfer.vue'
+import Collapse from './Collapse.vue'
+import TimeLine from './TimeLine.vue'
 /**
  * 在此数组中添加新增的组件
  */
 const componentsList = [
-  require('./Button.vue'),
-  require('./TextButton.vue'),
-  require('./IconButton.vue'),
-  require('./Link.vue'),
-  require('./Breadcrumb.vue'),
-  require('./Pagination.vue'),
-  require('./Steps.vue'),
-  require('./Input.vue'),
-  require('./Select.vue'),
-  require('./CascadeSelect.vue'),
-  require('./Radio.vue'),
-  require('./Checkbox.vue'),
-  require('./Rate.vue'),
-  require('./Slider.vue'),
-  require('./Upload.vue'),
-  require('./Appendix.vue'),
-  require('./Switch.vue'),
-  require('./Popover.vue'),
-  require('./Tooltip.vue'),
-  require('./Tabs.vue'),
-  require('./SelectedButton.vue'),
-  require('./Table.vue'),
-  require('./Alert.vue'),
-  require('./ContentAreaTips.vue'),
-  require('./Tag.vue'),
-  require('./Tree.vue'),
-  require('./State.vue'),
-  require('./Notification.vue'),
-  require('./Progress.vue'),
-  require('./Toast.vue'),
-  require('./Drawer.vue'),
-  require('./Transfer.vue'),
-  require('./Collapse.vue'),
-  require('./TimeLine.vue'),
+  Button,
+  TextButton,
+  IconButton,
+  Link,
+  Breadcrumb,
+  Pagination,
+  Steps,
+  Input,
+  Select,
+  CascadeSelect,
+  Radio,
+  Checkbox,
+  Rate,
+  Slider,
+  Upload,
+  Appendix,
+  Switch,
+  Popover,
+  Tooltip,
+  Tabs,
+  SelectedButton,
+  Table,
+  Alert,
+  ContentAreaTips,
+  Tag,
+  Tree,
+  State,
+  Notification,
+  Progress,
+  Toast,
+  Drawer,
+  Transfer,
+  Collapse,
+  TimeLine,
 ]
 
 const _components = {}
 
 export const list = componentsList.map((component: any) => {
-  const _component = component.default
   return {
-    name: _component.options.name,
-    title: _component.title,
-    description: _component.description,
-    component: _component,
+    name: component.options.name,
+    title: component.title,
+    description: component.description,
+    component: component,
   }
 })
 

@@ -42,7 +42,7 @@
       name="el-zoom-in-top"
       @before-enter="handleMenuEnter"
       @after-leave="doDestroy">
-      <el-select-menu
+      <cute-area-dropdown
         ref="popper"
         :append-to-body="popperAppendToBody"
         :style="popperStyle"
@@ -75,7 +75,7 @@
             {{ emptyText }}
           </p>
         </template>
-      </el-select-menu>
+      </cute-area-dropdown>
     </transition>
   </div>
 </template>
@@ -84,16 +84,15 @@
 import Emitter from 'element-ui/src/mixins/emitter';
 import Focus from 'element-ui/src/mixins/focus';
 import Locale from 'element-ui/src/mixins/locale';
-import ElInput from 'element-ui/packages/input';
-import ElSelectMenu from 'element-ui/packages/select/src/select-dropdown.vue';
-import CuteAreaOption from './option.vue';
-import CuteAreaRecent from './recent.vue';
 import Clickoutside from 'element-ui/src/utils/clickoutside';
 import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
 import scrollIntoView from 'element-ui/src/utils/scroll-into-view';
 import { valueEquals, isIE, isEdge } from 'element-ui/src/utils/util';
 import NavigationMixin from 'element-ui/packages/select/src/navigation-mixin';
 import { isKorean } from 'element-ui/src/utils/shared';
+import CuteAreaOption from './option.vue';
+import CuteAreaRecent from './recent.vue';
+import CuteAreaDropdown from './dropdown.vue';
 
 export default {
   mixins: [Emitter, Locale, Focus('reference'), NavigationMixin],
@@ -188,8 +187,7 @@ export default {
   },
 
   components: {
-    ElInput,
-    ElSelectMenu,
+    CuteAreaDropdown,
     CuteAreaOption,
     CuteAreaRecent
   },

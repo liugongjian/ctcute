@@ -500,10 +500,10 @@ export default class VueAuthenticate {
     if (__permInfoInstance__) return __permInfoInstance__
     return (__permInfoInstance__ = new Promise(async (resolve, reject) => {
       if (!refresh && this.permStorage.getItem('allPerms')) {
-        return this.permStorage.getItem('allPerms')
+        return resolve(this.permStorage.getItem('allPerms'))
       }
       if (!this.currentProvider) {
-        return Promise.reject(new Error('Unknown provider'))
+        return reject(new Error('Unknown provider'))
       }
 
       const permConfig = this.currentProvider.perms
@@ -526,11 +526,11 @@ export default class VueAuthenticate {
         }
 
         this.permStorage.setItem('allPerms', JSON.stringify(data))
-        __permInfoInstance__ = null
-
         resolve(data)
       } catch (err) {
         reject(err)
+      } finally {
+        __permInfoInstance__ = null
       }
     }))
   }

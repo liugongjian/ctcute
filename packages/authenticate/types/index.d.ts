@@ -1,6 +1,17 @@
 import { VueInstance } from 'vue'
 import { AxiosInstance } from 'axios'
-import Router, { RouteConfig, Route, NavigationGuardNext, NavigationGuard } from 'vue-router'
+import Router, { RouteConfig, Route, NavigationGuardNext } from 'vue-router'
+
+declare module 'vue-router/types/router' {
+  interface RouteMeta {
+    hidden?: boolean // 是否不需要用于生成菜单
+    activeMenu?: string // 当路由不用于生成菜单时，建议设置该选项，主动配置菜单项亮
+    breadcrumb?: boolean // 是否不需要用于生成面包屑
+    withoutLogin?: boolean // 对于不需要登录的页面，需要设置
+    perms?: string[] // 参数为一组路由，设置时会校验该路由对应页面的权限
+  }
+}
+
 export interface RequestOptions {
   url?: string
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
@@ -43,7 +54,7 @@ export interface CommonAuthProvider {
   }
   ifLogin: ApiConfig & {
     afterLogin: ($auth: AuthInstance, userId: string) => any
-    routerBeforeEach: NavigationGuard
+    routerBeforeEach: (to: Route) => Route | undefined
   }
   perms?: ApiConfig
 }

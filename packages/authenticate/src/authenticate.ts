@@ -12,7 +12,6 @@ let __permInfoInstance__: any
 export default class VueAuthenticate {
   public options: BizAuthConfigOptions
   public authenticateType: 'local' | 'ctyun' | 'iam'
-  public authorizeType: 'local' | 'iam'
   public currentProvider: CommonAuthProvider
   public permStorage: any
   public $http: AxiosInstance
@@ -70,12 +69,6 @@ export default class VueAuthenticate {
         },
       },
 
-      authorizeType: {
-        get() {
-          return options.enableAuthorize ? options.authorizeType : ''
-        },
-      },
-
       currentProvider: {
         get() {
           return options.providers[options.authenticateType]
@@ -102,10 +95,12 @@ export default class VueAuthenticate {
   }
 
   preCheck() {
-    // 匹配的认证和权限的组合
-    const compatibleCombination = ['local,local', 'iam,local', 'ctyun,local', 'iam,iam']
     // 认证的 url 需要加上业务前缀
     const { authenticateType, providers } = this.options
+    if (!authenticateType) {
+      throw Error('authenticateType is required')
+    }
+
     if (providers[authenticateType] && providers[authenticateType].user) {
       if (providers[authenticateType].user.setUrl && isFunction(providers[authenticateType].user.setUrl)) {
         providers[authenticateType].user.setUrl(this.options.baseUrl)
@@ -114,10 +109,9 @@ export default class VueAuthenticate {
 
     // 如果开启了权限
     if (this.options.enableAuthorize) {
-      // 检查权限与认证是类型是否匹配
-      const combination = this.authenticateType + ',' + this.authorizeType
-      if (!compatibleCombination.includes(combination)) {
-        throw Error(`Incompatible Authorize Type, All Compatible Types are ${compatibleCombination}`)
+      // 检查权限
+      if (!this.currentProvider['perms']) {
+        throw Error('perms is required for providers in the options')
       }
       // 检查是否传入了路由
       // TODO 如果是根据后端返回的数据生成的路由，这边其实不需要

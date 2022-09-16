@@ -11,22 +11,7 @@
 - 天翼云用户(ctyun)
 - IAM 用户(iam)
 
-权限部分支持两种模式：
-
-- 自建权限(local)
-- IAM 权限(iam)
-
-用户的模式和权限的模式可灵活组合，也可只接入用户体系不接入权限。根据实际的业务场景，我们支持的所有场景包括：
-
-- 只接入用户(enableAuthorize:false)
-  ~~- 自建用户(authenticateType:'local')~~按照安全要求，自建用户一般要求至少区分管理员和普通用户，因此当自建用户时，必须同时集成权限
-  - 天翼云用户(authenticateType:'ctyun')
-  - IAM 用户(authenticateType:'iam')
-- 同时接入用户和权限(enableAuthorize:true)
-  - 自建用户(authenticateType:'local')+自建权限(authorizeType:'local')
-  - 天翼云用户(authenticateType:'ctyun')+自建权限(authorizeType:'local')
-  - IAM 用户(authenticateType:'iam')+自建权限(authorizeType:'local')
-  - IAM 用户(authenticateType:'iam')+IAM 权限(authorizeType:'iam') 【暂不支持】
+权限部分则直接按需配置在对应用户类型下即可，以提高使用的自由度（不要权限时可以通过 enableAuthorize 关闭）。
 
 ## 使用
 
@@ -41,7 +26,6 @@ Vue.use(CuteAuthenticate, {
   baseUrl?: 'xxx', // 后端接口的基础路径，默认是null
   authenticateType?: 'local' | 'ctyun' | 'iam',  // 默认是'local'
   enableAuthorize?: true | false,  // 默认是false
-  authorizeType?: 'local' | 'iam', // 默认是iam
   router,  // vue-router的实例
   routes,  // 全量的routes，如果需要接入权限，则必传。与权限相关的字段在后面会有具体说明
   http,   // axios实例，脚手架中即为@/utils/request文件导出的对象

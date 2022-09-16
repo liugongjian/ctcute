@@ -113,13 +113,13 @@ export function parseQueryString(str) {
   const obj = {}
   let key
   let value
-    ; (str || '').split('&').forEach(keyValue => {
-      if (keyValue) {
-        value = keyValue.split('=')
-        key = decodeURIComponent(value[0])
-        obj[key] = !!value[1] ? decodeURIComponent(value[1]) : true
-      }
-    })
+  ;(str || '').split('&').forEach(keyValue => {
+    if (keyValue) {
+      value = keyValue.split('=')
+      key = decodeURIComponent(value[0])
+      obj[key] = !!value[1] ? decodeURIComponent(value[1]) : true
+    }
+  })
   return obj
 }
 
@@ -167,35 +167,4 @@ export function getObjectProperty(objectRef, propertyName) {
   }
 
   return value
-}
-
-export function loadJs(src: string) {
-  return new Promise<void>((resolve, reject) => {
-    const script = document.createElement('script')
-    script.type = 'text/javascript'
-    script.src = src
-    document.body.appendChild(script)
-    script.onload = () => {
-      resolve()
-    }
-    script.onerror = () => {
-      reject(new Error(`${src}，js加载失败`))
-    }
-  })
-}
-
-export function loadCss(href: string) {
-  return new Promise<void>((resolve, reject) => {
-    const link = document.createElement('link')
-    link.rel = 'stylesheet'
-    link.type = 'text/css'
-    link.href = href
-    document.body.appendChild(link)
-    link.onload = () => {
-      resolve()
-    }
-    link.onerror = () => {
-      reject(new Error(`${href}，css加载失败`))
-    }
-  })
 }

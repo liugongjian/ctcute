@@ -1,15 +1,15 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-08-08 14:26:19
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-09-17 21:23:35
  * @Description:简单表单页
 -->
 <template>
   <el-card class="simple-detail">
     <cute-titled-block title="基础信息">
       <template #content>
-        <el-descriptions :column="2" border>
+        <el-descriptions :column="3" border>
           <el-descriptions-item>
             <template slot="label"> 内部标识符 </template>
             {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.innerIdentity }}

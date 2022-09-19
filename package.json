@@ -95,6 +95,7 @@
     "packages/chart",
     "packages/appendix",
     "packages/sort-table",
+    "packages/editor",
     "packages/authenticate",
     "packages/layout"
   ]

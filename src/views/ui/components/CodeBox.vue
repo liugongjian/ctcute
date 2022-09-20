@@ -6,8 +6,20 @@
     </p>
     <div class="sub-down">
       <h3>代码主题：base16-light</h3>
+
       <div class="line">
-        <div class="line__left">
+        <div class="pB_Container">
+          <div
+            v-for="(item, index) in processArray1"
+            :key="index"
+            :style="{
+              width: 100 / processArray1.length + '%',
+              backgroundColor: item.color,
+              paddingLeft: 10 + 'px',
+            }"
+          ></div>
+        </div>
+        <div class="line__code">
           <codemirror v-model="curCode1" :options="cmOptions1"></codemirror>
         </div>
       </div>
@@ -15,15 +27,33 @@
     <div class="sub-down">
       <h3>代码主题：elegant</h3>
       <div class="line">
-        <div class="line__left line__border">
+        <div class="pB_Container">
+          <div
+            v-for="(item, index) in processArray2"
+            :key="index"
+            :style="{
+              width: 100 / processArray2.length + '%',
+              backgroundColor: item.color,
+              paddingLeft: 10 + 'px',
+            }"
+          ></div>
+        </div>
+        <div class="line__code line__border">
           <codemirror v-model="curCode2" :options="cmOptions2"></codemirror>
         </div>
       </div>
     </div>
     <div class="sub-down">
       <h3>代码主题：base16-dark</h3>
-      <div class="line">
-        <div class="line__left">
+      <div class="line last-line">
+        <div class="pB_Container">
+          <div
+            v-for="(item, index) in processArray3"
+            :key="index"
+            :style="{ width: '14%', backgroundColor: item.color, paddingLeft: 10 + 'px' }"
+          ></div>
+        </div>
+        <div class="line__code">
           <codemirror v-model="curCode3" :options="cmOptions3"></codemirror>
         </div>
       </div>
@@ -72,7 +102,32 @@ export default class extends Vue {
     version: 'v1.0',
     updateTime: '2022.09.19',
   }
-
+  private processArray1 = [
+    {
+      color: '#AC4142',
+    },
+    {
+      color: '#D28445',
+    },
+    {
+      color: '#F4BF75',
+    },
+    {
+      color: '#AA759F',
+    },
+    {
+      color: '#6A9FB5',
+    },
+    {
+      color: '#202020',
+    },
+    {
+      color: '#B0B0B0',
+    },
+    {
+      color: '#F5F5F5',
+    },
+  ]
   private curCode1 = ''
   private cmOptions1 = {
     tabSize: 2, // 缩进格式
@@ -87,6 +142,20 @@ export default class extends Vue {
       completeSingle: true, // 当匹配只有一项的时候是否自动补全
     },
   }
+  private processArray2 = [
+    {
+      color: '#773300',
+    },
+    {
+      color: '#BB1111',
+    },
+    {
+      color: '#776622',
+    },
+    {
+      color: '#202020',
+    },
+  ]
   private curCode2 = ''
   private cmOptions2 = {
     tabSize: 2, // 缩进格式
@@ -99,6 +168,32 @@ export default class extends Vue {
       completeSingle: true, // 当匹配只有一项的时候是否自动补全
     },
   }
+  private processArray3 = [
+    {
+      color: '#AC4142',
+    },
+    {
+      color: '#D28445',
+    },
+    {
+      color: '#F4BF75',
+    },
+    {
+      color: '#AA759F',
+    },
+    {
+      color: '#6A9FB5',
+    },
+    {
+      color: '#E0E0E0',
+    },
+    {
+      color: '#505050',
+    },
+    {
+      color: '#151515',
+    },
+  ]
   private curCode3 = ''
   private cmOptions3 = {
     tabSize: 2, // 缩进格式
@@ -116,12 +211,24 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .line {
-  display: flex;
-  align-items: center;
-  margin: 24px 0;
+  // display: flex;
+  // align-items: center;
+  width: 597px;
+  margin-bottom: 24px;
+  .pB_Container {
+    width: 100%;
+    background-color: $color-grey-9;
+    height: 4px;
+    display: inline-flex;
+    line-height: 10px;
+    overflow: hidden;
+    color: $color-white;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1);
+  }
 
-  &__left {
-    width: 597px;
+  &__code {
+    width: 100%;
+    margin-top: 24px;
     // margin-right: 47px;
   }
   &__border {
@@ -132,12 +239,14 @@ export default class extends Vue {
     width: 100%;
   }
 }
-
+.last-line {
+  margin-bottom: 0;
+}
 .sub-down {
   border-bottom: 1px solid $border-color-light-1;
 
   > h3 {
-    margin: 24px 0;
+    margin-bottom: 0;
     font-family: PingFangSC-Medium;
     font-size: 14px;
     color: $color-grey-1;

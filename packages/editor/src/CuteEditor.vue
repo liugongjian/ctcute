@@ -46,9 +46,6 @@ export default {
       },
     }
   },
-  mounted() {
-    this.setService(this.imgUrl, this.videoUrl)
-  },
   beforeDestroy() {
     const editor = this.editor
     if (editor == null) return
@@ -57,6 +54,8 @@ export default {
   methods: {
     onCreated(editor) {
       this.editor = Object.seal(editor) // 【注意】一定要用 Object.seal() 否则会报错
+      this.editor.getMenuConfig('uploadImage').server = this.imgUrl
+      this.editor.getMenuConfig('uploadVideo').server = this.videoUrl
     },
     onChange(editor) {
       console.log('onChange', editor.getText()) // onChange 时获取编辑器最新内容
@@ -75,14 +74,6 @@ export default {
       const editor = this.editor
       if (editor == null) return
       editor.disable()
-    },
-    setService(imgUrl, videoUrl) {
-      this.editorConfig.MENU_CONF['uploadImage'] = {
-        server: imgUrl,
-      }
-      this.editorConfig.MENU_CONF['uploadVideo'] = {
-        server: videoUrl,
-      }
     },
   },
 }

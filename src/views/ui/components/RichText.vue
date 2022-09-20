@@ -31,11 +31,34 @@ export default class extends Vue {
   }
 
   private isClear = false
-  private imgUrl = ''
+  // 注意！！！ 上传图片成功的返回格式：
+  //   {
+  //   "errno": 0, // 注意：值是数字，不能是字符串
+  //     "data": {
+  //     "url": "xxx", // 图片 src ，必须
+  //       "alt": "yyy", // 图片描述文字，非必须
+  //         "href": "zzz" // 图片的链接，非必须
+  //   }
+  // }
+  // 失败信息
+  //   {
+  //   "errno": 1, // 只要不等于 0 就行
+  //     "message": "失败信息"
+  // }
+  //  上传视频成功的返回格式：
+  //   {
+  //   "errno": 0, // 注意：值是数字，不能是字符串
+  //     "data": {
+  //     "url": "xxx", // 视频 src ，必须
+  //       "poster": "xxx.png" // 视频封面图片 url ，可选
+  //   }
+  // }
+  //  视频失败信息与图片一致
+
+  //上传图片的地址
+  private imgUrl = 'http://localhost:8080/mock/175/upload/images'
+  //上传视频的地址
   private videoUrl = ''
-  private change(val) {
-    console.log(val)
-  }
 }
 </script>
 

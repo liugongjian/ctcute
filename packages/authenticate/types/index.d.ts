@@ -80,11 +80,10 @@ export interface AuthConfigOptions {
   authenticateType?: string
   containerId?: string
   enableAuthorize?: boolean
-  authorizeType?: string
   bindRequestInterceptor?: ($auth: AuthInstance) => void
   bindResponseInterceptor?: ($auth: AuthInstance) => void
-  beforeEachStartHook?: (to: Route, from: Route, next: NavigationGuardNext) => any
-  beforeEachErrorHook?: (to: Route, from: Route, next: NavigationGuardNext) => any
+  beforeEachStartHook?: (to: Route) => Promise<Route | undefined>
+  beforeEachErrorHook?: (to: Route) => Promise<Route | undefined>
   loadLayout?: ($auth: AuthInstance) => void
   providers?: AuthProviders
 }
@@ -97,7 +96,6 @@ export interface UserInfo {
 export interface AuthInstance {
   options: AuthConfigOptions
   authenticateType: 'local' | 'ctyun' | 'iam'
-  authorizeType: 'local' | 'iam'
   currentProvider: CommonAuthProvider
   permStorage: any
   $http: AxiosInstance

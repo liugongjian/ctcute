@@ -15,7 +15,7 @@ import { AxiosRequestConfig } from 'axios'
 export function getCookieDomainUrl() {
   try {
     return window.location.hostname
-  } catch (e) {}
+  } catch (e) { }
 
   return ''
 }
@@ -23,7 +23,7 @@ export function getCookieDomainUrl() {
 export function getRedirectUri(uri) {
   try {
     return !isUndefined(uri) ? `${window.location.origin}${uri}` : window.location.origin
-  } catch (e) {}
+  } catch (e) { }
 
   return uri || null
 }
@@ -52,7 +52,6 @@ export default {
   authenticateType: 'local', // 需要集成的用户类型
   containerId: '#container', // 入口DOM的id，在app外层
   enableAuthorize: false, // 是否需要集成权限
-  authorizeType: 'local', // 需要集成的权限类型
   /**
    * Default request interceptor for Axios library
    * @context {VueAuthenticate}
@@ -104,14 +103,14 @@ export default {
     )
   },
 
-  // 在插件路由的beforeEach钩子最开始执行的钩子函数
-  beforeEachStartHook: async function (to, from, next) {
-    next()
+  // 在插件路由的beforeEach钩子最开始执行的钩子函数，需要调整 to 则按需返回，不需要任何处理则返回 undefined ，不影响后续流程
+  beforeEachStartHook: async function () {
+    return void 0
   },
 
   // 在插件路由的beforeEach钩子报错时执行的钩子函数
-  beforeEachErrorHook: async function (to, from, next) {
-    next()
+  beforeEachErrorHook: async function () {
+    return void 0
   },
 
   // 加载静态资源，使用惰性单例，避免二次执行
@@ -128,9 +127,7 @@ export default {
       if (authenticateType === 'iam') {
         if (!window.AlogicLayout) {
           const layout = new IamLayout()
-          // 当静态资源使用缓存时，会出出现 layout int 在 new Vue 之前执行并操作了 DOM ，而导致实例创建为空
-          // await layout.load()
-          await Promise.all([layout.load(), new Promise(resolve => setTimeout(() => resolve(void 0), 300))])
+          await layout.load()
           // 由于 layout 加载完后会立即执行一次初始化，因此容器 id 的赋予要滞后到按需资源加载之后、初始化之前
           container.id = containerId
           const console = await layout.init({ containerId })
@@ -140,7 +137,7 @@ export default {
       } else if (authenticateType === 'ctyun') {
         if (!window.CtcloudLayout) {
           const layout = new CtyunLayout()
-          await Promise.all([layout.load(), new Promise(resolve => setTimeout(() => resolve(void 0), 300))])
+          await layout.load()
           container.id = containerId
           const console = await layout.init()
           // 侧边栏高亮
@@ -206,17 +203,7 @@ export default {
         url: CtyunUser.fetchUrl,
         method: 'GET',
         afterLogin: ($auth, userId) => {
-          const { router } = $auth.options
-          const { currentRoute } = router
-          // ctyun 需要将 userId 当成 workspaceId 处理
-          router.push({
-            name: currentRoute.name,
-            query: {
-              ...currentRoute.query,
-              workspaceId: userId,
-            },
-            params: currentRoute.params,
-          })
+          CtyunWorkspace.setWorkspaceId(userId)
         },
         routerBeforeEach: CtyunWorkspace.routerBeforeEach,
       },
@@ -241,6 +228,7 @@ export default {
         url: '/v1/auth/account/ifLogin',
         method: 'GET',
         dataHandler: data => data,
+        afterLogin: $auth => $auth.getPermInfo(true),
       },
       // TODO 以后考虑多个接口，改成数组
       perms: {

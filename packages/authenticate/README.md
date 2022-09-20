@@ -106,7 +106,6 @@ export default {
   authenticateType: 'local', // 需要集成的用户类型
   containerId: '#container', // 入口DOM的id，在app外层
   enableAuthorize: false, // 是否需要集成权限
-  authorizeType: 'local', // 需要集成的权限类型
   /**
    * Default request interceptor for Axios library
    * @context {VueAuthenticate}
@@ -159,13 +158,13 @@ export default {
   },
 
   // 在插件路由的beforeEach钩子最开始执行的钩子函数
-  beforeEachStartHook: async function (to, from, next) {
-    next()
+  beforeEachStartHook: async function () {
+    return void 0
   },
 
   // 在插件路由的beforeEach钩子报错时执行的钩子函数
-  beforeEachErrorHook: async function (to, from, next) {
-    next()
+  beforeEachErrorHook: async function () {
+    return void 0
   },
 
   // 加载静态资源，使用惰性单例，避免二次执行

@@ -101,7 +101,11 @@ export default class VueAuthenticate {
       throw Error('authenticateType is required')
     }
 
-    if (providers[authenticateType] && providers[authenticateType].user) {
+    if (!providers[authenticateType]) {
+      throw Error(`${authenticateType} is required in the providers`)
+    }
+
+    if (providers[authenticateType].user) {
       if (providers[authenticateType].user.setUrl && isFunction(providers[authenticateType].user.setUrl)) {
         providers[authenticateType].user.setUrl(this.options.baseUrl)
       }
@@ -151,9 +155,12 @@ export default class VueAuthenticate {
     if (this.options.router) {
       this.options.router.beforeEach(async (to: Route, from: Route, next: NavigationGuardNext) => {
         console.log('inner beforeEach')
+
         if (this.options.beforeEachStartHook && isFunction(this.options.beforeEachStartHook)) {
-          this.options.beforeEachStartHook(to, from, next)
+          const _to = await this.options.beforeEachStartHook(to)
+          if (_to) next(_to)
         }
+
         // 不需要登录
         if (to.meta && to.meta.withoutLogin) {
           next()
@@ -185,7 +192,7 @@ export default class VueAuthenticate {
               this.currentProvider.ifLogin.routerBeforeEach &&
               isFunction(this.currentProvider.ifLogin.routerBeforeEach)
             ) {
-              const _to = this.currentProvider.ifLogin.routerBeforeEach(to, from, next)
+              const _to = this.currentProvider.ifLogin.routerBeforeEach(to)
               if (_to) next(_to)
             }
           }
@@ -195,23 +202,24 @@ export default class VueAuthenticate {
             next()
             return
           }
-
           // 已登录，需要鉴权
           if (this.options.enableAuthorize) {
             await this.getPermInfo()
-          }
-
-          // 通用的鉴权判断
-          if (hasPermission(this.getAllMenus(), to)) {
-            next()
+            // 通用的鉴权判断
+            if (hasPermission(this.getAllMenus(), to)) {
+              next()
+            } else {
+              next('/403')
+            }
           } else {
-            next('/403')
+            // 不需要鉴权，直接跳转
+            next()
           }
         } catch (e) {
           console.error(e)
-          // next()
           if (this.options.beforeEachErrorHook && isFunction(this.options.beforeEachErrorHook)) {
-            this.options.beforeEachErrorHook(to, from, next)
+            const _to = await this.options.beforeEachErrorHook(to)
+            if (_to) next(_to)
           } else {
             next()
           }
@@ -232,7 +240,8 @@ export default class VueAuthenticate {
         return isLogin
       }
     }
-    return await this.authenticate()
+    const isLoggedIn = await this.authenticate()
+    return isLoggedIn
   }
 
   isAuthorized(permissions) {
@@ -267,6 +276,8 @@ export default class VueAuthenticate {
     this.permStorage.removeItem('userInfo')
     this.permStorage.removeItem('isLogin')
     this.tokenStorage.removeItem(this.tokenName)
+    // 为了触发重新请求权限数据
+    __permInfoInstance__ = null
   }
 
   // TODO 优先级排序等，也可后端做
@@ -319,9 +330,9 @@ export default class VueAuthenticate {
   login({
     user,
     requestOptions = {},
-    successCb = () => {},
-    errorCb = () => {},
-    finallyCb = () => {},
+    successCb = () => { },
+    errorCb = () => { },
+    finallyCb = () => { },
     dataHandler = data => data,
     instance,
   }: RequestParams) {
@@ -334,7 +345,6 @@ export default class VueAuthenticate {
     return new Promise(resolve => {
       return this.$http(requestOptions)
         .then(response => {
-          response = lodashGet(response, this.options.responseDataKey)
           return dataHandler(response)
         })
         .then(async response => {
@@ -394,9 +404,9 @@ export default class VueAuthenticate {
    */
   logout({
     requestOptions = {},
-    successCb = () => {},
-    errorCb = () => {},
-    finallyCb = () => {},
+    successCb = () => { },
+    errorCb = () => { },
+    finallyCb = () => { },
     dataHandler = data => data,
     instance,
   }: RequestParams) {
@@ -415,7 +425,6 @@ export default class VueAuthenticate {
       return new Promise(resolve => {
         return this.$http(requestOptions)
           .then(response => {
-            response = lodashGet(response, this.options.responseDataKey)
             return dataHandler(response)
           })
           .then(response => {
@@ -458,12 +467,10 @@ export default class VueAuthenticate {
       requestOptions.url = ifLoginConfig.url
       return this.$http(requestOptions)
         .then(data => {
-          data = lodashGet(data, this.options.responseDataKey)
           if (ifLoginConfig.dataHandler && isFunction(ifLoginConfig.dataHandler)) {
-            return ifLoginConfig.dataHandler.call(this, data)
-          } else {
-            return data
+            data = ifLoginConfig.dataHandler.call(this, data)
           }
+          return lodashGet(data, this.options.responseDataKey)
         })
         .then(async data => {
           const { isLoggedIn, property } = data
@@ -493,24 +500,26 @@ export default class VueAuthenticate {
   getPermInfo(refresh = false) {
     if (__permInfoInstance__) return __permInfoInstance__
     return (__permInfoInstance__ = new Promise(async (resolve, reject) => {
-      if (!refresh && this.permStorage.getItem('allPerms')) {
-        return resolve(this.permStorage.getItem('allPerms'))
-      }
-      if (!this.currentProvider) {
-        return reject(new Error('Unknown provider'))
-      }
-
-      const permConfig = this.currentProvider.perms
-      const requestOptions: RequestOptions = {}
-      requestOptions.method = permConfig.method
-      requestOptions.withCredentials = this.options.withCredentials
-      if (permConfig.domain) {
-        requestOptions.params = {
-          domain: permConfig.domain,
-        }
-      }
-
       try {
+        if (!refresh && this.permStorage.getItem('allPerms')) {
+          resolve(this.permStorage.getItem('allPerms'))
+          return
+        }
+        if (!this.currentProvider) {
+          return reject(new Error('Unknown provider'))
+        }
+
+        const permConfig = this.currentProvider.perms
+        const requestOptions: RequestOptions = {}
+        requestOptions.method = permConfig.method
+        requestOptions.withCredentials = this.options.withCredentials
+
+        if (permConfig.domain) {
+          requestOptions.params = {
+            domain: permConfig.domain,
+          }
+        }
+
         requestOptions.url = permConfig.url
         const response = await this.$http(requestOptions)
 
@@ -524,7 +533,10 @@ export default class VueAuthenticate {
       } catch (err) {
         reject(err)
       } finally {
-        __permInfoInstance__ = null
+        // 在宏任务中完成清除
+        setTimeout(() => {
+          __permInfoInstance__ = null
+        })
       }
     }))
   }

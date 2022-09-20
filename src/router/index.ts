@@ -11,10 +11,16 @@ import pageRoutes from '@/router/modules/page'
 import componentRoutes from '@/router/modules/component'
 import uiRoutes from '@/router/modules/ui'
 import loginRouter from '@/router/modules/login'
+import docRouter from '@/router/modules/doc'
 import Layout from '@/layout/index.vue'
 import settings from '@/settings'
 
 Vue.use(Router)
+
+const _docRoutes = docRouter.map((route: any) => {
+  route.meta.type = 'doc'
+  return route
+})
 
 const _pageRoutes = pageRoutes.map((route: any) => {
   route.meta.type = 'page'
@@ -56,6 +62,11 @@ const base = [
     },
   },
   {
+    path: '/docs',
+    redirect: '/docs/design-target',
+    meta: { hidden: true },
+  },
+  {
     path: '/component',
     redirect: '/component/base',
     meta: { hidden: true },
@@ -64,6 +75,7 @@ const base = [
 // TODO 除了用户权限相关的 其他都是constantRoutes
 export const originConstantRoutes: RouteConfig[] = [
   ...base,
+  ..._docRoutes,
   ..._pageRoutes,
   ..._componentRoutes,
   ...uiRoutes,

@@ -1,6 +1,6 @@
 <template>
   <el-scrollbar ref="wrapper" wrap-class="scrollbar-wrapper">
-    <div class="layout-sidebar__title">UI 组件</div>
+    <div class="layout-sidebar__title">UI 规范</div>
     <el-menu :default-active="currentId" :unique-opened="false" :collapse-transition="false" mode="vertical">
       <el-menu-item
         v-for="component in componentList"

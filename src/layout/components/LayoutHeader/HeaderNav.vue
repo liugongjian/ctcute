@@ -4,11 +4,12 @@
       <Search />
     </div>
     <div class="layout-header__nav">
-      <router-link to="/guide" :class="{ active: currentPath.startsWith('/page') }">页面规范</router-link>
-      <router-link to="/component" :class="{ active: currentPath.startsWith('/component') }"
-        >组件规范</router-link
-      >
+      <router-link to="/docs" :class="{ active: currentPath.startsWith('/docs') }">文档</router-link>
       <router-link to="/ui" :class="{ active: currentPath.startsWith('/ui') }">UI规范</router-link>
+      <router-link to="/component" :class="{ active: currentPath.startsWith('/component') }"
+        >组件</router-link
+      >
+      <router-link to="/page/chart" :class="{ active: currentPath.startsWith('/page') }">页面</router-link>
     </div>
     <!-- 用户信息 -->
     <div v-if="isLogin" class="login-info" @click="flag = !flag">

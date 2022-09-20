@@ -33,6 +33,6 @@ import { AppMain, Navbar, Sidebar, LayoutHeader } from './components'
   },
 })
 export default class extends Vue {
-  private sidebarTitle = '组件规范'
+  private sidebarTitle = '组件'
 }
 </script>

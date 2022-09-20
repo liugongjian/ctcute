@@ -11,9 +11,10 @@
         <Search />
       </div>
       <div class="home-header__nav">
-        <router-link to="/guide">页面规范</router-link>
-        <router-link to="/component">组件规范</router-link>
+        <router-link to="/docs">文档</router-link>
         <router-link to="/ui">UI规范</router-link>
+        <router-link to="/component">组件</router-link>
+        <router-link to="/page/chart">页面</router-link>
       </div>
     </div>
   </header>

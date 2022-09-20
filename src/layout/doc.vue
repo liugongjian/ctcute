@@ -7,11 +7,13 @@
       如不需要标题，可直接删除title属性。
     -->
     <div class="layout-wrap">
-      <sidebar class="layout-sidebar" :title="sidebarTitle" type="page" />
+      <sidebar class="layout-sidebar" :title="sidebarTitle" type="doc" />
       <!-- id在sidebar中被使用，勿随意删改 -->
       <div id="layout-container" class="layout-container">
         <navbar />
-        <app-main />
+        <el-card>
+          <app-main />
+        </el-card>
       </div>
     </div>
   </div>
@@ -31,6 +33,6 @@ import { AppMain, Navbar, Sidebar, LayoutHeader } from './components'
   },
 })
 export default class extends Vue {
-  private sidebarTitle = '页面'
+  private sidebarTitle = '文档'
 }
 </script>

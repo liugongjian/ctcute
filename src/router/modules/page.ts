@@ -1,51 +1,24 @@
 import Layout from '@/layout/index.vue'
 
 const pageRoutes = [
-  // 更新日志
+  // 图表
   {
-    path: '/changelog',
+    path: '/page/chart',
+    redirect: '/page/chart/simpleChart',
     component: Layout,
+    name: 'Chart',
     meta: {
-      breadcrumb: false,
-    },
-    children: [
-      {
-        path: '',
-        name: 'ChangeLog',
-        component: () => import('@/views/page/ChangeLog/index.vue'),
-        meta: {
-          title: '更新日志',
-          breadcrumb: true,
-        },
-      },
-    ],
-  },
-  // 开发指南
-  {
-    path: '/guide',
-    component: Layout,
-    redirect: '/guide/quick-start',
-    meta: {
-      title: '开发指南',
+      title: 'Chart 图表',
       alwaysShow: true,
       breadcrumb: true,
     },
     children: [
       {
-        path: 'design-target',
-        name: 'DesignTarget',
-        component: () => import('@/views/page/Guides/DesignTarget.vue'),
+        path: 'simpleChart',
+        component: () => import(/* webpackChunkName: "simplechart" */ '@/views/page/Chart/SimpleChart.vue'),
+        name: 'SimpleChart',
         meta: {
-          title: '设计目标',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'quick-start',
-        name: 'QuickStart',
-        component: () => import('@/views/page/Guides/QuickStart.vue'),
-        meta: {
-          title: '快速上手',
+          title: 'SimpleChart 基础图表',
           breadcrumb: true,
         },
       },
@@ -343,7 +316,6 @@ const pageRoutes = [
   // 状态页
   {
     path: '/page/pageStatus',
-    // redirect: '/page/form/simple-table',
     component: Layout,
     name: 'PageStatus',
     meta: {
@@ -389,31 +361,6 @@ const pageRoutes = [
       },
     ],
   },
-  // 图表
-
-  {
-    path: '/page/chart',
-    redirect: '/page/chart/simpleChart',
-    component: Layout,
-    name: 'Chart',
-    meta: {
-      title: 'Chart 图表',
-      alwaysShow: true,
-      breadcrumb: true,
-    },
-    children: [
-      {
-        path: 'Chart',
-        component: () => import(/* webpackChunkName: "simplechart" */ '@/views/page/Chart/SimpleChart.vue'),
-        name: 'SimpleChart',
-        meta: {
-          title: 'SimpleChart 基础图表',
-          breadcrumb: true,
-        },
-      },
-    ],
-  },
-
   //文档预览
   {
     path: '/page/review',
@@ -427,7 +374,7 @@ const pageRoutes = [
     },
     children: [
       {
-        path: 'Preview',
+        path: 'simple-preview',
         component: () =>
           import(/* webpackChunkName: "simplepreview" */ '@/views/page/Preview/SimplePreview.vue'),
         name: 'SimplePreview',

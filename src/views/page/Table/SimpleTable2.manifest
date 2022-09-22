@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "name": "SimpleTable2.vue",
+      "path": "@/views/page/Table/SimpleTable2.vue"
+    },
+    {
+      "name": "SimpleTable2.d.ts",
+      "path": "@/types/SimpleTable2.d.ts"
+    },
+    {
+      "name": "api/SimpleTable2.ts",
+      "path": "@/api/simpleTable2.ts"
+    },
+    {
+      "name": "dics/SimpleTable2.ts",
+      "path": "@/dics/simpleTable2.ts"
+    }
+  ]
+}

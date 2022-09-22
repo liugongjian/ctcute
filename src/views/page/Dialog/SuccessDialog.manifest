@@ -1,8 +1,0 @@
-{
-  "files": [
-    {
-      "name": "SuccessDialog.vue",
-      "path": "@/views/page/Dialog/SuccessDialog.vue"
-    }
-  ]
-}

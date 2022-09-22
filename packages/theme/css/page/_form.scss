@@ -21,7 +21,6 @@
   }
 
   .form-item--short {
-
     .el-input,
     .el-select,
     .el-textarea,
@@ -169,10 +168,9 @@
 
   padding-bottom: 33px;
 
-
   .pro-form-bottom {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     height: 48px;
     align-items: center;
   }
@@ -189,7 +187,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
-    >div {
+    > div {
       width: 31%;
 
       .el-select {

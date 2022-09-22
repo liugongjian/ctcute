@@ -1,40 +1,76 @@
 <template>
-  <el-scrollbar wrap-class="scrollbar-wrapper">
-    <el-menu
-      :default-active="activeMenu"
-      :collapse="isCollapse"
-      :background-color="variables.menuBg"
-      :text-color="variables.menuText"
-      :active-text-color="variables.menuActiveText"
-      :unique-opened="false"
-      :collapse-transition="false"
-      mode="vertical"
-    >
-      <sidebar-item
-        v-for="route in routes"
-        :key="route.path"
-        :item="route"
-        :base-path="route.path"
-        :is-collapse="isCollapse"
-      />
-    </el-menu>
-  </el-scrollbar>
+  <div class="sidebar">
+    <!-- 左侧图标栏 -->
+    <div v-if="isShowModule" class="sidebar--left">
+      <div
+        v-for="(item, index) in moduleList"
+        :key="index"
+        :class="{ 'is-first': index === 0, 'is-active': isActiveModule === item.name }"
+        @click="clickModule(item)"
+      >
+        <svg-icon :name="item.icon" />
+        <div v-if="index === 0" class="division"></div>
+      </div>
+    </div>
+    <el-scrollbar v-if="isShowMenu" wrap-class="scrollbar-wrapper">
+      <div class="layout-sidebar__title">{{ title }}</div>
+      <el-menu
+        :default-active="activeMenu"
+        :unique-opened="false"
+        :collapse-transition="false"
+        mode="vertical"
+        class="layout-sidebar__menu"
+      >
+        <sidebar-item
+          v-for="route in currentRoutes"
+          :key="route.path"
+          :item="route"
+          :base-path="route.path"
+        />
+      </el-menu>
+    </el-scrollbar>
+    <!-- 展开与收缩按钮 -->
+    <div class="sidebar--knob" @click="toggleSideBar">
+      <svg-icon :name="`${isShowMenu ? 'caret-left' : 'caret-right'}`" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import { AppModule } from '@/store/modules/app'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import SidebarItem from './SidebarItem.vue'
-import variables from '@/assets/css/_variables.scss'
 
 @Component({
   name: 'SideBar',
   components: {
-    SidebarItem
-  }
+    SidebarItem,
+  },
 })
 export default class extends Vue {
-  get activeMenu (): string {
+  @Prop()
+  private routes
+
+  @Prop()
+  public title
+
+  @Prop()
+  private type
+
+  mounted() {
+    this.setSidbarWidth()
+  }
+
+  public isShowMenu = true
+
+  public isActiveModule = 'home'
+
+  public moduleList = []
+
+  public get isShowModule(): boolean {
+    return this.moduleList && this.moduleList.length > 0
+  }
+
+  public get activeMenu(): string {
     const route = this.$route
     const { meta, path } = route
     // if set path, the sidebar will highlight the path you set
@@ -44,59 +80,87 @@ export default class extends Vue {
     return path
   }
 
-  get sidebar (): any {
-    return AppModule.sidebar
+  public get currentRoutes(): any {
+    const routes = this.routes || (this.$auth && this.$auth.getRoutes())
+    return routes.filter(route => route.meta.type === this.type)
   }
 
-  get routes (): unknown {
-    return (this.$router as any).options.routes
+  private setSidbarWidth() {
+    const moduleWidth = this.isShowModule ? 50 : 0 // 左侧图片栏宽度
+
+    ;(this.$el as HTMLElement).style.width = this.isShowMenu
+      ? `${moduleWidth + 190}px`
+      : `${moduleWidth + 0}px`
   }
 
-  get variables (): unknown {
-    return variables
+  public toggleSideBar() {
+    this.isShowMenu = !this.isShowMenu
+    this.setSidbarWidth()
   }
 
-  get isCollapse (): unknown {
-    return !this.sidebar.opened
+  public clickModule(item) {
+    this.isActiveModule = item.name
   }
 }
 </script>
 
-<style lang="scss">
-.sidebar-container {
-  // reset element-ui css
-  .horizontal-collapse-transition {
-    transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
-  }
-
-  .scrollbar-wrapper {
-    overflow-x: hidden !important;
-  }
-
-  .el-scrollbar__view {
-    height: 100%
-  }
-
-  .el-scrollbar__bar {
-    &.is-vertical {
-      right: 0px;
-    }
-
-    &.is-horizontal {
-      display: none;
-    }
-  }
-}
-</style>
-
 <style lang="scss" scoped>
-.el-scrollbar {
-  height: 100%
+::v-deep .scrollbar-wrapper {
+  width: $sidebar-width;
 }
 
-.el-menu {
-  border: none;
-  height: 100%;
-  width: 100% !important;
+.sidebar {
+  display: flex;
+  position: relative;
+
+  &--left {
+    width: 50px;
+    flex: none;
+    font-size: 16px;
+    color: $color-grey-2;
+    border-right: 1px solid $border-color-primary;
+
+    > div {
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $sidebar-sub-hover;
+      }
+
+      &.is-first {
+        margin-bottom: 1px;
+      }
+
+      &.is-active {
+        background-color: $sidebar-sub-hover;
+        color: $color-master-1;
+      }
+
+      .division {
+        height: 1px;
+        background-color: $border-color-primary;
+        margin: 0 8px;
+      }
+    }
+  }
+
+  &--knob {
+    height: 80px;
+    width: 12px;
+    position: absolute;
+    top: calc(50% - 40px - $header-height / 2); // 40px是自身高度的一半
+    right: -12px;
+    background: $color-white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    color: $color-grey-2;
+    display: flex;
+    align-items: center;
+  }
 }
 </style>

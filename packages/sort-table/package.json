@@ -1,0 +1,25 @@
+{
+  "name": "@cutedesign/sort-table",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.ts",
+  "dependencies": {
+    "sortablejs": "^1.15.0"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "@cutedesign/theme": "^1.0.0"
+  },
+  "scripts": {
+    "patch": "npm version patch",
+    "publish": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.ctyuncdn.cn/ct-basic/cute-design-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

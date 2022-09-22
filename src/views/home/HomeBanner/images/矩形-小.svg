@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="28px" viewBox="0 0 29 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形-小</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#DBECF7" offset="0%"></stop>
+            <stop stop-color="#CBDEF2" offset="47.8345004%"></stop>
+            <stop stop-color="#C8E0F2" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面规范" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="cute首页" transform="translate(-974.000000, -367.000000)" fill="url(#linearGradient-1)">
+            <g id="编组-3" transform="translate(370.000000, 10.000000)">
+                <polygon id="矩形-小" transform="translate(618.330186, 371.089509) rotate(-309.000000) translate(-618.330186, -371.089509) " points="610.49464 359.542389 626.165732 359.542389 626.165732 382.636629 610.49464 382.636629"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

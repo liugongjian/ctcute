@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "name": "FullScreenDialog.vue",
+      "path": "@/views/page/Dialog/FullScreenDialog.vue"
+    },
+    {
+      "name": "FullScreenDialog.d.ts",
+      "path": "@/types/FullscreenDialog.d.ts"
+    },
+    {
+      "name": "api/fullscreenDialog.ts",
+      "path": "@/api/fullscreenDialog.ts"
+    }
+  ]
+}

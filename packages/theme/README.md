@@ -1,5 +1,11 @@
 # 一、版本日志
 
+## v1.0.3
+
+- 修改
+  - 拆分\_variables.scss 中的变量到\_variables-cute.scss 中
+  - 修复 page/\_form.scss 中的 flex 样式 warning
+
 ## v1.0.2
 
 - 修改

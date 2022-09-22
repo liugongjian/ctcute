@@ -18,7 +18,6 @@ Vue.use(CuteAuthenticate, {
   baseUrl: window.commonConfig.baseUrl,
   authenticateType: window.commonConfig.authenticateType,
   enableAuthorize: window.commonConfig.enableAuthorize,
-  authorizeType: window.commonConfig.authorizeType,
   router,
   routes,
   http,

@@ -4,6 +4,5 @@ window.commonConfig = {
   // baseUrl: 'https://vip.ctcdn.cn',
   authenticateType: 'local',
   enableAuthorize: true,
-  authorizeType: 'local',
   baseUrl: 'http://localhost:7002',
 }

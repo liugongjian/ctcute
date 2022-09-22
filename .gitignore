@@ -16,6 +16,7 @@ pnpm-debug.log*
 
 # Editor directories and files
 .idea
+.vscode
 *.suo
 *.ntvs*
 *.njsproj
@@ -23,9 +24,6 @@ pnpm-debug.log*
 *.sw?
 node_modules
 
-.stylelintcache
-
-pnpm-lock.yaml
-package-lock.json
 yarn.lock
-.history
+package-lock.json
+pnpm-lock.yaml

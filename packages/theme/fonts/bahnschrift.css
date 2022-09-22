@@ -1,6 +1,0 @@
-@font-face {
-  font-family: 'bahnschrift';
-  src: url('bahnschrift.woff2') format('woff2'), url('bahnschrift.woff') format('woff'),
-    url('bahnschrift.ttf') format('truetype'), url('bahnschrift.eot') format('embedded-opentype'),
-    url('bahnschrift.svg') format('svg');
-}

@@ -1,11 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { ITsDemo } from './modules/tsDemo'
+import { IAppState } from './modules/app'
+import { ITagsViewState } from './modules/tags-view'
+import { IPermissionState } from './modules/permission'
 
 Vue.use(Vuex)
 
 export interface IRootState {
-  tsDemo: ITsDemo
+  app: IAppState
+  permission: IPermissionState
+  tagsView: ITagsViewState
 }
 
 // Declare empty store first, dynamically register all modules later.

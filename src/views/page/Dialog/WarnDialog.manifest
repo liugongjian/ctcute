@@ -1,8 +1,0 @@
-{
-  "files": [
-    {
-      "name": "WarnDialog.vue",
-      "path": "@/views/page/Dialog/WarnDialog.vue"
-    }
-  ]
-}

@@ -5,10 +5,10 @@
 </template>
 
 <script lang="ts">
-import 'echarts'
+import * as echarts from 'echarts'
 import ECharts from 'vue-echarts'
 import { Component, Prop, Vue } from 'vue-property-decorator'
-
+import china from './json/全国地图.json'
 @Component({
   name: 'CuteChart',
   components: {
@@ -20,6 +20,9 @@ export default class extends Vue {
   @Prop({ type: String, default: '--' }) title?: '--' // 标题
   @Prop({ type: [Number, String], default: '300px' }) width?: '300px' // 高度
   @Prop({ type: [Number, String], default: '200px' }) height?: '200px' // 宽度
+  mounted() {
+    echarts.registerMap('china', china)
+  }
 }
 </script>
 

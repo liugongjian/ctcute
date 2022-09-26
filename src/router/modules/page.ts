@@ -1,6 +1,29 @@
 import Layout from '@/layout/index.vue'
 
 const pageRoutes = [
+  //首页展示
+  {
+    path: '/page/cuteShow',
+    redirect: '/page/cuteShow/cuteWeb',
+    component: Layout,
+    name: 'CuteShow',
+    meta: {
+      title: 'CuteWeb 首页',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'cuteWeb',
+        component: () => import(/* webpackChunkName: "simplechart" */ '@/views/page/CuteWeb/CuteWeb.vue'),
+        name: 'CuteWeb',
+        meta: {
+          title: 'CuteWeb 首页',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
   // 图表
   {
     path: '/page/chart',

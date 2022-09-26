@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="58px" height="58px" viewBox="0 0 58 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 66备份</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="40" height="40" rx="10"></rect>
+        <filter x="-38.8%" y="-28.8%" width="177.5%" height="177.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.909803922   0 0 0 0 0.984313725   0 0 0 0 0.956862745  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="页面" transform="translate(-862.000000, -173.000000)">
+            <g id="编组-66备份" transform="translate(871.000000, 178.000000)">
+                <g id="矩形">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="源数据分析" transform="translate(10.196078, 10.196078)" fill="#7AD3B7" fill-rule="nonzero">
+                    <path d="M9.80398514,0 C4.30778981,0 0,1.6133022 0,3.36895711 L0,5.13680316 C0,6.74609344 4.45638642,8.20904737 9.80398514,8.20904737 C15.3000392,8.20904737 19.6078431,6.89241569 19.6078431,5.13680316 L19.6078431,3.36895711 C19.6078431,1.75963858 15.3000392,0 9.80398514,0 Z M9.80398514,10.1611877 C4.30778981,10.1611877 0,8.84452775 0,7.08891523 L0,10.9383992 C0,12.5476895 4.45638642,14.0106716 9.80398514,14.0106716 C15.3000392,14.0106716 19.6078431,12.6940117 19.6078431,10.9383992 L19.6078431,7.08891523 C19.6078431,8.6982055 15.3000392,10.1611877 9.80398514,10.1611877 Z M9.80398514,15.8208689 C4.30778981,15.8208689 0,14.5041242 0,12.7485965 L0,16.6822037 C0,18.2915222 4.45638642,19.7544762 9.80398514,19.7544762 C15.3000392,19.7544762 19.6078431,18.4377315 19.6078431,16.6822037 L19.6078431,12.7485965 C19.6078431,14.5041242 15.3000392,15.8208689 9.80398514,15.8208689 Z" id="形状"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

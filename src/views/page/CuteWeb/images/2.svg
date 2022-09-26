@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="58px" height="58px" viewBox="0 0 58 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 64</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="40" height="40" rx="10"></rect>
+        <filter x="-38.8%" y="-28.8%" width="177.5%" height="177.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.940673828   0 0 0 0 0.89453125  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="页面" transform="translate(-572.000000, -173.000000)">
+            <g id="编组-64" transform="translate(581.000000, 178.000000)">
+                <g id="矩形">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="编组-63" transform="translate(10.196078, 10.196078)" fill="#EDC73D" fill-rule="nonzero">
+                    <path d="M9.01960784,1.56862745 L9.01960784,10.5882353 L18.0392157,10.5882353 C18.0392157,15.569576 14.0009486,19.6078431 9.01960784,19.6078431 C4.03826711,19.6078431 0,15.569576 0,10.5882353 C0,5.60679721 4.03826711,1.56862745 9.01960784,1.56862745 Z" id="路径"></path>
+                    <path d="M10.9803922,0 C15.7451945,0 19.6078431,3.86264859 19.6078431,8.62745098 L10.9803922,8.62745098 L10.9803922,0 Z" id="路径"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

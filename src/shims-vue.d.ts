@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-11 09:48:22
- * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-27 13:51:34
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-09-26 10:59:32
  * @Description:
  */
 declare module '*.vue' {
@@ -18,5 +18,6 @@ declare module 'path'
 declare module 'vue-echarts'
 
 // declare module 'echarts'
-
+declare module '*.svg'
+declare module '*.json'
 declare const VueI18n: any

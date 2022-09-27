@@ -335,10 +335,6 @@ export default class extends Vue {
     { name: '产品5', value: '330', unit: 'w' },
     { name: '产品6', value: '230', unit: 'w' },
     { name: '产品7', value: '130', unit: 'w' },
-    { name: '产品8', value: '30', unit: 'w' },
-    { name: '产品9', value: '230', unit: 'w' },
-    { name: '产品10', value: '150', unit: 'w' },
-    { name: '产品11', value: '350', unit: 'w' },
   ]
   private list = [
     { value: 16, name: '正在运行' },
@@ -1023,19 +1019,7 @@ export default class extends Vue {
       yAxis: [
         {
           type: 'category',
-          data: [
-            '短链触达',
-            '启动1次',
-            '启动2次',
-            '启动3次',
-            '启动4次',
-            '启动5次',
-            '启动6次',
-            '启动7次',
-            '启动8次',
-            '启动9次',
-            '启动10次',
-          ],
+          data: ['短链触达', '启动1次111111111', '启动2次', '启动3次', '启动4次', '启动5次', '启动6次'],
           // 升序
           inverse: true,
           // splitLine: { show: false },
@@ -1085,7 +1069,7 @@ export default class extends Vue {
                   return str
                 }
               }
-              return `{a${index + 1}|${index + 1}}   {b${index + 1}|${getSubStrIncludeChinese(value, 18)}}`
+              return `{a${index + 1}|${index + 1}}   {b${index + 1}|${getSubStrIncludeChinese(value, 10)}}`
             },
             rich: {
               a1: {
@@ -1109,6 +1093,42 @@ export default class extends Vue {
               a3: {
                 backgroundColor: '#F8D34C',
                 color: '#fff',
+                width: 14,
+                height: 14,
+                align: 'center',
+                borderRadius: 10,
+                padding: [1, 1, 1, 1],
+              },
+              a4: {
+                backgroundColor: '#f3f3f3',
+                color: '#000',
+                width: 14,
+                height: 14,
+                align: 'center',
+                borderRadius: 10,
+                padding: [1, 1, 1, 1],
+              },
+              a5: {
+                backgroundColor: '#f3f3f3',
+                color: '#000',
+                width: 14,
+                height: 14,
+                align: 'center',
+                borderRadius: 10,
+                padding: [1, 1, 1, 1],
+              },
+              a6: {
+                backgroundColor: '#f3f3f3',
+                color: '#000',
+                width: 14,
+                height: 14,
+                align: 'center',
+                borderRadius: 10,
+                padding: [1, 1, 1, 1],
+              },
+              a7: {
+                backgroundColor: '#f3f3f3',
+                color: '#000',
                 width: 14,
                 height: 14,
                 align: 'center',
@@ -1528,6 +1548,7 @@ export default class extends Vue {
     }
     this.option9 = {
       grid: {
+        top: '1',
         left: '1',
         right: '1%',
         bottom: '15%',
@@ -1538,7 +1559,7 @@ export default class extends Vue {
         show: true,
         min: 0,
         max: 200,
-        left: 140,
+        left: 100,
         top: 130,
         // text: ['高', '低'], // 文本，默认为数值文本
         calculable: true,
@@ -1549,6 +1570,7 @@ export default class extends Vue {
       },
       geo: {
         //
+        zoom: 1.2,
         map: 'china', //此处的china就是之前博客中全局注册的china地图
         itemStyle: {
           // 定义样式

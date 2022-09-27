@@ -1,0 +1,72 @@
+/* 主题色 */
+$color-master-1: #fa8334;
+$color-master-2: #ff934c;
+$color-master-3: #ed7c31;
+$color-master-4: #ffe1c6;
+$color-master-5: #ffe6d2;
+$color-master-6: #ffefe3;
+$color-master-7: #fef5ee;
+
+/* 特殊色 */
+$color-sp-1: #df0428;
+$color-sp-2: #e32948;
+$color-sp-3: #bd0322;
+
+/* 状态色 */
+$color-status-master-1: $color-master-1;
+$color-status-master: $color-status-master-1;
+$color-status-danger-1: #f5212d;
+$color-status-danger-2: #ffeeef;
+$color-status-danger-3: #ae050f;
+$color-status-danger: $color-status-danger-1;
+$color-status-info-1: #1890ff;
+$color-status-info: $color-status-info-1;
+$color-status-success-1: #52c41a;
+$color-status-success: $color-status-success-1;
+$color-status-warning-1: #faad15;
+$color-status-warning: #faad15;
+
+/* 表格状态色 */
+$color-table-status-success: #6bdd6b;
+$color-table-status-warning: #faad15;
+$color-table-status-info: #b4b4b4;
+$color-table-status-danger: #f96965;
+
+/* 标签色 */
+$color-tag-master-1: #fcc199;
+$color-tag-master-2: #fef2ea;
+$color-tag-master-3: $color-master-6;
+$color-tag-danger-1: #ffa4a3;
+$color-tag-danger-2: #ffecec;
+$color-tag-info-1: #bddbff;
+$color-tag-info-2: #f3f9ff;
+$color-tag-success-1: #a8e18c;
+$color-tag-success-2: #edf9e8;
+$color-tag-warning-1: #fcd68a;
+$color-tag-warning-2: #fef6e7;
+
+/* 灰色 */
+$color-grey-0: #000;
+$color-grey-1: #333;
+$color-grey-2: #666;
+$color-grey-3: #777;
+$color-grey-4: #999;
+$color-grey-5: #aaa;
+$color-grey-6: #ddd;
+$color-grey-7: #f2f2f2;
+$color-grey-8: #f3f3f3;
+$color-grey-9: #f5f5f5;
+$color-grey-10: #f8f8f8;
+$color-grey-11: #fafafa;
+$color-grey-12: #eee;
+$color-grey-13: #3e3e3e;
+$color-grey-14: #606266;
+$color-grey-exception-1: #e2e5ed;
+
+/* 白色 */
+$color-white: #fff;
+
+/* 其他 */
+$color-other-1: #3b3e4b;
+$color-other-2: #f0f2f5;
+$color-other-3: #8bb2f9;

@@ -243,11 +243,16 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
+::v-deep .CodeMirror-line {
+  line-height: 150% !important;
+}
+
 .line {
   // display: flex;
   // align-items: center;
   width: 597px;
   margin-bottom: 24px;
+
   .pB_Container {
     width: 100%;
     background-color: $color-grey-9;
@@ -264,6 +269,7 @@ export default class extends Vue {
     margin-top: 24px;
     // margin-right: 47px;
   }
+
   &__border {
     border: 1px solid $color-grey-6;
   }
@@ -272,9 +278,11 @@ export default class extends Vue {
     width: 100%;
   }
 }
+
 .last-line {
   margin-bottom: 0;
 }
+
 .sub-down {
   border-bottom: 1px solid $border-color-light-1;
 

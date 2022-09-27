@@ -128,7 +128,18 @@ export default class extends Vue {
       color: '#F5F5F5',
     },
   ]
-  private curCode1 = ''
+  private curCode1 = `function findSequence(goal) {
+  function find(start, history) {
+    if (start == goal)
+      return history;
+    else if (start > goal)
+      return null;
+    else
+      return find(start + 5, "(" + history + " + 5)") ||
+             find(start * 3, "(" + history + " * 3)");
+  }
+  return find(1, "1");
+}`
   private cmOptions1 = {
     tabSize: 2, // 缩进格式
     mode: 'text/javascript',
@@ -156,7 +167,18 @@ export default class extends Vue {
       color: '#202020',
     },
   ]
-  private curCode2 = ''
+  private curCode2 = `function findSequence(goal) {
+  function find(start, history) {
+    if (start == goal)
+      return history;
+    else if (start > goal)
+      return null;
+    else
+      return find(start + 5, "(" + history + " + 5)") ||
+             find(start * 3, "(" + history + " * 3)");
+  }
+  return find(1, "1");
+}`
   private cmOptions2 = {
     tabSize: 2, // 缩进格式
     mode: 'text/javascript',
@@ -194,7 +216,18 @@ export default class extends Vue {
       color: '#151515',
     },
   ]
-  private curCode3 = ''
+  private curCode3 = `function findSequence(goal) {
+  function find(start, history) {
+    if (start == goal)
+      return history;
+    else if (start > goal)
+      return null;
+    else
+      return find(start + 5, "(" + history + " + 5)") ||
+             find(start * 3, "(" + history + " * 3)");
+  }
+  return find(1, "1");
+}`
   private cmOptions3 = {
     tabSize: 2, // 缩进格式
     mode: 'text/javascript',

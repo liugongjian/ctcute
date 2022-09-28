@@ -70,3 +70,11 @@ $color-white: #fff;
 $color-other-1: #3b3e4b;
 $color-other-2: #f0f2f5;
 $color-other-3: #8bb2f9;
+
+$loading-primary-color: mix($color-white, $color-master-1, 50%);
+$loading-primary-border: $loading-primary-color;
+$loading-default-color: $color-grey-10;
+$loading-default-border: $color-grey-6;
+
+/* Sidebar */
+$sidebar-sub-hover: $color-master-7;

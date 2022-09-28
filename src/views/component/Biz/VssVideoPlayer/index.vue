@@ -3,13 +3,13 @@
  * @Date: 2022-09-22 17:54:37
  * @LastEditors: zhulh
  * @LastEditTime: 2022-08-25 18:11:55
- * @Description: 
+ * @Description:
 -->
 <template>
   <div>
     <div class="component__container">
       <h1>VssVideoPlayer / 视频播放器</h1>
-      <component-demo path="@/views/component/Base/CuteArea/Demo1.vue">
+      <component-demo path="@/views/component/Biz/VssVideoPlayer/Demo1.vue">
         <demo1 />
       </component-demo>
       <h2>VssVideoPlayer Attributes</h2>

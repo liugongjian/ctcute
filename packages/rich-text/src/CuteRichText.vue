@@ -17,7 +17,7 @@
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 
 export default {
-  name: 'CuteEditor',
+  name: 'CuteRichText',
   components: { Editor, Toolbar },
   props: {
     videoUrl: {

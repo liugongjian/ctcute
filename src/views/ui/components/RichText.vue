@@ -4,7 +4,7 @@
     <div class="sub-down">
       <div class="line">
         <div class="line__left">
-          <cute-editor :img-url="imgUrl" :video-url="videoUrl"></cute-editor>
+          <cute-rich-text :img-url="imgUrl" :video-url="videoUrl"></cute-rich-text>
         </div>
       </div>
     </div>
@@ -12,11 +12,11 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { CuteEditor } from '@cutedesign/editor'
+import { CuteRichText } from '@cutedesign/rich-text'
 @Component({
   name: 'RichText',
   components: {
-    CuteEditor,
+    CuteRichText,
   },
 })
 export default class extends Vue {

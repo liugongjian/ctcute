@@ -5,11 +5,11 @@
 
 /* 主题色 */
 $color-master-1: #3d73f5;
-$color-master-2: #ff934c;
+$color-master-2: #5381f0;
 $color-master-3: #3361d0;
-$color-master-4: #ffe1c6;
-$color-master-5: #ffe6d2;
-$color-master-6: #ffefe3;
+$color-master-4: #d5dff8;
+$color-master-5: #dbe4fb;
+$color-master-6: #e8edf9;
 $color-master-7: #f0f3fb;
 
 /* 特殊色 */
@@ -39,16 +39,16 @@ $color-table-status-danger: #f96965;
 
 /* 标签色 */
 $color-tag-master-1: #b8ccff;
-$color-tag-master-2: #fef2ea;
+$color-tag-master-2: #ecf2ff;
 $color-tag-master-3: $color-master-6;
 $color-tag-danger-1: #ffa4a3;
 $color-tag-danger-2: #ffecec;
 $color-tag-info-1: #b8ccff;
 $color-tag-info-2: #ecf2ff;
-$color-tag-success-1: #a8e18c;
-$color-tag-success-2: #edf9e8;
-$color-tag-warning-1: #fcd68a;
-$color-tag-warning-2: #fef6e7;
+$color-tag-success-1: #a5e8cd;
+$color-tag-success-2: #e7fdf4;
+$color-tag-warning-1: #fecaa0;
+$color-tag-warning-2: #fff1e5;
 
 /* 灰色 */
 $color-grey-0: #000;
@@ -75,3 +75,11 @@ $color-white: #fff;
 $color-other-1: #3b3e4b;
 $color-other-2: #f0f2f5;
 $color-other-3: #8bb2f9;
+
+$loading-primary-color: mix($color-white, $color-master-1, 50%);
+$loading-primary-border: $loading-primary-color;
+$loading-default-color: $color-grey-10;
+$loading-default-border: $color-grey-6;
+
+/* Sidebar */
+$sidebar-sub-hover: $color-master-7;

@@ -1,13 +1,15 @@
 @mixin table {
+
   /* 分页 */
   .el-pagination {
     text-align: right;
   }
 
   .el-table {
+
     /* 操作按钮 */
     .actions.el-table__cell {
-      .el-button--text + .el-button--text {
+      .el-button--text+.el-button--text {
         margin-left: 16px;
 
         &:before {
@@ -23,6 +25,7 @@
 
 /* 简单表格 */
 .simple-table {
+
   /* 表格工具栏 */
   .table-tools {
     display: flex;
@@ -47,7 +50,7 @@
         margin-left: 10px;
         margin-right: 0;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
       }
@@ -58,8 +61,10 @@
 }
 
 .simple-table2 {
+
   /* 表格工具栏 */
   .table-tools {
+
     /* 筛选表单 */
     &__conditions {
       .el-form {
@@ -85,7 +90,7 @@
         margin-left: 10px;
         margin-right: 0;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
       }
@@ -97,15 +102,17 @@
 
 /* 复杂表格 3 */
 .pro-table-3 {
+
   /* 分页 */
   .el-pagination {
     text-align: right;
   }
 
   .el-table {
+
     /* 操作按钮 */
     .actions.el-table__cell {
-      .el-button--text + .el-button--text {
+      .el-button--text+.el-button--text {
         margin-left: 10px;
 
         &:nth-last-child(2) {
@@ -193,7 +200,7 @@
         margin-right: 0;
         float: right;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
 
@@ -213,7 +220,30 @@
 /* 复杂表格 4 */
 .pro-table-4 {
   .el-card__body {
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    // overflow: hidden;
+    display: flex;
+  }
+
+  .table4-left {
+    position: fixed;
+    width: 15%;
+
+    top: 139px;
+    left: 227px;
+
+    .tree-wrap {
+      height: 752px;
+      overflow: scroll;
+    }
+
+  }
+
+  .table4-right {
+    width: 80%;
+    overflow-y: auto;
+    margin-left: 300px;
   }
 
   /* 树 */
@@ -246,7 +276,7 @@
       }
     }
 
-    .is-expanded > .el-tree-node__content {
+    .is-expanded>.el-tree-node__content {
       .node-icon {
         color: $color-grey-5;
 
@@ -260,7 +290,8 @@
       }
     }
 
-    .el-tree-node:focus > .el-tree-node__content {
+    .el-tree-node:focus>.el-tree-node__content {
+
       .node-content,
       .node-icon,
       .handler-icon {
@@ -293,7 +324,7 @@
       }
     }
 
-    .el-tree-node > .el-tree-node__children {
+    .el-tree-node>.el-tree-node__children {
       overflow: initial;
     }
 
@@ -320,6 +351,7 @@
 
   /* 表格 */
   .table-wrap {
+
     /* 表格工具栏 */
     .table-tools {
       display: flex;
@@ -346,7 +378,7 @@
           margin-left: 24px;
           margin-right: 0;
 
-          .el-button + .el-button {
+          .el-button+.el-button {
             margin-left: $button-margin;
           }
         }
@@ -387,7 +419,7 @@
         margin-left: 10px;
         margin-right: 0;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
       }
@@ -423,8 +455,10 @@
 
 /* 复杂表格2 */
 .pro-table-2 {
+
   /* 表格工具栏 */
   .table-tools {
+
     /* 筛选表单 */
     &__conditions {
       margin-bottom: 16px;
@@ -448,7 +482,7 @@
         margin-left: 24px;
         margin-right: 0;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
       }

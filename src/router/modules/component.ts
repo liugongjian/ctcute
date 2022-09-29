@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 马妍
- * @LastEditTime: 2022-07-28 10:25:26
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-09-29 16:01:02
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -113,6 +113,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteArea/index.vue'),
         meta: {
           title: 'CuteArea',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-rich-text',
+        name: 'CuteRichText',
+        component: () => import('@/views/component/Base/CuteRichText/index.vue'),
+        meta: {
+          title: 'CuteRichText',
           breadcrumb: true,
         },
       },

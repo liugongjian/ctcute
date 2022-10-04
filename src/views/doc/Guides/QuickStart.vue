@@ -38,6 +38,8 @@ cuted ls
 cuted add <PageName> [NewPageName]
 ### 批量新增页面
 cuted madd [.cuted.json]
+### 更换主题
+cuted theme <themeName>
 
 ## 代码仓库
 [https://gitlab.ctyuncdn.cn/ct-basic/cute-design-web.git](https://gitlab.ctyuncdn.cn/ct-basic/cute-design-web.git)

@@ -415,6 +415,9 @@
     color: $color-grey-4;
   }
 }
+.el-textarea.is-disabled .el-textarea__inner {
+  border-color: $border-color-primary;
+}
 
 .el-input-number.is-controls-right {
   .el-input-number__increase {

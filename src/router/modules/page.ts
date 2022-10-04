@@ -1,6 +1,6 @@
 import Layout from '@/layout/index.vue'
 
-const pageRoutes = [
+const indexPageRoutes = [
   // 图表
   {
     path: '/page/chart',
@@ -24,6 +24,9 @@ const pageRoutes = [
       },
     ],
   },
+]
+
+const restPageRoutes = [
   // 弹窗
   {
     path: '/page/dialog',
@@ -419,4 +422,8 @@ const pageRoutes = [
   },
 ]
 
+const pageRoutes = [...indexPageRoutes, ...restPageRoutes]
+
 export default pageRoutes
+
+export { indexPageRoutes, restPageRoutes }

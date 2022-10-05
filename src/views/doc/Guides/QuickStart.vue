@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-07-08 13:45:09
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-08-15 09:52:00
+ * @LastEditTime: 2022-10-05 08:16:18
  * @Description: 快速开始
 -->
 <template>

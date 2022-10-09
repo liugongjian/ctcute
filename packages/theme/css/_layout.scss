@@ -58,7 +58,17 @@
   .el-menu-item,
   .el-submenu__title {
     height: 40px;
-    line-height: 38px;
+    line-height: 40px;
+  }
+
+  .el-submenu__title {
+    display: flex;
+    align-items: center;
+
+    > i.el-submenu__icon-arrow {
+      margin-top: 0;
+      top: auto;
+    }
   }
 
   .el-submenu__title * {
@@ -112,7 +122,7 @@
       height: 12px;
       position: absolute;
       left: 12px;
-      top: 13px;
+      top: 14px;
     }
   }
 
@@ -144,6 +154,8 @@
     &__one {
       >div:last-child {
         .el-menu-item {
+          display: flex;
+          align-items: center;
           height: 16px;
           line-height: 16px;
 

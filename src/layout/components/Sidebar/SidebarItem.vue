@@ -15,6 +15,9 @@
     </template>
     <el-submenu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template slot="title">
+        <span v-if="item.meta && item.meta.icon" class="append-icon">
+          <svg-icon :name="item.meta.icon" :width="14" :height="14" />
+        </span>
         <span v-if="item.meta && item.meta.title" slot="title">{{ item.meta.title }}</span>
       </template>
       <div
@@ -114,6 +117,13 @@ export default class extends Vue {
 .simple-mode {
   .svg-icon {
     margin-left: 20px;
+  }
+}
+.append-icon {
+  display: inline-flex;
+  align-items: center;
+  .svg-icon {
+    margin-right: 5px;
   }
 }
 </style>

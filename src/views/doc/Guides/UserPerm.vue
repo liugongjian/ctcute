@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-05 07:53:38
  * @LastEditors: 王月功
- * @LastEditTime: 2022-10-09 17:18:22
+ * @LastEditTime: 2022-10-09 17:23:01
  * @Description: 用户权限
 -->
 
@@ -70,6 +70,8 @@ window.commonConfig = {
 \`providers\`可以定义每一种用户权限的自定义字段，对天翼云用户来说，需要在\`ctyun\`对象中定义。
 如果您的产品需要上云，并且在云网门户有正式的入口（需要您的产品在上云的时候找IT对接），则需要定义\`layout->bizDomain\`字段，这个字段的值可以从\`GetTree?domain=console.leftbar\`中确认
 全量的可配置字段，可参考[@cutedesign/authenticate](http://verdaccio.ctcdn.cn/-/web/detail/@cutedesign/authenticate)
+
+> 注意：需配置hosts: 127.0.0.1 local.ctyun.cn，并使用npm run serve:ctyun启动
 
 ### b) IAM
 
@@ -142,6 +144,8 @@ window.commonConfig = {
 2. 在 deployment.yaml 挂在对应文件
   - 方式1：\`kubectl -n xxx create configmap demoweb-nginx --from-file=nginx.conf\`
   - 方式2：使用脚手架创建项目，选择 IAM 用户类型时，已经默认提供，在 \`deploy/base/deploy.yaml\` 中（各场景共享配置）
+
+> 注意：需配置hosts需配置hosts: 127.0.0.1 local.ctcdn.cn，并使用npm run serve:iam启动
 
 ### c) 自建用户
 

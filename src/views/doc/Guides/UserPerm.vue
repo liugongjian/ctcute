@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-05 07:53:38
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-10-09 08:54:46
+ * @LastEditTime: 2022-10-09 14:21:05
  * @Description: 用户权限
 -->
 
@@ -93,6 +93,8 @@ IAM的配置说明见场景1，bs与ctyun类似，但不渲染相关的layout，
 
 全量的可配置字段，可参考[@cutedesign/authenticate](http://verdaccio.ctcdn.cn/-/web/detail/@cutedesign/authenticate)
 
+> 注意：需配置hosts需配置hosts: 127.0.0.1 local.ctcdn.cn，并使用npm run serve:iam启动
+
 ### c) 自建用户
 通过脚手架初始化项目时，选择用户类型为"自建用户"。在\`public/config/index.js\`中，初始化的选项如下：
 \`\`\`
@@ -117,6 +119,8 @@ window.commonConfig = {
 3. 退出（/v1/auth/logout）【在\`logoutUrl\`字段配置】
 4. 获取用户菜单按钮权限（/v1/auth/account/menus）【在\`providers->local->perms->url\`字段配置】
 全量的可配置字段，可参考[@cutedesign/authenticate](http://verdaccio.ctcdn.cn/-/web/detail/@cutedesign/authenticate)
+
+> 注意：需配置hosts: 127.0.0.1 local.ctyun.cn，并使用npm run serve:ctyun启动
 
 对于自建用户权限，我们提供了一整套页面，包括登录页、头部用户信息展示（包括退出）、用户管理页、角色管理页、菜单管理页。您可以在此基础上进行修改。相关的接口文档可参考[自建用户接口文档](https://cloud.ctcdn.cn/s/kYcJi9wj8ocwk7m)
 `

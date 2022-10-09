@@ -8,6 +8,25 @@
 import Layout from '@/layout/doc.vue'
 
 const docRoutes = [
+  // 更新日志
+  {
+    path: '/docs/changelog',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'ChangeLog',
+        component: () => import('@/views/doc/ChangeLog/index.vue'),
+        meta: {
+          title: '更新日志',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
   // 设计目标
   {
     path: '/docs/design-target',
@@ -46,6 +65,25 @@ const docRoutes = [
       },
     ],
   },
+  // 用户权限
+  {
+    path: '/docs/userperm',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'UserPerm',
+        component: () => import('@/views/doc/Guides/UserPerm.vue'),
+        meta: {
+          title: '用户权限',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
   // 更换主题
   {
     path: '/docs/theme',
@@ -65,20 +103,33 @@ const docRoutes = [
       },
     ],
   },
-  // 更新日志
+  // 最佳实践
   {
-    path: '/docs/changelog',
+    path: '/doc/bestpractice',
+    redirect: '/doc/bestpractice/richText',
     component: Layout,
+    name: 'BestPractice',
     meta: {
-      breadcrumb: false,
+      title: '最佳实践',
+      alwaysShow: true,
+      breadcrumb: true,
     },
     children: [
       {
-        path: '',
-        name: 'ChangeLog',
-        component: () => import('@/views/doc/ChangeLog/index.vue'),
+        path: 'richText',
+        component: () => import('@/views/doc/BestPractice/RichText.vue'),
+        name: 'RichText',
         meta: {
-          title: '更新日志',
+          title: 'RichText 富文本',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'codeMirror',
+        component: () => import('@/views/doc/BestPractice/CodeMirror.vue'),
+        name: 'CodeMirror',
+        meta: {
+          title: 'CodeMirror 代码编辑器',
           breadcrumb: true,
         },
       },

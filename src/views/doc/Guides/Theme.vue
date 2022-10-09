@@ -11,10 +11,10 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteMavonEditor from './components/CuteMavonEditor.vue'
+import CuteMavonEditor from '../components/CuteMavonEditor.vue'
 
 @Component({
-  name: 'QuickStart',
+  name: 'Theme',
   components: {
     CuteMavonEditor,
   },

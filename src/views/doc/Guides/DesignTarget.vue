@@ -1,9 +1,16 @@
+<!--
+ * @Author: 胡佳婷
+ * @Date: 2022-10-04 17:01:49
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2022-10-08 12:30:47
+ * @Description:
+-->
 <template>
   <cute-mavon-editor :content="content"></cute-mavon-editor>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteMavonEditor from './components/CuteMavonEditor.vue'
+import CuteMavonEditor from '../components/CuteMavonEditor.vue'
 
 @Component({
   name: 'DesignTarget',

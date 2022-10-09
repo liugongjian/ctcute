@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-04 17:01:49
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-10-09 11:12:51
+ * @LastEditTime: 2022-10-09 11:18:01
  * @Description:
 -->
 <template>
@@ -32,9 +32,6 @@ export default class extends Vue {
 ### 1. 老项目，对老项目不要求强制改造
 ### 2. 移动端、客户端、大屏、门户等类型的项目，不在当前版本的考虑中
 
-## 资源链接
-### [产品原型](https://cloud.ctcdn.cn/s/LPtSGxCiHAcibEe)
-### [UI规范](https://cloud.ctcdn.cn/s/3p5eTTn9J8FaRC3)
 `
 }
 </script>

@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-04 17:01:49
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-10-05 09:20:35
+ * @LastEditTime: 2022-10-09 11:51:19
  * @Description:
  */
 import Layout from '@/layout/doc.vue'
@@ -130,6 +130,25 @@ const docRoutes = [
         name: 'CodeMirror',
         meta: {
           title: 'CodeMirror 代码编辑器',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  // 资源
+  {
+    path: '/docs/resource',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'Resource',
+        component: () => import('@/views/doc/Guides/Resource.vue'),
+        meta: {
+          title: '资源',
           breadcrumb: true,
         },
       },

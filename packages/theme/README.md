@@ -1,4 +1,19 @@
+<!--
+ * @Author: 胡佳婷
+ * @Date: 2022-10-08 10:16:32
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2022-10-09 18:25:03
+ * @Description:
+-->
+
 # 一、版本日志
+
+## v1.0.5
+
+- 新增
+  - 侧边菜单支持增加 icon，如果定义了路由的 meta->icon 属性，则显示 icon，其中 icon 为 svg 的 name
+- 修改
+  - 修复表单中 tips 和 error 的间距
 
 ## v1.0.4
 

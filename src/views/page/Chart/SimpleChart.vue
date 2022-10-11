@@ -559,7 +559,7 @@ export default class extends Vue {
               return value + ' ml'
             },
           },
-          color: [this.variables.chartColor12],
+          color: [this.variables.chartColor2],
           barWidth: 26,
           data: [30, 28, 25, 24, 21, 20, 16, 15, 13, 12, 10, 7, 3],
         },

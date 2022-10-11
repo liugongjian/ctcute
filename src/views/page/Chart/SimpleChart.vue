@@ -194,7 +194,7 @@ export default class extends Vue {
         this.variables.chartColor2,
         this.variables.chartColor3,
         this.variables.chartColor4,
-        this.variables.chartColor5,
+        this.variables.chartColorOther2,
       ],
       title: {
         text: '流程状态数量',
@@ -207,17 +207,17 @@ export default class extends Vue {
           fontFamily: '微软雅黑',
           fontSize: 12,
           fontWeight: 400,
-          color: this.variables.chartColor11,
+          color: this.variables.chartColorGrey1,
         },
         subtextStyle: {
           fontSize: 16,
           fontWeight: 500,
           fontFamily: '微软雅黑',
-          color: this.variables.chartColor11,
+          color: this.variables.chartColorGrey1,
         },
       },
       textStyle: {
-        color: this.variables.chartColor11,
+        color: this.variables.chartColorGrey1,
       },
       tooltip: {
         trigger: 'none',
@@ -230,7 +230,7 @@ export default class extends Vue {
         show: true,
         textStyle: {
           fontSize: 12, // 字体大小
-          color: this.variables.chartColor11, // 字体颜色
+          color: this.variables.chartColorGrey1, // 字体颜色
         },
         icon: 'circle',
         top: '20%',
@@ -248,7 +248,7 @@ export default class extends Vue {
               length: 2,
             },
             lineStyle: {
-              color: this.variables.chartColor11,
+              color: this.variables.chartColorGrey1,
             },
           },
           fontSize: 12, // 字体大小
@@ -266,7 +266,7 @@ export default class extends Vue {
             normal: {
               label: {
                 fontSize: 12, // 字体大小
-                color: this.variables.chartColor11,
+                color: this.variables.chartColorGrey1,
                 show: true,
                 padding: [5, 10],
                 // formatter:  '{b} \n {c} ({d}%)'
@@ -287,13 +287,13 @@ export default class extends Vue {
         bottom: '3%',
         containLabel: true,
       },
-      color: [this.variables.chartColor6, this.variables.chartColor7],
+      color: [this.variables.chartColor12, this.variables.chartColorOther3],
       tooltip: {
         trigger: 'axis',
         axisPointer: {
           type: 'cross',
           label: {
-            backgroundColor: this.variables.chartColor9,
+            backgroundColor: this.variables.chartColor1,
           },
         },
       },
@@ -302,7 +302,7 @@ export default class extends Vue {
         show: true,
         textStyle: {
           fontSize: 12, // 字体大小
-          color: this.variables.chartColor11, // 字体颜色
+          color: this.variables.chartColorGrey1, // 字体颜色
         },
         icon: 'circle',
         top: '6%',
@@ -348,9 +348,9 @@ export default class extends Vue {
           },
           symbol: 'none',
           lineStyle: {
-            color: this.variables.chartColor9,
+            color: this.variables.chartColor4,
             normal: {
-              color: this.variables.chartColor9,
+              color: this.variables.chartColor4,
             },
           },
           data: [0, 0, 0, 0, 0, 0, 7, 7, 7, 12, 12, 12, 12],
@@ -364,9 +364,9 @@ export default class extends Vue {
           },
           symbol: 'none',
           lineStyle: {
-            color: this.variables.chartColor13,
+            color: this.variables.chartColorGrey0,
             normal: {
-              color: this.variables.chartColor9,
+              color: this.variables.chartColor4,
             },
           },
           data: [5, 5, 5, 5, 12, 12, 12, 12, 12, 12, 12, 12, 12],
@@ -382,10 +382,10 @@ export default class extends Vue {
         bottom: '3%',
         containLabel: true,
       },
-      color: [this.variables.chartColor10],
+      color: [this.variables.chartColorOther4],
       tooltip: {
         trigger: 'axis',
-        color: this.variables.chartColor11,
+        color: this.variables.chartColorGrey1,
         formatter: '{b}' + '<br />' + '流程定义数：{c}',
         axisPointer: {
           type: 'shadow',
@@ -451,14 +451,14 @@ export default class extends Vue {
         // axisPointer: {
         //   type: 'cross',
         //   crossStyle: {
-        //     color: this.variables.chartColor14,
+        //     color: this.variables.chartColorGrey4,
         //   },
         // },
         trigger: 'axis',
         axisPointer: {
           type: 'cross',
           label: {
-            backgroundColor: this.variables.chartColor10,
+            backgroundColor: this.variables.chartColorOther4,
           },
         },
       },
@@ -467,7 +467,7 @@ export default class extends Vue {
         show: true,
         textStyle: {
           fontSize: 12, // 字体大小
-          color: this.variables.chartColor11, // 字体颜色
+          color: this.variables.chartColorGrey1, // 字体颜色
         },
         icon: 'circle',
         top: '0%',
@@ -567,7 +567,7 @@ export default class extends Vue {
           name: '完成率（%）',
           type: 'line',
           symbol: 'none',
-          color: [this.variables.chartColor10],
+          color: [this.variables.chartColorOther4],
           align: 'right',
           yAxisIndex: 1,
           tooltip: {

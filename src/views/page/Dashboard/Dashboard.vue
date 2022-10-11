@@ -2,7 +2,7 @@
  * @Author: 
  * @Date:
  * @LastEditors: 邱文琦
- * @LastEditTime: 2022-10-11 16:08:27
+ * @LastEditTime: 2022-10-11 16:55:57
  * @Description: 首页
 -->
 <template>
@@ -17,7 +17,7 @@
         <el-col :span="6">
           <cute-chart-item
             :loading="loading"
-            :icon="require('./Images/icon-reach.svg')"
+            :icon="iconReach"
             title="短链触达量"
             total="42,965.00"
             background="139, 178, 249"
@@ -29,7 +29,7 @@
         <el-col :span="6">
           <cute-chart-item
             :loading="loading"
-            :icon="require('./Images/icon-click.svg')"
+            :icon="iconClick"
             title="短链点击量"
             total="22,412.00"
             background="182, 221, 119"
@@ -41,7 +41,7 @@
         <el-col :span="6">
           <cute-chart-item
             :loading="loading"
-            :icon="require('./Images/icon-startUp.svg')"
+            :icon="iconStartUp"
             title="短链启动量"
             total="18,296.00"
             background="248, 211, 76"
@@ -53,7 +53,7 @@
         <el-col :span="6">
           <cute-chart-item
             :loading="loading"
-            :icon="require('./Images/icon-install.svg')"
+            :icon="iconInstall"
             title="短链安装量"
             total="9,480.00"
             background="248, 211, 76"
@@ -272,6 +272,10 @@ import { getTableComponent } from '@/api/tableComponent'
 import * as TableComponent from '@/types/TableComponent'
 import { CuteChart, CuteChartItem } from '@cutedesign/chart'
 import { Component, Vue } from 'vue-property-decorator'
+import iconReach from './Images/icon-reach.svg'
+import iconClick from './Images/icon-click.svg'
+import iconStartUp from './Images/icon-startUp.svg'
+import iconInstall from './Images/icon-install.svg'
 
 @Component({
   name: 'SimpleChart',
@@ -284,6 +288,10 @@ export default class extends Vue {
   private get variables(): any {
     return color
   }
+  private iconReach = iconReach
+  private iconClick = iconClick
+  private iconStartUp = iconStartUp
+  private iconInstall = iconInstall
   private HEALTH = HEALTH
   activeName = 'first'
   private currentPage4 = 4
@@ -922,7 +930,7 @@ export default class extends Vue {
         },
       },
       legend: {
-        data: ['短链点击量', '短链触达量'],
+        data: ['短链触达量', '短链点击量'],
         bottom: '0',
         icon: 'rest',
         itemWidth: 10,

@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "name": "Dashboard.vue",
+      "path": "@/views/page/Dashboard/Dashboard.vue"
+    },
+    {
+      "name": "dics/SimpleTable.ts",
+      "path": "@/dics/simpleTable.ts"
+    },
+    {
+      "name": "utils/date.ts",
+      "path": "@/utils/date.ts"
+    },
+    {
+      "name": "api/tableComponent.ts",
+      "path": "@/api/tableComponent.ts"
+    },
+    {
+      "name": "TableComponent.ts",
+      "path": "@/types/TableComponent.ts"
+    }
+  ],
+  "package": {
+    "dependencies": {
+      "@cutedesign/chart":  "^1.0.0"
+    }
+  }
+}

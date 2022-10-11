@@ -1,4 +1,272 @@
+<!--
+ * @Author: 
+ * @Date:
+ * @LastEditors: 邱文琦
+ * @LastEditTime: 2022-10-11 16:08:27
+ * @Description: 首页
+-->
+<template>
+  <div class="dashboard">
+    <el-card class="simple-table" shadow="never">
+      <div class="chart-title">
+        <h2>数据总览</h2>
+        <el-date-picker v-model="overviewDate" type="daterange" size="mini"></el-date-picker>
+      </div>
+      <!-- 统计数据 -->
+      <el-row :gutter="22" class="header">
+        <el-col :span="6">
+          <cute-chart-item
+            :loading="loading"
+            :icon="require('./Images/icon-reach.svg')"
+            title="短链触达量"
+            total="42,965.00"
+            background="139, 178, 249"
+            percentage="2.5%"
+            :lift="false"
+          >
+          </cute-chart-item>
+        </el-col>
+        <el-col :span="6">
+          <cute-chart-item
+            :loading="loading"
+            :icon="require('./Images/icon-click.svg')"
+            title="短链点击量"
+            total="22,412.00"
+            background="182, 221, 119"
+            percentage="2.5%"
+            :lift="true"
+          >
+          </cute-chart-item>
+        </el-col>
+        <el-col :span="6">
+          <cute-chart-item
+            :loading="loading"
+            :icon="require('./Images/icon-startUp.svg')"
+            title="短链启动量"
+            total="18,296.00"
+            background="248, 211, 76"
+            percentage="2.5%"
+            :lift="false"
+          >
+          </cute-chart-item>
+        </el-col>
+        <el-col :span="6">
+          <cute-chart-item
+            :loading="loading"
+            :icon="require('./Images/icon-install.svg')"
+            title="短链安装量"
+            total="9,480.00"
+            background="248, 211, 76"
+            percentage="2.5%"
+            :lift="false"
+          >
+          </cute-chart-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="22" class="chart-table-box">
+        <el-col :span="18">
+          <el-card class="chart-card-box" shadow="never">
+            <div slot="header" class="chart-card-header">
+              <h2>今日数据概况</h2>
+              <div class="header-time-line">
+                <el-select v-model="value" placeholder="请选择">
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  >
+                  </el-option>
+                </el-select>
+                <el-input v-model="searchValue" placeholder="请搜索短链名称" prefix-icon="el-icon-search">
+                </el-input>
+              </div>
+              <el-radio-group v-model="radio1">
+                <el-radio-button label="昨日"></el-radio-button>
+                <el-radio-button label="近7天"></el-radio-button>
+                <el-radio-button label="近30天"></el-radio-button>
+                <el-radio-button label="近6个月"></el-radio-button>
+              </el-radio-group>
+            </div>
+            <div class="chart-box">
+              <div class="chart-select-item">
+                <el-select v-model="value" placeholder="请选择">
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  >
+                  </el-option>
+                </el-select>
+              </div>
+              <CuteChart :option="option8" :height="'100%'" :width="'100%'" />
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="6">
+          <el-card class="chart-card-box annular" shadow="never">
+            <div class="chart-box-container">
+              <CuteChart :option="option6" :height="'8.4vw'" :width="'100%'" />
+              <img src="./Images/icon-hit.svg" alt="" />
+            </div>
+            <div class="chart-box-container">
+              <CuteChart :option="option7" :height="'8.4vw'" :width="'100%'" />
+              <img src="./Images/icon-deal.svg" alt="" />
+            </div>
+          </el-card>
+          <el-card class="chart-card-box annular line" shadow="never">
+            <div class="chart-box">
+              <CuteChart :option="option5" :height="'80px'" :width="'100%'" />
+            </div>
+            <div class="visit-data">
+              <h2 class="visits">12,835</h2>
+              <p class="access-rate">
+                <span>访问率</span>
+                <span>
+                  <svg-icon name="arrow-up" color="#FF5B68" width="14" height="14" />
+                  <span class="increase">2.5%</span>
+                </span>
+              </p>
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="12">
+          <el-card class="chart-card-box" shadow="never">
+            <div slot="header" class="chart-card-header">
+              <h2>地区分布概况</h2>
+            </div>
+            <div class="chart-box">
+              <CuteChart :option="option2" :height="'250px'" :width="'100%'" />
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="12">
+          <el-card class="chart-card-box" shadow="never">
+            <div slot="header" class="chart-card-header">
+              <h2>短链数据统计</h2>
+            </div>
+            <div class="chart-box">
+              <CuteChart :option="option3" :height="'250px'" :width="'100%'" />
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="6">
+          <el-card class="chart-card-box process" shadow="never">
+            <div slot="header" class="chart-card-header">
+              <h2>流程状态统计</h2>
+            </div>
+            <div class="chart-box">
+              <CuteChart :option="option" :height="'100%'" :width="'100%'" />
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="18">
+          <el-card class="chart-card-box map" shadow="never">
+            <div slot="header" class="chart-card-header">
+              <h2>短链地区访问统计</h2>
+              <div class="map_select">
+                <el-select v-model="value" placeholder="请选择">
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  >
+                  </el-option>
+                </el-select>
+                <el-date-picker v-model="shortChainDate" type="daterange" size="mini"></el-date-picker>
+              </div>
+            </div>
+            <div class="chart-box chart-inner">
+              <div class="chart-items">
+                <el-tabs v-model="activeName" class="chart-card-tabs">
+                  <el-tab-pane label="TOP10城市" name="first"></el-tab-pane>
+                  <el-tab-pane label="TOP5省份" name="second"></el-tab-pane>
+                </el-tabs>
+                <el-table :data="tableDatas" :show-header="false">
+                  <el-table-column type="index" width="40"> </el-table-column>
+                  <el-table-column property="city" width="80"> </el-table-column>
+                  <el-table-column property="proportion" width="100"> </el-table-column>
+                  <el-table-column property="frequency" width="100"> </el-table-column>
+                </el-table>
+              </div>
+              <CuteChart :option="option9" :height="'100%'" :width="'100%'" />
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="10">
+          <el-card class="chart-card-box message" shadow="never">
+            <div slot="header" class="chart-card-header">
+              <h2>短信渠道用户排行榜</h2>
+            </div>
+            <div class="chart-box">
+              <CuteChart :option="option4" :width="'100%'" />
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="14">
+          <el-card class="chart-card-box table" shadow="never">
+            <div slot="header" class="chart-card-header">
+              <h2>数据列表</h2>
+            </div>
+            <div class="chart-box">
+              <el-tabs value="third" type="card" size="small">
+                <el-tab-pane label="默认项" name="second"></el-tab-pane>
+                <el-tab-pane label="选中项" name="third"></el-tab-pane>
+                <el-tab-pane label="禁用选项" name="fourth" disabled></el-tab-pane>
+                <el-tab-pane label="悬停项" name="fifth"></el-tab-pane>
+              </el-tabs>
+              <div class="sub-table">
+                <el-table
+                  :data="tableComponentData && tableComponentData.tableData"
+                  border
+                  height="calc(100% - 40px)"
+                >
+                  <el-table-column prop="ip" label="IP地址" width="130px"> </el-table-column>
+                  <el-table-column prop="time" label="时间" sortable width="190px"> </el-table-column>
+                  <el-table-column prop="label" label="标签" width="150px">
+                    <template slot-scope="scope">
+                      <el-tag type="info" size="small"> {{ scope.row.label[0] }}</el-tag>
+                      <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
+                    </template>
+                  </el-table-column>
+                  <el-table-column prop="description" label="描述" width="240px">
+                    <template slot-scope="scope">
+                      <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+                        <span class="text-ellipsis">{{ scope.row.description }}</span>
+                      </el-tooltip>
+                    </template>
+                  </el-table-column>
+                  <el-table-column prop="healthy" label="健康状态" min-width="90px">
+                    <template slot-scope="scope">
+                      <div>
+                        <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
+                        <span>{{ HEALTH[scope.row.healthy] }}</span>
+                      </div>
+                    </template>
+                  </el-table-column>
+                </el-table>
+                <el-pagination
+                  class="pagination"
+                  :current-page="currentPage4"
+                  :total="153"
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                >
+                </el-pagination>
+              </div>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </el-card>
+  </div>
+</template>
+
+<script lang="ts">
 import { HEALTH } from '@/dics/simpleTable'
+import { formatDatetime } from '@/utils/date'
 import color from '@cutedesign/theme/css/_variables.scss'
 import { getTableComponent } from '@/api/tableComponent'
 import * as TableComponent from '@/types/TableComponent'
@@ -17,7 +285,6 @@ export default class extends Vue {
     return color
   }
   private HEALTH = HEALTH
-  statusDate = ''
   activeName = 'first'
   private currentPage4 = 4
   // 表格数据
@@ -404,6 +671,7 @@ export default class extends Vue {
     },
   ]
   private geoCoordMap = {}
+  private options = {}
   // 饼图
   private option = {}
   // 线图
@@ -421,6 +689,12 @@ export default class extends Vue {
   private searchValue = ''
   private radio1 = '近7天'
   private tableComponentData: TableComponent.TableComponentData = null
+  private formatDatetime = formatDatetime
+  private overviewDate = [formatDatetime(new Date(), 'yyyy-MM-dd'), formatDatetime(new Date(), 'yyyy-MM-dd')]
+  private shortChainDate = [
+    formatDatetime(new Date(), 'yyyy-MM-dd'),
+    formatDatetime(new Date(), 'yyyy-MM-dd'),
+  ]
   // 加载状态
   loading = false
   /**
@@ -441,7 +715,7 @@ export default class extends Vue {
   /**
    * 页面Mounted
    */
-  created() {
+  mounted() {
     this.tableData = []
     for (let i = 1; i < 22; i++) {
       const item = {
@@ -471,14 +745,14 @@ export default class extends Vue {
         x: '49%',
         y: '30%',
         textStyle: {
-          fontFamily: '微软雅黑',
-          fontSize: 28,
-          fontWeight: 600,
+          fontFamily: 'Helvetica',
+          fontSize: 26,
+          fontWeight: 400,
         },
         subtextStyle: {
           fontSize: 12,
           fontWeight: 400,
-          fontFamily: '微软雅黑',
+          fontFamily: 'PingFangSC-Regular',
         },
       },
       textStyle: {
@@ -520,9 +794,7 @@ export default class extends Vue {
         {
           // selectedMode: false,
           labelLine: {
-            normal: {
-              length: 15,
-            },
+            length: 15,
             lineStyle: {
               color: this.variables.chartColor11,
             },
@@ -557,7 +829,6 @@ export default class extends Vue {
         },
       ],
     }
-
     // 线图
     this.option2 = {
       textStyle: {
@@ -627,7 +898,6 @@ export default class extends Vue {
         },
       ],
     }
-
     this.option3 = {
       // legend: {
       //   data: ['Growth', 'Budget 2011', 'Budget 2012'],
@@ -652,8 +922,11 @@ export default class extends Vue {
         },
       },
       legend: {
-        data: ['短链触达量', '短链点击量'],
+        data: ['短链点击量', '短链触达量'],
         bottom: '0',
+        icon: 'rest',
+        itemWidth: 10,
+        itemHeight: 10,
       },
       xAxis: [
         {
@@ -704,7 +977,7 @@ export default class extends Vue {
           name: '短链触达量',
           type: 'bar',
           data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 35.6, 62.2, 32.6, 20.0, 6.4, 3.3],
-          barWidth: 16,
+          barWidth: 12,
           nameTextStyle: {
             verticalAlign: 'bottom',
             // fontSize: 12,
@@ -717,11 +990,10 @@ export default class extends Vue {
           name: '短链点击量',
           type: 'bar',
           data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 75.6, 82.2, 48.7, 18.8, 6.0, 2.3],
-          barWidth: 16,
+          barWidth: 12,
         },
       ],
     }
-
     this.option4 = {
       tooltip: {
         trigger: 'item',
@@ -902,31 +1174,29 @@ export default class extends Vue {
           label: {
             // overflow: 'truncate'
           },
+          emphasis: {
+            barBorderRadius: 5,
+          },
           itemStyle: {
-            emphasis: {
-              barBorderRadius: 5,
-            },
             // 颜色样式部分
-            normal: {
-              barBorderRadius: 2,
-              color: {
-                type: 'linear',
-                x: 1,
-                y: 0,
-                x2: 0,
-                y2: 0,
-                colorStops: [
-                  {
-                    offset: 0,
-                    color: '#A4E6D5', // 0% 处的颜色
-                  },
-                  {
-                    offset: 1,
-                    color: '#8BB2F9 ', // 100% 处的颜色
-                  },
-                ],
-                // globalCoord: false // 缺省为 false
-              },
+            barBorderRadius: 2,
+            color: {
+              type: 'linear',
+              x: 1,
+              y: 0,
+              x2: 0,
+              y2: 0,
+              colorStops: [
+                {
+                  offset: 0,
+                  color: '#A4E6D5', // 0% 处的颜色
+                },
+                {
+                  offset: 1,
+                  color: '#8BB2F9 ', // 100% 处的颜色
+                },
+              ],
+              // globalCoord: false // 缺省为 false
             },
           },
         },
@@ -935,11 +1205,9 @@ export default class extends Vue {
           barWidth: 12,
           barGap: '-100%',
           itemStyle: {
-            normal: {
-              color: '#D0DEEE',
-              opacity: 0,
-              barBorderRadius: 30,
-            },
+            color: '#D0DEEE',
+            opacity: 0,
+            barBorderRadius: 30,
           },
         },
       ],
@@ -1008,51 +1276,46 @@ export default class extends Vue {
           label: {
             //  饼图图形上的文本标签
 
-            normal: {
-              // normal 是图形在默认状态下的样式
-              textShadowOffsetX: 20,
-              show: true,
-              position: 'right',
-              // fontWeight: 'bold',
-              formatter: ' {a|{d}%}\n{b|{b}}', // {b}:数据名； {c}：数据值； {d}：百分比，可以自定义显示内容，
-              rich: {
-                a: {
-                  color: '#333',
-                  padding: [-25, 3, 1, -8],
-                  fontSize: 26,
-                },
-                b: {
-                  color: '#666',
-                  // padding: [0, 10],
-                  // fontSize: 20
-                },
+            textShadowOffsetX: 20,
+            show: true,
+            position: 'right',
+            // fontWeight: 'bold',
+            formatter: ' {a|{d}%}\n{b|{b}}', // {b}:数据名； {c}：数据值； {d}：百分比，可以自定义显示内容，
+            rich: {
+              a: {
+                color: '#333',
+                padding: [-25, 3, 1, -8],
+                fontSize: 26,
+                fontFamily: 'Helvetica',
+              },
+              b: {
+                color: '#666',
+                fontFamily: 'PingFangSC-Regular',
+                padding: [4, 0, 0, -4],
+                fontSize: 14,
+                // padding: [0, 10],
+                // fontSize: 20
               },
             },
           },
 
           labelLine: {
-            normal: {
-              show: false,
-            },
+            show: false,
           },
           data: [
             {
               value: 60,
               name: '命中率',
               label: {
-                normal: {
-                  show: true,
-                  padding: [-25, 3, 1, -6],
-                },
+                show: true,
+                padding: [-25, 3, 1, -6],
               },
             },
             {
               value: 40,
               name: '正常',
               label: {
-                normal: {
-                  show: false,
-                },
+                show: false,
               },
             },
           ],
@@ -1072,51 +1335,46 @@ export default class extends Vue {
           label: {
             //  饼图图形上的文本标签
 
-            normal: {
-              // normal 是图形在默认状态下的样式
-              textShadowOffsetX: 20,
-              show: true,
-              position: 'right',
-              // fontWeight: 'bold',
-              formatter: ' {a|{d}%}\n{b|{b}}', // {b}:数据名； {c}：数据值； {d}：百分比，可以自定义显示内容，
-              rich: {
-                a: {
-                  color: '#333',
-                  padding: [-25, 3, 1, -8],
-                  fontSize: 26,
-                },
-                b: {
-                  color: '#666',
-                  // padding: [0, 10],
-                  // fontSize: 20
-                },
+            textShadowOffsetX: 20,
+            show: true,
+            position: 'right',
+            // fontWeight: 'bold',
+            formatter: ' {a|{d}%}\n{b|{b}}', // {b}:数据名； {c}：数据值； {d}：百分比，可以自定义显示内容，
+            rich: {
+              a: {
+                color: '#333',
+                padding: [-25, 3, 1, -8],
+                fontSize: 26,
+                fontFamily: 'Helvetica',
+              },
+              b: {
+                color: '#666',
+                fontFamily: 'PingFangSC-Regular',
+                padding: [4, 0, 0, -4],
+                fontSize: 14,
+                // padding: [0, 10],
+                // fontSize: 20
               },
             },
           },
 
           labelLine: {
-            normal: {
-              show: false,
-            },
+            show: false,
           },
           data: [
             {
               value: 68,
               name: '成交率',
               label: {
-                normal: {
-                  show: true,
-                  padding: [-50, 3, 1, 1],
-                },
+                show: true,
+                padding: [-50, 3, 1, 1],
               },
             },
             {
               value: 32,
               name: '正常',
               label: {
-                normal: {
-                  show: false,
-                },
+                show: false,
               },
             },
           ],
@@ -1135,8 +1393,9 @@ export default class extends Vue {
         bottom: '1',
       },
       grid: {
-        left: '1',
-        right: '1%',
+        top: '5%',
+        left: '2%',
+        right: '2%',
         bottom: '10%',
         containLabel: true,
       },
@@ -1144,9 +1403,18 @@ export default class extends Vue {
         type: 'category',
         boundaryGap: false,
         data: ['10-01', '10-02', '10-03', '10-04', '10-05', '10-06', '10-07'],
+        axisTick: {
+          show: false,
+        },
       },
       yAxis: {
         type: 'value',
+        splitLine: {
+          //网格线
+          lineStyle: {
+            type: 'dashed', //设置网格线类型 dotted：虚线 solid:实线
+          },
+        },
       },
       series: [
         {
@@ -1300,10 +1568,7 @@ export default class extends Vue {
         map: 'china', //此处的china就是之前博客中全局注册的china地图
         itemStyle: {
           // 定义样式
-          normal: {
-            // 普通状态下的样式
-            areaColor: '#EEF2FA', //地图块的颜色
-          },
+          areaColor: '#EEF2FA', //地图块的颜色
           emphasis: {
             // 高亮状态下的样式
             areaColor: '#F8D34C',
@@ -1316,27 +1581,25 @@ export default class extends Vue {
           name: '在地图中显示散点图',
           type: 'scatter',
           coordinateSystem: 'geo', //设置坐标系为 geo
-          itemStyle: {
-            normal: {
-              color: '#FA8334',
-              showEffectOn: 'render',
-              rippleEffect: {
-                brushType: 'stroke',
-              },
-              hoverAnimation: true,
-
-              label: {
-                show: true,
-                formatter: '{b}',
-                position: 'right',
-                textStyle: {
-                  color: '#000',
-                },
-              },
+          emphasis: {
+            label: {
+              show: true,
             },
-            emphasis: {
-              label: {
-                show: true,
+          },
+          itemStyle: {
+            color: '#FA8334',
+            showEffectOn: 'render',
+            rippleEffect: {
+              brushType: 'stroke',
+            },
+            hoverAnimation: true,
+
+            label: {
+              show: true,
+              formatter: '{b}',
+              position: 'right',
+              textStyle: {
+                color: '#000',
               },
             },
           },
@@ -1360,9 +1623,6 @@ export default class extends Vue {
           label: {
             show: true,
             formatter: '数值为{b}:{c}',
-            normal: {
-              show: true,
-            },
             emphasis: {
               show: false,
               textStyle: {
@@ -1372,13 +1632,11 @@ export default class extends Vue {
           },
           roam: true,
           itemStyle: {
-            normal: {
-              areaColor: '#bcc5ee',
-              borderColor: '#3B5077',
-            },
-            emphasis: {
-              areaColor: '#bcc5ee',
-            },
+            areaColor: '#bcc5ee',
+            borderColor: '#3B5077',
+          },
+          emphasis: {
+            areaColor: '#bcc5ee',
           },
           animation: false,
           data: this.dataList,
@@ -1387,3 +1645,369 @@ export default class extends Vue {
     }
   }
 }
+</script>
+
+<style lang="scss" scoped>
+.header {
+  .el-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 9.1vw;
+
+    ::v-deep &__body {
+      .decline {
+        font-weight: 600;
+
+        svg {
+          margin-top: 1px;
+          margin-right: 3px;
+        }
+      }
+      .rise {
+        font-weight: 600;
+        svg {
+          margin-top: 1px;
+          margin-right: 3px;
+        }
+      }
+      .chart-card-count-warp {
+        h3 {
+          padding: 4px 0;
+        }
+      }
+    }
+  }
+}
+
+.chart-select-item {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+  width: 100%;
+  ::v-deep .el-select {
+    width: 90px;
+  }
+}
+.chart-img {
+  position: absolute;
+  > img:nth-child(1) {
+    position: relative;
+    top: -193px;
+    left: 122px;
+    width: 23px;
+    height: 23px;
+  }
+  > img:nth-child(2) {
+    position: relative;
+    top: -74px;
+    left: 99px;
+    width: 23px;
+    height: 23px;
+  }
+}
+.chart-inner {
+  display: flex;
+  justify-content: space-between;
+}
+.text-ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sub-spot {
+  display: inline-block;
+  margin-right: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+
+  &--1 {
+    background: $color-status-success;
+  }
+
+  &--2 {
+    background: $color-status-warning;
+  }
+
+  &--3 {
+    background: $color-status-danger;
+  }
+
+  &--4 {
+    background: $color-status-info;
+  }
+
+  &--5 {
+    background: $disabled-color;
+  }
+}
+.chart-card-tabs {
+}
+.chart-items .el-table {
+  overflow: scroll;
+  margin: 0 !important;
+  width: 100%;
+  height: calc(100% - 60px);
+}
+.chart-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // height: 60px;
+}
+::v-deep .el-range-editor {
+  width: 243px;
+  height: 32px;
+}
+::v-deep .el-card {
+  border-radius: 14px;
+}
+.chart-table-box {
+  ::v-deep .el-col {
+    margin-top: 22px;
+  }
+
+  .el-col-18 .el-card {
+    height: 32vw;
+
+    & ::v-deep > .el-card__body {
+      height: calc(100% - 70px);
+
+      .chart-box {
+        height: 95%;
+      }
+    }
+  }
+}
+
+.simple-table {
+  padding: 0 10px !important;
+
+  .chart-title {
+    padding: 0 2px 14px;
+  }
+}
+
+.dashboard .el-card {
+  padding: 10px;
+  background: none;
+
+  h2 {
+    margin: 0;
+    width: 150px;
+    font-weight: 500;
+    font-size: 16px;
+    font-family: PingFangSC-Medium;
+    line-height: 28px;
+  }
+
+  & ::v-deep > .el-card__body {
+    padding: 0;
+
+    .el-card {
+      background: $color-white;
+
+      .el-card__body {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.annular {
+  margin-bottom: 1vw;
+  height: 18.25vw;
+
+  ::v-deep .el-card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+}
+
+.line {
+  height: 12.8vw;
+}
+
+.process {
+  padding: 10px 0 !important;
+  height: 32vw;
+
+  ::v-deep .el-card__body {
+    padding: 10px 0 0 0 !important;
+    height: calc(100% - 50px) !important;
+
+    .chart-box {
+      height: 100%;
+    }
+  }
+}
+
+.map {
+  height: 32vw;
+  ::v-deep .el-card__header {
+    .el-select {
+      width: 107px;
+    }
+
+    .chart-card-header {
+      .map_select {
+        display: flex;
+      }
+      .el-range-editor {
+        margin-left: 16px;
+        height: 28px;
+      }
+
+      .el-input__inner {
+        height: 28px;
+      }
+      .el-input__suffix {
+        height: 28px;
+      }
+    }
+  }
+  ::v-deep .el-card__body {
+    height: calc(100% - 45px) !important;
+
+    .chart-box {
+      height: 100% !important;
+    }
+  }
+}
+
+.message {
+  height: 26vw;
+
+  ::v-deep .el-card__body {
+    .chart-cont {
+      height: 21vw !important;
+    }
+  }
+}
+
+.table {
+  height: 26vw;
+
+  ::v-deep .el-card__body {
+    height: calc(100% - 32px);
+
+    .chart-box {
+      height: calc(100% + 6px);
+
+      .sub-table {
+        height: calc(100% - 40px);
+
+        th {
+          padding: 0 !important;
+        }
+
+        .el-table__cell {
+          padding: 7px 0;
+        }
+
+        .el-tag {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .el-tabs__header {
+      margin: 0 !important;
+    }
+    .el-table {
+      margin: 10px 0 10px 0 !important;
+      border-bottom: 1px solid $disabled-color;
+    }
+  }
+}
+
+.chart-card-box {
+  ::v-deep .el-card__header {
+    padding: 2px 20px 12px;
+  }
+
+  ::v-deep .el-card__body {
+    .chart-select-item {
+      .el-input__inner {
+        height: 28px;
+      }
+
+      .el-input__suffix {
+        height: 28px;
+      }
+    }
+  }
+
+  .chart-card-header {
+    display: flex;
+    clear: both;
+    align-items: center;
+    justify-content: space-between;
+    .header-time-line {
+      display: flex;
+      align-items: center;
+
+      ::v-deep .el-input {
+        .el-input__inner {
+          margin-left: -1px;
+          height: 28px;
+          border-radius: 0 2px 2px 0;
+        }
+
+        .el-input__suffix {
+          height: 28px;
+        }
+
+        .el-input__icon {
+          line-height: 28px;
+        }
+      }
+      ::v-deep .el-select {
+        .el-input__inner {
+          margin-left: 0;
+          border-right: none;
+          border-radius: 2px 0 0 2px;
+        }
+      }
+    }
+    // height: 52px;
+  }
+
+  .visit-data {
+    .visits {
+      margin: 0;
+      color: #333333;
+      letter-spacing: 0;
+      font-weight: 400;
+      font-size: 26px;
+      font-family: Helvetica;
+    }
+    .access-rate {
+      display: flex;
+      justify-content: space-between;
+
+      .increase {
+        padding-left: 4px;
+        color: #ff5b68;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .chart-box-container {
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 41%;
+      left: 37%;
+    }
+  }
+}
+</style>

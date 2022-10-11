@@ -3,22 +3,18 @@ import Layout from '@/layout/index.vue'
 const pageRoutes = [
   //首页展示
   {
-    path: '/page/cuteShow',
-    redirect: '/page/cuteShow/cuteWeb',
+    path: '/page/dashboard',
     component: Layout,
-    name: 'CuteShow',
     meta: {
-      title: 'CuteWeb 首页',
-      alwaysShow: true,
-      breadcrumb: true,
+      breadcrumb: false,
     },
     children: [
       {
-        path: 'cuteWeb',
-        component: () => import(/* webpackChunkName: "simplechart" */ '@/views/page/CuteWeb/CuteWeb.vue'),
-        name: 'CuteWeb',
+        path: '',
+        name: 'Dashboard',
+        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/page/Dashboard/Dashboard.vue'),
         meta: {
-          title: 'CuteWeb 首页',
+          title: 'Dashboard',
           breadcrumb: true,
         },
       },

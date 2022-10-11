@@ -2,21 +2,33 @@
   <div class="home-content">
     <h3>标准化流程</h3>
     <div class="home-content-inner">
-      <div @mouseleave="changeImageSrc(1, '')" @mouseenter="changeImageSrc(1, 'hover')">
+      <div
+        @mouseleave="changeImageSrc(1, '')"
+        @mouseenter="changeImageSrc(1, 'hover')"
+        @click="handleOpen(1)"
+      >
         <div class="content-background1" :style="active1"></div>
         <h4 class="text1" @mouseenter.stop>{{ text1 }}</h4>
         <img class="content-img1" src="./images/product.svg" alt="" />
         <p>产品原型</p>
       </div>
 
-      <div @mouseleave="changeImageSrc(2, '')" @mouseenter="changeImageSrc(2, 'hover')">
+      <div
+        @mouseleave="changeImageSrc(2, '')"
+        @mouseenter="changeImageSrc(2, 'hover')"
+        @click="handleOpen(2)"
+      >
         <div class="content-background2" :style="active2"></div>
         <h4 class="text2">{{ text2 }}</h4>
         <img class="content-img2" src="./images/ui.svg" alt="" />
 
         <p>UI规范</p>
       </div>
-      <div @mouseleave="changeImageSrc(3, '')" @mouseenter="changeImageSrc(3, 'hover')">
+      <div
+        @mouseleave="changeImageSrc(3, '')"
+        @mouseenter="changeImageSrc(3, 'hover')"
+        @click="handleOpen(3)"
+      >
         <div class="content-background3" :style="active3"></div>
         <h4 class="text3">{{ text3 }}</h4>
         <img class="content-img3" src="./images/fe.svg" alt="" />
@@ -58,6 +70,20 @@ export default class extends Vue {
         break
     }
   }
+  private handleOpen(num) {
+    switch (num) {
+      //通过传递的参数  分别让不同的部件执行不同的内容
+      case 1:
+        window.open('https://cloud.ctcdn.cn/s/LPtSGxCiHAcibEe')
+        break
+      case 2:
+        window.open('https://cloud.ctcdn.cn/s/3p5eTTn9J8FaRC3')
+        break
+      case 3:
+        window.open('http://fed.ctyuncdn.cn/page/chart')
+        break
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -84,6 +110,7 @@ export default class extends Vue {
       position: relative;
       width: 380px;
       height: 305px;
+      cursor: pointer;
       > div {
         position: absolute;
         width: 380px;

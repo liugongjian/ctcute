@@ -3,14 +3,15 @@ import Layout from '@/layout/index.vue'
 const pageRoutes = [
   //首页展示
   {
-    path: '/page/dashboard',
+    path: '/page',
+    redirect: '/page/dashboard',
     component: Layout,
     meta: {
       breadcrumb: false,
     },
     children: [
       {
-        path: '',
+        path: 'dashboard',
         name: 'Dashboard',
         component: () => import(/* webpackChunkName: "dashboard" */ '@/views/page/Dashboard/Dashboard.vue'),
         meta: {

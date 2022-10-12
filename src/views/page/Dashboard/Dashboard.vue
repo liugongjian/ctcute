@@ -2,7 +2,7 @@
  * @Author: 
  * @Date:
  * @LastEditors: 邱文琦
- * @LastEditTime: 2022-10-11 16:55:57
+ * @LastEditTime: 2022-10-12 09:44:52
  * @Description: 首页
 -->
 <template>
@@ -1587,34 +1587,8 @@ export default class extends Vue {
       series: [
         {
           name: '在地图中显示散点图',
-          type: 'scatter',
-          coordinateSystem: 'geo', //设置坐标系为 geo
-          emphasis: {
-            label: {
-              show: true,
-            },
-          },
-          itemStyle: {
-            color: '#FA8334',
-            showEffectOn: 'render',
-            rippleEffect: {
-              brushType: 'stroke',
-            },
-            hoverAnimation: true,
-
-            label: {
-              show: true,
-              formatter: '{b}',
-              position: 'right',
-              textStyle: {
-                color: '#000',
-              },
-            },
-          },
-          label: {
-            show: true,
-          },
-
+          type: 'effectScatter',
+          coordinateSystem: 'geo',
           data: [
             //这里放标注点的坐标[{name: "北京",value: [116.46, 39.92]}]
             { name: '北京', value: [116.41995, 40.18994] },
@@ -1622,19 +1596,42 @@ export default class extends Vue {
             { name: '昆明', value: [102.81844, 24.906231] },
             { name: '广州', value: [113.26453, 23.155008] },
           ],
+          symbolSize: 8,
+          encode: {
+            value: 2,
+          },
+          showEffectOn: 'render',
+          rippleEffect: {
+            brushType: 'fill',
+            number: 1,
+          },
+          itemStyle: {
+            color: '#FA8334',
+          },
+          label: {
+            formatter: '{b}',
+            position: 'right',
+            show: true,
+          },
+          emphasis: {
+            scale: true,
+          },
+          zlevel: 1,
         },
         {
           type: 'map',
-          map: 'USA',
+          map: 'china',
           geoIndex: 0,
           showLegendSymbol: false, // 存在legend时显示
-          label: {
-            show: true,
-            formatter: '数值为{b}:{c}',
-            emphasis: {
-              show: false,
-              textStyle: {
-                color: '#000',
+          normal: {
+            label: {
+              show: true,
+              formatter: '数值为{b}:{c}',
+              emphasis: {
+                show: false,
+                textStyle: {
+                  color: '#000',
+                },
               },
             },
           },

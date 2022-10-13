@@ -19,11 +19,40 @@
           </el-form>
         </div>
       </div>
-
       <div class="input-search">
         <div><el-input disabled placeholder="请输入"></el-input></div>
         <div>
           <el-input v-model="value" disabled placeholder="请输入"> </el-input>
+        </div>
+      </div>
+      <h3>常规用法-小</h3>
+      <div class="input-search">
+        <div><el-input v-model="value1" placeholder="请输入" size="small"></el-input></div>
+        <div>
+          <el-form :model="formData" :rules="rules">
+            <el-form-item prop="password">
+              <el-input
+                v-model="formData.password"
+                placeholder="请输入"
+                type="text"
+                size="small"
+                @input="changeValue"
+              >
+                <svg-icon
+                  slot="suffix"
+                  :name="flag ? 'eye-close-fill' : 'eye-fill'"
+                  class="switch"
+                  @click="appearValue"
+                />
+              </el-input>
+            </el-form-item>
+          </el-form>
+        </div>
+      </div>
+      <div class="input-search">
+        <div><el-input disabled placeholder="请输入" size="small"></el-input></div>
+        <div>
+          <el-input v-model="value" disabled placeholder="请输入" size="small"> </el-input>
         </div>
       </div>
     </div>
@@ -37,13 +66,27 @@
       </el-row>
     </div>
     <h3>搜索输入框</h3>
-    <div class="sub-input">
+    <div>
       <div class="input-search">
         <div>
           <el-input v-model="searchValue" placeholder="请输入内容" prefix-icon="el-icon-search"> </el-input>
         </div>
         <div>
           <el-input v-model="searchValue1" placeholder="请输入内容" prefix-icon="el-icon-search">
+            <i slot="suffix" class="el-icon-close" @click="searchValue1 = ''"></i>
+          </el-input>
+        </div>
+      </div>
+    </div>
+    <h3>搜索输入框-小</h3>
+    <div class="sub-input">
+      <div class="input-search">
+        <div>
+          <el-input v-model="searchValue" placeholder="请输入内容" prefix-icon="el-icon-search" size="samll">
+          </el-input>
+        </div>
+        <div>
+          <el-input v-model="searchValue1" placeholder="请输入内容" prefix-icon="el-icon-search" size="small">
             <i slot="suffix" class="el-icon-close" @click="searchValue1 = ''"></i>
           </el-input>
         </div>
@@ -118,6 +161,19 @@
         />
       </el-row>
     </div>
+    <h3 class="sub-title">带提示的输入框-小</h3>
+    <div class="sub-input">
+      <el-row>
+        <cute-remind-input
+          v-model="state1"
+          :placeholder="placeholder"
+          title="数据资源名称"
+          size="small"
+          @change="changeFun"
+        />
+      </el-row>
+    </div>
+
     <h3>长文本域</h3>
     <div class="text-input">
       <el-row>

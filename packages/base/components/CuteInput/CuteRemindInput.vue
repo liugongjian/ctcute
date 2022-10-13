@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-25 14:23:08
+ * @LastEditTime: 2022-10-13 15:10:38
  * @Description: 
 -->
 <template>
@@ -11,6 +11,7 @@
     :placeholder="placeholder"
     :trigger-on-focus="false"
     :value="value"
+    :size="size"
     @input="myChange($event)"
   >
     <span slot="suffix" class="prompt-title"
@@ -27,6 +28,7 @@ import { Vue, Component, Prop, Model, Emit } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ type: String, default: '' }) placeholder?: '' //placeholder
   @Prop({ type: String, default: '' }) title?: '' //label
+  @Prop({ type: String, default: '' }) size?: '' //size
 
   @Model('change', { type: String }) value: string
   @Emit('change')

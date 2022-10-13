@@ -248,20 +248,41 @@
 
 /* Input
 -------------------------- */
+.el-input-number--small {
+  line-height: 26px;
+}
+.el-input.el-input--small {
+  height: 28px !important;
+  .el-input__inner {
+    height: 28px !important;
+    line-height: 28px !important;
+  }
+}
+
+.el-input.el-input--samll.el-input--prefix {
+  height: 28px !important;
+  .el-input__inner {
+    height: 28px !important;
+  }
+}
 .el-input__inner {
   padding: 0 12px;
 }
 
 .el-form-item--medium .el-form-item__content,
 .el-form-item--medium .el-form-item__label {
-  line-height: 32px;
+  line-height: normal;
+  display: flex;
+  align-items: center;
 }
 
 .el-input {
   font-size: $text-size-primary;
 
   .el-input__icon.el-icon-search {
-    line-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .el-input__suffix-inner .el-icon-close {

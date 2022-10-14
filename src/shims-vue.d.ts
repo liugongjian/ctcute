@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-11 09:48:22
  * @LastEditors: 邱文琦
- * @LastEditTime: 2022-10-14 12:10:39
+ * @LastEditTime: 2022-10-14 12:13:08
  * @Description:
  */
 declare module '*.vue' {

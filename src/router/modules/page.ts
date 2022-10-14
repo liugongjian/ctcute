@@ -1,6 +1,6 @@
 import Layout from '@/layout/index.vue'
 
-const indexPageRoutes = [
+const pageRoutes = [
   //首页展示
   {
     path: '/page',

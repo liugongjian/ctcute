@@ -41,14 +41,73 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
-      version: '1.1.5',
+      version: '1.1.1',
+      date: '2022-10-1',
+      features: [
+        {
+          name: 'theme',
+          desc: [
+            {
+              text: '新增一键换肤功能，增加蓝色主题的选项',
+            },
+            {
+              text: '新增视频播放器功能组件',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: 'Ui-Input',
+          desc: [
+            {
+              text: '修复textarea disable状态下 border的颜色',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '把所有颜色改成使用颜色变量的形式，便于一键换肤功能的实现',
+            },
+          ],
+        },
+        {
+          name: 'TableHook',
+          desc: [
+            {
+              text: '把类型引用的Request改成引用@cutedesign/base内部的，而非项目中的',
+            },
+          ],
+        },
+        {
+          name: 'authenticate',
+          desc: [
+            {
+              text: '删除权限为`none`时对于的引用',
+            },
+            {
+              text: '修复权限为`none`时侧边菜单无法生成的bug',
+            },
+            {
+              text: '修复权限为`local`时无法调用menu接口的bug',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      version: '1.1.0',
       date: '2022-9-9',
       bugfix: [
         {
           name: 'Ui-Input',
-          desc: {
-            text: '修复input show-password 样式',
-          },
+          desc: [
+            {
+              text: '修复input show-password 样式',
+            },
+          ],
         },
         {
           name: 'Cascader',
@@ -58,9 +117,8 @@ export default class extends Vue {
             },
           ],
         },
-
         {
-          name: 'layout',
+          name: 'authenticate',
           desc: [
             {
               text: '修复整个退出登录元素的 cursor: pointer',
@@ -76,7 +134,7 @@ export default class extends Vue {
       ],
     },
     {
-      version: '1.1.2',
+      version: '1.0.9',
       date: '2022-9-2',
       features: [
         {
@@ -162,7 +220,7 @@ export default class extends Vue {
       ],
     },
     {
-      version: '1.0.9',
+      version: '1.0.8',
       date: '2022-8-26',
       features: [
         {
@@ -229,7 +287,7 @@ export default class extends Vue {
       ],
     },
     {
-      version: '1.0.8',
+      version: '1.0.7',
       date: '2022-8-15',
       features: [
         {

@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-07-15 21:02:01
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-20 13:07:11
+ * @LastEditTime: 2022-10-05 09:59:33
  * @Description:
  */
 import path from 'path'
@@ -86,6 +86,11 @@ function getLastPath(file: string, srcPath: string) {
   return splitFilePath[splitFilePath.length - 1]
 }
 
+function getFileRouterName(fullFile: string) {
+  const arr = fullFile.split('/')
+  return arr[arr.length - 2]
+}
+
 async function writeIndexFile(path: string, data: string) {
   fs.writeFile(path, data)
 }
@@ -103,7 +108,7 @@ export async function run(srcPath: string, destPath: string, refName: string) {
       let fileName = file.slice(0, -4)
       // 如果是index，则使用目录名
       if (fileName === 'index') {
-        fileName = getLastPath(fullFile, srcPath)
+        fileName = getFileRouterName(fullFile)
       }
       let strTmp = ''
       for (let [key, value] of res.entries()) {

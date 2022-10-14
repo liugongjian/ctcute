@@ -1,3 +1,10 @@
+<!--
+ * @Author: 胡永凯
+ * @Date: 2022-09-01 10:01:49
+ * @LastEditors: 胡永凯
+ * @LastEditTime: 2022-09-01 10:06:01
+ * @Description:
+-->
 <template>
   <div>
     <!-- 多个DEMO请复制此段 -->
@@ -120,7 +127,7 @@ export default class extends Vue {
           name: 'sortable',
           desc: '对应列是否可以排序',
           type: 'boolean, string',
-          options: 'true, false, \'custom\'',
+          options: "true, false, 'custom'",
           default: false,
         },
         {

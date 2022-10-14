@@ -1,13 +1,13 @@
 <!--
  * @Author: 肖仁
  * @Date: 2022-07-12 16:20:34
- * @LastEditors: 马妍
- * @LastEditTime: 2022-08-17 15:20:59
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-09-27 09:15:52
  * @Description: 复杂表格4
 -->
 <template>
   <el-card class="pro-table-4">
-    <el-col :span="4">
+    <div class="table4-left">
       <div class="tree-wrap">
         <h3 class="tree-title">这是一个标题</h3>
         <el-tree :data="treeData" node-key="key" draggable :default-expanded-keys="[2]" :indent="10">
@@ -37,8 +37,8 @@
           </span>
         </el-tree>
       </div>
-    </el-col>
-    <el-col :span="20">
+    </div>
+    <div class="table4-right">
       <div class="table-wrap">
         <!--表格工具栏-->
         <div class="table-tools">
@@ -89,7 +89,7 @@
           @current-change="handleCurrentChange"
         />
       </div>
-    </el-col>
+    </div>
   </el-card>
 </template>
 <script lang="ts">

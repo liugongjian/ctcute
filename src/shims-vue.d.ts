@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-11 09:48:22
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-09-26 10:59:32
+ * @LastEditors: 邱文琦
+ * @LastEditTime: 2022-10-14 12:10:39
  * @Description:
  */
 declare module '*.vue' {

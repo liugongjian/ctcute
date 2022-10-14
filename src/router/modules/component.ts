@@ -118,6 +118,26 @@ const componentRoutes = [
       },
     ],
   },
+  {
+    path: '/component/biz',
+    component: Layout,
+    meta: {
+      title: '业务组件',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'vss-video-player',
+        name: 'VssVideoPlayer',
+        component: () => import('@/views/component/Biz/VssVideoPlayer/index.vue'),
+        meta: {
+          title: 'VssVideoPlayer',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
 ]
 
 export default componentRoutes

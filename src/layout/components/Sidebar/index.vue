@@ -47,6 +47,7 @@ import SidebarItem from './SidebarItem.vue'
   },
 })
 export default class extends Vue {
+  $auth: any
   @Prop()
   private routes
 

@@ -22,31 +22,38 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import screen from './images/天翼大屏.svg'
+import CTBI from './images/CTBI.svg'
+import Acorn from './images/Acorn.svg'
+import Document from './images/Document.svg'
 @Component({
   name: 'HomeFooter',
 })
 export default class extends Vue {
+  // private getUrl(url) {
+  //   return new URL(`./images/${url}`, import.meta.url).href
+  // }
   private arrContent = [
     {
-      img: require('./images/天翼大屏.svg'),
+      img: screen,
       title: '天翼大屏',
       content:
         '使用可视化应用的方式来分析并展示庞杂数据的产品。旨让更多的人看到数据可视化的魅力，帮助非专业的工程师通过图形化的界面轻松搭建专业水准的可视化应用，满足您会议展览、业务监控、风险预警、地理信息分析等多种业务的展示需求。',
     },
     {
-      img: require('./images/CTBI.svg'),
+      img: CTBI,
       title: '天翼报表',
       content:
         '提供海量数据实时在线分析服务。通过各种可视化组件构建具备交互式分析能力的仪表板和报表，实现业务流程和数据分析直接协同，提升企业内各种人员的数据分析效率。',
     },
     {
-      img: require('./images/Acorn.svg'),
+      img: Acorn,
       title: '前端博客',
       content:
         ' 前端技术内容管理、搜索、共享的平台。为打破异地跨团队的文档分享壁垒、解除常规静态文档的限制而专门设立博客系统。最终使用内容生产和文章生成隔离同步的方式部署，将团队gitlab仓库的内容自动发布至博客。',
     },
     {
-      img: require('./images/Document.svg'),
+      img: Document,
       title: '天翼文档',
       content:
         ' 天翼文档是一款可多人协作的在线文档，云端实时保存，可针对用户设置文档访问、编辑权限。目前支持Excel，其他文档类型敬请期待。',

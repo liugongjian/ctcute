@@ -1,0 +1,85 @@
+/* stylelint-disable property-case */
+
+/* Color
+-------------------------- */
+
+/* 主题色 */
+$color-master-1: #3d73f5;
+$color-master-2: #5381f0;
+$color-master-3: #3361d0;
+$color-master-4: #d5dff8;
+$color-master-5: #dbe4fb;
+$color-master-6: #e8edf9;
+$color-master-7: #f0f3fb;
+
+/* 特殊色 */
+$color-sp-1: #df0428;
+$color-sp-2: #e32948;
+$color-sp-3: #bd0322;
+
+/* 状态色 */
+$color-status-master-1: $color-master-1;
+$color-status-master: $color-status-master-1;
+$color-status-danger-1: #ff5050;
+$color-status-danger-2: #fff6f6;
+$color-status-danger-3: #ae050f;
+$color-status-danger: $color-status-danger-1;
+$color-status-info-1: #3d73f5;
+$color-status-info: $color-status-info-1;
+$color-status-success-1: #27d68f;
+$color-status-success: $color-status-success-1;
+$color-status-warning-1: #ff8f34;
+$color-status-warning: #faad15;
+
+/* 表格状态色 */
+$color-table-status-success: #6bdd6b;
+$color-table-status-warning: #faad15;
+$color-table-status-info: #b4b4b4;
+$color-table-status-danger: #f96965;
+
+/* 标签色 */
+$color-tag-master-1: #b8ccff;
+$color-tag-master-2: #ecf2ff;
+$color-tag-master-3: $color-master-6;
+$color-tag-danger-1: #ffa4a3;
+$color-tag-danger-2: #ffecec;
+$color-tag-info-1: #b8ccff;
+$color-tag-info-2: #ecf2ff;
+$color-tag-success-1: #a5e8cd;
+$color-tag-success-2: #e7fdf4;
+$color-tag-warning-1: #fecaa0;
+$color-tag-warning-2: #fff1e5;
+
+/* 灰色 */
+$color-grey-0: #000;
+$color-grey-1: #333;
+$color-grey-2: #666;
+$color-grey-3: #777;
+$color-grey-4: #999;
+$color-grey-5: #aaa;
+$color-grey-6: #ccc;
+$color-grey-7: #eff1f4;
+$color-grey-8: #f0f3fb;
+$color-grey-9: #eef1f7;
+$color-grey-10: #f0f2f7;
+$color-grey-11: #f5f6fb;
+$color-grey-12: #eee;
+$color-grey-13: #3e3e3e;
+$color-grey-14: #606266;
+$color-grey-exception-1: #e2e5ed;
+
+/* 白色 */
+$color-white: #fff;
+
+/* 其他 */
+$color-other-1: #3b3e4b;
+$color-other-2: #f0f2f5;
+$color-other-3: #8bb2f9;
+
+$loading-primary-color: mix($color-white, $color-master-1, 50%);
+$loading-primary-border: $loading-primary-color;
+$loading-default-color: $color-grey-10;
+$loading-default-border: $color-grey-6;
+
+/* Sidebar */
+$sidebar-sub-hover: $color-master-7;

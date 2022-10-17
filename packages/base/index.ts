@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-07-29 14:24:37
+ * @LastEditTime: 2022-10-14 17:04:10
  * @Description:
  */
 import ElementUI from 'element-ui'
@@ -28,6 +28,7 @@ import CuteTitledBlock from './components/CuteTitledBlock/index.vue'
 import CuteTableColumnSettings from './components/CuteTable/CuteTableColumnSettings.vue'
 import CuteSelectTree from './components/CuteSelect/CuteSelectTree.vue'
 import CuteArea from './components/CuteArea/index.vue'
+import CuteSlider from './components/CuteSlider/index.vue'
 export {
   CuteButtonGroup,
   CuteEditInput,
@@ -44,6 +45,7 @@ export {
   CuteTableColumnSettings,
   CuteSelectTree,
   CuteArea,
+  CuteSlider,
 }
 
 /**
@@ -59,6 +61,7 @@ const componentsList = [
   CuteTableColumnSettings,
   CuteSelectTree,
   CuteArea,
+  CuteSlider,
 ]
 
 export default {

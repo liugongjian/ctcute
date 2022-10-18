@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-09-01 10:36:01
+ * @LastEditTime: 2022-10-18 16:58:33
  * @Description: 基础表格
 -->
 <template>
@@ -27,9 +27,23 @@
       >
         <div class="medium-dialog--content">
           <el-form ref="menusRef" label-width="90px" class="simple-form" :rules="rules" :model="menusForm">
-            <el-form-item label="类型" prop="type">
+            <el-form-item v-if="title === '添加菜单'" label="类型" prop="type">
               <el-radio-group v-model="menusForm.menuType" @change="typeChange">
                 <el-radio-button :label="1">菜单</el-radio-button>
+                <el-radio-button :label="2">权限</el-radio-button>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item v-else label="类型" prop="type">
+              <el-radio-group
+                v-if="menusForm.menuType === 1"
+                v-model="menusForm.menuType"
+                @change="typeChange"
+              >
+                <el-radio-button :label="1">菜单</el-radio-button>
+                <el-radio-button :label="2" disabled>权限</el-radio-button>
+              </el-radio-group>
+              <el-radio-group v-else v-model="menusForm.menuType" @change="typeChange">
+                <el-radio-button :label="1" disabled>菜单</el-radio-button>
                 <el-radio-button :label="2">权限</el-radio-button>
               </el-radio-group>
             </el-form-item>
@@ -149,7 +163,7 @@ export default class extends Vue {
   private title = '添加菜单'
   private visible = false
   private menusForm = {
-    _id: undefined,
+    menuId: undefined,
     name: '',
     menuType: 1,
     url: '',
@@ -252,7 +266,7 @@ export default class extends Vue {
    */
   private resetMenusForm() {
     this.menusForm = {
-      _id: undefined,
+      menuId: undefined,
       name: '',
       menuType: 1,
       url: '',
@@ -364,10 +378,7 @@ export default class extends Vue {
    */
   private async handleDel(id) {
     try {
-      const params = {
-        _id: id,
-      }
-      const res = await delMenus(params)
+      const res = await delMenus(id)
       if ((res as any).code === 200) {
         this.delVisible = false
         this.$message.success('删除成功! ')

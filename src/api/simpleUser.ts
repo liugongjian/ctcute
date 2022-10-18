@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-08-09 13:41:43
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-22 14:38:36
+ * @LastEditTime: 2022-10-18 14:18:50
  * @Description:
  */
 import request from '@/utils/request'
@@ -22,18 +22,18 @@ export const getUsers = (params): AxiosPromise<any> =>
 /**
  * 冻结某一个用户
  */
-export const freezeUsers = (params): AxiosPromise<any> =>
+export const freezeUsers = (id): AxiosPromise<any> =>
   request({
-    url: `/v1/auth/users/${params._id}/freeze`,
+    url: `/v1/auth/users/${id}/freeze`,
     method: 'put',
   })
 
 /**
  * 解冻某一个用户
  */
-export const unfreezeUsers = (params): AxiosPromise<any> =>
+export const unfreezeUsers = (id): AxiosPromise<any> =>
   request({
-    url: `/v1/auth/users/${params._id}/unfreeze`,
+    url: `/v1/auth/users/${id}/unfreeze`,
     method: 'put',
   })
 
@@ -50,9 +50,9 @@ export const delUsers = (data): AxiosPromise<any> =>
 /**
  * 某一个用户密码重置
  */
-export const resetPWDUsers = (params): AxiosPromise<any> =>
+export const resetPWDUsers = (id): AxiosPromise<any> =>
   request({
-    url: `/v1/auth/users/${params._id}/password/reset`,
+    url: `/v1/auth/users/${id}/password/reset`,
     method: 'put',
   })
 

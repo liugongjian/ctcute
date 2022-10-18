@@ -2,7 +2,7 @@
  * @Author: 黄璐璐
  * @Date: 2022-07-13 13:41:05
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-26 15:13:29
+ * @LastEditTime: 2022-10-18 14:11:23
  * @Description: 添加用户
 -->
 <template>
@@ -143,11 +143,10 @@ export default class extends Vue {
       //编辑
       try {
         const data = {
-          _id: this.form._id,
           name: this.form.name,
           remark: this.form.remark,
         }
-        const res = await editUsers(data._id, data)
+        const res = await editUsers(this.form._id, data)
         this.loading = false
         if ((res as any).code === 200) {
           this.visibleDia = false

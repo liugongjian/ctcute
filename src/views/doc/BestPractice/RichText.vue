@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-08 10:43:23
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-14 15:13:41
+ * @LastEditTime: 2022-10-19 17:09:43
  * @Description:
 -->
 <template>
@@ -80,7 +80,7 @@ uploadImg(file, insertFn){
   let imgData = new FormData();
 	mgData.append('file', file);
   //调接口，上传图片
-  testUpImg(imgData).then(response => {
+  createImg(imgData).then(response => {
     if(response.data.code == 0){
       insertFn(response.data.data.url);
     }else{
@@ -100,7 +100,93 @@ beforeDestroy() {
      editor.destroy() // 组件销毁时，及时销毁编辑器
 },
 \`\`\`
+完整代码
+\`\`\`
+<template>
+<div>
+    <div style="border: 1px solid #ccc;">
+        <Toolbar
+            style="border-bottom: 1px solid #ccc"
+            :editor="editor"
+            :mode="mode"
+        />
+        <Editor
+            style="height: 500px; overflow-y: hidden;"
+            v-model="html"
+            :defaultConfig="editorConfig"
+            :mode="mode"
+            @onCreated="onCreated"
+        />
+    </div>
+ 
+        <el-button style="width:70px" type="primary" round @click="sendBlog()">提交</el-button>
+        <el-button style="width:70px" @click="clearForm()" round>清空</el-button>
+</div>
+</template>
+ 
+<script>
+import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
+import { createImg } from "@/api/appendix";
+ 
+export default {
+    components: { Editor, Toolbar },
+    data() {
+        return {
+            editor: null,
+            html: '',
+            editorConfig: { 
+                placeholder: '请输入内容...',
+                // 所有的菜单配置，都要在 MENU_CONF 属性下
+                MENU_CONF: {
+                    //配置上传图片
+					uploadImage: {
+						customUpload: this.uploadImg
+					}
+				}
+            },
+            mode:"default"
+        };
+    },
+    methods: {
+        sendBlog() {
+            console.log(this.html);
+        },
+ 
+        //上传图片
+        uploadImg(file, insertFn){
+            let imgData = new FormData();
+			      imgData.append('file', file);
+             //调接口，上传图片
+            createImg(imgData).then(response => {
+                if(response.data.code == 0){
+                    insertFn(response.data.data.url);
+                }else{
+                }
+            })
+        },
+ 
+        onCreated(editor) {
+            this.editor = Object.seal(editor) // 一定要用 Object.seal() ，否则会报错
+        },
+        //清空
+        clearForm(){
+            this.html = '';
+        },
+    },
+    beforeDestroy() {
+        const editor = this.editor
+        if (editor == null) return
+        editor.destroy() // 组件销毁时，及时销毁编辑器
+    },
+};
+<script>
+<style src="@wangeditor/editor/dist/css/style.css">
+</style>
+\`\`\`
+显示效果
 
+
+![](https://s1.ax1x.com/2022/10/19/xsTNUx.jpg)
 `
 }
 </script>

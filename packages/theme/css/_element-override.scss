@@ -1045,6 +1045,11 @@
   color: $color-grey-1;
 }
 
+.el-table__body-wrapper .el-table__row .el-table__expand-icon .el-icon-arrow-right::before {
+   content: '\e791';
+   color: $color-grey-3;
+}
+
 /* Descriptions
 -------------------------- */
 .el-descriptions td {

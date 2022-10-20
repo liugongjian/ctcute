@@ -1184,10 +1184,6 @@ export default class extends Vue {
 .sub-table-horizon {
   border-bottom: 1px solid $color-grey-7;
   padding-bottom: 24px;
-
-  ::v-deep .is-group {
-    line-height: 40px;
-  }
 }
 
 .sub-table-message {

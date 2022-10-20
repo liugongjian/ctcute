@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-10-17 20:57:52
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-17 22:30:48
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-10-20 16:58:42
  * @Description: 
 -->
 <template>
@@ -31,6 +31,9 @@
     </el-row>
     <el-row>
       <cute-slider :min="0" :max="500" :disabled="false" :marks="marks" :range="true" @moveChange="changes" />
+    </el-row>
+    <el-row>
+      <cute-slider :min="0" :max="500" :disabled="true" :marks="marks" :range="false" @moveChange="changes" />
     </el-row>
   </div>
 </template>

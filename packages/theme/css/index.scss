@@ -59,15 +59,6 @@ hr {
   border-top: 1px solid $border-color-light-1;
 }
 
-::-webkit-scrollbar-track-piece {
-  border-radius: 0;
-}
-
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
 ::-webkit-resizer {
   background-image: url('../images/pull.png');
   background-size: 9px 9px;

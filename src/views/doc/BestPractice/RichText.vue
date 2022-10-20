@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-08 10:43:23
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-19 17:09:43
+ * @LastEditTime: 2022-10-20 17:34:39
  * @Description:
 -->
 <template>
@@ -27,9 +27,10 @@ export default class extends Vue {
 "@wangeditor/editor": "^5.0.1",
 "@wangeditor/editor-for-vue": "^1.0.1"
 
-### 推荐主题
+### 介绍
 ——轻量级web富文本编辑器
 wangEditor是用javascript编写的 轻量级web富文本编辑器 ，依赖于jQuery和fontAwesome字体库， 支持所有浏览器 。使用 wangEditor 可以轻松创建web富文本框，并可以自定义扩展菜单功能。
+
 ### 代码示例
 引入工具栏和编辑器注册
 \`\`\`

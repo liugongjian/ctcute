@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-10-17 20:57:52
- * @LastEditors: 马妍
- * @LastEditTime: 2022-10-20 16:58:42
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-10-21 10:52:20
  * @Description: 
 -->
 <template>
@@ -30,7 +30,16 @@
       </el-col>
     </el-row>
     <el-row>
-      <cute-slider :min="0" :max="500" :disabled="false" :marks="marks" :range="true" @moveChange="changes" />
+      <cute-slider
+        :min="0"
+        :max="500"
+        :disabled="false"
+        :marks="marks"
+        :range="true"
+        unit="Mbit/s"
+        @moveChange="changes"
+        @inputChange="inputChange"
+      />
     </el-row>
     <el-row>
       <cute-slider :min="0" :max="500" :disabled="true" :marks="marks" :range="false" @moveChange="changes" />
@@ -61,6 +70,9 @@ export default class extends Vue {
     500: '500',
   }
   private changes(val) {
+    console.log(val, 'slider值')
+  }
+  private inputChange(val) {
     console.log(val, 'input值')
   }
 

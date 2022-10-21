@@ -1,20 +1,12 @@
-<!--
- * @Author: 马妍
- * @Date: 2022-07-25 17:54:37
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-13 15:31:38
- * @Description: 
--->
 <template>
   <div>
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
-      <h1>CuteSelectTree / 树形选择单/多选</h1>
-      <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
-      <component-demo path="@/views/component/Base/CuteSelectTree/Demo1.vue">
+      <h1>CuteSlider / 滑动输入条</h1>
+      <component-demo path="@/views/component/Base/CuteSlider/Demo1.vue">
         <demo1 />
       </component-demo>
-      <h2>CuteSelectTree Attributes</h2>
+      <h2>CuteSlider Attributes</h2>
       <el-table :data="prop" fit border>
         <el-table-column prop="name" label="参数" />
         <el-table-column prop="desc" label="说明" />
@@ -22,7 +14,7 @@
         <el-table-column prop="options" label="可选值" />
         <el-table-column prop="default" label="默认值" />
       </el-table>
-      <h2>CuteSelectTree Events</h2>
+      <h2>CuteSlider Events</h2>
       <el-table :data="event" fit border>
         <el-table-column prop="name" label="参数" />
         <el-table-column prop="desc" label="说明" />
@@ -46,30 +38,44 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 export default class extends Vue {
   private prop = [
     {
-      name: 'v-model',
-      desc: 'select绑定值',
-      type: 'Array/String',
+      name: 'min',
+      desc: '最小值',
+      type: 'Number',
       options: null,
       default: null,
     },
     {
-      name: 'value',
-      desc: 'option绑定值',
-      type: 'Array/String',
+      name: 'max',
+      desc: '最大值',
+      type: 'Number',
       options: null,
       default: null,
     },
     {
-      name: 'multiple',
-      desc: '是否多选',
+      name: 'disabled',
+      desc: '是否禁用',
       type: 'Boolean',
       options: null,
-      default: 'true',
+      default: 'false',
     },
     {
-      name: 'options',
-      desc: '选项列表',
-      type: 'Array',
+      name: 'range',
+      desc: '是否是双滑块',
+      type: 'Boolean',
+      options: null,
+      default: 'false',
+    },
+    {
+      name: 'marks',
+      desc: '标记， key 的类型必须为 number 且取值在闭区间 [min, max] 内，每个标记可以单独设置样式',
+      type: 'Object',
+      options: null,
+      default: null,
+    },
+    {
+      name: 'unit',
+      desc: '单位',
+      type: 'String',
       options: null,
       default: null,
     },
@@ -77,9 +83,14 @@ export default class extends Vue {
 
   private event = [
     {
-      name: 'remove-tag',
-      desc: '多选模式下移除tag时触发（回调参数第一个为移除tag的值，第二个参数为选中所有数据的值）',
-      callback: 'e（移除tag的值）, value（选中数据的值）',
+      name: 'moveChange',
+      desc: 'slider滑动时获取绑定的值',
+      callback: 'e',
+    },
+    {
+      name: 'inputChange',
+      desc: 'input输入框的值',
+      callback: 'e',
     },
   ]
 }

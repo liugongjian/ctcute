@@ -161,14 +161,21 @@ export default class VueAuthenticate {
           if (_to) next(_to)
         }
 
-        // 不需要登录
-        if (to.meta && to.meta.withoutLogin) {
-          next()
-          return
-        }
 
         try {
+          // 虽然当前路由未必需要登录信息，但是需要通过根据鉴权信息获取可用路由
           const isLogin = await this.isAuthenticated()
+          // 已登录且需要鉴权，则获取鉴权信息
+          if (isLogin && this.options.enableAuthorize) {
+            await this.getPermInfo()
+          }
+
+          // 不需要登录
+          if (to.meta && to.meta.withoutLogin) {
+            next()
+            return
+          }
+
           // 需要但未登录
           if (!isLogin) {
             if (this.authenticateType === 'local') {
@@ -204,7 +211,6 @@ export default class VueAuthenticate {
           }
           // 已登录，需要鉴权
           if (this.options.enableAuthorize) {
-            await this.getPermInfo()
             // 通用的鉴权判断
             if (hasPermission(this.getAllMenus(), to)) {
               next()

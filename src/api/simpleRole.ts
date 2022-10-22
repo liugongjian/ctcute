@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-08-09 13:41:43
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-22 15:42:09
+ * @LastEditTime: 2022-10-18 14:41:22
  * @Description:
  */
 import request from '@/utils/request'
@@ -22,27 +22,27 @@ export const getRoles = (params): AxiosPromise<any> =>
 /**
  * 复制角色
  */
-export const copyRoles = (params): AxiosPromise<any> =>
+export const copyRoles = (id): AxiosPromise<any> =>
   request({
-    url: `/v1/auth/roles/${params._id}/copy`,
+    url: `/v1/auth/roles/${id}/copy`,
     method: 'post',
   })
 
 /**
  * 删除角色
  */
-export const delRoles = (params): AxiosPromise<any> =>
+export const delRoles = (id): AxiosPromise<any> =>
   request({
-    url: `/v1/auth/roles/${params._id}`,
+    url: `/v1/auth/roles/${id}`,
     method: 'delete',
   })
 
 /**
  * 编辑角色
  */
-export const editRoles = (id, data): AxiosPromise<any> =>
+export const editRoles = (roleId, data): AxiosPromise<any> =>
   request({
-    url: `/v1/auth/roles/${id}`,
+    url: `/v1/auth/roles/${roleId}`,
     method: 'put',
     data,
   })
@@ -67,7 +67,7 @@ export const getRoleUser = (data): AxiosPromise<any> =>
 
 export const setRole = (data): AxiosPromise<any> =>
   request({
-    url: `/v1/auth/roles/${data._id}/users`,
+    url: `/v1/auth/roles/${data.roleId}/users`,
     method: 'put',
     data,
   })

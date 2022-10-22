@@ -13,3 +13,4 @@ export default {
     Vue.component(Rate.name, Rate)
   },
 }
+export { Steps, Step, Alert, Collapse, Rate }

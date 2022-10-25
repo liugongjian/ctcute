@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-17 20:57:52
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-24 11:04:31
+ * @LastEditTime: 2022-10-25 15:47:39
  * @Description: 
 -->
 <template>
@@ -35,7 +35,7 @@
         :max="500"
         :disabled="false"
         :marks="marks"
-        :range="true"
+        :range="false"
         unit="Mbit/s"
         @moveChange="changes"
         @inputChange="inputChange"
@@ -47,7 +47,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Ref } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
   name: 'UiSlider',

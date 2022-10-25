@@ -42,14 +42,14 @@ export default class extends Vue {
       desc: '最小值',
       type: 'Number',
       options: null,
-      default: null,
+      default: 0,
     },
     {
       name: 'max',
       desc: '最大值',
       type: 'Number',
       options: null,
-      default: null,
+      default: 100,
     },
     {
       name: 'disabled',
@@ -63,11 +63,11 @@ export default class extends Vue {
       desc: '是否是双滑块',
       type: 'Boolean',
       options: null,
-      default: 'false',
+      default: 'true',
     },
     {
       name: 'marks',
-      desc: '标记， key 的类型必须为 number 且取值在闭区间 [min, max] 内，每个标记可以单独设置样式',
+      desc: '标记， key 的类型必须为 number 且取值在闭区间 [min, max] 内',
       type: 'Object',
       options: null,
       default: null,
@@ -84,13 +84,13 @@ export default class extends Vue {
   private event = [
     {
       name: 'moveChange',
-      desc: 'slider滑动时获取绑定的值',
-      callback: 'e',
+      desc: '滑动条滑动时触发',
+      callback: '滑动条当前值',
     },
     {
       name: 'inputChange',
-      desc: 'input输入框的值',
-      callback: 'e',
+      desc: 'input输入框改变时触发',
+      callback: 'input框当前值',
     },
   ]
 }

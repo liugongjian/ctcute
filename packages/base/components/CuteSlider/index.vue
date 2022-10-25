@@ -19,8 +19,7 @@
         :readonly="disabled"
         size="small"
         onkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')"
-        @input="inputChange"
-        @blur="blurNumber"
+        @blur="inputChange"
       ></el-input>
       <span class="slider-unit">{{ unit }}</span>
     </div>
@@ -30,15 +29,14 @@
           v-model="minRange"
           size="small"
           onkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')"
-          @input="inputChange"
-          @blur="blurNumber"
+          @blur="inputChange"
         ></el-input>
         <span class="range-line">—</span>
         <el-input
           v-model="maxRange"
           size="small"
           onkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')"
-          @input="inputChange"
+          @blur="inputChange"
         ></el-input>
       </div>
       <span class="slider-unit">{{ unit }}</span>
@@ -54,7 +52,7 @@ export default class extends Vue {
   @Prop({ default: 0 }) private min!: number
   @Prop({ default: 100 }) private max!: number
   @Prop({ default: false }) private disabled!: boolean
-  @Prop({ default: false }) private range!: boolean // 是否双滑块模式
+  @Prop({ default: true }) private range!: boolean // 是否双滑块模式
   @Prop({ default: {} }) private marks!: object
   @Prop({ default: 'Mbit/s' }) private unit!: string
   @Prop({ default: 1 }) private step!: number
@@ -74,7 +72,16 @@ export default class extends Vue {
       this.$emit('moveChange', this.inputValue)
     }
   }
-  private blurNumber(e) {
+  // private blurNumber(e) {
+  //   if (!e.target.value) {
+  //     if (this.range) {
+  //       this.minRange = this.min
+  //     } else {
+  //       this.inputValue = this.min
+  //     }
+  //   }
+  // }
+  private inputChange(e) {
     if (!e.target.value) {
       if (this.range) {
         this.minRange = this.min
@@ -82,11 +89,13 @@ export default class extends Vue {
         this.inputValue = this.min
       }
     }
-  }
-  private inputChange() {
     if (this.range) {
       this.value = [Number(this.minRange), Number(this.maxRange)]
-      if (Number(this.minRange) > Number(this.maxRange) || Number(this.maxRange > this.max)) {
+      if (
+        Number(this.minRange) > Number(this.maxRange) ||
+        Number(this.maxRange) > this.max ||
+        Number(this.minRange) > this.max
+      ) {
         this.$message({
           message: '输入错误,请重新输入',
           type: 'warning',
@@ -187,9 +196,6 @@ export default class extends Vue {
     .el-slider__marks {
       height: 8px;
       // background: $color-master-5;
-    }
-
-    .el-slider__button-wrapper {
     }
 
     .el-slider__marks-text {

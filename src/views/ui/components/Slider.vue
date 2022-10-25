@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-17 20:57:52
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-25 15:47:39
+ * @LastEditTime: 2022-10-25 16:10:41
  * @Description: 
 -->
 <template>
@@ -35,7 +35,7 @@
         :max="500"
         :disabled="false"
         :marks="marks"
-        :range="false"
+        :range="true"
         unit="Mbit/s"
         @moveChange="changes"
         @inputChange="inputChange"

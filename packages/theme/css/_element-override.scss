@@ -275,12 +275,10 @@
   line-height: 1 !important;
 }
 
-.el-form-item--medium .el-form-item__content,
-.el-form-item--medium .el-form-item__label {
-  line-height: normal;
-  display: flex;
-  align-items: center;
+.el-form-item--medium .el-form-item__content {
+  line-height: 28px;
 }
+
 
 .el-input {
   font-size: $text-size-primary;
@@ -1056,8 +1054,8 @@
 }
 
 .el-table__body-wrapper .el-table__row .el-table__expand-icon .el-icon-arrow-right::before {
-   content: '\e791';
-   color: $color-grey-3;
+  content: '\e791';
+  color: $color-grey-3;
 }
 
 /* Descriptions

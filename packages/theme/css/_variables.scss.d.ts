@@ -8,6 +8,7 @@ export interface IScssVariablesRevised {
   colorInfo: string
   colorDisabled: string
   colorWhite: string
+  colorGrey3: string
   chartColor1: string
   chartColor2: string
   chartColor3: string

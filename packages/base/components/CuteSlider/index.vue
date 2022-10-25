@@ -8,12 +8,39 @@
       :max="max"
       :marks="marks"
       :show-tooltip="false"
+      :step="step"
       :disabled="disabled"
       @change="mouseMove"
     >
     </el-slider>
-    <div class="sliders-input">
-      <el-input v-model="inputValue" :readonly="range" size="small" @input="inputChange"></el-input>
+    <div v-if="!range" class="sliders-input">
+      <el-input
+        v-model="inputValue"
+        :readonly="disabled"
+        size="small"
+        onkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')"
+        @input="inputChange"
+        @blur="blurNumber"
+      ></el-input>
+      <span class="slider-unit">{{ unit }}</span>
+    </div>
+    <div v-else class="sliders-range">
+      <div class="range-input">
+        <el-input
+          v-model="minRange"
+          size="small"
+          onkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')"
+          @input="inputChange"
+          @blur="blurNumber"
+        ></el-input>
+        <span class="range-line">—</span>
+        <el-input
+          v-model="maxRange"
+          size="small"
+          onkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')"
+          @input="inputChange"
+        ></el-input>
+      </div>
       <span class="slider-unit">{{ unit }}</span>
     </div>
   </div>
@@ -30,26 +57,68 @@ export default class extends Vue {
   @Prop({ default: false }) private range!: boolean // 是否双滑块模式
   @Prop({ default: {} }) private marks!: object
   @Prop({ default: 'Mbit/s' }) private unit!: string
+  @Prop({ default: 1 }) private step!: number
   private value: any = null
   private inputValue = 0
+  private minRange = 0
+  private maxRange = 0
+  $message: any
 
   private mouseMove(e) {
-    this.inputValue = e
     if (this.range) {
-      this.inputValue = e[1] - e[0]
+      this.minRange = e[0]
+      this.maxRange = e[1]
+      this.$emit('moveChange', [this.minRange, this.maxRange])
     } else {
       this.inputValue = e
+      this.$emit('moveChange', this.inputValue)
     }
-    this.$emit('moveChange', this.inputValue)
+  }
+  private blurNumber(e) {
+    if (!e.target.value) {
+      if (this.range) {
+        this.minRange = this.min
+      } else {
+        this.inputValue = this.min
+      }
+    }
   }
   private inputChange() {
-    if (!this.range) {
+    if (this.range) {
+      this.value = [Number(this.minRange), Number(this.maxRange)]
+      if (Number(this.minRange) > Number(this.maxRange) || Number(this.maxRange > this.max)) {
+        this.$message({
+          message: '输入错误,请重新输入',
+          type: 'warning',
+        })
+        this.value = [this.min, this.min]
+        this.minRange = this.min
+        this.maxRange = this.min
+      } else {
+        this.value = [Number(this.minRange), Number(this.maxRange)]
+      }
+      this.value = [Number(this.minRange), Number(this.maxRange)]
+      this.$emit('inputChange', [Number(this.minRange), Number(this.maxRange)])
+    } else {
       this.value = Number(this.inputValue)
+      this.$emit('inputChange', Number(this.inputValue))
+      // if (Number(this.inputValue > this.max)) {
+      //   this.$message({
+      //     message: '输入错误,请重新输入',
+      //     type: 'warning',
+      //   })
+      //   this.value = 0
+      //   this.inputValue = 0
+      // } else {
+      //   this.value = Number(this.inputValue)
+      //   this.$emit('inputChange', Number(this.inputValue))
+      // }
     }
-    this.$emit('inputChange', this.inputValue)
   }
   private created() {
     if (this.range) {
+      this.minRange = 0
+      this.maxRange = 0
       this.value = [0, 0]
     } else {
       this.value = 0
@@ -73,7 +142,11 @@ export default class extends Vue {
   ::v-deep .disabled {
     background: #f0f0f0 !important;
   }
-
+  ::v-deep .el-slider__stop {
+    border-radius: 2px;
+    width: 2px;
+    height: 8px;
+  }
   ::v-deep .el-slider {
     width: 695px;
     margin-right: 20px;
@@ -127,12 +200,23 @@ export default class extends Vue {
   .sliders-input {
     display: flex;
     align-items: center;
-
-    .slider-unit {
-      margin-left: 10px;
-      font-size: 12px;
+  }
+  .slider-unit {
+    margin-left: 10px;
+    font-size: 12px;
+    color: $color-grey-1;
+    font-weight: 400;
+  }
+  .sliders-range {
+    display: flex;
+    align-items: center;
+    .range-input {
+      display: flex;
+      align-items: center;
       color: $color-grey-1;
-      font-weight: 400;
+      .range-line {
+        margin: 0 10px;
+      }
     }
   }
 }
@@ -142,7 +226,7 @@ export default class extends Vue {
 }
 
 ::v-deep .el-input {
-  width: 64px;
+  width: 60px;
 
   .el-input__inner {
     width: 64px;

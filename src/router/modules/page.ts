@@ -96,7 +96,7 @@ const restPageRoutes = [
         component: () => import('@/views/page/Dialog/WarnDialog2.vue'),
         name: 'WarnDialog2',
         meta: {
-          title: 'WarnDialog2 警告提示,有2次确认输入确认',
+          title: 'WarnDialog2 警告提示',
           breadcrumb: true,
         },
       },

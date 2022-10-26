@@ -16,7 +16,7 @@
     <div v-if="!range" class="sliders-input">
       <el-input
         v-model="inputValue"
-        :readonly="disabled"
+        :disabled="disabled"
         size="small"
         onkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')"
         @blur="inputChange"
@@ -28,6 +28,7 @@
         <el-input
           v-model="minRange"
           size="small"
+          :disabled="disabled"
           onkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')"
           @blur="inputChange"
         ></el-input>
@@ -35,6 +36,7 @@
         <el-input
           v-model="maxRange"
           size="small"
+          :disabled="disabled"
           onkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')"
           @blur="inputChange"
         ></el-input>

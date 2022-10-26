@@ -2,8 +2,8 @@
   <div>
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
-      <h1>CuteSlider / 滑动输入条</h1>
-      <component-demo path="@/views/component/Base/CuteSlider/Demo1.vue">
+      <h1>CuteSlider / 单向滑动输入条</h1>
+      <component-demo path="@/views/component/Base/CuteSingleSlider/Demo1.vue">
         <demo1 />
       </component-demo>
       <h2>CuteSlider Attributes</h2>
@@ -29,7 +29,7 @@ import Demo1 from './Demo1.vue'
 import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 
 @Component({
-  name: 'CuteSlider',
+  name: 'CuteSingleSlider',
   components: {
     ComponentDemo,
     Demo1,

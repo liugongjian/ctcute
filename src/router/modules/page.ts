@@ -92,6 +92,15 @@ const restPageRoutes = [
         },
       },
       {
+        path: 'warn-dialog2',
+        component: () => import('@/views/page/Dialog/WarnDialog2.vue'),
+        name: 'WarnDialog2',
+        meta: {
+          title: 'WarnDialog2 警告提示',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'pro-small-dialog',
         component: () => import('@/views/page/Dialog/ProSmallDialog.vue'),
         name: 'ProSmallDialog',

@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-21 13:45:25
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-25 19:29:46
+ * @LastEditTime: 2022-10-26 09:06:28
  * @Description: 云硬盘列表
 -->
 <template>
@@ -10,12 +10,7 @@
     <div class="list-header">
       <div class="list-title">
         <span class="list-title-name">云硬盘列表</span>
-        <svg-icon
-          name="question-circle"
-          :width="14"
-          :height="14"
-          :color="colorVariables.colorGrey3"
-        ></svg-icon>
+        <cute-form-info title="标题测试" content="对标题测试的详细说明" />
       </div>
       <el-button type="primary">创建云硬盘</el-button>
     </div>
@@ -127,7 +122,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import variables from '@cutedesign/theme/css/_variables.scss'
 
 import { getTableComponent } from '@/api/tableComponent'
-import { HEALTH } from '@/dics/proTable1'
+import { HEALTH } from '@/dics/simpleTable'
 
 @Component({
   name: 'ProductList',

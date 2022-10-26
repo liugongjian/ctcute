@@ -2,11 +2,11 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-21 13:41:25
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-21 16:12:39
+ * @LastEditTime: 2022-10-25 17:11:16
  * @Description: 复杂表格6
 -->
 <template>
-  <el-card class="pro-table-6">
+  <el-card class="pro-table-6" style="height: 100%">
     <h2 class="table6-title">实时计算管理控制台</h2>
     <p class="table6-explain">
       天翼云实时计算平台是基于开源基于Apache

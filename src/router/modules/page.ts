@@ -443,7 +443,7 @@ const restPageRoutes = [
     children: [
       {
         path: 'order-list',
-        component: () => import(/* webpackChunkName: "icon" */ '@/views/page/Order/OrderList.vue'),
+        component: () => import('@/views/page/Order/OrderList.vue'),
         name: 'OrderList',
         meta: {
           title: 'OrderList 订购标准页',
@@ -452,10 +452,19 @@ const restPageRoutes = [
       },
       {
         path: 'product-details',
-        component: () => import(/* webpackChunkName: "icon" */ '@/views/page/Order/ProductDetails.vue'),
+        component: () => import('@/views/page/Order/ProductDetails.vue'),
         name: 'ProductDetails',
         meta: {
           title: 'ProductDetails 产品详情',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'product-list',
+        component: () => import('@/views/page/Order/ProductList.vue'),
+        name: 'ProductList',
+        meta: {
+          title: 'ProductList 产品列表',
           breadcrumb: true,
         },
       },

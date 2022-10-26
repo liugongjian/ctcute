@@ -219,11 +219,9 @@ export default class extends Vue {
     this.form.AdConfiguration = val
   }
   private changeFun(key) {
-    console.log(key, 'key3')
     this.form.diskType = key
   }
   private changeFuns(key) {
-    console.log(key, 'key')
     this.form.payment = key
   }
 
@@ -233,46 +231,6 @@ export default class extends Vue {
     console.log(this.form, 'ffff')
   }
 
-  // private async spaceNameValida(rule, value, callback) {
-  //   console.log(rule, value, callback, '校验名字')
-  //   try {
-  //     console.log(value, 'vvvv')
-  //     const params = {
-  //       workspace: value,
-  //     }
-  //     const res = await getOrderWorkSpace(params)
-  //     // console.log(res, 'resss')
-  //     if (!res) {
-  //       callback()
-  //     } else {
-  //       callback(new Error('该名称已存在，请重新设置'))
-  //     }
-  //   } catch (e) {
-  //     this.$message.error(e)
-  //   }
-  // }
-  // private async resourceValida(rule, value, callback) {
-  //   console.log(rule, value, callback, '计算配额')
-  //   if (value <= 0) {
-  //     callback(new Error('最小粒度为1CU！'))
-  //   }
-  //   try {
-  //     console.log(value, 'vvvv')
-  //     const data = {
-  //       nodeCode: this.form.nodeCode,
-  //       cuNum: value,
-  //     }
-  //     const res = await getOrderStock(data)
-  //     console.log(res, 'resss')
-  //     if (res) {
-  //       callback()
-  //     } else {
-  //       callback(new Error('您填写的CU资源已超过上限！'))
-  //     }
-  //   } catch (e) {
-  //     this.$message.error(e)
-  //   }
-  // }
   private openPreview() {
     console.log('跳转')
   }
@@ -282,40 +240,11 @@ export default class extends Vue {
   private handleSure() {
     this.ruleFormRef.validate(valid => {
       if (valid) {
-        // this.vpcOptions.forEach(item => {
-        //   if (item.vpcId == this.form.vpcId) {
-        //     this.form.vpcName = item.vpcName
-        //   }
-        // })
-        // this.ossOptions.forEach(item => {
-        //   if (item.ossId == this.form.ossId) {
-        //     this.form.ossName = item.ossName
-        //   }
-        // })
-        // this.getConfirmOrder()
+        this.$message.success('前往下一页')
       } else {
         return false
       }
     })
   }
-  // private async getConfirmOrder() {
-  //   console.log(this.form, 'fffff')
-  //   const data = { ...this.form }
-  //   try {
-  //     const res = await getOrderNewOrder(data)
-  //     console.log(res, 'ressss')
-  //     if (res) {
-  //       window.localStorage.setItem('forms', JSON.stringify(this.form as any))
-  //       this.$router.push({
-  //         path: '/real-confirmation',
-  //       })
-  //     } else {
-  //       this.$message.error('下订单失败')
-  //       return false
-  //     }
-  //   } catch (e) {
-  //     this.$message.error(e)
-  //   }
-  // }
 }
 </script>

@@ -3,6 +3,14 @@
     {
       "name": "WarnDialog2.vue",
       "path": "@/views/page/Dialog/WarnDialog2.vue"
+    },
+    {
+      "name": "WarnDialog2.d.ts",
+      "path": "@/types/WarnDialog2.d.ts"
+    },
+    {
+      "name": "api/warnDialog2.ts",
+      "path": "@/api/warnDialog2.ts"
     }
   ]
 }

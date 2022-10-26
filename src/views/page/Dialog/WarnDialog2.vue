@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-08 13:45:09
  * @LastEditors: 马妍
- * @LastEditTime: 2022-10-25 14:20:16
+ * @LastEditTime: 2022-10-26 09:36:52
  * @Description: 告警弹窗-有2次输入确认
 -->
 <template>
@@ -18,11 +18,14 @@
       @close="close"
     >
       <div class="warn-dialog--content">
-        <slot name="icon">
-          <svg-icon name="info-circle-fill" />
-        </slot>
-        <slot name="content"
-          ><span>删除该project数据后，数据将无法恢复，确定要删除吗？ </span>
+        <div class="warn-dialog--content_describe">
+          <slot name="icon">
+            <svg-icon name="info-circle-fill" />
+          </slot>
+          <span>删除该project数据后，数据将无法恢复，确定要删除吗？ </span>
+        </div>
+
+        <slot name="content">
           <el-form ref="warnDialog2" :rules="rules" :model="form">
             <el-form-item label="项目名称" prop="name">
               <el-input v-model="form.name" placeholder="请输入项目名称"></el-input></el-form-item></el-form
@@ -30,7 +33,7 @@
       </div>
       <div class="warn-dialog--btns">
         <el-button @click="close">{{ cancelButtonText }}</el-button>
-        <el-button type="primary" @click="confirm">{{ confirmButtonText }}</el-button>
+        <el-button type="primary" :loading="submitting" @click="confirm">{{ confirmButtonText }}</el-button>
       </div>
     </el-dialog>
   </el-card>
@@ -38,6 +41,8 @@
 
 <script lang="ts">
 import { Component, Vue, Prop, Ref } from 'vue-property-decorator'
+import WarnDialog2 from '@/types/WarnDialog2'
+import { createWarnDialog2 } from '@/api/warnDialog2'
 
 @Component({
   name: 'WarnDialog2',
@@ -48,7 +53,11 @@ export default class extends Vue {
   // 表单Ref对象
   @Ref('warnDialog2')
   private warnDialog2Ref
-  private form: any = {
+
+  // 表单提交状态
+  private submitting = false
+
+  private form: WarnDialog2.Form = {
     name: '',
   }
   // 表单校验规则
@@ -65,15 +74,31 @@ export default class extends Vue {
   }
 
   //弹窗确认事件
-  public confirm() {
+  public async confirm() {
     this.warnDialog2Ref.validate(valid => {
       if (valid) {
-        this.form.name = ''
-        this.visible = false
+        this.create()
       } else {
         return false
       }
     })
+  }
+  /**
+   * 创建表单
+   * 调用后端创建接口
+   */
+  private async create() {
+    try {
+      this.submitting = true
+      const res = await createWarnDialog2(this.form)
+      const data = res.data
+      this.$message.success(`创建成功！ID: ${data.id}`)
+      this.visible = false
+    } catch (e) {
+      this.$message.error('创建失败！')
+    } finally {
+      this.submitting = false
+    }
   }
 }
 </script>

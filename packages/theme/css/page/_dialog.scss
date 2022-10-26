@@ -232,6 +232,10 @@
   }
   .warn-dialog--content {
     display: inline-block;
+    .warn-dialog--content_describe {
+      display: flex;
+      align-items: center;
+    }
     .el-form {
       margin-top: 24px;
       .el-form-item {

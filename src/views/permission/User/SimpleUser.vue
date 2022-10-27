@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-09-01 09:52:49
+ * @LastEditTime: 2022-10-18 14:18:42
  * @Description: 基础表格
 -->
 <template>
@@ -445,10 +445,7 @@ export default class extends Vue {
    */
   private async handleFreeze(id) {
     try {
-      const params = {
-        _id: id,
-      }
-      const res = await freezeUsers(params)
+      const res = await freezeUsers(id)
       if ((res as any).code === 200) {
         this.freezeVisible = false
         this.$message.success('冻结成功! ')
@@ -475,10 +472,7 @@ export default class extends Vue {
    */
   private async handleunFreeze(id) {
     try {
-      const params = {
-        _id: id,
-      }
-      const res = await unfreezeUsers(params)
+      const res = await unfreezeUsers(id)
       if ((res as any).code === 200) {
         this.unfreezeVisible = false
         this.$message.success('解冻成功! ')
@@ -532,10 +526,7 @@ export default class extends Vue {
    */
   private async handleResetPWD(id) {
     try {
-      const params = {
-        _id: id,
-      }
-      const res = await resetPWDUsers(params)
+      const res = await resetPWDUsers(id)
       if ((res as any).code === 200) {
         this.resetPWDVisible = false
         this.copyPWDVisible = true

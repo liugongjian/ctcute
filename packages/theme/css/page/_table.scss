@@ -241,9 +241,9 @@
   }
 
   .table4-right {
-    width: 80%;
+    width: 82%;
     overflow-y: auto;
-    margin-left: 300px;
+    margin-left: 18%;
   }
 
   /* 树 */
@@ -356,6 +356,15 @@
     .table-tools {
       display: flex;
       justify-content: space-between;
+
+      // &__left {
+      //   display: flex;
+      // }
+
+      &__right {
+        display: flex;
+
+      }
 
       /* 筛选表单 */
       &__conditions {

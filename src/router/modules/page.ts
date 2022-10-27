@@ -1,6 +1,6 @@
 import Layout from '@/layout/index.vue'
 
-const pageRoutes = [
+const indexPageRoutes = [
   // 图表
   {
     path: '/page/chart',
@@ -24,6 +24,9 @@ const pageRoutes = [
       },
     ],
   },
+]
+
+const restPageRoutes = [
   // 弹窗
   {
     path: '/page/dialog',
@@ -85,6 +88,15 @@ const pageRoutes = [
         name: 'WarnDialog',
         meta: {
           title: 'WarnDialog 警告弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'warn-dialog2',
+        component: () => import('@/views/page/Dialog/WarnDialog2.vue'),
+        name: 'WarnDialog2',
+        meta: {
+          title: 'WarnDialog2 警告提示',
           breadcrumb: true,
         },
       },
@@ -419,4 +431,8 @@ const pageRoutes = [
   },
 ]
 
+const pageRoutes = [...indexPageRoutes, ...restPageRoutes]
+
 export default pageRoutes
+
+export { indexPageRoutes, restPageRoutes }

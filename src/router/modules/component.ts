@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-26 15:13:55
+ * @LastEditTime: 2022-10-27 08:52:27
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -122,15 +122,6 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteSlider/index.vue'),
         meta: {
           title: 'CuteSlider',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'cute-single-slider',
-        name: 'CuteSingleSlider',
-        component: () => import('@/views/component/Base/CuteSingleSlider/index.vue'),
-        meta: {
-          title: 'CuteSingleSlider',
           breadcrumb: true,
         },
       },

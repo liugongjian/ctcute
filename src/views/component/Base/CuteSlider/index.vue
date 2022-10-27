@@ -2,9 +2,13 @@
   <div>
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
-      <h1>CuteSlider / 滑动输入条</h1>
+      <h1>CuteSlider / 双向滑动输入条</h1>
       <component-demo path="@/views/component/Base/CuteSlider/Demo1.vue">
         <demo1 />
+      </component-demo>
+      <h1>CuteSlider / 单向滑动输入条</h1>
+      <component-demo path="@/views/component/Base/CuteSlider/Demo2.vue">
+        <demo2 />
       </component-demo>
       <h2>CuteSlider Attributes</h2>
       <el-table :data="prop" fit border>
@@ -26,6 +30,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Demo1 from './Demo1.vue'
+import Demo2 from './Demo2.vue'
 import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 
 @Component({
@@ -33,6 +38,7 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
   components: {
     ComponentDemo,
     Demo1,
+    Demo2,
   },
 })
 export default class extends Vue {

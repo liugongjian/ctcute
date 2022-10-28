@@ -1,12 +1,19 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-08-08 14:26:19
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-10-28 09:18:05
  * @Description:简单表单页
 -->
 <template>
   <el-card class="simple-detail">
+    <div class="detail-nav">
+      <div @click="goBack">
+        <svg-icon name="arrow-left" class="back"></svg-icon>
+        <span>返回</span>
+      </div>
+      <span class="detail-title">{{ detail }}</span>
+    </div>
     <cute-titled-block title="基础信息">
       <template #content>
         <el-descriptions :column="2" border>
@@ -55,31 +62,34 @@
         </el-descriptions>
       </template>
     </cute-titled-block>
-    <cute-titled-block title="退货商品">
-      <template #content>
-        <el-collapse seperate>
-          <el-collapse-item
-            v-for="(item, index) in simpleDetailInfo && simpleDetailInfo.returnGoods"
-            :key="item.type"
-            :title="item.type"
-            :name="index"
-          >
-            <el-table :data="item.detail">
-              <el-table-column prop="goodsId" label="商品编码">
-                <template slot-scope="scope">
-                  <router-link to="/">{{ scope.row.goodsId }}</router-link>
-                </template>
-              </el-table-column>
-              <el-table-column prop="goodsName" label="商品名称"></el-table-column>
-              <el-table-column prop="goodsCode" label="商品条码"></el-table-column>
-              <el-table-column prop="price" label="单价"></el-table-column>
-              <el-table-column prop="count" label="数量"></el-table-column>
-              <el-table-column prop="totalPrice" label="总价"></el-table-column>
-            </el-table>
-          </el-collapse-item>
-        </el-collapse>
-      </template>
-    </cute-titled-block>
+    <div class="detail-goods">
+      <cute-titled-block title="退货商品">
+        <template #content>
+          <el-collapse seperate>
+            <el-collapse-item
+              v-for="(item, index) in simpleDetailInfo && simpleDetailInfo.returnGoods"
+              :key="item.type"
+              :title="item.type"
+              :name="index"
+            >
+              <el-table :data="item.detail">
+                <el-table-column prop="goodsId" label="商品编码">
+                  <template slot-scope="scope">
+                    <router-link to="/">{{ scope.row.goodsId }}</router-link>
+                  </template>
+                </el-table-column>
+                <el-table-column prop="goodsName" label="商品名称"></el-table-column>
+                <el-table-column prop="goodsCode" label="商品条码"></el-table-column>
+                <el-table-column prop="price" label="单价"></el-table-column>
+                <el-table-column prop="count" label="数量"></el-table-column>
+                <el-table-column prop="totalPrice" label="总价"></el-table-column>
+              </el-table>
+            </el-collapse-item>
+          </el-collapse>
+        </template>
+      </cute-titled-block>
+      <el-button class="operation" type="text">操作</el-button>　
+    </div>
     <cute-titled-block title="退货进度">
       <template #content>
         <el-table :data="simpleDetailInfo && simpleDetailInfo.returnGoodsProgress">
@@ -115,6 +125,8 @@ import { STATUS, PROGRESS } from '@/dics/simpleDetail'
   },
 })
 export default class extends Vue {
+  //跳转携带的name
+  private detail = '页面标题'
   // 退货进度状态字典
   private STATUS = STATUS
 
@@ -151,6 +163,12 @@ export default class extends Vue {
     } finally {
       this.loading = false
     }
+  }
+  /**
+   * 点击返回
+   */
+  private goBack() {
+    this.$message.success('点击了返回！')
   }
 }
 </script>

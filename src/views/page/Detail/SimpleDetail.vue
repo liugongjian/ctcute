@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2022-10-28 09:18:05
+ * @LastEditTime: 2022-10-28 16:01:51
  * @Description:简单表单页
 -->
 <template>
@@ -12,7 +12,7 @@
         <svg-icon name="arrow-left" class="back"></svg-icon>
         <span>返回</span>
       </div>
-      <span class="detail-title">{{ detail }}</span>
+      <div class="detail-title">{{ detail }}</div>
     </div>
     <cute-titled-block title="基础信息">
       <template #content>

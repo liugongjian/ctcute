@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-27 08:52:27
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2022-10-28 14:14:02
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -122,6 +122,24 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteSlider/index.vue'),
         meta: {
           title: 'CuteSlider',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-alert',
+        name: 'CuteAlert',
+        component: () => import('@/views/component/Base/CuteAlert/index.vue'),
+        meta: {
+          title: 'CuteAlert',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-collapse',
+        name: 'CuteCollapse',
+        component: () => import('@/views/component/Base/CuteCollapse/index.vue'),
+        meta: {
+          title: 'CuteCollapse',
           breadcrumb: true,
         },
       },

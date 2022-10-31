@@ -2,14 +2,18 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-21 13:45:25
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-26 09:06:28
+ * @LastEditTime: 2022-10-27 14:11:07
  * @Description: 云硬盘列表
 -->
 <template>
   <div class="product-list-1">
     <div class="list-header">
       <div class="list-title">
-        <span class="list-title-name">云硬盘列表</span>
+        <span class="list-title-name">
+          <el-breadcrumb separator="">
+            <el-breadcrumb-item>云硬盘列表</el-breadcrumb-item>
+          </el-breadcrumb>
+        </span>
         <cute-form-info title="标题测试" content="对标题测试的详细说明" />
       </div>
       <el-button type="primary">创建云硬盘</el-button>

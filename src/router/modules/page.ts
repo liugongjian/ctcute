@@ -1,5 +1,5 @@
 import Layout from '@/layout/index.vue'
-
+import OtherLayout from '@/layout/other.vue'
 const indexPageRoutes = [
   // 图表
   {
@@ -433,12 +433,12 @@ const restPageRoutes = [
   {
     path: '/page/order',
     redirect: '/page/order/order-list',
-    component: Layout,
+    component: OtherLayout,
     name: 'Order',
     meta: {
       title: 'Order 订购页',
-      alwaysShow: true,
-      breadcrumb: true,
+      alwaysShow: false,
+      breadcrumb: false,
     },
     children: [
       {
@@ -465,7 +465,7 @@ const restPageRoutes = [
         name: 'ProductList',
         meta: {
           title: 'ProductList 产品列表',
-          breadcrumb: true,
+          breadcrumb: false,
         },
       },
     ],

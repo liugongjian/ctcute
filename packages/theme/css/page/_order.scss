@@ -234,6 +234,8 @@
 }
 
 .product-list-1 {
+  padding-top: 20px;
+
   .list-header {
     display: flex;
     align-items: center;
@@ -246,11 +248,17 @@
   }
 
   .list-title {
+    display: flex;
+
     &-name {
-      font-size: 16px;
-      color: $color-grey-1;
-      font-weight: 500;
-      margin-right: 10px;
+      .el-breadcrumb {
+        font-size: 16px;
+        color: $color-grey-1;
+        font-weight: 500;
+        margin-right: 10px;
+      }
+
+
     }
   }
 

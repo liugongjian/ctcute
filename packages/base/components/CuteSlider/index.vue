@@ -153,8 +153,8 @@ export default class extends Vue {
     background: #f0f0f0 !important;
   }
   ::v-deep .el-slider__stop {
-    border-radius: 2px;
-    width: 2px;
+    border: 1px solid $color-white;
+    width: 1px;
     height: 8px;
   }
   ::v-deep .el-slider {
@@ -201,6 +201,7 @@ export default class extends Vue {
 
     .el-slider__marks-text {
       text-align: left;
+      margin-top: 19px;
     }
   }
 

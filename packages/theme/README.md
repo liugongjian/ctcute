@@ -2,11 +2,16 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-08 10:16:32
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-10-31 08:30:27
+ * @LastEditTime: 2022-10-31 14:34:00
  * @Description:
 -->
 
 # 一、版本日志
+
+## v1.0.7
+
+- 修改
+  - form 表单错误提示的样式
 
 ## v1.0.6
 

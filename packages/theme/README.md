@@ -2,11 +2,20 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-08 10:16:32
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-10-09 18:25:03
+ * @LastEditTime: 2022-10-31 08:30:27
  * @Description:
 -->
 
 # 一、版本日志
+
+## v1.0.6
+
+- 新增
+  - 详情页返回按钮样式
+  - input 为 small 的样式
+- 修改
+  - slider 中 input 的样式
+  - 嵌套表格的下拉箭头样式改成统一的三角形
 
 ## v1.0.5
 

@@ -128,11 +128,12 @@ export default class extends Vue {
   }
   private created() {
     if (this.range) {
-      this.minRange = 0
-      this.maxRange = 0
-      this.value = [0, 0]
+      this.minRange = this.min
+      this.maxRange = this.min
+      this.value = [this.min, this.min]
     } else {
-      this.value = 0
+      this.inputValue = this.min
+      this.value = this.min
     }
   }
   private mounted() {
@@ -148,8 +149,6 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .sliders {
   display: flex;
-  width: 700px;
-
   ::v-deep .disabled {
     background: #f0f0f0 !important;
   }

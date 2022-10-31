@@ -41,6 +41,157 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
+      version: '1.1.2',
+      date: '2022-10-28',
+      features: [
+        {
+          name: 'Ui-Alert',
+          desc: [
+            {
+              text: '新增alert组件的使用说明',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Collapse',
+          desc: [
+            {
+              text: '新增collapse组件的使用说明',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Slider',
+          desc: [
+            {
+              text: '新增Slider组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-Warndialog2',
+          desc: [
+            {
+              text: '新增Warndialog2页面(增加二次确认输入框)',
+            },
+          ],
+        },
+        {
+          name: 'Sidebar',
+          desc: [
+            {
+              text: '新增最佳实践菜单',
+            },
+            {
+              text: '侧边栏支持图标',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Input',
+          desc: [
+            {
+              text: '新增input-small组件',
+            },
+          ],
+        },
+        {
+          name: 'permission',
+          desc: [
+            {
+              text: '新增权限的hosts配置和启动说明',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '新增更换主题的说明和更新日志',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: 'Page-SimpleDetail',
+          desc: [
+            {
+              text: '还原simpleDetail 设计稿',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Collapse',
+          desc: [
+            {
+              text: '增加collapse组件的使用说明',
+            },
+          ],
+        },
+        {
+          name: 'auth',
+          desc: [
+            {
+              text: '调整路由before执行逻辑,调整 perm 获取前置到所有路由前，确保即时当前路由不需要登录，其他路由依然能获得正确表现',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '浏览器使用默认滚动条',
+            },
+
+            {
+              text: '页面和组件的维护者信息',
+            },
+          ],
+        },
+        {
+          name: 'Ui-SelectedButton',
+          desc: [
+            {
+              text: '修复SelectedButton选中样式',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Table',
+          desc: [
+            {
+              text: ' 修改table 的 expand 展开图标样式',
+            },
+          ],
+        },
+        {
+          name: 'Page-Chart',
+          desc: [
+            {
+              text: 'chart颜色优化,更新图表颜色信息',
+            },
+          ],
+        },
+        {
+          name: 'permission',
+          desc: [
+            {
+              text: '补充用户权限使用说明',
+            },
+          ],
+        },
+        {
+          name: 'Page-SimpleTable',
+          desc: [
+            {
+              text: ' 调整表单tip和error message的padding间距',
+            },
+          ],
+        },
+      ],
+    },
+    {
       version: '1.1.1',
       date: '2022-10-1',
       features: [
@@ -261,7 +412,7 @@ export default class extends Vue {
           ],
         },
         {
-          name: 'component-selectTree',
+          name: 'component-SelectTree',
           desc: [
             {
               text: '修复selectTree组件通过id回显label',
@@ -305,7 +456,7 @@ export default class extends Vue {
           ],
         },
         {
-          name: 'page-simpleTable2',
+          name: 'page-SimpleTable2',
           desc: [
             {
               text: '新增simpleTable2页面',

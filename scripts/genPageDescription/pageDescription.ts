@@ -26,7 +26,7 @@ const pageDescription = [
 	},
 	{
 		"name": "SimpleDetail",
-		"descriptionInfo": "Author:  胡佳婷\nDate:  2022-07-14 19:41:25\nLastEditors:  胡佳婷\nLastEditTime:  2022-08-08 14:26:19\nDescription: 简单表单页\n"
+		"descriptionInfo": "Author:  胡佳婷\nDate:  2022-07-14 19:41:25\nLastEditors:  马妍\nLastEditTime:  2022-10-28 16:01:51\nDescription: 简单表单页\n"
 	},
 	{
 		"name": "FullScreenDialog",
@@ -42,11 +42,11 @@ const pageDescription = [
 	},
 	{
 		"name": "ProMediumDialog",
-		"descriptionInfo": "Author:  吴博聪\nDate:  2022-07-14 19:41:25\nLastEditors:  吴博聪\nLastEditTime:  2022-07-18 13:52:52\nDescription:  复杂中弹窗\n"
+		"descriptionInfo": "Author:  吴博聪\nDate:  2022-07-14 19:41:25\nLastEditors:  马妍\nLastEditTime:  2022-10-24 10:56:16\nDescription:  复杂中弹窗\n"
 	},
 	{
 		"name": "ProSmallDialog",
-		"descriptionInfo": "Author:  吴博聪\nDate:  2022-07-14 19:41:25\nLastEditors:  吴博聪\nLastEditTime:  2022-07-18 13:54:59\nDescription:  复杂小弹窗\n"
+		"descriptionInfo": "Author:  吴博聪\nDate:  2022-07-14 19:41:25\nLastEditors:  马妍\nLastEditTime:  2022-10-24 10:03:34\nDescription:  复杂小弹窗\n"
 	},
 	{
 		"name": "SmallDialog",
@@ -59,6 +59,10 @@ const pageDescription = [
 	{
 		"name": "WarnDialog",
 		"descriptionInfo": "Author:  李志伟\nDate:  2022-07-08 13:45:09\nLastEditors:  lizhiwei\nLastEditTime:  2022-07-27 14:50:27\nDescription:  告警弹窗\n"
+	},
+	{
+		"name": "WarnDialog2",
+		"descriptionInfo": "Author:  马妍\nDate:  2022-07-08 13:45:09\nLastEditors:  马妍\nLastEditTime:  2022-10-26 09:36:52\nDescription:  告警弹窗-有2次输入确认\n"
 	},
 	{
 		"name": "ProForm1",
@@ -77,7 +81,7 @@ const pageDescription = [
 		"descriptionInfo": "Author:  何晋升\nDate:  2022-07-14 19:41:25\nLastEditors:  胡佳婷\nLastEditTime:  2022-07-18 13:45:39\nDescription:  分步表单\n"
 	},
 	{
-		"name": "Icon/index.vue",
+		"name": "Icon",
 		"descriptionInfo": "Author:  朱凌浩\nDate:  2022-07-08 14:31:41\nLastEditors:  朱凌浩\nLastEditTime:  2022-07-18 14:08:49\nDescription:  通用icon\n"
 	},
 	{
@@ -129,7 +133,7 @@ const pageDescription = [
 		"descriptionInfo": "Author:  朱凌浩\nDate:  2022-06-18 13:13:36\nLastEditors:  马妍\nLastEditTime:  2022-08-10 17:07:13\nDescription:  基础表格\n"
 	},
 	{
-		"name": "TsDemo/index.vue",
+		"name": "TsDemo",
 		"descriptionInfo": "Author:  朱凌浩\nDate:  2022-07-08 13:45:09\nLastEditors:  朱凌浩\nLastEditTime:  2022-07-18 14:09:19\nDescription:  TsDemo\n"
 	}
 ]

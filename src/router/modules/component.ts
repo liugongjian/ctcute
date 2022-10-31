@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 马妍
- * @LastEditTime: 2022-07-28 10:25:26
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2022-10-31 10:16:08
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -113,6 +113,33 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteArea/index.vue'),
         meta: {
           title: 'CuteArea',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-slider',
+        name: 'CuteSlider',
+        component: () => import('@/views/component/Base/CuteSlider/index.vue'),
+        meta: {
+          title: 'CuteSlider',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'el-alert',
+        name: 'ElAlert',
+        component: () => import('@/views/component/Base/ElAlert/index.vue'),
+        meta: {
+          title: 'ElAlert',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'el-collapse',
+        name: 'ElCollapse',
+        component: () => import('@/views/component/Base/ElCollapse/index.vue'),
+        meta: {
+          title: 'ElCollapse',
           breadcrumb: true,
         },
       },

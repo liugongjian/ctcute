@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
  * @LastEditors: XinZhao
- * @LastEditTime: 2022-10-28 14:14:02
+ * @LastEditTime: 2022-10-31 10:16:08
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -126,20 +126,20 @@ const componentRoutes = [
         },
       },
       {
-        path: 'cute-alert',
-        name: 'CuteAlert',
-        component: () => import('@/views/component/Base/CuteAlert/index.vue'),
+        path: 'el-alert',
+        name: 'ElAlert',
+        component: () => import('@/views/component/Base/ElAlert/index.vue'),
         meta: {
-          title: 'CuteAlert',
+          title: 'ElAlert',
           breadcrumb: true,
         },
       },
       {
-        path: 'cute-collapse',
-        name: 'CuteCollapse',
-        component: () => import('@/views/component/Base/CuteCollapse/index.vue'),
+        path: 'el-collapse',
+        name: 'ElCollapse',
+        component: () => import('@/views/component/Base/ElCollapse/index.vue'),
         meta: {
-          title: 'CuteCollapse',
+          title: 'ElCollapse',
           breadcrumb: true,
         },
       },

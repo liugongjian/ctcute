@@ -122,14 +122,6 @@ export default class extends Vue {
           ],
         },
         {
-          name: 'Ui-Collapse',
-          desc: [
-            {
-              text: '增加collapse组件的使用说明',
-            },
-          ],
-        },
-        {
           name: 'auth',
           desc: [
             {

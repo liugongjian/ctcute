@@ -7,7 +7,7 @@
       :disabled="false"
       :marks="marks"
       :range="false"
-      unit="月"
+      unit="个月"
       @moveChange="changes"
       @inputChange="inputChange"
     />

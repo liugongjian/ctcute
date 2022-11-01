@@ -26,28 +26,8 @@
         </div>
       </div>
       <h3>常规用法-小</h3>
-      <div class="input-search">
-        <div><el-input v-model="value1" placeholder="请输入" size="small"></el-input></div>
-        <div>
-          <el-form :model="formData" :rules="rules">
-            <el-form-item prop="password">
-              <el-input
-                v-model="formData.password"
-                placeholder="请输入"
-                type="text"
-                size="small"
-                @input="changeValue"
-              >
-                <svg-icon
-                  slot="suffix"
-                  :name="flag ? 'eye-close-fill' : 'eye-fill'"
-                  class="switch"
-                  @click="appearValue"
-                />
-              </el-input>
-            </el-form-item>
-          </el-form>
-        </div>
+      <div class="input-small">
+        <el-input v-model="value1" placeholder="请输入" size="small"></el-input>
       </div>
       <div class="input-search">
         <div><el-input disabled placeholder="请输入" size="small"></el-input></div>
@@ -371,5 +351,9 @@ export default class extends Vue {
   .el-input {
     width: 200px;
   }
+}
+
+.input-small {
+  margin-bottom: 24px;
 }
 </style>

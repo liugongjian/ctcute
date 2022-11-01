@@ -246,6 +246,12 @@
   padding-top: 6px;
 }
 
+.el-form-item--medium {
+  .el-form-item__label {
+    line-height: 32px;
+  }
+}
+
 /* Input
 -------------------------- */
 .el-input-number--small {

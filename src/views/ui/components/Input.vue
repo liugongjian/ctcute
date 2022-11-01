@@ -3,7 +3,11 @@
     <div class="sub-input">
       <h3>常规用法</h3>
       <div class="input-search">
-        <div><el-input v-model="value1" placeholder="请输入"></el-input></div>
+        <div>
+          <el-form>
+            <el-form-item><el-input v-model="value1" placeholder="请输入"></el-input></el-form-item
+          ></el-form>
+        </div>
         <div>
           <el-form :model="formData" :rules="rules">
             <el-form-item prop="password">

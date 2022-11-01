@@ -156,6 +156,10 @@ export default class extends Vue {
     border: 1px solid $color-white;
     width: 1px;
     height: 8px;
+    border-radius: 0;
+  }
+  ::v-deep .el-slider__stop:last-child {
+    display: none;
   }
   ::v-deep .el-slider {
     width: 695px;
@@ -190,7 +194,7 @@ export default class extends Vue {
 
     .el-slider__bar {
       height: 16px;
-      top: -5px;
+      top: -4px;
       border-radius: 3px;
     }
 

@@ -11,6 +11,7 @@ import {
 } from '@cutedesign/layout'
 import { isUndefined } from './utils'
 import { AxiosRequestConfig } from 'axios'
+import { AuthConfigOptions } from '../types'
 
 export function getCookieDomainUrl() {
   try {
@@ -31,7 +32,7 @@ export function getRedirectUri(uri) {
 /**
  * Default configuration
  */
-export default {
+export default <AuthConfigOptions>{
   baseUrl: null, // 后端接口的基础路径
   tokenName: 'token', // 自建用户体系token的名字
   tokenPrefix: 'vueauth', // 自建用户体系token的前缀
@@ -172,7 +173,12 @@ export default {
         method: 'GET',
         // dataHandler: data => data, // 数据格式转换，转换成统一的格式，按需提供
         // afterLogin: userinfo => {}, // 登录成功后，拿到用户信息执行一些操作
-        routerBeforeEach: IamWorkspace.routerBeforeEach,
+        loggedRouterBeforeEach: (to) => {
+          if (to.name !== 'interceptor') {
+            return IamWorkspace.routerBeforeEach(to)
+          }
+        },
+        unloggedRouterBeforeEach: () => { window.location.href = IamUser.loginUrl }
       },
       perms: {
         domain: '', // 菜单接口对应的domain （osp 中的菜单代码），业务方按需重写
@@ -181,6 +187,7 @@ export default {
         responseDataKey: 'data.items', // 可以拿到数据的key
         dataHandler: IamMenu.dataFormat, // 数据格式转换，转换成统一的格式
         setWorkspaceId: IamWorkspace.setWorkspaceId,
+        canGetPermsBeforeRoute: (to) => to.name !== 'interceptor'
       },
     },
     ctyun: {
@@ -205,7 +212,8 @@ export default {
         afterLogin: ($auth, userId) => {
           CtyunWorkspace.setWorkspaceId(userId)
         },
-        routerBeforeEach: CtyunWorkspace.routerBeforeEach,
+        loggedRouterBeforeEach: CtyunWorkspace.routerBeforeEach,
+        unloggedRouterBeforeEach: () => { window.location.href = CtyunUser.loginUrl }
       },
       // TODO ctyun 不需要鉴权，这个配置的意义主要在于菜单上下线，存在意义待定
       perms: {
@@ -229,6 +237,8 @@ export default {
         method: 'GET',
         dataHandler: data => data,
         afterLogin: $auth => $auth.getPermInfo(true),
+        loggedRouterBeforeEach: (to) => (to.path === '/login') ? '/' : void 0,
+        unloggedRouterBeforeEach: (to) => `/login?redirect=${to.path === '/login' ? '/' : to.path}`
       },
       // TODO 以后考虑多个接口，改成数组
       perms: {

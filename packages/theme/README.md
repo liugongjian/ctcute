@@ -2,16 +2,22 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-08 10:16:32
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-10-31 14:34:00
+ * @LastEditTime: 2022-11-01 21:21:42
  * @Description:
 -->
 
 # 一、版本日志
 
+## v1.0.8
+
+- 修改
+  - 修复 small-input 导致的 form 样式问题
+  - 修复 slider 样式问题
+
 ## v1.0.7
 
 - 修改
-  - form 表单错误提示的样式
+  - 修复 form 表单错误提示的样式
 
 ## v1.0.6
 

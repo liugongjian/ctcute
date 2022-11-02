@@ -223,8 +223,41 @@
   }
 }
 
+/* 警告弹窗 --有二次输入确认*/
+.warn-dialog2 {
+  @include special-dialog();
+
+  .svg-icon {
+    color: $color-status-warning;
+  }
+  .warn-dialog--content {
+    display: inline-block;
+    .warn-dialog--content_describe {
+      display: flex;
+      align-items: center;
+    }
+    .el-form {
+      margin-top: 24px;
+      .el-form-item {
+        display: flex;
+        .el-input {
+          width: 304px;
+        }
+      }
+    }
+  }
+}
+
+/* 复杂中弹窗 */
 .log-dialog {
   @include base-dialog();
+
+  .el-button + .el-button {
+    margin-left: 14px;
+  }
+  .last-button {
+    margin-right: 10px;
+  }
 
   .el-dialog {
     width: 560px;
@@ -232,14 +265,18 @@
 
   &--content {
     background-color: $color-grey-10;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 12px;
   }
 
   &--pre {
     width: 100%;
     margin: 0;
+    line-height: 20px;
   }
 }
 
+/* 复杂小弹窗 */
 .info-dialog {
   @include base-dialog();
 
@@ -250,6 +287,8 @@
   &--pre {
     width: 100%;
     margin: 0;
+    margin: -20px 0;
+    line-height: 32px;
   }
 }
 

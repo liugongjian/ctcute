@@ -2,11 +2,31 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-08 10:16:32
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-10-09 18:25:03
+ * @LastEditTime: 2022-11-01 21:21:42
  * @Description:
 -->
 
 # 一、版本日志
+
+## v1.0.8
+
+- 修改
+  - 修复 small-input 导致的 form 样式问题
+  - 修复 slider 样式问题
+
+## v1.0.7
+
+- 修改
+  - 修复 form 表单错误提示的样式
+
+## v1.0.6
+
+- 新增
+  - 详情页返回按钮样式
+  - input 为 small 的样式
+- 修改
+  - slider 中 input 的样式
+  - 嵌套表格的下拉箭头样式改成统一的三角形
 
 ## v1.0.5
 

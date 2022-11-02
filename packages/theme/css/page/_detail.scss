@@ -24,6 +24,48 @@
 }
 
 /* 简单详情 */
+.simple-detail {
+  .detail-nav {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .back {
+      margin-right: 4px;
+      color: $color-grey-3;
+      cursor: pointer;
+    }
+
+    span {
+      color: $color-grey-1;
+      cursor: pointer;
+    }
+
+    .detail-title {
+      font-size: 14px;
+      color: $color-grey-1;
+      line-height: 20px;
+      font-weight: 500;
+
+      &:before {
+        content: '|';
+        color: $color-grey-6;
+        margin: 0 12px;
+      }
+    }
+  }
+
+  .detail-goods {
+    position: relative;
+    margin-bottom: 24px;
+
+    .operation {
+      position: absolute;
+      top: 4px;
+      right: 0;
+    }
+  }
+}
 
 /* 复杂详情页1 */
 

@@ -128,11 +128,12 @@ export default class extends Vue {
   }
   private created() {
     if (this.range) {
-      this.minRange = 0
-      this.maxRange = 0
-      this.value = [0, 0]
+      this.minRange = this.min
+      this.maxRange = this.min
+      this.value = [this.min, this.min]
     } else {
-      this.value = 0
+      this.inputValue = this.min
+      this.value = this.min
     }
   }
   private mounted() {
@@ -148,15 +149,17 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .sliders {
   display: flex;
-  width: 700px;
-
   ::v-deep .disabled {
     background: #f0f0f0 !important;
   }
   ::v-deep .el-slider__stop {
-    border-radius: 2px;
-    width: 2px;
+    border: 1px solid $color-white;
+    width: 1px;
     height: 8px;
+    border-radius: 0;
+  }
+  ::v-deep .el-slider__stop:last-child {
+    display: none;
   }
   ::v-deep .el-slider {
     width: 695px;
@@ -191,7 +194,7 @@ export default class extends Vue {
 
     .el-slider__bar {
       height: 16px;
-      top: -5px;
+      top: -4px;
       border-radius: 3px;
     }
 
@@ -202,6 +205,7 @@ export default class extends Vue {
 
     .el-slider__marks-text {
       text-align: left;
+      margin-top: 19px;
     }
   }
 

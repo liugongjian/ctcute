@@ -9,7 +9,7 @@
     <div class="layout-wrap">
       <sidebar class="layout-sidebar" :title="sidebarTitle" type="page" />
       <!-- id在sidebar中被使用，勿随意删改 -->
-      <div id="layout-container" class="layout-container">
+      <div id="layout-container" class="layout-containers">
         <app-main />
       </div>
     </div>

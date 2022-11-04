@@ -59,6 +59,11 @@
         width: 300px;
       }
 
+      .el-form-item__content {
+        display: flex;
+        align-items: center;
+      }
+
       .el-form-item__label {
         text-align: left;
       }

@@ -65,7 +65,29 @@
             />
             <cute-form-info title="标题测试" content="对标题测试的详细说明" />
           </el-form-item>
-          <el-form-item label="创建时长" prop="createTime" style="padding-bottom: 24px"> </el-form-item>
+          <el-form-item
+            label="创建时长"
+            prop="createTime"
+            style="padding-bottom: 24px"
+            :inline-message="true"
+          >
+            <div style="display: inline-block; height: 38px">
+              <cute-slider
+                ref="Sliders"
+                v-model="form.createTime"
+                :min="1"
+                :max="17"
+                :disabled="false"
+                :marks="marks"
+                :range="false"
+                unit="个月"
+                :width="1000"
+                @moveChange="changes"
+                @inputChange="inputChanges"
+                @blur="handleBlur"
+              />
+            </div>
+          </el-form-item>
         </el-form>
       </el-card>
     </div>
@@ -109,6 +131,8 @@ import { getOptions } from '@/api/orderList'
 export default class extends Vue {
   @Ref('orderForm')
   private ruleFormRef
+  @Ref('Sliders')
+  private RefSlider
   private colorVariables = variables
   private areas = [
     {
@@ -179,7 +203,7 @@ export default class extends Vue {
     payment: [{ required: true, message: '请选择付费方式', trigger: 'change' }],
     number: [{ required: true, message: '请选择数量', trigger: 'change' }],
     Enterproject: [{ required: true, message: '请选择企业项目', trigger: 'change' }],
-    createTime: [{ required: true, message: '请输入月份', trigger: 'change' }],
+    createTime: [{ required: true, message: '请输入月份', trigger: 'blur' }],
   }
   private form = {
     nodeCode: null,
@@ -192,9 +216,91 @@ export default class extends Vue {
     type: 1,
     payType: 1,
     totalPrice: 54.0,
+    createTime: 1,
   }
   private mouthValue = 1
   private options = []
+  private marks = {
+    1: '1个月',
+    2: '2个月',
+    3: '3个月',
+    4: '4个月',
+    5: '5个月',
+    6: '6个月',
+    7: '7个月',
+    8: '8个月',
+    9: '9个月',
+    10: '10个月',
+    11: '11个月',
+    12: '12个月',
+    13: '1年',
+    14: '2年',
+    15: '3年',
+    16: '4年',
+    17: '5年',
+  }
+  private handleBlur(v) {
+    this.ruleFormRef.$emit('el.form.blur', v)
+  }
+  private changes(val) {
+    console.log(val, 'slider值')
+    switch (val) {
+      case 13:
+        this.form.createTime = 12
+        break
+      case 14:
+        this.form.createTime = 24
+        break
+      case 15:
+        this.form.createTime = 36
+        break
+      case 16:
+        this.form.createTime = 48
+        break
+      case 17:
+        this.form.createTime = 60
+        break
+      default:
+        this.RefSlider.values = val
+        break
+    }
+  }
+  private inputChanges(val) {
+    console.log(val, 'input值')
+    if (val == 0) {
+      this.form.createTime = null
+    } else {
+      this.form.createTime = val
+      if (val > 12) {
+        switch (val) {
+          case 24:
+            this.RefSlider.values = 14
+            break
+          case 36:
+            this.RefSlider.values = 15
+            break
+          case 48:
+            this.RefSlider.values = 16
+            break
+          case 60:
+            this.RefSlider.values = 17
+            break
+          default:
+            this.$message({
+              // showClose: true,
+              customClass: 'toast-warning',
+              message: '不得超过12个月 超过12个月以年为单位',
+              type: 'warning',
+            })
+            this.form.createTime = 1
+            this.RefSlider.values = 1
+            break
+        }
+      } else {
+        this.RefSlider.values = val
+      }
+    }
+  }
 
   /**
    * 页面Mounted
@@ -241,6 +347,7 @@ export default class extends Vue {
     this.ruleFormRef.validate(valid => {
       if (valid) {
         this.$message.success('前往下一页')
+        console.log(this.form, 'ffff')
       } else {
         return false
       }

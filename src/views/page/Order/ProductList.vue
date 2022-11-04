@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-21 13:45:25
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-27 14:11:07
+ * @LastEditTime: 2022-11-04 09:01:27
  * @Description: 云硬盘列表
 -->
 <template>
@@ -138,6 +138,7 @@ export default class extends Vue {
   // 小三角旋转开关
   private flag = false
   private currentPage4 = 4
+  private searchValue = ''
 
   private tableComponentData = null
 

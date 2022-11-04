@@ -20,7 +20,7 @@
                 <img src="./images/console.svg" alt="" />
               </div>
               <div class="message-info">
-                <el-descriptions :column="2" :colon="false" label-style="width: 100px">
+                <el-descriptions :column="2" :colon="false" :label-style="labelStyle">
                   <el-descriptions-item label="名称"
                     ><cute-edit-input v-model="form.name"
                   /></el-descriptions-item>
@@ -131,6 +131,9 @@ export default class extends Vue {
     endTime: '--',
     shareDisk: '不共享',
     enterProject: 'default',
+  }
+  private labelStyle = {
+    width: '100px',
   }
 
   /**

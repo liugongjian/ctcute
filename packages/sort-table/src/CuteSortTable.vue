@@ -1,26 +1,15 @@
 <!--
  * @Author: huanglulu
  * @Date: 2022-07-21 10:14:48
- * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-28 13:45:51
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-11-07 11:00:36
  * @Description:
 -->
 <template>
   <div>
-    <el-table ref="tableRef" v-loading="loading" :data="tableData" fit border>
+    <el-table ref="tableRef" v-loading="loading" :data="tableData" v-bind="$attrs">
       <template v-for="(item, index) in tableColumns">
-        <el-table-column
-          :key="index + item.prop"
-          :prop="item.prop"
-          :label="item.label"
-          :width="item.width"
-          :min-width="item.minWidth"
-          :sortable="item.sortable"
-          :show-overflow-tooltip="item.ellipsis"
-          :fixed="item.fixed"
-          :align="item.align"
-          v-bind="item.props"
-        >
+        <el-table-column :key="index + item.prop" :prop="item.prop" :label="item.label" v-bind="item.props">
           <template slot-scope="scope">
             <slot v-if="item.slot" :name="item.slot" :scope="scope" />
             <span v-else>{{ scope.row[item.prop] }}</span>

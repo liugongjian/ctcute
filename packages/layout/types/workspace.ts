@@ -4,7 +4,7 @@ import { AxiosRequestConfig } from 'axios'
 interface Workspace {
   setWorkspaceId: (workspaceId: string) => void
   routerBeforeEach: (to: Route) => Route | undefined
-  requestInterceptor: (userId: string | number) => (config: AxiosRequestConfig) => AxiosRequestConfig
+  requestInterceptor: (config: AxiosRequestConfig) => AxiosRequestConfig
 }
 
 export declare const IamWorkspace: Workspace

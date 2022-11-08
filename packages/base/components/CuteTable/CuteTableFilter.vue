@@ -124,7 +124,7 @@ export default class extends Vue {
 
           span {
             font-size: 12px;
-            color: $color-grey-2; // rgba(0, 0, 0, 65%);
+            color: $color-grey-2;
           }
         }
       }

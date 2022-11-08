@@ -294,7 +294,7 @@ $width: 640px;
   &__header {
     position: relative;
     overflow: hidden;
-    background: #fff;
+    background: $color-white;
 
     &__more {
       position: absolute;

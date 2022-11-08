@@ -122,7 +122,7 @@ export default class extends Vue {
 
   h4 {
     font-size: 12px;
-    color: rgba(0, 0, 0, 65%);
+    color: $color-grey-2; //rgba(0, 0, 0, 65%);
     margin-top: 8px;
     margin-bottom: 0 !important;
   }

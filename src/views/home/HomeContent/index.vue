@@ -157,7 +157,7 @@ export default class extends Vue {
       left: 85px;
       top: 52px;
       border-radius: 5px;
-      box-shadow: 0 0 8px 0 rgba(200, 201, 204, 40%);
+      box-shadow: 0 0 8px 0 $shadow-table-card;
     }
     .content-img3 {
       left: 100px;

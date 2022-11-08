@@ -1,8 +1,8 @@
 <!--
  * @Author: 赵丹
  * @Date: 2022-07-08 14:18:41
- * @LastEditors: 赵丹
- * @LastEditTime: 2022-07-18 14:03:35
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-11-08 15:51:52
  * @Description: 卡片3
 -->
 <template>
@@ -40,7 +40,8 @@
                     :content="val.tips"
                     placement="top-start"
                   >
-                    <span>{{ val.name }}</span>
+                    <el-tag type="info">{{ val.name }}</el-tag>
+                    <!-- <span></span> -->
                   </el-tooltip>
                 </span>
               </div>

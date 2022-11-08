@@ -1,8 +1,8 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-08 16:36:10
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-10-28 16:01:51
  * @Description:简单表单页
 -->
 <template>
@@ -16,7 +16,7 @@
     </div>
     <cute-titled-block title="基础信息">
       <template #content>
-        <el-descriptions :column="3" border>
+        <el-descriptions :column="2" border>
           <el-descriptions-item>
             <template slot="label"> 内部标识符 </template>
             {{ simpleDetailInfo && simpleDetailInfo.basic && simpleDetailInfo.basic.innerIdentity }}

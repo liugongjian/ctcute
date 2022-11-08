@@ -2,16 +2,16 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:23
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-11-07 11:01:00
+ * @LastEditTime: 2022-11-08 10:20:21
  * @Description:
 -->
 <template>
   <div>
     <cute-sort-table
+      ref="tableRef"
       :loading="tableHook.loading"
       :table-data="tableHook.tableData"
       :table-columns="tableColumns"
-      :stripe="true"
       @sort="handleSort"
     >
       <template #name="{ scope }">
@@ -124,7 +124,6 @@ export default class extends Vue {
   }
 
   private handleSort(val) {
-    console.log('ddd', val)
     const currRow = this.tableHook.tableData.splice(val.oldIndex, 1)[0]
     this.tableHook.tableData.splice(val.newIndex, 0, currRow)
     const newArray = this.tableHook.tableData.slice(0)

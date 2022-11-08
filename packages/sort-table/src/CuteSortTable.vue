@@ -2,14 +2,20 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:14:48
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-11-07 11:00:36
+ * @LastEditTime: 2022-11-08 10:18:22
  * @Description:
 -->
 <template>
   <div>
-    <el-table ref="tableRef" v-loading="loading" :data="tableData" v-bind="$attrs">
+    <el-table ref="table" v-loading="loading" :data="tableData" v-bind="$attrs" v-on="$listeners">
       <template v-for="(item, index) in tableColumns">
-        <el-table-column :key="index + item.prop" :prop="item.prop" :label="item.label" v-bind="item.props">
+        <el-table-column
+          v-if="!item.props || item.props.type !== 'selection'"
+          :key="index + item.prop"
+          :prop="item.prop"
+          :label="item.label"
+          v-bind="item.props"
+        >
           <template slot-scope="scope">
             <slot v-if="item.slot" :name="item.slot" :scope="scope" />
             <span v-else>{{ scope.row[item.prop] }}</span>
@@ -37,8 +43,8 @@ export default class extends Vue {
   @Prop({ type: Array, default: [] }) tableData?: [] // 表格数据
   @Prop({ type: Array, default: [] }) tableColumns?: [] // 表头数据
 
-  @Ref('tableRef')
-  private tableRef: ElTable
+  @Ref('table')
+  private table: ElTable
 
   sortable: any
 
@@ -51,8 +57,7 @@ export default class extends Vue {
 
   // 行拖拽排序, .sort-table 可拖拽元素
   private rowDrop() {
-    const tbody = this.tableRef.$el.querySelectorAll('tbody')
-
+    const tbody = this.table.$el.querySelectorAll('tbody')
     this.sortable = Sortable.create(tbody[0], {
       handle: '.sort-table',
       onEnd: ({ newIndex, oldIndex }) => {

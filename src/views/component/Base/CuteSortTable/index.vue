@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:30
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-11-03 21:06:33
+ * @LastEditTime: 2022-11-08 10:19:58
  * @Description: 
 -->
 <template>
@@ -28,6 +28,13 @@
         <el-table-column prop="desc" label="说明" />
         <el-table-column prop="callback" label="参数" />
       </el-table>
+      <h2>说明:</h2>
+      <h3>Table Attributes以及Table Events的使用: 直接透传</h3>
+      <h3>Table-column Attributes的使用: 通过tableColumns的props属性进行透传</h3>
+      <h3>
+        Table Methods的使用: 先获取table的实例,然后调用table方法 如const e = this.tableRef.$refs.table as
+        ElTable; e.clearSelection()
+      </h3>
     </div>
   </div>
 </template>

@@ -1,3 +1,10 @@
+<!--
+ * @Author: 秦瑞斌
+ * @Date: 2022-11-02 13:34:02
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-11-04 09:12:11
+ * @Description: 
+-->
 <template>
   <div>
     <!-- 多个DEMO请复制此段 -->
@@ -44,6 +51,13 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 export default class extends Vue {
   private prop = [
     {
+      name: 'v-model',
+      desc: '绑定值',
+      type: 'Number /  NumberArray',
+      options: null,
+      default: null,
+    },
+    {
       name: 'min',
       desc: '最小值',
       type: 'Number',
@@ -85,13 +99,20 @@ export default class extends Vue {
       options: null,
       default: null,
     },
+    {
+      name: 'width',
+      desc: '长度',
+      type: 'Number',
+      options: null,
+      default: '695',
+    },
   ]
 
   private event = [
     {
       name: 'moveChange',
       desc: '滑动条滑动时触发',
-      callback: '滑动条当前值',
+      callback: 'input框当前值',
     },
     {
       name: 'inputChange',

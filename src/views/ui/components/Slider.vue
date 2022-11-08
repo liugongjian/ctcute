@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-17 20:57:52
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-25 16:10:41
+ * @LastEditTime: 2022-11-03 16:36:33
  * @Description: 
 -->
 <template>
@@ -31,6 +31,7 @@
     </el-row>
     <el-row>
       <cute-slider
+        v-model="value"
         :min="1"
         :max="500"
         :disabled="false"
@@ -42,7 +43,15 @@
       />
     </el-row>
     <el-row>
-      <cute-slider :min="0" :max="500" :disabled="true" :marks="marks" :range="false" @moveChange="changes" />
+      <cute-slider
+        v-model="values"
+        :min="0"
+        :max="500"
+        :disabled="true"
+        :marks="marks"
+        :range="false"
+        @moveChange="changes"
+      />
     </el-row>
   </div>
 </template>
@@ -71,11 +80,13 @@ export default class extends Vue {
   }
   private changes(val) {
     console.log(val, 'slider值')
+    this.value = val
   }
   private inputChange(val) {
     console.log(val, 'input值')
+    this.value = val
   }
-
+  private values = 10
   private value = [4, 8]
 }
 </script>

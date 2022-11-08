@@ -1,7 +1,7 @@
 <template>
   <div class="sliders">
     <el-slider
-      v-model="value"
+      v-model="values"
       class="cute-slider"
       :range="range"
       :min="min"
@@ -10,35 +10,39 @@
       :show-tooltip="false"
       :step="step"
       :disabled="disabled"
+      :style="{ '--width-slider': width + 'px' }"
       @change="mouseMove"
     >
     </el-slider>
     <div v-if="!range" class="sliders-input">
       <el-input
-        v-model="inputValue"
+        v-model="valueInput"
         :disabled="disabled"
         size="small"
         onkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')"
         @blur="inputChange"
+        @input="changeValues($event)"
       ></el-input>
       <span class="slider-unit">{{ unit }}</span>
     </div>
     <div v-else class="sliders-range">
       <div class="range-input">
         <el-input
-          v-model="minRange"
+          v-model="valueInput[0]"
           size="small"
           :disabled="disabled"
           onkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')"
           @blur="inputChange"
+          @input="minChange($event)"
         ></el-input>
         <span class="range-line">—</span>
         <el-input
-          v-model="maxRange"
+          v-model="valueInput[1]"
           size="small"
           :disabled="disabled"
           onkeyup="value=value.replace(/[^\d]/g,'').replace(/^0{1,}/g,'')"
           @blur="inputChange"
+          @input="maxChange($event)"
         ></el-input>
       </div>
       <span class="slider-unit">{{ unit }}</span>
@@ -46,7 +50,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue, VModel, Watch } from 'vue-property-decorator'
 @Component({
   name: 'CuteSlider',
 })
@@ -55,64 +59,98 @@ export default class extends Vue {
   @Prop({ default: 100 }) private max!: number
   @Prop({ default: false }) private disabled!: boolean
   @Prop({ default: true }) private range!: boolean // 是否双滑块模式
-  @Prop({ default: {} }) private marks!: object
+  @Prop({ default: null, type: Object }) private marks?: null
   @Prop({ default: 'Mbit/s' }) private unit!: string
   @Prop({ default: 1 }) private step!: number
-  private value: any = null
-  private inputValue = 0
-  private minRange = 0
-  private maxRange = 0
+  @Prop({ default: 695 }) private width!: number
+  @VModel({ type: [Number, Array] }) private valueInput!: number | []
+  @Watch('valueInput', { deep: true, immediate: true })
+  private valuesChange(val) {
+    // console.log(val, 'newwal')
+    if (this.range) {
+      this.values = [Number(val[0]), Number(val[1])]
+    } else {
+      this.values = Number(val)
+      this.$nextTick(() => {
+        this.$emit('inputChange', Number(val))
+      })
+    }
+  }
+  private values: any = null
+  // private inputValue = 0
+  // private minRange = 0
+  // private maxRange = 0
   $message: any
 
   private mouseMove(e) {
     if (this.range) {
-      this.minRange = e[0]
-      this.maxRange = e[1]
-      this.$emit('moveChange', [this.minRange, this.maxRange])
+      // console.log(e, 'eeeee')
+      this.$emit('moveChange', e)
     } else {
-      this.inputValue = e
-      this.$emit('moveChange', this.inputValue)
+      this.valueInput = e
+      this.$emit('moveChange', e)
     }
   }
-  // private blurNumber(e) {
-  //   if (!e.target.value) {
-  //     if (this.range) {
-  //       this.minRange = this.min
-  //     } else {
-  //       this.inputValue = this.min
-  //     }
-  //   }
-  // }
+  private changeValues(e) {
+    this.values = Number(e)
+    this.valueInput = Number(e)
+    this.$emit('inputChange', Number(e))
+    // if (this.range) {
+    //   this.values = [Number(e[0]), Number(e[1])]
+    //   this.valueInput = [Number(e[0]), Number(e[1])]
+    //   console.log(this.values, this.valueInput, 'iiii')
+    //   this.$emit('inputChange', [Number(e[0]), Number(e[1])])
+    // } else {
+    // }
+  }
+  private minChange(e) {
+    // console.log(e, 'e1')
+    // this.$set(this.values, 0, Number(e))
+    // this.values[0] = Number(e)
+    // this.valueInput[0] = Number(e)
+    // this.$set(this.valueInput, 0, Number(e))
+    // console.log(this.values, 'vallll')
+    this.$emit('inputChange', [Number(e), this.valueInput[1]])
+  }
+  private maxChange(e) {
+    // console.log(e, 'e2')
+    // this.values[1] = Number(e)
+    // this.valueInput[1] = Number(e)
+    // this.$set(this.values, 1, Number(e))
+    // this.$set(this.valueInput, 1, Number(e))
+    // console.log(this.values, 'vallll')
+    this.$emit('inputChange', [this.valueInput[0], Number(e)])
+  }
   private inputChange(e) {
     if (!e.target.value) {
       if (this.range) {
-        this.minRange = this.min
+        this.valueInput[0] = this.min
+        this.valueInput[1] = this.min
       } else {
-        this.inputValue = this.min
+        this.$emit('inputChange', Number(this.min))
       }
     }
     if (this.range) {
-      this.value = [Number(this.minRange), Number(this.maxRange)]
+      this.values = [Number(this.valueInput[0]), Number(this.valueInput[1])]
       if (
-        Number(this.minRange) > Number(this.maxRange) ||
-        Number(this.maxRange) > this.max ||
-        Number(this.minRange) > this.max
+        Number(this.valueInput[0]) > Number(this.valueInput[1]) ||
+        Number(this.valueInput[1]) > this.max ||
+        Number(this.valueInput[0]) > this.max
       ) {
         this.$message({
           message: '输入错误,请重新输入',
           type: 'warning',
         })
-        this.value = [this.min, this.min]
-        this.minRange = this.min
-        this.maxRange = this.min
+        this.values = [this.min, this.min]
+        this.valueInput[0] = this.min
+        this.valueInput[1] = this.min
       } else {
-        this.value = [Number(this.minRange), Number(this.maxRange)]
+        this.values = [Number(this.valueInput[0]), Number(this.valueInput[1])]
       }
-      this.value = [Number(this.minRange), Number(this.maxRange)]
-      this.$emit('inputChange', [Number(this.minRange), Number(this.maxRange)])
+      // this.values = [Number(this.valueInput[0]), Number(this.valueInput[1])]
+      this.$emit('inputChange', [Number(this.valueInput[0]), Number(this.valueInput[1])])
     } else {
-      this.value = Number(this.inputValue)
-      this.$emit('inputChange', Number(this.inputValue))
+      this.$emit('inputChange', Number(e.target.value))
       // if (Number(this.inputValue > this.max)) {
       //   this.$message({
       //     message: '输入错误,请重新输入',
@@ -126,16 +164,7 @@ export default class extends Vue {
       // }
     }
   }
-  private created() {
-    if (this.range) {
-      this.minRange = this.min
-      this.maxRange = this.min
-      this.value = [this.min, this.min]
-    } else {
-      this.inputValue = this.min
-      this.value = this.min
-    }
-  }
+
   private mounted() {
     const btn = document.querySelectorAll('.el-slider.cute-slider .el-tooltip.el-slider__button') as any
     for (let i = 0; i < btn.length; i++) {
@@ -162,12 +191,11 @@ export default class extends Vue {
     display: none;
   }
   ::v-deep .el-slider {
-    width: 695px;
     margin-right: 20px;
 
     //常规
     .el-slider__runway {
-      width: 695px;
+      width: var(--width-slider);
       background: $color-master-5;
       height: 8px;
 

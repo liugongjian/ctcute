@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "name": "ListTable.vue",
+      "path": "@/views/page/Table/ListTable.vue"
+    },
+    {
+      "name": "api/tableComponent.ts",
+      "path": "@/api/tableComponent.ts"
+    },
+    {
+      "name": "dics/simpleTable.ts",
+      "path": "@/dics/simpleTable.ts"
+    }
+  ]
+}

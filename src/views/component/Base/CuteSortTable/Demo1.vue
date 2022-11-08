@@ -2,12 +2,13 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:23
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-16 15:09:07
+ * @LastEditTime: 2022-11-08 10:20:21
  * @Description:
 -->
 <template>
   <div>
     <cute-sort-table
+      ref="tableRef"
       :loading="tableHook.loading"
       :table-data="tableHook.tableData"
       :table-columns="tableColumns"
@@ -92,7 +93,7 @@ export default class extends Vue {
     { prop: 'memory', label: '内存利用率(%)' },
     { prop: 'disk', label: '磁盘利用率(%)' },
     { prop: 'healthy', label: '健康状态', slot: 'healthy' },
-    { prop: 'operation', label: '操作', width: 190, slot: 'operation' },
+    { prop: 'operation', label: '操作', slot: 'operation', props: { align: 'left', width: 190 } },
   ]
   private HEALTH = HEALTH
   private flag = false

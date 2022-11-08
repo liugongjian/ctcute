@@ -5,11 +5,11 @@ import { objectExtend, isFunction, getObjectProperty, lodashGet } from './utils'
 import defaultOptions from './options'
 import StorageFactory from './storage'
 import { hasPermission, filterAsyncRouter } from './permissions'
-import { RequestOptions, RequestParams, BizAuthConfigOptions, CommonAuthProvider, UserInfo } from '../types'
+import { AuthInstance, RequestOptions, RequestParams, BizAuthConfigOptions, CommonAuthProvider, UserInfo } from '../types'
 
 let __permInfoInstance__: any
 
-export default class VueAuthenticate {
+export default class VueAuthenticate implements AuthInstance {
   public options: BizAuthConfigOptions
   public authenticateType: 'local' | 'ctyun' | 'iam'
   public currentProvider: CommonAuthProvider
@@ -156,55 +156,58 @@ export default class VueAuthenticate {
       this.options.router.beforeEach(async (to: Route, from: Route, next: NavigationGuardNext) => {
         console.log('inner beforeEach')
 
+        const { ifLogin: ifLoginConfig, perms: permsConfig } = this.currentProvider
+
         if (this.options.beforeEachStartHook && isFunction(this.options.beforeEachStartHook)) {
           const _to = await this.options.beforeEachStartHook(to)
           if (_to) next(_to)
         }
 
-        // 不需要登录
-        if (to.meta && to.meta.withoutLogin) {
-          next()
-          return
-        }
 
         try {
+          // 虽然当前路由未必需要登录信息，但是需要通过根据鉴权信息获取可用路由
           const isLogin = await this.isAuthenticated()
-          // 需要但未登录
+          // 已登录
+          if (isLogin) {
+            // 已登录的前置处理
+            if (ifLoginConfig.loggedRouterBeforeEach && isFunction(ifLoginConfig.loggedRouterBeforeEach)) {
+              const _to = ifLoginConfig.loggedRouterBeforeEach(to)
+              if (_to) return next(_to)
+            }
+
+            // 如果需要鉴权
+            if (this.options.enableAuthorize) {
+              // 默认可以发起鉴权请求，可以通过配置拦截
+              let canGet = true
+              if (permsConfig.canGetPermsBeforeRoute && isFunction(permsConfig.canGetPermsBeforeRoute)) {
+                canGet = permsConfig.canGetPermsBeforeRoute(to)
+              }
+              if (canGet) {
+                await this.getPermInfo()
+              }
+            }
+          }
+
+          // 不需要登录的路由直接跳转
+          if (to.meta && to.meta.withoutLogin) {
+            return next()
+          }
+
+          // 未登录的前置处理
           if (!isLogin) {
-            if (this.authenticateType === 'local') {
-              const redirect_url = to.path === '/login' ? '/' : to.path
-              next(`/login?redirect=${redirect_url}`)
-            } else {
-              window.location.href = this.currentProvider.user.loginUrl
-            }
-            return
-          }
-
-          // 一些特殊的处理
-          if (this.authenticateType === 'local') {
-            if (to.path === '/login') {
-              next('/')
-              return
-            }
-          } else {
-            // 前置处理，如果满足 wid 的要求则继续乡下下执行
-            if (
-              this.currentProvider.ifLogin.routerBeforeEach &&
-              isFunction(this.currentProvider.ifLogin.routerBeforeEach)
-            ) {
-              const _to = this.currentProvider.ifLogin.routerBeforeEach(to)
-              if (_to) next(_to)
+            if (ifLoginConfig.unloggedRouterBeforeEach && isFunction(ifLoginConfig.unloggedRouterBeforeEach)) {
+              const _to = ifLoginConfig.unloggedRouterBeforeEach(to)
+              if (_to) return next(_to)
             }
           }
 
-          // 已登录但并不需要权限
+          // 已登录但路由本身并不需要权限，则直接执行
           if (to.meta && !to.meta.perms) {
-            next()
-            return
+            return next()
           }
+
           // 已登录，需要鉴权
           if (this.options.enableAuthorize) {
-            await this.getPermInfo()
             // 通用的鉴权判断
             if (hasPermission(this.getAllMenus(), to)) {
               next()

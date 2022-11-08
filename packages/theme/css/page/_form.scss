@@ -21,7 +21,6 @@
   }
 
   .form-item--short {
-
     .el-input,
     .el-select,
     .el-textarea,
@@ -38,13 +37,13 @@
     color: $text-color-light-1;
     font-size: $text-size-primary;
     line-height: $text-size-primary;
-    padding-top: 3px;
+    padding-top: 6px;
 
     &:before {
       font-family: 'cute-icons';
       content: '\eb5b';
       color: $icon-color;
-      font-size: 14px;
+      font-size: $text-size-medium;
       vertical-align: top;
       margin-right: $margin-tiny;
     }
@@ -54,7 +53,6 @@
     position: relative;
     top: auto;
   }
-
   .form-item__info {
     margin-left: $margin-small;
   }
@@ -69,7 +67,7 @@
     line-height: 14px;
     height: 14px;
     font-family: PingFangSC-Medium;
-    font-size: 14px;
+    font-size: $text-size-medium;
     color: $color-grey-1;
     margin: 0 0 24px 40px;
     font-weight: 500;
@@ -169,10 +167,9 @@
 
   padding-bottom: 33px;
 
-
   .pro-form-bottom {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     height: 48px;
     align-items: center;
   }
@@ -189,7 +186,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
-    >div {
+    > div {
       width: 31%;
 
       .el-select {

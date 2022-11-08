@@ -1,6 +1,7 @@
 import { VueInstance } from 'vue'
 import { AxiosInstance } from 'axios'
 import Router, { RouteConfig, Route, NavigationGuardNext } from 'vue-router'
+import { ExecFileOptionsWithStringEncoding } from 'child_process'
 
 declare module 'vue-router/types/router' {
   interface RouteMeta {
@@ -37,10 +38,7 @@ type CookieStorage = {
 }
 
 interface ApiConfig extends RequestOptions {
-  responseDataKey?: string
   dataHandler?: (data: any) => any
-  domain?: string
-  setWorkspaceId?: (data: any) => any
 }
 export interface CommonAuthProvider {
   layout: {
@@ -49,14 +47,20 @@ export interface CommonAuthProvider {
   }
   user: {
     loginUrl: string
-    logoutUrl: string
+    logoutUrl?: string
     setUrl?: (baseUrl: string) => any
   }
   ifLogin: ApiConfig & {
-    afterLogin: ($auth: AuthInstance, userId: string) => any
-    routerBeforeEach: (to: Route) => Route | undefined
+    afterLogin?: ($auth: AuthInstance, userId: string) => any // 已登录后的操作
+    loggedRouterBeforeEach?: (to: Route) => Route | string | void // 已登录状态下，路由前置操作
+    unloggedRouterBeforeEach?: (to: Route) => Route | string | void // 未登录状态下，路由前置操作
   }
-  perms?: ApiConfig
+  perms?: ApiConfig & {
+    domain?: string
+    responseDataKey?: string
+    setWorkspaceId?: (data: any) => any
+    canGetPermsBeforeRoute?: (to: Route) => boolean
+  }
 }
 
 interface AuthProviders {
@@ -65,7 +69,7 @@ interface AuthProviders {
   local: CommonAuthProvider
 }
 export interface AuthConfigOptions {
-  baseUrl?: string
+  baseUrl?: string | null
   tokenName?: string
   tokenPrefix?: string
   tokenHeader?: string
@@ -103,6 +107,10 @@ export interface AuthInstance {
   tokenName: string
   userInfo: UserInfo
   isLogin: boolean
+
+  getToken: () => string | undefined
+  removeToken: () => void
+  getPermInfo: (refresh: boolean) => Promise<any>
 }
 
 export interface BizAuthConfigOptions extends AuthConfigOptions {

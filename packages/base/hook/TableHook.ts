@@ -5,7 +5,7 @@
  * @LastEditTime: 2022年7月26日 16:03:00
  * @Description: 表格分页工具，包含定义分页
  */
-import * as Request from '@/types/Request'
+import * as Request from '../types/Request'
 import { ElTable } from 'element-ui/types/table'
 
 export default class TableHook {

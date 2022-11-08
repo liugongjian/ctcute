@@ -2,8 +2,8 @@
  * @Author: 马妍
  * @Date: 2022-07-15 10:12:49
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-20 18:38:40
- * @Description: 
+ * @LastEditTime: 2022-10-20 15:47:16
+ * @Description:
 -->
 <template>
   <div class="special-radio">
@@ -53,11 +53,11 @@ export default class extends Vue {
   }
 
   ::v-deep.el-radio-group .el-radio-button:not(.is-active):not(.is-disabled) .el-radio-button__inner {
-    background: #ffefe3;
+    background: $color-master-6;
     color: $color-grey-1;
 
     &:hover {
-      background: #ffe6d2;
+      background: $color-master-5;
       color: $color-grey-1;
     }
   }
@@ -67,6 +67,10 @@ export default class extends Vue {
     background: $color-master-1;
     border-radius: 2px 0 0 2px;
     color: $color-white !important;
+  }
+
+  ::v-deep.el-radio-button__orig-radio:checked + .el-radio-button__inner {
+    box-shadow: none;
   }
 }
 </style>

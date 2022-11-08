@@ -154,7 +154,7 @@
     </div>
     <div class="home-banner-center">
       <img src="./images/cutedesign.svg" alt="" />
-      <p>这是一排介绍问题，我的内容比较多要换行,</p>
+      <p class="center-first">产品，UI，前端一体化标准技术解决方案</p>
     </div>
   </div>
 </template>
@@ -299,6 +299,7 @@ export default class extends Vue {
   justify-content: center;
   align-items: center;
   position: relative;
+
   &-animations {
     position: absolute;
     top: 50%;
@@ -310,6 +311,7 @@ export default class extends Vue {
     height: 550px;
     margin: -275px 0 0 -550px;
   }
+
   &-animations .shape {
     position: absolute;
     top: 50%;
@@ -320,25 +322,29 @@ export default class extends Vue {
     stroke: transparent;
     stroke-width: 1px;
   }
+
   @media (min-width: 740px) {
     &-animations .shape {
       stroke-width: 0.5px;
     }
   }
+
   &-animations .small.shape {
     width: 76px;
     height: 76px;
     margin-top: -38px;
-    stroke: currentColor;
-    fill: currentColor;
+    stroke: currentcolor;
+    fill: currentcolor;
   }
+
   &-animations .x-small.shape {
     width: 32px;
     height: 32px;
     margin-top: -16px;
-    stroke: currentColor;
-    fill: currentColor;
+    stroke: currentcolor;
+    fill: currentcolor;
   }
+
   &-center {
     width: 1180px;
     text-align: center;
@@ -350,12 +356,15 @@ export default class extends Vue {
       display: inline-block;
     }
 
+    .center-first {
+      margin-top: 33.46px;
+    }
+
     p {
       font-family: PingFangSC-Light;
       flex-wrap: wrap;
       width: 1180px;
       margin: 0 auto;
-      margin-top: 33.46px;
       text-align: center;
       font-size: 16px;
       color: $color-grey-1;

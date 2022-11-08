@@ -13,6 +13,7 @@
 @import './page/user.scss';
 @import './page/menu.scss';
 @import './page/login.scss';
+@import './page/order.scss';
 
 body {
   -moz-osx-font-smoothing: grayscale;
@@ -57,15 +58,6 @@ div:focus {
 hr {
   border: none;
   border-top: 1px solid $border-color-light-1;
-}
-
-::-webkit-scrollbar-track-piece {
-  border-radius: 0;
-}
-
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
 }
 
 ::-webkit-resizer {

@@ -21,6 +21,7 @@
     ]
   },
   "dependencies": {
+    "@vss/video-player": "^0.0.4",
     "animejs": "^3.2.1",
     "axios": "^0.26.1",
     "copy-to-clipboard": "^3.3.1",

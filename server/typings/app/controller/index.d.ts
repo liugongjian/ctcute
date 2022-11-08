@@ -3,9 +3,11 @@
 
 import 'egg';
 import ExportCode from '../../../app/controller/Code';
+import ExportTheme from '../../../app/controller/Theme';
 
 declare module 'egg' {
   interface IController {
     code: ExportCode;
+    theme: ExportTheme;
   }
 }

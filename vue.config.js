@@ -16,8 +16,9 @@ module.exports = {
     proxy: {
       '/v1/auth/': {
         // target: 'http://fed.ctyuncdn.cn:8088', // 线上服务
-        // target: 'http://172.24.12.7:7002', //hjt 后端服务
-        target: 'http://172.21.65.214:8088/',
+        // target: 'http://172.24.5.3:8088', //hjt 后端服务
+        target: 'https://yapi.ctcdn.cn/mock/175/',
+        // target: 'http://172.21.65.214:8088/',
         // target: 'http://localhost:7002',
         https: true,
         changeOrigin: true,

@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-09-29 16:01:02
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2022-10-31 10:16:08
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -117,11 +117,49 @@ const componentRoutes = [
         },
       },
       {
-        path: 'cute-rich-text',
-        name: 'CuteRichText',
-        component: () => import('@/views/component/Base/CuteRichText/index.vue'),
+        path: 'cute-slider',
+        name: 'CuteSlider',
+        component: () => import('@/views/component/Base/CuteSlider/index.vue'),
         meta: {
-          title: 'CuteRichText',
+          title: 'CuteSlider',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'el-alert',
+        name: 'ElAlert',
+        component: () => import('@/views/component/Base/ElAlert/index.vue'),
+        meta: {
+          title: 'ElAlert',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'el-collapse',
+        name: 'ElCollapse',
+        component: () => import('@/views/component/Base/ElCollapse/index.vue'),
+        meta: {
+          title: 'ElCollapse',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/component/biz',
+    component: Layout,
+    meta: {
+      title: '业务组件',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'vss-video-player',
+        name: 'VssVideoPlayer',
+        component: () => import('@/views/component/Biz/VssVideoPlayer/index.vue'),
+        meta: {
+          title: 'VssVideoPlayer',
           breadcrumb: true,
         },
       },

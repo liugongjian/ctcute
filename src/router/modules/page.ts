@@ -1,6 +1,6 @@
 import Layout from '@/layout/index.vue'
-
-const pageRoutes = [
+import OtherLayout from '@/layout/other.vue'
+const indexPageRoutes = [
   // 图表
   {
     path: '/page/chart',
@@ -24,6 +24,9 @@ const pageRoutes = [
       },
     ],
   },
+]
+
+const restPageRoutes = [
   // 弹窗
   {
     path: '/page/dialog',
@@ -85,6 +88,15 @@ const pageRoutes = [
         name: 'WarnDialog',
         meta: {
           title: 'WarnDialog 警告弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'warn-dialog2',
+        component: () => import('@/views/page/Dialog/WarnDialog2.vue'),
+        name: 'WarnDialog2',
+        meta: {
+          title: 'WarnDialog2 警告提示',
           breadcrumb: true,
         },
       },
@@ -228,6 +240,15 @@ const pageRoutes = [
         name: 'ScrolledToLoadTable',
         meta: {
           title: 'ScrolledToLoadTable 滚动查询表格',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-table6',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable6.vue'),
+        name: 'ProTable6',
+        meta: {
+          title: 'ProTable6 复杂表格6',
           breadcrumb: true,
         },
       },
@@ -417,6 +438,51 @@ const pageRoutes = [
       },
     ],
   },
+  // 订购页
+  {
+    path: '/page/order',
+    redirect: '/page/order/order-list',
+    component: OtherLayout,
+    name: 'Order',
+    meta: {
+      title: 'Order 订购页',
+      alwaysShow: false,
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: 'order-list',
+        component: () => import('@/views/page/Order/OrderList.vue'),
+        name: 'OrderList',
+        meta: {
+          title: 'OrderList 订购标准页',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'product-details',
+        component: () => import('@/views/page/Order/ProductDetails.vue'),
+        name: 'ProductDetails',
+        meta: {
+          title: 'ProductDetails 产品详情',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'product-list',
+        component: () => import('@/views/page/Order/ProductList.vue'),
+        name: 'ProductList',
+        meta: {
+          title: 'ProductList 产品列表',
+          breadcrumb: false,
+        },
+      },
+    ],
+  },
 ]
 
+const pageRoutes = [...indexPageRoutes, ...restPageRoutes]
+
 export default pageRoutes
+
+export { indexPageRoutes, restPageRoutes }

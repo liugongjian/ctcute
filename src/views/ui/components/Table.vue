@@ -644,83 +644,85 @@
       </el-pagination>
     </div>
     <h3>详情页基本信息展示列表</h3>
-    <div class="sub-table-horizon">
-      <el-descriptions :column="3" border>
-        <el-descriptions-item>
-          <template slot="label"> 内部标识符 </template>
-          DE34237632363
-        </el-descriptions-item>
+    <div>
+      <div class="sub-table-message">
+        <el-descriptions :column="3" border>
+          <el-descriptions-item>
+            <template slot="label"> 内部标识符 </template>
+            DE34237632363
+          </el-descriptions-item>
 
-        <el-descriptions-item>
-          <template slot="label"> 标识符 </template>
-          GMSFZ
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 标识符 </template>
-          GMSFZ
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 中文名称 </template>
-          公民身份证
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 英文名称 </template>
-          gong-min-shen-fen-zheng
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 英文名称</template>
-          gong-min-shen-fen-zheng
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 语境 </template>
-          天翼云公司
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 版本 </template>
-          1.0
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 版本 </template>
-          1.0
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 同义名称 </template>
-          BB
-        </el-descriptions-item>
-      </el-descriptions>
-    </div>
-    <div class="sub-table-horizon">
-      <el-descriptions :column="2" border>
-        <el-descriptions-item>
-          <template slot="label"> 内部标识符 </template>
-          DE34237632363
-        </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 标识符 </template>
+            GMSFZ
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 标识符 </template>
+            GMSFZ
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 中文名称 </template>
+            公民身份证
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 英文名称 </template>
+            gong-min-shen-fen-zheng
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 英文名称</template>
+            gong-min-shen-fen-zheng
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 语境 </template>
+            天翼云公司
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 版本 </template>
+            1.0
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 版本 </template>
+            1.0
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 同义名称 </template>
+            BB
+          </el-descriptions-item>
+        </el-descriptions>
+      </div>
+      <div class="sub-table-message">
+        <el-descriptions :column="2" border>
+          <el-descriptions-item>
+            <template slot="label"> 内部标识符 </template>
+            DE34237632363
+          </el-descriptions-item>
 
-        <el-descriptions-item>
-          <template slot="label"> 标识符 </template>
-          GMSFZ
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 中文名称 </template>
-          公民身份证
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 英文名称 </template>
-          gong-min-shen-fen-zheng
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 语境 </template>
-          天翼云公司
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 版本 </template>
-          1.0
-        </el-descriptions-item>
-        <el-descriptions-item>
-          <template slot="label"> 同义名称 </template>
-          BB
-        </el-descriptions-item>
-      </el-descriptions>
+          <el-descriptions-item>
+            <template slot="label"> 标识符 </template>
+            GMSFZ
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 中文名称 </template>
+            公民身份证
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 英文名称 </template>
+            gong-min-shen-fen-zheng
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 语境 </template>
+            天翼云公司
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 版本 </template>
+            1.0
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 同义名称 </template>
+            BB
+          </el-descriptions-item>
+        </el-descriptions>
+      </div>
     </div>
     <div class="sub-table-horizon" border>
       <el-table :data="tableData" :span-method="row">
@@ -1181,6 +1183,16 @@ export default class extends Vue {
 .sub-table-horizon {
   border-bottom: 1px solid $color-grey-7;
   padding-bottom: 24px;
+  ::v-deep .is-group {
+    line-height: 40px;
+  }
+}
+
+.sub-table-message {
+  padding-bottom: 24px;
+  &:last-child {
+    padding-bottom: 8px;
+  }
   ::v-deep .is-group {
     line-height: 40px;
   }

@@ -261,7 +261,6 @@ export default class extends Vue {
     line-height: 10px;
     overflow: hidden;
     color: $color-white;
-    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1);
   }
 
   &__code {

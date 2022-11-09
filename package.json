@@ -21,6 +21,8 @@
     ]
   },
   "dependencies": {
+    "@wangeditor/editor": "^5.0.1",
+    "@wangeditor/editor-for-vue": "^1.0.1",
     "@vss/video-player": "^0.0.4",
     "animejs": "^3.2.1",
     "axios": "^0.26.1",

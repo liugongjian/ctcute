@@ -724,7 +724,6 @@
         </el-descriptions>
       </div>
     </div>
-
     <div class="sub-table-horizon" border>
       <el-table :data="tableData" :span-method="row">
         <el-table-column prop="dataFilter" label="数据筛选" width="230" align="center"> </el-table-column>

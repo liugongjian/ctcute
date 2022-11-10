@@ -1,11 +1,11 @@
 {
   "files": [
     {
-      "name": "ListTable.vue",
-      "path": "@/views/page/Table/ListTable.vue"
+      "name": "ProductList.vue",
+      "path": "@/views/console/Order/ProductList.vue"
     },
     {
-      "name": "api/tableComponent.ts",
+      "name": "tableComponent.ts",
       "path": "@/api/tableComponent.ts"
     },
     {

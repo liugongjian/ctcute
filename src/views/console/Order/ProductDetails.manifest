@@ -1,0 +1,12 @@
+{
+  "files": [
+    {
+      "name": "ProductDetails.vue",
+      "path": "@/views/console/Order/ProductDetails.vue"
+    },
+    {
+      "name": "dics/simpleTable.ts",
+      "path": "@/dics/simpleTable.ts"
+    }
+  ]
+}

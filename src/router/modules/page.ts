@@ -251,6 +251,15 @@ const restPageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'pro-table7',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable7.vue'),
+        name: 'ProTable7',
+        meta: {
+          title: 'ProTable7 复杂表格7',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 卡片

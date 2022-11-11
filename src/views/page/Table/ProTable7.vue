@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-11-11 13:41:25
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-11 15:52:58
+ * @LastEditTime: 2022-11-11 16:03:51
  * @Description: 复杂表格7
 -->
 <template>
@@ -33,8 +33,7 @@
       <el-table-column prop="orderNum" label="排序"> </el-table-column>
       <el-table-column prop="url" label="路由"> </el-table-column>
       <el-table-column prop="perms" label="标识"> </el-table-column>
-      <el-table-column prop="alias" label="别名"> </el-table-column>
-
+      <el-table-column prop="alias" label="别名" :show-overflow-tooltip="true"> </el-table-column>
       <el-table-column prop="actions" label="操作" width="250" fixed="right" class-name="actions">
         <template slot-scope="{}">
           <el-button type="text">编辑</el-button>
@@ -46,7 +45,6 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
-// import { getMenus } from '@/api/simpleMenu'
 import { getTable } from '@/api/proTable7'
 import { ElTable } from 'element-ui/types/table'
 

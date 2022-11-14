@@ -10,11 +10,11 @@
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
       <h1>ElAlert / 可配置自定义icon的警告条</h1>
-      <component-demo path="@/views/component/Base/Alert/Demo1.vue">
+      <component-demo path="@/views/component/Base/ElAlert/Demo1.vue">
         <demo1 />
       </component-demo>
       <h1>ElAlert / 可作为Content Area Tip的警告条</h1>
-      <component-demo path="@/views/component/Base/Alert/Demo2.vue">
+      <component-demo path="@/views/component/Base/ElAlert/Demo2.vue">
         <demo2 />
       </component-demo>
       <h2>ElAlert 说明</h2>

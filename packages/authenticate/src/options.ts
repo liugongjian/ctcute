@@ -161,8 +161,8 @@ export default <AuthConfigOptions>{
         loginUrl: IamUser.loginUrl, // 对应业务后端的登录地址
         logoutUrl: IamUser.logoutUrl, // 对应业务后端的退出地址，按需重写
         setUrl(baseUrl) {
-          const loginUrl = `${baseUrl}${IamUser.loginUrl}`
-          const logoutUrl = `${baseUrl}${IamUser.logoutUrl}`
+          const loginUrl = `${baseUrl}${this.loginUrl}`
+          const logoutUrl = `${baseUrl}${this.logoutUrl}`
           this.loginUrl = loginUrl
           this.logoutUrl = logoutUrl
           IamUser.setConfig({ loginUrl, logoutUrl })
@@ -199,8 +199,8 @@ export default <AuthConfigOptions>{
         loginUrl: CtyunUser.loginUrl,
         logoutUrl: CtyunUser.logoutUrl,
         setUrl(baseUrl) {
-          const loginUrl = `${baseUrl}${CtyunUser.loginUrl}`
-          const logoutUrl = `${baseUrl}${CtyunUser.logoutUrl}`
+          const loginUrl = `${baseUrl}${this.loginUrl}`
+          const logoutUrl = `${baseUrl}${this.logoutUrl}`
           this.loginUrl = loginUrl
           this.logoutUrl = logoutUrl
           CtyunUser.setConfig({ loginUrl, logoutUrl })

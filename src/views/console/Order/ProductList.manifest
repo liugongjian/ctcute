@@ -9,8 +9,8 @@
       "path": "@/api/tableComponent.ts"
     },
     {
-      "name": "dics/simpleTable.ts",
-      "path": "@/dics/simpleTable.ts"
+      "name": "dics/productList.ts",
+      "path": "@/dics/productList.ts"
     }
   ]
 }

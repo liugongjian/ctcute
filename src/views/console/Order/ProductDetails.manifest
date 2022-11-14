@@ -5,8 +5,8 @@
       "path": "@/views/console/Order/ProductDetails.vue"
     },
     {
-      "name": "dics/simpleTable.ts",
-      "path": "@/dics/simpleTable.ts"
+      "name": "dics/productDetails.ts",
+      "path": "@/dics/productDetails.ts"
     }
   ]
 }

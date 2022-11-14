@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-21 13:45:25
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-04 09:01:27
+ * @LastEditTime: 2022-11-14 16:21:30
  * @Description: 云硬盘列表
 -->
 <template>
@@ -126,7 +126,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import variables from '@cutedesign/theme/css/_variables.scss'
 
 import { getTableComponent } from '@/api/tableComponent'
-import { HEALTH } from '@/dics/simpleTable'
+import { HEALTH } from '@/dics/productList'
 
 @Component({
   name: 'ProductList',

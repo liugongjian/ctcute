@@ -1,16 +1,15 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-08-11 16:27:09
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-10-26 18:04:53
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-11-17 14:59:32
  * @Description:
 -->
 <template>
   <div class="login">
     <div class="login-content">
-      <img src="../../assets/images/login/cute-login.png" alt="" class="login-content_img" />
+      <img src="../../assets/images/login/cute-login-dark.png" alt="" class="login-content_img" />
       <div class="content-desc">
-        <p class="blur"></p>
         <div class="content-desc_from">
           <h3>登录 Cute Design</h3>
           <p>这是一句Cute Design的介绍，我应该会有两行以上，长长的效果感觉会好一点呢</p>

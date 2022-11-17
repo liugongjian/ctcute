@@ -76,12 +76,12 @@
 
 @mixin formBottom {
   .pro-form-bottom {
-    box-shadow: -2px 2px 8px 0 $shadow-table-card;
+    box-shadow: 0 2px 8px 0 $color-form-component-bg-3;
     position: fixed;
     left: $sidebar-width;
     bottom: 0;
     width: unquote('-webkit-calc(100% - #{$sidebar-width})');
-    background: $color-white;
+    background: $color-form-component-bg-1;
     line-height: 48px;
     transition: 0.3s;
     z-index: 11;

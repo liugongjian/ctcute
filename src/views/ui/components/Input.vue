@@ -345,6 +345,7 @@ export default class extends Vue {
 
 .input-demo {
   width: 384px;
+  color: $color-grey-1;
 }
 
 .el-textarea {

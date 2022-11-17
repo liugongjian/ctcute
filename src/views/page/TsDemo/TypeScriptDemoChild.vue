@@ -231,7 +231,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   margin-top: 15px;
   padding: 10px;
   font-size: 18px;
-  background: #fff;
+  background: $color-bg-2;
   border: 1px solid $border-color-primary; // 颜色变量请从@cutedesign/theme/_variables.scss查找
 
   &__child {

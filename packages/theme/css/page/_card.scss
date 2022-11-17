@@ -18,10 +18,15 @@
 
     .el-card__body {
       padding: 16px;
+      background-color: $color-bg-2;
     }
   }
 
   .card-box {
+    .card-box--title svg {
+      color: $color-status-success;
+    }
+
     .card-box--title {
       display: flex;
       align-items: center;
@@ -68,8 +73,6 @@
       }
 
       svg {
-        color: $button-icon-color;
-        font-size: $text-size-large;
         cursor: pointer;
         font-size: 16px;
         color: $color-grey-4;
@@ -148,7 +151,7 @@
         display: inline-block;
         vertical-align: middle;
         font-size: 16px;
-        color: #333;
+        color: $color-grey-1;
         font-weight: 500;
         margin-left: 12px;
       }
@@ -289,6 +292,7 @@
           align-items: center;
           text-align: center;
           border-bottom: 1px solid $border-color-primary;
+          background-color: $color-grey-11;
 
           &:last-child {
             border: none;

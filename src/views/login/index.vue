@@ -12,7 +12,7 @@
       <div class="content-desc">
         <div class="content-desc_from">
           <h3>登录 Cute Design</h3>
-          <p>这是一句Cute Design的介绍，我应该会有两行以上，长长的效果感觉会好一点呢</p>
+          <p>模拟登录效果 非真实用户和登录</p>
           <el-form ref="ruleForm" :rules="rules" :model="form">
             <el-form-item prop="username">
               <el-input v-model="form.username" autocomplete="off" placeholder="请输入用户">

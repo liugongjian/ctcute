@@ -1187,9 +1187,11 @@ export default class extends Vue {
 
 .sub-table-message {
   padding-bottom: 24px;
+
   &:last-child {
     padding-bottom: 8px;
   }
+
   ::v-deep .is-group {
     line-height: 40px;
   }
@@ -1338,7 +1340,7 @@ export default class extends Vue {
 
 .sort-icon {
   cursor: pointer;
-  color: #777;
+  color: $color-grey-3;
 
   &:hover {
     color: $color-master-1;

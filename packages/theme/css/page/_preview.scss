@@ -1,6 +1,7 @@
 .document-preview {
   padding: 30px 20px;
-  background: #fff;
+  background: $color-bg-2;
+  box-shadow: 0 0 8px 0;
 
   .document-preview-title {
     border-bottom: 1px solid $border-color-primary;
@@ -15,7 +16,7 @@
 
     div {
       font-size: 12px;
-      color: #666;
+      color: $color-grey-2;
       line-height: 20px;
       font-weight: 400;
       margin-top: 20px;
@@ -48,7 +49,7 @@
 
       p {
         font-size: 12px;
-        color: #333;
+        color: $color-grey-1;
         line-height: 20px;
         font-weight: 400;
         margin: 0;

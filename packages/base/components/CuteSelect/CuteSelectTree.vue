@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2022-08-24 09:51:38
+ * @LastEditTime: 2022-11-18 14:11:31
  * @Description: 带提示的选择器
 -->
 <template>
@@ -98,7 +98,7 @@ export default class extends Vue {
 
 .el-select-dropdown__item,
 .el-select-dropdown__item.hover {
-  background: #fff;
+  background: $color-bg-1;
   padding: 0;
 
   ::v-deep.el-tree-node__content:not(.el-tree-node:focus > .el-tree-node__content):hover {

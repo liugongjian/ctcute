@@ -162,6 +162,10 @@ export default class extends Vue {
     color: $color-grey-2;
     display: flex;
     align-items: center;
+
+    .svg-icon {
+      color: $color-grey-3;
+    }
   }
 }
 </style>

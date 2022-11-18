@@ -1,16 +1,15 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-08-11 16:27:09
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-11-15 11:04:48
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-11-17 14:59:32
  * @Description:
 -->
 <template>
   <div class="login">
     <div class="login-content">
-      <img src="../../assets/images/login/cute-login.png" alt="" class="login-content_img" />
+      <img src="../../assets/images/login/cute-login-dark.png" alt="" class="login-content_img" />
       <div class="content-desc">
-        <p class="blur"></p>
         <div class="content-desc_from">
           <h3>登录 Cute Design</h3>
           <p>模拟登录效果 非真实用户和登录</p>

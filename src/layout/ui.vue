@@ -1,3 +1,10 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-10-19 10:59:22
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-11-11 15:38:17
+ * @Description: 
+-->
 <template>
   <div class="app-wrapper">
     <layout-header />
@@ -24,6 +31,6 @@ export default class extends Vue {}
 </script>
 <style lang="scss" scoped>
 .ui-layout-container {
-  background: $color-white;
+  background: $color-bg-2;
 }
 </style>

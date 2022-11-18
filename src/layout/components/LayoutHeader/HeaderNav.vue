@@ -140,7 +140,7 @@ export default class extends Vue {
       background: #3a3e4c;
       border-radius: 2px;
       padding-left: 36px;
-      color: #999;
+      color: $color-grey-4;
       border: none;
     }
 
@@ -149,7 +149,7 @@ export default class extends Vue {
     }
 
     .svg-icon {
-      color: #999;
+      color: $color-grey-4;
     }
   }
 }

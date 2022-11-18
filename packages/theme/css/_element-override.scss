@@ -108,8 +108,8 @@
   font-size: $text-size-primary;
   border-radius: $border-radius;
 }
-.el-button.el-button--default.el-button--medium,
-.el-button.el-button--default.el-button--small {
+.el-button.el-button--default.el-button--medium:not(.is-disabled),
+.el-button.el-button--default.el-button--small:not(.is-disabled) {
   background-color: $color-bg-1;
 }
 
@@ -727,9 +727,8 @@
     .el-tree-node__label {
       color: $color-grey-4;
     }
-
     &:hover {
-      background: #383a41;
+      background: $color-bg-1;
     }
   }
 }

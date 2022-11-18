@@ -149,7 +149,7 @@ export default class extends Vue {
   display: inline-block;
   width: 6px;
   height: 6px;
-  background: #52c41a;
+  background: $color-status-success-1;
   margin-right: 5px;
   border-radius: 50%;
   vertical-align: middle;

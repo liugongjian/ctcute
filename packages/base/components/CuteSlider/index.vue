@@ -206,7 +206,7 @@ export default class extends Vue {
       .el-slider__button {
         border: 1px solid $color-master-1;
         border-radius: 20px;
-        background: linear-gradient(to bottom, $color-white, #ffe6d2);
+        background: linear-gradient(to bottom, $color-white, $color-master-5);
         line-height: 25px;
         color: $color-master-1;
         letter-spacing: 1px;

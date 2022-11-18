@@ -1,8 +1,8 @@
 <!--
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:23
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-11-08 10:20:21
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-11-18 14:06:30
  * @Description:
 -->
 <template>
@@ -258,7 +258,7 @@ export default class extends Vue {
 
 .sort-icon {
   cursor: pointer;
-  color: #777;
+  color: $color-grey-3;
 
   &:hover {
     color: $color-master-1;

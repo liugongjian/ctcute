@@ -885,6 +885,9 @@
     color: $color-grey-3;
   }
 }
+.el-loading-mask {
+  background-color: $color-bg-2;
+}
 
 .el-table-filter__content {
   min-width: 190px;
@@ -1402,8 +1405,7 @@
     right: 3px;
   }
 }
-.el-select-dropdown__item,
-.el-select-dropdown__item.hover {
+.el-select-dropdown__item {
   background-color: $color-bg-1 !important;
 }
 .el-input--medium .el-input__inner {
@@ -1445,23 +1447,19 @@
   font-size: $text-size-primary;
 }
 
-.el-select-dropdown__item:hover {
-  background-color: $color-master-7;
-  color: $color-master-1;
+.el-select-dropdown__item:not(.el-select-dropdown__item.selected):hover {
+  background-color: $color-master-7 !important;
+  color: $color-master-1 !important;
 }
 
-.el-select-dropdown__item.hover {
-  background-color: $color-master-7;
-}
 
-.el-select-dropdown__item.selected,
-.el-select-dropdown__item.selected.hover {
-  background: $color-master-1;
-  color: $color-white;
+.el-select-dropdown__item.selected {
+  background: $color-master-1 !important;
+  color: $color-white !important;
 }
 
 .el-select-dropdown.is-multiple .el-select-dropdown__item.selected.hover {
-  background-color: $color-master-7;
+  background-color: $color-master-1 !important;
 }
 .el-select-dropdown {
   background: $color-bg-1;
@@ -1616,7 +1614,11 @@
   font-size: 12px;
   background-color: $color-bg-1;
 }
-
+.el-range-editor--medium .el-range__icon,
+.el-range-editor--medium .el-range__close-icon {
+  display: flex;
+  align-items: center;
+}
 //日期下拉宽度
 .el-date-range-picker {
   width: 540px !important;

@@ -272,7 +272,7 @@
   height: 28px !important;
 
   .el-input__inner {
-    height: 28px !important;
+    height: 28px;
     line-height: 28px !important;
     background-color: $color-bg-1;
   }
@@ -1519,6 +1519,9 @@
 }
 
 .el-cascader {
+  .el-input.el-input--small{
+    height: auto !important;
+  }
   .el-cascader__caret.el-input__icon.el-icon-arrow-down {
     transform: rotate(360deg);
     color: $text-color-light-2;

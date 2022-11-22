@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-19 16:32:05
  * @LastEditors: 马妍
- * @LastEditTime: 2022-07-20 10:42:53
+ * @LastEditTime: 2022-11-22 09:26:38
  * @Description: 
 -->
 <template>
@@ -23,18 +23,20 @@
       <div slot="tip" class="el-upload__tip">支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
     </el-upload>
     <h3>文件上传</h3>
-    <el-upload
-      class="file-uploader"
-      :file-list="fileList"
-      action="https://jsonplaceholder.typicode.com/posts/"
-      multiple
-      :on-preview="handlePreview"
-    >
-      <div class="file-uploader_content">
-        <div class="sub-svg-text"><svg-icon name="upload" /><span>添加文件</span></div>
-        <div class="el-upload__tip">单个文件不超过15M</div>
-      </div>
-    </el-upload>
+    <div class="file">
+      <el-upload
+        class="file-uploader"
+        :file-list="fileList"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        multiple
+        :on-preview="handlePreview"
+      >
+        <div class="file-uploader_content">
+          <div class="sub-svg-text"><svg-icon name="upload" /><span>添加文件</span></div>
+          <div class="el-upload__tip">单个文件不超过15M</div>
+        </div>
+      </el-upload>
+    </div>
 
     <h3>图片上传</h3>
     <el-upload
@@ -137,3 +139,8 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.file {
+  margin: 24px 0;
+}
+</style>

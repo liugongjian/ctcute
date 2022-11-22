@@ -1452,7 +1452,6 @@
   color: $color-master-1 !important;
 }
 
-
 .el-select-dropdown__item.selected {
   background: $color-master-1 !important;
   color: $color-white !important;
@@ -1873,7 +1872,6 @@
 //文件上传
 .file-uploader {
   width: 320px;
-  margin: 24px 0;
   @include uploader-success();
 
   .file-uploader_content {

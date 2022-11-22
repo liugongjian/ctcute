@@ -11,7 +11,7 @@
         <el-button @click="multiplyAlgebra">求积</el-button>
         <el-button @click="increaseParentX">父组件X加1</el-button>
       </div>
-      <el-alert type="info">Z来自父组件的求和结果</el-alert>
+      <el-alert type="info" title="Z来自父组件的求和结果"></el-alert>
       <div class="equation">
         {{ algebra.x }} + {{ algebra.y }} + {{ algebra.z ? algebra.z : 'Z' }} =
         {{ sumResult ? sumResult : '?' }}

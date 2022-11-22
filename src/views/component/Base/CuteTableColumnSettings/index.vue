@@ -30,8 +30,14 @@
         <el-table-column prop="default" label="默认值" />
       </el-table>
 
+      <h3>说明</h3>
+      <h4>
+        《cute-table-column-settings》组件可以透传原有的 el-table 上的props, 使用方式和原有的el-table方式相同
+      </h4>
+      <h4>tableColumns 属性对象中的 props 参数可以透传原有的 el-table-column 上的 props</h4>
+
       <h2>CuteTableColumnSettings Events</h2>
-      <el-table :data="event" fit border>
+      <el-table fit border>
         <el-table-column prop="name" label="参数" />
         <el-table-column prop="desc" label="说明" />
         <el-table-column prop="callback" label="回调参数" />
@@ -54,22 +60,14 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 export default class extends Vue {
   private prop = [
     {
-      name: 'data',
-      desc: '数据',
+      name: 'tableData',
+      desc: '表格数据',
       type: 'Array',
       options: null,
-      default: '在URL没有办法使用的情况下，可以自己提供数据',
-    },
-    {
-      name: 'getTable',
-      desc: '数据请求方法',
-      type: 'Function',
-      options: null,
-      default: '',
     },
     {
       name: 'tableColumns',
-      desc: '全部字段',
+      desc: '列字段',
       type: 'Array',
       options: null,
       default: null,
@@ -110,55 +108,13 @@ export default class extends Vue {
           default: null,
         },
         {
-          name: 'width',
-          desc: '对应列的宽度',
-          type: 'string',
-          options: null,
-          default: null,
-        },
-        {
-          name: 'min-width',
-          desc: '对应列的最小宽度',
-          type: 'string',
-          options: null,
-          default: null,
-        },
-        {
-          name: 'sortable',
-          desc: '对应列是否可以排序',
-          type: 'boolean, string',
-          options: "true, false, 'custom'",
-          default: false,
-        },
-        {
-          name: 'show-overflow-tooltip',
-          desc: '当内容过长被隐藏时显示 tooltip',
-          type: 'boolean',
-          options: null,
-          default: false,
-        },
-        {
-          name: 'fixed',
-          desc: '列是否固定在左侧或者右侧，true 表示固定在左侧',
-          type: 'string, boolean',
-          options: 'true, left, right',
-          default: null,
-        },
-        {
-          name: 'align',
-          desc: '对齐方式',
-          type: 'string',
-          options: 'left/center/right',
-          default: 'left',
+          name: 'props',
+          desc: '用于透传 el-table-column 属性',
+          type: 'object',
+          options: '',
+          default: '',
         },
       ],
-    },
-    {
-      name: 'className',
-      desc: '命名空间',
-      type: 'string',
-      options: null,
-      default: null,
     },
   ]
 }

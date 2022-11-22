@@ -1,13 +1,8 @@
 <template>
-  <div :class="tableColumnSettingsClass">
+  <div>
     <!-- 列设置选择表单 -->
-    <el-popover
-      placement="bottom-end"
-      trigger="click"
-      class="table-column-settings__popover"
-      @show="handlePopoverShow"
-      @hide="handlePopoverHide"
-    >
+    <el-popover placement="bottom-end" trigger="click" class="table-column-settings__popover" @show="handlePopoverShow"
+      @hide="handlePopoverHide">
       <!-- 固定的，用来全选 -->
       <el-checkbox v-model="allSelected" label="全选" @change="handleSelectedChange"></el-checkbox>
       <!-- 分割线 -->
@@ -26,20 +21,9 @@
     </el-popover>
 
     <!-- 表格 -->
-    <el-table ref="tableRef" v-loading="tableHook.loading" :data="tableHook.tableData" fit border>
+    <el-table ref="tableRef" v-loading="tableHook.loading" :data="tableHook.tableData" fit border v-bind="$attrs">
       <template v-for="(item, index) in tableColumns" v-if="selectedColumns.some(v => v === item.label)">
-        <el-table-column
-          :key="index + item.prop"
-          :prop="item.prop"
-          :label="item.label"
-          :width="item.width"
-          :min-width="item.minWidth"
-          :sortable="item.sortable"
-          :show-overflow-tooltip="item.ellipsis"
-          :fixed="item.fixed"
-          :align="item.align"
-          v-bind="item.props"
-        >
+        <el-table-column :key="index + item.prop" :prop="item.prop" :label="item.label" v-bind="item.props">
           <template slot-scope="scope">
             <slot v-if="item.slot" :name="item.slot" :scope="scope" />
             <span v-else>{{ scope.row[item.prop] }}</span>
@@ -50,14 +34,9 @@
 
     <!-- 分页 -->
     <div style="height: 20px">
-      <el-pagination
-        class="table-column-settings__page"
-        :current-page="tableHook.pager.page"
-        :page-size="tableHook.pager.limit"
-        :total="tableHook.total"
-        @size-change="tableHook.handleSizeChange"
-        @current-change="tableHook.handleCurrentChange"
-      />
+      <el-pagination class="table-column-settings__page" :current-page="tableHook.pager.page"
+        :page-size="tableHook.pager.limit" :total="tableHook.total" @size-change="tableHook.handleSizeChange"
+        @current-change="tableHook.handleCurrentChange" />
     </div>
   </div>
 </template>
@@ -71,18 +50,28 @@ import TableHookClass from '@cutedesign/base/hook/TableHook'
   name: 'CuteTableColumnSettings',
 })
 export default class extends Vue {
-  @Prop({ type: Array, default: [] }) data?: []
-  @Prop({ type: Function, default: null }) getTable?: any
+  @Prop({ type: Array, default: [] }) tableData?: []
   @Prop({ type: Array, default: [] }) tableColumns?: []
-  @Prop({ type: String, default: '' }) className?: string
 
-  // 合并外部传入命名空间
-  private get tableColumnSettingsClass() {
-    if (this.className) {
-      return 'table-column-settings ' + this.className
-    } else {
-      return 'table-column-settings'
-    }
+  @Ref('tableRef')
+  private tableRef: ElTable
+  public tableHook = new TableHookClass()
+
+  private async innerGetTable() {
+    this.tableHook.setResult(this.tableData, 100)
+  }
+
+  // 监听 tableData 属性，因为内部的状态取决于 tableHook.tableData, 但是这个值不会自动跟着外部属性改变
+  @Watch('tableData')
+  onChangeProp() {
+    this.innerGetTable() // 判断是否已全选
+  }
+
+  mounted() {
+    this.tableHook = new TableHookClass({}, this.innerGetTable, this.tableRef, false)
+    this.tableHook.query()
+    this.initSelectedColumns()
+    this.isAllSelected() // 判断是否已全选
   }
 
   // popover 状态变量
@@ -109,6 +98,7 @@ export default class extends Vue {
   }
 
   private selectedColumns = []
+
   private initSelectedColumns() {
     const data = []
     this.tableColumns?.forEach((item: any) => {
@@ -139,26 +129,6 @@ export default class extends Vue {
       })
     }
     this.selectedColumns = data
-  }
-
-  @Ref('tableRef')
-  private tableRef: ElTable
-
-  public tableHook = new TableHookClass()
-
-  private async innerGetTable() {
-    // 此处是外部只传入获取接口方法的情况下
-    // const res = await this.getTable(param)
-    // this.tableHook.setResult(res.data.list, res.data.total)
-    // 此处是外部传入数据的情况下
-    this.tableHook.setResult(this.data, 100)
-  }
-
-  mounted() {
-    this.tableHook = new TableHookClass({}, this.innerGetTable, this.tableRef, false)
-    this.tableHook.query()
-    this.initSelectedColumns()
-    this.isAllSelected() // 判断是否已全选
   }
 }
 </script>

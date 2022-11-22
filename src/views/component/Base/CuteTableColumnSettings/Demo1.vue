@@ -7,7 +7,7 @@
       </div>
     </template>
 
-    <template #operation="{ scope }">
+    <template #operation="{}">
       <div>
         <el-button type="text" size="small" class="bt-operation">卸载</el-button>
         <el-button type="text" size="small" class="bt-operation">扩容</el-button>
@@ -20,8 +20,6 @@
 import { Vue, Component } from 'vue-property-decorator'
 import { getTable } from '@/api/cuteTableColumnSettings'
 import { HEALTH } from '@/dics/simpleTable'
-import { ElButton } from 'element-ui/types/button'
-import { CuteTableColumnSettings } from 'packages/base'
 
 @Component({
   name: 'Demo1',
@@ -47,8 +45,8 @@ export default class extends Vue {
       isSelected: true,
       props: {
         align: 'center',
-        width: '200px'
-      }
+        width: '200px',
+      },
     },
     {
       label: 'CPU利用率(%)',
@@ -84,7 +82,7 @@ export default class extends Vue {
   private async initTableData() {
     const res = await getTable({
       page: 1,
-      limit: 20
+      limit: 20,
     })
     this.tableData = res.data.list
   }

@@ -15,8 +15,14 @@
       </component-demo>
 
       <h2>CuteTableColumnSettings Attributes</h2>
-      <el-table :data="prop" fit border default-expand-all row-key="name"
-        :tree-props="{ children: 'children', hasChildren: 'hasChildren' }">
+      <el-table
+        :data="prop"
+        fit
+        border
+        default-expand-all
+        row-key="name"
+        :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
+      >
         <el-table-column prop="name" label="参数" />
         <el-table-column prop="desc" label="说明" />
         <el-table-column prop="type" label="类型" />
@@ -25,8 +31,10 @@
       </el-table>
 
       <h3>说明</h3>
-      <h4>《cute-table-column-settings》组件可以透传原有的 el-table 上的props, 使用方式和原有的el-table方式相同</h4>
-      <h4>tableColumns 属性对象中的 props 参数可以透传原有的 el-table-column 上的 props </h4>
+      <h4>
+        《cute-table-column-settings》组件可以透传原有的 el-table 上的props, 使用方式和原有的el-table方式相同
+      </h4>
+      <h4>tableColumns 属性对象中的 props 参数可以透传原有的 el-table-column 上的 props</h4>
 
       <h2>CuteTableColumnSettings Events</h2>
       <el-table fit border>
@@ -55,7 +63,7 @@ export default class extends Vue {
       name: 'tableData',
       desc: '表格数据',
       type: 'Array',
-      options: null
+      options: null,
     },
     {
       name: 'tableColumns',
@@ -107,7 +115,7 @@ export default class extends Vue {
           default: '',
         },
       ],
-    }
+    },
   ]
 }
 </script>

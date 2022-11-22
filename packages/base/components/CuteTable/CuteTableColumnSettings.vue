@@ -20,7 +20,7 @@
 
       <!-- 列设置图标 -->
       <div slot="reference" :class="['head-title', { 'table-column-settings__svg--active': popoverShow }]">
-        <svg-icon name="setting" width="14" height="14" style="margin-right: 6px" />
+        <svg-icon name="setting" width="14" height="14" class="table-column-settings__svg" />
         <span>列设置</span>
       </div>
     </el-popover>
@@ -194,6 +194,10 @@ export default class extends Vue {
       margin-bottom: 10px;
       display: block;
     }
+  }
+
+  &__svg {
+    margin-right: 6px;
   }
 
   &__svg--active {

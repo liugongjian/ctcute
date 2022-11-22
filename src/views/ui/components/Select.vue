@@ -526,7 +526,7 @@ export default class extends Vue {
 }
 
 .date {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $border-color-light-1;
 }
 
 .sub-down:last-child {

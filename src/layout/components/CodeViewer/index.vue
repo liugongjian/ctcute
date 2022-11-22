@@ -271,8 +271,8 @@ $width: 640px;
     overflow: hidden;
     width: $width;
     height: 100%;
-    background: #f4f5f5;
-    box-shadow: 0 12px 48px 16px rgba(0, 0, 0, 8%);
+    background: $color-grey-9;
+    box-shadow: 0 2px 8px 0 $shadow-table-card;
 
     .vue-codemirror {
       height: calc(100% - 56px);
@@ -294,7 +294,7 @@ $width: 640px;
   &__header {
     position: relative;
     overflow: hidden;
-    background: #fff;
+    background: $color-white;
 
     &__more {
       position: absolute;

@@ -1,5 +1,5 @@
 import Layout from '@/layout/index.vue'
-
+import OtherLayout from '@/layout/other.vue'
 const indexPageRoutes = [
   // 图表
   {
@@ -243,6 +243,15 @@ const restPageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'pro-table6',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable6.vue'),
+        name: 'ProTable6',
+        meta: {
+          title: 'ProTable6 复杂表格6',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 卡片
@@ -425,6 +434,47 @@ const restPageRoutes = [
         meta: {
           title: 'TypeScript Demo',
           breadcrumb: true,
+        },
+      },
+    ],
+  },
+  // 订购页
+  {
+    path: '/page/order',
+    redirect: '/page/order/order-list',
+    component: OtherLayout,
+    name: 'Order',
+    meta: {
+      title: 'Order 订购页',
+      alwaysShow: false,
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: 'order-list',
+        component: () => import('@/views/page/Order/OrderList.vue'),
+        name: 'OrderList',
+        meta: {
+          title: 'OrderList 订购标准页',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'product-details',
+        component: () => import('@/views/page/Order/ProductDetails.vue'),
+        name: 'ProductDetails',
+        meta: {
+          title: 'ProductDetails 产品详情',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'product-list',
+        component: () => import('@/views/page/Order/ProductList.vue'),
+        name: 'ProductList',
+        meta: {
+          title: 'ProductList 产品列表',
+          breadcrumb: false,
         },
       },
     ],

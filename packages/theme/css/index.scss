@@ -13,6 +13,7 @@
 @import './page/user.scss';
 @import './page/menu.scss';
 @import './page/login.scss';
+@import './page/order.scss';
 
 body {
   -moz-osx-font-smoothing: grayscale;
@@ -57,6 +58,14 @@ div:focus {
 hr {
   border: none;
   border-top: 1px solid $border-color-light-1;
+}
+
+p {
+  color: $color-grey-1;
+}
+
+h2 {
+  color: $color-grey-1;
 }
 
 ::-webkit-resizer {

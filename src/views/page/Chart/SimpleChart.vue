@@ -1,8 +1,8 @@
 <!--
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-07-18 14:03:58
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-11-17 09:52:52
  * @Description: 基础图表
 -->
 <template>
@@ -579,6 +579,10 @@ export default class extends Vue {
 .chart-card-tabs {
 }
 
+::v-deep.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background: $color-bg-2;
+}
+
 .simple-table-box {
   ::v-deep .el-col {
     margin-top: 22px;
@@ -587,12 +591,13 @@ export default class extends Vue {
 
 .chart-cont .el-card {
   background: none;
+  border: none;
 
   & ::v-deep > .el-card__body {
     padding: 0;
 
     .el-card {
-      background: $color-white;
+      background: $color-bg-2;
 
       .el-card__body {
         padding: 20px;
@@ -739,7 +744,6 @@ export default class extends Vue {
     }
 
     ::v-deep td.el-table__cell {
-      border-bottom: 1px solid $color-grey-12;
       color: $color-grey-1;
     }
 
@@ -755,7 +759,6 @@ export default class extends Vue {
     ::-webkit-scrollbar-thumb:vertical {
       height: 100px;
       background-color: $color-grey-6;
-      border-radius: 6px;
       border-radius: 6px;
     }
   }

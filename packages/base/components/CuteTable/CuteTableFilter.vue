@@ -97,7 +97,7 @@ export default class extends Vue {
       position: absolute;
       top: 32px;
       left: 0;
-      box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 50%);
+      box-shadow: 0 2px 8px 0 $shadow-table-card;
       z-index: 999;
       background: $color-white;
 
@@ -124,7 +124,7 @@ export default class extends Vue {
 
           span {
             font-size: 12px;
-            color: rgba(0, 0, 0, 65%);
+            color: $color-grey-2;
           }
         }
       }

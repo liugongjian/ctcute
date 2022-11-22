@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-04 17:01:49
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-10-09 11:51:19
+ * @LastEditTime: 2022-11-19 07:41:39
  * @Description:
  */
 import Layout from '@/layout/doc.vue'
@@ -105,8 +105,8 @@ const docRoutes = [
   },
   // 最佳实践
   {
-    path: '/doc/bestpractice',
-    redirect: '/doc/bestpractice/richText',
+    path: '/docs/bestpractice',
+    redirect: '/docs/bestpractice/richText',
     component: Layout,
     name: 'BestPractice',
     meta: {

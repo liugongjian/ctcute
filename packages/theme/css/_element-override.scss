@@ -1744,7 +1744,7 @@
 /* Upload
 -------------------------- */
 @mixin uploader-success {
-  .el-upload-list__item.is-success .el-upload-list__item-name {
+  .el-upload-list__item .el-upload-list__item-name {
     color: $color-grey-1;
     font-size: $text-size-small;
     display: flex;

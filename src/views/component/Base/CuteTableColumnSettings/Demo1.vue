@@ -1,18 +1,13 @@
 <template>
-  <cute-table-column-settings
-    :data="tableData"
-    :get-table="getTable"
-    :table-columns="tableColumns"
-    :class-name="myName"
-  >
-    <template #healthy="{ scope }">
+  <cute-table-column-settings :table-data="tableData" :table-columns="tableColumns">
+    <template #health="{ scope }">
       <div>
-        <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
-        <span>{{ HEALTH[scope.row.healthy] }}</span>
+        <span class="sub-spot" :class="`sub-spot--${scope.row.health}`"></span>
+        <span>{{ HEALTH[scope.row.health] }}</span>
       </div>
     </template>
 
-    <template #operation="{ scope }">
+    <template #operation="{}">
       <div>
         <el-button type="text" size="small" class="bt-operation">卸载</el-button>
         <el-button type="text" size="small" class="bt-operation">扩容</el-button>
@@ -22,8 +17,6 @@
 </template>
 
 <script lang="ts">
-// 由于未知问题：直接引入不显示组件，但是放入到频率高的组件列表中就可使用
-// import { CuteTableColumnSettings } from '@cutedesign/base'
 import { Vue, Component } from 'vue-property-decorator'
 import { getTable } from '@/api/cuteTableColumnSettings'
 import { HEALTH } from '@/dics/simpleTable'
@@ -50,6 +43,10 @@ export default class extends Vue {
       label: 'IP地址',
       prop: 'ip',
       isSelected: true,
+      props: {
+        align: 'center',
+        width: '200px',
+      },
     },
     {
       label: 'CPU利用率(%)',
@@ -66,8 +63,8 @@ export default class extends Vue {
     },
     {
       label: '健康状态',
-      prop: 'healthy',
-      slot: 'healthy',
+      prop: 'health',
+      slot: 'health',
       isSelected: true,
     },
     {
@@ -79,13 +76,20 @@ export default class extends Vue {
     },
   ]
 
-  // 上传自己的命名空间，定制化设置
-  private myName = 'myClassName'
   private HEALTH = HEALTH
-  private getTable = getTable
-
-  // 在URL 地址不通的情况下，先传入一个 data 数据
   private tableData = []
+
+  private async initTableData() {
+    const res = await getTable({
+      page: 1,
+      limit: 20,
+    })
+    this.tableData = res.data.list
+  }
+
+  mounted() {
+    this.initTableData()
+  }
 }
 </script>
 

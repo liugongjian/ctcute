@@ -462,8 +462,9 @@ export default class extends Vue {
 //基础树形
 .line {
   width: 500px;
-  border: 1px solid #ddd;
+  border: 1px solid $border-color-primary;
   padding: 10px 20px 20px;
+  background: $color-bg-1;
 }
 //带搜索树形
 .tree-search {

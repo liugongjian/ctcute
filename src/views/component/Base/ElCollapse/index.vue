@@ -2,7 +2,7 @@
  * @Author: 赵昕
  * @Date: 2022-09-01 10:01:49
  * @LastEditors: XinZhao
- * @LastEditTime: 2022-10-31 10:18:26
+ * @LastEditTime: 2022-11-14 13:59:21
  * @Description: 此为直接覆写element-ui的组件，el-collapse原有的属性和事件未变，下面只列出新增/有改动的部分
 -->
 <template>
@@ -10,7 +10,7 @@
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
       <h1>ElCollapse/ 分离式折叠面板</h1>
-      <component-demo path="@/views/component/Base/Collapse/Demo1.vue">
+      <component-demo path="@/views/component/Base/ElCollapse/Demo1.vue">
         <demo1 />
       </component-demo>
       <h2>ElCollapse 说明</h2>

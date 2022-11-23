@@ -178,18 +178,22 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .sliders {
   display: flex;
+
   ::v-deep .disabled {
-    background: #f0f0f0 !important;
+    background: $color-grey-6 !important;
   }
+
   ::v-deep .el-slider__stop {
-    border: 1px solid $color-white;
+    border: 1px solid $color-bg-2;
     width: 1px;
     height: 8px;
     border-radius: 0;
   }
+
   ::v-deep .el-slider__stop:last-child {
     display: none;
   }
+
   ::v-deep .el-slider {
     margin-right: 20px;
 
@@ -211,7 +215,7 @@ export default class extends Vue {
     //禁用
     .el-slider__runway.disabled {
       .el-slider__button {
-        border: 1px solid $color-grey-exception-1;
+        border: 1px solid $disabled-border;
         border-radius: 20px;
         background: $color-grey-10;
         line-height: 25px;
@@ -241,19 +245,23 @@ export default class extends Vue {
     display: flex;
     align-items: center;
   }
+
   .slider-unit {
     margin-left: 10px;
     font-size: 12px;
     color: $color-grey-1;
     font-weight: 400;
   }
+
   .sliders-range {
     display: flex;
     align-items: center;
+
     .range-input {
       display: flex;
       align-items: center;
       color: $color-grey-1;
+
       .range-line {
         margin: 0 10px;
       }

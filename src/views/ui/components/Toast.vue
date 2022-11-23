@@ -1,3 +1,10 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-10-19 10:59:22
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-11-15 10:29:00
+ * @Description: 
+-->
 <template>
   <div class="sub-toast">
     <p>可提供成功、警告和错误等反馈信息:字段区域最长显示文案内容20个字段以内</p>
@@ -11,6 +18,7 @@
               message: '成功提示文案',
               type: 'success',
               customClass: 'toast-success',
+              duration: 0,
             })
           "
         >

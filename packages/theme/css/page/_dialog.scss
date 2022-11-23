@@ -6,10 +6,12 @@
   .el-dialog {
     width: 480px;
     margin: 0 auto !important;
+    background-color: $color-bg-2;
 
     /* 弹窗Header */
     .el-dialog__header {
       padding: 32px 0 0 32px;
+      background-color: $color-bg-2;
 
       .el-dialog__title {
         color: $color-grey-1;
@@ -64,11 +66,13 @@
   .el-dialog {
     width: 480px;
     margin: 0 auto !important;
+    background-color: $color-bg-2;
 
     /* 弹窗Header */
     .el-dialog__header {
       padding: 17px 24px;
-      border-bottom: 1px solid #f2f2f2;
+      border-bottom: 1px solid $border-color-light-1;
+      background-color: $color-bg-1;
 
       .el-dialog__title {
         color: $color-grey-1;
@@ -150,7 +154,7 @@
   }
 
   &--scroll {
-    background-color: $color-white;
+    background-color: $color-bg-2;
   }
 
   &--content {

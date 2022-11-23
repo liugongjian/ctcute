@@ -1,7 +1,7 @@
 .login {
   width: 100%;
   min-height: 100vh;
-  background: #f5f7f9;
+  background: $color-bg-2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,15 +31,6 @@
       display: flex;
       justify-content: center;
 
-      .blur {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 10px;
-        height: 20px;
-        background-color: #f5f7f9;
-      }
-
       .content-desc_from {
         margin-top: 128px;
         width: 350px;
@@ -60,11 +51,11 @@
         }
 
         p {
-          font-size: 14px;
-          color: $color-grey-2;
+          font-size: 18px;
+          color: $color-status-danger-1;
           line-height: 20px;
           font-weight: 400;
-          margin-bottom: 50px;
+          margin-bottom: 18px;
         }
 
         .content-desc-code {
@@ -85,8 +76,19 @@
         }
 
         .content-desc_from-pass {
-
           .el-form-item__content {
+            .el-checkbox__inner {
+              border: 1px solid $color-grey-6;
+              background: none;
+            }
+
+            .el-checkbox__input.is-checked {
+              .el-checkbox__inner {
+                border: 1px solid $color-master-1;
+                background-color: $color-master-1;
+              }
+            }
+
             display: flex;
 
             .remember {

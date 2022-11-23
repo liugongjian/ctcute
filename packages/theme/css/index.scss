@@ -60,6 +60,14 @@ hr {
   border-top: 1px solid $border-color-light-1;
 }
 
+p {
+  color: $color-grey-1;
+}
+
+h2 {
+  color: $color-grey-1;
+}
+
 ::-webkit-resizer {
   background-image: url('../images/pull.png');
   background-size: 9px 9px;

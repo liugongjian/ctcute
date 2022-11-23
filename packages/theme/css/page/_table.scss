@@ -246,6 +246,7 @@
     .tree-title {
       margin-top: 0;
       padding-left: 0.5em;
+      color: $color-grey-1;
     }
 
     .node-content {
@@ -415,7 +416,6 @@
     }
   }
 
-
   .used {
     color: $color-status-success-1;
   }
@@ -426,10 +426,7 @@
 
   .el-table {
     margin: 0 !important;
-
   }
-
-
 }
 
 /* 复杂表格1 */

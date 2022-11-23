@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-08-16 14:14:02
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-11-17 09:58:54
  * @Description: 复杂表单2
 -->
 <template>
@@ -199,7 +199,7 @@
                 </el-table-column>
               </el-table>
               <el-button
-                style="width: 100%; height: 42px; box-shadow: 0 1px 0 0 #ddd; margin-bottom: 24px"
+                style="width: 100%; height: 42px; box-shadow: #555861 0 1px 0 0; margin-bottom: 24px"
                 type="text"
                 @click="addCondit"
                 >+添加条件</el-button

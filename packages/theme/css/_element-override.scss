@@ -1519,7 +1519,7 @@
 }
 
 .el-cascader {
-  .el-input.el-input--small{
+  .el-input.el-input--small {
     height: auto !important;
   }
   .el-cascader__caret.el-input__icon.el-icon-arrow-down {
@@ -2076,7 +2076,7 @@
 
 .el-tag--newtag {
   &:hover {
-    background: $color-tag-master-3;
+    background: $color-master-6;
     cursor: pointer;
   }
 }

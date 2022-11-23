@@ -1,8 +1,8 @@
 <!--
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2022-11-17 09:52:52
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-11-23 12:34:56
  * @Description: 基础图表
 -->
 <template>
@@ -194,7 +194,7 @@ export default class extends Vue {
         this.variables.chartColor2,
         this.variables.chartColor3,
         this.variables.chartColor4,
-        this.variables.chartColorOther2,
+        this.variables.chartColor5,
       ],
       title: {
         text: '流程状态数量',
@@ -287,7 +287,7 @@ export default class extends Vue {
         bottom: '3%',
         containLabel: true,
       },
-      color: [this.variables.chartColor12, this.variables.chartColorOther3],
+      color: [this.variables.chartColor12, this.variables.chartColor4],
       tooltip: {
         trigger: 'axis',
         axisPointer: {
@@ -342,15 +342,17 @@ export default class extends Vue {
         {
           name: '昨日',
           type: 'line',
-          areaStyle: {},
+          areaStyle: {
+            color: this.variables.chartColorL12,
+          },
           emphasis: {
             focus: 'series',
           },
           symbol: 'none',
           lineStyle: {
-            color: this.variables.chartColor4,
+            color: this.variables.chartColor12,
             normal: {
-              color: this.variables.chartColor4,
+              color: this.variables.chartColor12,
             },
           },
           data: [0, 0, 0, 0, 0, 0, 7, 7, 7, 12, 12, 12, 12],
@@ -358,13 +360,15 @@ export default class extends Vue {
         {
           name: '今日',
           type: 'line',
-          areaStyle: {},
+          areaStyle: {
+            color: this.variables.chartColorL4,
+          },
           emphasis: {
             focus: 'series',
           },
           symbol: 'none',
           lineStyle: {
-            color: this.variables.colorGrey0,
+            color: this.variables.chartColor4,
             normal: {
               color: this.variables.chartColor4,
             },
@@ -665,6 +669,7 @@ export default class extends Vue {
     .solt {
       margin: 0 auto;
       background: $color-other-2;
+      // background: $chartColor8;
       display: block;
       color: $color-grey-2;
       font-size: 12px;
@@ -676,7 +681,7 @@ export default class extends Vue {
     }
 
     .solt1 {
-      background: $color-other-3;
+      background: $chartColor8;
       color: $color-white;
     }
 
@@ -690,7 +695,7 @@ export default class extends Vue {
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: $color-table-status-success;
+        background: $chartColor2;
         left: 2px;
         top: 50%;
         margin-top: -4px;
@@ -698,25 +703,25 @@ export default class extends Vue {
     }
 
     .status1:after {
-      background: $color-table-status-info;
+      background: $color-grey-4;
     }
 
     .status2:after {
-      background: $color-table-status-danger;
+      background: $chartColor11;
     }
 
     .status3:after {
-      background: $color-table-status-warning;
+      background: $chartColor4;
     }
 
     .solt2 {
-      background: $color-other-3;
+      background: $chartColor4;
       color: $color-white;
       opacity: 0.8;
     }
 
     .solt3 {
-      background: $color-other-3;
+      background: $chartColor3;
       color: $color-white;
       opacity: 0.6;
     }

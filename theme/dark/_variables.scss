@@ -31,16 +31,9 @@ $color-status-success: $color-status-success-1;
 $color-status-warning-1: #faad15;
 $color-status-warning: #faad15;
 
-/* 表格状态色 */
-$color-table-status-success: #6bdd6b;
-$color-table-status-warning: #faad15;
-$color-table-status-info: #b4b4b4;
-$color-table-status-danger: #f96965;
-
 /* 标签色 */
 $color-tag-master-1: #583816;
 $color-tag-master-2: #2b1e12;
-$color-tag-master-3: $color-master-6;
 $color-tag-danger-1: #58181c;
 $color-tag-danger-2: #2a1215;
 $color-tag-info-1: #15395b;
@@ -63,10 +56,6 @@ $color-grey-8: #333640;
 $color-grey-9: #3c4049;
 $color-grey-10: #2e3139;
 $color-grey-11: #2e303a;
-$color-grey-12: #eee;
-$color-grey-13: #3e3e3e;
-$color-grey-14: #606266;
-$color-grey-exception-1: #e2e5ed;
 
 /* 白色 */
 $color-white: #fff;
@@ -111,9 +100,19 @@ $chartColorH10: #6bc9ab;
 $chartColorH11: #e35854;
 $chartColorH12: #f2c179;
 
-$chartColorOther1: #fdf5ed;
-$chartColorOther2: #b4b4b4;
-$chartColorOther3: rgba(241, 158, 75, 0.1);
+// 图表light颜色
+$chartColorL1: #1d263f;
+$chartColorL2: #202a30;
+$chartColorL3: #28292e;
+$chartColorL4: #27242e;
+$chartColorL5: #1f223d;
+$chartColorL6: #1b283f;
+$chartColorL7: #211f3d;
+$chartColorL8: #27202b;
+$chartColorL9: #1f253f;
+$chartColorL10: #1b2938;
+$chartColorL11: #271f30;
+$chartColorL12: #282834;
 
 /* Background
 -------------------------- */
@@ -230,3 +229,199 @@ $sidebar-sub-hover: $color-master-7;
 /* Animation
 -------------------------- */
 $transition-time: 200ms;
+
+:export {
+  colorMaster: $color-master-1;
+  colorSuccess: $color-status-success;
+  colorWarning: $color-status-warning;
+  colorDanger: $color-status-danger;
+  colorDanger2: $color-status-danger-2;
+  colorDanger3: $color-status-danger-3;
+  colorInfo: $color-status-info;
+  colorDisabled: $disabled-fill;
+
+  colorMaster1: $color-master-1;
+  colorMaster2: $color-master-2;
+  colorMaster3: $color-master-3;
+  colorMaster4: $color-master-4;
+  colorMaster5: $color-master-5;
+  colorMaster6: $color-master-6;
+  colorMaster7: $color-master-7;
+
+  colorSp1: $color-sp-1;
+  colorSp2: $color-sp-2;
+  colorSp3: $color-sp-3;
+
+  colorStatusMaster1: $color-status-master-1;
+  colorStatusMaster: $color-status-master-1;
+  colorStatusDanger1: $color-status-danger-1;
+  colorStatusDanger2: $color-status-danger-2;
+  colorStatusDanger3: $color-status-danger-3;
+  colorStatusDanger: $color-status-danger-1;
+  colorStatusInfo1: $color-status-info-1;
+  colorStatusInfo: $color-status-info-1;
+  colorStatusSuccess1: $color-status-success-1;
+  colorStatusSuccess: $color-status-success-1;
+  colorStatusWarning1: $color-status-warning-1;
+  colorStatusWarning: $color-status-warning-1;
+
+  colorTagMaster1: $color-tag-master-1;
+  colorTagMaster2: $color-tag-master-2;
+  colorTagDanger1: $color-tag-danger-1;
+  colorTagDanger2: $color-tag-danger-2;
+  colorTagInfo1: $color-tag-info-1;
+  colorTagInfo2: $color-tag-info-2;
+  colorTagSuccess1: $color-tag-success-1;
+  colorTagSuccess2: $color-tag-success-2;
+  colorTagWarning1: $color-tag-warning-1;
+  colorTagWarning2: $color-tag-warning-2;
+
+  colorGrey0: $color-grey-0;
+  colorGrey1: $color-grey-1;
+  colorGrey2: $color-grey-2;
+  colorGrey3: $color-grey-3;
+  colorGrey4: $color-grey-4;
+  colorGrey5: $color-grey-5;
+  colorGrey6: $color-grey-6;
+  colorGrey7: $color-grey-7;
+  colorGrey8: $color-grey-8;
+  colorGrey9: $color-grey-9;
+  colorGrey10: $color-grey-10;
+  colorGrey11: $color-grey-11;
+
+  colorWhite: $color-white;
+
+  colorOther1: $color-other-1;
+  colorOther2: $color-other-2;
+  colorOther3: $color-other-3;
+
+  colorBg1: $color-bg-1;
+  colorBg2: $color-bg-2;
+  colorBg3: $color-bg-3;
+  colorFormComponentBg: $color-bg-1;
+  colorContentBg: $color-bg-2;
+  colorBodyBg: $color-bg-3;
+
+  // 图表颜色
+  chartColor1: $chartColor1;
+  chartColor2: $chartColor2;
+  chartColor3: $chartColor3;
+  chartColor4: $chartColor4;
+  chartColor5: $chartColor5;
+  chartColor6: $chartColor6;
+  chartColor7: $chartColor7;
+  chartColor8: $chartColor8;
+  chartColor9: $chartColor9;
+  chartColor10: $chartColor10;
+  chartColor11: $chartColor11;
+  chartColor12: $chartColor12;
+
+  chartColorH1: $chartColorH1;
+  chartColorH2: $chartColorH2;
+  chartColorH3: $chartColorH3;
+  chartColorH4: $chartColorH4;
+  chartColorH5: $chartColorH5;
+  chartColorH6: $chartColorH6;
+  chartColorH7: $chartColorH7;
+  chartColorH8: $chartColorH8;
+  chartColorH9: $chartColorH9;
+  chartColorH10: $chartColorH10;
+  chartColorH11: $chartColorH11;
+  chartColorH12: $chartColorH12;
+
+  chartColorL1: $chartColorL1;
+  chartColorL2: $chartColorL2;
+  chartColorL3: $chartColorL3;
+  chartColorL4: $chartColorL4;
+  chartColorL5: $chartColorL5;
+  chartColorL6: $chartColorL6;
+  chartColorL7: $chartColorL7;
+  chartColorL8: $chartColorL8;
+  chartColorL9: $chartColorL9;
+  chartColorL10: $chartColorL10;
+  chartColorL11: $chartColorL11;
+  chartColorL12: $chartColorL12;
+
+  /* Background
+  -------------------------- */
+  bodyFill: $color-grey-7;
+  /* Disable
+  -------------------------- */
+  disabledFill: $color-grey-10;
+  disabledColor: $color-grey-4;
+  disabledBorder: $color-grey-6;
+  disabledIconColor: $color-grey-5;
+  disabledDangerFill: $color-white;
+  /* stylelint-disable-next-line function-no-unknown */
+  disabledDangerColor: mix($color-white, $color-status-danger-1, 50%);
+  disabledDangerBorder: $disabled-danger-color;
+
+  /* LoadingButton
+  -------------------------- */
+  loadingPrimaryColor: mix($color-white, $color-master-1, 50%);
+  loadingPrimaryBorder: $loading-primary-color;
+  loadingDefaultColor: $color-grey-10;
+  loadingDefaultBorder: $color-grey-6;
+
+  /* Typography
+  -------------------------- */
+  textSizePrimary: $text-size-small;
+
+  textColorPrimary: $color-grey-1;
+  /* 正文颜色 */
+  textColorLight1: $color-grey-2;
+  /* 提示文字 */
+  textColorLight2: $color-grey-4;
+  /* 次要文本、表单占位文本 */
+
+  /* Border
+  -------------------------- */
+  borderColorPrimary: $color-grey-6;
+  borderColorLight1: $color-grey-7;
+  borderColorDark1: $color-grey-4;
+
+  /* Padding & Margin
+  -------------------------- */
+  marginPrimary: $margin-small;
+
+
+  /* Button
+  -------------------------- */
+  buttonIconColor: $color-grey-3;
+
+  /* Input
+  -------------------------- */
+  inputFill: $color-white;
+
+  /* Table
+  -------------------------- */
+  tableHeaderFill: $color-grey-8;
+  tableCellFill: $color-grey-8;
+  tableSortCaretFill: $color-grey-4;
+
+  /* Table
+  -------------------------- */
+  paginationFill: $color-white;
+
+  /* Tooltip
+  -------------------------- */
+  tooltipFill: $color-other-1;
+
+  /* Upload
+  -------------------------- */
+  uploadFill: $color-grey-11;
+
+  /* Collapse
+  -------------------------- */
+  collapseHeaderFill: $color-grey-11;
+
+  /* Icon
+  -------------------------- */
+  iconColor: $color-grey-3;
+
+  /* Sidebar */
+  sidebarFill: $color-white;
+  sidebarSubFill: $color-white;
+  sidebarSubHover: $color-master-7;
+
+}

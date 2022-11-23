@@ -230,3 +230,56 @@ $sidebar-sub-hover: $color-master-7;
 /* Animation
 -------------------------- */
 $transition-time: 200ms;
+
+:export {
+  colorMaster: $color-master-1;
+  colorOther3: $color-other-3;
+  colorGrey0: $color-grey-0;
+  colorGrey1: $color-grey-1;
+  colorGrey2: $color-grey-2;
+  colorGrey3: $color-grey-3;
+  colorGrey4: $color-grey-4;
+  colorGrey6: $color-grey-6;
+  colorGrey11: $color-grey-11;
+
+  // 图表颜色
+  chartColor1: $chartColor1;
+  chartColor2: $chartColor2;
+  chartColor3: $chartColor3;
+  chartColor4: $chartColor4;
+  chartColor5: $chartColor5;
+  chartColor6: $chartColor6;
+  chartColor7: $chartColor7;
+  chartColor8: $chartColor8;
+  chartColor9: $chartColor9;
+  chartColor10: $chartColor10;
+  chartColor11: $chartColor11;
+  chartColor12: $chartColor12;
+
+  chartColorH1: $chartColorH1;
+  chartColorH2: $chartColorH2;
+  chartColorH3: $chartColorH3;
+  chartColorH4: $chartColorH4;
+  chartColorH5: $chartColorH5;
+  chartColorH6: $chartColorH6;
+  chartColorH7: $chartColorH7;
+  chartColorH8: $chartColorH8;
+  chartColorH9: $chartColorH9;
+  chartColorH10: $chartColorH10;
+  chartColorH11: $chartColorH11;
+  chartColorH12: $chartColorH12;
+
+  // 图表light颜色
+  chartColorL1: $chartColorL1;
+  chartColorL2: $chartColorL2;
+  chartColorL3: $chartColorL3;
+  chartColorL4: $chartColorL4;
+  chartColorL5: $chartColorL5;
+  chartColorL6: $chartColorL6;
+  chartColorL7: $chartColorL7;
+  chartColorL8: $chartColorL8;
+  chartColorL9: $chartColorL9;
+  chartColorL10: $chartColorL10;
+  chartColorL11: $chartColorL11;
+  chartColorL12: $chartColorL12;
+}

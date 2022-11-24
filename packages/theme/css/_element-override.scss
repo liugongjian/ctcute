@@ -1639,6 +1639,9 @@
     width: 240px;
   }
 }
+.el-picker-panel__footer {
+  background-color: $color-bg-1;
+}
 //日期下拉框暗黑背景色
 .el-picker-panel.el-date-picker.el-popper {
   background-color: $color-bg-1;

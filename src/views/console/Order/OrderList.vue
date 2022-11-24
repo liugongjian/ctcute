@@ -12,7 +12,7 @@
       <p class="order-compute">云硬盘</p>
     </div>
     <div class="order-content">
-      <el-card style="height: 100%; overflow: auto">
+      <el-card>
         <el-form ref="orderForm" :model="form" :rules="rules" label-width="139px" class="order-form">
           <el-form-item label="地域" prop="nodeCode">
             <cute-area
@@ -239,6 +239,10 @@ export default class extends Vue {
     16: '4年',
     17: '5年',
   }
+
+  /**
+   * 校验slider
+   */
   private handleBlur(v) {
     this.ruleFormRef.$emit('el.form.blur', v)
   }
@@ -320,34 +324,56 @@ export default class extends Vue {
       this.$message.error(e)
     }
   }
+
+  /**
+   * 选中配置
+   */
   private handleCheckChange(val) {
-    console.log(val, 'vvvv')
     this.form.AdConfiguration = val
   }
+
+  /**
+   * 切换类型
+   */
   private changeFun(key) {
     this.form.diskType = key
   }
+
+  /**
+   * 切换付费方式
+   */
   private changeFuns(key) {
     this.form.payment = key
   }
 
+  /**
+   * 选择地域
+   */
   private selectCityClick(data) {
-    console.log(data, '选中数据')
     this.form.nodeCode = data
-    console.log(this.form, 'ffff')
   }
 
+  /**
+   * 跳转页面
+   */
   private openPreview() {
     console.log('跳转')
   }
+
+  /**
+   * 重置表单
+   */
   private handleCancel() {
     this.ruleFormRef.resetFields()
   }
+
+  /**
+   * 确认表单
+   */
   private handleSure() {
     this.ruleFormRef.validate(valid => {
       if (valid) {
         this.$message.success('前往下一页')
-        console.log(this.form, 'ffff')
       } else {
         return false
       }

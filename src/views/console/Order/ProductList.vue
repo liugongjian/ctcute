@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-21 13:45:25
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-04 09:01:27
+ * @LastEditTime: 2022-11-24 09:08:26
  * @Description: 云硬盘列表
 -->
 <template>
@@ -47,7 +47,7 @@
           border
           height="614px"
         >
-          <el-table-column prop="name" label="主机别名" width="150px">
+          <el-table-column prop="name" label="主机别名">
             <template slot-scope="scope">
               <el-button type="text" size="small" class="bt-operation">{{ scope.row.name }}</el-button>
               <!-- <div>
@@ -55,10 +55,10 @@
               </div> -->
             </template>
           </el-table-column>
-          <el-table-column prop="status" label="实例状态" width="150px"> </el-table-column>
-          <el-table-column prop="ip" label="IP地址" width="150px"> </el-table-column>
+          <el-table-column prop="status" label="实例状态"> </el-table-column>
+          <el-table-column prop="ip" label="IP地址"> </el-table-column>
           <el-table-column prop="time" label="时间" sortable width="200px"> </el-table-column>
-          <el-table-column prop="label" label="标签" width="150px">
+          <el-table-column prop="label" label="标签">
             <template slot-scope="scope">
               <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
               <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
@@ -71,7 +71,7 @@
               </el-tooltip>
             </template>
           </el-table-column>
-          <el-table-column prop="healthy" label="健康状态" width="150px">
+          <el-table-column prop="healthy" label="健康状态">
             <template slot-scope="scope">
               <div>
                 <span class="health-dot" :class="`health-dot--${scope.row.healthy}`"></span>
@@ -126,7 +126,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import variables from '@cutedesign/theme/css/_variables.scss'
 
 import { getTableComponent } from '@/api/tableComponent'
-import { HEALTH } from '@/dics/simpleTable'
+import { HEALTH } from '@/dics/productList'
 
 @Component({
   name: 'ProductList',

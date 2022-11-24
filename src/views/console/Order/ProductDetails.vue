@@ -1,3 +1,10 @@
+<!--
+ * @Author: 秦瑞斌
+ * @Date: 2022-11-14 16:17:28
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-11-14 16:18:55
+ * @Description:
+-->
 <template>
   <div class="real-order">
     <div class="order-header">
@@ -95,7 +102,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import variables from '@cutedesign/theme/css/_variables.scss'
 import { CuteSpecialRadio } from '@cutedesign/base'
 import { CuteTitledBlock } from '@cutedesign/base'
-import { STATUS, HEALTH } from '@/dics/simpleTable'
+import { STATUS, HEALTH } from '@/dics/productDetails'
 @Component({
   name: 'ProductDetails',
   components: { CuteSpecialRadio, CuteTitledBlock },

@@ -1642,6 +1642,9 @@
     width: 240px;
   }
 }
+.el-picker-panel__footer {
+  background-color: $color-bg-1;
+}
 //日期下拉框暗黑背景色
 .el-picker-panel.el-date-picker.el-popper {
   background-color: $color-bg-1;
@@ -2599,4 +2602,17 @@
 }
 .el-card.is-always-shadow {
   box-shadow: 0 0 8px 0 $color-bg-3;
+}
+.el-message-box{
+  background-color: $color-bg-2;
+  border:none;
+  border-radius: 2px;
+  .el-message-box__headerbtn .el-message-box__close{
+    color: $color-grey-3;
+  }
+  .el-message-box__btns{
+     .el-button--primary{
+        background: $color-master-1 !important;
+     }
+  }
 }

@@ -163,6 +163,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'svg-topology',
+        name: 'SvgTopology',
+        component: () => import('@/views/component/Biz/SvgTopology/index.vue'),
+        meta: {
+          title: 'SvgTopology',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

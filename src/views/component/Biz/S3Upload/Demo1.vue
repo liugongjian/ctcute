@@ -6,7 +6,7 @@
       <el-button size="small" @click="clearFiles">清除所有文件</el-button>
     </div>
     <s3-upload
-      ref="upload"
+      ref="uploadRef"
       class="drag-uploader"
       drag
       :s3-client-config="s3ClientConfig"
@@ -32,7 +32,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Ref } from 'vue-property-decorator'
 import S3Upload from '@cutedesign/s3-upload'
 import '@cutedesign/s3-upload/dist/s3-upload.css'
 
@@ -42,6 +42,9 @@ Vue.use(S3Upload)
   name: 'Demo1',
 })
 export default class extends Vue {
+  @Ref('uploadRef')
+  private uploadRef: S3Upload
+
   // 文件列表
   private fileList = []
 
@@ -64,15 +67,15 @@ export default class extends Vue {
   }
 
   private submitUpload() {
-    this.$refs.upload.submit()
+    this.uploadRef.submit()
   }
 
   private abortUpload() {
-    this.$refs.upload.abort()
+    this.uploadRef.abort()
   }
 
   private clearFiles() {
-    this.$refs.upload.clearFiles()
+    this.uploadRef.clearFiles()
   }
 
   private onSuccess(file, fileList) {

@@ -21,9 +21,9 @@
     ]
   },
   "dependencies": {
+    "@vss/video-player": "^0.0.4",
     "@wangeditor/editor": "^5.0.1",
     "@wangeditor/editor-for-vue": "^1.0.1",
-    "@vss/video-player": "^0.0.4",
     "animejs": "^3.2.1",
     "axios": "^0.26.1",
     "copy-to-clipboard": "^3.3.1",
@@ -33,6 +33,7 @@
     "element-ui": "^2.15.6",
     "js-cookie": "^3.0.1",
     "mavon-editor": "^2.10.4",
+    "svg-topology": "1.0.21",
     "vue": "2.6.14",
     "vue-class-component": "^7.2.6",
     "vue-codemirror": "^4.0.6",

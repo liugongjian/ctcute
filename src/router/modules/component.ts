@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: XinZhao
- * @LastEditTime: 2022-10-31 10:16:08
+ * @LastEditors: 庄晓欣
+ * @LastEditTime: 2022-11-10 16:28:04
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -160,6 +160,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Biz/VssVideoPlayer/index.vue'),
         meta: {
           title: 'VssVideoPlayer',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 's3-upload',
+        name: 'S3Upload',
+        component: () => import('@/views/component/Biz/S3Upload/index.vue'),
+        meta: {
+          title: 'S3Upload',
           breadcrumb: true,
         },
       },

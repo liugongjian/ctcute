@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 庄晓欣
- * @LastEditTime: 2022-11-10 16:28:04
+ * @LastEditors: 王月功
+ * @LastEditTime: 2022-11-30 09:25:20
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -178,6 +178,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Biz/SvgTopology/index.vue'),
         meta: {
           title: 'SvgTopology',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'markdown',
+        name: 'Markdown',
+        component: () => import('@/views/component/Biz/Markdown/index.vue'),
+        meta: {
+          title: 'Markdown',
           breadcrumb: true,
         },
       },

@@ -21,8 +21,9 @@
     ]
   },
   "dependencies": {
-    "@vss/video-player": "^0.0.4",
     "@cutedesign/s3-upload": "^0.1.5",
+    "@feta/markdown": "^0.1.0",
+    "@vss/video-player": "^0.0.4",
     "@wangeditor/editor": "^5.0.1",
     "@wangeditor/editor-for-vue": "^1.0.1",
     "animejs": "^3.2.1",

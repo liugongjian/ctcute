@@ -1823,6 +1823,10 @@
       font-size: 18px;
       color: $text-color-light-1;
     }
+
+    &:hover {
+      border-color: $color-master-1;
+    }
   }
 
   .el-upload-list__item.is-uploading {
@@ -1831,6 +1835,12 @@
     background-color: $color-grey-11;
     border: 1px dashed $loading-default-border;
   }
+
+    .el-upload-list__item.is-success {
+      &:hover {
+        background: $color-white;
+      }
+    }
 
   .el-upload-list--picture-card .el-progress {
     width: 50px !important;
@@ -1885,10 +1895,10 @@
     height: 80px;
     border: 1px solid $border-color-primary;
     border-radius: 2px;
-  }
 
-  &:hover {
-    border-color: $color-master-1;
+    &:hover {
+      border-color: $color-master-1;
+    }
   }
 
   .sub-svg-text {

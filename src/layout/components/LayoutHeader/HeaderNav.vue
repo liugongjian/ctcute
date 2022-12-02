@@ -148,7 +148,7 @@ export default class extends Vue {
       margin-left: 5px;
     }
 
-    .svg-icon {
+    ::v-deep .svg-icon {
       color: $header-search-text-color;
     }
   }

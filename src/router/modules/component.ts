@@ -125,6 +125,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+       {
+        path: 'cute-steps-multi',
+        name: 'CuteSteps',
+        component: () => import('@/views/component/Base/CuteStepsMulti/index.vue'),
+        meta: {
+          title: 'CuteStepsMulti',
+          breadcrumb: true,
+        },
+      },
       {
         path: 'el-alert',
         name: 'ElAlert',

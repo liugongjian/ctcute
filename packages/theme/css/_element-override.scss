@@ -695,14 +695,6 @@
   }
 }
 
-.el-date-editor.el-input {
-  .el-input__suffix-inner>.el-input__icon {
-    width: 12px;
-    height: 12px;
-    line-height: 12px;
-  }
-}
-
 .el-range-editor--medium .el-range__icon {
   display: flex;
   align-items: center;
@@ -811,6 +803,13 @@
   padding: 2px;
 }
 
+/* State
+-------------------------- */
+.el-state {
+  display: inline-flex;
+  align-items: center;
+}
+
 /* Dialog
 -------------------------- */
 .el-dialog__footer {
@@ -819,23 +818,6 @@
 
 .el-dialog__headerbtn .el-dialog__close {
   color: $text-color-light-1;
-}
-
-// 警告弹窗中icon旋转
-.warn-dialog,
-.warn-dialog2 {
-  .warn-dialog--content .svg-icon {
-    transform: rotate(180deg);
-  }
-} 
-
-// 复杂中弹窗头部icon背景色修改
-.log-dialog {
-  .el-dialog__header {
-    .el-button.el-button--text.el-button--medium.is-plain:hover {
-      background-color: $color-form-component-bg;
-    }
-  }
 }
 
 /* Tabs
@@ -1679,11 +1661,11 @@
 }
 .el-picker-panel__footer {
   background-color: $color-bg-1;
-  .el-button--default {
-    background: $color-form-component-bg;
-    border: 1px solid $border-color-primary;
-    border-radius: 2px;
-  }
+  // .el-button--default {
+  //   background: $color-form-component-bg;
+  //   border: 1px solid $border-color-primary;
+  //   border-radius: 2px;
+  // }
 }
 //日期下拉框暗黑背景色
 .el-picker-panel.el-date-picker.el-popper {

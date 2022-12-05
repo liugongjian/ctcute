@@ -691,6 +691,14 @@
   }
 }
 
+.el-date-editor.el-input {
+  .el-input__suffix-inner>.el-input__icon {
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+  }
+}
+
 .el-range-editor--medium .el-range__icon {
   display: flex;
   align-items: center;
@@ -809,6 +817,23 @@
   color: $text-color-light-1;
 }
 
+// 警告弹窗中icon旋转
+.warn-dialog,
+.warn-dialog2 {
+  .warn-dialog--content .svg-icon {
+    transform: rotate(180deg);
+  }
+} 
+
+// 复杂中弹窗头部icon背景色修改
+.log-dialog {
+  .el-dialog__header {
+    .el-button.el-button--text.el-button--medium.is-plain:hover {
+      background-color: $color-form-component-bg;
+    }
+  }
+}
+
 /* Tabs
 -------------------------- */
 .el-tabs__item {
@@ -890,6 +915,10 @@
   background-color: $color-bg-2;
 }
 
+.el-table-filter {
+  background-color: $color-form-component-bg;
+  box-shadow: 0 2px 8px 0 $color-body-bg;
+}
 .el-table-filter__content {
   min-width: 190px;
 }
@@ -1646,6 +1675,11 @@
 }
 .el-picker-panel__footer {
   background-color: $color-bg-1;
+  .el-button--default {
+    background: $color-form-component-bg;
+    border: 1px solid $border-color-primary;
+    border-radius: 2px;
+  }
 }
 //日期下拉框暗黑背景色
 .el-picker-panel.el-date-picker.el-popper {
@@ -1667,6 +1701,25 @@
   background-color: $color-bg-1;
   box-shadow: 0 2px 8px 0 $color-bg-3;
   border-radius: 2px;
+  .time-select-item {
+    font-size: 12px;
+  }
+}
+
+.el-picker-panel.el-popper.has-time {
+  .el-time-panel__footer {
+    border-top: 1px solid $border-color-light-1;
+
+  }
+}
+
+.el-picker-panel.el-date-range-picker.el-popper.has-time {
+  .el-date-range-picker__time-header {
+    border-bottom: 1px solid $border-color-light-1;
+  }
+  .el-picker-panel__footer {
+    border-top: 1px solid $border-color-light-1;
+  }
 }
 
 .el-picker-panel.el-date-picker.el-popper.has-sidebar,

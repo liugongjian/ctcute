@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-11-23 12:34:56
+ * @LastEditTime: 2022-12-05 17:33:36
  * @Description: 基础图表
 -->
 <template>
@@ -668,10 +668,9 @@ export default class extends Vue {
 
     .solt {
       margin: 0 auto;
-      background: $color-other-2;
-      // background: $chartColor8;
+      background: $color-grey-6;
       display: block;
-      color: $color-grey-2;
+      color: $color-grey-1;
       font-size: 12px;
       line-height: 20px;
       border-radius: 50%;

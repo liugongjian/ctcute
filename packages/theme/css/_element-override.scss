@@ -262,6 +262,27 @@
   }
 }
 
+// StepForm分步表单
+.el-steps {
+  .el-step__head.is-success>.el-step__line>.el-step__line-inner {
+    width: 100% !important;
+    border-width: 1px !important;
+    border-bottom: 0px !important;
+  }
+}
+
+.step-form {
+  .form-content {
+    display: flex;
+    justify-content: center;
+    .footer{
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+    }
+  }
+}
+
 /* Input
 -------------------------- */
 .el-input-number--small {
@@ -276,9 +297,13 @@
     line-height: 28px !important;
     background-color: $color-bg-1;
   }
+
+  .el-input__icon {
+    line-height: 28px;
+  }
 }
 
-.el-input.el-input--samll.el-input--prefix {
+.el-input.el-input--small.el-input--prefix {
   height: 28px !important;
 
   .el-input__inner {
@@ -793,6 +818,13 @@
   padding: 2px;
 }
 
+/* State
+-------------------------- */
+.el-state {
+  display: inline-flex;
+  align-items: center;
+}
+
 /* Dialog
 -------------------------- */
 .el-dialog__footer {
@@ -884,6 +916,10 @@
   background-color: $color-bg-2;
 }
 
+.el-table-filter {
+  background-color: $color-form-component-bg;
+  box-shadow: 0 2px 8px 0 $color-body-bg;
+}
 .el-table-filter__content {
   min-width: 190px;
 }
@@ -1551,6 +1587,9 @@
     .el-tag > span {
       background: $color-grey-10;
     }
+    .el-tag:not(.is-hit){
+      border-color: $color-grey-6;
+    }
 
     .el-icon-close:before {
       color: $color-white;
@@ -1571,7 +1610,7 @@
   }
 
   .in-active-path {
-    background-color: $color-master-7;
+    background-color: transparent;
   }
 
   .el-radio,
@@ -1579,9 +1618,6 @@
     padding-right: 8px;
   }
 
-  .el-cascader-node__label {
-    padding: 0;
-  }
 
   .el-icon-arrow-right::before {
     content: '\e791';
@@ -1640,6 +1676,11 @@
 }
 .el-picker-panel__footer {
   background-color: $color-bg-1;
+  // .el-button--default {
+  //   background: $color-form-component-bg;
+  //   border: 1px solid $border-color-primary;
+  //   border-radius: 2px;
+  // }
 }
 //日期下拉框暗黑背景色
 .el-picker-panel.el-date-picker.el-popper {
@@ -1661,6 +1702,25 @@
   background-color: $color-bg-1;
   box-shadow: 0 2px 8px 0 $color-bg-3;
   border-radius: 2px;
+  .time-select-item {
+    font-size: 12px;
+  }
+}
+
+.el-picker-panel.el-popper.has-time {
+  .el-time-panel__footer {
+    border-top: 1px solid $border-color-light-1;
+
+  }
+}
+
+.el-picker-panel.el-date-range-picker.el-popper.has-time {
+  .el-date-range-picker__time-header {
+    border-bottom: 1px solid $border-color-light-1;
+  }
+  .el-picker-panel__footer {
+    border-top: 1px solid $border-color-light-1;
+  }
 }
 
 .el-picker-panel.el-date-picker.el-popper.has-sidebar,
@@ -2398,6 +2458,12 @@
 
 .el-transfer-panel .el-transfer-panel__header .el-checkbox .el-checkbox__label {
   font-size: $text-size-primary;
+}
+
+.el-transfer-panel__filter {
+  .el-input__icon {
+    margin-left: 0;
+  }
 }
 
 /* Collapse

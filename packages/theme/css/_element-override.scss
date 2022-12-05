@@ -262,6 +262,27 @@
   }
 }
 
+// StepForm分步表单
+.el-steps {
+  .el-step__head.is-success>.el-step__line>.el-step__line-inner {
+    width: 100% !important;
+    border-width: 1px !important;
+    border-bottom: 0px !important;
+  }
+}
+
+.step-form {
+  .form-content {
+    display: flex;
+    justify-content: center;
+    .footer{
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+    }
+  }
+}
+
 /* Input
 -------------------------- */
 .el-input-number--small {

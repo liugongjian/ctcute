@@ -276,9 +276,13 @@
     line-height: 28px !important;
     background-color: $color-bg-1;
   }
+
+  .el-input__icon {
+    line-height: 28px;
+  }
 }
 
-.el-input.el-input--samll.el-input--prefix {
+.el-input.el-input--small.el-input--prefix {
   height: 28px !important;
 
   .el-input__inner {
@@ -2404,6 +2408,12 @@
 
 .el-transfer-panel .el-transfer-panel__header .el-checkbox .el-checkbox__label {
   font-size: $text-size-primary;
+}
+
+.el-transfer-panel__filter {
+  .el-input__icon {
+    margin-left: 0;
+  }
 }
 
 /* Collapse

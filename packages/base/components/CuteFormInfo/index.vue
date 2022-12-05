@@ -41,15 +41,20 @@ export default class extends Vue {
 <style lang="scss">
 .form-item__info {
   &--dark {
-    background: $color-grey-1;
-    color: $color-grey-10;
+    background: $color-other-1;
+    color: $color-white;
 
     .el-popover__title {
       color: $color-white;
     }
 
-    &.el-popper[x-placement^='top'] .popper__arrow:after {
-      border-top-color: $color-grey-1;
+    &.el-popper[x-placement^='top'] .popper__arrow {
+      box-shadow: none;
+
+      &:after {
+        border-top-color: $color-other-1 !important;
+        box-shadow: none;
+      }
     }
   }
 }

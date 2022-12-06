@@ -62,8 +62,7 @@ $color-white: #fff;
 
 /* 其他 */
 $color-other-1: #3b3e4b;
-$color-other-2: #f0f2f5;
-$color-other-3: #8bb2f9;
+$color-other-2: $color-master-1;
 
 /* 背景 */
 $color-bg-1: #fff;
@@ -298,7 +297,6 @@ $transition-time: 200ms;
 
   colorOther1: $color-other-1;
   colorOther2: $color-other-2;
-  colorOther3: $color-other-3;
 
   colorBg1: $color-bg-1;
   colorBg2: $color-bg-2;

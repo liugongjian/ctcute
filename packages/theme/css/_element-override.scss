@@ -775,8 +775,11 @@
     & > .el-tree-node__content {
       color: $color-white;
       background: $color-master-1;
-      .el-tree-node__expand-icon:not(.is-leaf) {
-        color: $color-white;
+      .el-tree-node__expand-icon:not(.is-leaf),
+      .node-icon,
+      .node-content,
+      .handler-icon {
+        color: $color-white !important;
       }
       .el-checkbox__inner {
         border-color: $color-white;

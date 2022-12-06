@@ -100,7 +100,7 @@ $chartColorH10: #6bc9ab;
 $chartColorH11: #e35854;
 $chartColorH12: #f2c179;
 
-// 图表light颜色
+// 图表dark颜色
 $chartColorL1: #1d263f;
 $chartColorL2: #202a30;
 $chartColorL3: #28292e;
@@ -173,10 +173,10 @@ $margin-primary: $margin-small;
 /* Shadow
 -------------------------- */
 $shadow-input: 0 0 4px 0 rgba(250, 131, 52, 20%);
-$shadow-card: 0 2px 8px 0 rgba(200, 201, 204, 50%);
-$shadow-dialog: 0 6px 16px -8px rgba(0, 0, 0, 8%), 0 9px 28px 0 rgba(0, 0, 0, 5%),
-  0 12px 48px 16px rgba(0, 0, 0, 3%);
-$shadow-table-card: rgba(200, 201, 204, 50%);
+$shadow-card: 0 2px 8px 0 $color-bg-3;
+$shadow-dialog: 0 6px 16px -8px rgba(0, 0, 0, 0.50), 0 9px 28px 0 rgba(0, 0, 0, 0.20),
+  0 12px 48px 16px rgba(43, 46, 55, 0.05);
+$shadow-table-card: $color-bg-3;
 
 /* Button
 -------------------------- */

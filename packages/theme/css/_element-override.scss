@@ -1717,11 +1717,11 @@
   .time-select-item {
     font-size: 12px;
     &:hover {
-      background-color: $sidebar-sub-hover;
-      color: $color-status-master-1
+      background-color: $color-master-7;
+      color: $color-master-1;
     }
     &.selected {
-      background-color: $color-status-master-1;
+      background-color: $color-master-1;
       color: $color-white;
     }
   }

@@ -765,6 +765,7 @@
     color: $color-grey-1;
     &:hover {
       color: $color-master-1;
+      background: $color-master-7;
       .el-checkbox__inner {
         border-color: $color-master-1;
       }

@@ -784,9 +784,9 @@
       }
       .el-checkbox__inner {
         border-color: $color-white;
-        // &::before {
-        //   background-color: $color-white;
-        // }
+        &::before {
+          background-color: $color-other-2;
+        }
       }
     }
   }

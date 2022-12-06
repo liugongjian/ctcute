@@ -273,18 +273,6 @@
   }
 }
 
-.step-form {
-  .form-content {
-    display: flex;
-    justify-content: center;
-    .footer{
-      display: flex;
-      justify-content: center;
-      margin-top: 24px;
-    }
-  }
-}
-
 /* Input
 -------------------------- */
 .el-input-number--small {
@@ -822,13 +810,6 @@
 
 .el-tree-node__expand-icon.is-leaf {
   padding: 2px;
-}
-
-/* State
--------------------------- */
-.el-state {
-  display: inline-flex;
-  align-items: center;
 }
 
 /* Dialog
@@ -1718,6 +1699,14 @@
   border-radius: 2px;
   .time-select-item {
     font-size: 12px;
+    &:hover {
+      background-color: $sidebar-sub-hover;
+      color: $color-status-master-1
+    }
+    &.selected {
+      background-color: $color-status-master-1;
+      color: $color-white;
+    }
   }
 }
 

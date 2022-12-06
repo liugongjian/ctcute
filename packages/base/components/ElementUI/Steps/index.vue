@@ -80,7 +80,7 @@ export default {
   ::v-deep .el-step .el-step__main {
     position: absolute;
     left: 24px;
-    top: 2px;
+    top: 0;
     height: 26px;
     line-height: 26px;
     background-color: $color-bg-2;

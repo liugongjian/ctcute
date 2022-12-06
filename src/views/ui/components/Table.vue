@@ -1287,6 +1287,7 @@ export default class extends Vue {
 
     .head-title {
       margin-bottom: 13px;
+      color: $color-grey-1;
     }
   }
 

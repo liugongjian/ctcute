@@ -1,3 +1,10 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-10-19 10:59:22
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-12-06 09:36:57
+ * @Description: 
+-->
 <template>
   <div>
     <div class="sub-switch">
@@ -51,6 +58,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 b {
   margin-right: 24px;
+  color: $color-grey-1;
 }
 
 .sub-switch {

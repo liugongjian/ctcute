@@ -1,9 +1,9 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-10-19 10:59:22
- * @LastEditors: 马妍
- * @LastEditTime: 2022-11-15 10:29:00
- * @Description: 
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2022-12-07 10:48:54
+ * @Description:
 -->
 <template>
   <div class="sub-toast">
@@ -18,7 +18,6 @@
               message: '成功提示文案',
               type: 'success',
               customClass: 'toast-success',
-              duration: 0,
             })
           "
         >

@@ -10,7 +10,7 @@
     <cute-steps-multi
       :active="active"
       :steps="steps"
-      :last-step-width='100'
+      :last-step-width="100"
       size="mini"
       :space="200"
       max-width="100%"
@@ -24,11 +24,11 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 @Component({
-  components: {  },
+  components: {},
   name: 'Demo1',
 })
 export default class extends Vue {
- private steps = [
+  private steps = [
     { title: '步骤1' },
     { title: '步骤2' },
     { title: '步骤3' },
@@ -39,8 +39,8 @@ export default class extends Vue {
     { title: '错误/失败', status: 'error' },
     { title: '结束' },
   ]
-   private active = 1
-   private clickStep(step: any, index: number) {
+  private active = 1
+  private clickStep(step: any, index: number) {
     if (step.disabled) {
       this.active = index + 1
     } else {
@@ -54,7 +54,6 @@ export default class extends Vue {
       this.active = 0
     }
   }
-
 }
 </script>
 <style lang="scss" scoped></style>

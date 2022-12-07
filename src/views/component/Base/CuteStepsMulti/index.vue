@@ -10,7 +10,7 @@
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
       <h1>CuteStepsMulti / 步骤多展示不全</h1>
-      <component-demo path="@/views/component/Base/CuteSlider/Demo1.vue">
+      <component-demo path="@/views/component/Base/CuteStepsMulti/Demo1.vue">
         <demo1 />
       </component-demo>
       <h2>CuteStepsMulti Attributes</h2>
@@ -93,7 +93,7 @@ export default class extends Vue {
       options: null,
       default: 1,
     },
-     {
+    {
       name: 'direction',
       desc: '显示方向',
       type: 'String',
@@ -123,5 +123,4 @@ export default class extends Vue {
   ]
 }
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -62,8 +62,6 @@ $color-white: #fff;
 
 /* 其他 */
 $color-other-1: #3b3e4b;
-$color-other-2: #f0f2f5;
-$color-other-3: #8bb2f9;
 
 /* 背景 */
 $color-bg-1: #fff;
@@ -117,7 +115,7 @@ $chartColorL12: #fef9f3;
 
 /* Background
 -------------------------- */
-$body-fill: $color-grey-7;
+$body-fill: $color-bg-3;
 
 /* Disable
 -------------------------- */
@@ -219,7 +217,11 @@ $icon-color: $color-grey-3;
 
 /* Header */
 $header-height: 50px;
-$header-fill: #424550;
+$header-fill-1: #272b39;
+$header-fill-2: #3a3e4c;
+$header-border: #585b62;
+$header-text-color: #c2c2c2;
+$header-search-text-color: #999;
 
 /* Sidebar */
 $sidebar-width: 190px;
@@ -293,8 +295,6 @@ $transition-time: 200ms;
   colorWhite: $color-white;
 
   colorOther1: $color-other-1;
-  colorOther2: $color-other-2;
-  colorOther3: $color-other-3;
 
   colorBg1: $color-bg-1;
   colorBg2: $color-bg-2;

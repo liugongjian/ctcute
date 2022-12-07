@@ -71,6 +71,31 @@
           <el-form-item label="标签" prop="price">
             <cute-tag tag-name="+ 标签" :dynamic-tags="firstForm.tag"></cute-tag>
           </el-form-item>
+          <el-form-item>
+            <div v-if="active < steps.length - 1">
+              <el-button
+                class="btn-style"
+                type="primary"
+                @click="
+                  () => {
+                    nextStep()
+                  }
+                "
+              >
+                下一步
+              </el-button>
+              <el-button
+                v-if="active > 0"
+                @click="
+                  () => {
+                    active--
+                  }
+                "
+              >
+                上一步
+              </el-button>
+            </div>
+          </el-form-item>
         </el-form>
         <!-- 第二步表单 -->
         <el-form
@@ -127,35 +152,84 @@
               :max="10"
             ></el-input-number>
           </el-form-item>
+          <el-form-item>
+            <div v-if="active < steps.length - 1">
+              <el-button
+                class="btn-style"
+                type="primary"
+                @click="
+                  () => {
+                    nextStep()
+                  }
+                "
+              >
+                下一步
+              </el-button>
+              <el-button
+                v-if="active > 0"
+                @click="
+                  () => {
+                    active--
+                  }
+                "
+              >
+                上一步
+              </el-button>
+            </div>
+          </el-form-item>
         </el-form>
         <!-- 第三步表单 -->
-        <el-descriptions v-show="active === 2" class="descriptions" :column="1" size="small" border>
-          <el-descriptions-item>
-            <template slot="label"> 数据库类型 </template>
-            Spark
-          </el-descriptions-item>
-          <el-descriptions-item>
-            <template slot="label"> 配置时间 </template>
-            2018-04-24 18:00:00
-          </el-descriptions-item>
-          <el-descriptions-item>
-            <template slot="label"> 所属业务 </template>
-            金融科技-Tech UI
-          </el-descriptions-item>
-          <el-descriptions-item>
-            <template slot="label"> 存储量(GB) </template>
-            50
-          </el-descriptions-item>
-          <el-descriptions-item>
-            <template slot="label"> 生命周期(天) </template>
-            30
-          </el-descriptions-item>
-        </el-descriptions>
-        <el-result v-show="active > 2" icon="success" sub-title="恭喜你提交成功" style="width: 350px">
-        </el-result>
+        <div v-show="active === 2">
+          <el-descriptions  class="descriptions" :column="1" size="small" border>
+            <el-descriptions-item>
+              <template slot="label"> 数据库类型 </template>
+              Spark
+            </el-descriptions-item>
+            <el-descriptions-item>
+              <template slot="label"> 配置时间 </template>
+              2018-04-24 18:00:00
+            </el-descriptions-item>
+            <el-descriptions-item>
+              <template slot="label"> 所属业务 </template>
+              金融科技-Tech UI
+            </el-descriptions-item>
+            <el-descriptions-item>
+              <template slot="label"> 存储量(GB) </template>
+              50
+            </el-descriptions-item>
+            <el-descriptions-item>
+              <template slot="label"> 生命周期(天) </template>
+              30
+            </el-descriptions-item>
+          </el-descriptions>
+          <div class="footer">
+            <el-button class="btn-style" type="primary" :loading="submitting" @click="create">
+              提交信息
+            </el-button>
+            <el-button
+              :loading="submitting"
+              @click="
+                () => {
+                  active--
+                }
+              "
+            >
+              上一步
+            </el-button>
+          </div>
+        </div>
+        
+        <div v-show="active > 2">
+          <el-result icon="success" sub-title="恭喜你提交成功" style="width: 350px">
+          </el-result>
+          <div class="footer--center">
+            <el-button class="btn-style" type="primary" @click="resetForm"> 再来一次 </el-button>
+            <el-button @click="handleClick">查看结构表</el-button>
+          </div>
+        </div>
       </div>
 
-      <div class="footer">
+      <!-- <div class="footer">
         <div v-if="active === steps.length - 1">
           <el-button class="btn-style" type="primary" :loading="submitting" @click="create">
             提交信息
@@ -172,12 +246,7 @@
           </el-button>
         </div>
 
-        <div v-else-if="active >= steps.length">
-          <el-button class="btn-style" type="primary" @click="resetForm"> 再来一次 </el-button>
-          <el-button @click="handleClick">查看结构表</el-button>
-        </div>
-
-        <div v-else>
+        <div v-if="active < steps.length - 1">
           <el-button
             class="btn-style"
             type="primary"
@@ -200,7 +269,7 @@
             上一步
           </el-button>
         </div>
-      </div>
+      </div> -->
     </div>
   </el-card>
 </template>
@@ -323,3 +392,19 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.step-form {
+  .form-content {
+    display: flex;
+    justify-content: center;
+    .footer--center{
+      display: flex;
+      justify-content: center;
+      margin-top: -14px;
+    }
+    .footer{
+      margin-top: 24px;
+    }
+  }
+}
+</style>

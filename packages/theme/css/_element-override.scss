@@ -1437,6 +1437,29 @@
   }
 }
 
+ .is-success .el-step__line-inner{
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: inherit;
+    transition: 0.15s ease-out;
+    box-sizing: border-box;
+    width: 0;
+    height: 0;
+    background-color:$color-master-1;
+}
+.is-error .el-step__line-inner{
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: inherit;
+    transition: 0.15s ease-out;
+    box-sizing: border-box;
+    width: 0;
+    height: 0;
+    background-color:$color-status-danger-1;
+}
+
 .stepSuc :hover {
   cursor: pointer;
 }

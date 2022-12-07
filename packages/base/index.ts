@@ -146,6 +146,7 @@ const componentsList = [
   CuteSelectTree,
   CuteArea,
   CuteSlider,
+  CuteStepsMulti
 ]
 
 export default {

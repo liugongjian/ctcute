@@ -202,7 +202,7 @@
               30
             </el-descriptions-item>
           </el-descriptions>
-          <div v-if="active === steps.length - 1" class="footer">
+          <div class="footer">
             <el-button class="btn-style" type="primary" :loading="submitting" @click="create">
               提交信息
             </el-button>
@@ -222,7 +222,7 @@
         <div v-show="active > 2">
           <el-result icon="success" sub-title="恭喜你提交成功" style="width: 350px">
           </el-result>
-          <div v-if="active >= steps.length" class="footer">
+          <div class="footer--center">
             <el-button class="btn-style" type="primary" @click="resetForm"> 再来一次 </el-button>
             <el-button @click="handleClick">查看结构表</el-button>
           </div>
@@ -392,3 +392,19 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.step-form {
+  .form-content {
+    display: flex;
+    justify-content: center;
+    .footer--center{
+      display: flex;
+      justify-content: center;
+      margin-top: -14px;
+    }
+    .footer{
+      margin-top: 24px;
+    }
+  }
+}
+</style>

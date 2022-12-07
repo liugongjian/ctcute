@@ -200,7 +200,7 @@
   &:focus {
     color: $color-master-3;
     border: none;
-    background-color: $color-bg-1;
+    background-color: transparent;
   }
 }
 
@@ -272,19 +272,6 @@
     width: 100% !important;
     border-width: 1px !important;
     border-bottom: 0px !important;
-  }
-}
-
-.step-form {
-  .form-content {
-    display: flex;
-    justify-content: center;
-
-    .footer {
-      display: flex;
-      justify-content: center;
-      margin-top: 24px;
-    }
   }
 }
 
@@ -747,6 +734,23 @@
   background-color: $color-bg-1;
 }
 
+.el-date-editor.el-input {
+  .el-input__suffix {
+    right: 5px;
+  }
+}
+
+.el-range-editor .el-range__icon,
+.el-range-editor .el-range__close-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.el-range-editor .el-range__close-icon {
+  justify-content: right;
+}
+
 /* Tree
 -------------------------- */
 .el-tree {
@@ -841,7 +845,6 @@
 .el-tree-node__expand-icon.is-leaf {
   padding: 2px;
 }
-
 
 /* Dialog
 -------------------------- */
@@ -1758,6 +1761,16 @@
 
   .time-select-item {
     font-size: 12px;
+
+    &:hover {
+      background-color: $color-master-7;
+      color: $color-master-1;
+    }
+
+    &.selected {
+      background-color: $color-master-1;
+      color: $color-white;
+    }
   }
 }
 

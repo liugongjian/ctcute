@@ -18,7 +18,7 @@
         <el-table-column prop="desc" label="说明" />
         <el-table-column prop="type" label="类型" />
         <el-table-column prop="options" label="可选值">
-          <template scope="{ row }">
+          <template slot-scope="{ row }">
             <div v-html="row.options"></div>
           </template>
         </el-table-column>

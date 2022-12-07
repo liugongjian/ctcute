@@ -91,6 +91,9 @@ module.exports = {
               attrs: '(fill|fill-rule)',
             },
           },
+          {
+            name: 'removeTitle',
+          },
         ],
       })
       .end()

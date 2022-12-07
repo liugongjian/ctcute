@@ -93,9 +93,13 @@
     <div>
       <h3>四层树状菜单带搜索</h3>
       <div class="tree-search">
-        <el-input v-model="filterText" placeholder="请输入" size="mini">
-          <i slot="suffix" class="el-icon-close" @click="filterText = ''"></i>
-        </el-input>
+        <el-input
+          v-model="filterText"
+          prefix-icon="el-icon-search"
+          placeholder="请输入"
+          size="mini"
+          clearable
+        />
 
         <el-tree
           ref="tree"
@@ -447,7 +451,7 @@ export default class extends Vue {
     z-index: 2019;
     top: 24px;
     right: 0;
-    background: $color-white;
+    background: $color-bg-1;
   }
 }
 

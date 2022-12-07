@@ -438,7 +438,7 @@ const restPageRoutes = [
       {
         path: 'ts-demo',
         component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/TsDemo/index.vue'),
-        name: 'TsDemo',
+        name: 'TypeScriptDemo',
         meta: {
           title: 'TypeScript Demo',
           breadcrumb: true,

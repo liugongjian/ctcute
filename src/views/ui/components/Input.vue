@@ -303,7 +303,6 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .el-input {
   width: 300px;
-  height: 32px;
 }
 
 .el-row {

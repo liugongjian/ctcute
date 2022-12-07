@@ -20,7 +20,7 @@
       <div class="warn-dialog--content">
         <div class="warn-dialog--content_describe">
           <slot name="icon">
-            <svg-icon name="info-circle-fill" />
+            <svg-icon name="warning-circle-fill" />
           </slot>
           <span>删除该project数据后，数据将无法恢复，确定要删除吗？ </span>
         </div>

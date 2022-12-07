@@ -294,7 +294,7 @@ $width: 640px;
   &__header {
     position: relative;
     overflow: hidden;
-    background: $color-white;
+    background: $color-bg-1;
 
     &__more {
       position: absolute;
@@ -305,13 +305,13 @@ $width: 640px;
     &__copy {
       position: absolute;
       right: 38px;
-      top: 8px;
+      top: 18px;
     }
 
     &__install {
       position: absolute;
       right: 10px;
-      top: 8px;
+      top: 18px;
 
       &--container {
         display: flex;
@@ -327,10 +327,16 @@ $width: 640px;
     }
 
     .el-menu {
+      background: none;
       display: flex;
       flex-wrap: nowrap;
       width: calc($width - 70px);
       overflow: hidden;
+      border-bottom: none;
+    }
+
+    .el-dropdown .svg-icon {
+      color: $color-master-4;
     }
 
     .el-menu--horizontal > .el-menu-item {
@@ -338,6 +344,7 @@ $width: 640px;
       line-height: 56px;
       color: $text-color-primary;
       padding: 0 16px;
+      background: none;
 
       &.is-active {
         color: $color-master-1;

@@ -22,6 +22,12 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
+
+.el-state {
+  display: inline-flex;
+  align-items: center;
+}
+
 .el-state > span {
   margin-right: 8px;
 }

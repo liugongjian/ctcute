@@ -103,21 +103,23 @@ export default class extends Vue {
 
   .input-new-tag {
     width: 70px;
-    vertical-align: bottom;
-
+    height: 22px;
+    line-height: 22px;
     ::v-deep.el-input__inner {
       height: 22px;
       line-height: 20px;
+      vertical-align: bottom;
     }
   }
 
   .input-large-tag {
     width: 96px;
-    vertical-align: bottom;
-
+    height: 28px;
+    line-height: 28px;
     ::v-deep.el-input__inner {
       height: 28px;
       line-height: 20px;
+      vertical-align: bottom;
     }
   }
 }

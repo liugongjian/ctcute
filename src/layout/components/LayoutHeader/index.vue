@@ -39,7 +39,7 @@ export default class extends Vue {
   height: $header-height;
   display: flex;
   justify-content: space-between;
-  background: #272b39;
+  background: $header-fill-1;
 
   &__logo {
     display: flex;
@@ -55,7 +55,7 @@ export default class extends Vue {
       align-items: center;
       margin-left: 15px;
       padding-left: 15px;
-      border-left: 1px solid #979797;
+      border-left: 1px solid $header-border;
 
       img {
         height: 15px;
@@ -63,6 +63,7 @@ export default class extends Vue {
       }
     }
   }
+
   &__logo:hover {
     cursor: pointer;
   }

@@ -137,6 +137,7 @@ export {
 const componentsList = [
   CuteFormInfo,
   CuteEditInput,
+  CuteState,
   CuteTag,
   CuteRemindInput,
   CuteRemindSelect,

@@ -48,15 +48,16 @@ export default class extends Vue {
           name: '全局',
           desc: [
             {
-              text: '切换orange模式',
+              text: '全量导出颜色变量',
             },
-          ],
-        },
-        {
-          name: '全局',
-          desc: [
             {
-              text: '更新$color-other-2, 删除$color-other-3; 删除$color-other-2',
+              text: '新增dark模式',
+            },
+            {
+              text: '更新$color-other-2',
+            },
+            {
+              text: '删除$color-other-2, $color-other-3',
             },
           ],
         },
@@ -72,15 +73,10 @@ export default class extends Vue {
           name: 'Layout-LayoutHeader',
           desc: [
             {
-              text: '增加Header相关颜色变量; 修复Dark模式下Header颜色',
+              text: '修复Dark模式下Header颜色',
             },
-          ],
-        },
-        {
-          name: '全局',
-          desc: [
             {
-              text: '切换dark',
+              text: '增加Header相关颜色变量',
             },
           ],
         },
@@ -88,7 +84,10 @@ export default class extends Vue {
           name: 'Conponent-SvgTopology',
           desc: [
             {
-              text: '从缓存分支增加svg-topology的代码; 增加svgtopology的组件引入',
+              text: '增加svgtopology的组件引入',
+            },
+            {
+              text: '补充svg-topology代码',
             },
           ],
         },
@@ -109,14 +108,6 @@ export default class extends Vue {
           ],
         },
         {
-          name: '全局',
-          desc: [
-            {
-              text: '新增dark模式; 全量导出颜色变量',
-            },
-          ],
-        },
-        {
           name: 'Ui-Table',
           desc: [
             {
@@ -128,7 +119,10 @@ export default class extends Vue {
           name: 'Ui-RichText',
           desc: [
             {
-              text: '新增RichText并修改样式; 补充RichText介绍说明',
+              text: '补充RichText介绍说明',
+            },
+            {
+              text: '新增RichText并修改样式',
             },
           ],
         },
@@ -136,7 +130,10 @@ export default class extends Vue {
           name: 'Ui-CodeBox',
           desc: [
             {
-              text: '新增CodeBox并修改样式; 增加代码框文字',
+              text: '增加代码框文字',
+            },
+            {
+              text: '新增CodeBox并修改样式',
             },
           ],
         },
@@ -144,183 +141,21 @@ export default class extends Vue {
           name: 'Page-Order',
           desc: [
             {
-              text: '新增订购以及产品详情页; 产品列表页',
+              text: '新增产品列表页',
+            },
+            {
+              text: '新增订购以及产品详情页',
             },
           ],
         },
       ],
       bugfix: [
         {
-          name: '全局',
-          desc: [
-            {
-              text: '修改-fill颜色; 修改orange、blue模式的-fill',
-            },
-          ],
-        },
-        {
-          name: 'Ui-Toast',
-          desc: [
-            {
-              text: 'toast删除duration',
-            },
-          ],
-        },
-        {
-          name: 'Page-Table',
-          desc: [
-            {
-              text: 'protable6样式修改',
-            },
-          ],
-        },
-        {
-          name: 'Component-CuteState',
-          desc: [
-            {
-              text: 'CuteState 添加文档, 修复图标对齐',
-            },
-          ],
-        },
-        {
-          name: 'Ui-Button',
-          desc: [
-            {
-              text: '解决button hover背景色问题',
-            },
-          ],
-        },
-        {
-          name: 'Component-CuteTable',
-          desc: [
-            {
-              text: '修复文档dark问题',
-            },
-          ],
-        },
-        {
-          name: '全局',
-          desc: [
-            {
-              text: '更新dark模式阴影颜色',
-            },
-          ],
-        },
-        {
-          name: 'Component-CuteTag',
-          desc: [
-            {
-              text: 'tag高度修改',
-            },
-          ],
-        },
-        {
-          name: 'Ui-Tree',
-          desc: [
-            {
-              text: '修复树组件样式bug',
-            },
-          ],
-        },
-        {
-          name: 'Page-Form',
-          desc: [
-            {
-              text: '分步表单步骤条样式修改, 结果居中展示; 分步表单样式修改',
-            },
-          ],
-        },
-        {
-          name: 'Page-Chart',
-          desc: [
-            {
-              text: '调整chart颜色',
-            },
-          ],
-        },
-        {
-          name: 'Page-Order',
-          desc: [
-            {
-              text: '订单按钮修改',
-            },
-          ],
-        },
-        {
-          name: 'Ui-CascadeSelect',
-          desc: [
-            {
-              text: 'CascadeSelect样式改动',
-            },
-          ],
-        },
-        {
-          name: 'Page-Detail',
-          desc: [
-            {
-              text: '修改复杂详情页2',
-            },
-          ],
-        },
-        {
-          name: 'Ui-Table',
-          desc: [
-            {
-              text: '表头可筛选表格dark主题bug修改',
-            },
-          ],
-        },
-        {
-          name: 'Component-CuteFormInfo',
-          desc: [
-            {
-              text: 'Form Tips箭头样式',
-            },
-          ],
-        },
-        {
-          name: 'Page-TsDemo',
-          desc: [
-            {
-              text: 'Typescript Demo Dark模式bug修复',
-            },
-          ],
-        },
-        {
-          name: 'Layout-LayoutHeader',
-          desc: [
-            {
-              text: '调整Header搜索ICON颜色',
-            },
-          ],
-        },
-        {
-          name: 'Ui-Select',
-          desc: [
-            {
-              text: '修复dark样式; 时间选择器悬浮及选中样式修改; 时间选择器微调删除按钮; 时间选择器调整取色变量',
-            },
-          ],
-        },
-        {
-          name: 'Ui-Input',
-          desc: [
-            {
-              text: '修复dark样式; 修改小输入框icon高度',
-            },
-          ],
-        },
-        {
-          name: 'Ui-Upload',
-          desc: [
-            {
-              text: 'upload组件深色模式bug修复',
-            },
-          ],
-        },
-        {
           name: 'Conponent-S3Upload',
           desc: [
+            {
+              text: '修复s3upload ref type',
+            },
             {
               text: '修复s3upload示例页面scope过时语法',
             },
@@ -330,15 +165,22 @@ export default class extends Vue {
           name: '全局',
           desc: [
             {
-              text: '移除svg title, 避免hover显示 ',
+              text: '颜色样式由静态改为变量形式',
             },
-          ],
-        },
-        {
-          name: 'Conponent-S3Upload',
-          desc: [
             {
-              text: '修复s3upload ref type',
+              text: '完善整体颜色样式',
+            },
+            {
+              text: '还原设计稿主题颜色',
+            },
+            {
+              text: '删除多余的颜色变量',
+            },
+            {
+              text: '颜色修改, theme修改',
+            },
+            {
+              text: '移除svg title, 避免hover显示 ',
             },
           ],
         },
@@ -362,15 +204,13 @@ export default class extends Vue {
           name: 'Page-Order',
           desc: [
             {
-              text: '订购页文件改变; 调整样式',
+              text: '产品列表页、详情页配置修改',
             },
-          ],
-        },
-        {
-          name: '全局',
-          desc: [
             {
-              text: '颜色修改; theme修改',
+              text: '订单页布局、样式修改',
+            },
+            {
+              text: '订购页文件改变, 调整样式',
             },
           ],
         },
@@ -378,7 +218,10 @@ export default class extends Vue {
           name: 'Component-CuteTableColumnSettings',
           desc: [
             {
-              text: '自定义table透传属性; 修改内联样式为className',
+              text: '自定义table透传属性',
+            },
+            {
+              text: '修改内联样式为className',
             },
           ],
         },
@@ -394,15 +237,10 @@ export default class extends Vue {
           name: 'Ui-Upload',
           desc: [
             {
-              text: 'Upload页面及样式修改, 修复Upload组件样式问题',
+              text: 'Upload组件修改',
             },
-          ],
-        },
-        {
-          name: '全局',
-          desc: [
             {
-              text: '删除多余的颜色变量',
+              text: '修复Upload组件样式问题',
             },
           ],
         },
@@ -423,18 +261,16 @@ export default class extends Vue {
           ],
         },
         {
-          name: '全局',
-          desc: [
-            {
-              text: '还原设计稿主题颜色; 完善整体颜色样式; 颜色样式由静态改为变量形式',
-            },
-          ],
-        },
-        {
           name: 'Page-Login',
           desc: [
             {
-              text: 'Login中页面及样式修改; 完善登录页',
+              text: '登陆页增加非空校验',
+            },
+            {
+              text: '登录页面及样式修改',
+            },
+            {
+              text: '完善登录页',
             },
           ],
         },
@@ -442,7 +278,10 @@ export default class extends Vue {
           name: 'Component',
           desc: [
             {
-              text: '删除多余文件; 修复code路径配置',
+              text: '删除多余文件',
+            },
+            {
+              text: '修复code路径配置',
             },
           ],
         },
@@ -450,7 +289,10 @@ export default class extends Vue {
           name: 'Ui-RichText',
           desc: [
             {
-              text: '修改组件名; RichText代码及样式修改',
+              text: '修改组件名',
+            },
+            {
+              text: 'RichText代码及样式修改',
             },
           ],
         },
@@ -471,18 +313,13 @@ export default class extends Vue {
           ],
         },
         {
-          name: '全局',
-          desc: [
-            {
-              text: '样式修改',
-            },
-          ],
-        },
-        {
           name: 'Page-Status',
           desc: [
             {
-              text: '状态页样式调整; 颜色样式修改',
+              text: '状态页样式调整',
+            },
+            {
+              text: '颜色样式修改',
             },
           ],
         },
@@ -491,14 +328,6 @@ export default class extends Vue {
           desc: [
             {
               text: 'CuteSlider样式修改',
-            },
-          ],
-        },
-        {
-          name: 'Page-Order',
-          desc: [
-            {
-              text: '产品列表页、详情页配置修改; 订单页布局、样式修改',
             },
           ],
         },
@@ -514,7 +343,10 @@ export default class extends Vue {
           name: 'auth',
           desc: [
             {
-              text: '调整路由前置鉴权逻辑执行，增加 options 的 ts 约束',
+              text: '调整路由前置鉴权逻辑执行',
+            },
+            {
+              text: '增加options的ts约束',
             },
           ],
         },
@@ -530,6 +362,9 @@ export default class extends Vue {
           name: 'Ui-Input',
           desc: [
             {
+              text: '修复input遗留问题',
+            },
+            {
               text: '删除小的校验错误提示的input',
             },
           ],
@@ -543,26 +378,10 @@ export default class extends Vue {
           ],
         },
         {
-          name: 'Page-Login',
-          desc: [
-            {
-              text: '登陆页增加非空校验',
-            },
-          ],
-        },
-        {
           name: 'Ui-Form',
           desc: [
             {
               text: 'form样式修复',
-            },
-          ],
-        },
-        {
-          name: 'Ui-Input',
-          desc: [
-            {
-              text: '修复input遗留问题',
             },
           ],
         },

@@ -114,7 +114,7 @@
       </div>
       <div>
         <el-button @click="handleCancel"> 取消 </el-button>
-        <el-button type="primary" @click="handleSure"> 下一步 </el-button>
+        <el-button type="danger" @click="handleSure"> 下一步 </el-button>
       </div>
     </div>
   </div>
@@ -350,7 +350,7 @@ export default class extends Vue {
    * 选择地域
    */
   private selectCityClick(data) {
-    this.form.nodeCode = data
+    this.form.nodeCode = data.value
   }
 
   /**

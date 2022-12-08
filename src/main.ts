@@ -14,6 +14,8 @@ import i18n from '@/i18n'
 import '@/assets/icons'
 import http from '@/utils/request'
 import CuteAuthenticate from '@cutedesign/authenticate'
+import SvgTopology from 'svg-topology'
+import 'svg-topology/dist/svg-topology.css'
 Vue.use(CuteAuthenticate, {
   baseUrl: window.commonConfig.baseUrl,
   authenticateType: window.commonConfig.authenticateType,
@@ -29,6 +31,7 @@ Vue.use(CuteAuthenticate, {
 })
 
 Vue.use(CuteComponent)
+Vue.use(SvgTopology)
 
 Vue.config.productionTip = false
 

@@ -41,14 +41,479 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
-      version: '1.1.5',
+      version: '1.1.3',
+      date: '2022-12-7',
+      features: [
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '全量导出颜色变量',
+            },
+            {
+              text: '新增dark模式',
+            },
+            {
+              text: '更新$color-other-2',
+            },
+            {
+              text: '删除$color-other-2, $color-other-3',
+            },
+          ],
+        },
+        {
+          name: 'Layout-Search',
+          desc: [
+            {
+              text: '搜索结果增加关键词高亮、选中状态颜色修复',
+            },
+          ],
+        },
+        {
+          name: 'Layout-LayoutHeader',
+          desc: [
+            {
+              text: '修复Dark模式下Header颜色',
+            },
+            {
+              text: '增加Header相关颜色变量',
+            },
+          ],
+        },
+        {
+          name: 'Conponent-SvgTopology',
+          desc: [
+            {
+              text: '增加svgtopology的组件引入',
+            },
+          ],
+        },
+        {
+          name: 'Conponent-S3Upload',
+          desc: [
+            {
+              text: '添加业务组件 S3Upload 示例',
+            },
+          ],
+        },
+        {
+          name: 'Page-Table',
+          desc: [
+            {
+              text: '新增protable7',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Table',
+          desc: [
+            {
+              text: '添加详情页展示列表',
+            },
+          ],
+        },
+        {
+          name: 'Ui-RichText',
+          desc: [
+            {
+              text: '补充RichText介绍说明',
+            },
+          ],
+        },
+        {
+          name: 'Ui-CodeBox',
+          desc: [
+            {
+              text: '新增CodeBox',
+            },
+          ],
+        },
+        {
+          name: 'Page-Order',
+          desc: [
+            {
+              text: '新增产品列表页',
+            },
+            {
+              text: '新增订购以及产品详情页',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '完善整体颜色样式，颜色样式由静态改为变量形式，删除多余的颜色变量',
+            },
+            {
+              text: '移除svg title, 避免hover显示 ',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Selector',
+          desc: [
+            {
+              text: '修改日期组件底部颜色',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Card',
+          desc: [
+            {
+              text: 'el-message-box样式修改',
+            },
+          ],
+        },
+        {
+          name: 'Component-CuteTableColumnSettings',
+          desc: [
+            {
+              text: '自定义table透传属性',
+            },
+            {
+              text: '修改内联样式为className',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Cascader',
+          desc: [
+            {
+              text: 'el-cascader样式修改',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Upload',
+          desc: [
+            {
+              text: 'Upload组件修改',
+            },
+            {
+              text: '修复Upload组件样式问题',
+            },
+          ],
+        },
+        {
+          name: 'Layout-Slidebar',
+          desc: [
+            {
+              text: '修改侧边栏展开搜索按钮背景色',
+            },
+          ],
+        },
+        {
+          name: 'Page-Login',
+          desc: [
+            {
+              text: '登陆页增加非空校验',
+            },
+            {
+              text: '登录页面及样式修改',
+            },
+            {
+              text: '完善登录页',
+            },
+          ],
+        },
+        {
+          name: 'Page-Status',
+          desc: [
+            {
+              text: '状态页样式调整',
+            },
+            {
+              text: '颜色样式修改',
+            },
+          ],
+        },
+        {
+          name: 'Component-CuteSlider',
+          desc: [
+            {
+              text: 'CuteSlider样式修改',
+            },
+          ],
+        },
+        {
+          name: 'Component-CuteSortTable',
+          desc: [
+            {
+              text: 'sort-table组件透传属性',
+            },
+          ],
+        },
+        {
+          name: 'auth',
+          desc: [
+            {
+              text: '调整路由前置鉴权逻辑执行',
+            },
+            {
+              text: '增加options的ts约束',
+            },
+          ],
+        },
+        {
+          name: 'Page-Form',
+          desc: [
+            {
+              text: '修复表单icon颜色',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Input',
+          desc: [
+            {
+              text: '修复input遗留问题',
+            },
+            {
+              text: '删除小的校验错误提示的input',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Form',
+          desc: [
+            {
+              text: 'form样式修复',
+            },
+          ],
+        },
+        {
+          name: 'Component-ELAlert',
+          desc: [
+            {
+              text: 'alert说明文档变更',
+            },
+          ],
+        },
+        {
+          name: 'Component-ELCollapse',
+          desc: [
+            {
+              text: 'alert collapse说明文档变更',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      version: '1.1.2',
+      date: '2022-10-28',
+      features: [
+        {
+          name: 'Ui-Alert',
+          desc: [
+            {
+              text: '新增alert组件的使用说明',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Collapse',
+          desc: [
+            {
+              text: '新增collapse组件的使用说明',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Slider',
+          desc: [
+            {
+              text: '新增Slider组件',
+            },
+          ],
+        },
+        {
+          name: 'Page-Warndialog2',
+          desc: [
+            {
+              text: '新增Warndialog2页面(增加二次确认输入框)',
+            },
+          ],
+        },
+        {
+          name: 'Sidebar',
+          desc: [
+            {
+              text: '新增最佳实践菜单',
+            },
+            {
+              text: '侧边栏支持图标',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Input',
+          desc: [
+            {
+              text: '新增input-small组件',
+            },
+          ],
+        },
+        {
+          name: 'permission',
+          desc: [
+            {
+              text: '新增权限的hosts配置和启动说明',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '新增更换主题的说明和更新日志',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: 'Page-SimpleDetail',
+          desc: [
+            {
+              text: '还原simpleDetail 设计稿',
+            },
+          ],
+        },
+        {
+          name: 'auth',
+          desc: [
+            {
+              text: '调整路由before执行逻辑,调整 perm 获取前置到所有路由前，确保即时当前路由不需要登录，其他路由依然能获得正确表现',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '浏览器使用默认滚动条',
+            },
+
+            {
+              text: '页面和组件的维护者信息',
+            },
+          ],
+        },
+        {
+          name: 'Ui-SelectedButton',
+          desc: [
+            {
+              text: '修复SelectedButton选中样式',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Table',
+          desc: [
+            {
+              text: ' 修改table 的 expand 展开图标样式',
+            },
+          ],
+        },
+        {
+          name: 'Page-Chart',
+          desc: [
+            {
+              text: 'chart颜色优化,更新图表颜色信息',
+            },
+          ],
+        },
+        {
+          name: 'permission',
+          desc: [
+            {
+              text: '补充用户权限使用说明',
+            },
+          ],
+        },
+        {
+          name: 'Page-SimpleTable',
+          desc: [
+            {
+              text: ' 调整表单tip和error message的padding间距',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      version: '1.1.1',
+      date: '2022-10-1',
+      features: [
+        {
+          name: 'theme',
+          desc: [
+            {
+              text: '新增一键换肤功能，增加蓝色主题的选项',
+            },
+            {
+              text: '新增视频播放器功能组件',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: 'Ui-Input',
+          desc: [
+            {
+              text: '修复textarea disable状态下 border的颜色',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '把所有颜色改成使用颜色变量的形式，便于一键换肤功能的实现',
+            },
+          ],
+        },
+        {
+          name: 'TableHook',
+          desc: [
+            {
+              text: '把类型引用的Request改成引用@cutedesign/base内部的，而非项目中的',
+            },
+          ],
+        },
+        {
+          name: 'authenticate',
+          desc: [
+            {
+              text: '删除权限为`none`时对于的引用',
+            },
+            {
+              text: '修复权限为`none`时侧边菜单无法生成的bug',
+            },
+            {
+              text: '修复权限为`local`时无法调用menu接口的bug',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      version: '1.1.0',
       date: '2022-9-9',
       bugfix: [
         {
           name: 'Ui-Input',
-          desc: {
-            text: '修复input show-password 样式',
-          },
+          desc: [
+            {
+              text: '修复input show-password 样式',
+            },
+          ],
         },
         {
           name: 'Cascader',
@@ -58,9 +523,8 @@ export default class extends Vue {
             },
           ],
         },
-
         {
-          name: 'layout',
+          name: 'authenticate',
           desc: [
             {
               text: '修复整个退出登录元素的 cursor: pointer',
@@ -76,7 +540,7 @@ export default class extends Vue {
       ],
     },
     {
-      version: '1.1.2',
+      version: '1.0.9',
       date: '2022-9-2',
       features: [
         {
@@ -162,7 +626,7 @@ export default class extends Vue {
       ],
     },
     {
-      version: '1.0.9',
+      version: '1.0.8',
       date: '2022-8-26',
       features: [
         {
@@ -203,7 +667,7 @@ export default class extends Vue {
           ],
         },
         {
-          name: 'component-selectTree',
+          name: 'component-SelectTree',
           desc: [
             {
               text: '修复selectTree组件通过id回显label',
@@ -229,7 +693,7 @@ export default class extends Vue {
       ],
     },
     {
-      version: '1.0.8',
+      version: '1.0.7',
       date: '2022-8-15',
       features: [
         {
@@ -247,7 +711,7 @@ export default class extends Vue {
           ],
         },
         {
-          name: 'page-simpleTable2',
+          name: 'page-SimpleTable2',
           desc: [
             {
               text: '新增simpleTable2页面',

@@ -1,6 +1,5 @@
 import Layout from '@/layout/index.vue'
-
-const pageRoutes = [
+const indexPageRoutes = [
   // 图表
   {
     path: '/page/chart',
@@ -24,6 +23,9 @@ const pageRoutes = [
       },
     ],
   },
+]
+
+const restPageRoutes = [
   // 弹窗
   {
     path: '/page/dialog',
@@ -85,6 +87,15 @@ const pageRoutes = [
         name: 'WarnDialog',
         meta: {
           title: 'WarnDialog 警告弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'warn-dialog2',
+        component: () => import('@/views/page/Dialog/WarnDialog2.vue'),
+        name: 'WarnDialog2',
+        meta: {
+          title: 'WarnDialog2 警告提示',
           breadcrumb: true,
         },
       },
@@ -228,6 +239,24 @@ const pageRoutes = [
         name: 'ScrolledToLoadTable',
         meta: {
           title: 'ScrolledToLoadTable 滚动查询表格',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-table6',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable6.vue'),
+        name: 'ProTable6',
+        meta: {
+          title: 'ProTable6 复杂表格6',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-table7',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable7.vue'),
+        name: 'ProTable7',
+        meta: {
+          title: 'ProTable7 复杂表格7',
           breadcrumb: true,
         },
       },
@@ -409,7 +438,7 @@ const pageRoutes = [
       {
         path: 'ts-demo',
         component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/TsDemo/index.vue'),
-        name: 'TsDemo',
+        name: 'TypeScriptDemo',
         meta: {
           title: 'TypeScript Demo',
           breadcrumb: true,
@@ -419,4 +448,8 @@ const pageRoutes = [
   },
 ]
 
+const pageRoutes = [...indexPageRoutes, ...restPageRoutes]
+
 export default pageRoutes
+
+export { indexPageRoutes, restPageRoutes }

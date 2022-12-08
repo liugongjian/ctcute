@@ -643,7 +643,100 @@
       >
       </el-pagination>
     </div>
+    <h3>详情页基本信息展示列表</h3>
+    <div>
+      <div class="sub-table-message">
+        <el-descriptions :column="3" border>
+          <el-descriptions-item>
+            <template slot="label"> 内部标识符 </template>
+            DE34237632363
+          </el-descriptions-item>
 
+          <el-descriptions-item>
+            <template slot="label"> 标识符 </template>
+            GMSFZ
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 标识符 </template>
+            GMSFZ
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 中文名称 </template>
+            公民身份证
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 英文名称 </template>
+            gong-min-shen-fen-zheng
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 英文名称</template>
+            gong-min-shen-fen-zheng
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 语境 </template>
+            天翼云公司
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 版本 </template>
+            1.0
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 版本 </template>
+            1.0
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 同义名称 </template>
+            BB
+          </el-descriptions-item>
+        </el-descriptions>
+      </div>
+      <div class="sub-table-message">
+        <el-descriptions :column="2" border>
+          <el-descriptions-item>
+            <template slot="label"> 内部标识符 </template>
+            DE34237632363
+          </el-descriptions-item>
+
+          <el-descriptions-item>
+            <template slot="label"> 标识符 </template>
+            GMSFZ
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 中文名称 </template>
+            公民身份证
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 英文名称 </template>
+            gong-min-shen-fen-zheng
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 语境 </template>
+            天翼云公司
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 版本 </template>
+            1.0
+          </el-descriptions-item>
+          <el-descriptions-item>
+            <template slot="label"> 同义名称 </template>
+            BB
+          </el-descriptions-item>
+        </el-descriptions>
+      </div>
+    </div>
+    <div class="sub-table-horizon" border>
+      <el-table :data="tableData" :span-method="row">
+        <el-table-column prop="dataFilter" label="数据筛选" width="230" align="center"> </el-table-column>
+        <el-table-column prop="dataTime" label="数据时间字段" align="center"> </el-table-column>
+        <el-table-column prop="key" label="主键" align="center" width="260"> </el-table-column>
+        <el-table-column label="标签" align="center">
+          <el-table-column label="标签单元" prop="tag1" align="center"> </el-table-column>
+          <el-table-column label="标签集名称" prop="tag2" align="center"> </el-table-column>
+          <el-table-column label="标签名称" prop="tag3" align="center"> </el-table-column>
+          <el-table-column label="规则描述" prop="tag4" align="center" width="230"> </el-table-column>
+        </el-table-column>
+      </el-table>
+    </div>
     <h3>带列设置的表格</h3>
     <div class="sub-table-settings">
       <!-- 列设置选择表单 -->
@@ -1092,6 +1185,18 @@ export default class extends Vue {
   padding-bottom: 24px;
 }
 
+.sub-table-message {
+  padding-bottom: 24px;
+
+  &:last-child {
+    padding-bottom: 8px;
+  }
+
+  ::v-deep .is-group {
+    line-height: 40px;
+  }
+}
+
 .sub-index {
   display: inline-block;
   width: 20px;
@@ -1182,6 +1287,15 @@ export default class extends Vue {
 
     .head-title {
       margin-bottom: 13px;
+      color: $color-grey-1;
+
+      &:hover {
+        color: $color-master-1;
+      }
+
+      &.sub-table-settings__svg--active {
+        color: $color-master-3;
+      }
     }
   }
 
@@ -1198,10 +1312,6 @@ export default class extends Vue {
       margin-bottom: 10px;
       display: block;
     }
-  }
-
-  &__svg--active {
-    color: $color-master-3;
   }
 
   .health-dot {
@@ -1235,7 +1345,7 @@ export default class extends Vue {
 
 .sort-icon {
   cursor: pointer;
-  color: #777;
+  color: $color-grey-3;
 
   &:hover {
     color: $color-master-1;

@@ -1,14 +1,19 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <el-autocomplete
     ref="autocomplete"
     v-model="keyword"
     class="layout-header__search--input"
+    popper-class="layout-header__search--popper"
     placeholder="搜索..."
     :fetch-suggestions="search"
     :trigger-on-focus="false"
     @select="handleSelect"
   >
     <svg-icon slot="prefix" name="search" width="16px" height="16px" />
+    <template slot-scope="{ item }">
+      <div v-html="item.label"></div>
+    </template>
   </el-autocomplete>
 </template>
 <script lang="ts">
@@ -35,10 +40,17 @@ export default class extends Vue {
    * 搜索
    */
   private search(keyword, cb) {
-    const res = this.menu.filter(page => {
-      return page.value.toLowerCase().includes(keyword.toLowerCase())
+    const result = []
+    this.menu.forEach(page => {
+      const reg = new RegExp(keyword, 'i')
+      const matchRes = page.value.match(reg)
+      if (matchRes) {
+        const matchKeyword = matchRes[0]
+        page.label = page.value.replaceAll(matchKeyword, `<span class="keyword">${matchKeyword}</span>`)
+        result.push(page)
+      }
     })
-    cb(res)
+    cb(result)
   }
 
   /**
@@ -90,3 +102,14 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss">
+.layout-header__search--popper {
+  li:hover {
+    background: $color-master-7;
+  }
+
+  li .keyword {
+    color: $color-master-1;
+  }
+}
+</style>

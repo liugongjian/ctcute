@@ -1,8 +1,8 @@
 <!--
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-07-18 14:03:58
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-12-05 17:33:36
  * @Description: 基础图表
 -->
 <template>
@@ -207,17 +207,17 @@ export default class extends Vue {
           fontFamily: '微软雅黑',
           fontSize: 12,
           fontWeight: 400,
-          color: this.variables.chartColor11,
+          color: this.variables.colorGrey1,
         },
         subtextStyle: {
           fontSize: 16,
           fontWeight: 500,
           fontFamily: '微软雅黑',
-          color: this.variables.chartColor11,
+          color: this.variables.colorGrey1,
         },
       },
       textStyle: {
-        color: this.variables.chartColor11,
+        color: this.variables.colorGrey1,
       },
       tooltip: {
         trigger: 'none',
@@ -230,7 +230,7 @@ export default class extends Vue {
         show: true,
         textStyle: {
           fontSize: 12, // 字体大小
-          color: this.variables.chartColor11, // 字体颜色
+          color: this.variables.colorGrey1, // 字体颜色
         },
         icon: 'circle',
         top: '20%',
@@ -248,7 +248,7 @@ export default class extends Vue {
               length: 2,
             },
             lineStyle: {
-              color: this.variables.chartColor11,
+              color: this.variables.colorGrey1,
             },
           },
           fontSize: 12, // 字体大小
@@ -266,7 +266,7 @@ export default class extends Vue {
             normal: {
               label: {
                 fontSize: 12, // 字体大小
-                color: this.variables.chartColor11,
+                color: this.variables.colorGrey1,
                 show: true,
                 padding: [5, 10],
                 // formatter:  '{b} \n {c} ({d}%)'
@@ -287,13 +287,13 @@ export default class extends Vue {
         bottom: '3%',
         containLabel: true,
       },
-      color: [this.variables.chartColor6, this.variables.chartColor7],
+      color: [this.variables.chartColor12, this.variables.chartColor4],
       tooltip: {
         trigger: 'axis',
         axisPointer: {
           type: 'cross',
           label: {
-            backgroundColor: this.variables.chartColor9,
+            backgroundColor: this.variables.chartColor1,
           },
         },
       },
@@ -302,7 +302,7 @@ export default class extends Vue {
         show: true,
         textStyle: {
           fontSize: 12, // 字体大小
-          color: this.variables.chartColor11, // 字体颜色
+          color: this.variables.colorGrey1, // 字体颜色
         },
         icon: 'circle',
         top: '6%',
@@ -342,15 +342,17 @@ export default class extends Vue {
         {
           name: '昨日',
           type: 'line',
-          areaStyle: {},
+          areaStyle: {
+            color: this.variables.chartColorL12,
+          },
           emphasis: {
             focus: 'series',
           },
           symbol: 'none',
           lineStyle: {
-            color: this.variables.chartColor9,
+            color: this.variables.chartColor12,
             normal: {
-              color: this.variables.chartColor9,
+              color: this.variables.chartColor12,
             },
           },
           data: [0, 0, 0, 0, 0, 0, 7, 7, 7, 12, 12, 12, 12],
@@ -358,15 +360,17 @@ export default class extends Vue {
         {
           name: '今日',
           type: 'line',
-          areaStyle: {},
+          areaStyle: {
+            color: this.variables.chartColorL4,
+          },
           emphasis: {
             focus: 'series',
           },
           symbol: 'none',
           lineStyle: {
-            color: this.variables.chartColor13,
+            color: this.variables.chartColor4,
             normal: {
-              color: this.variables.chartColor9,
+              color: this.variables.chartColor4,
             },
           },
           data: [5, 5, 5, 5, 12, 12, 12, 12, 12, 12, 12, 12, 12],
@@ -382,10 +386,10 @@ export default class extends Vue {
         bottom: '3%',
         containLabel: true,
       },
-      color: [this.variables.chartColor10],
+      color: [this.variables.colorOther3],
       tooltip: {
         trigger: 'axis',
-        color: this.variables.chartColor11,
+        color: this.variables.colorGrey1,
         formatter: '{b}' + '<br />' + '流程定义数：{c}',
         axisPointer: {
           type: 'shadow',
@@ -447,18 +451,11 @@ export default class extends Vue {
         containLabel: true,
       },
       tooltip: {
-        // trigger: 'axis',
-        // axisPointer: {
-        //   type: 'cross',
-        //   crossStyle: {
-        //     color: this.variables.chartColor14,
-        //   },
-        // },
         trigger: 'axis',
         axisPointer: {
           type: 'cross',
           label: {
-            backgroundColor: this.variables.chartColor10,
+            backgroundColor: this.variables.colorOther3,
           },
         },
       },
@@ -467,7 +464,7 @@ export default class extends Vue {
         show: true,
         textStyle: {
           fontSize: 12, // 字体大小
-          color: this.variables.chartColor11, // 字体颜色
+          color: this.variables.colorGrey1, // 字体颜色
         },
         icon: 'circle',
         top: '0%',
@@ -559,7 +556,7 @@ export default class extends Vue {
               return value + ' ml'
             },
           },
-          color: [this.variables.chartColor12],
+          color: [this.variables.chartColor2],
           barWidth: 26,
           data: [30, 28, 25, 24, 21, 20, 16, 15, 13, 12, 10, 7, 3],
         },
@@ -567,7 +564,7 @@ export default class extends Vue {
           name: '完成率（%）',
           type: 'line',
           symbol: 'none',
-          color: [this.variables.chartColor10],
+          color: [this.variables.colorOther3],
           align: 'right',
           yAxisIndex: 1,
           tooltip: {
@@ -586,6 +583,10 @@ export default class extends Vue {
 .chart-card-tabs {
 }
 
+::v-deep.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background: $color-bg-2;
+}
+
 .simple-table-box {
   ::v-deep .el-col {
     margin-top: 22px;
@@ -594,12 +595,13 @@ export default class extends Vue {
 
 .chart-cont .el-card {
   background: none;
+  border: none;
 
   & ::v-deep > .el-card__body {
     padding: 0;
 
     .el-card {
-      background: $color-white;
+      background: $color-bg-2;
 
       .el-card__body {
         padding: 20px;
@@ -666,9 +668,9 @@ export default class extends Vue {
 
     .solt {
       margin: 0 auto;
-      background: $color-other-2;
+      background: $color-grey-6;
       display: block;
-      color: $color-grey-2;
+      color: $color-grey-1;
       font-size: 12px;
       line-height: 20px;
       border-radius: 50%;
@@ -678,7 +680,7 @@ export default class extends Vue {
     }
 
     .solt1 {
-      background: $color-other-3;
+      background: $chartColor8;
       color: $color-white;
     }
 
@@ -692,7 +694,7 @@ export default class extends Vue {
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: $color-table-status-success;
+        background: $chartColor2;
         left: 2px;
         top: 50%;
         margin-top: -4px;
@@ -700,25 +702,25 @@ export default class extends Vue {
     }
 
     .status1:after {
-      background: $color-table-status-info;
+      background: $color-grey-4;
     }
 
     .status2:after {
-      background: $color-table-status-danger;
+      background: $chartColor11;
     }
 
     .status3:after {
-      background: $color-table-status-warning;
+      background: $chartColor4;
     }
 
     .solt2 {
-      background: $color-other-3;
+      background: $chartColor4;
       color: $color-white;
       opacity: 0.8;
     }
 
     .solt3 {
-      background: $color-other-3;
+      background: $chartColor3;
       color: $color-white;
       opacity: 0.6;
     }
@@ -746,7 +748,6 @@ export default class extends Vue {
     }
 
     ::v-deep td.el-table__cell {
-      border-bottom: 1px solid $color-grey-12;
       color: $color-grey-1;
     }
 
@@ -762,7 +763,6 @@ export default class extends Vue {
     ::-webkit-scrollbar-thumb:vertical {
       height: 100px;
       background-color: $color-grey-6;
-      border-radius: 6px;
       border-radius: 6px;
     }
   }

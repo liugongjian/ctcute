@@ -226,7 +226,12 @@ export default {
         method: 'GET',
         // dataHandler: data => data, // 数据格式转换，转换成统一的格式，按需提供
         // afterLogin: userinfo => {}, // 登录成功后，拿到用户信息执行一些操作
-        routerBeforeEach: IamWorkspace.routerBeforeEach,
+        loggedRouterBeforeEach: (to) => {
+          if (to.name !== 'interceptor') {
+            return IamWorkspace.routerBeforeEach(to)
+          }
+        },
+        unloggedRouterBeforeEach: () => { window.location.href = IamUser.loginUrl }
       },
       perms: {
         domain: '', // 菜单接口对应的domain （osp 中的菜单代码），业务方按需重写
@@ -234,6 +239,8 @@ export default {
         method: 'GET',
         responseDataKey: 'data.items', // 可以拿到数据的key
         dataHandler: IamMenu.dataFormat, // 数据格式转换，转换成统一的格式
+        setWorkspaceId: IamWorkspace.setWorkspaceId,
+        canGetPermsBeforeRoute: (to) => to.name !== 'interceptor'
       },
     },
     ctyun: {
@@ -256,19 +263,10 @@ export default {
         url: CtyunUser.fetchUrl,
         method: 'GET',
         afterLogin: ($auth, userId) => {
-          const { router } = $auth.options
-          const { currentRoute } = router
-          // ctyun 需要将 userId 当成 workspaceId 处理
-          router.push({
-            name: currentRoute.name,
-            query: {
-              ...currentRoute.query,
-              workspaceId: userId,
-            },
-            params: currentRoute.params,
-          })
+          CtyunWorkspace.setWorkspaceId(userId)
         },
-        routerBeforeEach: CtyunWorkspace.routerBeforeEach,
+        loggedRouterBeforeEach: CtyunWorkspace.routerBeforeEach,
+        unloggedRouterBeforeEach: () => { window.location.href = CtyunUser.loginUrl }
       },
       // TODO ctyun 不需要鉴权，这个配置的意义主要在于菜单上下线，存在意义待定
       perms: {
@@ -290,6 +288,9 @@ export default {
         url: '/v1/auth/account/ifLogin',
         method: 'GET',
         dataHandler: data => data,
+	afterLogin: $auth => $auth.getPermInfo(true),
+        loggedRouterBeforeEach: (to) => (to.path === '/login') ? '/' : void 0,
+        unloggedRouterBeforeEach: (to) => `/login?redirect=${to.path === '/login' ? '/' : to.path}`
       },
       // TODO 以后考虑多个接口，改成数组
       perms: {

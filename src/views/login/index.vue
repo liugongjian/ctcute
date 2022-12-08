@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-08-11 16:27:09
  * @LastEditors: 马妍
- * @LastEditTime: 2022-09-01 22:13:43
+ * @LastEditTime: 2022-11-21 17:06:05
  * @Description:
 -->
 <template>
@@ -10,23 +10,22 @@
     <div class="login-content">
       <img src="../../assets/images/login/cute-login.png" alt="" class="login-content_img" />
       <div class="content-desc">
-        <p class="blur"></p>
         <div class="content-desc_from">
           <h3>登录 Cute Design</h3>
-          <p>这是一句Cute Design的介绍，我应该会有两行以上，长长的效果感觉会好一点呢</p>
-          <el-form>
-            <el-form-item prop="checkPass">
+          <p>模拟登录效果 非真实用户和登录</p>
+          <el-form ref="ruleForm" :rules="rules" :model="form">
+            <el-form-item prop="username">
               <el-input v-model="form.username" autocomplete="off" placeholder="请输入用户">
                 <svg-icon slot="prefix" name="user" />
               </el-input>
             </el-form-item>
-            <el-form-item prop="pass">
+            <el-form-item prop="password">
               <el-input v-model="form.password" type="password" autocomplete="off" placeholder="请输入密码"
                 ><svg-icon slot="prefix" name="lock" />
               </el-input>
             </el-form-item>
 
-            <el-form-item prop="code" class="content-desc-code">
+            <el-form-item prop="verifyCode" class="content-desc-code">
               <el-input
                 v-model="form.verifyCode"
                 placeholder="请输入验证码"
@@ -50,7 +49,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component, Ref } from 'vue-property-decorator'
 import { getCodes } from '@/api/login'
 import { encryptAes } from '@/utils/AES'
 
@@ -58,6 +57,8 @@ import { encryptAes } from '@/utils/AES'
   name: 'Login',
 })
 export default class extends Vue {
+  @Ref('ruleForm')
+  private ruleForm
   private form = {
     password: 'alQNm7#JLQ=4', //密码
     username: 'super@chinatelecom.cn', //用户名
@@ -65,6 +66,12 @@ export default class extends Vue {
   }
   private loading = false
   private codeUrl: any = ''
+  //校验规则
+  private rules = {
+    username: [{ required: true, message: '请输入用户', trigger: 'change' }],
+    password: [{ required: true, message: '请输入密码', trigger: 'change' }],
+    verifyCode: [{ required: true, message: '请输入验证码', trigger: 'change' }],
+  }
   private submitForm() {
     this.Login()
   }
@@ -86,36 +93,42 @@ export default class extends Vue {
   }
   //登录
   private async Login() {
-    try {
-      this.loading = true
-      // 使用this.$auth插件，把setToken的事情交给插件内部
-      const user = {
-        username: this.form.username,
-        password: encryptAes(this.form.password.trim()),
-        verifyCode: this.form.verifyCode,
+    this.ruleForm.validate(async valid => {
+      if (valid) {
+        try {
+          this.loading = true
+          // 使用this.$auth插件，把setToken的事情交给插件内部
+          const user = {
+            username: this.form.username,
+            password: encryptAes(this.form.password.trim()),
+            verifyCode: this.form.verifyCode,
+          }
+          const successCb = () => {
+            // sessionStorage.setItem('username', this.form.username)
+          }
+          const errorCb = response => {
+            this.$message.error((response as any).msg)
+            this.loading = false
+            this.getCode()
+          }
+          const finallyCb = () => {
+            this.loading = false
+          }
+          this.$auth.login({
+            user,
+            successCb,
+            errorCb,
+            finallyCb,
+            instance: this,
+          })
+        } catch (e) {
+          this.loading = false
+          console.log(e)
+        }
+      } else {
+        return false
       }
-      const successCb = () => {
-        // sessionStorage.setItem('username', this.form.username)
-      }
-      const errorCb = response => {
-        this.$message.error((response as any).msg)
-        this.loading = false
-        this.getCode()
-      }
-      const finallyCb = () => {
-        this.loading = false
-      }
-      this.$auth.login({
-        user,
-        successCb,
-        errorCb,
-        finallyCb,
-        instance: this,
-      })
-    } catch (e) {
-      this.loading = false
-      console.log(e)
-    }
+    })
   }
 }
 </script>

@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-08-15 10:02:43
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-23 10:20:40
+ * @LastEditTime: 2022-10-18 14:32:46
  * @Description:
  */
 import request from '@/utils/request'
@@ -21,9 +21,9 @@ export const getMenus = (): AxiosPromise<any> =>
  * 删除菜单数据
  * @returns 菜单数据
  */
-export const delMenus = (params): AxiosPromise<any> =>
+export const delMenus = (id): AxiosPromise<any> =>
   request({
-    url: `/v1/auth/menus/${params._id}`,
+    url: `/v1/auth/menus/${id}`,
     method: 'delete',
   })
 /**
@@ -41,7 +41,7 @@ export const addMenus = (data): AxiosPromise<any> =>
  */
 export const editMenus = (data): AxiosPromise<any> =>
   request({
-    url: `/v1/auth/menus/${data._id}`,
+    url: `/v1/auth/menus/${data.menuId}`,
     method: 'put',
     data,
   })

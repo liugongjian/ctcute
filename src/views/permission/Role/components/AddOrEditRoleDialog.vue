@@ -1,8 +1,8 @@
 <!--
  * @Author: 黄璐璐
  * @Date: 2022-07-13 13:41:05
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-26 15:26:47
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-11-18 14:04:27
  * @Description: 添加用户
 -->
 <template>
@@ -236,7 +236,7 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .line {
-  border: 1px solid #ddd;
+  border: 1px solid $border-color-primary;
   padding: 0 10px;
 }
 </style>

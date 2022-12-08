@@ -1,8 +1,8 @@
 <!--
  * @Author: 吴博聪
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 吴博聪
- * @LastEditTime: 2022-07-18 13:54:59
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-10-24 10:03:34
  * @Description: 复杂小弹窗
 -->
 <template>
@@ -22,7 +22,7 @@
       <el-scrollbar class="info-dialog--content" :wrap-style="{ maxHeight: '483px', width: '100%' }">
         <slot name="content">
           <pre class="info-dialog--pre">
-            {{ log }}
+            <span>{{ log }}</span>
           </pre>
         </slot>
       </el-scrollbar>
@@ -44,65 +44,24 @@ export default class extends Vue {
   @Prop({ default: '取消' }) readonly cancelButtonText: string
   @Prop({ default: '确定' }) readonly confirmButtonText: string
   @Prop({
-    default: `load jdbc. 'dvds. dvds_ datasource' options and
-driver='com.mysql.jdbc.Driver"
-and url# "jdbc:mysql://10.0.0.11:3306/dvds?use
-and dbtable=" dvds' . 'dvds_ datasource'
-and user= "root"
-and password="123456"
-as step22;
-select 22 as rowKey, 'status' as key,max(status)
-from step22 as fromtable22;save append fromt
-jdbc.' dps. _row. _offset' options and driver= "com
-and url= "jdbc:mysql://10.0.0.11:3306/data_ _plat
-useUnicode=true&characterEncoding=utf-
-8&useSSL=false&zeroDate' TimeBehavior=conv
-eries= true
-load jdbc. 'dvds. dvds_ datasource' options and
-driver='com.mysql.jdbc.Driver"
-and url# "jdbc:mysql://10.0.0.11:3306/dvds?use
-and dbtable=" dvds' . 'dvds_ datasource'
-and user= "root"
-and password="123456"
-as step22;
-select 22 as rowKey, 'status' as key,max(status)
-from step22 as fromtable22;save append fromt
-jdbc.' dps. _row. _offset' options and driver= "com
-and url= "jdbc:mysql://10.0.0.11:3306/data_ _plat
-useUnicode=true&characterEncoding=utf-
-8&useSSL=false&zeroDate' TimeBehavior=conv
-eries= true"load jdbc. 'dvds. dvds_ datasource' options and
-driver='com.mysql.jdbc.Driver"
-and url# "jdbc:mysql://10.0.0.11:3306/dvds?use
-and dbtable=" dvds' . 'dvds_ datasource'
-and user= "root"
-and password="123456"
-as step22;
-select 22 as rowKey, 'status' as key,max(status)
-from step22 as fromtable22;save append fromt
-jdbc.' dps. _row. _offset' options and driver= "com
-and url= "jdbc:mysql://10.0.0.11:3306/data_ _plat
-useUnicode=true&characterEncoding=utf-
-8&useSSL=false&zeroDate' TimeBehavior=conv
-eries= true
-load jdbc. 'dvds. dvds_ datasource' options and
-driver='com.mysql.jdbc.Driver"
-and url# "jdbc:mysql://10.0.0.11:3306/dvds?use
-and dbtable=" dvds' . 'dvds_ datasource'
-and user= "root"
-and password="123456"
-as step22;
-select 22 as rowKey, 'status' as key,max(status)
-from step22 as fromtable22;save append fromt
-jdbc.' dps. _row. _offset' options and driver= "com
-and url= "jdbc:mysql://10.0.0.11:3306/data_ _plat
-useUnicode=true&characterEncoding=utf-
-8&useSSL=false&zeroDate' TimeBehavior=conv
-eries= true"`,
+    default: `
+    name-group_001(20)
+    name-group_001(20)
+    name-group_001(20)
+    name-group_001(20)
+    name-group_001(20)
+    name-group_001(20)
+    name-group_001(20)
+    name-group_001(20)
+    name-group_001(20)
+    name-group_001(20)
+    name-group_001(20)
+    name-group_001(20)
+    name-group_001(20)`,
   })
   readonly log: string
 
-  private title = '特殊弹窗-小 示例'
+  private title = '小弹窗 (信息确认)'
   private visible = false
 
   private close() {

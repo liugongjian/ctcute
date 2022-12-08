@@ -3,7 +3,7 @@
     <p>默认横向步骤条。存在常规、进行中、已完成等情况。</p>
     <h3>基础步骤条</h3>
     <div class="sub-steps">
-      <el-steps :space="200" :active="active" finish-status="success">
+      <el-steps :space="180" :active="active" finish-status="success">
         <el-step
           v-for="(s, index) in steps"
           :key="index"
@@ -27,7 +27,7 @@
     </div>
     <h3>迷你步骤条</h3>
     <div class="sub-steps">
-      <el-steps :space="200" :active="activeMini" finish-status="success" size="mini">
+      <el-steps :space="180" :active="activeMini" finish-status="success" size="mini">
         <el-step
           v-for="(s, index) in steps"
           :key="index"
@@ -54,7 +54,8 @@
       <cute-steps-multi
         :active="activeMulti"
         :steps="multisteps"
-        max-width="60%"
+        :last-step-width='120'
+        max-width="80%"
         :has-go-button="true"
         @clickStep="clickmulti"
         @change="goMulti"
@@ -76,9 +77,9 @@
         :active="activeMultiMini"
         :steps="multisteps"
         size="mini"
-        :space="400"
+        :last-step-width='100'
         max-width="100%"
-        :step-size="3"
+        :step-size="2"
         :has-go-button="true"
         @clickStep="clickmultimini"
         @change="goMultiMini"

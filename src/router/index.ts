@@ -1,19 +1,20 @@
 /*
  * @Author: 马妍
  * @Date: 2022-07-29 10:25:03
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-09-01 10:55:00
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-11-10 13:47:51
  * @Description:
  */
 import Vue from 'vue'
 import Router, { RouteConfig, Route } from 'vue-router'
-import pageRoutes from '@/router/modules/page'
+import { indexPageRoutes, restPageRoutes } from '@/router/modules/page'
 import componentRoutes from '@/router/modules/component'
 import uiRoutes from '@/router/modules/ui'
 import loginRouter from '@/router/modules/login'
 import docRouter from '@/router/modules/doc'
 import Layout from '@/layout/index.vue'
 import settings from '@/settings'
+import consoleRoutes from '@/router/modules/console'
 
 Vue.use(Router)
 
@@ -22,13 +23,22 @@ const _docRoutes = docRouter.map((route: any) => {
   return route
 })
 
-const _pageRoutes = pageRoutes.map((route: any) => {
+const _indexRoutes = indexPageRoutes.map((route: any) => {
+  route.meta.type = 'page'
+  return route
+})
+
+const _restPageRoutes = restPageRoutes.map((route: any) => {
   route.meta.type = 'page'
   return route
 })
 
 const _componentRoutes = componentRoutes.map((route: any) => {
   route.meta.type = 'component'
+  return route
+})
+const _consoleRoutes = consoleRoutes.map((route: any) => {
+  route.meta.type = 'page'
   return route
 })
 
@@ -72,33 +82,6 @@ const base = [
     meta: { hidden: true },
   },
 ]
-// TODO 除了用户权限相关的 其他都是constantRoutes
-export const originConstantRoutes: RouteConfig[] = [
-  ...base,
-  ..._docRoutes,
-  ..._pageRoutes,
-  ..._componentRoutes,
-  ...uiRoutes,
-  ...loginRouter,
-  ..._statusRoutes,
-]
-// 非通用，只是cute-design的场景，遍历所有constantRoutes，给每一条路由的meta加上withoutLogin为true的属性
-const addRouteMetaProp = (origin: RouteConfig[], props: any): RouteConfig[] => {
-  origin.forEach(route => {
-    if (route.children && route.children.length) {
-      addRouteMetaProp(route.children, props)
-    } else {
-      route.meta = {
-        ...(route.meta || {}),
-        ...props,
-      }
-    }
-  })
-  return origin
-}
-
-export const constantRoutes: RouteConfig[] = addRouteMetaProp(originConstantRoutes, { withoutLogin: true })
-
 export const asyncRoutes: RouteConfig[] = [
   //权限
   {
@@ -150,7 +133,39 @@ export const asyncRoutes: RouteConfig[] = [
   },
 ]
 
-export const routes: RouteConfig[] = [...constantRoutes, ...asyncRoutes]
+// 为了把asyncRoutes放在图表后面，拆分了图表和其他页面的路由
+export const originConstantRoutes: RouteConfig[] = [
+  ...base,
+  ..._docRoutes,
+  ..._indexRoutes,
+  ...asyncRoutes,
+  ..._restPageRoutes,
+  ..._componentRoutes,
+  ...uiRoutes,
+  ...loginRouter,
+  ..._statusRoutes,
+  ..._consoleRoutes,
+]
+// 非通用，只是cute-design的场景，遍历所有constantRoutes，给每一条路由的meta加上withoutLogin为true的属性，跳过asyncRoutes
+const addRouteMetaProp = (origin: RouteConfig[], props: any): RouteConfig[] => {
+  origin.forEach(route => {
+    if (route.children && route.children.length) {
+      addRouteMetaProp(route.children, props)
+    } else {
+      if (!(route.meta && route.meta.perms)) {
+        route.meta = {
+          ...(route.meta || {}),
+          ...props,
+        }
+      }
+    }
+  })
+  return origin
+}
+
+export const routes: RouteConfig[] = addRouteMetaProp(originConstantRoutes, { withoutLogin: true })
+
+// export const routes: RouteConfig[] = [...constantRoutes, ...asyncRoutes]
 
 const router = new Router({
   mode: 'history',

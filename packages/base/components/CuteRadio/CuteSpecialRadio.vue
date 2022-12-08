@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-15 10:12:49
  * @LastEditors: 马妍
- * @LastEditTime: 2022-09-27 15:02:18
+ * @LastEditTime: 2022-10-20 15:47:16
  * @Description:
 -->
 <template>
@@ -67,6 +67,10 @@ export default class extends Vue {
     background: $color-master-1;
     border-radius: 2px 0 0 2px;
     color: $color-white !important;
+  }
+
+  ::v-deep.el-radio-button__orig-radio:checked + .el-radio-button__inner {
+    box-shadow: none;
   }
 }
 </style>

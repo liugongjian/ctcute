@@ -57,7 +57,7 @@
         ></el-input-number>
       </el-form-item>
       <el-form-item label="短数字端" prop="shortNumber" class="form-item--short">
-        <el-input v-model="form.shortNumberInput">
+        <el-input v-model.number="form.shortNumberInput" type="number">
           <span slot="suffix" class="icon-money">元</span>
         </el-input>
       </el-form-item>

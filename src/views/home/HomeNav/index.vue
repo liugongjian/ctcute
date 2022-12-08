@@ -142,7 +142,7 @@ export default class extends Vue {}
       border-radius: 4px;
       background: $color-white;
       padding: 14px 13px 15px 13px;
-      box-shadow: 0 2px 8px 0 rgba(200, 201, 204, 0.5);
+      box-shadow: 0 2px 8px 0 $shadow-table-card;
       margin-right: 20px;
       margin-bottom: 20px;
       > p {

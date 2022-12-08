@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-07 15:45:48
- * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-21 16:59:42
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2022-10-18 16:08:16
  * @Description:
  */
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN'

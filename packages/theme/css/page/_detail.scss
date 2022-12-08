@@ -9,6 +9,7 @@
         font-size: $text-size-medium;
         font-weight: 500;
         margin-right: 16px;
+        color: $color-grey-1;
       }
     }
   }
@@ -24,6 +25,48 @@
 }
 
 /* 简单详情 */
+.simple-detail {
+  .detail-nav {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .back {
+      margin-right: 4px;
+      color: $color-grey-3;
+      cursor: pointer;
+    }
+
+    span {
+      color: $color-grey-1;
+      cursor: pointer;
+    }
+
+    .detail-title {
+      font-size: 14px;
+      color: $color-grey-1;
+      line-height: 20px;
+      font-weight: 500;
+
+      &:before {
+        content: '|';
+        color: $color-grey-6;
+        margin: 0 12px;
+      }
+    }
+  }
+
+  .detail-goods {
+    position: relative;
+    margin-bottom: 24px;
+
+    .operation {
+      position: absolute;
+      top: 4px;
+      right: 0;
+    }
+  }
+}
 
 /* 复杂详情页1 */
 
@@ -80,7 +123,7 @@
 
         h4 {
           font-size: $text-size-small;
-          color: rgba(0, 0, 0, 65%);
+          color: $color-grey-2;
           margin-top: 8px;
           margin-bottom: 0 !important;
         }
@@ -128,8 +171,10 @@
 
     &__left {
       width: 200px;
-      border-right: 1px solid #f0f0f0;
-
+      border-right: 1px solid rgba(0, 0, 0, 6%);
+      .el-tree {
+        background-color: $color-bg-2;
+      }
       .node-content {
         margin-left: -0.5em;
         display: flex;
@@ -226,7 +271,7 @@
         z-index: 2019;
         top: 24px;
         right: 0;
-        background: $color-white;
+        background: $color-bg-1;
       }
     }
 

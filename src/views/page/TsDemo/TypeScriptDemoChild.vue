@@ -11,7 +11,7 @@
         <el-button @click="multiplyAlgebra">求积</el-button>
         <el-button @click="increaseParentX">父组件X加1</el-button>
       </div>
-      <el-alert type="info">Z来自父组件的求和结果</el-alert>
+      <el-alert type="info" title="Z来自父组件的求和结果"></el-alert>
       <div class="equation">
         {{ algebra.x }} + {{ algebra.y }} + {{ algebra.z ? algebra.z : 'Z' }} =
         {{ sumResult ? sumResult : '?' }}
@@ -231,7 +231,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   margin-top: 15px;
   padding: 10px;
   font-size: 18px;
-  background: #fff;
+  background: $color-bg-2;
   border: 1px solid $border-color-primary; // 颜色变量请从@cutedesign/theme/_variables.scss查找
 
   &__child {

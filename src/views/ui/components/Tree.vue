@@ -451,7 +451,6 @@ export default class extends Vue {
     z-index: 2019;
     top: 24px;
     right: 0;
-    background: $color-bg-1;
   }
 }
 

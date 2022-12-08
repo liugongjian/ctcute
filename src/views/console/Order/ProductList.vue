@@ -16,7 +16,7 @@
         </span>
         <cute-form-info title="标题测试" content="对标题测试的详细说明" />
       </div>
-      <el-button type="primary">创建云硬盘</el-button>
+      <el-button type="danger">创建云硬盘</el-button>
     </div>
     <el-card class="list-table">
       <div class="table-header">

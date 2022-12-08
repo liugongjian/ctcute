@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2022-08-11 16:57:06
+ * @LastEditTime: 2022-12-08 10:23:44
  * @Description: 复杂表格2
 -->
 <template>
@@ -11,6 +11,7 @@
     <div class="table-tools">
       <div class="table-tools__right table-tools__conditions">
         <el-form
+          ref="conditions"
           class="complex-table_from"
           :model="conditions"
           inline
@@ -137,7 +138,8 @@
   </el-card>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Ref } from 'vue-property-decorator'
+import { ElForm } from 'element-ui/types/form'
 import * as ProTable2 from '@/types/ProTable2'
 import { getTable, getHosts } from '@/api/proTable2'
 import { STATUS, HEALTH } from '@/dics/proTable2'
@@ -157,6 +159,9 @@ export default class extends Vue {
     environment: '',
     cpu: '',
   }
+
+  @Ref('conditions')
+  private conditionsForm: ElForm
 
   private placeholder = '请输入主机别名'
   // 表格选中数据
@@ -185,7 +190,7 @@ export default class extends Vue {
     },
     {
       label: '90',
-      vlaue: '2',
+      value: '2',
     },
   ]
 
@@ -232,7 +237,11 @@ export default class extends Vue {
   private async getHosts() {
     try {
       const res = await getHosts()
-      this.hostOptions = res.data
+      console.log(res, 'ressss')
+      res.data.forEach(item => {
+        this.hostOptions.push({ value: Math.random(), label: item })
+      })
+      console.log(this.hostOptions, 'optuosss')
     } catch (e) {
       this.$message.error(e)
     }
@@ -289,8 +298,7 @@ export default class extends Vue {
    * 重置搜索表单
    */
   private resetConditions() {
-    const conditionsForm: any = this.$refs.conditions
-    conditionsForm.resetFields()
+    this.conditionsForm.resetFields()
   }
 
   /**

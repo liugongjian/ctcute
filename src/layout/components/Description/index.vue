@@ -8,7 +8,7 @@
 <template>
   <div v-if="descriptionInfo.length">
     <el-popover placement="top-start" width="400" trigger="hover" :open-delay="100">
-      <svg-icon slot="reference" class="form-item__info" name="info-circle" />
+      <svg-icon slot="reference" class="icon" name="info-circle"/>
       <div v-for="(item, index) in descriptionInfo" :key="index">{{ item }}</div>
       <!-- <cute-mavon-editor :content="descriptionInfo" class="page-desc"></cute-mavon-editor> -->
     </el-popover>
@@ -77,7 +77,7 @@ export default class extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .page-desc {
   margin-bottom: 16px;
 
@@ -89,5 +89,9 @@ export default class extends Vue {
   &.v-note-wrapper {
     min-height: 0;
   }
+}
+
+.icon {
+  color: $icon-color;
 }
 </style>

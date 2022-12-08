@@ -12,7 +12,7 @@
     :multiple="multiple ? true : false"
     @remove-tag="handelRemove"
   >
-    <el-option :value="value" :label="label" style="height: auto">
+    <el-option :value="value" :label="label" style="height: auto;">
       <el-tree
         ref="tree"
         :data="options"
@@ -100,10 +100,6 @@ export default class extends Vue {
 .el-select-dropdown__item.hover {
   background: $color-bg-1 !important;
   padding: 0;
-
-  ::v-deep.el-tree-node__content:not(.el-tree-node:focus > .el-tree-node__content):hover {
-    color: $color-master-1 !important;
-  }
 }
 
 .el-select-dropdown.el-popper.is-multiple {

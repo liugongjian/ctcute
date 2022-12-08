@@ -45,7 +45,7 @@
   transform: rotate(180deg);
 }
 
-.el-button:not(.el-button--text):focus {
+.el-button:not(.el-button--text):not(.el-button--danger):focus {
   border-color: $color-master-1;
 }
 
@@ -405,6 +405,10 @@
   border: 1px solid $color-master-1;
   box-shadow: $shadow-input;
 }
+.el-input__inner::-webkit-outer-spin-button,
+.el-input__inner::-webkit-inner-spin-button {
+  appearance: none;
+}
 
 .el-form-item.is-error .el-input__inner {
   border: 1px solid $color-status-danger-1;
@@ -755,7 +759,7 @@
 -------------------------- */
 .el-tree {
   margin-top: 10px;
-  background: $color-bg-1;
+  background: transparent;
 }
 
 .el-tree-node {
@@ -775,13 +779,22 @@
       background: none;
     }
   }
+
+  .pop-tooltip {
+    display: none;
+    position: absolute;
+    z-index: 2019;
+    top: 24px;
+    right: 0;
+    background: $color-bg-1;
+  }
 }
 
 .el-tree-node.is-focusable {
   &>.el-tree-node__content {
     color: $color-grey-1;
 
-    &:hover {
+    &:hover:not(.is-current>.el-tree-node__content:hover) {
       color: $color-master-1;
       background: $color-master-7;
 
@@ -825,6 +838,7 @@
   .tooltip-content {
     display: flex;
     flex-direction: column;
+    background: $color-bg-1;
 
     .el-button {
       margin: 0;
@@ -2103,6 +2117,10 @@
   }
 }
 
+.el-upload-dragger {
+  border: 1px dashed $border-color-primary;
+}
+
 /* Switch
 -------------------------- */
 .el-switch+.el-switch {
@@ -2596,7 +2614,7 @@
 
   .el-collapse-item__wrap {
     border-bottom: none;
-    background-color: $color-bg-1;
+    background-color: transparent;
   }
 
   .el-collapse-item__content {
@@ -2647,7 +2665,7 @@
     left: 0;
     width: 10px;
     height: 10px;
-    background-color: $color-white;
+    background-color: $color-bg-2;
     border: 2px solid $color-master-1;
   }
 
@@ -2740,20 +2758,16 @@
 .el-popper[x-placement^='top'] .popper__arrow,
 .el-popper[x-placement^='top'] .popper__arrow::after {
   border-top-color: $color-bg-1;
-
-  box-shadow: 0 2px 8px 0 $color-bg-3;
 }
 
 .el-popper[x-placement^='left'] .popper__arrow,
 .el-popper[x-placement^='left'] .popper__arrow::after {
   border-left-color: $color-bg-1;
-  box-shadow: 0 2px 8px 0 $color-bg-3;
 }
 
 .el-popper[x-placement^='right'] .popper__arrow,
 .el-popper[x-placement^='right'] .popper__arrow::after {
   border-right-color: $color-bg-1;
-  box-shadow: 0 2px 8px 0 $color-bg-3;
 }
 
 /* Sidebar

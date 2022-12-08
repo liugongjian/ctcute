@@ -45,7 +45,7 @@
   transform: rotate(180deg);
 }
 
-.el-button:not(.el-button--text):focus {
+.el-button:not(.el-button--text):not(.el-button--danger):focus {
   border-color: $color-master-1;
 }
 

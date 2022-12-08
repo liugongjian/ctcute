@@ -2084,6 +2084,10 @@
   }
 }
 
+.el-upload-dragger {
+  border: 1px dashed $border-color-primary;
+}
+
 /* Switch
 -------------------------- */
 .el-switch+.el-switch {
@@ -2721,20 +2725,16 @@
 .el-popper[x-placement^='top'] .popper__arrow,
 .el-popper[x-placement^='top'] .popper__arrow::after {
   border-top-color: $color-bg-1;
-
-  box-shadow: 0 2px 8px 0 $color-bg-3;
 }
 
 .el-popper[x-placement^='left'] .popper__arrow,
 .el-popper[x-placement^='left'] .popper__arrow::after {
   border-left-color: $color-bg-1;
-  box-shadow: 0 2px 8px 0 $color-bg-3;
 }
 
 .el-popper[x-placement^='right'] .popper__arrow,
 .el-popper[x-placement^='right'] .popper__arrow::after {
   border-right-color: $color-bg-1;
-  box-shadow: 0 2px 8px 0 $color-bg-3;
 }
 
 /* Sidebar

@@ -55,14 +55,9 @@
                 >{{ item.label }}
               </el-option>
             </el-select>
-            <svg-icon
-              class="refresh-icon"
-              name="reload"
-              :color="colorVariables.colorGrey3"
-              :width="14"
-              :height="14"
-              @click="openPreview"
-            />
+            <el-button type="text" plain
+              ><svg-icon class="refresh-icon" height="14" width="14" name="reload" @click="openPreview" />
+            </el-button>
             <cute-form-info title="标题测试" content="对标题测试的详细说明" />
           </el-form-item>
           <el-form-item

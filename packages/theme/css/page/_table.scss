@@ -408,6 +408,7 @@
   .el-table__expanded-cell {
     width: 100% !important;
     padding: 9px 10px 0 20px !important;
+    background-color: $color-bg-2;
   }
 
   .el-table__row:last-child {
@@ -425,6 +426,7 @@
   }
 
   .el-table {
+    background-color: $color-bg-2;
     margin: 0 !important;
   }
 }

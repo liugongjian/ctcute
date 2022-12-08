@@ -65,6 +65,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'cute-state',
+        name: 'CuteState',
+        component: () => import('@/views/component/Base/CuteState/index.vue'),
+        meta: {
+          title: 'CuteState',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'cute-tag',
         name: 'CuteTag',
         component: () => import('@/views/component/Base/CuteTag/index.vue'),

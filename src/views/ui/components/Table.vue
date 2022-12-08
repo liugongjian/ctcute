@@ -1288,6 +1288,14 @@ export default class extends Vue {
     .head-title {
       margin-bottom: 13px;
       color: $color-grey-1;
+
+      &:hover {
+        color: $color-master-1;
+      }
+
+      &.sub-table-settings__svg--active {
+        color: $color-master-3;
+      }
     }
   }
 
@@ -1304,10 +1312,6 @@ export default class extends Vue {
       margin-bottom: 10px;
       display: block;
     }
-  }
-
-  &__svg--active {
-    color: $color-master-3;
   }
 
   .health-dot {

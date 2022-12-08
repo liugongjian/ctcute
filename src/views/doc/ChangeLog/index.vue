@@ -112,15 +112,7 @@ export default class extends Vue {
           name: '全局',
           desc: [
             {
-              text: '全量导出颜色变量',
-            },
-          ],
-        },
-        {
-          name: '全局',
-          desc: [
-            {
-              text: '新增dark模式',
+              text: '新增dark模式; 全量导出颜色变量',
             },
           ],
         },
@@ -152,15 +144,7 @@ export default class extends Vue {
           name: 'Page-Order',
           desc: [
             {
-              text: '产品列表页',
-            },
-          ],
-        },
-        {
-          name: 'Page-Order',
-          desc: [
-            {
-              text: '新增订购以及产品详情页',
+              text: '新增订购以及产品详情页; 产品列表页',
             },
           ],
         },
@@ -194,15 +178,7 @@ export default class extends Vue {
           name: 'Component-CuteState',
           desc: [
             {
-              text: 'CuteState 添加文档，修复图标对齐',
-            },
-          ],
-        },
-        {
-          name: 'Ui-Button',
-          desc: [
-            {
-              text: '解决button hover背景色',
+              text: 'CuteState 添加文档, 修复图标对齐',
             },
           ],
         },
@@ -234,7 +210,7 @@ export default class extends Vue {
           name: 'Component-CuteTag',
           desc: [
             {
-              text: 'tag height',
+              text: 'tag高度修改',
             },
           ],
         },
@@ -266,7 +242,7 @@ export default class extends Vue {
           name: 'Page-Order',
           desc: [
             {
-              text: 'orderButton fix',
+              text: '订单按钮修改',
             },
           ],
         },
@@ -338,7 +314,7 @@ export default class extends Vue {
           name: 'Ui-Upload',
           desc: [
             {
-              text: 'fix Upload Component dark styles',
+              text: 'upload组件深色模式bug修复',
             },
           ],
         },
@@ -354,7 +330,7 @@ export default class extends Vue {
           name: '全局',
           desc: [
             {
-              text: '移除svg title，避免hover显示 ',
+              text: '移除svg title, 避免hover显示 ',
             },
           ],
         },
@@ -362,7 +338,7 @@ export default class extends Vue {
           name: 'Conponent-S3Upload',
           desc: [
             {
-              text: 'fix s3upload ref type',
+              text: '修复s3upload ref type',
             },
           ],
         },
@@ -394,23 +370,7 @@ export default class extends Vue {
           name: '全局',
           desc: [
             {
-              text: 'theme修改',
-            },
-          ],
-        },
-        {
-          name: '全局',
-          desc: [
-            {
-              text: '颜色修改',
-            },
-          ],
-        },
-        {
-          name: 'Ui-upload',
-          desc: [
-            {
-              text: '修复Upload组件样式问题',
+              text: '颜色修改; theme修改',
             },
           ],
         },
@@ -434,7 +394,7 @@ export default class extends Vue {
           name: 'Ui-Upload',
           desc: [
             {
-              text: 'Upload页面及样式修改',
+              text: 'Upload页面及样式修改, 修复Upload组件样式问题',
             },
           ],
         },
@@ -474,15 +434,7 @@ export default class extends Vue {
           name: 'Page-Login',
           desc: [
             {
-              text: '完善登录页',
-            },
-          ],
-        },
-        {
-          name: 'Page-Login',
-          desc: [
-            {
-              text: 'Login中页面及样式修改',
+              text: 'Login中页面及样式修改; 完善登录页',
             },
           ],
         },
@@ -546,15 +498,7 @@ export default class extends Vue {
           name: 'Page-Order',
           desc: [
             {
-              text: '订单页布局、样式修改',
-            },
-          ],
-        },
-        {
-          name: 'Page-Order',
-          desc: [
-            {
-              text: '产品列表页、详情页配置修改',
+              text: '产品列表页、详情页配置修改; 订单页布局、样式修改',
             },
           ],
         },
@@ -618,7 +562,7 @@ export default class extends Vue {
           name: 'Ui-Input',
           desc: [
             {
-              text: '修复input 遗留问题',
+              text: '修复input遗留问题',
             },
           ],
         },

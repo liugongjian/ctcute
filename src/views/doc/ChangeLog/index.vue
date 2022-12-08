@@ -56,7 +56,7 @@ export default class extends Vue {
           name: '全局',
           desc: [
             {
-              text: '更新$color-other-2，删除$color-other-3; 删除$color-other-2',
+              text: '更新$color-other-2, 删除$color-other-3; 删除$color-other-2',
             },
           ],
         },
@@ -72,7 +72,7 @@ export default class extends Vue {
           name: 'Layout-LayoutHeader',
           desc: [
             {
-              text: '增加Header相关颜色变量。修复Dark模式下Header颜色',
+              text: '增加Header相关颜色变量; 修复Dark模式下Header颜色',
             },
           ],
         },
@@ -186,7 +186,7 @@ export default class extends Vue {
           name: 'Ui-Button',
           desc: [
             {
-              text: '解决button hover背景色',
+              text: '解决button hover背景色问题',
             },
           ],
         },
@@ -218,7 +218,7 @@ export default class extends Vue {
           name: 'Ui-Tree',
           desc: [
             {
-              text: '树组件样式bug',
+              text: '修复树组件样式bug',
             },
           ],
         },
@@ -234,7 +234,7 @@ export default class extends Vue {
           name: 'Page-Chart',
           desc: [
             {
-              text: 'chart颜色',
+              text: '调整chart颜色',
             },
           ],
         },
@@ -258,7 +258,7 @@ export default class extends Vue {
           name: 'Page-Detail',
           desc: [
             {
-              text: '复杂详情页2',
+              text: '修改复杂详情页2',
             },
           ],
         },
@@ -282,7 +282,7 @@ export default class extends Vue {
           name: 'Page-TsDemo',
           desc: [
             {
-              text: 'Typescript Demo Dark 模式bug',
+              text: 'Typescript Demo Dark模式bug修复',
             },
           ],
         },
@@ -290,7 +290,7 @@ export default class extends Vue {
           name: 'Layout-LayoutHeader',
           desc: [
             {
-              text: 'Header搜索ICON颜色',
+              text: '调整Header搜索ICON颜色',
             },
           ],
         },
@@ -306,7 +306,7 @@ export default class extends Vue {
           name: 'Ui-Input',
           desc: [
             {
-              text: '修复dark样式; 小输入框icon高度',
+              text: '修复dark样式; 修改小输入框icon高度',
             },
           ],
         },

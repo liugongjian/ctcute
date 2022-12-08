@@ -86,9 +86,6 @@ export default class extends Vue {
             {
               text: '增加svgtopology的组件引入',
             },
-            {
-              text: '补充svg-topology代码',
-            },
           ],
         },
         {
@@ -121,19 +118,13 @@ export default class extends Vue {
             {
               text: '补充RichText介绍说明',
             },
-            {
-              text: '新增RichText并修改样式',
-            },
           ],
         },
         {
           name: 'Ui-CodeBox',
           desc: [
             {
-              text: '增加代码框文字',
-            },
-            {
-              text: '新增CodeBox并修改样式',
+              text: '新增CodeBox',
             },
           ],
         },
@@ -151,33 +142,10 @@ export default class extends Vue {
       ],
       bugfix: [
         {
-          name: 'Conponent-S3Upload',
-          desc: [
-            {
-              text: '修复s3upload ref type',
-            },
-            {
-              text: '修复s3upload示例页面scope过时语法',
-            },
-          ],
-        },
-        {
           name: '全局',
           desc: [
             {
-              text: '颜色样式由静态改为变量形式',
-            },
-            {
-              text: '完善整体颜色样式',
-            },
-            {
-              text: '还原设计稿主题颜色',
-            },
-            {
-              text: '删除多余的颜色变量',
-            },
-            {
-              text: '颜色修改, theme修改',
+              text: '完善整体颜色样式，颜色样式由静态改为变量形式，删除多余的颜色变量',
             },
             {
               text: '移除svg title, 避免hover显示 ',
@@ -197,20 +165,6 @@ export default class extends Vue {
           desc: [
             {
               text: 'el-message-box样式修改',
-            },
-          ],
-        },
-        {
-          name: 'Page-Order',
-          desc: [
-            {
-              text: '产品列表页、详情页配置修改',
-            },
-            {
-              text: '订单页布局、样式修改',
-            },
-            {
-              text: '订购页文件改变, 调整样式',
             },
           ],
         },
@@ -253,14 +207,6 @@ export default class extends Vue {
           ],
         },
         {
-          name: 'Component-CuteSelectTree',
-          desc: [
-            {
-              text: '修复dark遗留问题',
-            },
-          ],
-        },
-        {
           name: 'Page-Login',
           desc: [
             {
@@ -271,44 +217,6 @@ export default class extends Vue {
             },
             {
               text: '完善登录页',
-            },
-          ],
-        },
-        {
-          name: 'Component',
-          desc: [
-            {
-              text: '删除多余文件',
-            },
-            {
-              text: '修复code路径配置',
-            },
-          ],
-        },
-        {
-          name: 'Ui-RichText',
-          desc: [
-            {
-              text: '修改组件名',
-            },
-            {
-              text: 'RichText代码及样式修改',
-            },
-          ],
-        },
-        {
-          name: 'Ui-CodeBox',
-          desc: [
-            {
-              text: '修改代码行高',
-            },
-          ],
-        },
-        {
-          name: 'Layout-CodeViewer',
-          desc: [
-            {
-              text: '样式修改',
             },
           ],
         },
@@ -366,14 +274,6 @@ export default class extends Vue {
             },
             {
               text: '删除小的校验错误提示的input',
-            },
-          ],
-        },
-        {
-          name: 'Ui-Slider',
-          desc: [
-            {
-              text: 'slider的bug及样式修改',
             },
           ],
         },

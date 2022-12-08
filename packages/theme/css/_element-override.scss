@@ -413,6 +413,10 @@
   border: 1px solid $color-master-1;
   box-shadow: $shadow-input;
 }
+.el-input__inner::-webkit-outer-spin-button,
+.el-input__inner::-webkit-inner-spin-button {
+  appearance: none;
+}
 
 .el-form-item.is-error .el-input__inner {
   border: 1px solid $color-status-danger-1;

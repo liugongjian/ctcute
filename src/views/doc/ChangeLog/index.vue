@@ -41,6 +41,269 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
+      version: '1.1.3',
+      date: '2022-12-7',
+      features: [
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '全量导出颜色变量',
+            },
+            {
+              text: '新增dark模式',
+            },
+            {
+              text: '更新$color-other-2',
+            },
+            {
+              text: '删除$color-other-2, $color-other-3',
+            },
+          ],
+        },
+        {
+          name: 'Layout-Search',
+          desc: [
+            {
+              text: '搜索结果增加关键词高亮、选中状态颜色修复',
+            },
+          ],
+        },
+        {
+          name: 'Layout-LayoutHeader',
+          desc: [
+            {
+              text: '修复Dark模式下Header颜色',
+            },
+            {
+              text: '增加Header相关颜色变量',
+            },
+          ],
+        },
+        {
+          name: 'Conponent-SvgTopology',
+          desc: [
+            {
+              text: '增加svgtopology的组件引入',
+            },
+          ],
+        },
+        {
+          name: 'Conponent-S3Upload',
+          desc: [
+            {
+              text: '添加业务组件 S3Upload 示例',
+            },
+          ],
+        },
+        {
+          name: 'Page-Table',
+          desc: [
+            {
+              text: '新增protable7',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Table',
+          desc: [
+            {
+              text: '添加详情页展示列表',
+            },
+          ],
+        },
+        {
+          name: 'Ui-RichText',
+          desc: [
+            {
+              text: '补充RichText介绍说明',
+            },
+          ],
+        },
+        {
+          name: 'Ui-CodeBox',
+          desc: [
+            {
+              text: '新增CodeBox',
+            },
+          ],
+        },
+        {
+          name: 'Page-Order',
+          desc: [
+            {
+              text: '新增产品列表页',
+            },
+            {
+              text: '新增订购以及产品详情页',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '完善整体颜色样式，颜色样式由静态改为变量形式，删除多余的颜色变量',
+            },
+            {
+              text: '移除svg title, 避免hover显示 ',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Selector',
+          desc: [
+            {
+              text: '修改日期组件底部颜色',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Card',
+          desc: [
+            {
+              text: 'el-message-box样式修改',
+            },
+          ],
+        },
+        {
+          name: 'Component-CuteTableColumnSettings',
+          desc: [
+            {
+              text: '自定义table透传属性',
+            },
+            {
+              text: '修改内联样式为className',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Cascader',
+          desc: [
+            {
+              text: 'el-cascader样式修改',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Upload',
+          desc: [
+            {
+              text: 'Upload组件修改',
+            },
+            {
+              text: '修复Upload组件样式问题',
+            },
+          ],
+        },
+        {
+          name: 'Layout-Slidebar',
+          desc: [
+            {
+              text: '修改侧边栏展开搜索按钮背景色',
+            },
+          ],
+        },
+        {
+          name: 'Page-Login',
+          desc: [
+            {
+              text: '登陆页增加非空校验',
+            },
+            {
+              text: '登录页面及样式修改',
+            },
+            {
+              text: '完善登录页',
+            },
+          ],
+        },
+        {
+          name: 'Page-Status',
+          desc: [
+            {
+              text: '状态页样式调整',
+            },
+            {
+              text: '颜色样式修改',
+            },
+          ],
+        },
+        {
+          name: 'Component-CuteSlider',
+          desc: [
+            {
+              text: 'CuteSlider样式修改',
+            },
+          ],
+        },
+        {
+          name: 'Component-CuteSortTable',
+          desc: [
+            {
+              text: 'sort-table组件透传属性',
+            },
+          ],
+        },
+        {
+          name: 'auth',
+          desc: [
+            {
+              text: '调整路由前置鉴权逻辑执行',
+            },
+            {
+              text: '增加options的ts约束',
+            },
+          ],
+        },
+        {
+          name: 'Page-Form',
+          desc: [
+            {
+              text: '修复表单icon颜色',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Input',
+          desc: [
+            {
+              text: '修复input遗留问题',
+            },
+            {
+              text: '删除小的校验错误提示的input',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Form',
+          desc: [
+            {
+              text: 'form样式修复',
+            },
+          ],
+        },
+        {
+          name: 'Component-ELAlert',
+          desc: [
+            {
+              text: 'alert说明文档变更',
+            },
+          ],
+        },
+        {
+          name: 'Component-ELCollapse',
+          desc: [
+            {
+              text: 'alert collapse说明文档变更',
+            },
+          ],
+        },
+      ],
+    },
+    {
       version: '1.1.2',
       date: '2022-10-28',
       features: [

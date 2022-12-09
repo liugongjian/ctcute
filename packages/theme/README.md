@@ -2,25 +2,30 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-08 10:16:32
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-11-19 10:52:47
+ * @LastEditTime: 2022-12-09 16:00:20
  * @Description:
 -->
 
 # 一、版本日志
 
-## v1.1.1
+## v1.1.2
+
+- 修改
+  - dark 模式遗留 bug
+
+## v1.1.1(deprecated)
 
 - 修改
   - 规范颜色变量
   - 修复 Upload 组件样式问题
   - 修复 cascade 样式问题
 
-## v1.1.0
+## v1.1.0(deprecated)
 
 - 修改
   - dark 模式遗留 bug
 
-## v1.0.9
+## v1.0.9(deprecated)
 
 - 新增
   - 定义了几个新的颜色变量

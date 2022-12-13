@@ -1,8 +1,8 @@
 <!--
  * @Author: 张晨曦
  * @Date: 2022-07-10 13:13:36
- * @LastEditors: 马妍
- * @LastEditTime: 2022-07-22 17:51:23
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-13 17:40:32
  * @Description: 复杂表格3
 -->
 <template>
@@ -88,14 +88,14 @@
           <el-button class="ml-12">次按钮</el-button>
         </div>
         <div class="table-tools__right">
-          <div class="table-tools__right__button__txt" @click="download">
-            <svg-icon name="vertical-align-bottom" />
-            <span class="ml-6">下载</span>
-          </div>
-          <div class="table-tools__right__button__txt ml-22" @click="exportFile">
+          <el-button type="text" plain @click="download">
+            <svg-icon name="download" />
+            <span>下载</span>
+          </el-button>
+          <el-button type="text" plain @click="exportFile">
             <svg-icon name="export" />
-            <span class="ml-6">导出</span>
-          </div>
+            <span>导出</span>
+          </el-button>
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2022-12-08 10:23:44
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-13 18:06:45
  * @Description: 复杂表格2
 -->
 <template>
@@ -94,7 +94,9 @@
       <el-table-column prop="disk" label="磁盘利用率(%)" />
       <el-table-column prop="health" label="健康状态">
         <template slot-scope="{ row }">
-          <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+          <span class="health-state">
+            <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+          </span>
         </template>
       </el-table-column>
       <el-table-column prop="actions" label="操作" fixed="right" class-name="actions" width="190px">
@@ -351,10 +353,15 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.health-state {
+  display: inline-flex;
+  align-items: center;
+}
+
 .health-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   margin-right: 8px;
   border-radius: 100%;
 

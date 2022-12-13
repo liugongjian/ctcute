@@ -2,7 +2,7 @@
  * @Author: 张晨曦
  * @Date: 2022-07-10 13:13:36
  * @LastEditors: 胡一苗
- * @LastEditTime: 2022-12-13 17:40:32
+ * @LastEditTime: 2022-12-13 18:06:45
  * @Description: 复杂表格3
 -->
 <template>
@@ -114,7 +114,9 @@
       <el-table-column prop="disk" label="磁盘利用率(%)" />
       <el-table-column prop="health" label="健康状态">
         <template slot-scope="{ row }">
-          <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+          <span class="health-state">
+            <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+          </span>
         </template>
       </el-table-column>
       <el-table-column prop="actions" label="操作" width="200" fixed="right" class-name="actions">
@@ -366,10 +368,15 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.health-state {
+  display: inline-flex;
+  align-items: center;
+}
+
 .health-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   margin-right: 8px;
   border-radius: 100%;
 

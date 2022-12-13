@@ -14,11 +14,19 @@
     }
   }
 
-  /* 表示状态的圆点 */
+  @include detail-status();
+}
+
+@mixin detail-status {
+  /* 带圆点的状态 */
+  .status {
+    display: inline-flex;
+    align-items: center;
+  }
   .status-dot {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     margin-right: 8px;
     border-radius: 100%;
   }
@@ -66,6 +74,8 @@
       right: 0;
     }
   }
+
+  @include detail-status();
 }
 
 /* 复杂详情页1 */

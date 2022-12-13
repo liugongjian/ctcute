@@ -6,6 +6,97 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "33231138",
+      "name": "天翼云去色logo带字",
+      "font_class": "tianyiyunquselogodaizi",
+      "unicode": "eba6",
+      "unicode_decimal": 60326
+    },
+    {
+      "icon_id": "33230042",
+      "name": "bold",
+      "font_class": "bold",
+      "unicode": "eba1",
+      "unicode_decimal": 60321
+    },
+    {
+      "icon_id": "33230043",
+      "name": "italic",
+      "font_class": "italic",
+      "unicode": "eba2",
+      "unicode_decimal": 60322
+    },
+    {
+      "icon_id": "33230046",
+      "name": "clear",
+      "font_class": "clear",
+      "unicode": "eba3",
+      "unicode_decimal": 60323
+    },
+    {
+      "icon_id": "33230082",
+      "name": "not-selected",
+      "font_class": "not-selected",
+      "unicode": "eba4",
+      "unicode_decimal": 60324
+    },
+    {
+      "icon_id": "33230083",
+      "name": "selected",
+      "font_class": "selected",
+      "unicode": "eba5",
+      "unicode_decimal": 60325
+    },
+    {
+      "icon_id": "33229247",
+      "name": "fill",
+      "font_class": "fill",
+      "unicode": "eb9f",
+      "unicode_decimal": 60319
+    },
+    {
+      "icon_id": "33229248",
+      "name": "remarks",
+      "font_class": "remarks",
+      "unicode": "eba0",
+      "unicode_decimal": 60320
+    },
+    {
+      "icon_id": "32689070",
+      "name": "天翼云去色云logo",
+      "font_class": "tianyiyunquseyunlogo",
+      "unicode": "eb87",
+      "unicode_decimal": 60295
+    },
+    {
+      "icon_id": "31224570",
+      "name": "safety certificate",
+      "font_class": "a-safetycertificate",
+      "unicode": "eb9e",
+      "unicode_decimal": 60318
+    },
+    {
+      "icon_id": "30441507",
+      "name": "plus-square",
+      "font_class": "plus-square",
+      "unicode": "eb9b",
+      "unicode_decimal": 60315
+    },
+    {
+      "icon_id": "30441508",
+      "name": "pull",
+      "font_class": "pull",
+      "unicode": "eb9c",
+      "unicode_decimal": 60316
+    },
+    {
+      "icon_id": "30441509",
+      "name": "ellipsis-square",
+      "font_class": "ellipsis-square",
+      "unicode": "eb9d",
+      "unicode_decimal": 60317
+    },
+    {
       "icon_id": "30202154",
       "name": "manage-fill",
       "font_class": "manage-fill",
@@ -60,13 +151,6 @@
       "font_class": "automation",
       "unicode": "eb86",
       "unicode_decimal": 60294
-    },
-    {
-      "icon_id": "30071942",
-      "name": "big-data-screen-fill",
-      "font_class": "big-data-screen-fill",
-      "unicode": "eb87",
-      "unicode_decimal": 60295
     },
     {
       "icon_id": "30071943",

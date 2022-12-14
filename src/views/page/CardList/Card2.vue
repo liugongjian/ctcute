@@ -60,7 +60,7 @@
                   <svg-icon name="eye" />
                 </div>
                 <div v-if="index === 0">
-                  <svg-icon name="edit" />
+                  <svg-icon name="ellipsis" />
                 </div>
                 <div v-else>
                   <el-dropdown>

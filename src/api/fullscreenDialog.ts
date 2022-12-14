@@ -10,5 +10,5 @@ export const getTable = (params: FullscreenDialog.TableParams): AxiosPromise<Ful
   request({
     url: '/mock/175/dialog/fullscreen/table',
     method: 'get',
-    data: params,
+    params,
   })

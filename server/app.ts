@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-07-08 13:45:09
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-20 16:54:59
+ * @LastEditTime: 2022-12-14 17:30:59
  * @Description:
  */
 import { Application, IBoot } from 'egg'
@@ -30,9 +30,9 @@ export default class AppBootHook implements IBoot {
     return mapping
   }
 
-  async beforeStart() {}
+  async beforeStart() { }
 
-  configWillLoad() {}
+  configWillLoad() { }
 
   async didLoad() {
     // 覆盖BizErrorHandler
@@ -58,12 +58,12 @@ export default class AppBootHook implements IBoot {
     const pagePath = path.resolve(__dirname, '../src')
 
     // Manifest列表
-    const manifestList: string[] = glob.sync(`${pagePath}/views/page/**/*.manifest`)
+    const manifestList: string[] = glob.sync(`${pagePath}/views/**/*.manifest`)
 
     // 模版名称和Manifest 映射关系
     const manifestMapping = this.generateManifestMapping(manifestList)
     this.app.manifestMapping = manifestMapping
   }
 
-  async didReady() {}
+  async didReady() { }
 }

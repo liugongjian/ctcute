@@ -1,8 +1,8 @@
 <!--
  * @Author: 赵丹
  * @Date: 2022-07-08 14:18:41
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-08 15:51:52
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2022-12-14 17:43:02
  * @Description: 卡片3
 -->
 <template>
@@ -24,7 +24,7 @@
                     <span class="card-box__info__version__num">{{ item.version }}</span>
                   </span>
                 </div>
-                <div class="card-box__info__handle">
+                <div class="card-box__info__handle" :class="{ 'card-disabled': index === 0 }">
                   <svg-icon name="edit" />
                   <svg-icon name="delete" />
                 </div>
@@ -49,7 +49,9 @@
                 <span class="card-box__info__text">描述</span>
                 <span ref="cardInfoDescribe" class="card-box__info__describe">
                   <span class="card-box__info__describe__text">
-                    {{ item.describe }}
+                    <div class="card-box--input">
+                      <cute-edit-input :textarea="true" :value="item.describe" class="input-box" />
+                    </div>
                   </span>
                 </span>
               </div>
@@ -62,12 +64,16 @@
 </template>
 
 <script lang="ts">
+import { CuteEditInput } from '@cutedesign/base'
 import { Component, Vue } from 'vue-property-decorator'
 import * as CardList from '@/types/Card3'
 import { getCardData } from '@/api/card3'
 
 @Component({
   name: 'Card3',
+  components: {
+    CuteEditInput,
+  },
 })
 export default class extends Vue {
   private cardData: CardList.CardListItem[] = []

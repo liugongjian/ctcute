@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-11 16:23:57
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-07-18 13:38:46
+ * @LastEditTime: 2022-12-14 17:38:35
  * @Description: 卡片2
 -->
 <template>
@@ -26,7 +26,7 @@
     <div>
       <el-row :gutter="20">
         <el-col v-for="(card, index) in cardData" :key="index" :span="8">
-          <el-card shadow="hover" class="card-box-less">
+          <el-card shadow="hover" :class="index === 0 ? 'card-box active' : 'card-box'" class="card-box-less">
             <div class="card-box">
               <div class="card-cont">
                 <div class="card-box--title">
@@ -52,17 +52,17 @@
                   </div>
                 </div>
               </div>
-              <div class="card-box--btns-less">
+              <div class="card-box--btns-less" :class="{ 'card-disabled': index === 0 }">
                 <div>
                   <svg-icon name="setting" />
                 </div>
                 <div>
                   <svg-icon name="eye" />
                 </div>
-                <!-- <div>
+                <div v-if="index === 0">
                   <svg-icon name="edit" />
-                </div> -->
-                <div>
+                </div>
+                <div v-else>
                   <el-dropdown>
                     <span class="el-dropdown-link">
                       <svg-icon name="ellipsis" />

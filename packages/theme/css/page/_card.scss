@@ -76,6 +76,7 @@
         cursor: pointer;
         font-size: 16px;
         color: $color-grey-4;
+        &:hover{color: $color-status-master-1;}
       }
     }
 
@@ -271,6 +272,7 @@
 
             .svg-icon {
               display: block;
+              &:hover{color: $color-status-master-1;}
             }
           }
         }
@@ -306,8 +308,21 @@
         svg {
           font-size: 16px;
           color: $color-grey-4;
+           &:hover{color: $color-status-master-1;}
         }
       }
     }
   }
 }
+.card-box__info__handle{
+
+        svg {
+          color: $color-grey-4;
+           &:hover{color: $color-status-master-1;}
+        }
+
+}
+.card-disabled svg{color: $color-grey-6 !important;}
+.card-disabled svg:hover{  cursor:not-allowed !important;}
+.card-big .card-box__info__describe__text{width: 100%; overflow-y: auto}
+.card-big .card-box__info__describe__text .card-box--input{height: 100%}

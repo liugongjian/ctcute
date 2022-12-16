@@ -1,14 +1,14 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-07-15 21:08:21
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-20 15:31:09
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-12-16 13:30:59
  * @Description:
 -->
 <template>
   <div v-if="descriptionInfo.length">
     <el-popover placement="top-start" width="400" trigger="hover" :open-delay="100">
-      <svg-icon slot="reference" class="icon" name="info-circle"/>
+      <svg-icon slot="reference" class="icon" name="info-circle" />
       <div v-for="(item, index) in descriptionInfo" :key="index">{{ item }}</div>
       <!-- <cute-mavon-editor :content="descriptionInfo" class="page-desc"></cute-mavon-editor> -->
     </el-popover>
@@ -92,6 +92,6 @@ export default class extends Vue {
 }
 
 .icon {
-  color: $icon-color;
+  color: $color-grey-3;
 }
 </style>

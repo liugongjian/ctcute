@@ -1,15 +1,15 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 胡一苗
- * @LastEditTime: 2022-12-13 18:06:45
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-12-16 13:31:44
  * @Description: 复杂表格2
 -->
 <template>
   <el-card class="pro-table-2">
     <!--表格工具栏-->
     <div class="table-tools">
-      <div class="table-tools__right table-tools__conditions">
+      <div class="table-tools__conditions">
         <el-form
           ref="conditions"
           class="complex-table_from"
@@ -59,8 +59,10 @@
               />
             </el-form-item>
             <el-form-item class="table-tools__conditions__buttons">
-              <el-button type="primary" @click="search">查 询</el-button>
-              <el-button @click="resetConditions">重 置</el-button>
+              <div class="buttons">
+                <el-button type="primary" @click="search">查 询</el-button>
+                <el-button @click="resetConditions">重 置</el-button>
+              </div>
             </el-form-item>
           </div>
         </el-form>

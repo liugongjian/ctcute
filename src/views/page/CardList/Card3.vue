@@ -2,7 +2,7 @@
  * @Author: 赵丹
  * @Date: 2022-07-08 14:18:41
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-12-14 17:43:02
+ * @LastEditTime: 2022-12-16 17:42:09
  * @Description: 卡片3
 -->
 <template>
@@ -25,7 +25,7 @@
                   </span>
                 </div>
                 <div class="card-box__info__handle" :class="{ 'card-disabled': index === 0 }">
-                  <svg-icon name="edit" />
+                  <svg-icon name="edit" @click="handleEdit(index)" />
                   <svg-icon name="delete" />
                 </div>
               </div>
@@ -49,8 +49,16 @@
                 <span class="card-box__info__text">描述</span>
                 <span ref="cardInfoDescribe" class="card-box__info__describe">
                   <span class="card-box__info__describe__text">
-                    <div class="card-box--input">
-                      <cute-edit-input :textarea="true" :value="item.describe" class="input-box" />
+                    <span v-if="index === 0">{{ item.describe }}</span>
+                    <span v-else-if="item.editType === false && index !== 0">{{ item.describe }}</span>
+                    <div v-else class="card-box--input">
+                      <cute-edit
+                        :value="item.describe"
+                        :textarea="true"
+                        class="input-box"
+                        @edit-input-save="editInputSave(index)"
+                        @edit-input-close="editInputClose(index)"
+                      />
                     </div>
                   </span>
                 </span>
@@ -64,7 +72,7 @@
 </template>
 
 <script lang="ts">
-import { CuteEditInput } from '@cutedesign/base'
+import { CuteEdit } from '@cutedesign/base'
 import { Component, Vue } from 'vue-property-decorator'
 import * as CardList from '@/types/Card3'
 import { getCardData } from '@/api/card3'
@@ -72,7 +80,7 @@ import { getCardData } from '@/api/card3'
 @Component({
   name: 'Card3',
   components: {
-    CuteEditInput,
+    CuteEdit,
   },
 })
 export default class extends Vue {
@@ -86,10 +94,27 @@ export default class extends Vue {
   private async getData() {
     try {
       const res = await getCardData()
-      this.cardData = res.data.list || []
+      const data = res.data.list || []
+      console.log(data)
+      this.cardData = data.map(item => {
+        item.editType = false
+        return item
+      })
     } catch (err) {
       this.$message(err.message)
     }
+  }
+
+  private handleEdit(index) {
+    if (index > 0) {
+      this.cardData[index].editType = true
+    }
+  }
+  private editInputSave(index) {
+    this.cardData[index].editType = false
+  }
+  private editInputClose(index) {
+    this.cardData[index].editType = false
   }
 
   private calcHeight() {

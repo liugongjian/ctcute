@@ -2,7 +2,7 @@
  * @Author: 王亚振
  * @Date: 2022-07-10 13:13:36
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-12-16 17:25:04
+ * @LastEditTime: 2022-12-16 19:40:19
  * @Description: 卡片1
 -->
 <template>
@@ -46,16 +46,7 @@
               </div>
               <div class="card-box--info">
                 描述：
-                <span v-if="index === 0">{{ card.remark }}</span>
-                <span v-else-if="card.editType === false && index !== 0">{{ card.remark }}</span>
-                <div v-else class="card-box--input">
-                  <cute-edit
-                    :value="card.remark"
-                    class="input-box"
-                    @edit-input-save="editInputSave(index)"
-                    @edit-input-close="editInputClose(index)"
-                  />
-                </div>
+                {{ card.remark }}
               </div>
               <div class="card-box--btns" :class="{ 'card-disabled': index === 0 }">
                 <div>
@@ -65,7 +56,7 @@
                   <svg-icon name="eye" />
                 </div>
                 <div>
-                  <svg-icon name="edit" @click="handleEdit(index)" />
+                  <svg-icon name="edit" />
                 </div>
 
                 <div v-if="index === 0">
@@ -91,7 +82,6 @@
   </el-card>
 </template>
 <script lang="ts">
-import { CuteEdit } from '@cutedesign/base'
 import { Component, Ref, Vue } from 'vue-property-decorator'
 import { getCardList } from '@/api/card1'
 import type { CardListItem } from '@/types/Card1'
@@ -99,9 +89,6 @@ import type { ElForm } from 'element-ui/types/form'
 
 @Component({
   name: 'Card1',
-  components: {
-    CuteEdit,
-  },
 })
 export default class extends Vue {
   /**
@@ -125,22 +112,10 @@ export default class extends Vue {
     try {
       this.loading = true
       const { data } = await getCardList()
-      this.cardData = data.map(item => {
-        item.editType = false
-        return item
-      })
+      this.cardData = data
     } finally {
       this.loading = false
     }
-  }
-  private handleEdit(index) {
-    this.cardData[index].editType = true
-  }
-  private editInputSave(index) {
-    this.cardData[index].editType = false
-  }
-  private editInputClose(index) {
-    this.cardData[index].editType = false
   }
 
   /**

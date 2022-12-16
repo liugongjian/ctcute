@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-11 16:23:57
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-12-16 17:33:55
+ * @LastEditTime: 2022-12-16 19:40:42
  * @Description: 卡片2
 -->
 <template>
@@ -30,9 +30,7 @@
             <div class="card-box">
               <div class="card-cont">
                 <div class="card-box--title">
-                  <div class="card-box--title-icon">
-                    <svg-icon name="detail-fill" width="14px" height="14px" />
-                  </div>
+                  <svg-icon name="question-circle-fill" width="24px" height="24px" />
                   <div class="card-box--title-text">
                     {{ card.title }}
                   </div>
@@ -46,10 +44,9 @@
                   </div>
                 </div>
                 <div class="card-box--info">
-                  描述：<span v-if="index === 0">{{ card.remark }}</span>
-                  <span v-else-if="card.editType === false && index !== 0">{{ card.remark }}</span>
-                  <div v-else class="card-box--input">
-                    <cute-edit
+                  描述：
+                  <div class="card-box--input">
+                    <cute-edit-input
                       :value="card.remark"
                       class="input-box"
                       @edit-input-save="editInputSave(index)"
@@ -74,7 +71,6 @@
                       <svg-icon name="ellipsis" />
                     </span>
                     <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item @click.native="handleEdit(index)">编辑</el-dropdown-item>
                       <el-dropdown-item>删除</el-dropdown-item>
                     </el-dropdown-menu>
                   </el-dropdown>
@@ -88,7 +84,7 @@
   </el-card>
 </template>
 <script lang="ts">
-import { CuteEdit } from '@cutedesign/base'
+import { CuteEditInput } from '@cutedesign/base'
 import { Component, Vue } from 'vue-property-decorator'
 import { getCardList } from '@/api/card2'
 import type { CardListItem } from '@/types/Card2'
@@ -96,7 +92,7 @@ import type { CardListItem } from '@/types/Card2'
 @Component({
   name: 'Card1',
   components: {
-    CuteEdit,
+    CuteEditInput,
   },
 })
 export default class extends Vue {

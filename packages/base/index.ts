@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-12-16 16:47:16
+ * @LastEditTime: 2022-12-16 19:53:13
  * @Description:
  */
 import ElementUI, {
@@ -98,7 +98,6 @@ import '@cutedesign/theme'
  */
 import CuteButtonGroup from './components/CuteCombinationButton/CuteButtonGroup.vue'
 import CuteEditInput from './components/CuteEditInput/index.vue'
-import CuteEdit from './components/CuteEdit/index.vue'
 import CuteFormInfo from './components/CuteFormInfo/index.vue'
 import CuteRemindInput from './components/CuteInput/CuteRemindInput.vue'
 import CuteSpecialRadio from './components/CuteRadio/CuteSpecialRadio.vue'
@@ -116,7 +115,6 @@ import CuteSlider from './components/CuteSlider/index.vue'
 export {
   CuteButtonGroup,
   CuteEditInput,
-  CuteEdit,
   CuteFormInfo,
   CuteRemindInput,
   CuteSpecialRadio,
@@ -139,7 +137,6 @@ export {
 const componentsList = [
   CuteFormInfo,
   CuteEditInput,
-  CuteEdit,
   CuteState,
   CuteTag,
   CuteRemindInput,

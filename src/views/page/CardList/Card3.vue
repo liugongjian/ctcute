@@ -2,7 +2,7 @@
  * @Author: 赵丹
  * @Date: 2022-07-08 14:18:41
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-12-16 17:42:09
+ * @LastEditTime: 2022-12-16 19:50:09
  * @Description: 卡片3
 -->
 <template>
@@ -13,11 +13,13 @@
       </div>
       <el-row :gutter="20" class="card-box">
         <el-col v-for="(item, index) in cardData" :key="index" :span="12">
-          <el-card shadow="hover">
+          <el-card shadow="hover" :class="index === 0 ? 'card-box active' : 'card-box'">
             <div class="card-box__info">
               <div class="card-box__info__header">
                 <div class="card-box__info__title">
-                  <span class="card-box__info__avatar"></span>
+                  <span class="card-box__info__avatar">
+                    <svg-icon name="question-circle-fill" width="24px" height="24px" />
+                  </span>
                   <span class="card-box__info__name">{{ item.name }}</span>
                   <span class="card-box__info__version">
                     支持版本号:
@@ -25,7 +27,7 @@
                   </span>
                 </div>
                 <div class="card-box__info__handle" :class="{ 'card-disabled': index === 0 }">
-                  <svg-icon name="edit" @click="handleEdit(index)" />
+                  <svg-icon name="edit" />
                   <svg-icon name="delete" />
                 </div>
               </div>
@@ -49,17 +51,7 @@
                 <span class="card-box__info__text">描述</span>
                 <span ref="cardInfoDescribe" class="card-box__info__describe">
                   <span class="card-box__info__describe__text">
-                    <span v-if="index === 0">{{ item.describe }}</span>
-                    <span v-else-if="item.editType === false && index !== 0">{{ item.describe }}</span>
-                    <div v-else class="card-box--input">
-                      <cute-edit
-                        :value="item.describe"
-                        :textarea="true"
-                        class="input-box"
-                        @edit-input-save="editInputSave(index)"
-                        @edit-input-close="editInputClose(index)"
-                      />
-                    </div>
+                    {{ item.describe }}
                   </span>
                 </span>
               </div>
@@ -72,16 +64,12 @@
 </template>
 
 <script lang="ts">
-import { CuteEdit } from '@cutedesign/base'
 import { Component, Vue } from 'vue-property-decorator'
 import * as CardList from '@/types/Card3'
 import { getCardData } from '@/api/card3'
 
 @Component({
   name: 'Card3',
-  components: {
-    CuteEdit,
-  },
 })
 export default class extends Vue {
   private cardData: CardList.CardListItem[] = []
@@ -94,27 +82,10 @@ export default class extends Vue {
   private async getData() {
     try {
       const res = await getCardData()
-      const data = res.data.list || []
-      console.log(data)
-      this.cardData = data.map(item => {
-        item.editType = false
-        return item
-      })
+      this.cardData = res.data.list || []
     } catch (err) {
       this.$message(err.message)
     }
-  }
-
-  private handleEdit(index) {
-    if (index > 0) {
-      this.cardData[index].editType = true
-    }
-  }
-  private editInputSave(index) {
-    this.cardData[index].editType = false
-  }
-  private editInputClose(index) {
-    this.cardData[index].editType = false
   }
 
   private calcHeight() {

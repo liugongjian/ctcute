@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-11 16:23:57
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-12-16 19:40:42
+ * @LastEditTime: 2022-12-16 19:55:33
  * @Description: 卡片2
 -->
 <template>
@@ -46,7 +46,9 @@
                 <div class="card-box--info">
                   描述：
                   <div class="card-box--input">
+                    <span v-if="index === 0">{{ card.remark }}</span>
                     <cute-edit-input
+                      v-else
                       :value="card.remark"
                       class="input-box"
                       @edit-input-save="editInputSave(index)"

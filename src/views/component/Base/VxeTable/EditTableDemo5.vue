@@ -20,6 +20,7 @@
       keep-source
       :loading="loading"
       :data="tableData"
+      :row-style="rowStyle"
       :edit-config="{ trigger: 'click', mode: 'row', activeMethod: activeRowMethod }"
       @edit-disabled="editDisabledEvent"
     >
@@ -84,6 +85,15 @@ export default class extends Vue {
 
   private activeRowMethod({ rowIndex }) {
     return rowIndex !== 0
+  }
+
+  private rowStyle({ rowIndex }) {
+    if (rowIndex === 0) {
+      console.log(rowIndex)
+      return {
+        cursor: 'not-allowed',
+      }
+    }
   }
 
   private editDisabledEvent() {

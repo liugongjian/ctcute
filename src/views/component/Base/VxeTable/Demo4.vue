@@ -23,7 +23,11 @@
           <el-button type="text" :disabled="!selectRow" @click="clearRadioRowEvent">取消</el-button>
         </template>
       </vxe-column>
-      <vxe-column field="name" title="主机别名"></vxe-column>
+      <vxe-column field="name" title="主机别名">
+        <template #default="{ row }">
+          <router-link to="/">{{ row.name }}</router-link>
+        </template>
+      </vxe-column>
       <vxe-column field="status" title="实例状态">
         <template #default="{ row }">
           {{ statusFormatter(row) }}
@@ -76,7 +80,11 @@
       @radio-change="radioChangeEvent"
     >
       <vxe-column type="radio" width="60"></vxe-column>
-      <vxe-column field="name" title="主机别名"></vxe-column>
+      <vxe-column field="name" title="主机别名">
+        <template #default="{ row }">
+          <router-link to="/">{{ row.name }}</router-link>
+        </template>
+      </vxe-column>
       <vxe-column field="status" title="实例状态">
         <template #default="{ row }">
           {{ statusFormatter(row) }}
@@ -222,7 +230,8 @@ export default class extends Vue {
    */
   private clearRadioRowEvent() {
     this.selectRow = null
-    this.$refs.xTable.clearRadioRow()
+    const $table: any = this.$refs.xTable
+    $table.clearRadioRow()
   }
 
   /**
@@ -237,10 +246,12 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .health-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 8px;
+  width: 6px;
+  height: 6px;
+  margin-right: 10px;
   border-radius: 100%;
+  position: relative;
+  top: -1px;
 
   &--1 {
     background: $color-status-success;
@@ -272,5 +283,13 @@ export default class extends Vue {
 .el-dropdown-link {
   cursor: pointer;
   color: $color-master-1;
+}
+//todo 解决禁止选中radio没有置灰 的问题，需要ui切图置灰的radio
+
+::v-deep .is--disabled {
+  .cute-icon-not-selected {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+  }
 }
 </style>

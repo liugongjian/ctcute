@@ -10,3 +10,11 @@ VXETable.setup({
     TABLE_EXPAND_CLOSE: 'cute-icon-caret-right',
   },
 })
+
+VXETable.setup({
+  table: {
+    rowConfig: {
+      isHover: true,
+    },
+  },
+})

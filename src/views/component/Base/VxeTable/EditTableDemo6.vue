@@ -51,14 +51,19 @@
       </vxe-column>
       <vxe-column field="address" title="地址" :edit-render="{}">
         <template #edit="{ row }">
-          <el-tooltip
-            effect="light"
+          <el-popover
             content="某某某原因无法修改，无法修改"
             placement="top-start"
+            trigger="hover"
             :disabled="!addressDisabled"
           >
-            <el-input v-model="row.address" type="text" :disabled="addressDisabled"></el-input>
-          </el-tooltip>
+            <el-input
+              slot="reference"
+              v-model="row.address"
+              type="text"
+              :disabled="addressDisabled"
+            ></el-input>
+          </el-popover>
         </template>
       </vxe-column>
     </vxe-table>

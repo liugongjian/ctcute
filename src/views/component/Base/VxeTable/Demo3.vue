@@ -9,7 +9,11 @@
 <template>
   <!--高亮行-->
   <vxe-table :row-config="{ isCurrent: true, isHover: true }" border="inner" :data="tableData">
-    <vxe-column field="name" title="主机别名"></vxe-column>
+    <vxe-column field="name" title="主机别名">
+      <template #default="{ row }">
+        <router-link to="/">{{ row.name }}</router-link>
+      </template>
+    </vxe-column>
     <vxe-column field="status" title="实例状态">
       <template #default="{ row }">
         {{ statusFormatter(row) }}
@@ -83,10 +87,12 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .health-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 8px;
+  width: 6px;
+  height: 6px;
+  margin-right: 10px;
   border-radius: 100%;
+  position: relative;
+  top: -1px;
 
   &--1 {
     background: $color-status-success;

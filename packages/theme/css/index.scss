@@ -15,6 +15,11 @@
 @import './page/login.scss';
 @import './page/order.scss';
 
+html {
+  scrollbar-color: $color-grey-6 transparent;
+  scrollbar-width: thin;
+}
+
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -23,6 +28,7 @@ body {
   background: $body-fill;
   padding: 0;
   margin: 0;
+  scrollbar-color: $color-grey-6;
 }
 
 *,

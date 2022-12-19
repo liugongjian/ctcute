@@ -750,21 +750,6 @@ export default class extends Vue {
     ::v-deep td.el-table__cell {
       color: $color-grey-1;
     }
-
-    ::-webkit-scrollbar-track-piece {
-      background-color: $color-white;
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 8px;
-    }
-
-    ::-webkit-scrollbar-thumb:vertical {
-      height: 100px;
-      background-color: $color-grey-6;
-      border-radius: 6px;
-    }
   }
 }
 </style>

@@ -83,6 +83,10 @@ h2 {
   background-color: transparent;
 }
 
+*::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
 *::-webkit-scrollbar {
   width: 8px !important;
   height: 8px !important;

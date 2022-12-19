@@ -142,3 +142,8 @@ export default class extends Vue {
   }
 }
 </script>
+<style type="scss" scoped>
+.el-input-number {
+  width: 100%;
+}
+</style>

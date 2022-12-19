@@ -405,6 +405,7 @@
   border: 1px solid $color-master-1;
   box-shadow: $shadow-input;
 }
+
 .el-input__inner::-webkit-outer-spin-button,
 .el-input__inner::-webkit-inner-spin-button {
   appearance: none;
@@ -1452,27 +1453,28 @@
   }
 }
 
- .is-success .el-step__line-inner{
-    display: block;
-    border-width: 1px;
-    border-style: solid;
-    border-color: inherit;
-    transition: 0.15s ease-out;
-    box-sizing: border-box;
-    width: 0;
-    height: 0;
-    background-color:$color-master-1;
+.is-success .el-step__line-inner {
+  display: block;
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+  transition: 0.15s ease-out;
+  box-sizing: border-box;
+  width: 0;
+  height: 0;
+  background-color: $color-master-1;
 }
-.is-error .el-step__line-inner{
-    display: block;
-    border-width: 1px;
-    border-style: solid;
-    border-color: inherit;
-    transition: 0.15s ease-out;
-    box-sizing: border-box;
-    width: 0;
-    height: 0;
-    background-color:$color-status-danger-1;
+
+.is-error .el-step__line-inner {
+  display: block;
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+  transition: 0.15s ease-out;
+  box-sizing: border-box;
+  width: 0;
+  height: 0;
+  background-color: $color-status-danger-1;
 }
 
 .stepSuc :hover {
@@ -2813,5 +2815,22 @@
     .el-button--primary {
       background: $color-master-1 !important;
     }
+  }
+}
+
+/* Scrollbar
+-------------------------- */
+.el-scrollbar__thumb {
+  border-radius: 8px;
+  background-color: $color-grey-6;
+}
+
+.el-scrollbar__bar {
+  &.is-vertical {
+    width: 8px !important;
+  }
+
+  &.is-horizontal {
+    height: 8px !important;
   }
 }

@@ -15,6 +15,11 @@
 @import './page/login.scss';
 @import './page/order.scss';
 
+html {
+  scrollbar-color: $color-grey-6 transparent;
+  scrollbar-width: thin;
+}
+
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -23,6 +28,7 @@ body {
   background: $body-fill;
   padding: 0;
   margin: 0;
+  scrollbar-color: $color-grey-6;
 }
 
 *,
@@ -66,6 +72,20 @@ p {
 
 h2 {
   color: $color-grey-1;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: $color-grey-6;
+}
+
+*::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
 }
 
 ::-webkit-resizer {

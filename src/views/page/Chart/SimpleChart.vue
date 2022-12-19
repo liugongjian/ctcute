@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 胡一苗
- * @LastEditTime: 2022-12-19 09:24:11
+ * @LastEditTime: 2022-12-19 10:18:20
  * @Description: 基础图表
 -->
 <template>
@@ -746,21 +746,6 @@ export default class extends Vue {
 
     ::v-deep td.el-table__cell {
       color: $color-grey-1;
-    }
-
-    ::-webkit-scrollbar-track-piece {
-      background-color: transparent;
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 8px;
-    }
-
-    ::-webkit-scrollbar-thumb:vertical {
-      height: 100px;
-      background-color: $color-grey-6;
-      border-radius: 6px;
     }
   }
 }

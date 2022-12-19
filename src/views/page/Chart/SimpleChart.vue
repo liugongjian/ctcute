@@ -1,8 +1,8 @@
 <!--
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-12-13 18:07:20
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-19 09:24:11
  * @Description: 基础图表
 -->
 <template>
@@ -749,7 +749,7 @@ export default class extends Vue {
     }
 
     ::-webkit-scrollbar-track-piece {
-      background-color: $color-white;
+      background-color: transparent;
     }
 
     ::-webkit-scrollbar {

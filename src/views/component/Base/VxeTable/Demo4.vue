@@ -37,7 +37,7 @@
       <vxe-column field="time" title="时间" sortable></vxe-column>
       <vxe-column field="tags" title="标签">
         <template #default="{ row }">
-          <el-tag v-for="item in row.tags" :key="item">{{ item }}</el-tag>
+          <el-tag type="info" v-for="item in row.tags" :key="item">{{ item }}</el-tag>
         </template>
       </vxe-column>
       <vxe-column field="desc" title="描述" show-overflow></vxe-column>
@@ -94,7 +94,7 @@
       <vxe-column field="time" title="时间" sortable></vxe-column>
       <vxe-column field="tags" title="标签">
         <template #default="{ row }">
-          <el-tag v-for="item in row.tags" :key="item">{{ item }}</el-tag>
+          <el-tag type="info" v-for="item in row.tags" :key="item">{{ item }}</el-tag>
         </template>
       </vxe-column>
       <vxe-column field="desc" title="描述" show-overflow></vxe-column>
@@ -147,7 +147,7 @@
       <vxe-column field="time" title="时间" sortable></vxe-column>
       <vxe-column field="tags" title="标签">
         <template #default="{ row }">
-          <el-tag v-for="item in row.tags" :key="item">{{ item }}</el-tag>
+          <el-tag type="info" v-for="item in row.tags" :key="item">{{ item }}</el-tag>
         </template>
       </vxe-column>
       <vxe-column field="desc" title="描述" show-overflow></vxe-column>
@@ -273,13 +273,6 @@ export default class extends Vue {
     background: $disabled-color;
   }
 }
-.el-tag {
-  background: #f8f8f8;
-  border: 1px solid #dddddd;
-  border-radius: 2px;
-  color: #333333;
-  margin-right: 12px;
-}
 .el-dropdown-link {
   cursor: pointer;
   color: $color-master-1;
@@ -288,8 +281,8 @@ export default class extends Vue {
 
 ::v-deep .is--disabled {
   .cute-icon-not-selected {
-    background-color: #f8f8f8;
-    border-radius: 10px;
+    background-color: $disabled-fill;
+    border-radius: 100%;
   }
 }
 </style>

@@ -278,7 +278,9 @@ export default class extends Vue {
   color: $color-master-1;
 }
 //todo 解决禁止选中radio没有置灰 的问题，需要ui切图置灰的radio
-
+.el-tag {
+  margin-right: 8px;
+}
 ::v-deep .is--disabled {
   .cute-icon-not-selected {
     background-color: $disabled-fill;

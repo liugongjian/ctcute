@@ -112,13 +112,9 @@ export default class extends Vue {
     background: $disabled-color;
   }
 }
-/*.el-tag {*/
-  /*background: #f8f8f8;*/
-  /*border: 1px solid #dddddd;*/
-  /*border-radius: 2px;*/
-  /*color: #333333;*/
-  /*margin-right: 12px;*/
-/*}*/
+.el-tag {
+  margin-right: 8px;
+}
 .el-dropdown-link {
   cursor: pointer;
   color: $color-master-1;

@@ -102,6 +102,7 @@
     "packages/appendix",
     "packages/sort-table",
     "packages/authenticate",
-    "packages/layout"
+    "packages/layout",
+    "packages/vxe-table"
   ]
 }

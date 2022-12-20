@@ -161,6 +161,14 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'vxe-table',
+        name: 'VxeTable',
+        component: () => import('@/views/component/Base/VxeTable/index.vue'),
+        meta: {
+          title: 'VxeTable',
+        },
+      }
     ],
   },
   {

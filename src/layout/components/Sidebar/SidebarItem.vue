@@ -1,7 +1,12 @@
 <template>
   <div
     v-if="!item.meta || !item.meta.hidden"
-    :class="['menu-wrapper', isCollapse ? 'simple-mode' : 'full-mode', { 'first-level': isFirstLevel }]"
+    :class="[
+      'menu-wrapper',
+      isCollapse ? 'simple-mode' : 'full-mode',
+      { 'first-level': isFirstLevel },
+      { 'carry-icon': item.meta && item.meta.icon },
+    ]"
   >
     <template v-if="theOnlyOneChild && !theOnlyOneChild.children">
       <sidebar-item-link v-if="theOnlyOneChild.meta" :to="resolvePath(theOnlyOneChild.path)">
@@ -9,12 +14,19 @@
           :index="resolvePath(theOnlyOneChild.path)"
           :class="{ 'submenu-title-noDropdown': isFirstLevel }"
         >
-          <span v-if="theOnlyOneChild.meta.title" slot="title">{{ theOnlyOneChild.meta.title }}</span>
+          <template slot="title">
+            <!-- 图标 -->
+            <span v-if="theOnlyOneChild.meta && theOnlyOneChild.meta.icon" class="append-icon">
+              <svg-icon :name="theOnlyOneChild.meta.icon" :width="14" :height="14" />
+            </span>
+            <span v-if="theOnlyOneChild.meta.title" slot="title">{{ theOnlyOneChild.meta.title }}</span>
+          </template>
         </el-menu-item>
       </sidebar-item-link>
     </template>
     <el-submenu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template slot="title">
+        <!-- 图标 -->
         <span v-if="item.meta && item.meta.icon" class="append-icon">
           <svg-icon :name="item.meta.icon" :width="14" :height="14" />
         </span>

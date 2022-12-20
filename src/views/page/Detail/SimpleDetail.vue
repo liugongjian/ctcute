@@ -1,8 +1,8 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2022-10-28 16:01:51
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-13 19:41:40
  * @Description:简单表单页
 -->
 <template>
@@ -101,7 +101,9 @@
           </el-table-column>
           <el-table-column prop="status" label="状态">
             <template slot-scope="{ row }">
-              <span class="status-dot" :class="`status-dot--${row.status}`" />{{ STATUS[row.status] }}
+              <span class="status">
+                <span class="status-dot" :class="`status-dot--${row.status}`" />{{ STATUS[row.status] }}
+              </span>
             </template>
           </el-table-column>
           <el-table-column prop="operatorId" label="操作员id"></el-table-column>

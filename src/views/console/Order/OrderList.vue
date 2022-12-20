@@ -26,9 +26,7 @@
           </el-form-item>
           <el-form-item label="磁盘名称" prop="diskName">
             <el-select v-model="form.diskName" placeholder="请选择">
-              <el-option v-for="item in options" :key="item.value" :value="item.value"
-                >{{ item.label }}
-              </el-option>
+              <el-option v-for="item in options" :key="item" :value="item"> </el-option>
             </el-select>
             <cute-form-info title="标题测试" content="对标题测试的详细说明" />
           </el-form-item>
@@ -51,9 +49,7 @@
           </el-form-item>
           <el-form-item label="企业项目" prop="Enterproject">
             <el-select v-model="form.Enterproject" placeholder="请选择">
-              <el-option v-for="item in options" :key="item.value" :value="item.value"
-                >{{ item.label }}
-              </el-option>
+              <el-option v-for="item in options" :key="item" :value="item"> </el-option>
             </el-select>
             <el-button type="text" plain
               ><svg-icon class="refresh-icon" height="14" width="14" name="reload" @click="openPreview" />
@@ -118,7 +114,7 @@
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import variables from '@cutedesign/theme/css/_variables.scss'
 import { CuteSpecialRadio } from '@cutedesign/base'
-import { getOptions } from '@/api/orderList'
+// import { getOptions } from '@/api/orderList'
 @Component({
   name: 'OrderList',
   components: { CuteSpecialRadio },
@@ -214,7 +210,7 @@ export default class extends Vue {
     createTime: 1,
   }
   private mouthValue = 1
-  private options = []
+  private options = ['workSpace', 'teamSpace', 'default']
   private marks = {
     1: '1个月',
     2: '2个月',
@@ -304,21 +300,21 @@ export default class extends Vue {
   /**
    * 页面Mounted
    */
-  private mounted() {
-    this.getOptions()
-  }
+  // private mounted() {
+  //   this.getOptions()
+  // }
 
   /**
    * 获取获取告警对象
    */
-  private async getOptions() {
-    try {
-      const res = await getOptions()
-      this.options = res.data
-    } catch (e) {
-      this.$message.error(e)
-    }
-  }
+  // private async getOptions() {
+  //   try {
+  //     const res = await getOptions()
+  //     this.options = res.data
+  //   } catch (e) {
+  //     this.$message.error(e)
+  //   }
+  // }
 
   /**
    * 选中配置

@@ -134,10 +134,8 @@
       border: none;
       background-color: transparent;
     }
-
-    ::v-deep .el-slider__button-wrapper {
-      // background: url('~@/assets/images/Slider.png') right no-repeat;
-      z-index: 10;
+    .el-slider__button-wrapper {
+       font-size: 12px;
     }
 
     ::v-deep .el-slider__marks {

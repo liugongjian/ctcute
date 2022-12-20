@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-10-21 13:45:25
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-24 09:08:26
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-13 18:20:10
  * @Description: 云硬盘列表
 -->
 <template>
@@ -73,10 +73,9 @@
           </el-table-column>
           <el-table-column prop="healthy" label="健康状态">
             <template slot-scope="scope">
-              <div>
-                <span class="health-dot" :class="`health-dot--${scope.row.healthy}`"></span>
-                <span>{{ HEALTH[scope.row.healthy] }}</span>
-              </div>
+              <span class="health-state">
+                <span class="health-dot" :class="`health-dot--${scope.row.healthy}`" />{{ HEALTH[scope.row.healthy] }}
+              </span>
             </template>
           </el-table-column>
           <el-table-column label="操作" width="210px">
@@ -176,10 +175,15 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.health-state {
+  display: inline-flex;
+  align-items: center;
+}
+
 .health-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   margin-right: 8px;
   border-radius: 100%;
 

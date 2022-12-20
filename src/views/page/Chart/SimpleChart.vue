@@ -1,8 +1,8 @@
 <!--
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-12-05 17:33:36
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-19 10:18:20
  * @Description: 基础图表
 -->
 <template>
@@ -190,8 +190,8 @@ export default class extends Vue {
     // 饼图
     this.option = {
       color: [
-        this.variables.chartColor1,
         this.variables.chartColor2,
+        this.variables.chartColor1,
         this.variables.chartColor3,
         this.variables.chartColor4,
         this.variables.chartColor5,
@@ -287,7 +287,7 @@ export default class extends Vue {
         bottom: '3%',
         containLabel: true,
       },
-      color: [this.variables.chartColor12, this.variables.chartColor4],
+      color: ['rgba(241,158,75,0.50)', this.variables.chartColor4],
       tooltip: {
         trigger: 'axis',
         axisPointer: {
@@ -334,16 +334,13 @@ export default class extends Vue {
           },
         },
         max: 12,
-        // axisLabel: {
-        //   formatter: '{value} %'
-        // }
       },
       series: [
         {
           name: '昨日',
           type: 'line',
           areaStyle: {
-            color: this.variables.chartColorL12,
+            color: 'rgba(247,204,139,0.2)',
           },
           emphasis: {
             focus: 'series',
@@ -361,7 +358,7 @@ export default class extends Vue {
           name: '今日',
           type: 'line',
           areaStyle: {
-            color: this.variables.chartColorL4,
+            color: 'rgba(241,158,75,0.2)',
           },
           emphasis: {
             focus: 'series',
@@ -564,7 +561,7 @@ export default class extends Vue {
           name: '完成率（%）',
           type: 'line',
           symbol: 'none',
-          color: [this.variables.colorOther3],
+          color: [this.variables.chartColor1],
           align: 'right',
           yAxisIndex: 1,
           tooltip: {

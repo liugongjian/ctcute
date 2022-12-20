@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-14 17:04:10
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2022-12-16 19:53:13
  * @Description:
  */
 import ElementUI, {
@@ -146,7 +146,7 @@ const componentsList = [
   CuteSelectTree,
   CuteArea,
   CuteSlider,
-  CuteStepsMulti
+  CuteStepsMulti,
 ]
 
 export default {

@@ -1,8 +1,8 @@
 <!--
  * @Author: 吴博聪
  * @Date: 2022-07-08 16:29:27
- * @LastEditors: 吴博聪
- * @LastEditTime: 2022-07-18 13:45:42
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-14 16:28:14
  * @Description: 全屏弹窗
 -->
 <template>
@@ -23,7 +23,7 @@
         <slot name="content">
           <el-form>
             <el-form-item label="配置状态">
-              <el-checkbox-group v-model="status">
+              <el-checkbox-group v-model="status" @change="onStatusChange">
                 <el-checkbox-button v-for="status in statusOptions" :key="status.value" :label="status.value">
                   {{ status.name }}
                 </el-checkbox-button>
@@ -97,6 +97,10 @@ export default class extends Vue {
   @Watch('visible')
   onVisibleChange(val) {
     if (val) this.getTable()
+  }
+
+  onStatusChange() {
+    this.getTable()
   }
 
   /**

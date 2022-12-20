@@ -1,8 +1,8 @@
 <!--
  * @Author: huanglulu
  * @Date: 2022-07-21 10:14:48
- * @LastEditors: 马妍
- * @LastEditTime: 2022-11-18 14:02:49
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-13 16:27:39
  * @Description:
 -->
 <template>
@@ -22,7 +22,7 @@
           </template>
         </el-table-column>
       </template>
-      <el-table-column label="优先级">
+      <el-table-column label="优先级" width="100">
         <div class="sort-table">
           <svg-icon name="menu" class="sort-icon" />
         </div>
@@ -76,6 +76,7 @@ export default class extends Vue {
 }
 
 .sort-icon {
+  font-size: 16px;
   cursor: pointer;
   color: $color-grey-3;
 

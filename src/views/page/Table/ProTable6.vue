@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-10-21 13:41:25
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-25 17:11:16
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-13 18:13:39
  * @Description: 复杂表格6
 -->
 <template>
@@ -27,9 +27,9 @@
             </el-table-column>
             <el-table-column prop="projectSpaceState" label="其他状态">
               <template slot-scope="{ row }">
-                <span class="health-dot" :class="`health-dot--${row.projectSpaceState}`" />{{
-                  STATUS[row.projectSpaceState]
-                }}
+                <span class="health-state">
+                  <span class="health-dot" :class="`health-dot--${row.projectSpaceState}`" />{{ STATUS[row.projectSpaceState] }}
+                </span>
               </template>
             </el-table-column>
             <el-table-column prop="cu" label="已使用 / 已购买CU">
@@ -71,9 +71,9 @@
       </el-table-column>
       <el-table-column label="工作空间状态" prop="workspaceState">
         <template slot-scope="{ row }">
-          <span class="health-dot" :class="`health-dot--${row.workspaceState}`" />{{
-            STATUS[row.workspaceState]
-          }}
+          <span class="health-state">
+            <span class="health-dot" :class="`health-dot--${row.workspaceState}`" />{{ STATUS[row.workspaceState] }}
+          </span>
         </template>
       </el-table-column>
       <el-table-column label="已使用 / 已购买CU" prop="CU">
@@ -143,10 +143,15 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.health-state {
+  display: inline-flex;
+  align-items: center;
+}
+
 .health-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   margin-right: 8px;
   border-radius: 100%;
 

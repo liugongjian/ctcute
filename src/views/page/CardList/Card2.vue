@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-11 16:23:57
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-07-18 13:38:46
+ * @LastEditTime: 2022-12-16 19:55:33
  * @Description: 卡片2
 -->
 <template>
@@ -26,13 +26,11 @@
     <div>
       <el-row :gutter="20">
         <el-col v-for="(card, index) in cardData" :key="index" :span="8">
-          <el-card shadow="hover" class="card-box-less">
+          <el-card shadow="hover" :class="index === 0 ? 'card-box active' : 'card-box'" class="card-box-less">
             <div class="card-box">
               <div class="card-cont">
                 <div class="card-box--title">
-                  <div class="card-box--title-icon">
-                    <svg-icon name="detail-fill" width="14px" height="14px" />
-                  </div>
+                  <svg-icon name="question-circle-fill" width="24px" height="24px" />
                   <div class="card-box--title-text">
                     {{ card.title }}
                   </div>
@@ -48,27 +46,33 @@
                 <div class="card-box--info">
                   描述：
                   <div class="card-box--input">
-                    <cute-edit-input :value="card.remark" class="input-box" />
+                    <span v-if="index === 0">{{ card.remark }}</span>
+                    <cute-edit-input
+                      v-else
+                      :value="card.remark"
+                      class="input-box"
+                      @edit-input-save="editInputSave(index)"
+                      @edit-input-close="editInputClose(index)"
+                    />
                   </div>
                 </div>
               </div>
-              <div class="card-box--btns-less">
+              <div class="card-box--btns-less" :class="{ 'card-disabled': index === 0 }">
                 <div>
                   <svg-icon name="setting" />
                 </div>
                 <div>
                   <svg-icon name="eye" />
                 </div>
-                <!-- <div>
-                  <svg-icon name="edit" />
-                </div> -->
-                <div>
+                <div v-if="index === 0">
+                  <svg-icon name="ellipsis" />
+                </div>
+                <div v-else>
                   <el-dropdown>
                     <span class="el-dropdown-link">
                       <svg-icon name="ellipsis" />
                     </span>
                     <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>编辑</el-dropdown-item>
                       <el-dropdown-item>删除</el-dropdown-item>
                     </el-dropdown-menu>
                   </el-dropdown>
@@ -113,12 +117,25 @@ export default class extends Vue {
     try {
       this.loading = true
       const { data } = await getCardList()
-      this.cardData = data
+      this.cardData = data.map(item => {
+        item.editType = false
+        return item
+      })
     } finally {
       this.loading = false
     }
   }
 
+  private handleEdit(index) {
+    console.log(1)
+    this.cardData[index].editType = true
+  }
+  private editInputSave(index) {
+    this.cardData[index].editType = false
+  }
+  private editInputClose(index) {
+    this.cardData[index].editType = false
+  }
   /**
    * 搜索表单
    */

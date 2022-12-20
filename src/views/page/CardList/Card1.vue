@@ -1,8 +1,8 @@
 <!--
  * @Author: 王亚振
  * @Date: 2022-07-10 13:13:36
- * @LastEditors: 王亚振
- * @LastEditTime: 2022-07-18 13:37:59
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2022-12-16 19:40:19
  * @Description: 卡片1
 -->
 <template>
@@ -44,8 +44,11 @@
                   已配置 <span>{{ card.deploy }}</span>
                 </div>
               </div>
-              <div class="card-box--info">描述：{{ card.remark }}</div>
-              <div class="card-box--btns">
+              <div class="card-box--info">
+                描述：
+                {{ card.remark }}
+              </div>
+              <div class="card-box--btns" :class="{ 'card-disabled': index === 0 }">
                 <div>
                   <svg-icon name="setting" />
                 </div>
@@ -55,8 +58,20 @@
                 <div>
                   <svg-icon name="edit" />
                 </div>
-                <div>
+
+                <div v-if="index === 0">
                   <svg-icon name="ellipsis" />
+                </div>
+                <div v-else>
+                  <el-dropdown>
+                    <span class="el-dropdown-link">
+                      <svg-icon name="ellipsis" />
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                      <!-- <el-dropdown-item>编辑</el-dropdown-item> -->
+                      <el-dropdown-item>删除</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
                 </div>
               </div>
             </div>
@@ -118,3 +133,10 @@ export default class extends Vue {
   }
 }
 </script>
+<style scoped>
+.card1-page .card-box .card-box--info {
+  line-height: 34px;
+  margin-top: 3px;
+  display: flex;
+}
+</style>

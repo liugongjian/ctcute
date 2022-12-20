@@ -1,8 +1,8 @@
 <!--
  * @Author: 赵昕
  * @Date: 2022-07-18 13:11:31
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-08-08 14:29:59
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-13 18:52:02
  * @Description: 复杂详情1
 -->
 <template>
@@ -67,8 +67,9 @@
                   <el-table-column prop="date" label="编辑下发事件"></el-table-column>
                   <el-table-column prop="status" label="状态">
                     <template slot-scope="{ row }">
-                      <span class="status-dot" :class="`status-dot--${row.status}`" />
-                      {{ STATUS[row.status] }}
+                      <span class="status">
+                        <span class="status-dot" :class="`status-dot--${row.status}`" />{{ STATUS[row.status] }}
+                      </span>
                     </template>
                   </el-table-column>
                 </el-table>
@@ -84,8 +85,9 @@
                   <el-table-column prop="date" label="编辑下发事件"></el-table-column>
                   <el-table-column prop="status" label="状态">
                     <template slot-scope="{ row }">
-                      <span class="status-dot" :class="`status-dot--${row.status}`" />
-                      {{ STATUS[row.status] }}
+                      <span class="status">
+                        <span class="status-dot" :class="`status-dot--${row.status}`" />{{ STATUS[row.status] }}
+                      </span>
                     </template>
                   </el-table-column>
                 </el-table>
@@ -107,7 +109,7 @@
                       :timestamp="item.title"
                       placement="top"
                     >
-                      <h4 v-if="item.message">
+                      <h4 v-if="item.message" class="status">
                         {{ item.message }}
                         <span class="status-dot" :class="`status-dot--${item.status}`" />
                         {{ RESULT[item.status] }}
@@ -118,8 +120,9 @@
                         <el-table-column prop="name" label="集群名称"></el-table-column>
                         <el-table-column prop="status" label="状态">
                           <template slot-scope="{ row }">
-                            <span class="status-dot" :class="`status-dot--${row.status}`" />
-                            {{ STATUS[row.status] }}
+                            <span class="status">
+                              <span class="status-dot" :class="`status-dot--${row.status}`" />{{ STATUS[row.status] }}
+                            </span>
                           </template>
                         </el-table-column>
                         <el-table-column prop="running" label="运行中"></el-table-column>

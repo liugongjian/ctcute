@@ -64,26 +64,32 @@
     &__conditions {
       .el-form {
         display: flex;
-        justify-content: space-between;
         width: 100%;
       }
 
       .el-form-item {
         margin-bottom: 0;
-
+        flex: 1;
+        margin-right: 20px;
+        .el-form-item__content{
+          width: 100%;
+        }
         &:last-child {
           margin-right: 0;
+          flex: none;
         }
       }
 
       .el-input,
       .el-select {
-        width: 304px;
+        width: 100%;
+  
       }
+  
 
       &__buttons {
-        margin-left: 10px;
         margin-right: 0;
+        float: right;
 
         .el-button + .el-button {
           margin-left: $button-margin;
@@ -502,26 +508,42 @@
     /* 筛选表单 */
     &__conditions {
       margin-bottom: 16px;
-
-      .el-form-item {
-        margin-bottom: 0;
-        width: 357px;
-
-        &:last-child {
-          margin-right: 0;
-          text-align: right;
-        }
+      .table-tools_top,.table-tools_bottom{
+        display: flex;
       }
-
-      .el-input,
-      .el-select {
-        width: 357px;
-      }
+       .table-tools_top{
+         .el-form-item {
+              margin-bottom: 16px;
+              flex: 1;
+              .el-form-item__content{
+                 width: 100%;
+              }
+              &:last-child{
+                margin-right: 0;
+              }
+          }
+       }
+       .table-tools_bottom{
+        .el-form-item {
+              margin-bottom: 0;
+              flex: 1;
+              .el-form-item__content{
+                 width: 100%;
+              }
+              &:last-child{
+                margin-right: 0;
+                flex: 2;
+              }
+          }
+       }
+     
 
       &__buttons {
-        margin-left: 24px;
         margin-right: 0;
-
+        .buttons{
+          width: auto;
+          float: right;
+        }
         .el-button + .el-button {
           margin-left: $button-margin;
         }
@@ -557,23 +579,7 @@
     line-height: 32px;
   }
 
-  .el-form {
-    .el-form-item {
-      margin-bottom: 16px !important;
-    }
-
-    .table-tools_top,
-    .table-tools_bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .table-tools_bottom {
-      .el-form-item__content {
-        justify-content: flex-end;
-      }
-    }
-  }
+ 
 
   .el-dropdown-link {
     cursor: pointer;

@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-07-13 13:41:05
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-07-28 10:12:56
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-20 13:51:57
  * @Description: 中弹窗
 -->
 <template>
@@ -25,7 +25,7 @@
       <el-scrollbar
         ref="scrollBar"
         class="medium-dialog--scroll"
-        :wrap-style="{ maxHeight: isFullscreen ? '100%' : '461px', width: '100%' }"
+        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '461px' }]"
       >
         <div class="medium-dialog--content">
           <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">

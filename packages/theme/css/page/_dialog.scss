@@ -252,8 +252,9 @@
   }
 
   &--content {
+    display: block;
     background-color: $color-grey-10;
-    color: $color-grey-2;
+    color: $color-grey-1;
     font-size: 12px;
   }
 
@@ -269,6 +270,7 @@
   @include base-dialog();
 
   &--content {
+    display: block;
     background-color: $color-grey-10;
   }
 

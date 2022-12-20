@@ -33,7 +33,7 @@
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
           <template slot-scope="scope">
-            <div>
+            <div class="sub-state">
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
               <span>{{ HEALTH[scope.row.healthy] }}</span>
             </div>
@@ -116,7 +116,7 @@
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
           <template slot-scope="scope">
-            <div>
+            <div class="sub-state">
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
               <span>{{ HEALTH[scope.row.healthy] }}</span>
             </div>
@@ -205,7 +205,7 @@
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
           <template slot-scope="scope">
-            <div>
+            <div class="sub-state">
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
               <span>{{ HEALTH[scope.row.healthy] }}</span>
             </div>
@@ -278,7 +278,7 @@
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
           <template slot-scope="scope">
-            <div>
+            <div class="sub-state">
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
               <span>{{ HEALTH[scope.row.healthy] }}</span>
             </div>
@@ -352,7 +352,7 @@
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
           <template slot-scope="scope">
-            <div>
+            <div class="sub-state">
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
               <span>{{ HEALTH[scope.row.healthy] }}</span>
             </div>
@@ -420,7 +420,7 @@
           <span>{{ statusFormatter(scope.row) }}</span>
         </template>
         <template #healthy="{ scope }">
-          <div>
+          <div class="sub-state">
             <span class="sub-spot" :class="`sub-spot--${scope.row.health}`"></span>
             <span>{{ HEALTH[scope.row.health] }}</span>
           </div>
@@ -505,7 +505,7 @@
       </el-table-column>
       <el-table-column prop="healthy" label="健康状态">
         <template slot-scope="scope">
-          <div>
+          <div class="sub-state">
             <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
             <span>{{ HEALTH[scope.row.healthy] }}</span>
           </div>
@@ -627,7 +627,7 @@
         <el-table-column prop="time" label="耗时"> </el-table-column>
         <el-table-column prop="status" label="状态">
           <template slot-scope="scope">
-            <div>
+            <div class="sub-small-state">
               <span class="sub-small-spot" :class="`sub-small-spot--${scope.row.status}`"></span>
               <span>{{ HEALTH[scope.row.status] }}</span>
             </div>
@@ -768,7 +768,7 @@
       <el-table :data="tableComponentData && tableComponentData.tableData10" fit border>
         <el-table-column v-for="v in selectedOptionsWithProp" :key="v.prop" :prop="v.prop" :label="v.label">
           <template slot-scope="{ row }">
-            <span v-if="v.prop === 'healthy'">
+            <span v-if="v.prop === 'healthy'" class="health-state">
               <span class="health-dot" :class="`health-dot--${row.healthy}`" />{{ HEALTH[row.healthy] }}
             </span>
 
@@ -1224,6 +1224,11 @@ export default class extends Vue {
   color: $color-master-1;
 }
 
+.sub-state {
+  display: inline-flex;
+  align-items: center;
+}
+
 .sub-spot {
   display: inline-block;
   width: 6px;
@@ -1250,6 +1255,11 @@ export default class extends Vue {
   &--5 {
     background: $disabled-color;
   }
+}
+
+.sub-small-state {
+  display: inline-flex;
+  align-items: center;
 }
 
 .sub-small-spot {
@@ -1314,10 +1324,15 @@ export default class extends Vue {
     }
   }
 
+  .health-state {
+    display: inline-flex;
+    align-items: center;
+  }
+
   .health-dot {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     margin-right: 8px;
     border-radius: 100%;
 

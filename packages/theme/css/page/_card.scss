@@ -76,6 +76,7 @@
         cursor: pointer;
         font-size: 16px;
         color: $color-grey-4;
+        &:hover{color: $color-status-master-1;}
       }
     }
 
@@ -111,7 +112,6 @@
   .el-card {
     border: 1px solid $color-grey-6;
   }
-
   .el-card.is-hover-shadow:hover {
     box-shadow: $shadow-card;
   }
@@ -123,7 +123,6 @@
   .card-box {
     .el-col {
       margin-bottom: 20px;
-
       .el-card.is-hover-shadow:hover {
         box-shadow: $shadow-card;
       }
@@ -144,7 +143,7 @@
         width: 24px;
         height: 24px;
         border-radius: 50%;
-        background-color: $color-master-2;
+        color: $color-grey-4;
       }
 
       &__name {
@@ -200,8 +199,9 @@
       &__tag {
         display: flex;
         flex-flow: wrap;
-
+        margin-bottom: -4px;
         & > * {
+        margin-bottom: 4px;
           border-radius: 2px;
           padding: 1px 8px;
           margin-right: 6px;
@@ -221,6 +221,12 @@
           height: 100%;
           line-height: 20px;
         }
+      }
+    }
+    &.active {
+      .card-box__info__avatar svg {
+        color: $color-status-success;
+        font-weight: 500;
       }
     }
   }
@@ -271,6 +277,7 @@
 
             .svg-icon {
               display: block;
+              &:hover{color: $color-status-master-1;}
             }
           }
         }
@@ -306,8 +313,21 @@
         svg {
           font-size: 16px;
           color: $color-grey-4;
+           &:hover{color: $color-status-master-1;}
         }
       }
     }
   }
 }
+.card-box__info__handle{
+
+        svg {
+          color: $color-grey-4;
+           &:hover{color: $color-status-master-1;}
+        }
+
+}
+.card-disabled svg{color: $color-grey-6 !important;}
+.card-disabled svg:hover{  cursor:not-allowed !important;}
+.card-big .card-box__info__describe__text{width: 100%; overflow-y: auto}
+.card-big .card-box__info__describe__text .card-box--input{height: 100%}

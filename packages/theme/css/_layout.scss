@@ -25,24 +25,6 @@
     font-weight: bold;
   }
 
-  .scrollbar-wrapper {
-    overflow-x: hidden !important;
-  }
-
-  .el-scrollbar__view {
-    height: 100%;
-  }
-
-  .el-scrollbar__bar {
-    &.is-vertical {
-      right: 0;
-    }
-
-    &.is-horizontal {
-      display: none;
-    }
-  }
-
   &__menu {
     padding-bottom: 50px;
   }
@@ -66,7 +48,7 @@
     display: flex;
     align-items: center;
 
-    > i.el-submenu__icon-arrow {
+    >i.el-submenu__icon-arrow {
       margin-top: 0;
       top: auto;
     }
@@ -76,12 +58,12 @@
     vertical-align: baseline !important;
   }
 
-  .el-submenu.is-active > .el-submenu__title {
+  .el-submenu.is-active>.el-submenu__title {
     color: $text-color-primary;
   }
 
   .el-menu-item,
-  .el-submenu > .el-submenu__title,
+  .el-submenu>.el-submenu__title,
   .el-submenu .el-menu-item {
     min-width: calc($sidebar-width - 40px);
     background-color: $color-bg-2;
@@ -148,14 +130,14 @@
     margin: 14px 0 18px 30px;
     max-height: calc(100% - 40px);
 
-    > div:first-child {
+    >div:first-child {
       .el-menu-item {
         height: 26px;
         line-height: 12px;
       }
     }
 
-    > div:last-child {
+    >div:last-child {
       .el-menu-item {
         height: 29px;
         line-height: 40px;
@@ -163,14 +145,14 @@
     }
 
     &__one {
-      > div:last-child {
+      >div:last-child {
         .el-menu-item {
           display: flex;
           align-items: center;
           height: 16px;
           line-height: 16px;
 
-          > span {
+          >span {
             line-height: 16px;
           }
         }
@@ -209,14 +191,14 @@
     overflow: auto;
   }
 
-  .app-main > .el-card.is-always-shadow {
+  .app-main>.el-card.is-always-shadow {
     border-radius: 0;
     border: none;
     color: inherit;
   }
 
   // 组件规范页需要支持滚动
-  > .el-card {
+  >.el-card {
     max-height: 100%;
     overflow: auto;
   }

@@ -1,8 +1,8 @@
 <!--
  * @Author: 吴博聪
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2022-10-24 10:56:16
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-20 14:29:30
  * @Description: 复杂中弹窗
 -->
 <template>
@@ -36,7 +36,7 @@
       <el-scrollbar
         ref="scrollBar"
         class="log-dialog--content"
-        :wrap-style="{ maxHeight: isFullscreen ? '100%' : '483px', width: '100%' }"
+        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '483px' }]"
       >
         <slot name="content">
           <pre class="log-dialog--pre">

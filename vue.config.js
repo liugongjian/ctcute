@@ -46,7 +46,6 @@ module.exports = {
       patterns: [
         path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_variables.scss'),
         path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_mixins.scss'),
-        // path.resolve(__dirname, 'theme/dark/_variables.scss'), // TODO delete when merge develop
       ],
     },
   },

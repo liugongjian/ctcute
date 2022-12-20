@@ -334,23 +334,23 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="status" label="实例状态"> </el-table-column>
+        <el-table-column prop="status" label="实例状态" width="100px"> </el-table-column>
         <el-table-column prop="ip" label="IP地址" width="100px"> </el-table-column>
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
-        <el-table-column prop="label" label="标签" width="150px">
+        <el-table-column prop="label" label="标签">
           <template slot-scope="scope">
             <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="description" label="描述" width="150px">
+        <el-table-column prop="description" label="描述">
           <template slot-scope="scope">
             <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
               <span class="text-ellipsis">{{ scope.row.description }}</span>
             </el-tooltip>
           </template>
         </el-table-column>
-        <el-table-column prop="healthy" label="健康状态">
+        <el-table-column prop="healthy" label="健康状态" width="100px">
           <template slot-scope="scope">
             <div class="sub-state">
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
@@ -358,7 +358,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="status2" label="其他状态">
+        <el-table-column prop="status2" label="其他状态" width="100px">
           <template slot-scope="scope">
             <el-tag :type="scope.row.status2 && STATUS2[scope.row.status2].color" size="small">{{
               scope.row.status2 && STATUS2[scope.row.status2].text

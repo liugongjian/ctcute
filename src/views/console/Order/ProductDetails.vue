@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-11-14 16:17:28
  * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-14 16:18:55
+ * @LastEditTime: 2022-12-21 14:41:15
  * @Description:
 -->
 <template>
@@ -47,8 +47,8 @@
         </cute-titled-block>
       </el-card>
       <el-card>
-        <el-tabs>
-          <el-tab-pane label="备份策略">
+        <el-tabs v-model="activeName">
+          <el-tab-pane name="a" label="备份策略">
             <div class="tab-header">
               <el-button>绑定备份策略</el-button>
               <div class="tab-search">
@@ -59,7 +59,7 @@
               </div>
             </div>
             <!--表格-->
-            <el-table v-loading="loading" :data="tableData" fit border>
+            <el-table v-if="activeName === 'a'" v-loading="loading" :data="tableData" fit border>
               <el-table-column prop="name" label="主机别名">
                 <template slot-scope="{ row }">
                   <router-link to="/">{{ row.name }}</router-link>
@@ -91,7 +91,7 @@
               @current-change="handleCurrentChange"
             />
           </el-tab-pane>
-          <el-tab-pane label="备份副本"> </el-tab-pane>
+          <el-tab-pane name="b" label="备份副本"> </el-tab-pane>
         </el-tabs>
       </el-card>
     </div>
@@ -120,6 +120,7 @@ export default class extends Vue {
   private HEALTH = HEALTH
 
   private STATUS = STATUS
+  private activeName = 'a'
   // 分页信息
   private pager = {
     page: 1,

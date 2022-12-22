@@ -21,7 +21,7 @@
     ]
   },
   "dependencies": {
-    "@cutedesign/s3-upload": "^0.1.5",
+    "@cutedesign/s3-upload": "^0.1.7",
     "@feta/markdown": "^0.1.0",
     "@vss/video-player": "^0.0.4",
     "@wangeditor/editor": "^5.0.1",

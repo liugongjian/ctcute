@@ -739,30 +739,32 @@
     </div>
     <h3>带列设置的表格</h3>
     <div class="sub-table-settings">
-      <!-- 列设置选择表单 -->
-      <el-popover
-        placement="bottom-end"
+      <el-dropdown 
         trigger="click"
-        class="sub-table-settings__popover"
-        @show="handlePopverShow"
-        @hide="handlePopverhide"
+        class="table-column-settings__dropdown"
+        :hide-on-click="false"
+        @visible-change="handleDropdownVisible"
       >
-        <!-- 固定的，用来全选 -->
-        <el-checkbox v-model="allSelected" label="全选" @change="handleSelectedChange"></el-checkbox>
-        <!-- 分割线 -->
-        <el-divider class="sub-table-settings__divider"></el-divider>
-        <!-- 列出全部选项 -->
-        <el-checkbox-group v-model="selectedOptions" class="sub-table-settings__label-group">
-          <el-checkbox v-for="v in allOptions" :key="v.label" :label="v.label" :disabled="v.disabled">
-          </el-checkbox>
-        </el-checkbox-group>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>
+            <el-checkbox v-model="allSelected" label="全选" @change="handleSelectedChange">
+            </el-checkbox>
+          </el-dropdown-item>
+          <!-- 分割线 -->
+          <el-divider class="table-column-settings__divider"></el-divider>
+          <el-checkbox-group v-model="selectedOptions" class="table-column-settings__label-group">
+            <el-dropdown-item v-for="v in allOptions">
+              <el-checkbox  :key="v.label" :label="v.label" :disabled="v.disabled">
+              </el-checkbox>
+            </el-dropdown-item>
+          </el-checkbox-group>
+        </el-dropdown-menu>
 
-        <!-- 列设置图标 -->
-        <div slot="reference" :class="['head-title', { 'sub-table-settings__svg--active': popverShow }]">
-          <svg-icon name="setting" width="14" height="14" style="margin-right: 6px" />
+        <div :class="['head-title', { 'table-column-settings__svg--active': dropdownShow }]">
+          <svg-icon name="setting" width="14" height="14" :class="['table-column-settings__svg', { 'table-column-settings__svg--active': dropdownShow }]" />
           <span>列设置</span>
         </div>
-      </el-popover>
+      </el-dropdown>
 
       <!-- 表格 -->
       <el-table :data="tableComponentData && tableComponentData.tableData10" fit border>
@@ -789,10 +791,9 @@
           <template>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
-          </template>
+          </template>  
         </el-table-column>
       </el-table>
-
       <!-- 分页 -->
       <el-pagination
         class="pagination"
@@ -811,6 +812,7 @@ import { STATUS, HEALTH, STATUS2 } from '@/dics/simpleTable'
 import { ElTable } from 'element-ui/types/table'
 import TableHookClass from '@cutedesign/base/hook/TableHook'
 import CuteSortTable from '@cutedesign/sort-table'
+import TableColumnSettings from '@/../packages/base/components/CuteTable/CuteTableColumnSettings.vue'
 import { getTable } from '@/api/cuteSortTable'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTableComponent } from '@/api/tableComponent'
@@ -819,6 +821,7 @@ import * as TableComponent from '@/types/TableComponent'
   name: 'UiTable',
   components: {
     CuteSortTable,
+    TableColumnSettings
   },
 })
 export default class extends Vue {
@@ -1009,12 +1012,19 @@ export default class extends Vue {
   // popver 状态变量
   private popverShow = false
 
+  private dropdownShow = false
+
   public handlePopverShow() {
     this.popverShow = true
   }
 
   public handlePopverhide() {
     this.popverShow = false
+  }
+
+  public handleDropdownVisible(val) {
+    console.log('handleDropdownVisible', val)
+    this.dropdownShow = val
   }
 
   // 全选状态变量
@@ -1355,6 +1365,78 @@ export default class extends Vue {
     &--5 {
       background: $disabled-color;
     }
+  }
+}
+
+.el-dropdown-menu {
+  width: 190px;
+  height: 341px;
+  overflow: hidden;
+
+  ::v-deep .el-checkbox__input.is-checked + .el-checkbox__label {
+    color:black !important;
+  }
+
+  ::v-deep .el-dropdown-menu__item {
+    &:hover {
+      .el-checkbox__label {
+        color: $color-master-1 !important;
+      }
+    }
+  }
+}
+
+.table-column-settings {
+  // &__popover {
+  //   float: right;
+  //   cursor: pointer;
+
+  //   .head-title {
+  //     margin-bottom: 13px;
+  //   }
+  // }
+  &__dropdown {
+    float: right;
+    cursor: pointer;
+    .head-title {
+      margin-bottom: 13px;
+      &:hover {
+        color: $color-master-3;
+        .table-column-settings__svg {
+          color: $color-master-3;
+        }
+      }
+    }
+  }
+
+  &__divider {
+    margin: 10px 0 !important;
+  }
+
+  &__label-group {
+    max-height: 300px;
+    overflow: auto;
+
+    label {
+      margin-bottom: 10px;
+      display: block;
+    }
+  }
+
+  &__svg {
+    margin-right: 6px;
+  }
+
+  &__svg--active {
+    color: $color-master-3;
+  }
+
+  &-paginationContainer {
+    height: 20px;
+  }
+
+  &__page {
+    float: right;
   }
 }
 

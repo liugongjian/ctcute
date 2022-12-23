@@ -2,7 +2,7 @@
  * @Author: 王月功
  * @Date: 2022-11-29 22:01:08
  * @LastEditors: 王月功
- * @LastEditTime: 2022-11-30 09:14:15
+ * @LastEditTime: 2022-12-23 19:49:33
  * @Description:
 -->
 <template>
@@ -80,7 +80,7 @@ import Demo1 from './Demo1.vue'
 import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 
 @Component({
-  name: 'CuteSelectTree',
+  name: 'MarkdownDemo',
   components: {
     ComponentDemo,
     Demo1,

@@ -134,12 +134,21 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
-       {
+      {
         path: 'cute-steps-multi',
         name: 'CuteSteps',
         component: () => import('@/views/component/Base/CuteStepsMulti/index.vue'),
         meta: {
           title: 'CuteStepsMulti',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-distribution-bar',
+        name: 'CuteDistributionBar',
+        component: () => import('@/views/component/Base/CuteDistributionBar/index.vue'),
+        meta: {
+          title: 'CuteDistributionBar',
           breadcrumb: true,
         },
       },
@@ -168,7 +177,7 @@ const componentRoutes = [
         meta: {
           title: 'VxeTable',
         },
-      }
+      },
     ],
   },
   {

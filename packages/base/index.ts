@@ -112,6 +112,7 @@ import CuteTableColumnSettings from './components/CuteTable/CuteTableColumnSetti
 import CuteSelectTree from './components/CuteSelect/CuteSelectTree.vue'
 import CuteArea from './components/CuteArea/index.vue'
 import CuteSlider from './components/CuteSlider/index.vue'
+import CuteDistributionBar from './components/CuteDistributionBar/index.vue'
 export {
   CuteButtonGroup,
   CuteEditInput,
@@ -129,6 +130,7 @@ export {
   CuteSelectTree,
   CuteArea,
   CuteSlider,
+  CuteDistributionBar,
 }
 
 /**

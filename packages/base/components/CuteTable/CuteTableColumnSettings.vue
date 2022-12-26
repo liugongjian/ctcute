@@ -18,7 +18,11 @@
       </el-checkbox-group>
       <!-- 列设置图标 -->
       <div slot="reference" class="table-column-settings__btns">
-        <el-button type="text" plain>
+        <el-button
+          type="text"
+          plain
+          :class="['table-column-settings__btn', { 'table-column-settings__btn--active': popoverShow }]"
+        >
           <svg-icon name="setting" />
           列设置
         </el-button>
@@ -175,6 +179,10 @@ export default class extends Vue {
   &__btns {
     display: flex;
     justify-content: right;
+  }
+
+  &__btn--active {
+    color: $color-master-3 !important;
   }
 
   &-paginationContainer {

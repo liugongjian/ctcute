@@ -779,12 +779,11 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Watch, Ref } from 'vue-property-decorator'
+import { Component, Vue, Ref } from 'vue-property-decorator'
 import { STATUS, HEALTH, STATUS2 } from '@/dics/simpleTable'
 import { ElTable } from 'element-ui/types/table'
 import TableHookClass from '@cutedesign/base/hook/TableHook'
 import CuteSortTable from '@cutedesign/sort-table'
-import TableColumnSettings from '@/../packages/base/components/CuteTable/CuteTableColumnSettings.vue'
 import { getTable } from '@/api/cuteSortTable'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTableComponent } from '@/api/tableComponent'
@@ -793,7 +792,6 @@ import * as TableComponent from '@/types/TableComponent'
   name: 'UiTable',
   components: {
     CuteSortTable,
-    TableColumnSettings
   },
 })
 export default class extends Vue {

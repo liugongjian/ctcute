@@ -2,7 +2,7 @@
  * @Author: 王月功
  * @Date: 2022-11-29 22:03:32
  * @LastEditors: 王月功
- * @LastEditTime: 2022-11-30 01:07:28
+ * @LastEditTime: 2022-12-23 19:46:03
  * @Description:
 -->
 <template>
@@ -17,6 +17,7 @@
 <script lang="ts">
 import { Vue, Component, Ref } from 'vue-property-decorator'
 import MdEditor, { MdPreview } from '@feta/markdown'
+import '@feta/markdown/lib/index.css'
 
 Vue.use(MdEditor)
 Vue.use(MdPreview)

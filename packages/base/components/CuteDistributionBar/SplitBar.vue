@@ -2,38 +2,50 @@
  * @Author: wujingcheng
  * @Date: 2022-12-23 15:25:54
  * @LastEditors: wujingcheng
- * @LastEditTime: 2022-12-25 15:38:45
+ * @LastEditTime: 2022-12-27 16:42:09
  * @Description:
 -->
 <template>
-  <div ref="sliderRef" class="sp-slider" @click="handleSliderClick">
-    <div v-for="(item, index) in showValue" :key="index">
-      <div class="sp-slider__bar" :style="getBarStyle(index)" />
-      <div
-        ref="button"
-        class="sp-slider__wrap"
-        :class="{
-          dragging: dragging,
-          hover: hovering,
-          disabled: fixLastButton && index === showValue.length - 1,
-        }"
-        :style="getButtonStyle(index)"
-        tabindex="0"
-        @mouseenter="handleMouseEnter"
-        @mouseleave="handleMouseLeave"
-        @mousedown="onButtonDown($event, index)"
-        @touchstart="onButtonDown($event, index)"
-        @focus="handleMouseEnter"
-        @blur="handleMouseLeave"
-        @keydown.left="onLeftKeyDown($event, index)"
-        @keydown.right="onRightKeyDown($event, index)"
-        @keydown.down.prevent="onLeftKeyDown($event, index)"
-        @keydown.up.prevent="onRightKeyDown($event, index)"
-      >
-        <div class="sp-slider__button" />
+  <div class="sp-slider">
+    <div ref="sliderRef" class="sp-slider__bar">
+      <div v-for="(item, index) in showValue" :key="index">
+        <el-popover
+          v-if="textData && textData.length > 0"
+          placement="top"
+          width="auto"
+          trigger="click"
+          :content="textData[index]"
+        >
+          <div slot="reference" class="sp-slider__bar-item" :style="getBarStyle(index)" />
+        </el-popover>
+        <div v-else slot="reference" class="sp-slider__bar-item" :style="getBarStyle(index)" />
+        <div
+          ref="button"
+          class="sp-slider__wrap"
+          :class="{
+            dragging: dragging,
+            hover: hovering,
+            disabled: fixLastButton && index === showValue.length - 1,
+          }"
+          :style="getButtonWrapStyle(index)"
+          tabindex="0"
+          @mouseenter="handleMouseEnter"
+          @mouseleave="handleMouseLeave"
+          @mousedown="onButtonDown($event, index)"
+          @touchstart="onButtonDown($event, index)"
+          @focus="handleMouseEnter"
+          @blur="handleMouseLeave"
+          @keydown.left="onLeftKeyDown($event, index)"
+          @keydown.right="onRightKeyDown($event, index)"
+          @keydown.down.prevent="onLeftKeyDown($event, index)"
+          @keydown.up.prevent="onRightKeyDown($event, index)"
+        >
+          <div class="sp-slider__button" :style="getButtonStyle(index)" />
+        </div>
+        <!-- <div class="sp-slider__text" :style="getTextStyle(index)">{{ item }}</div> -->
       </div>
-      <div class="sp-slider__text" :style="getTextStyle(index)">{{ showValue[index] }}</div>
     </div>
+    <div class="sp-slider__max">{{ showPercentage ? max + '%' : max }}</div>
   </div>
 </template>
 <script lang="ts">
@@ -50,6 +62,13 @@ export default class extends Vue {
   @Prop({ type: Number, default: 100 }) max?: number
   @Prop({ type: Number, default: 1 }) step?: number
   @Prop({ type: Boolean, default: false }) fixLastButton?: boolean
+  @Prop({ type: Array, default: () => [] }) textData?: []
+  @Prop({ type: Boolean, default: true }) showPercentage?: boolean
+  @Prop({
+    type: Array,
+    default: () => ['#409eff', '#e6a23c', '#409eff', '#e6a23c', '#409eff', '#e6a23c', '#409eff', '#e6a23c'],
+  })
+  barColor?: []
 
   public hovering = false
   public dragging = false
@@ -61,8 +80,6 @@ export default class extends Vue {
   private sliderSize = 1
   private precision = 0
   private activeIndex = 0
-  private barColor = ['#409eff', '#e6a23c', '#409eff', '#e6a23c', '#409eff', '#e6a23c', '#409eff', '#e6a23c']
-  // barColor = ['#409eff', '#e6a23c', '#67c23a', '#409eff', '#e6a23c', '#67c23a', '#409eff', '#e6a23c', '#67c23a']
   public showValue = []
 
   get currentPosition() {
@@ -71,19 +88,27 @@ export default class extends Vue {
   }
 
   getBarStyle(index) {
-    const rate = this.changeToRate(this.showValue[index])
+    const preValue = this.showValue[index - 1] || 0
+    const currentValue = this.showValue[index] - preValue
+    const preRate = this.changeToRate(preValue)
+    const currentRate = this.changeToRate(currentValue)
     return {
-      width: `${rate}%`,
-      left: 0,
+      width: `${currentRate}%`,
+      left: `${preRate}%`,
       'background-color': this.barColor[index],
       'z-index': 99 - index,
     }
   }
-  getButtonStyle(index) {
+  getButtonWrapStyle(index) {
     const rate = this.changeToRate(this.showValue[index])
     return {
       left: `${rate}%`,
       'z-index': 1000 - index,
+    }
+  }
+  getButtonStyle(index) {
+    return {
+      border: `2px solid ${this.barColor[index]}`,
     }
   }
   getTextStyle(index) {
@@ -242,6 +267,7 @@ export default class extends Vue {
 
   @Watch('value', {
     immediate: true,
+    deep: true,
   })
   valueChanged(value, oldVal) {
     if (!value || (value.length <= 0 && this.showValue.length > 0)) {
@@ -250,11 +276,13 @@ export default class extends Vue {
     }
     if (
       this.dragging ||
-      (Array.isArray(value) && Array.isArray(oldVal) && value.every((item, index) => item === oldVal[index]))
+      (Array.isArray(value) &&
+        Array.isArray(oldVal) &&
+        value.every((item, index) => item === oldVal[index]) &&
+        oldVal.every((item, index) => item === value[index]))
     ) {
       return
     }
-
     const totalValue = value.reduce((total, valueItem) => {
       return total + valueItem
     }, 0)
@@ -273,74 +301,81 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .sp-slider {
-  width: 400px;
-  height: 6px;
-  margin: 16px 0;
-  background-color: #e4e7ed;
-  border-radius: 3px;
-  position: relative;
-  cursor: pointer;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
 
   .sp-slider__bar {
-    position: absolute;
-    left: 0;
+    width: 400px;
     height: 6px;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-    // transition: .2s;
+    margin: 16px 0;
+    background-color: #e4e7ed;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+
+    .sp-slider__bar-item {
+      position: absolute;
+      left: 0;
+      height: 6px;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+
+    .sp-slider__wrap {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.hover,
+      &:hover {
+        cursor: grab;
+      }
+
+      user-select: none;
+
+      &.dragging {
+        cursor: grabbing;
+      }
+
+      &.disabled {
+        cursor: not-allowed;
+      }
+    }
+
+    .sp-slider__button {
+      width: 16px;
+      height: 16px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: 0.2s;
+
+      &.hover,
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    .sp-slider__text {
+      position: absolute;
+      top: -32px;
+      font-size: 12px;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      transform: translateX(-50%);
+    }
   }
 
-  .sp-slider__wrap {
-    width: 32px;
-    height: 32px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &.hover,
-    &:hover {
-      cursor: grab;
-    }
-
-    user-select: none;
-
-    &.dragging {
-      cursor: grabbing;
-    }
-
-    &.disabled {
-      cursor: not-allowed;
-    }
-  }
-
-  .sp-slider__button {
-    width: 16px;
-    height: 16px;
-    border: 2px solid #409eff;
-    background-color: #fff;
-    border-radius: 50%;
-    transition: 0.2s;
-    // user-select: none;
-    &.hover,
-    &:hover {
-      transform: scale(1.2);
-    }
-  }
-
-  .sp-slider__text {
-    position: absolute;
-    top: -32px;
-    font-size: 12px;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-    text-align: center;
-    transform: translateX(-50%);
+  .sp-slider__max {
+    margin-left: 15px;
   }
 }
 </style>

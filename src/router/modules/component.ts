@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
  * @LastEditors: 王月功
- * @LastEditTime: 2022-11-30 09:25:20
+ * @LastEditTime: 2022-12-23 19:51:06
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -222,6 +222,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Biz/Markdown/index.vue'),
         meta: {
           title: 'Markdown',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'markdown-book',
+        name: 'MarkdownBook',
+        component: () => import('@/views/component/Biz/MarkdownBook/index.vue'),
+        meta: {
+          title: 'MarkdownBook',
           breadcrumb: true,
         },
       },

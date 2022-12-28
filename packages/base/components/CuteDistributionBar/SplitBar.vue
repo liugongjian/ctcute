@@ -2,7 +2,7 @@
  * @Author: wujingcheng
  * @Date: 2022-12-23 15:25:54
  * @LastEditors: wujingcheng
- * @LastEditTime: 2022-12-27 16:42:09
+ * @LastEditTime: 2022-12-28 14:04:02
  * @Description:
 -->
 <template>
@@ -287,7 +287,7 @@ export default class extends Vue {
       return total + valueItem
     }, 0)
     if (totalValue > this.max) {
-      console.error('splitBar赋值校验失败。value数组的总和需要小于最大值，请重新赋值')
+      console.error('cute-distribution-bar赋值校验失败。value数组的总和需要小于最大值，请重新赋值')
       return
     }
     this.showValue = value.map((item, index) => {
@@ -308,7 +308,7 @@ export default class extends Vue {
     width: 400px;
     height: 6px;
     margin: 16px 0;
-    background-color: #e4e7ed;
+    background-color: $color-grey-8;
     border-radius: 3px;
     position: relative;
     cursor: pointer;
@@ -352,7 +352,7 @@ export default class extends Vue {
     .sp-slider__button {
       width: 16px;
       height: 16px;
-      background-color: #fff;
+      background-color: $color-white;
       border-radius: 50%;
       transition: 0.2s;
 

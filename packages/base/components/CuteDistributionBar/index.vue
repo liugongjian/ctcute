@@ -2,7 +2,7 @@
  * @Author: wujingcheng
  * @Date: 2022-12-23 15:25:54
  * @LastEditors: wujingcheng
- * @LastEditTime: 2022-12-27 16:38:36
+ * @LastEditTime: 2022-12-28 14:02:11
  * @Description:
 -->
 <template>
@@ -11,14 +11,14 @@
       <el-checkbox
         v-for="(item, index) in barList"
         :key="index"
-        v-model="item.checked"
+        v-model="item[propsChecked]"
         class="distribution-bar__checkbox"
-        :style="{ ['--color' + (index + 1)]: color[index] }"
+        :style="{ ['--color' + (index + 1)]: colors[index] }"
         @change="handleCheckboxChange(item, index)"
       >
-        <span class="distribution-bar__checkbox__name" @click.prevent>{{ item[propsName] }}</span>
+        <span class="distribution-bar__checkbox__name">{{ item[propsName] }}</span>
         <el-input-number
-          v-show="item.checked"
+          v-show="item[propsChecked]"
           v-model="item[propsValue]"
           :disabled="!isFree && barValueList.length === 1"
           class="distribution-bar__checkbox__value"
@@ -29,7 +29,7 @@
           size="small"
           @change="handleValueChange(item, index)"
         ></el-input-number>
-        <span v-show="item.checked" class="distribution-bar__checkbox__rate" @click.prevent>
+        <span v-show="item[propsChecked]" class="distribution-bar__checkbox__rate" @click.prevent>
           <span v-if="showValue">{{ getRate(item[propsValue]) }}</span>
           <span>%</span>
         </span>
@@ -52,6 +52,7 @@
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import SplitBar from './SplitBar.vue'
 import { cloneDeep } from 'lodash'
+import variables from '@cutedesign/theme/css/_variables.scss'
 
 @Component({
   name: 'CuteDistributionBar',
@@ -63,24 +64,38 @@ export default class extends Vue {
   @Prop({ type: Array, default: () => [] }) data?: []
   @Prop({
     type: Array,
-    default: () => ['#409eff', '#e6a23c', '#409eff', '#e6a23c', '#409eff', '#e6a23c', '#409eff', '#e6a23c'],
+    default: () => [
+      variables.chartColorH12,
+      variables.chartColor3,
+      variables.chartColor4,
+      variables.chartColor11,
+      variables.chartColor8,
+      variables.chartColor1,
+      variables.chartColor9,
+      variables.chartColor5,
+    ],
   })
-  color: []
+  colors: []
   @Prop({ type: Number, default: 100 }) max?: number
-  @Prop({ type: Number, default: 0 }) precision?: number
+  @Prop({ type: Number, default: 0 }) ratePrecision?: number
   @Prop({ type: Boolean, default: true }) showValue?: boolean
   @Prop({ type: String, default: 'fixed' }) mode?: string // fixed free
-  @Prop({ type: Object, default: () => ({}) }) props?: []
+  @Prop({ type: Object, default: () => ({}) }) props?: {
+    code: string
+    value: string
+    name: string
+    checked: string
+  }
 
   public barList: Array<any> = []
 
   get barValueList() {
-    return this.barList.filter(item => item.checked).map(item => item[this.propsValue])
+    return this.barList.filter(item => item[this.propsChecked]).map(item => item[this.propsValue])
   }
   set barValueList(val) {
     let index = 0
     this.barList.forEach(item => {
-      if (item.checked) {
+      if (item[this.propsChecked]) {
         item[this.propsValue] = val[index] || 0
         index++
       }
@@ -93,7 +108,7 @@ export default class extends Vue {
     })
   }
   get barWholeCheckedList() {
-    return this.barWholeList.filter(item => item.checked)
+    return this.barWholeList.filter(item => item[this.propsChecked])
   }
   get barTextData() {
     return this.barWholeCheckedList.map(item => {
@@ -103,8 +118,8 @@ export default class extends Vue {
   get barColor() {
     const barColor: Array<string> = []
     this.barList.forEach((item, index) => {
-      if (item.checked) {
-        barColor.push(this.color[index])
+      if (item[this.propsChecked]) {
+        barColor.push(this.colors[index])
       }
     })
     return barColor
@@ -124,6 +139,9 @@ export default class extends Vue {
   get propsName() {
     return this.props.name || 'name'
   }
+  get propsChecked() {
+    return this.props.checked || 'checked'
+  }
   get isFree() {
     return this.mode === 'free'
   }
@@ -139,12 +157,12 @@ export default class extends Vue {
     }
   }
   private fixedCheckboxChange() {
-    const checkedList = this.barList.filter(item => item.checked)
+    const checkedList = this.barList.filter(item => item[this.propsChecked])
     const len = checkedList.length
     const aveValue = Math.floor(this.barMax / len)
     const aveArray = this.barList.map(item => {
       // 向下取整平均值，最后一位补齐到100
-      item[this.propsValue] = item.checked ? aveValue : 0
+      item[this.propsValue] = item[this.propsChecked] ? aveValue : 0
       if (len > 0 && checkedList[len - 1][this.propsCode] === item[this.propsCode]) {
         item[this.propsValue] = this.barMax - aveValue * (len - 1)
       }
@@ -154,8 +172,8 @@ export default class extends Vue {
     this.emitChange()
   }
   private freeCheckboxChange(item, index) {
-    const checkedList = this.barList.filter(item => item.checked)
-    if (!item.checked) {
+    const checkedList = this.barList.filter(item => item[this.propsChecked])
+    if (!item[this.propsChecked]) {
       item[this.propsValue] = 0
     } else {
       if (checkedList.length === 1) {
@@ -164,7 +182,7 @@ export default class extends Vue {
         const total = this.barValueList.reduce((total, valueItem) => {
           return total + valueItem
         }, 0)
-        item[this.propsValue] = total >= this.barMax ? 0 : Math.round(0.01 * this.barMax)
+        item[this.propsValue] = total >= this.barMax ? 0 : Math.round(0.03 * this.barMax)
       }
     }
     this.barList.splice(index, 1, item)
@@ -190,14 +208,14 @@ export default class extends Vue {
     let rest
     if (this.isFree) {
       rest = this.barList.reduce((total, barValueItem, barValueIndex) => {
-        return barValueIndex === index || !barValueItem.checked
+        return barValueIndex === index || !barValueItem[this.propsChecked]
           ? total
           : total + barValueItem[this.propsValue]
       }, 0)
     } else {
       const nearIndex = this.getNearIndex(index)
       rest = this.barList.reduce((total, barValueItem, barValueIndex) => {
-        return barValueIndex === nearIndex || barValueIndex === index || !barValueItem.checked
+        return barValueIndex === nearIndex || barValueIndex === index || !barValueItem[this.propsChecked]
           ? total
           : total + barValueItem[this.propsValue]
       }, 0)
@@ -206,9 +224,9 @@ export default class extends Vue {
     return this.barMax - rest
   }
   private getNearIndex(index) {
-    let nearIndex = this.barList.findIndex(item => item.checked)
+    let nearIndex = this.barList.findIndex(item => item[this.propsChecked])
     for (const [barIndex, barItem] of this.barList.entries()) {
-      if (barItem.checked && barIndex > index) {
+      if (barItem[this.propsChecked] && barIndex > index) {
         nearIndex = barIndex
         break
       }
@@ -220,12 +238,34 @@ export default class extends Vue {
     return this.toPrecision(rate)
   }
   emitChange() {
-    this.$emit('change', this.barValueList, this.barWholeList)
+    this.$emit('change', this.barWholeList)
   }
-  private toPrecision(num: number) {
-    return parseFloat(Math.round(num * Math.pow(10, this.precision)) / Math.pow(10, this.precision)).toFixed(
-      this.precision
+  private toPrecision(num) {
+    if (isNaN(parseFloat(num))) {
+      return ''
+    }
+    return (Math.round(num * Math.pow(10, this.ratePrecision)) / Math.pow(10, this.ratePrecision)).toFixed(
+      this.ratePrecision
     )
+  }
+
+  getCheckedData() {
+    return this.barWholeCheckedList
+  }
+  getAllData() {
+    return this.barWholeList
+  }
+  setCheckByCode(code, checked = true) {
+    const index = this.barList.findIndex(item => item.code === code)
+    this.barList[index][this.propsChecked] = checked
+    const item = this.barList.find(item => item.code === code)
+    this.handleCheckboxChange(item, index)
+  }
+  setValueByCode(code, value = 0) {
+    const index = this.barList.findIndex(item => item.code === code)
+    this.barList[index][this.propsValue] = value
+    const item = this.barList.find(item => item.code === code)
+    this.handleValueChange(item, index)
   }
 
   @Watch('data', {
@@ -233,6 +273,10 @@ export default class extends Vue {
     deep: true,
   })
   dataChanged(newVal) {
+    if (newVal.length > 8) {
+      console.error('cute-distribution-bar暂不支持8个数据项以上的展示，请选择其它合适的组件进行展示')
+      return
+    }
     this.barList = cloneDeep(newVal)
   }
 }
@@ -253,7 +297,7 @@ export default class extends Vue {
       }
 
       .el-checkbox__input.is-checked + .el-checkbox__label {
-        color: #333;
+        color: $color-grey-1;
       }
     }
 
@@ -261,15 +305,18 @@ export default class extends Vue {
       display: inline-block;
       margin-left: 6px;
       width: 54px;
+
+      ::v-deep {
+        .el-input .el-input__inner {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+      }
     }
 
     &__rate {
       display: inline-block;
       padding-left: 6px;
-      cursor: default;
-    }
-
-    &__name {
       cursor: default;
     }
   }

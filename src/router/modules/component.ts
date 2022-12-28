@@ -144,6 +144,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'cute-distribution-bar',
+        name: 'CuteDistributionBar',
+        component: () => import('@/views/component/Base/CuteDistributionBar/index.vue'),
+        meta: {
+          title: 'CuteDistributionBar',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'el-alert',
         name: 'ElAlert',
         component: () => import('@/views/component/Base/ElAlert/index.vue'),

@@ -2,11 +2,13 @@
  * @Author: wujingcheng
  * @Date: 2022-12-23 15:25:18
  * @LastEditors: wujingcheng
- * @LastEditTime: 2022-12-28 11:40:21
+ * @LastEditTime: 2022-12-28 16:19:23
  * @Description: 带标题的内容块
 -->
 <template>
-  <cute-distribution-bar :data="barList" :props="props" mode="fixed"> </cute-distribution-bar>
+  <div>
+    <cute-distribution-bar :data="barList" :props="props" :max="200"> </cute-distribution-bar>
+  </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'

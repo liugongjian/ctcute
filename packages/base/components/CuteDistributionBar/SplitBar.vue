@@ -2,7 +2,7 @@
  * @Author: wujingcheng
  * @Date: 2022-12-23 15:25:54
  * @LastEditors: wujingcheng
- * @LastEditTime: 2022-12-28 14:04:02
+ * @LastEditTime: 2022-12-28 16:15:04
  * @Description:
 -->
 <template>
@@ -50,6 +50,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Prop, Watch, Ref } from 'vue-property-decorator'
+import variables from '@cutedesign/theme/css/_variables.scss'
 
 const defaultValue = [50, 50]
 @Component({
@@ -66,7 +67,18 @@ export default class extends Vue {
   @Prop({ type: Boolean, default: true }) showPercentage?: boolean
   @Prop({
     type: Array,
-    default: () => ['#409eff', '#e6a23c', '#409eff', '#e6a23c', '#409eff', '#e6a23c', '#409eff', '#e6a23c'],
+    default: () => [
+      variables.chartColorH12,
+      variables.chartColor3,
+      variables.chartColor4,
+      variables.chartColor11,
+      variables.chartColor8,
+      variables.chartColor9,
+      variables.chartColor5,
+      variables.chartColor1,
+      variables.chartColor6,
+      variables.chartColor10,
+    ],
   })
   barColor?: []
 
@@ -350,8 +362,8 @@ export default class extends Vue {
     }
 
     .sp-slider__button {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       background-color: $color-white;
       border-radius: 50%;
       transition: 0.2s;

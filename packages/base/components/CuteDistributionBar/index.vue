@@ -2,7 +2,7 @@
  * @Author: wujingcheng
  * @Date: 2022-12-23 15:25:54
  * @LastEditors: wujingcheng
- * @LastEditTime: 2022-12-28 14:02:11
+ * @LastEditTime: 2022-12-28 16:13:21
  * @Description:
 -->
 <template>
@@ -70,9 +70,11 @@ export default class extends Vue {
       variables.chartColor4,
       variables.chartColor11,
       variables.chartColor8,
-      variables.chartColor1,
       variables.chartColor9,
       variables.chartColor5,
+      variables.chartColor1,
+      variables.chartColor6,
+      variables.chartColor10,
     ],
   })
   colors: []
@@ -198,7 +200,6 @@ export default class extends Vue {
     const nearIndex = this.getNearIndex(index)
     const total = this.getValueItemMax(index)
     this.$set(this.barList[nearIndex], this.propsValue, total - item[this.propsValue])
-    this.emitChange()
   }
   /**
    * free模式限制输入框不能输入最大值，fixed模式限制输入框不能输入超出相邻总和的值
@@ -238,7 +239,7 @@ export default class extends Vue {
     return this.toPrecision(rate)
   }
   emitChange() {
-    this.$emit('change', this.barWholeList)
+    this.$emit('change', this.barWholeCheckedList)
   }
   private toPrecision(num) {
     if (isNaN(parseFloat(num))) {
@@ -256,15 +257,20 @@ export default class extends Vue {
     return this.barWholeList
   }
   setCheckByCode(code, checked = true) {
-    const index = this.barList.findIndex(item => item.code === code)
+    const index = this.barList.findIndex(item => item[this.propsCode] === code)
+    if (checked === this.barList[index][this.propsChecked]) return
     this.barList[index][this.propsChecked] = checked
-    const item = this.barList.find(item => item.code === code)
+    const item = this.barList.find(item => item[this.propsCode] === code)
     this.handleCheckboxChange(item, index)
   }
   setValueByCode(code, value = 0) {
-    const index = this.barList.findIndex(item => item.code === code)
+    const index = this.barList.findIndex(item => item[this.propsCode] === code)
+    if (!this.barList[index].checked) {
+      this.setCheckByCode(code)
+    }
+    if (this.barValueList.length === 1 && !this.isFree) return
     this.barList[index][this.propsValue] = value
-    const item = this.barList.find(item => item.code === code)
+    const item = this.barList.find(item => item[this.propsCode] === code)
     this.handleValueChange(item, index)
   }
 
@@ -273,8 +279,8 @@ export default class extends Vue {
     deep: true,
   })
   dataChanged(newVal) {
-    if (newVal.length > 8) {
-      console.error('cute-distribution-bar暂不支持8个数据项以上的展示，请选择其它合适的组件进行展示')
+    if (newVal.length > 10) {
+      console.error('cute-distribution-bar暂不支持10个数据项以上的展示，请选择其它合适的组件进行展示')
       return
     }
     this.barList = cloneDeep(newVal)
@@ -284,7 +290,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .distribution-bar {
   &__split {
-    margin-top: 25px;
+    margin-top: 20px;
   }
 
   &__checkbox {

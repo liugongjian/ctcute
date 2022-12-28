@@ -2,7 +2,7 @@
  * @Author: wujingcheng
  * @Date: 2022-12-23 15:25:18
  * @LastEditors: wujingcheng
- * @LastEditTime: 2022-12-28 11:37:10
+ * @LastEditTime: 2022-12-28 16:09:56
  * @Description:
 -->
 <template>
@@ -72,7 +72,7 @@ export default class extends Vue {
   private prop = [
     {
       name: 'data',
-      desc: '展示数据,对象数组。最多支持8组数据的展示，超出8组不适用此组件，请选择其它合适的展示组件',
+      desc: '展示数据,对象数组。最多支持8组数据的展示，超出10组不适用此组件，请选择其它合适的展示组件',
       type: 'Array',
       options: null,
       default: null,
@@ -151,7 +151,7 @@ export default class extends Vue {
     },
     {
       name: 'setValueByCode',
-      desc: '设置某一项数值',
+      desc: '设置某一项数值。tip：当只有一个数据项的时候，fixed模式会自动将数据项填满到100%',
       param: '(code, value) 接收两个参数，1. 数据项标识 code 2. 数值, 默认值为0',
     },
   ]
@@ -159,7 +159,7 @@ export default class extends Vue {
     {
       name: 'change',
       desc: '改变复选框和数值时触发',
-      callback: '所有选中的选中数据项数组',
+      callback: '所有选中的数据项数组',
     },
   ]
 }

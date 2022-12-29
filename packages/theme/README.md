@@ -8,7 +8,15 @@
 
 # 一、版本日志
 
-## v1.1.2
+## v1.1.3-alpha.0
+
+- 新增
+  - vxe-table 组件样式
+- 修改
+  - 滚动条样式
+  - dark 模式遗留 bug
+
+## v1.1.2(deprecated)
 
 - 修改
   - dark 模式遗留 bug

@@ -41,6 +41,143 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
+      version: '1.1.4',
+      date: '2022-12-29',
+      features: [
+        {
+          name: 'Layout-Sidebar',
+          desc: [
+            {
+              text: '侧边栏菜单支持图标',
+            },
+          ],
+        },
+        {
+          name: 'Component-Markdown',
+          desc: [
+            {
+              text: '新增 markdown-book 示例页面',
+            },
+          ],
+        },
+        {
+          name: 'Component-VxeTable',
+          desc: [
+            {
+              text: '新增 VxeTable 复杂表格组件',
+            },
+          ],
+        },
+        {
+          name: 'Component-CuteDistributionBar',
+          desc: [
+            {
+              text: '新增 CuteDistributionBar 分配条组件',
+            },
+          ],
+        },
+        {
+          name: 'Doc',
+          desc: [
+            {
+              text: '更新UI规范',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '修改浏览器自带滚动条的样式',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: 'Component-CuteTableColumnSettings',
+          desc: [
+            {
+              text: '修改CuteTableColumnSettings样式',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Table',
+          desc: [
+            {
+              text: '表格(列表中同时存在两列状态栏)列宽优化',
+            },
+            {
+              text: '带列设置的表格组件化',
+            },
+          ],
+        },
+        {
+          name: 'Page-CardList',
+          desc: [
+            {
+              text: '修改Card1、Card2、Card3页面样式',
+            },
+          ],
+        },
+        {
+          name: 'Page-Chart',
+          desc: [
+            {
+              text: '修改图表颜色',
+            },
+          ],
+        },
+        {
+          name: 'Page-Table',
+          desc: [
+            {
+              text: '修改页面样式、表格背景色',
+            },
+          ],
+        },
+        {
+          name: 'Page-Dialog',
+          desc: [
+            {
+              text: '修改全屏弹窗按状态查询',
+            },
+            {
+              text: '修改特殊弹窗-中log颜色',
+            },
+            {
+              text: '修改中弹窗tag',
+            },
+          ],
+        },
+        {
+          name: 'Page-Order',
+          desc: [
+            {
+              text: '修改订购页样式',
+            },
+          ],
+        },
+        {
+          name: 'auth',
+          desc: [
+            {
+              text: 'manifest索引所有目录',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '修复el-scrollbar wrap-style没有生效、原生滚动条没有隐藏',
+            },
+          ],
+        },
+      ],
+    },
+    {
       version: '1.1.3',
       date: '2022-12-7',
       features: [

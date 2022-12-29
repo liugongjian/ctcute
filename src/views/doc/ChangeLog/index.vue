@@ -41,6 +41,194 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
+      version: '1.1.4',
+      date: '2022-12-28',
+      features: [
+        {
+          name: 'Component-Markdown',
+          desc: [
+            {
+              text: '提供 markdown-book 的示例页面',
+            },
+          ],
+        },
+        {
+          name: 'Component-S3Upload',
+          desc: [
+            {
+              text: '升级 s3upload 组件的版本',
+            },
+          ],
+        },
+        {
+          name: 'Component-Sidebar',
+          desc: [
+            {
+              text: '侧边栏菜单支持图标',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '新增全局scrollbar的corner样式',
+            },
+            {
+              text: '基于vxe-table的复杂表格实现',
+            },
+            {
+              text: '新增火狐浏览器滚动条样式',
+            },
+            {
+              text: '修改浏览器自带滚动条的样式',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: 'Component-CuteTableColumnSettings',
+          desc: [
+            {
+              text: '修改CuteTableColumnSettings样式',
+            },
+          ],
+        },
+        {
+          name: 'Component-Table',
+          desc: [
+            {
+              text: '删除/ui/components/table冗余引用',
+            },
+            {
+              text: '表格(列表中同时存在两列状态栏)列宽优化',
+            },
+          ],
+        },
+        {
+          name: 'auth',
+          desc: [
+            {
+              text: 'manifest索引所有目录',
+            },
+          ],
+        },
+        {
+          name: 'Page-CardList',
+          desc: [
+            {
+              text: 'card2 图标设置错误修复',
+            },
+            {
+              text: 'card问题优化',
+            },
+            {
+              text: '修改card',
+            },
+          ],
+        },
+        {
+          name: 'Page-Chart',
+          desc: [
+            {
+              text: 'chart图表bug fix',
+            }
+          ],
+        },
+        {
+          name: 'Page-Table',
+          desc: [
+            {
+              text: '修改样式（ProTable3 && CuteSortTable）',
+            },
+            {
+              text: '修复dark bug',
+            },
+          ],
+        },
+        {
+          name: 'Page-Dialog',
+          desc: [
+            {
+              text: '全屏弹窗按状态查询 && 特殊弹窗-中修改log颜色 '
+            },
+            {
+              text: '修改中弹窗tag',
+            }
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: 'el-scrollbar wrap-style没有生效、原生滚动条没有隐藏 '
+            },
+            {
+              text: 'vxetable适配dark模式'
+            },
+            {
+              text: 'vxetable 完善细节'
+            },
+            {
+              text: '修改表格背景色'
+            },
+            {
+              text: '修复ui走查问题'
+            },
+            {
+              text: '修改状态圆点6px'
+            },
+            {
+              text: '修改拖拽上传、气泡提示、面包屑icon、导航栏背景色等样式',
+            },
+            {
+              text: '修改el-collapse背景色',
+            },
+            {
+              text: '树形菜单背景色透明',
+            },
+            {
+              text: '修复button border',
+            },
+            {
+              text: '修改timeline圆点背景色',
+            }
+          ],
+        },
+        {
+          name: 'Page-Order',
+          desc: [
+            {
+              text: 'tab显示抖动问题',
+            },
+            {
+              text: '修改订购页样式',
+            },
+            {
+              text: '修改订购页图标',
+            }
+          ],
+        },
+        {
+          name: 'Component-CuteSelectTree',
+          desc: [
+            {
+              text: '树组件样式bug',
+            }
+          ],
+        },
+        {
+          name: 'Page-SimpleForm',
+          desc: [
+            {
+              text: '数字控件仅允许输入数字',
+            }
+          ],
+        },
+      ],
+    },
+    {
       version: '1.1.3',
       date: '2022-12-7',
       features: [

@@ -53,7 +53,7 @@ export default class extends Vue {
           ],
         },
         {
-          name: 'Component-Markdown',
+          name: 'Component-MarkdownBook',
           desc: [
             {
               text: '新增 markdown-book 示例页面',

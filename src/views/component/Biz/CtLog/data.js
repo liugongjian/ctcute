@@ -11,7 +11,7 @@ export const DETAIL = {
   operator: {
     userAvatar:
       'https://www.ctyun.cn/share/q04sv38ZSzTBF4mEHo-3dVsyWITNHb2AHhoKmmcfMQvFLURsx3V4aSkOuRaeJwzV_gWW6KsOfQzljF83BOvXCZNVswU6LTNzn3p6hW0K2SP1gAmiyqGjdKn4Ng6vnf7O',
-    userName: 'wumm4@chinatelecom.cn',
+    userName: 'ganyutao@chinatelecom.cn',
     userId: '21545881',
   },
   pipelineId: 'playbook',

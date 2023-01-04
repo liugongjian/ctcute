@@ -1,3 +1,10 @@
+<!--
+ * @Description:
+ * @Author: 甘雨涛
+ * @Date: 2022-12-28 13:41:27
+ * @LastEditTime: 2022-12-28 20:03:27
+ * @LastEditors: 甘雨涛
+-->
 <template>
   <div>
     <div class="component__container">
@@ -10,11 +17,7 @@
         <el-table-column prop="name" label="参数" />
         <el-table-column prop="desc" label="说明" />
         <el-table-column prop="type" label="类型" />
-        <el-table-column prop="options" label="可选值">
-          <template slot-scope="{ row }">
-            <div v-html="row.options"></div>
-          </template>
-        </el-table-column>
+        <el-table-column prop="options" label="可选值"/>
         <el-table-column prop="default" label="默认值" />
       </el-table>
       <h2>CtLog Slots</h2>
@@ -31,11 +34,13 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Demo1 from './Demo1.vue'
+import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 
 @Component({
   name: 'CtLog',
   components: {
     Demo1,
+    ComponentDemo,
   },
 })
 export default class extends Vue {

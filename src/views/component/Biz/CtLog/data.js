@@ -1,0 +1,60 @@
+export const DETAIL = {
+  runAt: '654535797722054657',
+  signature: '6a5212642c3258ec6a1555b03aee4c20',
+  runOn: '654535797709471744',
+  name: '安装k8s镜像仓库-20221205-165237',
+  stateMessage: 'ok',
+  finishDate: '1670230639000',
+  runId: '654606521224658944',
+  state: 'ok',
+  startDate: '1670230357000',
+  operator: {
+    userAvatar:
+      'https://www.ctyun.cn/share/q04sv38ZSzTBF4mEHo-3dVsyWITNHb2AHhoKmmcfMQvFLURsx3V4aSkOuRaeJwzV_gWW6KsOfQzljF83BOvXCZNVswU6LTNzn3p6hW0K2SP1gAmiyqGjdKn4Ng6vnf7O',
+    userName: 'wumm4@chinatelecom.cn',
+    userId: '21545881',
+  },
+  pipelineId: 'playbook',
+  createDate: '1670230357000',
+}
+
+export const STAGE = {
+  stages: [
+    {
+      runOrder: '0',
+      stageName: '准备任务',
+      finishDate: '1670230358000',
+      state: 'ok',
+      message: 'ok',
+      steps: [],
+      startDate: '1670230358000',
+      stageRunId: '654606525632872448',
+      stageId: 'prepare',
+      createDate: '1670230357000',
+    },
+    {
+      runOrder: '1',
+      stageName: '执行任务',
+      finishDate: '1670230639000',
+      state: 'ok',
+      message: 'ok',
+      steps: [],
+      startDate: '1670230358000',
+      stageRunId: '654606525876142080',
+      stageId: 'execute',
+      createDate: '1670230357000',
+    },
+    {
+      runOrder: '2',
+      stageName: '清理任务',
+      finishDate: '1670230639000',
+      state: 'ok',
+      message: 'ok',
+      steps: [],
+      startDate: '1670230639000',
+      stageRunId: '654606526740168704',
+      stageId: 'clean',
+      createDate: '1670230357000',
+    },
+  ],
+}

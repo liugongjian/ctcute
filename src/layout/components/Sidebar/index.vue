@@ -154,7 +154,7 @@ export default class extends Vue {
     position: absolute;
     top: calc(50% - 40px - $header-height / 2); // 40px是自身高度的一半
     right: -12px;
-    background: $color-white;
+    background: $color-bg-2;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     cursor: pointer;
@@ -162,6 +162,10 @@ export default class extends Vue {
     color: $color-grey-2;
     display: flex;
     align-items: center;
+
+    .svg-icon {
+      color: $color-grey-3;
+    }
   }
 }
 </style>

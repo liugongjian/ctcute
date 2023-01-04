@@ -2,11 +2,63 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-08 10:16:32
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-10-09 18:25:03
+ * @LastEditTime: 2022-12-09 16:00:20
  * @Description:
 -->
 
 # 一、版本日志
+
+## v1.1.3
+
+- 新增
+  - vxe-table 组件样式
+- 修改
+  - 滚动条样式
+  - dark 模式遗留 bug
+
+## v1.1.2(deprecated)
+
+- 修改
+  - dark 模式遗留 bug
+
+## v1.1.1(deprecated)
+
+- 修改
+  - 规范颜色变量
+  - 修复 Upload 组件样式问题
+  - 修复 cascade 样式问题
+
+## v1.1.0(deprecated)
+
+- 修改
+  - dark 模式遗留 bug
+
+## v1.0.9(deprecated)
+
+- 新增
+  - 定义了几个新的颜色变量
+- 修改
+  - 为支持 dark 模式，把以前默认白色背景的一些组长使用新的颜色变量定义
+
+## v1.0.8
+
+- 修改
+  - 修复 small-input 导致的 form 样式问题
+  - 修复 slider 样式问题
+
+## v1.0.7
+
+- 修改
+  - 修复 form 表单错误提示的样式
+
+## v1.0.6
+
+- 新增
+  - 详情页返回按钮样式
+  - input 为 small 的样式
+- 修改
+  - slider 中 input 的样式
+  - 嵌套表格的下拉箭头样式改成统一的三角形
 
 ## v1.0.5
 

@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-31 10:02:40
+ * @LastEditTime: 2022-10-18 14:41:19
  * @Description: 基础表格
 -->
 <template>
@@ -46,7 +46,7 @@
       <el-scrollbar
         ref="scrollBar"
         class="medium-dialog--scroll"
-        :wrap-style="{ maxHeight: isFullscreen ? '100%' : '461px', width: '100%' }"
+        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '461px' }]"
       >
         <div class="medium-dialog--content" style="margin-bottom: 24px">
           <el-transfer
@@ -263,7 +263,7 @@ export default class extends Vue {
     this.roleLoading = true
     const arr = this.getMoveId(value)
     // 设置角色用户接口
-    setRole({ _id: this.setRoleUserRow._id, users: arr })
+    setRole({ roleId: this.setRoleUserRow._id, users: arr })
       .then(res => {
         this.roleLoading = false
         this.$message({
@@ -324,10 +324,7 @@ export default class extends Vue {
    */
   private async handleCopy(id) {
     try {
-      const params = {
-        _id: id,
-      }
-      const res = await copyRoles(params)
+      const res = await copyRoles(id)
       if ((res as any).code === 200) {
         this.copyVisible = false
         this.$message.success('复制角色成功! ')
@@ -351,10 +348,7 @@ export default class extends Vue {
    */
   private async handleDel(id) {
     try {
-      const params = {
-        _id: id,
-      }
-      const res = await delRoles(params)
+      const res = await delRoles(id)
       if ((res as any).code === 200) {
         this.delVisible = false
         this.$message.success('删除角色成功! ')

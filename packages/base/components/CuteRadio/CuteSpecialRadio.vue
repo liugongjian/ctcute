@@ -2,18 +2,17 @@
  * @Author: 马妍
  * @Date: 2022-07-15 10:12:49
  * @LastEditors: 马妍
- * @LastEditTime: 2022-09-27 15:02:18
+ * @LastEditTime: 2022-12-15 21:08:45
  * @Description:
 -->
 <template>
   <div class="special-radio">
-    <el-radio-group :value="value" :size="size">
+    <el-radio-group :value="value" :size="size" @input="myChange">
       <el-radio-button
         v-for="(item, i) in options"
         :key="i"
         :label="item.label"
         :disabled="item.disabled"
-        @change="myChange($event)"
       ></el-radio-button>
     </el-radio-group>
   </div>
@@ -67,6 +66,10 @@ export default class extends Vue {
     background: $color-master-1;
     border-radius: 2px 0 0 2px;
     color: $color-white !important;
+  }
+
+  ::v-deep.el-radio-button__orig-radio:checked + .el-radio-button__inner {
+    box-shadow: none;
   }
 }
 </style>

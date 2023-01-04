@@ -1,3 +1,10 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-10-19 10:59:22
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-11-17 10:23:31
+ * @Description: 
+-->
 <template>
   <div class="component-demo">
     <div class="component-demo__content">
@@ -59,6 +66,7 @@ export default class extends Vue {
   display: block;
   border: 1px solid $border-color-primary;
   transition: $transition-time all;
+  box-shadow: 0 0 8px 0 $color-bg-3 !important;
 
   &:hover {
     box-shadow: $shadow-card;

@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "name": "ProductDetails.vue",
+      "path": "@/views/console/Order/ProductDetails.vue"
+    },
+    {
+      "name": "console.svg",
+      "path": "@/views/console/Order/images/console.svg"
+    },
+    {
+      "name": "dics/productDetails.ts",
+      "path": "@/dics/productDetails.ts"
+    }
+  ]
+}

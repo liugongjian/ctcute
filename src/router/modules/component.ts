@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 马妍
- * @LastEditTime: 2022-07-28 10:25:26
+ * @LastEditors: 王月功
+ * @LastEditTime: 2022-12-23 19:51:06
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -65,6 +65,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'cute-state',
+        name: 'CuteState',
+        component: () => import('@/views/component/Base/CuteState/index.vue'),
+        meta: {
+          title: 'CuteState',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'cute-tag',
         name: 'CuteTag',
         component: () => import('@/views/component/Base/CuteTag/index.vue'),
@@ -116,6 +125,59 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'cute-slider',
+        name: 'CuteSlider',
+        component: () => import('@/views/component/Base/CuteSlider/index.vue'),
+        meta: {
+          title: 'CuteSlider',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-steps-multi',
+        name: 'CuteSteps',
+        component: () => import('@/views/component/Base/CuteStepsMulti/index.vue'),
+        meta: {
+          title: 'CuteStepsMulti',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-distribution-bar',
+        name: 'CuteDistributionBar',
+        component: () => import('@/views/component/Base/CuteDistributionBar/index.vue'),
+        meta: {
+          title: 'CuteDistributionBar',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'el-alert',
+        name: 'ElAlert',
+        component: () => import('@/views/component/Base/ElAlert/index.vue'),
+        meta: {
+          title: 'ElAlert',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'el-collapse',
+        name: 'ElCollapse',
+        component: () => import('@/views/component/Base/ElCollapse/index.vue'),
+        meta: {
+          title: 'ElCollapse',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'vxe-table',
+        name: 'VxeTable',
+        component: () => import('@/views/component/Base/VxeTable/index.vue'),
+        meta: {
+          title: 'VxeTable',
+        },
+      },
     ],
   },
   {
@@ -133,6 +195,42 @@ const componentRoutes = [
         component: () => import('@/views/component/Biz/VssVideoPlayer/index.vue'),
         meta: {
           title: 'VssVideoPlayer',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 's3-upload',
+        name: 'S3Upload',
+        component: () => import('@/views/component/Biz/S3Upload/index.vue'),
+        meta: {
+          title: 'S3Upload',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'svg-topology',
+        name: 'SvgTopology',
+        component: () => import('@/views/component/Biz/SvgTopology/index.vue'),
+        meta: {
+          title: 'SvgTopology',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'markdown',
+        name: 'Markdown',
+        component: () => import('@/views/component/Biz/Markdown/index.vue'),
+        meta: {
+          title: 'Markdown',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'markdown-book',
+        name: 'MarkdownBook',
+        component: () => import('@/views/component/Biz/MarkdownBook/index.vue'),
+        meta: {
+          title: 'MarkdownBook',
           breadcrumb: true,
         },
       },

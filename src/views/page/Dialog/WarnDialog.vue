@@ -18,7 +18,7 @@
     >
       <div class="warn-dialog--content">
         <slot name="icon">
-          <svg-icon name="info-circle-fill" />
+          <svg-icon name="warning-circle-fill" />
         </slot>
         <slot name="content">此操作将永久删除该文件，是否继续？</slot>
       </div>

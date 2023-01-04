@@ -17,7 +17,7 @@ import { CuteSpecialRadio } from '@cutedesign/base'
   components: { CuteSpecialRadio },
 })
 export default class extends Vue {
-  private radio = ''
+  private radio = 'Active'
   private buutonData = [
     {
       label: 'Active',

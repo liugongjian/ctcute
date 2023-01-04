@@ -77,7 +77,8 @@ export default class extends Vue {
         window.open('https://cloud.ctcdn.cn/s/LPtSGxCiHAcibEe')
         break
       case 2:
-        window.open('https://cloud.ctcdn.cn/s/3p5eTTn9J8FaRC3')
+        // window.open('https://cloud.ctcdn.cn/s/3p5eTTn9J8FaRC3')
+        window.open('https://cloud.ctcdn.cn/s/fR3YnW3BBXxrcH5')
         break
       case 3:
         window.open('http://fed.ctyuncdn.cn/page/chart')
@@ -157,7 +158,7 @@ export default class extends Vue {
       left: 85px;
       top: 52px;
       border-radius: 5px;
-      box-shadow: 0 0 8px 0 rgba(200, 201, 204, 40%);
+      box-shadow: 0 0 8px 0 $shadow-table-card;
     }
     .content-img3 {
       left: 100px;

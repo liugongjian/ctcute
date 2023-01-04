@@ -1,3 +1,10 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-10-19 10:59:22
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-11-17 09:52:22
+ * @Description: 
+-->
 <template>
   <el-card v-loading="loading" class="chart-card" :bordered="false" :shadow="shadow">
     <div class="chart-card-icon-warp" :style="'background-color:rgb(' + background + ',0.2)'">
@@ -31,12 +38,16 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 // box-shadow: 0 2px 8px 0 $shadow-table-card;
+
 .chart-card {
   display: flex;
   border-radius: 4px;
+  border: none !important;
+
   ::v-deep .el-card__body {
     display: flex;
   }
+
   .chart-card-icon-warp {
     width: 68px;
     height: 68px;
@@ -45,6 +56,7 @@ export default class extends Vue {
     align-items: center;
     justify-content: center;
     margin-right: 29px;
+
     .chart-card-icon {
       width: 50px;
       height: 50px;
@@ -54,18 +66,21 @@ export default class extends Vue {
       justify-content: center;
     }
   }
+
   .chart-card-cont-warp {
     width: 240px;
+
     h3 {
-      font-family: 'bahnschrift';
+      font-family: bahnschrift;
       font-size: 30px;
       line-height: 42px;
       margin: 0;
-      color: $color-grey-13;
+      color: $color-grey-1;
     }
+
     p {
       font-size: 14px;
-      color: $color-grey-13;
+      color: $color-grey-2;
       line-height: 28px;
       margin: 0;
     }

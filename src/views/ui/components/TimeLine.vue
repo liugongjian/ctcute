@@ -122,7 +122,7 @@ export default class extends Vue {
 
   h4 {
     font-size: 12px;
-    color: rgba(0, 0, 0, 65%);
+    color: $color-grey-2; //rgba(0, 0, 0, 65%);
     margin-top: 8px;
     margin-bottom: 0 !important;
   }
@@ -149,7 +149,7 @@ export default class extends Vue {
   display: inline-block;
   width: 6px;
   height: 6px;
-  background: #52c41a;
+  background: $color-status-success-1;
   margin-right: 5px;
   border-radius: 50%;
   vertical-align: middle;

@@ -80,10 +80,10 @@ export default {
   ::v-deep .el-step .el-step__main {
     position: absolute;
     left: 24px;
-    top: 2px;
+    top: 0;
     height: 26px;
     line-height: 26px;
-    background-color: #fff;
+    background-color: $color-bg-2;
     padding: 0 10px 0 16px;
   }
 
@@ -95,6 +95,7 @@ export default {
   ::v-deep .el-step__icon.is-text {
     width: 32px;
     height: 32px;
+    background-color: $color-bg-2;
   }
 
   ::v-deep .el-step.is-horizontal .el-step__line {
@@ -109,7 +110,7 @@ export default {
     top: 1px;
     height: 26px;
     line-height: 26px;
-    background-color: #fff;
+    background-color: $color-bg-2;
     padding: 0 10px 0 16px;
   }
 
@@ -121,6 +122,7 @@ export default {
   ::v-deep .el-step__icon.is-text {
     width: 20px;
     height: 20px;
+    background-color: $color-bg-2;
   }
 
   ::v-deep .el-step.is-horizontal .el-step__line {

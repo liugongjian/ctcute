@@ -1,8 +1,8 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-07-08 13:45:09
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-10-09 14:23:19
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-10-17 14:42:46
  * @Description: 快速开始
 -->
 <template>
@@ -46,7 +46,7 @@ cuted theme <themeName>
 如果您没有权限，请联系胡佳婷（企业微信）帮您开通开发权限。
 
 ## 详细文档说明
-[脚手架使用说明书](http://fed.ctyuncdn.cn/blog/team2/tobegrouped/hujiating/cutedesign/assets/%E8%84%9A%E6%89%8B%E6%9E%B6%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6.pdf)
+[脚手架使用说明书](https://cloud.ctcdn.cn/s/9ELNBiqyW96y7Kg)
 `
 }
 </script>

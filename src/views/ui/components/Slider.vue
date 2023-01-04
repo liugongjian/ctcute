@@ -1,3 +1,10 @@
+<!--
+ * @Author: 秦瑞斌
+ * @Date: 2022-10-17 20:57:52
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-11-03 16:36:33
+ * @Description: 
+-->
 <template>
   <div class="sub-slider">
     <el-row>
@@ -14,7 +21,6 @@
     <el-row>
       <el-col>
         <el-slider
-          range
           :marks="{ 10: '10岁', 20: '20岁', 30: '30岁', 40: '40岁', 50: '50岁' }"
           :min="10"
           :max="50"
@@ -22,6 +28,30 @@
         >
         </el-slider>
       </el-col>
+    </el-row>
+    <el-row>
+      <cute-slider
+        v-model="value"
+        :min="1"
+        :max="500"
+        :disabled="false"
+        :marks="marks"
+        :range="true"
+        unit="Mbit/s"
+        @moveChange="changes"
+        @inputChange="inputChange"
+      />
+    </el-row>
+    <el-row>
+      <cute-slider
+        v-model="values"
+        :min="0"
+        :max="500"
+        :disabled="true"
+        :marks="marks"
+        :range="false"
+        @moveChange="changes"
+      />
     </el-row>
   </div>
 </template>
@@ -41,7 +71,22 @@ export default class extends Vue {
     version: 'v1.0',
     updateTime: '2022.07.12',
   }
-
+  private marks = {
+    100: '100',
+    200: '200',
+    300: '300',
+    400: '400',
+    500: '500',
+  }
+  private changes(val) {
+    console.log(val, 'slider值')
+    this.value = val
+  }
+  private inputChange(val) {
+    console.log(val, 'input值')
+    this.value = val
+  }
+  private values = 10
   private value = [4, 8]
 }
 </script>

@@ -1,24 +1,19 @@
 <!--
  * @Author: huanglulu
  * @Date: 2022-07-21 10:14:48
- * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-28 13:45:51
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-13 16:27:39
  * @Description:
 -->
 <template>
   <div>
-    <el-table ref="tableRef" v-loading="loading" :data="tableData" fit border>
+    <el-table ref="table" v-loading="loading" :data="tableData" v-bind="$attrs" v-on="$listeners">
       <template v-for="(item, index) in tableColumns">
         <el-table-column
+          v-if="!item.props || item.props.type !== 'selection'"
           :key="index + item.prop"
           :prop="item.prop"
           :label="item.label"
-          :width="item.width"
-          :min-width="item.minWidth"
-          :sortable="item.sortable"
-          :show-overflow-tooltip="item.ellipsis"
-          :fixed="item.fixed"
-          :align="item.align"
           v-bind="item.props"
         >
           <template slot-scope="scope">
@@ -27,7 +22,7 @@
           </template>
         </el-table-column>
       </template>
-      <el-table-column label="优先级">
+      <el-table-column label="优先级" width="100">
         <div class="sort-table">
           <svg-icon name="menu" class="sort-icon" />
         </div>
@@ -48,8 +43,8 @@ export default class extends Vue {
   @Prop({ type: Array, default: [] }) tableData?: [] // 表格数据
   @Prop({ type: Array, default: [] }) tableColumns?: [] // 表头数据
 
-  @Ref('tableRef')
-  private tableRef: ElTable
+  @Ref('table')
+  private table: ElTable
 
   sortable: any
 
@@ -62,8 +57,7 @@ export default class extends Vue {
 
   // 行拖拽排序, .sort-table 可拖拽元素
   private rowDrop() {
-    const tbody = this.tableRef.$el.querySelectorAll('tbody')
-
+    const tbody = this.table.$el.querySelectorAll('tbody')
     this.sortable = Sortable.create(tbody[0], {
       handle: '.sort-table',
       onEnd: ({ newIndex, oldIndex }) => {
@@ -82,8 +76,9 @@ export default class extends Vue {
 }
 
 .sort-icon {
+  font-size: 16px;
   cursor: pointer;
-  color: #777;
+  color: $color-grey-3;
 
   &:hover {
     color: $color-master-1;

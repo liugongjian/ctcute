@@ -1,32 +1,33 @@
 <template>
   <div>
-    <el-row align="middle" :style="{ 'max-width': maxWidth }">
+    <el-row align="middle" :style="{ 'max-width': maxWidth }" type='flex'>
       <el-col v-if="hasGoButton" :span="1">
         <div class="button-col point-style" @click="goPre">
           <i :class="['el-icon-arrow-left', disableLeft ? 'disabled' : '']"></i>
         </div>
       </el-col>
-      <el-col :span="16">
+      <el-col :span="14" >
+        <div>
         <el-steps
           :space="space"
           :active="active"
           finish-status="success"
-          :class="{ max: size !== 'mini' }"
           :direction="direction"
-          :size="size"
+          :size="size"  
         >
           <el-step
             v-for="(s, index) in steps"
             v-show="getShow(index)"
             :key="index"
             :title="getTitle(s, index)"
+            :last-step-width="lastStepWidth"
             :status="s.status"
             :class="{ stepErr: s.disabled }"
-            :style="{ minWidth: widthArr[index] }"
             @click.native="!s.disabled && handleStep(s, index)"
           >
           </el-step>
         </el-steps>
+        </div>
       </el-col>
       <el-col v-if="hasGoButton" :span="1">
         <div class="button-col point-style" @click="goNext">
@@ -43,7 +44,7 @@ import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
   name: 'CuteStepsMulti',
 })
 export default class extends Vue {
-  @Prop({ type: String, default: 'middle' }) size?: string // 步骤条大小，mini
+  @Prop({ type: String, default: 'normal' }) size?: string // 步骤条大小，mini
   @Prop({ type: String, default: '100%' }) maxWidth?: string // 步骤条长度
   @Prop({ type: String }) direction?: string // 步骤条方向
   @Prop({ type: Number, default: 0 }) active?: number // 激活
@@ -51,6 +52,7 @@ export default class extends Vue {
   @Prop(Array) readonly steps: any // step数据
   @Prop({ type: Number, default: 1 }) stepSize?: number // 多步骤条时使用，显示几个步骤
   @Prop({ type: Boolean, default: false }) hasGoButton?: boolean // 是否展示前后退按钮
+  @Prop({ type: Number, default: 135}) lastStepWidth?: number
   width = '0'
   disableLeft = false
   disableRight = false
@@ -69,27 +71,13 @@ export default class extends Vue {
 
     this.$forceUpdate()
   }
-  get widthArr() {
-    const { steps } = this
-    const lastStepWidth = this.size === 'mini' ? 100 : 120
-    return steps.map((s, index) => {
-      let result = ''
-      if (index < steps.length - 1) {
-        result = `calc((100% - ${lastStepWidth}px) / ${steps.length - 1})`
-      } else {
-        result = `${lastStepWidth}px`
-      }
-      return result
-    })
-  }
-
   handleStep(s: any, index: number) {
     this.$emit('clickStep', s, index)
   }
 
   getShow(index: number) {
     if (this.stepSize === 1) {
-      if (index === 0 || index === this.steps.length - 1 || this.active === index) {
+      if (index === 0 || index === this.steps.length - 1 || this.active === index || (this.active>=this.steps.length - 1 && index===this.steps.length - 2) ||(this.active===0 && index===1)) {
         return true
       } else {
         return false
@@ -97,11 +85,16 @@ export default class extends Vue {
     } else {
       if (index === 0 || index === this.steps.length - 1) {
         return true
-      } else if (index <= this.active + this.stepSize - 1 && index >= this.active) {
+      }else if(this.active===0 &&index <=  this.stepSize){
         return true
+      }else if(this.active>=this.steps.length - 1-this.stepSize &&index>=this.steps.length - 1-this.stepSize){
+        return true
+      }else if (this.active<this.steps.length - 1-this.stepSize && index < this.active+ this.stepSize &&index >= this.active) {
+        return true
+      }else{
+        return false
       }
     }
-    return false
   }
 
   getTitle(s: any, index: number) {

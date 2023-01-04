@@ -1,0 +1,12 @@
+{
+  "files": [
+    {
+      "name": "ProTable7.vue",
+      "path": "@/views/page/Table/ProTable7.vue"
+    },
+    {
+      "name": "api/proTable7.ts",
+      "path": "@/api/proTable7.ts"
+    }
+  ]
+}

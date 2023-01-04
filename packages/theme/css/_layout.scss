@@ -15,7 +15,7 @@
 .layout-sidebar {
   transition: width 0.28s;
   font-size: 0;
-  background: $sidebar-fill;
+  background: $color-bg-2;
   z-index: 10;
 
   &__title {
@@ -25,30 +25,13 @@
     font-weight: bold;
   }
 
-  .scrollbar-wrapper {
-    overflow-x: hidden !important;
-  }
-
-  .el-scrollbar__view {
-    height: 100%;
-  }
-
-  .el-scrollbar__bar {
-    &.is-vertical {
-      right: 0;
-    }
-
-    &.is-horizontal {
-      display: none;
-    }
-  }
-
   &__menu {
     padding-bottom: 50px;
   }
 
   .el-menu {
     border: none;
+    background-color: $color-bg-2;
 
     a:hover {
       text-decoration: none;
@@ -65,7 +48,7 @@
     display: flex;
     align-items: center;
 
-    > i.el-submenu__icon-arrow {
+    >i.el-submenu__icon-arrow {
       margin-top: 0;
       top: auto;
     }
@@ -83,7 +66,7 @@
   .el-submenu>.el-submenu__title,
   .el-submenu .el-menu-item {
     min-width: calc($sidebar-width - 40px);
-    background-color: $sidebar-sub-fill;
+    background-color: $color-bg-2;
     border-right: 2px solid transparent;
     white-space: nowrap;
     overflow: hidden;
@@ -110,11 +93,11 @@
   }
 
   .el-submenu.is-active .el-submenu__title,
-  .el-menu>div.first-level>a>li.is-active {
+  div.first-level > a > li.is-active {
     color: $color-master-1 !important;
     position: relative;
 
-    &::before {
+    &:before {
       content: '';
       display: inline-block;
       background-color: $color-master-1;
@@ -126,14 +109,24 @@
     }
   }
 
-  .el-menu>div.first-level>a>li.is-active {
-    &::before {
+  /* 含有图标的菜单项，去除选中时的竖线 */
+  .carry-icon {
+    .el-submenu.is-active .el-submenu__title,
+    &.first-level > a > li.is-active {
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .el-menu > div.first-level > a > li.is-active {
+    &:before {
       top: 14px;
     }
   }
 
   .vertical-bar {
-    border-left: 2px solid $color-grey-exception-1;
+    border-left: 2px solid $border-color-primary;
     margin: 14px 0 18px 30px;
     max-height: calc(100% - 40px);
 
@@ -190,7 +183,7 @@
     margin-bottom: $margin-medium;
     display: flex;
     align-items: center;
-    background: $color-white;
+    background: $color-bg-2;
   }
 
   .app-main {
@@ -199,7 +192,6 @@
   }
 
   .app-main>.el-card.is-always-shadow {
-    box-shadow: none;
     border-radius: 0;
     border: none;
     color: inherit;
@@ -210,6 +202,12 @@
     max-height: 100%;
     overflow: auto;
   }
+}
+
+.layout-containers {
+  @extend .layout-container;
+
+  padding: 0;
 }
 
 .component__container {

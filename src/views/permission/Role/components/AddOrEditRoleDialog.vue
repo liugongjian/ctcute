@@ -1,8 +1,8 @@
 <!--
  * @Author: 黄璐璐
  * @Date: 2022-07-13 13:41:05
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-26 15:26:47
+ * @LastEditors: 马妍
+ * @LastEditTime: 2022-11-18 14:04:27
  * @Description: 添加用户
 -->
 <template>
@@ -17,7 +17,7 @@
       <el-scrollbar
         ref="scrollBar"
         class="medium-dialog--scroll"
-        :wrap-style="{ maxHeight: isFullscreen ? '100%' : '461px', width: '100%' }"
+        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '461px' }]"
       >
         <div class="medium-dialog--content">
           <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">
@@ -236,7 +236,7 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .line {
-  border: 1px solid #ddd;
+  border: 1px solid $border-color-primary;
   padding: 0 10px;
 }
 </style>

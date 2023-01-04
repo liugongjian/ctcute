@@ -31,16 +31,9 @@ $color-status-success: $color-status-success-1;
 $color-status-warning-1: #faad15;
 $color-status-warning: #faad15;
 
-/* 表格状态色 */
-$color-table-status-success: #6bdd6b;
-$color-table-status-warning: #faad15;
-$color-table-status-info: #b4b4b4;
-$color-table-status-danger: #f96965;
-
 /* 标签色 */
 $color-tag-master-1: #fcc199;
 $color-tag-master-2: #fef2ea;
-$color-tag-master-3: $color-master-6;
 $color-tag-danger-1: #ffa4a3;
 $color-tag-danger-2: #ffecec;
 $color-tag-info-1: #bddbff;
@@ -63,53 +56,67 @@ $color-grey-8: #f3f3f3;
 $color-grey-9: #f5f5f5;
 $color-grey-10: #f8f8f8;
 $color-grey-11: #fafafa;
-$color-grey-12: #eee;
-$color-grey-13: #3e3e3e;
-$color-grey-14: #606266;
-$color-grey-exception-1: #e2e5ed;
 
 /* 白色 */
 $color-white: #fff;
 
 /* 其他 */
 $color-other-1: #3b3e4b;
-$color-other-2: #f0f2f5;
-$color-other-3: #8bb2f9;
 
-// 图表颜色 
-$chartColor1: #8BB2F9;
-$chartColor2: #AAD85F;
-$chartColor3: #F8D34C;
-$chartColor4: #F19E4B;
-$chartColor5: #9C8AE2;
-$chartColor6: #7AC4FA;
-$chartColor7: #B570E4;
-$chartColor8: #ED732E;
-$chartColor9: #9CA7F9;
-$chartColor10: #7AD3B7;
-$chartColor11: #ED6C68;
-$chartColor12: #F7CC8B;
+/* 背景 */
+$color-bg-1: #fff;
+$color-bg-2: #fff;
+$color-bg-3: #f2f2f2;
+$color-form-component-bg: $color-bg-1;
+$color-content-bg: $color-bg-2;
+$color-body-bg: $color-bg-3;
 
-$chartColorH1: #7FA8F4;
-$chartColorH2: #9FCD54;
-$chartColorH3: #EDC73D;
-$chartColorH4: #EC9035;
-$chartColorH5: #8F7CD7;
-$chartColorH6: #69B7F1;
-$chartColorH7: #A358D6;
-$chartColorH8: #E0641E;
-$chartColorH9: #909BF3;
-$chartColorH10: #6BC9AB;
-$chartColorH11: #E35854;
-$chartColorH12: #F2C179;
+// 图表颜色
+$chartColor1: #8bb2f9;
+$chartColor2: #aad85f;
+$chartColor3: #f8d34c;
+$chartColor4: #f19e4b;
+$chartColor5: #9c8ae2;
+$chartColor6: #7ac4fa;
+$chartColor7: #b570e4;
+$chartColor8: #ed732e;
+$chartColor9: #9ca7f9;
+$chartColor10: #7ad3b7;
+$chartColor11: #ed6c68;
+$chartColor12: #f7cc8b;
 
-$chartColorOther1: #fdf5ed;
-$chartColorOther2: #b4b4b4;
-$chartColorOther3: rgba(241, 158, 75, 0.10);
+// 图表高亮颜色
+$chartColorH1: #7fa8f4;
+$chartColorH2: #9fcd54;
+$chartColorH3: #edc73d;
+$chartColorH4: #ec9035;
+$chartColorH5: #8f7cd7;
+$chartColorH6: #69b7f1;
+$chartColorH7: #a358d6;
+$chartColorH8: #e0641e;
+$chartColorH9: #909bf3;
+$chartColorH10: #6bc9ab;
+$chartColorH11: #e35854;
+$chartColorH12: #f2c179;
+
+// 图表light颜色
+$chartColorL1: #f2f7ff;
+$chartColorL2: #f6fbef;
+$chartColorL3: #fefaed;
+$chartColorL4: #fdf5ed;
+$chartColorL5: #f5f3fc;
+$chartColorL6: #f1f9fe;
+$chartColorL7: #f7f0fc;
+$chartColorL8: #fdf1ea;
+$chartColorL9: #f5f6fe;
+$chartColorL10: #effaf7;
+$chartColorL11: #fdf0ef;
+$chartColorL12: #fef9f3;
+
 
 /* Background
 -------------------------- */
-$body-fill: $color-grey-7;
+$body-fill: $color-bg-3;
 
 /* Disable
 -------------------------- */
@@ -211,7 +218,11 @@ $icon-color: $color-grey-3;
 
 /* Header */
 $header-height: 50px;
-$header-fill: #424550;
+$header-fill-1: #272b39;
+$header-fill-2: #3a3e4c;
+$header-border: #585b62;
+$header-text-color: #c2c2c2;
+$header-search-text-color: #999;
 
 /* Sidebar */
 $sidebar-width: 190px;

@@ -8,6 +8,7 @@ export interface IScssVariablesRevised {
   colorInfo: string
   colorDisabled: string
   colorWhite: string
+  colorGrey3: string
   chartColor1: string
   chartColor2: string
   chartColor3: string
@@ -22,6 +23,18 @@ export interface IScssVariablesRevised {
   chartColor12: string
   chartColor13: string
   chartColor14: string
+  chartColorH1: string
+  chartColorH2: string
+  chartColorH3: string
+  chartColorH4: string
+  chartColorH5: string
+  chartColorH6: string
+  chartColorH7: string
+  chartColorH8: string
+  chartColorH9: string
+  chartColorH10: string
+  chartColorH11: string
+  chartColorH12: string
 }
 
 export const variablesRevised: IScssVariablesRevised

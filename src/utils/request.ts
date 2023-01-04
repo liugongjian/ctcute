@@ -2,12 +2,12 @@
  * @Author: 马妍
  * @Date: 2022-07-22 00:06:08
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-09-01 11:05:52
+ * @LastEditTime: 2022-11-08 10:19:00
  * @Description:
  */
 import axios from 'axios'
 import settings from '@/settings'
-import { Message } from 'element-ui'
+import { Message } from '@cutedesign/base'
 
 /** 创建axios实例 */
 const service = axios.create({
@@ -43,7 +43,6 @@ service.interceptors.response.use(
     return Promise.resolve(response.data)
   },
   error => {
-    console.log('dddd', error.response)
     if (error.response && error.response.status === 500) {
       Message({
         message: '服务器开小差了，请稍后重试! ',

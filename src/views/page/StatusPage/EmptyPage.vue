@@ -1,8 +1,8 @@
 <!--
  * @Author: 万璐敏
  * @Date: 2022-07-08 13:45:09
- * @LastEditors: 万璐敏
- * @LastEditTime: 2022-07-18 14:04:23
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-11-07 08:53:25
  * @Description: 空页面
 -->
 <template>
@@ -24,9 +24,19 @@
       <el-tab-pane label="悬停项" name="fourth">
         <div class="box">
           <img src="./Image/empty-page.svg" />
-          <div class="text">暂无数据</div>
+          <el-empty :image="Img" :image-size="300" description="暂无数据"></el-empty>
         </div>
       </el-tab-pane>
     </el-tabs>
   </div>
 </template>
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+import Img from './Image/empty-page.svg'
+@Component({
+  name: 'EmptyPage',
+})
+export default class extends Vue {
+  private Img = Img
+}
+</script>

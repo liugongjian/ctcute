@@ -6,6 +6,8 @@ import Breadcrumb from './Breadcrumb.vue'
 import Pagination from './Pagination.vue'
 import Steps from './Steps.vue'
 import Input from './Input.vue'
+import CodeBox from './CodeBox.vue'
+import RichText from './RichText.vue'
 import Select from './Select.vue'
 import CascadeSelect from './CascadeSelect.vue'
 import Radio from './Radio.vue'
@@ -44,6 +46,8 @@ const componentsList = [
   Pagination,
   Steps,
   Input,
+  CodeBox,
+  RichText,
   Select,
   CascadeSelect,
   Radio,

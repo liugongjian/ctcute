@@ -93,9 +93,13 @@
     <div>
       <h3>四层树状菜单带搜索</h3>
       <div class="tree-search">
-        <el-input v-model="filterText" placeholder="请输入" size="mini">
-          <i slot="suffix" class="el-icon-close" @click="filterText = ''"></i>
-        </el-input>
+        <el-input
+          v-model="filterText"
+          prefix-icon="el-icon-search"
+          placeholder="请输入"
+          size="mini"
+          clearable
+        />
 
         <el-tree
           ref="tree"
@@ -366,7 +370,7 @@ export default class extends Vue {
 }
 
 .node-icon {
-  color: $color-grey-5;
+  color: $color-grey-3;
 
   .svg-icon {
     display: none;
@@ -380,7 +384,7 @@ export default class extends Vue {
 
 .is-expanded > .el-tree-node__content {
   .node-icon {
-    color: $color-grey-5;
+    color: $color-grey-3;
 
     .svg-icon {
       display: none;
@@ -396,7 +400,7 @@ export default class extends Vue {
   .node-content,
   .node-icon,
   .handler-icon {
-    color: $color-white;
+    //color: $color-white;
   }
 }
 
@@ -414,7 +418,7 @@ export default class extends Vue {
     }
 
     .handler-icon {
-      color: $color-grey-5;
+      color: $color-grey-3;
     }
   }
 
@@ -447,7 +451,6 @@ export default class extends Vue {
     z-index: 2019;
     top: 24px;
     right: 0;
-    background: $color-white;
   }
 }
 
@@ -462,8 +465,9 @@ export default class extends Vue {
 //基础树形
 .line {
   width: 500px;
-  border: 1px solid #ddd;
+  border: 1px solid $border-color-primary;
   padding: 10px 20px 20px;
+  background: $color-bg-1;
 }
 //带搜索树形
 .tree-search {

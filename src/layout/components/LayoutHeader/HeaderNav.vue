@@ -88,7 +88,7 @@ export default class extends Vue {
   margin-right: 40px;
   display: flex;
   align-items: center;
-  color: #c2c2c2;
+  color: $header-text-color;
   position: relative;
   cursor: pointer;
 
@@ -110,8 +110,8 @@ export default class extends Vue {
     position: absolute;
     top: 39px;
     left: 0;
-    background: #3a3e4c;
-    color: #c2c2c2;
+    background: $header-fill-2;
+    color: $header-text-color;
     margin: 0;
     padding-left: 0;
 
@@ -123,7 +123,7 @@ export default class extends Vue {
       cursor: pointer;
 
       &:hover {
-        background: #272b39;
+        background: $header-fill-1;
         color: $color-white;
       }
     }
@@ -137,10 +137,10 @@ export default class extends Vue {
     ::v-deep .el-input__inner {
       width: 200px;
       height: 32px;
-      background: #3a3e4c;
+      background: $header-fill-2;
       border-radius: 2px;
       padding-left: 36px;
-      color: #999;
+      color: $header-search-text-color;
       border: none;
     }
 
@@ -148,15 +148,15 @@ export default class extends Vue {
       margin-left: 5px;
     }
 
-    .svg-icon {
-      color: #999;
+    ::v-deep .svg-icon {
+      color: $header-search-text-color;
     }
   }
 }
 
 .layout-header__nav {
   a {
-    color: #a8adaf;
+    color: $header-text-color;
     margin-right: 24px;
     font-size: 14px;
 

@@ -13,7 +13,7 @@
         <dot-state :color="colorVariables.colorInfo">进行中</dot-state>
         <dot-state>下线/未完成/未开始/中止/取消</dot-state>
       </p>
-      <div>
+      <p>
         <dot-state icon="uninstalled">已卸载</dot-state>
         <dot-state icon="fault" :color="colorVariables.colorDanger">故障</dot-state>
         <dot-state icon="close-circle" :color="colorVariables.colorDanger">失败</dot-state>
@@ -25,7 +25,7 @@
         <dot-state icon="loading" :color="colorVariables.colorSuccess" :loading="true">启动中</dot-state>
         <dot-state icon="loading" :color="colorVariables.colorDanger" :loading="true">卸载中</dot-state>
         <dot-state icon="loading" :loading="true">停止中</dot-state>
-      </div>
+      </p>
     </div>
   </div>
 </template>

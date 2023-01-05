@@ -15,32 +15,9 @@ import { Component, Vue } from 'vue-property-decorator'
 import { DETAIL, STAGE } from './data'
 import CtLog from '@cutedesign/ct-log'
 import '@cutedesign/ct-log/dist/ct-log.css'
+import { PipelineOption } from '@cutedesign/ct-log/types/index.d'
 
 Vue.use(CtLog)
-
-type PipelineOption = {
-  error?: string
-  pipelineRunDetail: {
-    url: string
-    args?: {
-      [propName: string]: string
-    }
-    defaultData?: any
-  }
-  pipelineStageRunList: {
-    url: string
-    args?: {
-      [propName: string]: string
-    }
-    defaultData?: any
-  }
-  pipelineLogStream: {
-    url: string
-    args?: {
-      [propName: string]: string
-    }
-  }
-}
 
 @Component({
   name: 'App',

@@ -186,9 +186,14 @@
     background: $color-bg-2;
   }
 
-  .app-main {
+  .app-main-wrap {
     flex: 1;
     overflow: auto;
+  }
+
+  .app-main {
+    // 最小分辨率 - 侧边栏宽度 - 边距 - 边距
+    min-width: calc(1366px - $sidebar-width - $padding-medium - $padding-medium);
   }
 
   .app-main>.el-card.is-always-shadow {

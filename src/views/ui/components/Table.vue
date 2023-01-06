@@ -542,6 +542,35 @@
       </el-table-column>
     </el-table>
 
+    <h3>可展开的表格</h3>
+    <el-table
+      v-loading="expandTableLoading"
+      :data="expandTableData"
+      fit
+      border
+      row-key="_id"
+      default-expand-all
+      :tree-props="{ children: 'children' }"
+    >
+      <el-table-column prop="name" label="名称" width="180"> </el-table-column>
+      <el-table-column prop="menuType" label="其他状态" width="180">
+        <template slot-scope="scope">
+          <el-tag v-if="scope.row.menuType === 0" type="info">目录</el-tag>
+          <el-tag v-if="scope.row.menuType === 1" type="primary">菜单</el-tag>
+          <el-tag v-if="scope.row.menuType === 2" type="success">权限</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column prop="orderNum" label="排序"> </el-table-column>
+      <el-table-column prop="url" label="路由"> </el-table-column>
+      <el-table-column prop="perms" label="标识"> </el-table-column>
+      <el-table-column prop="alias" label="别名" :show-overflow-tooltip="true"> </el-table-column>
+      <el-table-column prop="actions" label="操作" width="250" fixed="right" class-name="actions">
+        <template slot-scope="{}">
+          <el-button type="text">编辑</el-button>
+          <el-button type="text">删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
     <div></div>
     <h3>横向展示列表</h3>
     <div class="sub-table-horizon" border>
@@ -787,6 +816,7 @@ import CuteSortTable from '@cutedesign/sort-table'
 import { getTable } from '@/api/cuteSortTable'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTableComponent } from '@/api/tableComponent'
+import { getTable as getExpandTable } from '@/api/proTable7'
 import * as TableComponent from '@/types/TableComponent'
 @Component({
   name: 'UiTable',
@@ -847,6 +877,8 @@ export default class extends Vue {
   private flag = false
 
   private tableComponentData: TableComponent.TableComponentData = null
+  private expandTableData: any[] = []
+  private expandTableLoading = false
   /**
    * 页面Mounted
    */
@@ -854,6 +886,7 @@ export default class extends Vue {
     this.tableHook = new TableHookClass({}, this.getTable, this.tableRef, false)
     this.tableHook.query()
     this.getTableComponentData()
+    this.getExpandTableData()
   }
 
   /**
@@ -872,6 +905,37 @@ export default class extends Vue {
     // 接口
     const res = await getTableComponent()
     this.tableComponentData = res.data
+  }
+
+  /**
+   * 获取可展开表格数据
+   */
+  private async getExpandTableData() {
+    this.expandTableLoading = true
+    const res = await getExpandTable()
+    if ((res as any).code === 200) {
+      const genData = (data, _id): any[] => {
+        const menu = data.filter(o => o.parentId === _id)
+        menu.forEach(o => {
+          const children = genData(data, o._id)
+          if (children && children.length > 0) {
+            o.children = children
+          }
+        })
+        return menu
+      }
+      const res_menus = res.data.result.map(item => {
+        item.label = item.name
+        item.id = item._id
+        return item
+      })
+      if (res_menus && res_menus.length > 0) {
+        this.expandTableData = genData(res_menus, '')
+      } else {
+        this.expandTableData = []
+      }
+    }
+    this.expandTableLoading = false
   }
 
   /**

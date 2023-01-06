@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 王月功
- * @LastEditTime: 2022-12-23 19:51:06
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-01-04 16:52:44
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -12,7 +12,7 @@ const componentRoutes = [
   {
     path: '/component/base',
     component: Layout,
-    redirect: '/component/base/cute-redmind-select',
+    redirect: '/component/biz/vss-video-player',
     meta: {
       title: '基础组件',
       alwaysShow: true,
@@ -231,6 +231,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Biz/MarkdownBook/index.vue'),
         meta: {
           title: 'MarkdownBook',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'ct-log',
+        name: 'CtLog',
+        component: () => import('@/views/component/Biz/CtLog/index.vue'),
+        meta: {
+          title: 'CtLog',
           breadcrumb: true,
         },
       },

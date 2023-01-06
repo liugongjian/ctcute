@@ -1,12 +1,14 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-10-08 10:43:23
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-10-19 16:57:50
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-01-06 18:29:29
  * @Description:
 -->
 <template>
-  <cute-mavon-editor :content="content"></cute-mavon-editor>
+  <div class="code-box">
+    <cute-mavon-editor :content="content"></cute-mavon-editor>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
@@ -335,6 +337,7 @@ export default class extends Vue {
 <script>
 
 <style lang="scss" scoped>
+.code-box{
 ::v-deep .CodeMirror-line {
   line-height: 150% !important;
 }
@@ -398,6 +401,7 @@ export default class extends Vue {
   .el-row {
     margin-top: 24px;
   }
+}
 }
 </style>
 \`\`\`

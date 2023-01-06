@@ -88,7 +88,7 @@ export default class extends Vue {
 }
 
 .svg-external-icon {
-  mask-size: cover !important;
+  mask-size: cover;
   display: inline-block;
 }
 </style>

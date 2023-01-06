@@ -144,10 +144,13 @@
   &--content {
     display: block;
     clear: both;
-    max-height: 461px;
+    max-height: 521px;
     // overflow-y: auto;
     margin-bottom: 0px;
-
+    .warn-tip {
+      display: block !important;
+      margin-bottom: 24px;
+    }
     .el-form-item--medium {
       display: flex;
       align-items: center;

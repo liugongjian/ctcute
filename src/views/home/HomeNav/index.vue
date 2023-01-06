@@ -40,7 +40,7 @@ export default class extends Vue {
     { title: '数据库多写引擎管理平台', icon: 'console-sql', href: '', info: '' },
     { title: '云拨测平台', icon: 'cloud', href: '', info: '' },
     { title: '算力交易平台', icon: 'sever', href: '', info: '' },
-    { title: '翼MR', icon: 'cloud-sync', href: 'team', info: '' },
+    { title: '翼MR', icon: 'cloud-sync', href: '', info: '' },
     { title: '语音质检', icon: 'ungroup', href: '', info: '' },
     { title: 'Datawings2.0', icon: 'datamodel', href: '', info: '' },
     { title: '分布式文件产品实例管理台', icon: 'file-protect', href: '', info: '' },

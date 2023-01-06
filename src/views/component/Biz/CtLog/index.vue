@@ -17,7 +17,7 @@
         <el-table-column prop="name" label="参数" />
         <el-table-column prop="desc" label="说明" />
         <el-table-column prop="type" label="类型" />
-        <el-table-column prop="options" label="可选值"/>
+        <el-table-column prop="options" label="可选值" />
         <el-table-column prop="default" label="默认值" />
       </el-table>
       <h2>CtLog Slots</h2>
@@ -47,7 +47,12 @@ export default class extends Vue {
   private prop = [
     {
       name: 'pipeline-option',
-      desc: '必传参数。配置项，用于设置url、参数、默认值',
+      desc:
+        '必传参数。配置项，用于设置url、参数、默认值。说明：' +
+        '{ pipelineRunDetail: {url: 日志流水线详情接口, args: 接口参数对象},' +
+        ' pipelineStageRunList: {url: 流水线步骤接口, args: 接口参数对象},' +
+        ' pipelineLogStream: {url: sse日志接口}' +
+        '}',
       type: 'object',
       options: '-',
       default: '-',

@@ -15,7 +15,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import { DETAIL, STAGE } from './data'
 import CtLog from '@cutedesign/ct-log'
 import '@cutedesign/ct-log/dist/ct-log.css'
-import { PipelineOption } from '@cutedesign/ct-log/types/index.d'
+import { PipelineOption } from '@cutedesign/ct-log'
 
 Vue.use(CtLog)
 
@@ -28,17 +28,17 @@ export default class extends Vue {
   get pipelineOption(): PipelineOption {
     return {
       pipelineRunDetail: {
-        url: '',
+        url: `/v1/pipelines/run/detail?id=${this.currentRunId}`,
         args: {},
         defaultData: DETAIL,
       },
       pipelineStageRunList: {
-        url: '',
+        url: `/v1/pipelines/stage/run/list?id=${this.currentRunId}`,
         args: {},
         defaultData: STAGE,
       },
       pipelineLogStream: {
-        url: '',
+        url: `/v1/pipelines/run/stream?id=${this.currentRunId}`,
       },
     }
   }

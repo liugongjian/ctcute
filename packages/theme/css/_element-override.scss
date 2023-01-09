@@ -276,6 +276,10 @@
   }
 }
 
+.el-form--inline .el-form-item {
+  margin-right: $margin-large;
+}
+
 // StepForm分步表单
 .el-steps {
   .el-step__head.is-success>.el-step__line>.el-step__line-inner {
@@ -1104,7 +1108,7 @@
 }
 
 .el-table {
-  margin: 16px 0 11px 0 !important;
+  margin: 16px 0 10px 0;
 
   .el-table__empty-block {
     background-color: $color-bg-2;

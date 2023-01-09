@@ -171,7 +171,7 @@
   flex: 1;
   flex-direction: column;
   position: relative;
-  padding: 0 $padding-medium $padding-medium;
+  padding: 0 $padding-primary $padding-primary;
   min-width: 0;
   min-height: 100%;
   transition: margin-left 0.28s;
@@ -180,7 +180,7 @@
     margin-left: -23px;
     margin-right: -16px;
     padding: $padding-medium;
-    margin-bottom: $margin-medium;
+    margin-bottom: $padding-primary;
     display: flex;
     align-items: center;
     background: $color-bg-2;
@@ -196,14 +196,14 @@
     min-width: calc(1366px - $sidebar-width - $padding-medium - $padding-medium);
   }
 
-  .app-main>.el-card.is-always-shadow {
-    border-radius: 0;
+  .app-main > .el-card.is-always-shadow {
+    border-radius: $border-radius-medium;
     border: none;
     color: inherit;
   }
 
   // 组件规范页需要支持滚动
-  >.el-card {
+  > .el-card {
     max-height: 100%;
     overflow: auto;
   }

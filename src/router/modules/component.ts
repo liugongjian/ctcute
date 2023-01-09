@@ -234,6 +234,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'ct-log',
+        name: 'CtLog',
+        component: () => import('@/views/component/Biz/CtLog/index.vue'),
+        meta: {
+          title: 'CtLog',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

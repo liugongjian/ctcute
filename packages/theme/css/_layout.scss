@@ -205,7 +205,7 @@
 
   .app-main {
     // 最小分辨率 - 侧边栏宽度 - 边距 - 边距
-    min-width: calc(1366px - $sidebar-width - $padding-medium - $padding-medium);
+    min-width: calc(1366px - $sidebar-width - $padding-primary - $padding-primary);
   }
 
   .app-main > .el-card.is-always-shadow {

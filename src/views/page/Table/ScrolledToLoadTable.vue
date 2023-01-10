@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-07-26 15:13:36
- * @LastEditors: 胡一苗
- * @LastEditTime: 2022-12-13 18:13:39
+ * @LastEditors: 庄晓欣
+ * @LastEditTime: 2023-01-10 14:23:01
  * @Description: 基础表格 - 滚动底部加载
 -->
 <template>
@@ -16,12 +16,15 @@
       <div class="table-tools__right table-tools__conditions">
         <el-form ref="conditions" :model="conditions" inline @submit.native.prevent>
           <el-form-item prop="host">
-            <el-select v-model="conditions.host" placeholder="请选择主机">
-              <el-option v-for="item in hostOptions" :key="item" :label="item" :value="item" />
-            </el-select>
+            <cute-remind-select
+              v-model="conditions.host"
+              :options="hostOptions"
+              title="主机"
+              placeholder="请选择主机"
+            />
           </el-form-item>
           <el-form-item prop="name">
-            <el-input v-model="conditions.name" placeholder="请输入主机别名" />
+            <cute-remind-input v-model="conditions.name" placeholder="请输入主机别名" title="主机别名" />
             <el-form-item class="table-tools__conditions__buttons">
               <el-button type="primary" @click="tableHook.query()">查 询</el-button>
               <el-button @click="resetConditions">重 置</el-button>
@@ -122,7 +125,13 @@ export default class extends Vue {
   private async getHosts() {
     try {
       const res = await getHosts()
-      this.hostOptions = res.data
+      const options = res.data.map(item => {
+        return {
+          value: item,
+          label: item,
+        }
+      })
+      this.hostOptions = options
     } catch (e) {
       this.$message.error(e)
     }

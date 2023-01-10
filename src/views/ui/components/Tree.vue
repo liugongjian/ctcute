@@ -424,7 +424,7 @@ export default class extends Vue {
 
   &:hover {
     .handler-menu {
-      display: block;
+      display: flex;
     }
   }
 }

@@ -132,7 +132,6 @@ export default class extends Vue {
     margin-top: 8px;
     margin-bottom: 0 !important;
   }
-
   .table {
     margin: 8px 0 0 !important;
   }

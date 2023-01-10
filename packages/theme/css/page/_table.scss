@@ -1,13 +1,15 @@
 @mixin table {
+
   /* 分页 */
   .el-pagination {
     text-align: right;
   }
 
   .el-table {
+
     /* 操作按钮 */
     .actions.el-table__cell {
-      .el-button--text + .el-button--text {
+      .el-button--text+.el-button--text {
         margin-left: 16px;
 
         &:before {
@@ -23,6 +25,7 @@
 
 /* 简单表格 */
 .simple-table {
+
   /* 表格工具栏 */
   .table-tools {
     display: flex;
@@ -47,7 +50,7 @@
         margin-left: 10px;
         margin-right: 0;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
       }
@@ -58,8 +61,10 @@
 }
 
 .simple-table2 {
+
   /* 表格工具栏 */
   .table-tools {
+
     /* 筛选表单 */
     &__conditions {
       .el-form {
@@ -71,9 +76,11 @@
         margin-bottom: 0;
         flex: 1;
         margin-right: 20px;
-        .el-form-item__content{
+
+        .el-form-item__content {
           width: 100%;
         }
+
         &:last-child {
           margin-right: 0;
           flex: none;
@@ -83,15 +90,15 @@
       .el-input,
       .el-select {
         width: 100%;
-  
+
       }
-  
+
 
       &__buttons {
         margin-right: 0;
         float: right;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
       }
@@ -103,15 +110,17 @@
 
 /* 复杂表格 3 */
 .pro-table-3 {
+
   /* 分页 */
   .el-pagination {
     text-align: right;
   }
 
   .el-table {
+
     /* 操作按钮 */
     .actions.el-table__cell {
-      .el-button--text + .el-button--text {
+      .el-button--text+.el-button--text {
         margin-left: 10px;
 
         &:nth-last-child(2) {
@@ -199,7 +208,7 @@
         margin-right: 0;
         float: right;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
 
@@ -275,7 +284,7 @@
       }
     }
 
-    .is-expanded > .el-tree-node__content {
+    .is-expanded>.el-tree-node__content {
       .node-icon {
         color: $color-grey-5;
 
@@ -289,7 +298,8 @@
       }
     }
 
-    .el-tree-node:focus > .el-tree-node__content {
+    .el-tree-node:focus>.el-tree-node__content {
+
       .node-content,
       .node-icon,
       .handler-icon {
@@ -317,12 +327,13 @@
 
       &:hover {
         .handler-menu {
-          display: block;
+          display: flex;
+          color: $color-white;
         }
       }
     }
 
-    .el-tree-node > .el-tree-node__children {
+    .el-tree-node>.el-tree-node__children {
       overflow: initial;
     }
 
@@ -349,6 +360,7 @@
 
   /* 表格 */
   .table-wrap {
+
     /* 表格工具栏 */
     .table-tools {
       display: flex;
@@ -383,7 +395,7 @@
           margin-left: 24px;
           margin-right: 0;
 
-          .el-button + .el-button {
+          .el-button+.el-button {
             margin-left: $button-margin;
           }
         }
@@ -433,7 +445,7 @@
 
   .el-table {
     background-color: $color-bg-2;
-    margin: 0 !important;
+    margin: 0;
   }
 }
 
@@ -467,7 +479,7 @@
         margin-left: 10px;
         margin-right: 0;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
       }
@@ -503,48 +515,60 @@
 
 /* 复杂表格2 */
 .pro-table-2 {
+
   /* 表格工具栏 */
   .table-tools {
+
     /* 筛选表单 */
     &__conditions {
       margin-bottom: 16px;
-      .table-tools_top,.table-tools_bottom{
+
+      .table-tools_top,
+      .table-tools_bottom {
         display: flex;
       }
-       .table-tools_top{
-         .el-form-item {
-              margin-bottom: 16px;
-              flex: 1;
-              .el-form-item__content{
-                 width: 100%;
-              }
-              &:last-child{
-                margin-right: 0;
-              }
-          }
-       }
-       .table-tools_bottom{
+
+      .table-tools_top {
         .el-form-item {
-              margin-bottom: 0;
-              flex: 1;
-              .el-form-item__content{
-                 width: 100%;
-              }
-              &:last-child{
-                margin-right: 0;
-                flex: 2;
-              }
+          margin-bottom: 16px;
+          flex: 1;
+
+          .el-form-item__content {
+            width: 100%;
           }
-       }
-     
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+
+      .table-tools_bottom {
+        .el-form-item {
+          margin-bottom: 0;
+          flex: 1;
+
+          .el-form-item__content {
+            width: 100%;
+          }
+
+          &:last-child {
+            margin-right: 0;
+            flex: 2;
+          }
+        }
+      }
+
 
       &__buttons {
         margin-right: 0;
-        .buttons{
+
+        .buttons {
           width: auto;
           float: right;
         }
-        .el-button + .el-button {
+
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
       }
@@ -579,7 +603,7 @@
     line-height: 32px;
   }
 
- 
+
 
   .el-dropdown-link {
     cursor: pointer;

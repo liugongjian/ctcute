@@ -21,8 +21,10 @@
   &__title {
     font-size: 14px;
     color: $text-color-primary;
-    padding: 15px 0 10px 20px;
+    padding: 25px 0 20px 17px;
+    margin: 0 7px 12px 15px;
     font-weight: bold;
+    border-bottom: 1px solid $border-color-primary;
   }
 
   &__menu {
@@ -42,6 +44,7 @@
   .el-submenu__title {
     height: 40px;
     line-height: 40px;
+    padding-left: 32px !important;
   }
 
   .el-submenu__title {
@@ -80,7 +83,7 @@
 
   .el-submenu {
     .el-menu-item {
-      padding-left: 10px !important;
+      padding-left: 22px !important;
       padding-right: 20px !important;
     }
 
@@ -104,7 +107,7 @@
       width: 2px;
       height: 12px;
       position: absolute;
-      left: 12px;
+      left: 20px;
       top: 14px;
     }
   }
@@ -126,11 +129,19 @@
   }
 
   .vertical-bar {
-    border-left: 2px solid $border-color-primary;
-    margin: 14px 0 18px 30px;
-    max-height: calc(100% - 40px);
+    margin: 14px 0 18px 32px;
+    &:after {
+      position: absolute;
+      content: '';
+      display: inline-block;
+      background-color: $border-color-primary;
+      width: 2px;
+      height: calc(100% - 32px);
+      left: 42px;
+      top: 14px;
+    }
 
-    >div:first-child {
+    > div:first-child {
       .el-menu-item {
         height: 26px;
         line-height: 12px;
@@ -162,6 +173,7 @@
 
   .el-submenu__icon-arrow {
     color: $color-grey-2;
+    right: 8px;
   }
 }
 
@@ -171,34 +183,39 @@
   flex: 1;
   flex-direction: column;
   position: relative;
-  padding: 0 $padding-medium $padding-medium;
+  padding: 0 $padding-primary $padding-primary;
   min-width: 0;
   min-height: 100%;
   transition: margin-left 0.28s;
 
   .navbar {
-    margin-left: -23px;
+    margin-left: -19px;
     margin-right: -16px;
     padding: $padding-medium;
-    margin-bottom: $margin-medium;
+    margin-bottom: $padding-primary;
     display: flex;
     align-items: center;
     background: $color-bg-2;
   }
 
-  .app-main {
+  .app-main-wrap {
     flex: 1;
     overflow: auto;
   }
 
-  .app-main>.el-card.is-always-shadow {
-    border-radius: 0;
+  .app-main {
+    // 最小分辨率 - 侧边栏宽度 - 边距 - 边距
+    min-width: calc(1366px - $sidebar-width - $padding-primary - $padding-primary);
+  }
+
+  .app-main > .el-card.is-always-shadow {
+    border-radius: $border-radius-medium;
     border: none;
     color: inherit;
   }
 
   // 组件规范页需要支持滚动
-  >.el-card {
+  > .el-card {
     max-height: 100%;
     overflow: auto;
   }

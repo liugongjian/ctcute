@@ -87,40 +87,48 @@
       <h3>时间点选择</h3>
       <div class="date">
         <div class="sub-date">
-          <el-time-select
-            v-model="text"
-            :picker-options="{
-              start: '08:30',
-              step: '00:15',
-              end: '18:30',
-            }"
-            placeholder="选择时间"
-          >
-          </el-time-select>
-          <el-date-picker v-model="value6" type="datetime" placeholder="选择时间"> </el-date-picker>
+          <div class="sub-date_left">
+            <el-time-select
+              v-model="text"
+              :picker-options="{
+                start: '08:30',
+                step: '00:15',
+                end: '18:30',
+              }"
+              placeholder="选择时间"
+            >
+            </el-time-select>
+          </div>
+          <div class="sub-date_right">
+            <el-date-picker v-model="value6" type="datetime" placeholder="选择时间"> </el-date-picker>
+          </div>
         </div>
       </div>
 
       <h3>时间点选择-小</h3>
       <div class="date">
         <div class="sub-date">
-          <el-time-select
-            v-model="text"
-            size="mini"
-            :picker-options="{
-              start: '08:30',
-              step: '00:15',
-              end: '18:30',
-            }"
-            placeholder="选择时间"
-          >
-          </el-time-select>
-          <el-date-picker
-            v-model="value6"
-            type="datetime"
-            placeholder="选择时间"
-            size="mini"
-          ></el-date-picker>
+          <div class="sub-date_left">
+            <el-time-select
+              v-model="text"
+              size="mini"
+              :picker-options="{
+                start: '08:30',
+                step: '00:15',
+                end: '18:30',
+              }"
+              placeholder="选择时间"
+            >
+            </el-time-select>
+          </div>
+          <div class="sub-date_right">
+            <el-date-picker
+              v-model="value6"
+              type="datetime"
+              placeholder="选择时间"
+              size="mini"
+            ></el-date-picker>
+          </div>
         </div>
       </div>
 
@@ -162,7 +170,7 @@
 
       <h3>日期区间选择</h3>
       <div class="date">
-        <div class="sub-date1">
+        <div class="sub-date">
           <el-date-picker
             v-model="value4"
             type="daterange"
@@ -176,7 +184,7 @@
 
       <h3>日期区间选择-小</h3>
       <div class="date">
-        <div class="sub-date1">
+        <div class="sub-date">
           <el-date-picker
             v-model="value7"
             type="daterange"
@@ -191,7 +199,7 @@
 
       <h3>日期区间选择-带快捷键</h3>
       <div class="date">
-        <div class="sub-date1">
+        <div class="sub-date">
           <el-date-picker
             v-model="date6"
             type="daterange"
@@ -207,7 +215,7 @@
 
       <h3>日期区间选择-小-带快捷键</h3>
       <div class="date">
-        <div class="sub-date1">
+        <div class="sub-date">
           <el-date-picker
             v-model="date7"
             type="daterange"
@@ -224,7 +232,7 @@
 
       <h3>日期时间区间选择</h3>
       <div class="date">
-        <div class="sub-date1">
+        <div class="sub-date">
           <el-date-picker
             v-model="value5"
             type="datetimerange"
@@ -238,7 +246,7 @@
 
       <h3>日期时间区间选择-小</h3>
       <div class="date">
-        <div class="sub-date1">
+        <div class="sub-date">
           <el-date-picker
             v-model="value8"
             type="datetimerange"
@@ -252,7 +260,7 @@
       </div>
       <h3>日期时间区间选择-带快捷键</h3>
       <div class="date">
-        <div class="sub-date1">
+        <div class="sub-date">
           <el-date-picker
             v-model="date8"
             type="datetimerange"
@@ -266,7 +274,7 @@
       </div>
       <h3>日期时间区间选择-小-带快捷键</h3>
       <div class="date">
-        <div class="sub-date1">
+        <div class="sub-date">
           <el-date-picker
             v-model="date8"
             type="datetimerange"
@@ -652,6 +660,17 @@ export default class extends Vue {
 
 .date {
   border-bottom: 1px solid $border-color-light-1;
+
+  .sub-date {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+
+    &_left,
+    &_raight {
+      margin-right: 48px;
+    }
+  }
 }
 
 .sub-down:last-child {
@@ -660,38 +679,6 @@ export default class extends Vue {
   .el-row {
     margin-top: 24px;
   }
-}
-
-.sub-date_titles {
-  display: flex;
-  justify-content: space-between;
-  width: 562px;
-}
-
-.sub-date_title {
-  width: 621px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.sub-date,
-.sub-date1,
-.sub-date2 {
-  margin-bottom: 24px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.sub-date {
-  width: 720px;
-}
-
-.sub-date1 {
-  width: 850px;
-}
-
-.sub-date2 {
-  width: 900px;
 }
 
 .auxiliary-message:after {

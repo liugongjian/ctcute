@@ -7,39 +7,40 @@
 -->
 <template>
   <div class="distribution-bar">
-    <div>
-      <el-checkbox
-        v-for="(item, index) in barList"
-        :key="index"
-        v-model="item[propsChecked]"
-        class="distribution-bar__checkbox"
-        :style="{ ['--color' + (index + 1)]: colors[index] }"
-        @change="handleCheckboxChange(item, index)"
-      >
-        <span class="distribution-bar__checkbox__name">{{ item[propsName] }}</span>
-        <el-input-number
-          v-show="item[propsChecked]"
-          v-model="item[propsValue]"
-          :disabled="!isFree && barValueList.length === 1"
-          class="distribution-bar__checkbox__value"
-          :controls="false"
-          :min="0"
-          :precision="0"
-          :max="getValueItemMax(index)"
-          size="small"
-          @change="handleValueChange(item, index)"
-        ></el-input-number>
-        <span v-show="item[propsChecked]" class="distribution-bar__checkbox__rate" @click.prevent>
-          <span v-if="showValue">{{ getRate(item[propsValue]) }}</span>
-          <span>%</span>
-        </span>
-      </el-checkbox>
+    <div class="distribution-bar__wrap">
+      <span v-for="(item, index) in barList" :key="item[propsCode]" class="distribution-bar__checkbox-item">
+        <el-checkbox
+          v-model="item[propsChecked]"
+          class="distribution-bar__checkbox"
+          :style="{ ['--color' + (index + 1)]: colors[index] }"
+          @change="handleCheckboxChange(item, index)"
+        >
+          <span class="distribution-bar__checkbox__name">{{ item[propsName] }}</span>
+          <el-input-number
+            v-show="item[propsChecked]"
+            v-model="item[propsValue]"
+            :disabled="!isFree && barValueList.length === 1"
+            class="distribution-bar__checkbox__value"
+            :controls="false"
+            :min="0"
+            :precision="0"
+            :max="getValueItemMax(index)"
+            size="small"
+            @change="handleValueChange(item, index)"
+          ></el-input-number>
+          <span v-show="item[propsChecked]" class="distribution-bar__checkbox__rate" @click.prevent>
+            <span v-if="showValue">{{ getRate(item[propsValue], index) }}</span>
+            <span>%</span>
+          </span>
+        </el-checkbox>
+        <br v-if="showBr(index)" />
+      </span>
     </div>
     <split-bar
       v-show="splitBarShow"
       v-model="barValueList"
       class="distribution-bar__split"
-      :fix-last-button="!isFree"
+      :show-last-button="!isFree"
       :max="barMax"
       :text-data="barTextData"
       :bar-color="barColor"
@@ -82,6 +83,7 @@ export default class extends Vue {
   @Prop({ type: Number, default: 0 }) ratePrecision?: number
   @Prop({ type: Boolean, default: true }) showValue?: boolean
   @Prop({ type: String, default: 'fixed' }) mode?: string // fixed free
+  @Prop({ type: [Number, String], default: 'auto' }) rowNumber?: number | string
   @Prop({ type: Object, default: () => ({}) }) props?: {
     code: string
     value: string
@@ -90,6 +92,7 @@ export default class extends Vue {
   }
 
   public barList: Array<any> = []
+  public maxWidth = 'auto'
 
   get barValueList() {
     return this.barList.filter(item => item[this.propsChecked]).map(item => item[this.propsValue])
@@ -104,8 +107,8 @@ export default class extends Vue {
     })
   }
   get barWholeList() {
-    return this.barList.map(item => {
-      item.rate = this.getRate(item[this.propsValue])
+    return this.barList.map((item, index) => {
+      item.rate = this.getRate(item[this.propsValue], index)
       return item
     })
   }
@@ -221,9 +224,11 @@ export default class extends Vue {
           : total + barValueItem[this.propsValue]
       }, 0)
     }
-
     return this.barMax - rest
   }
+  /**
+   * 获取传入index最近一个被选中的项
+   */
   private getNearIndex(index) {
     let nearIndex = this.barList.findIndex(item => item[this.propsChecked])
     for (const [barIndex, barItem] of this.barList.entries()) {
@@ -234,9 +239,41 @@ export default class extends Vue {
     }
     return nearIndex
   }
-  getRate(value) {
-    const rate = (value / this.barMax) * 100
+  /**
+   * 获取被选中的最后一项index
+   */
+  private getLastIndex() {
+    let lastIndex = 0
+    for (const [barIndex, barItem] of this.barList.entries()) {
+      if (barItem[this.propsChecked]) {
+        lastIndex = barIndex
+      }
+    }
+    return lastIndex
+  }
+  getRate(value = 0, index) {
+    const total = this.barValueList.reduce((total, item) => {
+      return total + item
+    }, 0)
+    const lastIndex = this.getLastIndex()
+    let rate
+    // 保证最后一项数值和前面加起来是100%
+    if (total === this.barMax && index === lastIndex) {
+      const preTotalRate = this.barList.reduce((total, barItem, barIndex) => {
+        return barIndex !== lastIndex && barItem[this.propsChecked] ? total + Number(barItem.rate) : total
+      }, 0)
+      rate = 100 - preTotalRate
+    } else {
+      rate = (value / this.barMax) * 100
+    }
     return this.toPrecision(rate)
+  }
+  showBr(index) {
+    if (this.rowNumber === 'auto') {
+      return false
+    } else {
+      return (index + 1) % Number(this.rowNumber) === 0
+    }
   }
   emitChange() {
     this.$emit('change', this.barWholeCheckedList)
@@ -293,9 +330,13 @@ export default class extends Vue {
     margin-top: 20px;
   }
 
+  &__wrap {
+    margin-bottom: -20px;
+  }
+
   &__checkbox {
     margin-right: 24px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 
     ::v-deep {
       .el-checkbox__label {
@@ -329,12 +370,12 @@ export default class extends Vue {
 
   ::v-deep {
     @for $i from 1 through 10 {
-      .distribution-bar__checkbox:nth-child(#{$i}) .el-checkbox__input.is-checked .el-checkbox__inner {
+      .distribution-bar__checkbox-item:nth-child(#{$i}) .el-checkbox__input.is-checked .el-checkbox__inner {
         border-color: var(--color#{$i});
         background-color: var(--color#{$i});
       }
-      .distribution-bar__checkbox:nth-child(#{$i}) .el-checkbox__input .el-checkbox__inner:hover,
-      .distribution-bar__checkbox:nth-child(#{$i}) .el-checkbox__input.is-focus .el-checkbox__inner {
+      .distribution-bar__checkbox-item:nth-child(#{$i}) .el-checkbox__input .el-checkbox__inner:hover,
+      .distribution-bar__checkbox-item:nth-child(#{$i}) .el-checkbox__input.is-focus .el-checkbox__inner {
         border-color: var(--color#{$i});
       }
     }

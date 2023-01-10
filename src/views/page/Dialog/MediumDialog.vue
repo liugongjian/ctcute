@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-07-13 13:41:05
- * @LastEditors: 胡一苗
- * @LastEditTime: 2022-12-20 13:51:57
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-01-06 17:42:33
  * @Description: 中弹窗
 -->
 <template>
@@ -28,6 +28,13 @@
         :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '461px' }]"
       >
         <div class="medium-dialog--content">
+          <el-alert
+            title="提示文案，这是一条警告提示提示"
+            type="warning"
+            show-icon
+            :closable="false"
+            class="warn-tip"
+          />
           <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">
             <el-form-item label="主机别名" prop="name" placeholder="111">
               <el-input v-model="form.name" value="" placeholder="请输入主机别名"></el-input>

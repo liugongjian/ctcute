@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "name": "MediumDialog2.vue",
+      "path": "@/views/page/Dialog/MediumDialog2.vue"
+    },
+    {
+      "name": "MediumDialog2.d.ts",
+      "path": "@/types/MediumDialog2.d.ts"
+    },
+    {
+      "name": "api/mediumDialog2.ts",
+      "path": "@/api/mediumDialog2.ts"
+    }
+  ]
+}

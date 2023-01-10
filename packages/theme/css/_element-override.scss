@@ -7,6 +7,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.el-icon-close:before {
+  @include iconfont;
+  content: '\ea3c';
+}
+
+.el-icon-error:before {
+  @include iconfont;
+  content: '\ea5c';
+}
+
 /* Button
 -------------------------- */
 /*
@@ -264,6 +274,10 @@
   .el-form-item__label {
     line-height: 32px;
   }
+}
+
+.el-form--inline .el-form-item {
+  margin-right: $margin-large;
 }
 
 // StepForm分步表单
@@ -1116,7 +1130,7 @@
 }
 
 .el-table {
-  margin: 16px 0 11px 0;
+  margin: 16px 0 10px 0;
 
   .el-table__empty-block {
     background-color: $color-bg-2;
@@ -1616,17 +1630,19 @@
 
 .disabled-select {
   .el-select__tags-text::after {
-    content: 'x';
+    @include iconfont;
+    content: '\ea3c';
     color: $color-white;
     text-align: center;
-    line-height: 11px;
+    line-height: 17px;
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     background: $disabled-icon-color;
     font-size: $text-size-primary;
     border-radius: 50%;
-    margin-left: 10px;
+    margin-left: 4px;
+    transform: scale(0.8) translate(0, 1.5px);
   }
 
   .el-select__tags-text {
@@ -2193,7 +2209,7 @@
   $bgColor: $color-tag-master-2) {
   .is-alert-tip {
     .el-alert--#{$class}.is-light {
-      border: 1px solid $bdcolor;
+      border: none;
       color: $text-color-primary;
       background-color: $bgColor;
 
@@ -2208,7 +2224,7 @@
 @include global-tips(success, $color-tag-success-1, $color-status-success, $color-tag-success-2);
 @include global-tips(warning, $color-tag-warning-1, $color-status-warning, $color-tag-warning-2);
 @include global-tips(error, $color-tag-danger-1, $color-status-danger, $color-tag-danger-2);
-@include global-tips(weak, $disabled-border, $disabled-color, $color-bg-1);
+@include global-tips(weak, $disabled-border, $disabled-color, $color-grey-9);
 
 .el-alert {
   padding: 8px 16px;

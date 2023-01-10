@@ -47,7 +47,6 @@
       }
 
       &__buttons {
-        margin-left: 10px;
         margin-right: 0;
 
         .el-button+.el-button {
@@ -376,8 +375,6 @@
 
       /* 筛选表单 */
       &__conditions {
-        margin-bottom: 16px;
-
         .el-form-item {
           margin-bottom: 0;
 
@@ -476,7 +473,6 @@
       }
 
       &__buttons {
-        margin-left: 10px;
         margin-right: 0;
 
         .el-button+.el-button {
@@ -554,11 +550,9 @@
 
           &:last-child {
             margin-right: 0;
-            flex: 2;
           }
         }
       }
-
 
       &__buttons {
         margin-right: 0;

@@ -808,7 +808,7 @@ export default class extends Vue {
     { prop: 'memory', label: '内存利用率(%)' },
     { prop: 'disk', label: '磁盘利用率(%)' },
     { prop: 'healthy', label: '健康状态', slot: 'healthy' },
-    { prop: 'operation', label: '操作', width: 190, slot: 'operation' },
+    { prop: 'operation', label: '操作', slot: 'operation', props: { align: 'left', width: 190 } },
   ]
 
   private tableComponentColumns = [

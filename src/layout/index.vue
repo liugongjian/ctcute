@@ -11,7 +11,9 @@
       <!-- id在sidebar中被使用，勿随意删改 -->
       <div id="layout-container" class="layout-container">
         <navbar />
-        <app-main />
+        <div class="app-main-wrap">
+          <app-main />
+        </div>
       </div>
     </div>
   </div>

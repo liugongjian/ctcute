@@ -571,6 +571,91 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <h3>嵌套表格</h3>
+
+    <el-table v-loading="nestedTableLoading" :data="nestedTableData" fit>
+      <el-table-column type="expand">
+        <template slot-scope="scope">
+          <el-table ref="multipleTable" tooltip-effect="dark" :data="scope.row.projectSpaces">
+            <el-table-column width="20"></el-table-column>
+            <el-table-column prop="projectSpace" label="名称">
+              <template slot-scope="{ row }">
+                <el-button :disabled="row.projectSpaceState === '1' ? false : true" type="text">{{
+                  row.projectSpace
+                }}</el-button>
+              </template>
+            </el-table-column>
+            <el-table-column prop="projectSpaceState" label="其他状态">
+              <template slot-scope="{ row }">
+                <span class="health-state">
+                  <span class="health-dot" :class="`health-dot--${row.projectSpaceState}`" />{{
+                    NESTED_TABLE_STATUS[row.projectSpaceState]
+                  }}
+                </span>
+              </template>
+            </el-table-column>
+            <el-table-column prop="cu" label="已使用 / 已购买CU">
+              <template slot-scope="{ row }">
+                <span class="used">{{ row.cuUsedNum }}</span> / {{ row.cuNum }}
+              </template>
+            </el-table-column>
+            <el-table-column label="创建时间" prop="createTime">
+              <template slot-scope="{ row }">
+                {{ formatDatetime(row.createTime) }}
+              </template>
+            </el-table-column>
+            <el-table-column label="操作">
+              <template slot-scope="{ row }">
+                <el-button
+                  :disabled="row.projectSpaceState === '1' ? false : true"
+                  type="text"
+                  style="margin-right: 10px"
+                  @click="handleDistribute('资源分配')"
+                  >资源分配</el-button
+                >
+                <el-button
+                  :disabled="row.projectSpaceState === '1' ? false : true"
+                  type="text"
+                  @click="handleDistribute('删除')"
+                  >删除</el-button
+                >
+              </template>
+            </el-table-column>
+          </el-table>
+        </template>
+      </el-table-column>
+      <el-table-column label="工作空间/实例ID" prop="workspace">
+        <template slot-scope="{ row }">
+          <el-button :disabled="row.workspaceState === '1' ? false : true" type="text">{{
+            row.workspace
+          }}</el-button>
+        </template>
+      </el-table-column>
+      <el-table-column label="工作空间状态" prop="workspaceState">
+        <template slot-scope="{ row }">
+          <span class="health-state">
+            <span class="health-dot" :class="`health-dot--${row.workspaceState}`" />{{
+              STATUS[row.workspaceState]
+            }}
+          </span>
+        </template>
+      </el-table-column>
+      <el-table-column label="已使用 / 已购买CU" prop="CU">
+        <template slot-scope="{ row }">
+          <span class="used">{{ row.cuUsedNum }}</span> / {{ row.cuNum }}
+        </template>
+      </el-table-column>
+      <el-table-column label="付费类型" prop="payType">
+        <template slot-scope="{ row }">
+          <el-tag type="warning">{{ NESTED_TABLE_TYPE[row.payType] }}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column label="创建时间" prop="createTime">
+        <template slot-scope="{ row }"> {{ formatDatetime(row.createTime) }} </template>
+      </el-table-column>
+    </el-table>
+
     <div></div>
     <h3>横向展示列表</h3>
     <div class="sub-table-horizon" border>
@@ -817,6 +902,9 @@ import { getTable } from '@/api/cuteSortTable'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTableComponent } from '@/api/tableComponent'
 import { getTable as getExpandTable } from '@/api/proTable7'
+import { getTable as getNestedTable } from '@/api/proTable6'
+import { STATUS as NESTED_TABLE_STATUS, TYPE as NESTED_TABLE_TYPE } from '@/dics/proTable6'
+import { formatDatetime } from '@/utils/date'
 import * as TableComponent from '@/types/TableComponent'
 @Component({
   name: 'UiTable',
@@ -879,6 +967,14 @@ export default class extends Vue {
   private tableComponentData: TableComponent.TableComponentData = null
   private expandTableData: any[] = []
   private expandTableLoading = false
+
+  private nestedTableLoading = false
+  private nestedTableData: any[] = []
+  private NESTED_TABLE_STATUS = NESTED_TABLE_STATUS
+  private NESTED_TABLE_TYPE = NESTED_TABLE_TYPE
+
+  formatDatetime = formatDatetime
+
   /**
    * 页面Mounted
    */
@@ -887,6 +983,7 @@ export default class extends Vue {
     this.tableHook.query()
     this.getTableComponentData()
     this.getExpandTableData()
+    this.getNestedTableData()
   }
 
   /**
@@ -912,30 +1009,54 @@ export default class extends Vue {
    */
   private async getExpandTableData() {
     this.expandTableLoading = true
-    const res = await getExpandTable()
-    if ((res as any).code === 200) {
-      const genData = (data, _id): any[] => {
-        const menu = data.filter(o => o.parentId === _id)
-        menu.forEach(o => {
-          const children = genData(data, o._id)
-          if (children && children.length > 0) {
-            o.children = children
-          }
+    try {
+      const res = await getExpandTable()
+      if ((res as any).code === 200) {
+        const genData = (data, _id): any[] => {
+          const menu = data.filter(o => o.parentId === _id)
+          menu.forEach(o => {
+            const children = genData(data, o._id)
+            if (children && children.length > 0) {
+              o.children = children
+            }
+          })
+          return menu
+        }
+        const res_menus = res.data.result.map(item => {
+          item.label = item.name
+          item.id = item._id
+          return item
         })
-        return menu
+        if (res_menus && res_menus.length > 0) {
+          this.expandTableData = genData(res_menus, '')
+        } else {
+          this.expandTableData = []
+        }
       }
-      const res_menus = res.data.result.map(item => {
-        item.label = item.name
-        item.id = item._id
-        return item
-      })
-      if (res_menus && res_menus.length > 0) {
-        this.expandTableData = genData(res_menus, '')
-      } else {
-        this.expandTableData = []
-      }
+    } catch (e) {
+      console.error(e)
+    } finally {
+      this.expandTableLoading = false
     }
-    this.expandTableLoading = false
+  }
+
+  /**
+   * 获取嵌套表格数据
+   */
+  private async getNestedTableData() {
+    try {
+      this.nestedTableLoading = true
+      const res = await getNestedTable()
+      this.nestedTableData = (res as any).data
+    } catch (e) {
+      console.error(e)
+    } finally {
+      this.nestedTableLoading = false
+    }
+  }
+
+  private handleDistribute(row) {
+    this.$message.success(`前往${row}`)
   }
 
   /**

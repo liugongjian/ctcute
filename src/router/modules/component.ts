@@ -243,6 +243,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'ct-monaco',
+        name: 'CtMonaco',
+        component: () => import('@/views/component/Biz/CtMonaco/index.vue'),
+        meta: {
+          title: 'CtMonaco',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

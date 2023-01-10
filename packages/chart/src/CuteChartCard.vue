@@ -71,9 +71,9 @@ export default class extends Vue {
     width: 240px;
 
     h3 {
-      font-family: bahnschrift;
+      font-family: PingFangSC-Semibold;
       font-size: 30px;
-      line-height: 42px;
+      font-weight: 600;
       margin: 0;
       color: $color-grey-1;
     }

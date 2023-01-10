@@ -2163,7 +2163,7 @@
   $bgColor: $color-tag-master-2) {
   .is-alert-tip {
     .el-alert--#{$class}.is-light {
-      border: 1px solid $bdcolor;
+      border: none;
       color: $text-color-primary;
       background-color: $bgColor;
 
@@ -2178,7 +2178,7 @@
 @include global-tips(success, $color-tag-success-1, $color-status-success, $color-tag-success-2);
 @include global-tips(warning, $color-tag-warning-1, $color-status-warning, $color-tag-warning-2);
 @include global-tips(error, $color-tag-danger-1, $color-status-danger, $color-tag-danger-2);
-@include global-tips(weak, $disabled-border, $disabled-color, $color-bg-1);
+@include global-tips(weak, $disabled-border, $disabled-color, $color-grey-9);
 
 .el-alert {
   padding: 8px 16px;

@@ -40,7 +40,7 @@
         </div>
         <div class="line__right">
           <el-select v-model="value1" multiple placeholder="请选择" disabled class="disabled-select">
-            <el-option> <svg-icon name="save"> </svg-icon></el-option>
+            <el-option value=""> <svg-icon name="save"> </svg-icon></el-option>
           </el-select>
         </div>
       </div>
@@ -86,8 +86,8 @@
     <div class="sub-down">
       <h3>时间点选择</h3>
       <div class="date">
-        <div class="sub-date">
-          <div class="sub-date_left">
+        <div class="sub-date1">
+          <div class="sub-date1_left">
             <el-time-select
               v-model="text"
               :picker-options="{
@@ -99,7 +99,7 @@
             >
             </el-time-select>
           </div>
-          <div class="sub-date_right">
+          <div class="sub-date1_right">
             <el-date-picker v-model="value6" type="datetime" placeholder="选择时间"> </el-date-picker>
           </div>
         </div>
@@ -107,8 +107,8 @@
 
       <h3>时间点选择-小</h3>
       <div class="date">
-        <div class="sub-date">
-          <div class="sub-date_left">
+        <div class="sub-date1">
+          <div class="sub-date1_left">
             <el-time-select
               v-model="text"
               size="mini"
@@ -121,7 +121,7 @@
             >
             </el-time-select>
           </div>
-          <div class="sub-date_right">
+          <div class="sub-date1_right">
             <el-date-picker
               v-model="value6"
               type="datetime"
@@ -170,7 +170,7 @@
 
       <h3>日期区间选择</h3>
       <div class="date">
-        <div class="sub-date">
+        <div class="sub-time">
           <el-date-picker
             v-model="value4"
             type="daterange"
@@ -184,7 +184,7 @@
 
       <h3>日期区间选择-小</h3>
       <div class="date">
-        <div class="sub-date">
+        <div class="sub-time">
           <el-date-picker
             v-model="value7"
             type="daterange"
@@ -199,7 +199,7 @@
 
       <h3>日期区间选择-带快捷键</h3>
       <div class="date">
-        <div class="sub-date">
+        <div class="sub-time">
           <el-date-picker
             v-model="date6"
             type="daterange"
@@ -215,7 +215,7 @@
 
       <h3>日期区间选择-小-带快捷键</h3>
       <div class="date">
-        <div class="sub-date">
+        <div class="sub-time">
           <el-date-picker
             v-model="date7"
             type="daterange"
@@ -231,7 +231,7 @@
       </div>
 
       <h3>日期时间区间选择</h3>
-      <div class="date">
+      <div class="date1">
         <div class="sub-date">
           <el-date-picker
             v-model="value5"
@@ -245,7 +245,7 @@
       </div>
 
       <h3>日期时间区间选择-小</h3>
-      <div class="date">
+      <div class="date1">
         <div class="sub-date">
           <el-date-picker
             v-model="value8"
@@ -259,7 +259,7 @@
         </div>
       </div>
       <h3>日期时间区间选择-带快捷键</h3>
-      <div class="date">
+      <div class="date1">
         <div class="sub-date">
           <el-date-picker
             v-model="date8"
@@ -273,7 +273,7 @@
         </div>
       </div>
       <h3>日期时间区间选择-小-带快捷键</h3>
-      <div class="date">
+      <div class="date1">
         <div class="sub-date">
           <el-date-picker
             v-model="date8"
@@ -313,6 +313,7 @@
         </div>
       </div>
     </div>
+
     <div class="sub-down">
       <h3>操作已选项</h3>
       <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
@@ -663,12 +664,48 @@ export default class extends Vue {
 
   .sub-date {
     margin-bottom: 24px;
+    width: 224px;
+
+    .el-date-editor {
+      width: 100%;
+    }
+  }
+
+  .sub-time {
+    width: 242px;
+    margin-bottom: 24px;
+
+    .el-date-editor {
+      width: 100%;
+    }
+  }
+
+  .sub-date1 {
+    margin-bottom: 24px;
     display: flex;
     align-items: center;
 
     &_left,
-    &_raight {
+    &_right {
       margin-right: 48px;
+      width: 224px;
+
+      .el-date-editor {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.date1 {
+  border-bottom: 1px solid $border-color-light-1;
+
+  .sub-date {
+    width: 328px;
+    margin-bottom: 24px;
+
+    .el-date-editor {
+      width: 100%;
     }
   }
 }

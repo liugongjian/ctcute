@@ -176,18 +176,25 @@ export default class extends Vue {
     this.barList = aveArray
     this.emitChange()
   }
+  /**
+   * free模式勾选
+   * @param item 数组项
+   * @param index 数组序号
+   */
   private freeCheckboxChange(item, index) {
     const checkedList = this.barList.filter(item => item[this.propsChecked])
     if (!item[this.propsChecked]) {
       item[this.propsValue] = 0
     } else {
       if (checkedList.length === 1) {
+        // 第一项默认给50%
         item[this.propsValue] = Math.round(0.5 * this.barMax)
       } else {
+        // 超出最大值赋值为0，没超出最大值默认赋值5%
         const total = this.barValueList.reduce((total, valueItem) => {
           return total + valueItem
         }, 0)
-        item[this.propsValue] = total >= this.barMax ? 0 : Math.round(0.03 * this.barMax)
+        item[this.propsValue] = total >= this.barMax ? 0 : Math.round(0.05 * this.barMax)
       }
     }
     this.barList.splice(index, 1, item)

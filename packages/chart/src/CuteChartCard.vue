@@ -68,8 +68,6 @@ export default class extends Vue {
   }
 
   .chart-card-cont-warp {
-    width: 240px;
-
     h3 {
       font-family: PingFangSC-Semibold;
       font-size: 30px;

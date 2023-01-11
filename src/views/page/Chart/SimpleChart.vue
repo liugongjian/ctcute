@@ -287,7 +287,7 @@ export default class extends Vue {
         bottom: '3%',
         containLabel: true,
       },
-      color: ['rgba(241,158,75,0.50)', this.variables.chartColor4],
+      color: [this.variables.chartColor12, this.variables.chartColor4],
       tooltip: {
         trigger: 'axis',
       },
@@ -427,6 +427,7 @@ export default class extends Vue {
       ],
     }
 
+    const valueFormatter = value => `${value} %`
     // 柱折混合
     this.option4 = {
       grid: {
@@ -447,7 +448,7 @@ export default class extends Vue {
         },
       },
       legend: {
-        data: ['实际数量', '完成率'],
+        data: ['实例数量', '完成率'],
         show: true,
         textStyle: {
           fontSize: 12, // 字体大小
@@ -510,7 +511,7 @@ export default class extends Vue {
             },
           },
           type: 'value',
-          name: '实际数量',
+          name: '实例数量',
           min: 0,
           max: 30,
           interval: 50,
@@ -533,7 +534,7 @@ export default class extends Vue {
       ],
       series: [
         {
-          name: '实际数量',
+          name: '实例数量',
           type: 'bar',
           color: [this.variables.chartColor10],
           barWidth: 26,
@@ -547,21 +548,21 @@ export default class extends Vue {
           align: 'right',
           yAxisIndex: 1,
           data: [
-            { value: 13, valueFormatter: value => `${value} %` },
-            { value: 18, valueFormatter: value => `${value} %` },
-            { value: 22, valueFormatter: value => `${value} %` },
-            { value: 20, valueFormatter: value => `${value} %` },
-            { value: 26, valueFormatter: value => `${value} %` },
-            { value: 18, valueFormatter: value => `${value} %` },
-            { value: 18, valueFormatter: value => `${value} %` },
-            { value: 15, valueFormatter: value => `${value} %` },
-            { value: 14, valueFormatter: value => `${value} %` },
-            { value: 13, valueFormatter: value => `${value} %` },
-            { value: 16, valueFormatter: value => `${value} %` },
-            { value: 16, valueFormatter: value => `${value} %` },
-            { value: 16, valueFormatter: value => `${value} %` },
-            { value: 16, valueFormatter: value => `${value} %` },
-            { value: 11, valueFormatter: value => `${value} %` },
+            { value: 13, valueFormatter },
+            { value: 18, valueFormatter },
+            { value: 22, valueFormatter },
+            { value: 20, valueFormatter },
+            { value: 26, valueFormatter },
+            { value: 18, valueFormatter },
+            { value: 18, valueFormatter },
+            { value: 15, valueFormatter },
+            { value: 14, valueFormatter },
+            { value: 13, valueFormatter },
+            { value: 16, valueFormatter },
+            { value: 16, valueFormatter },
+            { value: 16, valueFormatter },
+            { value: 16, valueFormatter },
+            { value: 11, valueFormatter },
           ],
         },
       ],

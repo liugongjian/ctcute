@@ -1776,7 +1776,22 @@
     width: 240px;
   }
 }
+.el-picker-panel.el-date-picker.el-popper.has-sidebar{
+  width: 369px ;
 
+  .el-picker-panel__content{
+    width: 238px;
+  }
+}
+
+.el-picker-panel{
+  .el-picker-panel__sidebar{
+    width: 100px;
+  }
+   .el-picker-panel__sidebar + .el-picker-panel__body{
+    margin-left: 100px;
+  }
+}
 .el-picker-panel__footer {
   background-color: $color-bg-1;
   // .el-button--default {

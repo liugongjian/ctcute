@@ -1,12 +1,12 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-11-11 13:41:25
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-11 16:03:51
+ * @LastEditors: 钟有承
+ * @LastEditTime: 2023-01-11 16:38:51
  * @Description: 复杂表格6
 -->
 <template>
-  <el-card class="simple-menu">
+  <el-card class="pro-table-6">
     <!--表格工具栏-->
     <div class="table-tools">
       <el-button type="primary">+ 添 加</el-button>
@@ -21,6 +21,7 @@
       row-key="_id"
       default-expand-all
       :tree-props="{ children: 'children' }"
+      height="calc(100vh - 236px)"
     >
       <el-table-column prop="name" label="名称" width="180"> </el-table-column>
       <el-table-column prop="menuType" label="其他状态" width="180">
@@ -34,7 +35,7 @@
       <el-table-column prop="url" label="路由"> </el-table-column>
       <el-table-column prop="perms" label="标识"> </el-table-column>
       <el-table-column prop="alias" label="别名" :show-overflow-tooltip="true"> </el-table-column>
-      <el-table-column prop="actions" label="操作" width="250" fixed="right" class-name="actions">
+      <el-table-column prop="actions" label="操作" width="250" class-name="actions">
         <template slot-scope="{}">
           <el-button type="text">编辑</el-button>
           <el-button type="text">删除</el-button>
@@ -45,11 +46,11 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
-import { getTable } from '@/api/proTable7'
+import { getTable } from '@/api/proTable6'
 import { ElTable } from 'element-ui/types/table'
 
 @Component({
-  name: 'ProTable7',
+  name: 'ProTable6',
 })
 export default class extends Vue {
   @Ref('tableRef')

@@ -17,7 +17,7 @@
             <div class="el-form">
               抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到到原任务。
             </div>
-            <div class="sub-foot">
+            <div class="sub-foot" style="margin-top: 24px">
               <el-button @click="drawer = false">关闭</el-button>
             </div>
           </div>

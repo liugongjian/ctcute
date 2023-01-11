@@ -282,13 +282,13 @@
 
 // StepForm分步表单
 // 无效删掉
-// .el-steps { 
-//   .el-step__head.is-success>.el-step__line>.el-step__line-inner {
-//     width: 100%;
-//     border-width: 1px;
-//     border-bottom: 0px;
-//   }
-// }
+.el-steps {
+  .el-step__head.is-success>.el-step__line>.el-step__line-inner {
+    width: 100% !important;
+    border-width: 1px !important;
+    border-bottom: 0px !important;
+  }
+}
 
 /* Input
 -------------------------- */
@@ -307,6 +307,12 @@
 
   .el-input__icon {
     line-height: 28px;
+  }
+}
+
+.el-input.el-input--small.is-disabled {
+  .el-input__inner {
+    background-color: $color-grey-10;
   }
 }
 
@@ -1231,9 +1237,9 @@
   padding: 10px 0;
 }
 
-.el-descriptions__body .el-descriptions__table .el-descriptions-item__cell {
-  text-align: right;
-}
+// .el-descriptions__body .el-descriptions__table .el-descriptions-item__cell {
+//   text-align: right;
+// }
 
 .el-descriptions__body .el-descriptions-item__label.is-bordered-label {
   background: $color-grey-11;
@@ -2473,6 +2479,7 @@
   .el-drawer__body {
     background-color: $color-bg-2;
     color: $color-grey-1;
+    padding: 24px;
   }
 }
 

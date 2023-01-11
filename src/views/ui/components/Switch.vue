@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-10-19 10:59:22
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-01-10 17:21:17
+ * @LastEditTime: 2023-01-11 12:12:53
  * @Description: 
 -->
 <template>
@@ -15,8 +15,8 @@
       </div>
       <div class="small-switch">
         <!-- 宽度不要用important 用原生width-->
-        <el-switch v-model="value2" width="28"> </el-switch>
-        <el-switch v-model="value3" width="28"> </el-switch>
+        <el-switch v-model="value2" :width="28"> </el-switch>
+        <el-switch v-model="value3" :width="28"> </el-switch>
       </div>
     </div>
     <div class="sub-switch">
@@ -26,8 +26,8 @@
         <el-switch :value="true" disabled> </el-switch>
       </div>
       <div class="small-switch">
-        <el-switch :value="false" disabled width="28"> </el-switch>
-        <el-switch :value="true" disabled width="28"> </el-switch>
+        <el-switch :value="false" disabled :width="28"> </el-switch>
+        <el-switch :value="true" disabled :width="28"> </el-switch>
       </div>
     </div>
   </div>

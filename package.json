@@ -23,7 +23,7 @@
   "dependencies": {
     "@cutedesign/s3-upload": "^0.1.7",
     "@cutedesign/ct-log": "^1.1.6",
-    "@cutedesign/ct-monaco": "^1.1.3",
+    "@cutedesign/ct-monaco": "^1.1.5",
     "@feta/markdown": "^0.1.2",
     "@feta/markdown-book": "^0.1.0",
     "@vss/video-player": "^0.0.4",

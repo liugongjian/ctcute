@@ -122,6 +122,13 @@ export default class extends Vue {
       options: '-',
       default: '400px',
     },
+    {
+      name: 'options',
+      desc: '其它配置选项',
+      type: 'Object',
+      options: '-',
+      default: '-',
+    },
   ]
 }
 </script>

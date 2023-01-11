@@ -144,10 +144,13 @@
   &--content {
     display: block;
     clear: both;
-    max-height: 461px;
+    max-height: 521px;
     // overflow-y: auto;
     margin-bottom: 0px;
-
+    .warn-tip {
+      display: block !important;
+      margin-bottom: 24px;
+    }
     .el-form-item--medium {
       display: flex;
       align-items: center;
@@ -167,6 +170,67 @@
     position: absolute;
     width: 100%;
   }
+}
+
+/* 中弹窗2 */
+.medium-dialog2 {
+   @include base-dialog();
+
+  .el-dialog{
+    width: 560px;
+    max-height: 570px;
+    display: flex;
+    flex-direction: column;
+
+    .el-dialog__header {
+      height: auto;
+    }
+  }
+
+  &--content {
+    display: block;
+    clear: both;
+    max-height: 461px;
+    margin-bottom: 0px;
+
+    .el-form-item--medium {
+      display: flex;
+      align-items: center;
+
+      .el-form-item__label {
+        line-height: 20px;
+      }
+
+      .el-form-item__content {
+        margin-left: 0px !important;
+        width: 100%;
+      }
+
+      .el-select {
+        width: 100%;
+      }
+    }
+  }
+
+  &__explain {
+    border-top: 1px solid $color-grey-7;
+    padding-top: 16px;
+    
+    .el-form-item__content {
+      font-size: 12px;
+      line-height: 20px;
+      color: $color-grey-2;
+      font-weight: 400;
+      display: flex;
+    }
+
+    &__text {
+      display: inline-block;
+      width: 354px;
+      margin-left: 10px;
+    }
+  }
+ 
 }
 
 /* 全屏弹窗 */

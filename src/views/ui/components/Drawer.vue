@@ -17,7 +17,7 @@
             <div class="el-form">
               抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到到原任务。
             </div>
-            <div class="sub-foot" style="margin-top: 24px">
+            <div class="sub-foot">
               <el-button @click="drawer = false">关闭</el-button>
             </div>
           </div>
@@ -114,8 +114,10 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.sub-drawer .first-tag {
-  margin: 0 8px 0 16px;
+.sub-drawer {
+  .first-tag {
+    margin: 0 8px 0 16px;
+  }
   .sub-tags {
     display: flex;
     align-items: center;
@@ -125,6 +127,7 @@ export default class extends Vue {
     }
   }
   .sub-content {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
@@ -149,9 +152,9 @@ export default class extends Vue {
     }
 
     .sub-foot {
-      position: fixed;
+      position: absolute;
       bottom: 0;
-      width: 30%;
+      width: 100%;
       padding: 10px 0;
       display: flex;
       justify-content: center;

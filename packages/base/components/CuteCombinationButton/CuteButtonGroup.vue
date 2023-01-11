@@ -29,7 +29,7 @@ export default class extends Vue {
 .combination-button {
   .el-button + .el-button {
     margin-left: -1px;
-    z-index: 1 !important;
+    z-index: 1;
   }
 
   .el-button + .el-dropdown {
@@ -57,13 +57,11 @@ export default class extends Vue {
     border-radius: 0 2px 2px 0;
   }
 
-  .el-dropdown {
-    margin-left: -1px !important;
-
+  .el-button + .el-dropdown {
+    margin-left: -1px;
     .el-button--medium {
       border-radius: 0;
       border-right: 0;
-
       &:hover {
         position: relative;
         border-color: $color-master-1 !important;

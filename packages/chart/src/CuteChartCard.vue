@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-10-19 10:59:22
- * @LastEditors: 马妍
- * @LastEditTime: 2022-11-17 09:52:22
+ * @LastEditors: 陈清沣
+ * @LastEditTime: 2023-01-10 16:19:41
  * @Description: 
 -->
 <template>
@@ -68,12 +68,10 @@ export default class extends Vue {
   }
 
   .chart-card-cont-warp {
-    width: 240px;
-
     h3 {
-      font-family: bahnschrift;
+      font-family: PingFangSC-Semibold;
       font-size: 30px;
-      line-height: 42px;
+      font-weight: 600;
       margin: 0;
       color: $color-grey-1;
     }

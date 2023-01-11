@@ -40,7 +40,7 @@
         </div>
         <div class="line__right">
           <el-select v-model="value1" multiple placeholder="请选择" disabled class="disabled-select">
-            <el-option> <svg-icon name="save"> </svg-icon></el-option>
+            <el-option :value="1"> <svg-icon name="save"> </svg-icon></el-option>
           </el-select>
         </div>
       </div>

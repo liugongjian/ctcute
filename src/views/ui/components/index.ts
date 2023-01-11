@@ -74,8 +74,8 @@ const componentsList = [
   Drawer,
   Transfer,
   Collapse,
-  DistributionBar,
   TimeLine,
+  DistributionBar,
 ]
 
 const _components = {}

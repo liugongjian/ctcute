@@ -26,7 +26,11 @@
     <div>
       <el-row :gutter="20">
         <el-col v-for="(card, index) in cardData" :key="index" :span="8">
-          <el-card shadow="hover" :class="index === 0 ? 'card-box active' : 'card-box'" class="card-box-less">
+          <el-card
+            shadow="hover"
+            :class="[0, 1].includes(index) ? 'card-box active' : 'card-box'"
+            class="card-box-less"
+          >
             <div class="card-box">
               <div class="card-cont">
                 <div class="card-box--title">
@@ -46,7 +50,10 @@
                 <div class="card-box--info">
                   描述：
                   <div class="card-box--input">
-                    <span v-if="index === 0">{{ card.remark }}</span>
+                    <div class="card-box--input-text" v-if="index === 0">
+                      <span>{{ card.remark }}</span>
+                    </div>
+
                     <cute-edit-input
                       v-else
                       :value="card.remark"
@@ -121,13 +128,60 @@ export default class extends Vue {
         item.editType = false
         return item
       })
+      console.log(this.cardData, 'this.cardData')
+      // 补充mockData数据
+      this.cardData.unshift(
+        ...[
+          {
+            deploy: 234,
+            editType: false,
+            remark: '内业资料上传合规性检验方法和字数很多很多内业资料上传合规性检验方法和字数很多很多',
+            size: 14,
+            title: '年计划审核',
+          },
+          {
+            deploy: 234,
+            editType: false,
+            remark: '这是一个描述这是一个短的描述',
+            size: 14,
+            title: '巡检上传合规性检验方法',
+          },
+          {
+            deploy: 234,
+            editType: false,
+            remark: '这是一个描述这是一个短的描述',
+            size: 14,
+            title: '封道管理上传',
+          },
+          {
+            deploy: 234,
+            editType: false,
+            remark: '这是一个描述这是一个短的描述',
+            size: 14,
+            title: '内业资料上传合规性检验方法和字数很多很多内业资料上传合规性检验方法和字数很多很多',
+          },
+          {
+            deploy: 234,
+            editType: true,
+            remark: '这是一个描述这是一个短的描述',
+            size: 14,
+            title: '年计划审核',
+          },
+          {
+            deploy: 234,
+            editType: false,
+            remark: '这是一个描述这是一个短的描述',
+            size: 14,
+            title: '封道管理上传',
+          },
+        ]
+      )
     } finally {
       this.loading = false
     }
   }
 
   private handleEdit(index) {
-    console.log(1)
     this.cardData[index].editType = true
   }
   private editInputSave(index) {

@@ -55,6 +55,15 @@ const restPageRoutes = [
         },
       },
       {
+        path: 'medium-dialog2',
+        component: () => import('@/views/page/Dialog/MediumDialog2.vue'),
+        name: 'MediumDialog2',
+        meta: {
+          title: 'MediumDialog 中弹窗2',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'large-dialog',
         component: () => import('@/views/page/Dialog/LargeDialog.vue'),
         name: 'LargeDialog',

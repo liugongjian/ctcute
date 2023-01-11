@@ -7,6 +7,8 @@ interface ISettings {
   errorLog: string[] // The env to enable the errorlog component, default 'production' only
   sidebarTextTheme: boolean // If true, will change active text color for sidebar based on theme
   apiBaseUrl: string // 接口前缀
+  logoIcon?: string // logo图标，可以是svgName或url
+  logoText?: string // logo文字，若为空，则说明logoIcon使用了艺术化处理的文字图片
 }
 
 // You can customize below settings :)
@@ -19,6 +21,7 @@ const settings: ISettings = {
   errorLog: ['production'],
   sidebarTextTheme: true,
   apiBaseUrl: '/',
+  logoIcon: require('./layout/components/LayoutHeader/images/cute-design.svg'),
 }
 
 export default settings

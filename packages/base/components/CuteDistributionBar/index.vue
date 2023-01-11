@@ -334,7 +334,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .distribution-bar {
   &__split {
-    margin-top: 20px;
+    margin-top: 22px;
   }
 
   &__wrap {

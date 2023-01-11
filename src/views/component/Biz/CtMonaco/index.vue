@@ -39,23 +39,88 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 export default class extends Vue {
   private prop = [
     {
-      name: 'pipeline-option',
-      desc:
-        '必传参数。配置项，用于设置url、参数、默认值。说明：' +
-        '{ pipelineRunDetail: {url: 日志流水线详情接口, args: 接口参数对象},' +
-        ' pipelineStageRunList: {url: 流水线步骤接口, args: 接口参数对象},' +
-        ' pipelineLogStream: {url: sse日志接口}' +
-        '}',
-      type: 'object',
+      name: 'language',
+      desc: '编辑器语言',
+      type: 'String',
       options: '-',
-      default: '-',
+      default: 'yaml',
     },
     {
-      name: 'preset-id',
-      desc: '必传参数。流水线作业ID，请求基础信息、步骤信息和 log 日志 sse 的必要参数',
-      type: 'string',
+      name: 'lineNumbers',
+      desc: '行号配置',
+      type: 'String',
+      options: 'on off relative interval',
+      default: 'on',
+    },
+    {
+      name: 'automaticLayout',
+      desc: '自动布局',
+      type: 'boolean',
       options: '-',
-      default: '-',
+      default: 'true',
+    },
+    {
+      name: 'readOnly',
+      desc: '只读模式',
+      type: 'boolean',
+      options: '-',
+      default: 'false',
+    },
+    {
+      name: 'glyphMargin',
+      desc: '字行边缘',
+      type: 'boolean',
+      options: '-',
+      default: 'true',
+    },
+    {
+      name: 'fontSize',
+      desc: '字体大小',
+      type: 'String',
+      options: '-',
+      default: '14',
+    },
+    {
+      name: 'autoIndent',
+      desc: '自动缩进',
+      type: 'boolean',
+      options: '-',
+      default: 'true',
+    },
+    {
+      name: 'theme',
+      desc: '编辑器主题',
+      type: 'String',
+      options: 'vs vs-dark hc-black',
+      default: 'vs-dark',
+    },
+    {
+      name: 'cursorStyle',
+      desc: '光标样式',
+      type: 'String',
+      options: 'block line',
+      default: 'line',
+    },
+    {
+      name: 'minimap',
+      desc: '右侧小地图',
+      type: 'boolean',
+      options: '-',
+      default: 'true',
+    },
+    {
+      name: 'width',
+      desc: '宽',
+      type: 'String',
+      options: '-',
+      default: '100%',
+    },
+    {
+      name: 'height',
+      desc: '高',
+      type: 'String',
+      options: '-',
+      default: '400px',
     },
   ]
 }

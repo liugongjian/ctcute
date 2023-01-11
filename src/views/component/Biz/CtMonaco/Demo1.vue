@@ -10,16 +10,7 @@
         </el-option>
       </el-select>
     </div>
-    {{content}}
-    <ct-monaco
-      v-model="content"
-      v-loading="loading"
-      auto-size
-      :language="language"
-      :theme="theme"
-      width="800px"
-      height="500px"
-    />
+    <ct-monaco v-model="content" v-loading="loading" auto-size :language="language" :theme="theme" />
   </div>
 </template>
 <script lang="ts">
@@ -27,11 +18,10 @@ import { Component, Vue, Watch } from 'vue-property-decorator'
 import axios from 'axios'
 import CtMonaco from '@cutedesign/ct-monaco'
 
+Vue.use(CtMonaco)
+
 @Component({
   name: 'Demo1',
-  components: {
-    CtMonaco,
-  },
 })
 export default class extends Vue {
   private language = 'yaml'

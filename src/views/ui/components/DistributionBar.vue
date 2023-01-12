@@ -11,6 +11,7 @@
     <p>
       分配条应用于一些灵活的资源分配，例如给不同的中心分配集群资源，勾选选项后下面的拉条会出现相应颜色的小树干，可以拉动来分配资源，也可输入数字来分配资源，根据实际选项的数量可以排列成1行或者2行
     </p>
+    <h4>使用了<a :href="componentUrl" target="_blank">CuteDistributionBar</a>组件</h4>
     <div>
       <h3>一、按照100%进行均分，资源要全部分配完</h3>
       <p>1.展示数值和百分比</p>
@@ -133,6 +134,9 @@ export default class extends Vue {
       name: '第四中心',
     },
   ]
+  get componentUrl() {
+    return `${window.location.origin}/component/base/cute-distribution-bar`
+  }
 }
 </script>
 

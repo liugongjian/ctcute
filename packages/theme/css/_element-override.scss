@@ -1525,6 +1525,11 @@
     line-height: 32px;
     right: 3px;
   }
+
+  .el-icon-circle-close:before {
+    font-family: 'cute-icons';
+    content: '\ea4f';
+  }
 }
 
 .el-input--medium .el-input__inner {
@@ -1566,6 +1571,7 @@
   height: 30px;
   font-size: $text-size-primary;
   background-color: $color-bg-1;
+  color: $text-color-primary;
 
   &.selected {
     background: $color-master-1;

@@ -46,6 +46,26 @@
       </div>
     </div>
     <div class="sub-down">
+      <h3>多选-折叠展示tag</h3>
+      <div class="line">
+        <div class="line__left">
+          <el-select
+            v-model="collapsedValue"
+            multiple
+            placeholder="请选择"
+            collapse-tags
+            clearable
+            filterable
+          >
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+              <span>{{ item.label }}</span>
+              <span class="option__msg">{{ item.value }}</span>
+            </el-option>
+          </el-select>
+        </div>
+      </div>
+    </div>
+    <div class="sub-down">
       <h3>带提示</h3>
       <div class="line">
         <div class="line__left">
@@ -374,6 +394,7 @@ export default class extends Vue {
   private date7 = ''
   private date8 = ''
   private date9 = ''
+  private collapsedValue = [] // 多选-折叠展示tag
   private areaValue = ''
 
   //地区选择
@@ -686,5 +707,10 @@ export default class extends Vue {
   content: '辅助信息';
   margin-left: 10px;
   color: $text-color-light-2;
+}
+
+.option__msg {
+  float: right;
+  color: $text-color-light-1;
 }
 </style>

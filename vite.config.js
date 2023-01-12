@@ -10,18 +10,21 @@ function viteNameLessClass() {
     name: 'vite-plugin-nameless-class',
     transform(code, id) {
       if (!id.endsWith('.vue')) {
-        return null  // Only applicable to regular vue file imports
+        return null // Only applicable to regular vue file imports
       }
       // Form class name from cleaned filename
-      let class_name = id.split(path.sep).pop()
+      const class_name = id
+        .split(path.sep)
+        .pop()
         .slice(0, '.vue'.length * -1)
         .replace(/[^a-zA-Z]/g, '')
 
       // /export\s+default\s+class\s+extends/ 适配空格或换行
       // 如果在注释里也有，要把注释清理掉，否则会报错 Duplicate export of 'default'；目前只处理了多行注释，单行注释todo
-      return code.replace(/\/\*[\w\W]*?\*\//g, '')
+      return code
+        .replace(/\/\*[\w\W]*?\*\//g, '')
         .replace(/export\s+default\s+class\s+extends/, `export default class ${class_name} extends`)
-    }
+    },
   }
 }
 
@@ -34,7 +37,7 @@ function viteSvgIconDirPrefix() {
         return code.replace('#icon-${this.name}', '#icon-svg/${this.name}')
       }
       return null
-    }
+    },
   }
 }
 
@@ -45,7 +48,10 @@ function viteTransformSource() {
     transform(code, id) {
       if (id.endsWith('src/main.ts')) {
         // 给main.ts加上virtual:svg-icons-register，是为了vue-cli也能运行
-        return code.replace(`import Vue from 'vue'`, [`import Vue from 'vue'`, `import 'virtual:svg-icons-register'`].join('\n'))
+        return code.replace(
+          "import Vue from 'vue'",
+          ["import Vue from 'vue'", "import 'virtual:svg-icons-register'"].join('\n')
+        )
       }
       if (id.endsWith('views/page/Icon/index.vue')) {
         const replacement = `private mounted() {
@@ -57,7 +63,7 @@ function viteTransformSource() {
         return code.replace(/private\s+mounted\(\)\s+{\s+[\w\W]*?\.sort/, replacement)
       }
       return null
-    }
+    },
   }
 }
 
@@ -66,7 +72,7 @@ export default {
     // 优先执行，给main.ts加上virtual:svg-icons-register
     {
       ...viteTransformSource(),
-      enforce: 'pre'
+      enforce: 'pre',
     },
     viteNameLessClass(),
     viteCommonjs(),
@@ -86,12 +92,12 @@ export default {
             },
           },
         ],
-      }
+      },
     }),
   ],
   define: {
     'process.env': process.env,
-    __VITE__: true
+    __VITE__: true,
   },
   resolve: {
     extensions: ['.js', '.ts', '.vue', '.json'],
@@ -100,15 +106,19 @@ export default {
       { find: 'element-ui/types', replacement: 'node_modules/element-ui/types' },
       { find: 'scripts', replacement: '/scripts' },
       // this is required for the SCSS modules
-      { find: /^~(.*)$/, replacement: '$1' }
+      { find: /^~(.*)$/, replacement: '$1' },
     ],
   },
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: ['@import "@cutedesign/theme/css/_variables-cute.scss";', '@import "@cutedesign/theme/css/_mixins.scss";', ''].join('\n')
-      }
-    }
+        additionalData: [
+          '@import "@cutedesign/theme/css/_variables-cute.scss";',
+          '@import "@cutedesign/theme/css/_mixins.scss";',
+          '',
+        ].join('\n'),
+      },
+    },
   },
   server: {
     open: true,
@@ -120,8 +130,9 @@ export default {
       '/v1/auth/': {
         // target: 'http://fed.ctyuncdn.cn:8088', // 线上服务
         // target: 'http://172.24.12.7:7002', //hjt 后端服务
-        target: 'http://172.21.65.214:8088/',
+        // target: 'http://172.21.65.214:8088/',
         // target: 'http://localhost:7002',
+        target: 'http://fed.ctyuncdn.cn',
         https: true,
         changeOrigin: true,
         secure: false,
@@ -130,7 +141,8 @@ export default {
        * Node.js接口
        */
       '/v1/': {
-        target: 'http://localhost:7001/',
+        // target: 'http://localhost:7001/',
+        target: 'http://fed.ctyuncdn.cn',
         changeOrigin: true,
         secure: false,
       },
@@ -143,6 +155,6 @@ export default {
         changeOrigin: true,
         secure: false,
       },
-    }
+    },
   },
 }

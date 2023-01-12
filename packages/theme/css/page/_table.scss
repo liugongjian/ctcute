@@ -44,7 +44,6 @@
       }
 
       &__buttons {
-        margin-left: 10px;
         margin-right: 0;
 
         .el-button + .el-button {
@@ -364,8 +363,6 @@
 
       /* 筛选表单 */
       &__conditions {
-        margin-bottom: 16px;
-
         .el-form-item {
           margin-bottom: 0;
 
@@ -569,7 +566,6 @@
       }
 
       &__buttons {
-        margin-left: 10px;
         margin-right: 0;
 
         .el-button + .el-button {
@@ -613,36 +609,37 @@
     /* 筛选表单 */
     &__conditions {
       margin-bottom: 16px;
-      .table-tools_top,.table-tools_bottom{
+
+      .table-tools_top,.table-tools_bottom {
         display: flex;
       }
-       .table-tools_top{
-         .el-form-item {
-              margin-bottom: 16px;
-              flex: 1;
-              .el-form-item__content{
-                 width: 100%;
-              }
-              &:last-child{
-                margin-right: 0;
-              }
-          }
-       }
-       .table-tools_bottom{
-        .el-form-item {
-              margin-bottom: 0;
-              flex: 1;
-              .el-form-item__content{
-                 width: 100%;
-              }
-              &:last-child{
-                margin-right: 0;
-                flex: 2;
-              }
-          }
-       }
-     
 
+      .table-tools_top {
+        .el-form-item {
+          margin-bottom: 16px;
+          flex: 1;
+          .el-form-item__content {
+              width: 100%;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+
+      .table-tools_bottom {
+        .el-form-item {
+          margin-bottom: 0;
+          flex: 1;
+          .el-form-item__content {
+              width: 100%;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+     
       &__buttons {
         margin-right: 0;
         .buttons{

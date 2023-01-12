@@ -40,7 +40,7 @@
         </div>
         <div class="line__right">
           <el-select v-model="value1" multiple placeholder="请选择" disabled class="disabled-select">
-            <el-option :value="1"> <svg-icon name="save"> </svg-icon></el-option>
+            <el-option value=""> <svg-icon name="save"> </svg-icon></el-option>
           </el-select>
         </div>
       </div>
@@ -104,19 +104,79 @@
     </div>
 
     <div class="sub-down">
-      <h3>日期选择</h3>
+      <h3>时间点选择</h3>
       <div class="date">
-        <div class="sub-date_titles">
-          <p>默认</p>
-          <p>带快捷选项</p>
+        <div class="sub-date">
+          <div class="sub-date_left">
+            <el-time-select
+              v-model="text"
+              :picker-options="{
+                start: '08:30',
+                step: '00:15',
+                end: '18:30',
+              }"
+              placeholder="选择时间"
+            >
+            </el-time-select>
+          </div>
+          <div class="sub-date_right">
+            <el-date-picker v-model="value6" type="datetime" placeholder="选择时间"> </el-date-picker>
+          </div>
         </div>
+      </div>
+
+      <h3>时间点选择-小</h3>
+      <div class="date">
+        <div class="sub-date">
+          <div class="sub-date_left">
+            <el-time-select
+              v-model="text"
+              size="mini"
+              :picker-options="{
+                start: '08:30',
+                step: '00:15',
+                end: '18:30',
+              }"
+              placeholder="选择时间"
+            >
+            </el-time-select>
+          </div>
+          <div class="sub-date_right">
+            <el-date-picker
+              v-model="value6"
+              type="datetime"
+              placeholder="选择时间"
+              size="mini"
+            ></el-date-picker>
+          </div>
+        </div>
+      </div>
+
+      <h3>日期点选择</h3>
+      <div class="date">
         <div class="sub-date">
           <el-date-picker v-model="date" type="date" placeholder="选择日期"> </el-date-picker>
+        </div>
+      </div>
+
+      <h3>日期点选择-小</h3>
+      <div class="date">
+        <div class="sub-date">
+          <el-date-picker v-model="date1" size="mini" type="date" placeholder="选择日期"> </el-date-picker>
+        </div>
+      </div>
+
+      <h3>日期点选择-带快捷键</h3>
+      <div class="date">
+        <div class="sub-date">
           <el-date-picker v-model="date4" type="date" placeholder="选择日期" :picker-options="pickerOptions">
           </el-date-picker>
         </div>
+      </div>
+
+      <h3>日期点选择-小-带快捷键</h3>
+      <div class="date">
         <div class="sub-date">
-          <el-date-picker v-model="date1" size="mini" type="date" placeholder="选择日期"> </el-date-picker>
           <el-date-picker
             v-model="date5"
             type="date"
@@ -128,54 +188,9 @@
         </div>
       </div>
 
-      <h3>时间选择/日期和时间点选择</h3>
+      <h3>日期区间选择</h3>
       <div class="date">
-        <div class="sub-date_title">
-          <p>默认时间选择</p>
-          <p>默认日期和时间点选择</p>
-        </div>
         <div class="sub-date">
-          <el-time-select
-            v-model="text"
-            :picker-options="{
-              start: '08:30',
-              step: '00:15',
-              end: '18:30',
-            }"
-            placeholder="选择时间"
-          >
-          </el-time-select>
-          <el-date-picker v-model="value6" type="datetime" placeholder="选择时间"> </el-date-picker>
-        </div>
-        <div class="sub-date">
-          <el-time-select
-            v-model="text"
-            size="mini"
-            :picker-options="{
-              start: '08:30',
-              step: '00:15',
-              end: '18:30',
-            }"
-            placeholder="选择时间"
-          >
-          </el-time-select>
-          <el-date-picker
-            v-model="value6"
-            type="datetime"
-            placeholder="选择时间"
-            size="mini"
-          ></el-date-picker>
-        </div>
-      </div>
-
-      <h3>日期范围选择</h3>
-      <div class="date">
-        <div class="sub-date_titles">
-          <p>默认</p>
-          <p>带快捷选项</p>
-        </div>
-
-        <div class="sub-date1">
           <el-date-picker
             v-model="value4"
             type="daterange"
@@ -184,6 +199,27 @@
             end-placeholder="结束日期"
           >
           </el-date-picker>
+        </div>
+      </div>
+
+      <h3>日期区间选择-小</h3>
+      <div class="date">
+        <div class="sub-date">
+          <el-date-picker
+            v-model="value7"
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            size="mini"
+          >
+          </el-date-picker>
+        </div>
+      </div>
+
+      <h3>日期区间选择-带快捷键</h3>
+      <div class="date">
+        <div class="sub-date">
           <el-date-picker
             v-model="date6"
             type="daterange"
@@ -195,18 +231,11 @@
           >
           </el-date-picker>
         </div>
+      </div>
 
-        <div class="sub-date1">
-          <el-date-picker
-            v-model="value7"
-            type="daterange"
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期"
-            size="mini"
-          >
-          </el-date-picker>
-
+      <h3>日期区间选择-小-带快捷键</h3>
+      <div class="date">
+        <div class="sub-date">
           <el-date-picker
             v-model="date7"
             type="daterange"
@@ -221,54 +250,90 @@
         </div>
       </div>
 
-      <h3>日期和时间范围选择</h3>
-      <div class="sub-date_titles">
-        <p>默认</p>
-        <p>带快捷选项</p>
-      </div>
-      <div class="sub-date2">
-        <el-date-picker
-          v-model="value5"
-          type="datetimerange"
-          range-separator="至"
-          start-placeholder="开始日期和时间"
-          end-placeholder="结束日期和时间"
-        >
-        </el-date-picker>
-
-        <el-date-picker
-          v-model="date8"
-          type="datetimerange"
-          :picker-options="pickerOptions1"
-          range-separator="至"
-          start-placeholder="开始日期和时间"
-          end-placeholder="结束日期和时间"
-        >
-        </el-date-picker>
+      <h3>日期时间区间选择</h3>
+      <div class="date">
+        <div class="sub-date">
+          <el-date-picker
+            v-model="value5"
+            type="datetimerange"
+            range-separator="至"
+            start-placeholder="开始日期和时间"
+            end-placeholder="结束日期和时间"
+          >
+          </el-date-picker>
+        </div>
       </div>
 
-      <div class="sub-date2">
-        <el-date-picker
-          v-model="value8"
-          type="datetimerange"
-          range-separator="至"
-          start-placeholder="开始日期和时间"
-          end-placeholder="结束日期和时间"
-          size="mini"
-        >
-        </el-date-picker>
-        <el-date-picker
-          v-model="date8"
-          type="datetimerange"
-          :picker-options="pickerOptions1"
-          range-separator="至"
-          start-placeholder="开始日期和时间"
-          end-placeholder="结束日期和时间"
-          size="mini"
-        >
-        </el-date-picker>
+      <h3>日期时间区间选择-小</h3>
+      <div class="date">
+        <div class="sub-date">
+          <el-date-picker
+            v-model="value8"
+            type="datetimerange"
+            range-separator="至"
+            start-placeholder="开始日期和时间"
+            end-placeholder="结束日期和时间"
+            size="mini"
+          >
+          </el-date-picker>
+        </div>
+      </div>
+      <h3>日期时间区间选择-带快捷键</h3>
+      <div class="date">
+        <div class="sub-date">
+          <el-date-picker
+            v-model="date8"
+            type="datetimerange"
+            :picker-options="pickerOptions1"
+            range-separator="至"
+            start-placeholder="开始日期和时间"
+            end-placeholder="结束日期和时间"
+          >
+          </el-date-picker>
+        </div>
+      </div>
+      <h3>日期时间区间选择-小-带快捷键</h3>
+      <div class="date">
+        <div class="sub-date">
+          <el-date-picker
+            v-model="date8"
+            type="datetimerange"
+            :picker-options="pickerOptions1"
+            range-separator="至"
+            start-placeholder="开始日期和时间"
+            end-placeholder="结束日期和时间"
+            size="mini"
+          >
+          </el-date-picker>
+        </div>
+      </div>
+
+      <h3>
+        地区选择-使用了<a href="http://fed.ctyuncdn.cn/component/base/cute-area" target="_blank">cuteArea </a>
+        组件
+      </h3>
+
+      <div class="line">
+        <div class="line__left">
+          <cute-area
+            v-model="areaValue"
+            placeholder="请选择"
+            :data="areas"
+            :column="4"
+            popper-width="560px"
+            :format="format"
+            :recent-data="recentData"
+            :show-recent="showRecent"
+            @change="selectCityClick"
+          >
+            <span slot="other" class="suffix-other"
+              >其他区域<span>{{ otherCount }}</span></span
+            >
+          </cute-area>
+        </div>
       </div>
     </div>
+
     <div class="sub-down">
       <h3>操作已选项</h3>
       <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
@@ -330,6 +395,75 @@ export default class extends Vue {
   private date8 = ''
   private date9 = ''
   private collapsedValue = [] // 多选-折叠展示tag
+  private areaValue = ''
+
+  //地区选择
+  otherCount = 2
+  showRecent = true
+  recentData = [
+    { label: '深圳', value: 'shenzhen', count: 2 },
+    { label: '广州', value: 'guangzhou', count: 20 },
+    { label: '西安', value: 'xian', count: 27 },
+    { label: '兰州', value: 'lanzhou', count: 28 },
+  ]
+
+  areas = [
+    {
+      label: '华南地区',
+      city: [
+        { label: '深圳', value: 'shenzhen', count: 2 },
+        { label: '广州', value: 'guangzhou', count: 20 },
+      ],
+    },
+    {
+      label: '华东地区',
+      city: [
+        { label: '上海', value: 'shanghai', count: 3 },
+        { label: '南京', value: 'nanjing', count: 4 },
+        { label: '苏州', value: 'suzhou', count: 5 },
+      ],
+    },
+    {
+      label: '华北地区',
+      city: [
+        { label: '北京', value: 'beijing', count: 21 },
+        { label: '天津', value: 'tianjin', count: 22 },
+      ],
+    },
+    {
+      label: '西南地区',
+      city: [
+        { label: '成都', value: 'chengdu', count: 23 },
+        { label: '重庆', value: 'chongqing', count: 24 },
+      ],
+    },
+    {
+      label: '华中地区',
+      city: [
+        { label: '武汉', value: 'wuhan', count: 25 },
+        { label: '长沙', value: 'changsha', count: 26 },
+      ],
+    },
+    {
+      label: '西北地区',
+      city: [
+        { label: '西安', value: 'xian', count: 27 },
+        { label: '兰州', value: 'lanzhou', count: 28 },
+      ],
+    },
+  ]
+
+  private selectCityClick(data) {
+    console.log(data, 'dataaa')
+
+    this.otherCount = data.count
+    this.areaValue = data.value
+  }
+
+  private format(row) {
+    return row.label + ' ' + row.count
+  }
+
   //日期点带快捷键
   private pickerOptions = {
     shortcuts: [
@@ -548,6 +682,17 @@ export default class extends Vue {
 
 .date {
   border-bottom: 1px solid $border-color-light-1;
+
+  .sub-date {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+
+    &_left,
+    &_right {
+      margin-right: 48px;
+    }
+  }
 }
 
 .sub-down:last-child {
@@ -556,38 +701,6 @@ export default class extends Vue {
   .el-row {
     margin-top: 24px;
   }
-}
-
-.sub-date_titles {
-  display: flex;
-  justify-content: space-between;
-  width: 562px;
-}
-
-.sub-date_title {
-  width: 621px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.sub-date,
-.sub-date1,
-.sub-date2 {
-  margin-bottom: 24px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.sub-date {
-  width: 720px;
-}
-
-.sub-date1 {
-  width: 850px;
-}
-
-.sub-date2 {
-  width: 900px;
 }
 
 .auxiliary-message:after {

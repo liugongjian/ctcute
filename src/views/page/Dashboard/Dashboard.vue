@@ -1,19 +1,19 @@
 <!--
  * @Author: 
  * @Date:
- * @LastEditors: 邱文琦
- * @LastEditTime: 2022-10-14 14:23:10
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-01-12 20:10:12
  * @Description: 首页
 -->
 <template>
   <div class="dashboard">
-    <el-card class="simple-table" shadow="never">
+    <div class="simple-table" shadow="never">
       <div class="chart-title">
         <h2>数据总览</h2>
         <el-date-picker v-model="overviewDate" type="daterange" size="mini"></el-date-picker>
       </div>
       <!-- 统计数据 -->
-      <el-row :gutter="22" class="header">
+      <el-row :gutter="20" class="header">
         <el-col :span="6">
           <cute-chart-item
             :loading="loading"
@@ -63,9 +63,9 @@
           </cute-chart-item>
         </el-col>
       </el-row>
-      <el-row :gutter="22" class="chart-table-box">
+      <el-row :gutter="20" class="chart-table-box">
         <el-col :span="18">
-          <el-card class="chart-card-box" shadow="never">
+          <el-card class="chart-card-box chart-card-view" shadow="never">
             <div slot="header" class="chart-card-header">
               <h2>今日数据概况</h2>
               <div class="header-time-line">
@@ -107,17 +107,17 @@
         <el-col :span="6">
           <el-card class="chart-card-box annular" shadow="never">
             <div class="chart-box-container">
-              <CuteChart :option="option6" :height="'8.4vw'" :width="'100%'" />
+              <CuteChart :option="option6" :height="'138px'" :width="'100%'" />
               <img src="./Images/icon-hit.svg" alt="" />
             </div>
             <div class="chart-box-container">
-              <CuteChart :option="option7" :height="'8.4vw'" :width="'100%'" />
+              <CuteChart :option="option7" :height="'138px'" :width="'100%'" />
               <img src="./Images/icon-deal.svg" alt="" />
             </div>
           </el-card>
-          <el-card class="chart-card-box annular line" shadow="never">
+          <el-card class="chart-card-box annular line visit-box" shadow="never">
             <div class="chart-box">
-              <CuteChart :option="option5" :height="'80px'" :width="'100%'" />
+              <CuteChart :option="option5" :height="'100px'" :width="'100%'" />
             </div>
             <div class="visit-data">
               <h2 class="visits">12,835</h2>
@@ -195,17 +195,17 @@
             </div>
           </el-card>
         </el-col>
-        <el-col :span="10">
+        <el-col :span="10" style="margin-bottom: 22px">
           <el-card class="chart-card-box message" shadow="never">
             <div slot="header" class="chart-card-header">
               <h2>短信渠道用户排行榜</h2>
             </div>
-            <div class="chart-box">
-              <CuteChart :option="option4" :width="'100%'" />
+            <div class="chart-box chart-user">
+              <CuteChart :option="option4" :width="'100%'" height="440px" />
             </div>
           </el-card>
         </el-col>
-        <el-col :span="14">
+        <el-col :span="14" style="margin-bottom: 22px">
           <el-card class="chart-card-box table" shadow="never">
             <div slot="header" class="chart-card-header">
               <h2>数据列表</h2>
@@ -224,7 +224,7 @@
                   height="calc(100% - 40px)"
                 >
                   <el-table-column prop="ip" label="IP地址" width="130px"> </el-table-column>
-                  <el-table-column prop="time" label="时间" sortable width="190px"> </el-table-column>
+                  <el-table-column prop="time" label="时间" sortable width="140px"> </el-table-column>
                   <el-table-column prop="label" label="标签" width="150px">
                     <template slot-scope="scope">
                       <el-tag type="info" size="small"> {{ scope.row.label[0] }}</el-tag>
@@ -238,7 +238,7 @@
                       </el-tooltip>
                     </template>
                   </el-table-column>
-                  <el-table-column prop="healthy" label="健康状态" min-width="90px">
+                  <el-table-column prop="healthy" label="健康状态">
                     <template slot-scope="scope">
                       <div>
                         <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
@@ -260,7 +260,7 @@
           </el-card>
         </el-col>
       </el-row>
-    </el-card>
+    </div>
   </div>
 </template>
 
@@ -349,13 +349,16 @@ export default class extends Vue {
     { name: '产品5', value: '330', unit: 'w' },
     { name: '产品6', value: '230', unit: 'w' },
     { name: '产品7', value: '130', unit: 'w' },
+    { name: '产品8', value: '110', unit: 'w' },
+    { name: '产品9', value: '100', unit: 'w' },
+    { name: '产品10', value: '70', unit: 'w' },
   ]
   private list = [
-    { value: 16, name: '正在运行' },
     { value: 40, name: '成功' },
+    { value: 16, name: '正在运行' },
     { value: 5, name: '暂停' },
     { value: 2, name: '失败' },
-    { value: 3, name: '停止' },
+    // { value: 3, name: '停止' },
   ]
   private dataList = [
     {
@@ -679,7 +682,12 @@ export default class extends Vue {
     },
   ]
   private geoCoordMap = {}
-  private options = {}
+  private options = [
+    {
+      value: '全部',
+      name: '全部',
+    },
+  ]
   // 饼图
   private option = {}
   // 线图
@@ -724,6 +732,7 @@ export default class extends Vue {
    * 页面Mounted
    */
   mounted() {
+    console.log(this.variables)
     this.tableData = []
     for (let i = 1; i < 22; i++) {
       const item = {
@@ -755,7 +764,7 @@ export default class extends Vue {
         x: '49%',
         y: '30%',
         textStyle: {
-          fontFamily: 'Helvetica',
+          fontFamily: 'din-bold',
           fontSize: 26,
           fontWeight: 400,
         },
@@ -766,7 +775,7 @@ export default class extends Vue {
         },
       },
       textStyle: {
-        color: this.variables.chartColor11,
+        color: this.variables.colorGrey1,
       },
       tooltip: {
         trigger: 'none',
@@ -789,8 +798,8 @@ export default class extends Vue {
           },
         },
         icon: 'circle',
-        bottom: 0,
-        itemWidth: 20,
+        bottom: '10',
+        itemWidth: 30,
         itemGap: 0,
         itemHeight: 10,
         orient: 'horizontal',
@@ -806,14 +815,14 @@ export default class extends Vue {
           labelLine: {
             length: 15,
             lineStyle: {
-              color: this.variables.chartColor11,
+              color: this.variables.colorGrey1,
             },
           },
           emphasis: {
             label: {
               show: true,
               fontSize: 12, // 字体大小
-              color: this.variables.chartColor11,
+              color: this.variables.colorGrey1,
               padding: [5, 10],
               formatter: '{b}  {c}',
             },
@@ -827,7 +836,7 @@ export default class extends Vue {
             normal: {
               label: {
                 fontSize: 14, // 字体大小
-                color: this.variables.chartColor11,
+                color: this.variables.colorGrey1,
                 show: false,
                 padding: [5, 10],
                 // formatter:  '{b} \n {c} ({d}%)'
@@ -851,7 +860,7 @@ export default class extends Vue {
         this.variables.chartColor7,
       ],
       textStyle: {
-        color: this.variables.chartColor11,
+        color: this.variables.colorGrey1,
       },
       tooltip: {
         trigger: 'none',
@@ -864,13 +873,14 @@ export default class extends Vue {
         show: true,
         textStyle: {
           fontSize: 12, // 字体大小
-          color: this.variables.chartColor11, // 字体颜色
+          color: this.variables.colorGrey1, // 字体颜色
         },
         icon: 'circle',
-        top: '9%',
-        right: '5%',
+        top: '8%',
+        right: '15%',
+        bottom: '15%',
         itemWidth: 10,
-        itemGap: 20,
+        itemGap: 30,
         itemHeight: 10,
         orient: 'vertical',
       },
@@ -884,7 +894,7 @@ export default class extends Vue {
             label: {
               show: true,
               fontSize: 12, // 字体大小
-              color: this.variables.chartColor11,
+              color: this.variables.colorGrey1,
               padding: [5, 10],
               formatter: '{b}  {c}',
             },
@@ -892,14 +902,15 @@ export default class extends Vue {
           fontSize: 12, // 字体大小
           type: 'pie',
           radius: '80%',
-          center: ['42%', '50%'],
+          center: ['32%', '50%'],
           data: [
-            { value: 40, name: '成功' },
-            { value: 16, name: '正在运行' },
-            { value: 5, name: '暂停' },
-            { value: 2, name: '失败' },
-            { value: 3, name: '停止' },
-            { value: 13, name: '其他' },
+            { value: 40, name: '北京' },
+            { value: 16, name: '重庆' },
+            { value: 5, name: '成都' },
+            { value: 2, name: '苏州' },
+            { value: 3, name: '杭州' },
+            { value: 13, name: '南京' },
+            { value: 13, name: '广州' },
           ],
           itemStyle: {
             normal: {
@@ -1020,8 +1031,8 @@ export default class extends Vue {
       },
       // 图表位置
       grid: {
-        left: '3%',
-        right: '5%',
+        left: '1%',
+        right: '10%',
         bottom: '1%',
         top: '1%',
         // left: '40%',
@@ -1047,7 +1058,18 @@ export default class extends Vue {
       yAxis: [
         {
           type: 'category',
-          data: ['短链触达', '启动1次111111111', '启动2次', '启动3次', '启动4次', '启动5次', '启动6次'],
+          data: [
+            '短链触达',
+            '启动1次',
+            '启动2次',
+            '启动3次',
+            '启动4次',
+            '启动5次',
+            '启动6次',
+            '启动7次',
+            '启动8次',
+            '启动9次',
+          ],
           // 升序
           inverse: true,
           // splitLine: { show: false },
@@ -1107,37 +1129,37 @@ export default class extends Vue {
               a1: {
                 backgroundColor: this.variables.chartColor8,
                 color: this.variables.colorWhite,
-                width: 14,
-                height: 14,
+                width: 20,
+                height: 20,
                 align: 'center',
-                borderRadius: 10,
+                borderRadius: 20,
                 padding: [1, 1, 1, 1],
               },
               a2: {
                 backgroundColor: this.variables.chartColor4,
                 color: this.variables.colorWhite,
-                width: 14,
-                height: 14,
+                width: 20,
+                height: 20,
                 align: 'center',
-                borderRadius: 10,
+                borderRadius: 20,
                 padding: [1, 1, 1, 1],
               },
               a3: {
                 backgroundColor: this.variables.chartColor3,
                 color: this.variables.colorWhite,
-                width: 14,
-                height: 14,
+                width: 20,
+                height: 20,
                 align: 'center',
-                borderRadius: 10,
+                borderRadius: 20,
                 padding: [1, 1, 1, 1],
               },
               b: {
                 backgroundColor: this.variables.colorGrey8,
                 color: this.variables.colorGrey0,
-                width: 14,
-                height: 14,
+                width: 20,
+                height: 20,
                 align: 'center',
-                borderRadius: 10,
+                borderRadius: 20,
                 padding: [1, 1, 1, 1],
               },
             },
@@ -1225,6 +1247,43 @@ export default class extends Vue {
           },
         },
       ],
+      // dataZoom: [
+      //   {
+      //     type: 'slider',
+      //     yAxisIndex: [0],
+      //     // top: 60,
+      //     // 数据窗口范围的起始百分比。范围是：0 ~ 100。表示 0% ~ 100%
+      //     // 也可以用 startValue设置起始值
+      //     start: 1,
+      //     end: 100,
+      //     width: 6,
+      //     maxValueSpan: 6, // 显示数据的条数(默认显示10个，注意：从 0 开始计算)
+      //     show: true, // 是否显示Y轴滚动条(this.departmentsList换成自己的数据)
+      //     // 组件的背景颜色
+      //     // left: 650, //左边的距离
+      //     borderRadius: 50, //滚动条圆角
+      //     // borderColor: 'E1E1E1', //滚动条边框颜色
+      //     // fillerColor: '#E1E1E1', // 滚动条颜色
+      //     // backgroundColor: '#fff', //两边未选中的滑动条区域的颜色
+      //     // 是否显示detail，即拖拽时候显示详细数值信息
+      //     showDetail: false,
+      //     // 控制手柄的尺寸
+      //     handleSize: 10,
+      //     // 是否在 dataZoom-silder 组件中显示数据阴影。数据阴影可以简单地反应数据走势。
+      //     showDataShadow: false,
+      //     brushSelect: false, // 滚动条刷选功能
+      //   },
+      //   {
+      //     type: 'inside',
+      //     yAxisIndex: [0],
+      //     start: 1,
+      //     // end: 36,
+      //     // 不按任何功能键，鼠标滚轮能触发缩放
+      //     zoomOnMouseWheel: false,
+      //     // 不按任何功能键，鼠标移动能触发数据窗口平移
+      //     moveOnMouseWheel: true,
+      //   },
+      // ],
     }
     this.option5 = {
       grid: {
@@ -1282,7 +1341,7 @@ export default class extends Vue {
       series: [
         {
           type: 'pie',
-          center: ['40%', '50%'], // 饼图的圆心坐标
+          center: ['37%', '50%'], // 饼图的圆心坐标
           radius: ['70%', '80%'],
           avoidLabelOverlap: false,
           hoverAnimation: false,
@@ -1300,11 +1359,11 @@ export default class extends Vue {
                 color: this.variables.colorGrey1,
                 padding: [-25, 3, 1, -8],
                 fontSize: 26,
-                fontFamily: 'Helvetica',
+                fontFamily: 'din-bold',
               },
               b: {
                 color: this.variables.colorGrey2,
-                fontFamily: 'PingFangSC-Regular',
+                fontFamily: 'din-bold',
                 padding: [4, 0, 0, -4],
                 fontSize: 14,
                 // padding: [0, 10],
@@ -1315,6 +1374,9 @@ export default class extends Vue {
 
           labelLine: {
             show: false,
+          },
+          textStyle: {
+            fontFamily: 'din-bold',
           },
           data: [
             {
@@ -1341,7 +1403,7 @@ export default class extends Vue {
       series: [
         {
           type: 'pie',
-          center: ['40%', '50%'], // 饼图的圆心坐标
+          center: ['37%', '50%'], // 饼图的圆心坐标
           radius: ['70%', '80%'],
           avoidLabelOverlap: false,
           hoverAnimation: false,
@@ -1359,7 +1421,7 @@ export default class extends Vue {
                 color: this.variables.colorGrey1,
                 padding: [-25, 3, 1, -8],
                 fontSize: 26,
-                fontFamily: 'Helvetica',
+                fontFamily: 'din-bold',
               },
               b: {
                 color: this.variables.colorGrey1,
@@ -1652,12 +1714,22 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
+@font-face {
+  font-family: 'din-bold';
+  src: url('../../../assets/din-bold.ttf');
+  font-stretch: 'normal';
+  font-weight: 400;
+}
 .header {
   .el-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 9.1vw;
+    &:hover {
+      box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.08), 0 9px 28px 0 rgba(0, 0, 0, 0.05),
+        0 12px 48px 16px rgba(0, 0, 0, 0.03);
+    }
 
     ::v-deep &__body {
       .decline {
@@ -1678,6 +1750,7 @@ export default class extends Vue {
       .chart-card-count-warp {
         h3 {
           padding: 4px 0;
+          font-family: 'din-bold';
         }
       }
     }
@@ -1713,6 +1786,12 @@ export default class extends Vue {
 .chart-inner {
   display: flex;
   justify-content: space-between;
+  ::v-deep .el-table td.el-table__cell div {
+    font-size: 14px;
+  }
+  ::v-deep .el-table tr:last-child td.el-table__cell {
+    border-bottom: none;
+  }
 }
 .text-ellipsis {
   display: inline-block;
@@ -1750,12 +1829,15 @@ export default class extends Vue {
   }
 }
 .chart-card-tabs {
+  margin-top: -10px;
+  ::v-deep .el-tabs__header {
+    margin-bottom: 0;
+  }
 }
 .chart-items .el-table {
   overflow: scroll;
   margin: 0 !important;
   width: 100%;
-  height: calc(100% - 60px);
 }
 .chart-title {
   display: flex;
@@ -1772,12 +1854,15 @@ export default class extends Vue {
 }
 .chart-table-box {
   ::v-deep .el-col {
-    margin-top: 22px;
+    margin-top: 20px;
   }
 
   .el-col-18 .el-card {
-    height: 32vw;
+    height: 390px;
 
+    &.chart-card-view {
+      height: 519px;
+    }
     & ::v-deep > .el-card__body {
       height: calc(100% - 70px);
 
@@ -1796,8 +1881,8 @@ export default class extends Vue {
   }
 }
 
-.dashboard .el-card {
-  padding: 10px;
+.dashboard .simple-table {
+  padding: 10px 0;
   background: none;
 
   h2 {
@@ -1823,8 +1908,14 @@ export default class extends Vue {
 }
 
 .annular {
+  &:first-child {
+    padding-top: 5px;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
   margin-bottom: 1vw;
-  height: 18.25vw;
+  height: 303px;
 
   ::v-deep .el-card__body {
     display: flex;
@@ -1839,9 +1930,7 @@ export default class extends Vue {
 }
 
 .process {
-  padding: 10px 0 !important;
-  height: 32vw;
-
+  height: 390px;
   ::v-deep .el-card__body {
     padding: 10px 0 0 0 !important;
     height: calc(100% - 50px) !important;
@@ -1853,7 +1942,7 @@ export default class extends Vue {
 }
 
 .map {
-  height: 32vw;
+  height: 390px;
   ::v-deep .el-card__header {
     .el-select {
       width: 107px;
@@ -1886,7 +1975,7 @@ export default class extends Vue {
 }
 
 .message {
-  height: 26vw;
+  height: 390px;
 
   ::v-deep .el-card__body {
     .chart-cont {
@@ -1895,8 +1984,11 @@ export default class extends Vue {
   }
 }
 
+::v-deep .el-card__body .chart-table-box .el-card__body .el-tabs__header {
+  margin: 0;
+}
 .table {
-  height: 26vw;
+  height: 390px;
 
   ::v-deep .el-card__body {
     height: calc(100% - 32px);
@@ -1921,19 +2013,16 @@ export default class extends Vue {
       }
     }
 
-    .el-tabs__header {
-      margin: 0 !important;
-    }
     .el-table {
       margin: 10px 0 10px 0 !important;
-      border-bottom: 1px solid $disabled-color;
+      border-bottom: 1px solid $color-grey-6;
     }
   }
 }
 
 .chart-card-box {
   ::v-deep .el-card__header {
-    padding: 2px 20px 12px;
+    padding: 10px 20px;
   }
 
   ::v-deep .el-card__body {
@@ -1984,18 +2073,19 @@ export default class extends Vue {
   }
 
   .visit-data {
+    padding: 0 10px;
     .visits {
       margin: 0;
       color: $color-grey-1;
       letter-spacing: 0;
       font-weight: 400;
       font-size: 26px;
-      font-family: Helvetica;
+      font-family: 'din-bold';
     }
     .access-rate {
       display: flex;
       justify-content: space-between;
-
+      margin-bottom: 0px;
       .increase {
         padding-left: 4px;
         color: '#ff5b68';
@@ -2006,12 +2096,22 @@ export default class extends Vue {
 
   .chart-box-container {
     position: relative;
-
     img {
       position: absolute;
       top: 41%;
       left: 37%;
     }
   }
+}
+.visit-box {
+  height: 200px;
+}
+::v-deep .el-col .chart-card-box.el-card.map .el-card__body {
+  padding: 10px 20px;
+}
+.chart-user {
+  height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 </style>

@@ -4,6 +4,9 @@ const msg = require("fs").readFileSync(msgPath, "utf-8").trim();
 // 兼容分支合并自动生成的 commit 信息，其他按照规范约束
 const commitRE = /^Merge branch|^(perf|chore|ci|feat|fix|refactor|docs|style|test|types|release)(\(\w+\))?\s*(:|：).{1,100}$/;
 
+chalk.enabled = true;
+chalk.level = 1;
+
 if (!commitRE.test(msg)) {
   console.error(`
     ${chalk.bgRed.white("错误：")} ${chalk.red("无效的 commit-message 格式")}\n

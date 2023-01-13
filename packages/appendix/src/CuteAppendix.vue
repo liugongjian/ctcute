@@ -160,13 +160,13 @@ export default class extends Vue {
 .appendix-link-icon {
   margin-right: 4px;
   color: $color-grey-3;
-  vertical-align: -4px !important;
+  vertical-align: -4px;
 }
 
 .appendix-eye-icon {
   margin-left: 8px;
   color: $color-grey-3;
-  vertical-align: -4px !important;
+  vertical-align: -4px;
 
   &:hover {
     color: $color-master-1;
@@ -214,7 +214,7 @@ export default class extends Vue {
         color: $color-grey-2;
         line-height: 20px;
         font-weight: 400;
-        margin: 0;
+        margin: -5px 0 5px 0;
       }
     }
   }

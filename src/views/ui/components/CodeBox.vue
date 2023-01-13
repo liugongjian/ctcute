@@ -243,67 +243,69 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .CodeMirror-line {
-  line-height: 150% !important;
-}
-
-.line {
-  // display: flex;
-  // align-items: center;
-  width: 597px;
-  margin-bottom: 24px;
-
-  .pB_Container {
-    width: 100%;
-    background-color: $color-grey-9;
-    height: 4px;
-    display: inline-flex;
-    line-height: 10px;
-    overflow: hidden;
-    color: $color-white;
+.code-box {
+  ::v-deep .CodeMirror-line {
+    line-height: 150% !important;
   }
 
-  &__code {
-    width: 100%;
-    margin-top: 24px;
-    // margin-right: 47px;
+  .line {
+    // display: flex;
+    // align-items: center;
+    width: 597px;
+    margin-bottom: 24px;
+
+    .pB_Container {
+      width: 100%;
+      background-color: $color-grey-9;
+      height: 4px;
+      display: inline-flex;
+      line-height: 10px;
+      overflow: hidden;
+      color: $color-white;
+    }
+
+    &__code {
+      width: 100%;
+      margin-top: 24px;
+      // margin-right: 47px;
+    }
+
+    &__border {
+      border: 1px solid $color-grey-6;
+    }
+
+    .el-cascader {
+      width: 100%;
+    }
   }
 
-  &__border {
-    border: 1px solid $color-grey-6;
-  }
-
-  .el-cascader {
-    width: 100%;
-  }
-}
-
-.last-line {
-  margin-bottom: 0;
-}
-
-.sub-down {
-  border-bottom: 1px solid $border-color-light-1;
-
-  > h3 {
+  .last-line {
     margin-bottom: 0;
-    font-family: PingFangSC-Medium;
-    font-size: 14px;
-    color: $color-grey-1;
-    line-height: 20px;
-    font-weight: 500;
   }
 
-  .el-row {
-    margin: 24px 0;
+  .sub-down {
+    border-bottom: 1px solid $border-color-light-1;
+
+    > h3 {
+      margin-bottom: 0;
+      font-family: PingFangSC-Medium;
+      font-size: 14px;
+      color: $color-grey-1;
+      line-height: 20px;
+      font-weight: 500;
+    }
+
+    .el-row {
+      margin: 24px 0;
+    }
   }
-}
 
-.sub-down:last-child {
-  border-bottom: none;
+  .sub-down:last-child {
+    border-bottom: none;
 
-  .el-row {
-    margin-top: 24px;
+    .el-row {
+      margin-top: 24px;
+    }
   }
 }
 </style>

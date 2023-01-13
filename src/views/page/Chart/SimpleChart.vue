@@ -1,8 +1,8 @@
 <!--
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 陈清沣
- * @LastEditTime: 2023-01-10 16:19:41
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-01-13 14:20:46
  * @Description: 基础图表
 -->
 <template>
@@ -571,127 +571,129 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.chart-card-tabs {
-}
-
-::v-deep.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
-  background: $color-bg-2;
-}
-
-.simple-table-box {
-  ::v-deep .el-col {
-    margin-top: 22px;
+.chart-cont {
+  ::v-deep.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+    background: $color-bg-2;
   }
-}
 
-.chart-cont .el-card {
-  background: none;
-  border: none;
+  .simple-table-box {
+    ::v-deep .el-col {
+      margin-top: 22px;
+    }
+  }
 
-  & ::v-deep > .el-card__body {
-    padding: 0;
+  .chart-cont .el-card {
+    background: none;
+    border: none;
 
-    .el-card {
-      background: $color-bg-2;
+    & ::v-deep > .el-card__body {
+      padding: 0;
 
-      .el-card__body {
-        padding: 20px;
+      .el-card {
+        background: $color-bg-2;
+
+        .el-card__body {
+          padding: 20px;
+        }
       }
     }
   }
-}
 
-.chart-card-box {
-  ::v-deep .el-card__header {
-    padding: 0 22px;
-  }
+  .chart-card-box {
+    ::v-deep .el-card__header {
+      padding: 0 22px;
+    }
 
-  .chart-card-header {
-    clear: both;
-    display: flex;
-    align-items: center;
+    .chart-card-header {
+      clear: both;
+      display: flex;
+      align-items: center;
 
-    .chart-card-tabs {
-      margin-left: auto;
-      margin-bottom: -1px;
+      .chart-card-tabs {
+        margin-left: auto;
+        margin-bottom: -1px;
 
-      ::v-deep .el-tabs__header {
-        margin: 0;
-        height: 40px;
-        margin-top: 12px;
+        ::v-deep .el-tabs__header {
+          margin: 0;
+          height: 40px;
+          margin-top: 12px;
+        }
+
+        ::v-deep .el-tabs__active-bar {
+          height: 3px;
+        }
+
+        ::v-deep .el-tabs__nav-wrap:after {
+          background: none;
+        }
       }
 
-      ::v-deep .el-tabs__active-bar {
-        height: 3px;
+      span {
+        font-size: 14px;
+        color: $color-grey-1;
+        line-height: 52px;
+        font-weight: bold;
       }
 
-      ::v-deep .el-tabs__nav-wrap:after {
-        background: none;
+      .el-date-editor {
+        margin-left: auto;
+      }
+
+      ::v-deep .el-range-separator {
+        top: -2.4px;
       }
     }
 
-    span {
-      font-size: 14px;
-      color: $color-grey-1;
-      line-height: 52px;
-      font-weight: bold;
+    .chart-box {
+      height: 280px;
     }
 
-    .el-date-editor {
-      margin-left: auto;
+    .chart-box-linebar {
+      height: 310px;
     }
 
-    ::v-deep .el-range-separator {
-      top: -2.4px;
+    .chart-table.el-table {
+      margin: 0 !important;
     }
-  }
+    .chart-table.el-table {
+      margin: 0 !important;
 
-  .chart-box {
-    height: 280px;
-  }
+      .solt {
+        margin: 0 auto;
+        background: $color-grey-6;
+        display: block;
+        color: $color-grey-1;
+        font-size: 12px;
+        line-height: 20px;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+      }
 
-  .chart-box-linebar {
-    height: 310px;
-  }
+      .solt1 {
+        background: $chartColor1;
+        color: $color-white;
+      }
 
-  .chart-table.el-table {
-    margin: 0 !important;
+      .solt2 {
+        background: $chartColor1;
+        color: $color-white;
+        opacity: 0.8;
+      }
 
-    .solt {
-      margin: 0 auto;
-      background: $color-grey-6;
-      display: block;
-      color: $color-grey-1;
-      font-size: 12px;
-      line-height: 20px;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      text-align: center;
-    }
+      .solt3 {
+        background: $chartColor1;
+        color: $color-white;
+        opacity: 0.6;
+      }
 
-    .solt1 {
-      background: $chartColor1;
-      color: $color-white;
-    }
+      .solt1 {
+        background: $chartColor8;
+        color: $color-white;
+      }
 
-    .solt2 {
-      background: $chartColor1;
-      color: $color-white;
-      opacity: 0.8;
-    }
-
-    .solt3 {
-      background: $chartColor1;
-      color: $color-white;
-      opacity: 0.6;
-    }
-
-    .status {
-      padding-left: 18px;
-      position: relative;
-
-      &:after {
+      .status:after {
         content: '';
         position: absolute;
         width: 8px;
@@ -702,44 +704,44 @@ export default class extends Vue {
         top: 50%;
         margin-top: -4px;
       }
-    }
 
-    .status1:after {
-      background: $color-grey-4;
-    }
+      .status1:after {
+        background: $color-grey-4;
+      }
 
-    .status2:after {
-      background: $chartColor11;
-    }
+      .status2:after {
+        background: $chartColor11;
+      }
 
-    .status3:after {
-      background: $chartColor4;
-    }
+      .status3:after {
+        background: $chartColor4;
+      }
 
-    ::v-deep th.el-table__cell > .cell {
-      color: $color-grey-2;
-      font-weight: normal;
-    }
+      ::v-deep th.el-table__cell > .cell {
+        color: $color-grey-2;
+        font-weight: normal;
+      }
 
-    ::v-deep .el-table__header .el-table__cell {
-      border-right: 0;
-      border-bottom: 0;
-      background: $color-grey-11;
-    }
+      ::v-deep .el-table__header .el-table__cell {
+        border-right: 0;
+        border-bottom: 0;
+        background: $color-grey-11;
+      }
 
-    ::v-deep .el-table__header .el-table__cell {
-      border-right: 0;
-      border-bottom: 0;
-      background: $color-grey-11;
-      line-height: 40px;
-    }
+      ::v-deep .el-table__header .el-table__cell {
+        border-right: 0;
+        border-bottom: 0;
+        background: $color-grey-11;
+        line-height: 40px;
+      }
 
-    ::v-deep .el-table__body-wrapper td .el-table__cell {
-      padding: 5px 0;
-    }
+      ::v-deep .el-table__body-wrapper td .el-table__cell {
+        padding: 5px 0;
+      }
 
-    ::v-deep td.el-table__cell {
-      color: $color-grey-1;
+      ::v-deep td.el-table__cell {
+        color: $color-grey-1;
+      }
     }
   }
 }

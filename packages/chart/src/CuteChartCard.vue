@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-10-19 10:59:22
- * @LastEditors: 陈清沣
- * @LastEditTime: 2023-01-10 16:19:41
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-01-13 14:14:36
  * @Description: 
 -->
 <template>
@@ -42,7 +42,6 @@ export default class extends Vue {
 .chart-card {
   display: flex;
   border-radius: 4px;
-  border: none !important;
 
   ::v-deep .el-card__body {
     display: flex;

@@ -21,7 +21,6 @@
       row-key="_id"
       default-expand-all
       :tree-props="{ children: 'children' }"
-      height="calc(100vh - 236px)"
     >
       <el-table-column prop="name" label="名称" width="180"> </el-table-column>
       <el-table-column prop="menuType" label="其他状态" width="180">
@@ -35,7 +34,7 @@
       <el-table-column prop="url" label="路由"> </el-table-column>
       <el-table-column prop="perms" label="标识"> </el-table-column>
       <el-table-column prop="alias" label="别名" :show-overflow-tooltip="true"> </el-table-column>
-      <el-table-column prop="actions" label="操作" width="250" class-name="actions">
+      <el-table-column prop="actions" label="操作" width="100" class-name="actions">
         <template slot-scope="{}">
           <el-button type="text">编辑</el-button>
           <el-button type="text">删除</el-button>
@@ -76,7 +75,6 @@ export default class extends Vue {
     try {
       this.loading = true
       const res = await getTable()
-      console.log(res)
       if ((res as any).code === 200) {
         const res_menus = res.data.result.map(item => {
           item.label = item.name

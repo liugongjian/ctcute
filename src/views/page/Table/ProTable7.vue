@@ -13,7 +13,7 @@
       FinkK构建的一站全托管的实时计算平台，可在端到端之间实现高效实时数据分析能力，集成企业大规模作业，免运维、高弹性。
       极简化SQL作业，助力企业向实时化方向转化。
     </p>
-    <el-table v-loading="loading" :data="tableData" fit height="calc(100vh - 265px)">
+    <el-table v-loading="loading" :data="tableData" fit>
       <el-table-column type="expand">
         <template slot-scope="scope">
           <el-table ref="multipleTable" tooltip-effect="dark" :data="scope.row.projectSpaces">
@@ -39,12 +39,12 @@
                 <span class="used">{{ row.cuUsedNum }}</span> / {{ row.cuNum }}
               </template>
             </el-table-column>
-            <el-table-column label="创建时间" prop="createTime">
+            <el-table-column label="创建时间" prop="createTime" width="150">
               <template slot-scope="{ row }">
                 {{ formatDatetime(row.createTime, 'yyyy-MM-dd HH:mm') }}
               </template>
             </el-table-column>
-            <el-table-column label="操作">
+            <el-table-column label="操作" width="130">
               <template slot-scope="{ row }">
                 <el-button
                   :disabled="row.projectSpaceState === '1' ? false : true"
@@ -89,7 +89,7 @@
           <el-tag type="warning">{{ TYPE[row.payType] }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="创建时间" prop="createTime">
+      <el-table-column label="创建时间" prop="createTime" width="140">
         <template slot-scope="{ row }"> {{ formatDatetime(row.createTime, 'yyyy-MM-dd HH:mm') }} </template>
       </el-table-column>
     </el-table>

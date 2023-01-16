@@ -405,7 +405,11 @@
       </el-pagination>
     </div>
 
-    <h3>可移动排序的表格</h3>
+    <h3>
+      可移动排序的表格-使用了
+      <a href="/component/base/cute-sort-table" target="_blank">CuteSortTable</a>
+      组件
+    </h3>
     <div class="sub-table">
       <cute-sort-table
         :loading="tableHook.loading"
@@ -854,7 +858,11 @@
         </el-table-column>
       </el-table>
     </div>
-    <h3>带列设置的表格</h3>
+    <h3>
+      带列设置的表格-使用了
+      <a href="/component/base/cute-table-column-settings" target="_blank">CuteTableColumnSettings</a>
+      组件
+    </h3>
     <div class="sub-table-settings">
       <cute-table-column-settings
         :table-data="tableComponentData && tableComponentData.tableData10"

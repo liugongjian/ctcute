@@ -1,6 +1,11 @@
 <template>
   <div class="sub-contentareatips">
     <p>在内容区域的提示样式，在内容下方与内容进行左对齐，与内容间距为8px。后面直接跟一个提示icon的情况</p>
+    <h4>
+      使用了
+      <a href="/component/base/el-alert" target="_blank">ElAlert</a>
+      组件
+    </h4>
     <div class="contentareatips-content">
       <el-alert title="这是一个普通提示" :closable="false" content-area-tip>
         <span slot="icon-custom"><svg-icon class="el-alert__icon" name="info-circle" /></span>

@@ -1,5 +1,10 @@
 <template>
   <div class="sub-collapse">
+    <h4>
+      使用了
+      <a href="/component/base/el-collapse" target="_blank">ElCollapse</a>
+      组件
+    </h4>
     <h3>折叠面板</h3>
     <el-collapse v-model="activeNames">
       <el-collapse-item title="标题" name="1">

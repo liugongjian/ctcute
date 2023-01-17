@@ -34,7 +34,14 @@
       </div>
     </div>
     <!--表格-->
-    <el-table ref="tableRef" v-loading="tableHook.loading" :data="tableHook.tableData" fit border>
+    <el-table
+      ref="tableRef"
+      v-loading="tableHook.loading"
+      :data="tableHook.tableData"
+      fit
+      border
+      height="calc(100vh - 230px)"
+    >
       <el-table-column prop="name" label="主机别名">
         <template slot-scope="{ row }">
           <router-link to="/">{{ row.name }}</router-link>

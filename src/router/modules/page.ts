@@ -243,6 +243,15 @@ const restPageRoutes = [
         },
       },
       {
+        path: 'pro-table5',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable5.vue'),
+        name: 'ProTable5',
+        meta: {
+          title: 'ProTable5 复杂表格5',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'scrolled-to-load-table',
         component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ScrolledToLoadTable.vue'),
         name: 'ScrolledToLoadTable',

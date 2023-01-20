@@ -214,7 +214,7 @@ export default class extends Vue {
         color: $color-grey-2;
         line-height: 20px;
         font-weight: 400;
-        margin: -5px 0 5px 0;
+        margin: 0;
       }
     }
   }

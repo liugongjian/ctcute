@@ -931,10 +931,9 @@
 
 .el-tabs.el-tabs--card.el-tabs--top {
   .el-tabs__item {
-    border: 1px solid transparent;
     padding: 0px 12px;
     height: 28px;
-    line-height: 27px;
+    line-height: 28px;
   }
 
   .el-tabs__item .el-icon-close {
@@ -945,9 +944,9 @@
     padding-left: 12px;
   }
 
-  // .el-tabs__header .el-tabs__item {
-  //   border-left: none;
-  // }
+  .el-tabs__header .el-tabs__item {
+    border-left: none;
+  }
 
   .el-tabs__header .el-tabs__nav {
     border: none;
@@ -957,11 +956,8 @@
     border-top: 1px solid $border-color-primary;
     border-left: 1px solid $border-color-primary;
     border-right: 1px solid $border-color-primary;
+    transform: translateY(1px);
     border-bottom-color: $color-bg-2;
-  }
-
-  .el-tabs__item:nth-child(2) {
-    padding-left: 12px;
   }
 }
 
@@ -1564,11 +1560,6 @@
     line-height: 32px;
     right: 3px;
   }
-
-  .el-icon-circle-close:before {
-    font-family: 'cute-icons';
-    content: '\ea4f';
-  }
 }
 
 .el-input--medium .el-input__inner {
@@ -1610,7 +1601,6 @@
   height: 30px;
   font-size: $text-size-primary;
   background-color: $color-bg-1;
-  color: $text-color-primary;
 
   &.selected {
     background: $color-master-1;
@@ -1820,24 +1810,6 @@
 
   .el-picker-panel__content {
     width: 240px;
-  }
-}
-
-.el-picker-panel.el-date-picker.el-popper.has-sidebar {
-  width: 369px;
-
-  .el-picker-panel__content {
-    width: 238px;
-  }
-}
-
-.el-picker-panel {
-  .el-picker-panel__sidebar {
-    width: 100px;
-  }
-
-  .el-picker-panel__sidebar+.el-picker-panel__body {
-    margin-left: 100px;
   }
 }
 
@@ -2110,7 +2082,7 @@
     }
   }
 
-  .el-progress-circle {
+  .el-upload-list.el-upload-list--picture-card .is-uploading .el-progress.el-progress-circle {
     width: 50px !important;
     height: 50px !important;
   }

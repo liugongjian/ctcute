@@ -34,7 +34,6 @@ import Drawer from './Drawer.vue'
 import Transfer from './Transfer.vue'
 import Collapse from './Collapse.vue'
 import TimeLine from './TimeLine.vue'
-import DistributionBar from './DistributionBar.vue'
 /**
  * 在此数组中添加新增的组件
  */
@@ -75,7 +74,6 @@ const componentsList = [
   Transfer,
   Collapse,
   TimeLine,
-  DistributionBar,
 ]
 
 const _components = {}

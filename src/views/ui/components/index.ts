@@ -21,6 +21,7 @@ import Popover from './Popover.vue'
 import Tooltip from './Tooltip.vue'
 import Tabs from './Tabs.vue'
 import SelectedButton from './SelectedButton.vue'
+import ColorPicker from './ColorPicker.vue'
 import Table from './Table.vue'
 import Alert from './Alert.vue'
 import ContentAreaTips from './ContentAreaTips.vue'
@@ -62,6 +63,7 @@ const componentsList = [
   Tooltip,
   Tabs,
   SelectedButton,
+  ColorPicker,
   Table,
   Alert,
   ContentAreaTips,

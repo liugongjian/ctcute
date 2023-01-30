@@ -171,6 +171,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-color-picker',
+        name: 'ElColorPicker',
+        component: () => import('@/views/component/Base/ElColorPicker/index.vue'),
+        meta: {
+          title: 'ElColorPicker',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'vxe-table',
         name: 'VxeTable',
         component: () => import('@/views/component/Base/VxeTable/index.vue'),

@@ -55,8 +55,7 @@ export default class AppBootHook implements IBoot {
      * @description: 遍历src文件夹，生成manifest的映射
      */
     // 页面模版路径
-    const pagePath = path.resolve(__dirname, '../src')
-
+    const pagePath = path.resolve(__dirname, '../src').replace(/\\/g, '/')
     // Manifest列表
     const manifestList: string[] = glob.sync(`${pagePath}/views/**/*.manifest`)
 

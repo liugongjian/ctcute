@@ -1203,6 +1203,19 @@
   color: $color-grey-3;
 }
 
+.el-table [class*=el-table__row--level] .el-table__expand-icon {
+  // margin-left: -3px;
+  margin-right: 0;
+}
+
+.el-table__row.expanded.el-table__row--level-0 .el-table__expand-icon {
+  margin-left: -20px;
+}
+
+.el-table__row:not(.el-table__row--level-0) .el-table__indent {
+  margin-left: -20px;
+}
+
 /* Descriptions
 -------------------------- */
 .el-descriptions td {
@@ -1782,22 +1795,25 @@
     width: 240px;
   }
 }
-.el-picker-panel.el-date-picker.el-popper.has-sidebar{
-  width: 369px ;
 
-  .el-picker-panel__content{
+.el-picker-panel.el-date-picker.el-popper.has-sidebar {
+  width: 369px;
+
+  .el-picker-panel__content {
     width: 238px;
   }
 }
 
-.el-picker-panel{
-  .el-picker-panel__sidebar{
+.el-picker-panel {
+  .el-picker-panel__sidebar {
     width: 100px;
   }
-   .el-picker-panel__sidebar + .el-picker-panel__body{
+
+  .el-picker-panel__sidebar+.el-picker-panel__body {
     margin-left: 100px;
   }
 }
+
 .el-picker-panel__footer {
   background-color: $color-bg-1;
   // .el-button--default {

@@ -20,7 +20,7 @@ const componentRoutes = [
     },
     children: [
       {
-        path: 'cute-redmind-select',
+        path: 'cute-remind-select',
         name: 'CuteRemindSelect',
         component: () => import('@/views/component/Base/CuteRemindSelect/index.vue'),
         meta: {

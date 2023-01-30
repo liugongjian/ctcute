@@ -66,7 +66,11 @@
       </div>
     </div>
     <div class="sub-down">
-      <h3>带提示</h3>
+      <h3>
+        带提示-使用了
+        <a href="/component/base/cute-remind-select" target="_blank">CuteRemindSelect</a>
+        组件
+      </h3>
       <div class="line">
         <div class="line__left">
           <cute-remind-select
@@ -80,7 +84,11 @@
       </div>
     </div>
     <div class="sub-down">
-      <h3>树形选择/单选</h3>
+      <h3>
+        树形选择/单选-使用了
+        <a href="/component/base/cute-select-tree" target="_blank">CuteSelectTree</a>
+        组件
+      </h3>
       <div class="line">
         <div class="line__left">
           <cute-select-tree v-model="treeData" :value="treeDataValue" :options="treeOptions" />
@@ -88,7 +96,11 @@
       </div>
     </div>
     <div class="sub-down">
-      <h3>树形选择/多选</h3>
+      <h3>
+        树形选择/多选-使用了
+        <a href="/component/base/cute-select-tree" target="_blank">CuteSelectTree</a>
+        组件
+      </h3>
       <div class="line">
         <div class="line__left">
           <cute-select-tree
@@ -309,7 +321,8 @@
       </div>
 
       <h3>
-        地区选择-使用了<a href="http://fed.ctyuncdn.cn/component/base/cute-area" target="_blank">cuteArea </a>
+        地区选择-使用了
+        <a href="/component/base/cute-area" target="_blank">CuteArea</a>
         组件
       </h3>
 
@@ -335,7 +348,11 @@
     </div>
 
     <div class="sub-down">
-      <h3>操作已选项</h3>
+      <h3>
+        操作已选项-使用了
+        <a href="/component/base/cute-selected-input" target="_blank">CuteSelectedInput</a>
+        组件
+      </h3>
       <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
       <el-row>
         <cute-selected-input :checked-list="checkedList" :options="optionData" @change="change" />

@@ -1,6 +1,11 @@
 <template>
   <div class="sub-all-alert">
     <p>可根据内容调整长度</p>
+    <h4>
+      使用了
+      <a href="/component/base/el-alert" target="_blank">ElAlert</a>
+      组件
+    </h4>
     <h3>常用样式</h3>
     <el-alert title="弱提示文字弱提示文字很" type="weak" :closable="false"> </el-alert>
     <el-alert title="提示文案，常规提示" show-icon :closable="false"></el-alert>

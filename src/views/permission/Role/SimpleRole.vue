@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-10-18 14:41:19
+ * @LastEditTime: 2023-01-30 10:27:37
  * @Description: 基础表格
 -->
 <template>
@@ -46,7 +46,7 @@
       <el-scrollbar
         ref="scrollBar"
         class="medium-dialog--scroll"
-        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '461px' }]"
+        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '521px' }]"
       >
         <div class="medium-dialog--content" style="margin-bottom: 24px">
           <el-transfer

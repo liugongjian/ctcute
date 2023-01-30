@@ -25,9 +25,9 @@
       <el-table-column prop="name" label="名称" width="180"> </el-table-column>
       <el-table-column prop="menuType" label="其他状态" width="180">
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.menuType === 0" type="info">目录</el-tag>
-          <el-tag v-if="scope.row.menuType === 1" type="primary">菜单</el-tag>
-          <el-tag v-if="scope.row.menuType === 2" type="success">权限</el-tag>
+          <el-tag class="table6-tag" v-if="scope.row.menuType === 0" type="info">目录</el-tag>
+          <el-tag class="table6-tag" v-if="scope.row.menuType === 1" type="primary">菜单</el-tag>
+          <el-tag class="table6-tag" v-if="scope.row.menuType === 2" type="success">权限</el-tag>
         </template>
       </el-table-column>
       <el-table-column prop="orderNum" label="排序"> </el-table-column>
@@ -120,5 +120,11 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.table6-tag {
+  width: 40px;
+  padding: 0;
+  text-align: center;
+}
+</style>
 

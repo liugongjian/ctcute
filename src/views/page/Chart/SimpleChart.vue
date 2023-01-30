@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-01-05 21:47:08
+ * @LastEditTime: 2023-01-30 09:43:08
  * @Description: 基础图表
 -->
 <template>
@@ -30,7 +30,7 @@
             icon="sever"
             title="总表数(个)"
             total="295"
-            background="182, 221, 119"
+            background="122, 211, 183"
           ></cute-chart-card>
         </el-col>
         <el-col :span="8">
@@ -190,11 +190,11 @@ export default class extends Vue {
     // 饼图
     this.option = {
       color: [
-        this.variables.chartColor2,
         this.variables.chartColor1,
-        this.variables.chartColor3,
+        this.variables.chartColor10,
         this.variables.chartColor4,
-        this.variables.chartColor5,
+        this.variables.chartColor11,
+        this.variables.colorGrey4,
       ],
       title: {
         text: '流程状态数量',
@@ -253,7 +253,7 @@ export default class extends Vue {
           },
           fontSize: 12, // 字体大小
           type: 'pie',
-          radius: ['42%', '64%'],
+          radius: ['45%', '64%'],
           center: ['32%', '50%'],
           data: [
             { value: 40, name: '成功' },
@@ -287,15 +287,9 @@ export default class extends Vue {
         bottom: '3%',
         containLabel: true,
       },
-      color: ['rgba(241,158,75,0.50)', this.variables.chartColor4],
+      color: [this.variables.chartColor12, this.variables.chartColor4],
       tooltip: {
         trigger: 'axis',
-        axisPointer: {
-          type: 'cross',
-          label: {
-            backgroundColor: this.variables.chartColor1,
-          },
-        },
       },
       legend: {
         data: ['昨日', '今日'],
@@ -317,7 +311,6 @@ export default class extends Vue {
           boundaryGap: false,
           data: ['0', '02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24'],
           nameLocation: 'start',
-          verticalAlign: 'bottom',
           name: '小时',
         },
       ],
@@ -383,14 +376,11 @@ export default class extends Vue {
         bottom: '3%',
         containLabel: true,
       },
-      color: [this.variables.colorOther3],
+      color: [this.variables.chartColor1],
       tooltip: {
         trigger: 'axis',
         color: this.variables.colorGrey1,
         formatter: '{b}' + '<br />' + '流程定义数：{c}',
-        axisPointer: {
-          type: 'shadow',
-        },
       },
       xAxis: {
         type: 'category',
@@ -432,12 +422,12 @@ export default class extends Vue {
         {
           data: [23, 20, 15, 8, 7, 11, 13],
           type: 'bar',
-
           barWidth: 26,
         },
       ],
     }
 
+    const valueFormatter = value => `${value} %`
     // 柱折混合
     this.option4 = {
       grid: {
@@ -449,15 +439,16 @@ export default class extends Vue {
       },
       tooltip: {
         trigger: 'axis',
-        axisPointer: {
-          type: 'cross',
-          label: {
-            backgroundColor: this.variables.colorOther3,
-          },
+        formatter: function (params) {
+          const values = params.map(item => {
+            const value = item.data.valueFormatter ? item.data.valueFormatter(item.value) : item.value
+            return `${item.seriesName}：${value}`
+          })
+          return `今日 ${params[0].axisValueLabel} <br/> ${values.join('<br/>')}`
         },
       },
       legend: {
-        data: ['实际数量', '完成率（%）'],
+        data: ['实例数量', '完成率'],
         show: true,
         textStyle: {
           fontSize: 12, // 字体大小
@@ -520,7 +511,7 @@ export default class extends Vue {
             },
           },
           type: 'value',
-          name: '实际数量',
+          name: '实例数量',
           min: 0,
           max: 30,
           interval: 50,
@@ -539,37 +530,40 @@ export default class extends Vue {
           min: 0,
           max: 30,
           interval: 5,
-          axisLabel: {
-            formatter: '{value} %',
-          },
         },
       ],
       series: [
         {
-          name: '实际数量',
+          name: '实例数量',
           type: 'bar',
-          tooltip: {
-            valueFormatter: function (value: number) {
-              return value + ' ml'
-            },
-          },
-          color: [this.variables.chartColor2],
+          color: [this.variables.chartColor10],
           barWidth: 26,
           data: [30, 28, 25, 24, 21, 20, 16, 15, 13, 12, 10, 7, 3],
         },
         {
-          name: '完成率（%）',
+          name: '完成率',
           type: 'line',
           symbol: 'none',
           color: [this.variables.chartColor1],
           align: 'right',
           yAxisIndex: 1,
-          tooltip: {
-            valueFormatter: function (value: number) {
-              return value + ' %'
-            },
-          },
-          data: [13, 18, 22, 20, 26, 18, 15, 14, 13, 16, 16, 16, 11],
+          data: [
+            { value: 13, valueFormatter },
+            { value: 18, valueFormatter },
+            { value: 22, valueFormatter },
+            { value: 20, valueFormatter },
+            { value: 26, valueFormatter },
+            { value: 18, valueFormatter },
+            { value: 18, valueFormatter },
+            { value: 15, valueFormatter },
+            { value: 14, valueFormatter },
+            { value: 13, valueFormatter },
+            { value: 16, valueFormatter },
+            { value: 16, valueFormatter },
+            { value: 16, valueFormatter },
+            { value: 16, valueFormatter },
+            { value: 11, valueFormatter },
+          ],
         },
       ],
     }
@@ -660,6 +654,9 @@ export default class extends Vue {
 
     .chart-table.el-table {
       margin: 0 !important;
+    }
+    .chart-table.el-table {
+      margin: 0 !important;
 
       .solt {
         margin: 0 auto;
@@ -675,25 +672,32 @@ export default class extends Vue {
       }
 
       .solt1 {
-        background: $chartColor8;
+        background: $chartColor1;
         color: $color-white;
       }
 
-      .status {
-        padding-left: 18px;
-        position: relative;
+      .solt2 {
+        background: $chartColor1;
+        color: $color-white;
+        opacity: 0.8;
+      }
 
-        &:after {
-          content: '';
-          position: absolute;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: $chartColor2;
-          left: 2px;
-          top: 50%;
-          margin-top: -4px;
-        }
+      .solt3 {
+        background: $chartColor1;
+        color: $color-white;
+        opacity: 0.6;
+      }
+
+      .status:after {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $chartColor10;
+        left: 2px;
+        top: 50%;
+        margin-top: -4px;
       }
 
       .status1:after {
@@ -706,18 +710,6 @@ export default class extends Vue {
 
       .status3:after {
         background: $chartColor4;
-      }
-
-      .solt2 {
-        background: $chartColor4;
-        color: $color-white;
-        opacity: 0.8;
-      }
-
-      .solt3 {
-        background: $chartColor3;
-        color: $color-white;
-        opacity: 0.6;
       }
 
       ::v-deep th.el-table__cell > .cell {

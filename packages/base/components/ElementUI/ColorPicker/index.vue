@@ -37,7 +37,7 @@
 
 <script>
 import Color from './color'
-import PickerDropdown from './components/picker-dropdown.vue'
+import PickerDropdown from './components/PickerDropdown.vue'
 import Clickoutside from 'element-ui/src/utils/clickoutside'
 import Emitter from 'element-ui/src/mixins/emitter'
 
@@ -62,16 +62,14 @@ export default {
   },
 
   props: {
-    value: String,
+    value: { type: String, default: '' },
     showAlpha: Boolean,
-    colorFormat: String,
+    colorFormat: { type: String, default: undefined },
     disabled: Boolean,
-    size: String,
-    popperClass: String,
-    predefine: Array,
-    type: {
-      default: 'default',
-    },
+    size: { type: String, default: undefined },
+    popperClass: { type: String, default: undefined },
+    predefine: { type: Array, default: undefined },
+    type: { type: String, default: 'default' },
   },
 
   data() {

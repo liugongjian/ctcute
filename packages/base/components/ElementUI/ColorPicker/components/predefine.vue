@@ -20,8 +20,8 @@ import Color from '../color'
 export default {
   props: {
     colors: { type: Array, required: true },
-    color: { required: true },
-    type: String,
+    color: { type: Object, required: true },
+    type: { type: String, default: 'default' },
   },
   data() {
     return {

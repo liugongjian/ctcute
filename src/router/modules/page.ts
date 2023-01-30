@@ -1,5 +1,25 @@
 import Layout from '@/layout/index.vue'
 const indexPageRoutes = [
+  //首页展示
+  {
+    path: '/page',
+    redirect: '/page/dashboard',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/page/Dashboard/Dashboard.vue'),
+        meta: {
+          title: 'Dashboard',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
   // 图表
   {
     path: '/page/chart',

@@ -1,13 +1,8 @@
 <!--
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
-<<<<<<< HEAD
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-01-11 17:57:01
-=======
- * @LastEditors: 陈清沣
- * @LastEditTime: 2023-01-10 16:19:41
->>>>>>> develop
+ * @LastEditTime: 2023-01-30 09:43:08
  * @Description: 基础图表
 -->
 <template>
@@ -693,12 +688,7 @@ export default class extends Vue {
         opacity: 0.6;
       }
 
-      .solt1 {
-        background: $chartColor8;
-        color: $color-white;
-      }
-
-      &:after {
+      .status:after {
         content: '';
         position: absolute;
         width: 8px;

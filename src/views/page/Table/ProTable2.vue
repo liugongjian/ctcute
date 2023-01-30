@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2022-12-16 13:31:44
+ * @LastEditors: 庄晓欣
+ * @LastEditTime: 2023-01-17 16:31:50
  * @Description: 复杂表格2
 -->
 <template>
@@ -22,7 +22,7 @@
             <el-form-item prop="name">
               <cute-remind-input
                 v-model="conditions.name"
-                :placeholder="placeholder"
+                placeholder="请输入数据资源名称"
                 title="数据资源名称"
                 @change="cahngeFun3"
               >
@@ -170,7 +170,6 @@ export default class extends Vue {
   @Ref('conditions')
   private conditionsForm: ElForm
 
-  private placeholder = '请输入主机别名'
   // 表格选中数据
   private selectedData = []
 

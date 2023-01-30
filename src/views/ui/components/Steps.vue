@@ -49,7 +49,11 @@
         <el-button @click="() => (activeMini = 0)">重 置</el-button>
       </div>
     </div>
-    <h3>步骤多展示不全</h3>
+    <h3>
+      步骤多展示不全-使用了
+      <a href="/component/base/cute-steps-multi" target="_blank">CuteStepsMulti</a>
+      组件
+    </h3>
     <div>
       <cute-steps-multi
         :active="activeMulti"

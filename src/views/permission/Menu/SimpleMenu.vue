@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-10-18 16:58:33
+ * @LastEditTime: 2023-01-11 17:21:00
  * @Description: 基础表格
 -->
 <template>
@@ -23,10 +23,10 @@
       <el-scrollbar
         ref="scrollBar"
         class="medium-dialog--scroll"
-        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '461px' }]"
+        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '521px' }]"
       >
         <div class="medium-dialog--content">
-          <el-form ref="menusRef" label-width="90px" class="simple-form" :rules="rules" :model="menusForm">
+          <el-form ref="menusRef" label-width="90px" :rules="rules" :model="menusForm">
             <el-form-item v-if="title === '添加菜单'" label="类型" prop="type">
               <el-radio-group v-model="menusForm.menuType" @change="typeChange">
                 <el-radio-button :label="1">菜单</el-radio-button>

@@ -3,7 +3,7 @@
  * @Date: 2022-07-19 16:30:50
  * @LastEditors: 马妍
  * @LastEditTime: 2022-08-25 16:11:10
- * @Description: 
+ * @Description:
 -->
 <template>
   <div>
@@ -23,11 +23,19 @@
       </div>
     </div>
 
-    <h2>特殊单选块(用于订购页)</h2>
+    <h2>
+      特殊单选块(用于订购页)-使用了
+      <a href="/component/base/cute-special-radio" target="_blank">CuteSpecialRadio</a>
+      组件
+    </h2>
     <div class="sub-sample">
       <cute-special-radio v-model="radio0" :options="buutonData" @change="changeFun" />
     </div>
-    <h2>小单选块</h2>
+    <h2>
+      小单选块-使用了
+      <a href="/component/base/cute-special-radio" target="_blank">CuteSpecialRadio</a>
+      组件
+    </h2>
     <div class="sub-sample">
       <cute-special-radio v-model="radio1" :options="buutonData" :size="size" @change="changeFun" />
     </div>

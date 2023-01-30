@@ -4,6 +4,11 @@
       颜色状态：用颜色区分状态推荐使用3-5个颜色，不推荐超过5个颜色（超过5个用户找不到重点，无法有效区分状态），超过5个请尽量使用图标进行精准区分。<br />
       图标状态：进行中的都是用“加载中”icon，用颜色区分不同的进行中状态。
     </p>
+    <h4>
+      使用了
+      <a href="/component/base/cute-state" target="_blank">CuteState</a>
+      组件
+    </h4>
     <div class="sub-sample">
       <p>
         <dot-state :color="colorVariables.colorSuccess">健康/正常/成功</dot-state>

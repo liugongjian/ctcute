@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-07-13 13:41:05
- * @LastEditors: XinZhao
- * @LastEditTime: 2023-01-06 17:42:33
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2023-01-30 10:27:48
  * @Description: 中弹窗
 -->
 <template>
@@ -25,7 +25,7 @@
       <el-scrollbar
         ref="scrollBar"
         class="medium-dialog--scroll"
-        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '461px' }]"
+        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '521px' }]"
       >
         <div class="medium-dialog--content">
           <el-alert

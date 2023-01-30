@@ -1,21 +1,11 @@
 <template>
-  <div class="el-color-alpha-slider" :class="{ 'is-vertical': vertical }">
-    <div
-      ref="bar"
-      class="el-color-alpha-slider__bar"
-      :style="{
-        background: background,
-      }"
-      @click="handleClick"
-    ></div>
+  <div class="el-color-hue-slider" :class="{ 'is-vertical': vertical }">
+    <div ref="bar" class="el-color-hue-slider__bar" @click="handleClick"></div>
     <div
       ref="thumb"
-      class="el-color-alpha-slider__thumb"
-      :style="{
-        left: thumbLeft + 'px',
-        top: thumbTop + 'px',
-      }"
-    ></div>
+      class="el-color-hue-slider__thumb"
+      :style="{ left: thumbLeft + 'px', top: thumbTop + 'px' }"
+    />
   </div>
 </template>
 
@@ -23,12 +13,14 @@
 import draggable from '../draggable'
 
 export default {
-  name: 'ElColorAlphaSlider',
+  name: 'ElColorHueSlider',
 
   props: {
     color: {
       required: true,
+      type: Object,
     },
+
     vertical: Boolean,
   },
 
@@ -36,16 +28,18 @@ export default {
     return {
       thumbLeft: 0,
       thumbTop: 0,
-      background: null,
     }
   },
 
-  watch: {
-    'color._alpha'() {
-      this.update()
+  computed: {
+    hueValue() {
+      const hue = this.color.get('hue')
+      return hue
     },
+  },
 
-    'color.value'() {
+  watch: {
+    hueValue() {
       this.update()
     },
   },
@@ -80,60 +74,48 @@ export default {
     handleDrag(event) {
       const rect = this.$el.getBoundingClientRect()
       const { thumb } = this.$refs
+      let hue
 
       if (!this.vertical) {
         let left = event.clientX - rect.left
-        left = Math.max(thumb.offsetWidth / 2, left)
         left = Math.min(left, rect.width - thumb.offsetWidth / 2)
+        left = Math.max(thumb.offsetWidth / 2, left)
 
-        this.color.set(
-          'alpha',
-          Math.round(((left - thumb.offsetWidth / 2) / (rect.width - thumb.offsetWidth)) * 100)
-        )
+        hue = Math.round(((left - thumb.offsetWidth / 2) / (rect.width - thumb.offsetWidth)) * 360)
       } else {
         let top = event.clientY - rect.top
-        top = Math.max(thumb.offsetHeight / 2, top)
         top = Math.min(top, rect.height - thumb.offsetHeight / 2)
+        top = Math.max(thumb.offsetHeight / 2, top)
 
-        this.color.set(
-          'alpha',
-          Math.round(((top - thumb.offsetHeight / 2) / (rect.height - thumb.offsetHeight)) * 100)
-        )
+        hue = Math.round(((top - thumb.offsetHeight / 2) / (rect.height - thumb.offsetHeight)) * 360)
       }
+
+      this.color.set('hue', hue)
     },
 
     getThumbLeft() {
       if (this.vertical) return 0
       const el = this.$el
-      const alpha = this.color._alpha
+      const hue = this.color.get('hue')
 
       if (!el) return 0
       const thumb = this.$refs.thumb
-      return Math.round((alpha * (el.offsetWidth - thumb.offsetWidth / 2)) / 100)
+      return Math.round((hue * (el.offsetWidth - thumb.offsetWidth / 2)) / 360)
     },
 
     getThumbTop() {
       if (!this.vertical) return 0
       const el = this.$el
-      const alpha = this.color._alpha
+      const hue = this.color.get('hue')
 
       if (!el) return 0
       const thumb = this.$refs.thumb
-      return Math.round((alpha * (el.offsetHeight - thumb.offsetHeight / 2)) / 100)
-    },
-
-    getBackground() {
-      if (this.color && this.color.value) {
-        const { r, g, b } = this.color.toRgb()
-        return `linear-gradient(to right, rgba(${r}, ${g}, ${b}, 0) 0%, rgba(${r}, ${g}, ${b}, 1) 100%)`
-      }
-      return null
+      return Math.round((hue * (el.offsetHeight - thumb.offsetHeight / 2)) / 360)
     },
 
     update() {
       this.thumbLeft = this.getThumbLeft()
       this.thumbTop = this.getThumbTop()
-      this.background = this.getBackground()
     },
   },
 }

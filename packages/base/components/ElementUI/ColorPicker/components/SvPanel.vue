@@ -28,6 +28,7 @@ export default {
   props: {
     color: {
       required: true,
+      type: Object,
     },
   },
 

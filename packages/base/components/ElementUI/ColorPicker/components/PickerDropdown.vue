@@ -41,10 +41,10 @@
 </template>
 
 <script>
-import SvPanel from './sv-panel'
-import HueSlider from './hue-slider'
-import AlphaSlider from './alpha-slider'
-import Predefine from './predefine'
+import SvPanel from './SvPanel'
+import HueSlider from './HueSlider'
+import AlphaSlider from './AlphaSlider'
+import Predefine from './Predefine'
 import Popper from 'element-ui/src/utils/vue-popper'
 import Locale from 'element-ui/src/mixins/locale'
 import ElInput from 'element-ui/packages/input'
@@ -67,14 +67,12 @@ export default {
   props: {
     color: {
       required: true,
+      type: Object,
     },
     showAlpha: Boolean,
-    predefine: Array,
-    type: String,
-    placement: {
-      type: String,
-      default: 'bottom-start',
-    },
+    predefine: { type: Array, default: undefined },
+    type: { type: String, default: 'default' },
+    placement: { type: String, default: 'bottom-start' },
   },
 
   data() {

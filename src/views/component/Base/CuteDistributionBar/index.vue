@@ -111,12 +111,6 @@ export default class extends Vue {
       desc: '对应数据项复选框和分配条颜色配置',
       type: 'Array',
     },
-    {
-      name: 'rowNumber',
-      desc: '设定一行排列几个选项。默认值是auto，一行排完，自动换行',
-      type: 'Number / String',
-      default: 'auto',
-    },
   ]
   private dataProps = [
     {

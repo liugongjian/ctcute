@@ -114,8 +114,10 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.sub-drawer .first-tag {
-  margin: 0 8px 0 16px;
+.sub-drawer {
+  .first-tag {
+    margin: 0 8px 0 16px;
+  }
   .sub-tags {
     display: flex;
     align-items: center;
@@ -125,6 +127,7 @@ export default class extends Vue {
     }
   }
   .sub-content {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
@@ -149,9 +152,9 @@ export default class extends Vue {
     }
 
     .sub-foot {
-      position: fixed;
+      position: absolute;
       bottom: 0;
-      width: 30%;
+      width: 100%;
       padding: 10px 0;
       display: flex;
       justify-content: center;

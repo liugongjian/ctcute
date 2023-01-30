@@ -253,7 +253,8 @@
 
         &:hover {
           .handler-menu {
-            display: block;
+            display: flex;
+            color: $color-white;
           }
         }
       }

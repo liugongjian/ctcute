@@ -120,10 +120,6 @@ const pageDescription = [
 		"name": "ProTable4",
 		"descriptionInfo": "Author:  肖仁\nDate:  2022-07-12 16:20:34\nLastEditors:  胡一苗\nLastEditTime:  2022-12-13 18:06:45\nDescription:  复杂表格4\n"
 	},
-		{
-		"name": "ProTable5",
-		"descriptionInfo": "Author:  黄靖\nDate:  2023-01-10 16:45:36\nLastEditors:  黄靖\nLastEditTime:  2023-01-10 16:45:36\nDescription:  复杂表格5\n"
-	},
 	{
 		"name": "ProTable6",
 		"descriptionInfo": "Author:  秦瑞斌\nDate:  2022-10-21 13:41:25\nLastEditors:  胡一苗\nLastEditTime:  2022-12-13 18:13:39\nDescription:  复杂表格6\n"

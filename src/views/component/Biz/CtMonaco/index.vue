@@ -1,7 +1,7 @@
 <!--
  * @Description:
  * @Author: 甘雨涛
- * @Date: 2023/1/11 15:50
+ * @Date: 2023/1/11 15:52
  * @LastEditors: 甘雨涛
 -->
 
@@ -20,6 +20,8 @@
         <el-table-column prop="options" label="可选值" />
         <el-table-column prop="default" label="默认值" />
       </el-table>
+      <h2>Others</h2>
+      不同语言按需加载，需在vue.config.js进行配置，详见 lib README.md 。
     </div>
   </div>
 </template>

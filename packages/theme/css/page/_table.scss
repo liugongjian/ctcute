@@ -404,15 +404,17 @@
 
 /* 复杂表格 5 */
 .pro-table-5 {
- /* 分页 */
+
+  /* 分页 */
   .el-pagination {
     text-align: right;
   }
 
   .el-table {
+
     /* 操作按钮 */
     .actions.el-table__cell {
-      .el-button--text + .el-button--text {
+      .el-button--text+.el-button--text {
         margin-left: 10px;
 
         &:nth-last-child(2) {
@@ -444,6 +446,7 @@
       font-weight: 400;
     }
   }
+
   /* 表格工具栏 */
   .table-tools {
     &__left {
@@ -473,15 +476,18 @@
     /* 筛选表单 */
     &__conditions {
       border-bottom: 1px solid $color-grey-7;
-      .el-form{
+
+      .el-form {
         display: flex;
         margin-bottom: 16px;
       }
+
       .el-form-item {
         margin-bottom: 0;
         margin-right: 20px;
-        flex:1;
+        flex: 1;
       }
+
       .el-input,
       .el-select {
         width: 100%;
@@ -490,7 +496,7 @@
       &__buttons {
         margin-right: 0;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
 
@@ -508,11 +514,6 @@
 }
 
 .pro-table-7 {
-  .table6-title {    font-size: 16px;
-    color: $color-grey-1;
-    font-weight: 500;
-    margin: 0;
-  }
 
   .table7-explain {
     font-size: 12px;

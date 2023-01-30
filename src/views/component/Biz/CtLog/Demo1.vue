@@ -20,7 +20,7 @@ import { PipelineOption } from '@cutedesign/ct-log'
 Vue.use(CtLog)
 
 @Component({
-  name: 'App',
+  name: 'Demo1',
 })
 export default class extends Vue {
   private currentRunId = ''

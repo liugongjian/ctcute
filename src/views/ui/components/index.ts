@@ -21,6 +21,7 @@ import Popover from './Popover.vue'
 import Tooltip from './Tooltip.vue'
 import Tabs from './Tabs.vue'
 import SelectedButton from './SelectedButton.vue'
+import ColorPicker from './ColorPicker.vue'
 import Table from './Table.vue'
 import Alert from './Alert.vue'
 import ContentAreaTips from './ContentAreaTips.vue'
@@ -34,6 +35,7 @@ import Drawer from './Drawer.vue'
 import Transfer from './Transfer.vue'
 import Collapse from './Collapse.vue'
 import TimeLine from './TimeLine.vue'
+import DistributionBar from './DistributionBar.vue'
 /**
  * 在此数组中添加新增的组件
  */
@@ -61,6 +63,7 @@ const componentsList = [
   Tooltip,
   Tabs,
   SelectedButton,
+  ColorPicker,
   Table,
   Alert,
   ContentAreaTips,
@@ -74,6 +77,7 @@ const componentsList = [
   Transfer,
   Collapse,
   TimeLine,
+  DistributionBar,
 ]
 
 const _components = {}

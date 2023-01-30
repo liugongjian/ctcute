@@ -1,6 +1,6 @@
 const path = require('path')
 const isHttps = process.argv[process.argv.length - 1] === '--https'
-
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 console.info('是否开启https:', isHttps)
 
 module.exports = {
@@ -59,6 +59,13 @@ module.exports = {
   chainWebpack: config => {
     // 配置alias
     config.resolve.alias.set('scripts', path.join(__dirname, 'scripts'))
+
+    // 配置monaco
+    config.plugin('monaco').use(
+      new MonacoWebpackPlugin({
+        languages: ['json', 'yaml', 'javascript', 'css', 'html', 'markdown', 'mysql', 'xml'],
+      })
+    )
 
     // set svg-sprite-loader
     config.module

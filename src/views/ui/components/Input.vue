@@ -41,7 +41,11 @@
       </div>
     </div>
     <div class="routine-input">
-      <h3>编辑输入框</h3>
+      <h3>
+        编辑输入框-使用了
+        <a href="/component/base/cute-edit-input" target="_blank">CuteEditInput</a>
+        组件
+      </h3>
       <el-row>
         <cute-edit-input v-model="editValue1" class="input-demo" />
       </el-row>
@@ -134,7 +138,11 @@
         </el-input>
       </div>
     </div>
-    <h3 class="sub-title">带提示的输入框</h3>
+    <h3 class="sub-title">
+      带提示的输入框-使用了
+      <a href="/component/base/cute-remind-input" target="_blank">CuteRemindInput</a>
+      组件
+    </h3>
     <div class="sub-input">
       <el-row>
         <cute-remind-input
@@ -145,7 +153,11 @@
         />
       </el-row>
     </div>
-    <h3 class="sub-title">带提示的输入框-小</h3>
+    <h3 class="sub-title">
+      带提示的输入框-小-使用了
+      <a href="/component/base/cute-remind-input" target="_blank">CuteRemindInput</a>
+      组件
+    </h3>
     <div class="sub-input">
       <el-row>
         <cute-remind-input

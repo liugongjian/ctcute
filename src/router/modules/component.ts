@@ -20,7 +20,7 @@ const componentRoutes = [
     },
     children: [
       {
-        path: 'cute-redmind-select',
+        path: 'cute-remind-select',
         name: 'CuteRemindSelect',
         component: () => import('@/views/component/Base/CuteRemindSelect/index.vue'),
         meta: {
@@ -171,6 +171,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-color-picker',
+        name: 'ElColorPicker',
+        component: () => import('@/views/component/Base/ElColorPicker/index.vue'),
+        meta: {
+          title: 'ElColorPicker',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'vxe-table',
         name: 'VxeTable',
         component: () => import('@/views/component/Base/VxeTable/index.vue'),
@@ -240,6 +249,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Biz/CtLog/index.vue'),
         meta: {
           title: 'CtLog',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'ct-monaco',
+        name: 'CtMonaco',
+        component: () => import('@/views/component/Biz/CtMonaco/index.vue'),
+        meta: {
+          title: 'CtMonaco',
           breadcrumb: true,
         },
       },

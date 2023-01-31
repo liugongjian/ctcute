@@ -1578,6 +1578,11 @@
     line-height: 32px;
     right: 3px;
   }
+
+  .el-icon-circle-close:before {
+    font-family: 'cute-icons';
+    content: '\ea4f';
+  }
 }
 
 .el-input--medium .el-input__inner {

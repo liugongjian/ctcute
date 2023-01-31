@@ -25,7 +25,6 @@
           :class="{
             dragging: dragging,
             hover: hovering,
-            disabled: fixLastButton && index === showValue.length - 1,
           }"
           :style="getButtonWrapStyle(index)"
           tabindex="0"
@@ -41,6 +40,7 @@
           @keydown.up.prevent="onRightKeyDown($event, index)"
         >
           <div class="sp-slider__button" :style="getButtonStyle(index)" />
+          <div></div>
         </div>
         <!-- <div class="sp-slider__text" :style="getTextStyle(index)">{{ item }}</div> -->
       </div>
@@ -62,7 +62,7 @@ export default class extends Vue {
   @Prop({ type: Number, default: 0 }) min?: number
   @Prop({ type: Number, default: 100 }) max?: number
   @Prop({ type: Number, default: 1 }) step?: number
-  @Prop({ type: Boolean, default: false }) fixLastButton?: boolean
+  @Prop({ type: Boolean, default: false }) showLastButton?: boolean
   @Prop({ type: Array, default: () => [] }) textData?: []
   @Prop({ type: Boolean, default: true }) showPercentage?: boolean
   @Prop({
@@ -97,6 +97,10 @@ export default class extends Vue {
   get currentPosition() {
     const rate = this.changeToRate(this.showValue[this.activeIndex])
     return `${rate}%`
+  }
+
+  showButton(index) {
+    return (this.showLastButton && index !== this.showValue.length - 1) || !this.showLastButton
   }
 
   getBarStyle(index) {
@@ -228,7 +232,7 @@ export default class extends Vue {
   }
   setPosition(newPosition) {
     if (newPosition === null || isNaN(newPosition)) return
-    if (this.fixLastButton && this.activeIndex === this.showValue.length - 1) return
+    if (this.showLastButton && this.activeIndex === this.showValue.length - 1) return
     const nextPosition = this.changeToRate(this.showValue[this.activeIndex + 1] || this.max)
     const prePosition = this.changeToRate(this.showValue[this.activeIndex - 1] || this.min)
     if (newPosition < 0) {
@@ -318,10 +322,10 @@ export default class extends Vue {
 
   .sp-slider__bar {
     width: 400px;
-    height: 6px;
-    margin: 16px 0;
+    height: 8px;
+    // margin: 16px 0;
     background-color: $color-grey-8;
-    border-radius: 3px;
+    border-radius: 4px;
     position: relative;
     cursor: pointer;
     vertical-align: middle;
@@ -329,9 +333,10 @@ export default class extends Vue {
     .sp-slider__bar-item {
       position: absolute;
       left: 0;
-      height: 6px;
-      border-top-left-radius: 3px;
-      border-bottom-left-radius: 3px;
+      height: 8px;
+      border-radius: 4px;
+      // border-top-left-radius: 4px;
+      // border-bottom-left-radius: 4px;
     }
 
     .sp-slider__wrap {
@@ -362,8 +367,8 @@ export default class extends Vue {
     }
 
     .sp-slider__button {
-      width: 14px;
-      height: 14px;
+      width: 16px;
+      height: 16px;
       background-color: $color-white;
       border-radius: 50%;
       transition: 0.2s;

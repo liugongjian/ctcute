@@ -25,6 +25,7 @@
           :class="{
             dragging: dragging,
             hover: hovering,
+            disabled: fixLastButton && index === showValue.length - 1,
           }"
           :style="getButtonWrapStyle(index)"
           tabindex="0"

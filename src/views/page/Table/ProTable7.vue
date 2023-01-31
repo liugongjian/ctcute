@@ -86,7 +86,7 @@
       </el-table-column>
       <el-table-column label="付费类型" prop="payType">
         <template slot-scope="{ row }">
-          <el-tag type="warning">{{ TYPE[row.payType] }}</el-tag>
+          <el-tag class="table7-tag" type="warning">{{ TYPE[row.payType] }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column label="创建时间" prop="createTime" width="140">
@@ -169,5 +169,11 @@ export default class extends Vue {
   &--3 {
     background: $color-status-danger-1;
   }
+}
+
+.table7-tag {
+  width: 64px;
+  padding: 0;
+  text-align: center;
 }
 </style>

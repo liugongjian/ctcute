@@ -3,6 +3,7 @@
  * 示例为服务器主机
  */
 export interface TableData {
+  result?: any
   createTime?: number
   cuNum?: number
   cuUsedNum?: number

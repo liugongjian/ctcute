@@ -546,6 +546,123 @@
       </el-table-column>
     </el-table>
 
+    <h3>可展开的表格</h3>
+    <div class="sub-table">
+      <el-table
+        v-loading="expandTableLoading"
+        :data="expandTableData"
+        fit
+        border
+        row-key="_id"
+        default-expand-all
+        :tree-props="{ children: 'children' }"
+      >
+        <el-table-column prop="name" label="名称" width="180"> </el-table-column>
+        <el-table-column prop="menuType" label="其他状态" width="180">
+          <template slot-scope="scope">
+            <el-tag v-if="scope.row.menuType === 0" type="info">目录</el-tag>
+            <el-tag v-if="scope.row.menuType === 1" type="primary">菜单</el-tag>
+            <el-tag v-if="scope.row.menuType === 2" type="success">权限</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="orderNum" label="排序"> </el-table-column>
+        <el-table-column prop="url" label="路由"> </el-table-column>
+        <el-table-column prop="perms" label="标识"> </el-table-column>
+        <el-table-column prop="alias" label="别名" :show-overflow-tooltip="true"> </el-table-column>
+        <el-table-column prop="actions" label="操作" width="250" fixed="right" class-name="actions">
+          <template slot-scope="{}">
+            <el-button type="text">编辑</el-button>
+            <el-button type="text">删除</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <h3>嵌套表格</h3>
+    <div class="sub-table pro-table-6">
+      <el-table v-loading="nestedTableLoading" :data="nestedTableData" fit>
+        <el-table-column type="expand">
+          <template slot-scope="scope">
+            <el-table ref="multipleTable" tooltip-effect="dark" :data="scope.row.projectSpaces">
+              <el-table-column width="20"></el-table-column>
+              <el-table-column prop="projectSpace" label="名称">
+                <template slot-scope="{ row }">
+                  <el-button :disabled="row.projectSpaceState === '1' ? false : true" type="text">{{
+                    row.projectSpace
+                  }}</el-button>
+                </template>
+              </el-table-column>
+              <el-table-column prop="projectSpaceState" label="其他状态">
+                <template slot-scope="{ row }">
+                  <span class="health-state">
+                    <span class="health-dot" :class="`health-dot--${row.projectSpaceState}`" />{{
+                      NESTED_TABLE_STATUS[row.projectSpaceState]
+                    }}
+                  </span>
+                </template>
+              </el-table-column>
+              <el-table-column prop="cu" label="已使用 / 已购买CU">
+                <template slot-scope="{ row }">
+                  <span class="used">{{ row.cuUsedNum }}</span> / {{ row.cuNum }}
+                </template>
+              </el-table-column>
+              <el-table-column label="创建时间" prop="createTime">
+                <template slot-scope="{ row }">
+                  {{ formatDatetime(row.createTime) }}
+                </template>
+              </el-table-column>
+              <el-table-column label="操作">
+                <template slot-scope="{ row }">
+                  <el-button
+                    :disabled="row.projectSpaceState === '1' ? false : true"
+                    type="text"
+                    style="margin-right: 10px"
+                    @click="handleDistribute('资源分配')"
+                    >资源分配</el-button
+                  >
+                  <el-button
+                    :disabled="row.projectSpaceState === '1' ? false : true"
+                    type="text"
+                    @click="handleDistribute('删除')"
+                    >删除</el-button
+                  >
+                </template>
+              </el-table-column>
+            </el-table>
+          </template>
+        </el-table-column>
+        <el-table-column label="工作空间/实例ID" prop="workspace">
+          <template slot-scope="{ row }">
+            <el-button :disabled="row.workspaceState === '1' ? false : true" type="text">{{
+              row.workspace
+            }}</el-button>
+          </template>
+        </el-table-column>
+        <el-table-column label="工作空间状态" prop="workspaceState">
+          <template slot-scope="{ row }">
+            <span class="health-state">
+              <span class="health-dot" :class="`health-dot--${row.workspaceState}`" />{{
+                STATUS[row.workspaceState]
+              }}
+            </span>
+          </template>
+        </el-table-column>
+        <el-table-column label="已使用 / 已购买CU" prop="CU">
+          <template slot-scope="{ row }">
+            <span class="used">{{ row.cuUsedNum }}</span> / {{ row.cuNum }}
+          </template>
+        </el-table-column>
+        <el-table-column label="付费类型" prop="payType">
+          <template slot-scope="{ row }">
+            <el-tag type="warning">{{ NESTED_TABLE_TYPE[row.payType] }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="创建时间" prop="createTime">
+          <template slot-scope="{ row }"> {{ formatDatetime(row.createTime) }} </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
     <div></div>
     <h3>横向展示列表</h3>
     <div class="sub-table-horizon" border>
@@ -784,6 +901,43 @@
         </template>
       </cute-table-column-settings>
     </div>
+    <h3>滚动加载的表-默认</h3>
+    <p>
+      一般应用与日志类表格，表格行高较窄，一般是34px，默认展示50-100条，滚动到表格底部后加载出下一页。在页面中表格自适应到页面底部，上下间距为20。
+    </p>
+    <el-table
+      ref="scrolledTableRef"
+      v-loading="scrolledTableHook.loading"
+      :data="scrolledTableHook.tableData"
+      fit
+      border
+      size="small"
+      height="614px"
+    >
+      <el-table-column prop="name" label="主机别名">
+        <template slot-scope="{ row }">
+          <router-link to="/">{{ row.name }}</router-link>
+        </template>
+      </el-table-column>
+      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
+      <el-table-column prop="ip" label="IP地址" />
+      <el-table-column prop="cpu" label="CPU利用率(%)" />
+      <el-table-column prop="memory" label="内存利用率(%)" />
+      <el-table-column prop="disk" label="磁盘利用率(%)" />
+      <el-table-column prop="health" label="健康状态">
+        <template slot-scope="{ row }">
+          <span class="health-state">
+            <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+          </span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="actions" label="操作" width="150" class-name="actions">
+        <template>
+          <el-button type="text">详情</el-button>
+          <el-button type="text">监控指标</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 <script lang="ts">
@@ -792,11 +946,12 @@ import { STATUS, HEALTH, STATUS2 } from '@/dics/simpleTable'
 import { ElTable } from 'element-ui/types/table'
 import TableHookClass from '@cutedesign/base/hook/TableHook'
 import CuteSortTable from '@cutedesign/sort-table'
+import { getTable } from '@/api/cuteSortTable'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTableComponent } from '@/api/tableComponent'
 import { getTable as getExpandTable } from '@/api/proTable6'
 import { getTable as getNestedTable } from '@/api/proTable7'
-import { STATUS as NESTED_TABLE_STATUS, TYPE as NESTED_TABLE_TYPE } from '@/dics/proTable7'
+import { STATUS as NESTED_TABLE_STATUS, TYPE as NESTED_TABLE_TYPE } from '@/dics/proTable6'
 import { formatDatetime } from '@/utils/date'
 import * as TableComponent from '@/types/TableComponent'
 @Component({
@@ -809,7 +964,12 @@ export default class extends Vue {
   @Ref('tableRef')
   private tableRef: ElTable
 
+  @Ref('scrolledTableRef')
+  private scrolledTableRef: ElTable
+
   public tableHook = new TableHookClass()
+
+  private scrolledTableHook = new TableHookClass()
 
   private tableColumns = [
     { prop: 'name', label: '主机别名', slot: 'name' },
@@ -858,13 +1018,27 @@ export default class extends Vue {
   private flag = false
 
   private tableComponentData: TableComponent.TableComponentData = null
+  private expandTableData: any[] = []
+  private expandTableLoading = false
+
+  private nestedTableLoading = false
+  private nestedTableData: any[] = []
+  private NESTED_TABLE_STATUS = NESTED_TABLE_STATUS
+  private NESTED_TABLE_TYPE = NESTED_TABLE_TYPE
+
+  formatDatetime = formatDatetime
+
   /**
    * 页面Mounted
    */
   private mounted() {
     this.tableHook = new TableHookClass({}, this.getTable, this.tableRef, false)
+    this.scrolledTableHook = new TableHookClass({}, this.getScrolldTable, this.scrolledTableRef, true)
     this.tableHook.query()
+    this.scrolledTableHook.query()
     this.getTableComponentData()
+    this.getExpandTableData()
+    this.getNestedTableData()
   }
 
   /**
@@ -883,6 +1057,69 @@ export default class extends Vue {
     // 接口
     const res = await getTableComponent()
     this.tableComponentData = res.data
+  }
+
+  /**
+   * 获取滚动加载表格数据
+   */
+  private async getScrolldTable(param) {
+    const res = await getTable(param)
+    this.scrolledTableHook.setResult(res.data.list, res.data.total)
+  }
+
+  /**
+   * 获取可展开表格数据
+   */
+  private async getExpandTableData() {
+    this.expandTableLoading = true
+    try {
+      const res = await getExpandTable()
+      if ((res as any).code === 200) {
+        const genData = (data, _id): any[] => {
+          const menu = data.filter(o => o.parentId === _id)
+          menu.forEach(o => {
+            const children = genData(data, o._id)
+            if (children && children.length > 0) {
+              o.children = children
+            }
+          })
+          return menu
+        }
+        const res_menus = res.data.result.map(item => {
+          item.label = item.name
+          item.id = item._id
+          return item
+        })
+        if (res_menus && res_menus.length > 0) {
+          this.expandTableData = genData(res_menus, '')
+        } else {
+          this.expandTableData = []
+        }
+      }
+    } catch (e) {
+      console.error(e)
+    } finally {
+      this.expandTableLoading = false
+    }
+  }
+
+  /**
+   * 获取嵌套表格数据
+   */
+  private async getNestedTableData() {
+    try {
+      this.nestedTableLoading = true
+      const res = await getNestedTable()
+      this.nestedTableData = (res as any).data
+    } catch (e) {
+      console.error(e)
+    } finally {
+      this.nestedTableLoading = false
+    }
+  }
+
+  private handleDistribute(row) {
+    this.$message.success(`前往${row}`)
   }
 
   /**
@@ -1050,7 +1287,7 @@ export default class extends Vue {
       font-size: 12px;
     }
 
-    .el-button--text:last-child:before {
+    .el-button--text:last-child:nth-child(n + 3):before {
       content: '|';
       color: $border-color-primary;
       margin-right: 10px;

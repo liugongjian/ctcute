@@ -20,12 +20,12 @@
         </el-popover>
         <div v-else slot="reference" class="sp-slider__bar-item" :style="getBarStyle(index)" />
         <div
+          v-if="showButton(index)"
           ref="button"
           class="sp-slider__wrap"
           :class="{
             dragging: dragging,
             hover: hovering,
-            disabled: fixLastButton && index === showValue.length - 1,
           }"
           :style="getButtonWrapStyle(index)"
           tabindex="0"

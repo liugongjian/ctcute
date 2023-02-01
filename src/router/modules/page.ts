@@ -7,6 +7,7 @@ const indexPageRoutes = [
     component: Layout,
     meta: {
       breadcrumb: false,
+      icon: 'dashboard',
     },
     children: [
       {
@@ -16,6 +17,7 @@ const indexPageRoutes = [
         meta: {
           title: 'Dashboard',
           breadcrumb: true,
+          icon: 'dashboard',
         },
       },
     ],
@@ -30,6 +32,7 @@ const indexPageRoutes = [
       title: 'Chart 图表',
       alwaysShow: true,
       breadcrumb: true,
+      icon: 'area-chart',
     },
     children: [
       {

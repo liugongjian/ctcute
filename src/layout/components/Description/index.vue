@@ -1,17 +1,19 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-07-15 21:08:21
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-20 15:31:09
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-01-06 19:20:00
  * @Description:
 -->
 <template>
-  <div v-if="descriptionInfo.length">
-    <el-popover placement="top-start" width="400" trigger="hover" :open-delay="100">
-      <svg-icon slot="reference" class="icon" name="info-circle"/>
-      <div v-for="(item, index) in descriptionInfo" :key="index">{{ item }}</div>
-      <!-- <cute-mavon-editor :content="descriptionInfo" class="page-desc"></cute-mavon-editor> -->
-    </el-popover>
+  <div class="desc-box">
+    <div v-if="descriptionInfo.length">
+      <el-popover placement="top-start" width="400" trigger="hover" :open-delay="100">
+        <svg-icon slot="reference" class="icon" name="info-circle" />
+        <div v-for="(item, index) in descriptionInfo" :key="index">{{ item }}</div>
+        <!-- <cute-mavon-editor :content="descriptionInfo" class="page-desc"></cute-mavon-editor> -->
+      </el-popover>
+    </div>
   </div>
 </template>
 
@@ -78,20 +80,22 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.page-desc {
-  margin-bottom: 16px;
+.desc-box {
+  .page-desc {
+    margin-bottom: 16px;
 
-  .v-show-content {
-    padding-bottom: 0 !important;
-    padding-left: 16px !important;
+    .v-show-content {
+      padding-bottom: 0 !important;
+      padding-left: 16px !important;
+    }
+
+    &.v-note-wrapper {
+      min-height: 0;
+    }
   }
 
-  &.v-note-wrapper {
-    min-height: 0;
+  .icon {
+    color: $color-grey-3;
   }
-}
-
-.icon {
-  color: $icon-color;
 }
 </style>

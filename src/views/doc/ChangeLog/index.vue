@@ -41,6 +41,515 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
+      version: '1.1.5',
+      date: '2023-02-01',
+      features: [
+        {
+          name: '全局',
+          desc: [
+            {
+              text: 'alert组件去除border',
+            },
+            {
+              text: '.el-table margin-bottom改为10px，去掉了!important',
+            },
+            {
+              text: '调整Ui规范中DistributionBar组件位置',
+            },
+            {
+              text: 'UI规范增加自定义组件跳转链接',
+            },
+            {
+              text: 'ctyun layout 默认修改登出地址',
+            },
+          ],
+        },
+        {
+          name: 'Doc-Guide',
+          desc: [
+            {
+              text: '补充单点登录的文档说明',
+            },
+          ],
+        },
+        {
+          name: 'Home-HomeNav',
+          desc: [
+            {
+              text: '首页项目列表修改',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Table',
+          desc: [
+            {
+              text: '增加嵌套表格',
+            },
+            {
+              text: '增加滚动加载的表-默认',
+            },
+          ],
+        },
+        {
+          name: 'Ui-ColorPicker',
+          desc: [
+            {
+              text: '新增ColorPicker',
+            },
+          ],
+        },
+        {
+          name: 'Component-Select',
+          desc: [
+            {
+              text: 'Select多选折叠展示tag',
+            },
+          ],
+        },
+        {
+          name: 'Component-Ctlog',
+          desc: [
+            {
+              text: '完成ct-log日志业务组件',
+            },
+          ],
+        },
+        {
+          name: 'Component-Table',
+          desc: [
+            {
+              text: '可展开表格',
+            },
+          ],
+        },
+        {
+          name: 'Component-CuteDistributionBar',
+          desc: [
+            {
+              text: '新增分配条UI规范页 & 调整分配条组件UI细节',
+            },
+            {
+              text: '修改勾选默认值 & 添加注释',
+            },
+            {
+              text: '调整间距',
+            },
+            {
+              text: '添加分配条组件备注和跳转',
+            },
+          ],
+        },
+        {
+          name: 'Component-CtMonaco',
+          desc: [
+            {
+              text: '新增业务组件CtMonaco',
+            },
+            {
+              text: '添加file header',
+            },
+            {
+              text: '添加组件说明',
+            },
+          ],
+        },
+        {
+          name: 'Layout-Header',
+          desc: [
+            {
+              text: '修改头部logo图标和文字',
+            },
+          ],
+        },
+        {
+          name: 'Layout-Container',
+          desc: [
+            {
+              text: 'padding 改为20px, .layout-container下的card圆角改为5px',
+            },
+          ],
+        },
+        {
+          name: 'Layout-Sidebar',
+          desc: [
+            {
+              text: '调整侧边栏样式',
+            },
+            {
+              text: '修改$sidebar-width: 240px',
+            },
+          ],
+        },
+        {
+          name: 'Page-Chart',
+          desc: [
+            {
+              text: '修改simpleChart',
+            },
+          ],
+        },
+        {
+          name: 'Page-Dialog',
+          desc: [
+            {
+              text: '中弹窗加入alert',
+            },
+            {
+              text: '新增页面中弹窗2',
+            },
+          ],
+        },
+        {
+          name: 'Page-Table',
+          desc: [
+            {
+              text: '增加$margin-large: 20px变量，将.el-form--inline .el-form-item重置为$margin-large',
+            },
+            {
+              text: '修复了ProTable2输入框未对齐的问题',
+            },
+            {
+              text: 'simpletable 修改输入框选择框',
+            },
+            {
+              text: '输入框跟选择框修改成 cute-remind-select 和 cute-remind-input',
+            },
+            {
+              text: '新增protable5复杂表格5',
+            },
+          ],
+        },
+      ],
+
+      bugfix: [
+        {
+          name: 'Doc-Guide',
+          desc: [
+            {
+              text: '修改天翼文档跳转链接',
+            },
+          ],
+        },
+        {
+          name: 'Layout-container',
+          desc: [
+            {
+              text: '内容区域(app-main)设置最小宽度，如果分辨率小于1366px，横向滚动',
+            },
+            {
+              text: '.app-main min-width 按 -primary 计算',
+            },
+          ],
+        },
+        {
+          name: 'Layout-sidebar',
+          desc: [
+            {
+              text: '左侧layout-sidebar减掉页眉高度',
+            },
+            {
+              text: '.app-main min-width 按 -primary 计算',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '组件默认展示业务组件',
+            },
+            {
+              text: '修改el-icon-close/el-icon-error为cuted图标',
+            },
+            {
+              text: '修复import type跟typescript-eslint的冲突问题',
+            },
+            {
+              text: '去掉无关的强制样式',
+            },
+            {
+              text: '调整日期选择器sidebar宽度',
+            },
+            {
+              text: '调整CtMonaco组件依赖',
+            },
+            {
+              text: '修改部分 important 问题',
+            },
+            {
+              text: '调整页面与UI稿不一致的地方（表格内出现滚动条，按钮间隔，表头背景色）',
+            },
+            {
+              text: 'commit msg 错误提示语颜色正常显示',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Tree',
+          desc: [
+            {
+              text: '修改树形菜单样式',
+            },
+            {
+              text: '修复tree在windows上不兼容的问题',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Select',
+          desc: [
+            {
+              text: '补充Select选择器中的日期时间选择内容，补充地区选择',
+            },
+            {
+              text: '删除多余类名',
+            },
+            {
+              text: '修复select-option没有value报错',
+            },
+            {
+              text: '修复select在win下被遮挡边框的bug',
+            },
+          ],
+        },
+        {
+          name: 'Ui-DistributionBar',
+          desc: [
+            {
+              text: '还原UI规范：分配条DistributionBar',
+            },
+            {
+              text: '还原UI规范：DistributionBar跳转',
+            },
+            {
+              text: '.sp-slider__wrap设置disabled属性',
+            },
+          ],
+        },
+        {
+          name: 'Component-Ctlog',
+          desc: [
+            {
+              text: '规范修改',
+            },
+            {
+              text: '修复log组件',
+            },
+            {
+              text: '类型说明',
+            },
+          ],
+        },
+        {
+          name: 'Component-Table',
+          desc: [
+            {
+              text: '操作列样式修改',
+            },
+          ],
+        },
+        {
+          name: 'Page-CardList',
+          desc: [
+            {
+              text: '修改Card2前端实现与UI稿一致',
+            },
+          ],
+        },
+        {
+          name: 'Page-Table',
+          desc: [
+            {
+              text: '修复滚动查询表格bug',
+            },
+            {
+              text: '调换复杂表格6和7的前端代码',
+            },
+            {
+              text: '修复复杂表格6和7代码互换后出现的UI规范table页面数据异常问题',
+            },
+            {
+              text: 'protable5 css修改',
+            },
+            {
+              text: '修复复杂列表6展开时，文字不对齐的bug，以及修正部分列宽与UI稿不一致的地方',
+            },
+            {
+              text: '修复复杂表格7主标题与上方的间距，复杂表格6和7里tag元素的宽度，复杂表格7最后一行缺少底部边框',
+            },
+            {
+              text: '修复ProTable2 文案不匹配、ProTable4 左侧属性选择器布局显示异常、ScrolledToLoadTable 查询条件和查询按钮之间无间隔',
+            },
+            {
+              text: '删除无用的table6-title的css代码',
+            },
+          ],
+        },
+        {
+          name: 'Page-Chart',
+          desc: [
+            {
+              text: '样式、文本内容及颜色修改',
+            },
+          ],
+        },
+        {
+          name: 'Page-Dashboard',
+          desc: [
+            {
+              text: '更新dashboard样式',
+            },
+          ],
+        },
+        {
+          name: 'Page-Permission',
+          desc: [
+            {
+              text: '修改非全屏最大宽度',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      version: '1.1.4',
+      date: '2022-12-29',
+      features: [
+        {
+          name: 'Layout-Sidebar',
+          desc: [
+            {
+              text: '侧边栏菜单支持图标',
+            },
+          ],
+        },
+        {
+          name: 'Component-MarkdownBook',
+          desc: [
+            {
+              text: '新增 markdown-book 示例页面',
+            },
+          ],
+        },
+        {
+          name: 'Component-VxeTable',
+          desc: [
+            {
+              text: '新增 VxeTable 复杂表格组件',
+            },
+          ],
+        },
+        {
+          name: 'Component-CuteDistributionBar',
+          desc: [
+            {
+              text: '新增 CuteDistributionBar 分配条组件',
+            },
+          ],
+        },
+        {
+          name: 'Doc',
+          desc: [
+            {
+              text: '更新UI规范',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '修改浏览器自带滚动条的样式',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: 'Component-CuteTableColumnSettings',
+          desc: [
+            {
+              text: '修改CuteTableColumnSettings样式',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Table',
+          desc: [
+            {
+              text: '表格(列表中同时存在两列状态栏)列宽优化',
+            },
+            {
+              text: '带列设置的表格组件化',
+            },
+          ],
+        },
+        {
+          name: 'Page-CardList',
+          desc: [
+            {
+              text: '修改Card1、Card2、Card3页面样式',
+            },
+          ],
+        },
+        {
+          name: 'Page-Chart',
+          desc: [
+            {
+              text: '修改图表颜色',
+            },
+          ],
+        },
+        {
+          name: 'Page-Table',
+          desc: [
+            {
+              text: '修改页面样式、表格背景色',
+            },
+          ],
+        },
+        {
+          name: 'Page-Dialog',
+          desc: [
+            {
+              text: '修改全屏弹窗按状态查询',
+            },
+            {
+              text: '修改特殊弹窗-中log颜色',
+            },
+            {
+              text: '修改中弹窗tag',
+            },
+          ],
+        },
+        {
+          name: 'Page-Order',
+          desc: [
+            {
+              text: '修改订购页样式',
+            },
+          ],
+        },
+        {
+          name: 'auth',
+          desc: [
+            {
+              text: 'manifest索引所有目录',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '修复el-scrollbar wrap-style没有生效、原生滚动条没有隐藏',
+            },
+          ],
+        },
+      ],
+    },
+    {
       version: '1.1.3',
       date: '2022-12-7',
       features: [

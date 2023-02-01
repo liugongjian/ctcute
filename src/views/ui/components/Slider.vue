@@ -3,7 +3,7 @@
  * @Date: 2022-10-17 20:57:52
  * @LastEditors: 秦瑞斌
  * @LastEditTime: 2022-11-03 16:36:33
- * @Description: 
+ * @Description:
 -->
 <template>
   <div class="sub-slider">
@@ -28,6 +28,11 @@
         >
         </el-slider>
       </el-col>
+    </el-row>
+    <el-row tag="h4">
+      以下滑动输入条使用了
+      <a href="/component/base/cute-slider" target="_blank">CuteSlider</a>
+      组件
     </el-row>
     <el-row>
       <cute-slider

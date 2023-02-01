@@ -2,6 +2,7 @@
 export type CardListItem = {
   remark: string
   title: string
+  editType: boolean
   size: number
   deploy: number
 }

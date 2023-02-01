@@ -5,7 +5,11 @@
       "path": "@/views/console/Order/ProductList.vue"
     },
     {
-      "name": "tableComponent.ts",
+      "name": "TableComponent.d.ts",
+      "path": "@/types/TableComponent.d.ts"
+    },
+    {
+      "name": "api/tableComponent.ts",
       "path": "@/api/tableComponent.ts"
     },
     {

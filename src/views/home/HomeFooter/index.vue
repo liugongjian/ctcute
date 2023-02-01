@@ -68,10 +68,10 @@ export default class extends Vue {
         window.open('http://172.21.65.214:888/')
         break
       case 2:
-        window.open('http://fed.ctyuncdn.cn/')
+        window.open('https://blog.fed.ctcdn.cn/')
         break
       case 3:
-        window.open('http://fed.ctyuncdn.cn:7778')
+        window.open('http://fed.ctyuncdn.cn:8088')
         break
       default:
         break
@@ -89,8 +89,7 @@ export default class extends Vue {
 
   > h3 {
     text-align: center;
-    margin: 0 0 50px 0;
-    font-weight: 500;
+    margin: 0 0 50px;
     font-size: 26px;
     color: #181818;
     letter-spacing: 0;
@@ -113,7 +112,6 @@ export default class extends Vue {
       margin: 0 30px 30px 0;
       padding-right: 29px;
       cursor: pointer;
-
       position: relative;
 
       > img {
@@ -130,7 +128,7 @@ export default class extends Vue {
           color: $color-grey-1;
           line-height: 20px;
           font-weight: 500;
-          margin: 15px 0 14px 0;
+          margin: 15px 0 14px;
         }
 
         > p {

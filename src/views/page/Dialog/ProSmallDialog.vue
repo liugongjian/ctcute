@@ -1,8 +1,8 @@
 <!--
  * @Author: 吴博聪
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2022-10-24 10:03:34
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2022-12-20 14:08:20
  * @Description: 复杂小弹窗
 -->
 <template>
@@ -19,7 +19,7 @@
       :close-on-click-modal="false"
       @close="close"
     >
-      <el-scrollbar class="info-dialog--content" :wrap-style="{ maxHeight: '483px', width: '100%' }">
+      <el-scrollbar class="info-dialog--content" :wrap-style="[{ maxHeight: '483px' }]">
         <slot name="content">
           <pre class="info-dialog--pre">
             <span>{{ log }}</span>

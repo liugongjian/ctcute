@@ -22,7 +22,8 @@ export default class extends Vue {
   private content = `
 ## 资源
 ### [产品原型](https://cloud.ctcdn.cn/s/LPtSGxCiHAcibEe)
-### [UI规范](https://cloud.ctcdn.cn/s/3p5eTTn9J8FaRC3)
+### [UI规范light-橙](https://cloud.ctcdn.cn/s/fR3YnW3BBXxrcH5)
+### [UI规范dark-橙](https://cloud.ctcdn.cn/s/ApXTsFTAkTWmjNo)
 ### [ts-demo视频](https://cloud.ctcdn.cn/s/ScmnidegjSCYx8Y)
 ### [ts使用指南](https://cloud.ctcdn.cn/s/TRTf2mY4s8dQYKS)
 `

@@ -21,26 +21,10 @@
   &__title {
     font-size: 14px;
     color: $text-color-primary;
-    padding: 15px 0 10px 20px;
+    padding: 25px 0 20px 17px;
+    margin: 0 7px 12px 15px;
     font-weight: bold;
-  }
-
-  .scrollbar-wrapper {
-    overflow-x: hidden !important;
-  }
-
-  .el-scrollbar__view {
-    height: 100%;
-  }
-
-  .el-scrollbar__bar {
-    &.is-vertical {
-      right: 0;
-    }
-
-    &.is-horizontal {
-      display: none;
-    }
+    border-bottom: 1px solid $border-color-primary;
   }
 
   &__menu {
@@ -60,13 +44,14 @@
   .el-submenu__title {
     height: 40px;
     line-height: 40px;
+    padding-left: 32px !important;
   }
 
   .el-submenu__title {
     display: flex;
     align-items: center;
 
-    > i.el-submenu__icon-arrow {
+    >i.el-submenu__icon-arrow {
       margin-top: 0;
       top: auto;
     }
@@ -76,12 +61,12 @@
     vertical-align: baseline !important;
   }
 
-  .el-submenu.is-active > .el-submenu__title {
+  .el-submenu.is-active>.el-submenu__title {
     color: $text-color-primary;
   }
 
   .el-menu-item,
-  .el-submenu > .el-submenu__title,
+  .el-submenu>.el-submenu__title,
   .el-submenu .el-menu-item {
     min-width: calc($sidebar-width - 40px);
     background-color: $color-bg-2;
@@ -98,7 +83,7 @@
 
   .el-submenu {
     .el-menu-item {
-      padding-left: 10px !important;
+      padding-left: 22px !important;
       padding-right: 20px !important;
     }
 
@@ -111,7 +96,7 @@
   }
 
   .el-submenu.is-active .el-submenu__title,
-  .el-menu > div.first-level > a > li.is-active {
+  div.first-level > a > li.is-active {
     color: $color-master-1 !important;
     position: relative;
 
@@ -122,21 +107,39 @@
       width: 2px;
       height: 12px;
       position: absolute;
-      left: 12px;
+      left: 20px;
       top: 14px;
+    }
+  }
+
+  /* 含有图标的菜单项，去除选中时的竖线 */
+  .carry-icon {
+    .el-submenu.is-active .el-submenu__title,
+    &.first-level > a > li.is-active {
+      &:before {
+        display: none;
+      }
     }
   }
 
   .el-menu > div.first-level > a > li.is-active {
     &:before {
-      top: 14px;
+      top: 16px;
     }
   }
 
   .vertical-bar {
-    border-left: 2px solid $border-color-primary;
-    margin: 14px 0 18px 30px;
-    max-height: calc(100% - 40px);
+    margin: 14px 0 18px 32px;
+    &:after {
+      position: absolute;
+      content: '';
+      display: inline-block;
+      background-color: $border-color-primary;
+      width: 2px;
+      height: calc(100% - 32px);
+      left: 42px;
+      top: 14px;
+    }
 
     > div:first-child {
       .el-menu-item {
@@ -145,7 +148,7 @@
       }
     }
 
-    > div:last-child {
+    >div:last-child {
       .el-menu-item {
         height: 29px;
         line-height: 40px;
@@ -153,14 +156,14 @@
     }
 
     &__one {
-      > div:last-child {
+      >div:last-child {
         .el-menu-item {
           display: flex;
           align-items: center;
           height: 16px;
           line-height: 16px;
 
-          > span {
+          >span {
             line-height: 16px;
           }
         }
@@ -170,6 +173,7 @@
 
   .el-submenu__icon-arrow {
     color: $color-grey-2;
+    right: 8px;
   }
 }
 
@@ -179,28 +183,33 @@
   flex: 1;
   flex-direction: column;
   position: relative;
-  padding: 0 $padding-medium $padding-medium;
+  padding: 0 $padding-primary $padding-primary;
   min-width: 0;
   min-height: 100%;
   transition: margin-left 0.28s;
 
   .navbar {
-    margin-left: -23px;
+    margin-left: -19px;
     margin-right: -16px;
     padding: $padding-medium;
-    margin-bottom: $margin-medium;
+    margin-bottom: $padding-primary;
     display: flex;
     align-items: center;
     background: $color-bg-2;
   }
 
-  .app-main {
+  .app-main-wrap {
     flex: 1;
     overflow: auto;
   }
 
+  .app-main {
+    // 最小分辨率 - 侧边栏宽度 - 边距 - 边距
+    min-width: calc(1366px - $sidebar-width - $padding-primary - $padding-primary);
+  }
+
   .app-main > .el-card.is-always-shadow {
-    border-radius: 0;
+    border-radius: $border-radius-medium;
     border: none;
     color: inherit;
   }

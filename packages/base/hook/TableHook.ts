@@ -67,14 +67,14 @@ export default class TableHook {
   // 绑定表格滚动底部加载事件
   private bindLazyLoadEvent() {
     if (this.isLazy && this.tableRef) {
-      this.tableRef.addEventListener('scroll', this.handleScroll)
+      this.tableRef.addEventListener('scroll', e => this.handleScroll(e))
     }
   }
 
   // 去除表格滚动底部加载事件
   public removeLazyLoadEvent() {
     if (this.isLazy && this.tableRef) {
-      this.tableRef.removeEventListener('scroll', this.handleScroll)
+      this.tableRef.removeEventListener('scroll', e => this.handleScroll(e))
     }
   }
 

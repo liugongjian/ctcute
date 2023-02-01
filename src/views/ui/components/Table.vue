@@ -33,7 +33,7 @@
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
           <template slot-scope="scope">
-            <div>
+            <div class="sub-state">
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
               <span>{{ HEALTH[scope.row.healthy] }}</span>
             </div>
@@ -116,7 +116,7 @@
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
           <template slot-scope="scope">
-            <div>
+            <div class="sub-state">
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
               <span>{{ HEALTH[scope.row.healthy] }}</span>
             </div>
@@ -205,7 +205,7 @@
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
           <template slot-scope="scope">
-            <div>
+            <div class="sub-state">
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
               <span>{{ HEALTH[scope.row.healthy] }}</span>
             </div>
@@ -278,7 +278,7 @@
         </el-table-column>
         <el-table-column prop="healthy" label="健康状态">
           <template slot-scope="scope">
-            <div>
+            <div class="sub-state">
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
               <span>{{ HEALTH[scope.row.healthy] }}</span>
             </div>
@@ -334,31 +334,31 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="status" label="实例状态"> </el-table-column>
+        <el-table-column prop="status" label="实例状态" width="100px"> </el-table-column>
         <el-table-column prop="ip" label="IP地址" width="100px"> </el-table-column>
         <el-table-column prop="time" label="时间" sortable width="150px"> </el-table-column>
-        <el-table-column prop="label" label="标签" width="150px">
+        <el-table-column prop="label" label="标签">
           <template slot-scope="scope">
             <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="description" label="描述" width="150px">
+        <el-table-column prop="description" label="描述">
           <template slot-scope="scope">
             <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
               <span class="text-ellipsis">{{ scope.row.description }}</span>
             </el-tooltip>
           </template>
         </el-table-column>
-        <el-table-column prop="healthy" label="健康状态">
+        <el-table-column prop="healthy" label="健康状态" width="100px">
           <template slot-scope="scope">
-            <div>
+            <div class="sub-state">
               <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
               <span>{{ HEALTH[scope.row.healthy] }}</span>
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="status2" label="其他状态">
+        <el-table-column prop="status2" label="其他状态" width="100px">
           <template slot-scope="scope">
             <el-tag :type="scope.row.status2 && STATUS2[scope.row.status2].color" size="small">{{
               scope.row.status2 && STATUS2[scope.row.status2].text
@@ -405,7 +405,11 @@
       </el-pagination>
     </div>
 
-    <h3>可移动排序的表格</h3>
+    <h3>
+      可移动排序的表格-使用了
+      <a href="/component/base/cute-sort-table" target="_blank">CuteSortTable</a>
+      组件
+    </h3>
     <div class="sub-table">
       <cute-sort-table
         :loading="tableHook.loading"
@@ -420,7 +424,7 @@
           <span>{{ statusFormatter(scope.row) }}</span>
         </template>
         <template #healthy="{ scope }">
-          <div>
+          <div class="sub-state">
             <span class="sub-spot" :class="`sub-spot--${scope.row.health}`"></span>
             <span>{{ HEALTH[scope.row.health] }}</span>
           </div>
@@ -505,7 +509,7 @@
       </el-table-column>
       <el-table-column prop="healthy" label="健康状态">
         <template slot-scope="scope">
-          <div>
+          <div class="sub-state">
             <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
             <span>{{ HEALTH[scope.row.healthy] }}</span>
           </div>
@@ -541,6 +545,123 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <h3>可展开的表格</h3>
+    <div class="sub-table">
+      <el-table
+        v-loading="expandTableLoading"
+        :data="expandTableData"
+        fit
+        border
+        row-key="_id"
+        default-expand-all
+        :tree-props="{ children: 'children' }"
+      >
+        <el-table-column prop="name" label="名称" width="180"> </el-table-column>
+        <el-table-column prop="menuType" label="其他状态" width="180">
+          <template slot-scope="scope">
+            <el-tag v-if="scope.row.menuType === 0" type="info">目录</el-tag>
+            <el-tag v-if="scope.row.menuType === 1" type="primary">菜单</el-tag>
+            <el-tag v-if="scope.row.menuType === 2" type="success">权限</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="orderNum" label="排序"> </el-table-column>
+        <el-table-column prop="url" label="路由"> </el-table-column>
+        <el-table-column prop="perms" label="标识"> </el-table-column>
+        <el-table-column prop="alias" label="别名" :show-overflow-tooltip="true"> </el-table-column>
+        <el-table-column prop="actions" label="操作" width="250" fixed="right" class-name="actions">
+          <template slot-scope="{}">
+            <el-button type="text">编辑</el-button>
+            <el-button type="text">删除</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <h3>嵌套表格</h3>
+    <div class="sub-table pro-table-6">
+      <el-table v-loading="nestedTableLoading" :data="nestedTableData" fit>
+        <el-table-column type="expand">
+          <template slot-scope="scope">
+            <el-table ref="multipleTable" tooltip-effect="dark" :data="scope.row.projectSpaces">
+              <el-table-column width="20"></el-table-column>
+              <el-table-column prop="projectSpace" label="名称">
+                <template slot-scope="{ row }">
+                  <el-button :disabled="row.projectSpaceState === '1' ? false : true" type="text">{{
+                    row.projectSpace
+                  }}</el-button>
+                </template>
+              </el-table-column>
+              <el-table-column prop="projectSpaceState" label="其他状态">
+                <template slot-scope="{ row }">
+                  <span class="health-state">
+                    <span class="health-dot" :class="`health-dot--${row.projectSpaceState}`" />{{
+                      NESTED_TABLE_STATUS[row.projectSpaceState]
+                    }}
+                  </span>
+                </template>
+              </el-table-column>
+              <el-table-column prop="cu" label="已使用 / 已购买CU">
+                <template slot-scope="{ row }">
+                  <span class="used">{{ row.cuUsedNum }}</span> / {{ row.cuNum }}
+                </template>
+              </el-table-column>
+              <el-table-column label="创建时间" prop="createTime">
+                <template slot-scope="{ row }">
+                  {{ formatDatetime(row.createTime) }}
+                </template>
+              </el-table-column>
+              <el-table-column label="操作">
+                <template slot-scope="{ row }">
+                  <el-button
+                    :disabled="row.projectSpaceState === '1' ? false : true"
+                    type="text"
+                    style="margin-right: 10px"
+                    @click="handleDistribute('资源分配')"
+                    >资源分配</el-button
+                  >
+                  <el-button
+                    :disabled="row.projectSpaceState === '1' ? false : true"
+                    type="text"
+                    @click="handleDistribute('删除')"
+                    >删除</el-button
+                  >
+                </template>
+              </el-table-column>
+            </el-table>
+          </template>
+        </el-table-column>
+        <el-table-column label="工作空间/实例ID" prop="workspace">
+          <template slot-scope="{ row }">
+            <el-button :disabled="row.workspaceState === '1' ? false : true" type="text">{{
+              row.workspace
+            }}</el-button>
+          </template>
+        </el-table-column>
+        <el-table-column label="工作空间状态" prop="workspaceState">
+          <template slot-scope="{ row }">
+            <span class="health-state">
+              <span class="health-dot" :class="`health-dot--${row.workspaceState}`" />{{
+                STATUS[row.workspaceState]
+              }}
+            </span>
+          </template>
+        </el-table-column>
+        <el-table-column label="已使用 / 已购买CU" prop="CU">
+          <template slot-scope="{ row }">
+            <span class="used">{{ row.cuUsedNum }}</span> / {{ row.cuNum }}
+          </template>
+        </el-table-column>
+        <el-table-column label="付费类型" prop="payType">
+          <template slot-scope="{ row }">
+            <el-tag type="warning">{{ NESTED_TABLE_TYPE[row.payType] }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="创建时间" prop="createTime">
+          <template slot-scope="{ row }"> {{ formatDatetime(row.createTime) }} </template>
+        </el-table-column>
+      </el-table>
+    </div>
 
     <div></div>
     <h3>横向展示列表</h3>
@@ -627,7 +748,7 @@
         <el-table-column prop="time" label="耗时"> </el-table-column>
         <el-table-column prop="status" label="状态">
           <template slot-scope="scope">
-            <div>
+            <div class="sub-small-state">
               <span class="sub-small-spot" :class="`sub-small-spot--${scope.row.status}`"></span>
               <span>{{ HEALTH[scope.row.status] }}</span>
             </div>
@@ -737,76 +858,90 @@
         </el-table-column>
       </el-table>
     </div>
-    <h3>带列设置的表格</h3>
+    <h3>
+      带列设置的表格-使用了
+      <a href="/component/base/cute-table-column-settings" target="_blank">CuteTableColumnSettings</a>
+      组件
+    </h3>
     <div class="sub-table-settings">
-      <!-- 列设置选择表单 -->
-      <el-popover
-        placement="bottom-end"
-        trigger="click"
-        class="sub-table-settings__popover"
-        @show="handlePopverShow"
-        @hide="handlePopverhide"
+      <cute-table-column-settings
+        :table-data="tableComponentData && tableComponentData.tableData10"
+        :table-columns="tableComponentColumns"
       >
-        <!-- 固定的，用来全选 -->
-        <el-checkbox v-model="allSelected" label="全选" @change="handleSelectedChange"></el-checkbox>
-        <!-- 分割线 -->
-        <el-divider class="sub-table-settings__divider"></el-divider>
-        <!-- 列出全部选项 -->
-        <el-checkbox-group v-model="selectedOptions" class="sub-table-settings__label-group">
-          <el-checkbox v-for="v in allOptions" :key="v.label" :label="v.label" :disabled="v.disabled">
-          </el-checkbox>
-        </el-checkbox-group>
-
-        <!-- 列设置图标 -->
-        <div slot="reference" :class="['head-title', { 'sub-table-settings__svg--active': popverShow }]">
-          <svg-icon name="setting" width="14" height="14" style="margin-right: 6px" />
-          <span>列设置</span>
-        </div>
-      </el-popover>
-
-      <!-- 表格 -->
-      <el-table :data="tableComponentData && tableComponentData.tableData10" fit border>
-        <el-table-column v-for="v in selectedOptionsWithProp" :key="v.prop" :prop="v.prop" :label="v.label">
-          <template slot-scope="{ row }">
-            <span v-if="v.prop === 'healthy'">
-              <span class="health-dot" :class="`health-dot--${row.healthy}`" />{{ HEALTH[row.healthy] }}
-            </span>
-
-            <span v-else-if="v.prop === 'name'">
-              <span class="text-ellipsis name-primary" style="width: 100%">{{ row.name }}</span>
-            </span>
-
-            <span v-else-if="v.prop === 'label'">
-              <el-tag type="info" size="small" style="margin-right: 8px">{{ row.label[0] }}</el-tag>
-              <el-tag type="info" size="small">{{ row.label[1] }}</el-tag>
-            </span>
-
-            <span v-else>{{ row[v.prop] }}</span>
-          </template>
-        </el-table-column>
-
-        <el-table-column label="操作">
-          <template>
+        <template #name="{ scope }">
+          <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
+        </template>
+        <template #label="{ scope }">
+          <el-tag
+            v-for="item of scope.row.label"
+            :key="item"
+            type="info"
+            size="small"
+            style="margin-right: 8px"
+          >
+            {{ item }}
+          </el-tag>
+        </template>
+        <template #description="{ scope }">
+          <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+            <span class="text-ellipsis">{{ scope.row.description }}</span>
+          </el-tooltip>
+        </template>
+        <template #healthy="{ scope }">
+          <div class="health-state">
+            <span class="health-dot" :class="`health-dot--${scope.row.healthy}`" />
+            <span>{{ HEALTH[scope.row.healthy] }}</span>
+          </div>
+        </template>
+        <template #operation="{}">
+          <div>
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-
-      <!-- 分页 -->
-      <el-pagination
-        class="pagination"
-        :current-page="currentPage4"
-        :total="100"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-      >
-      </el-pagination>
+          </div>
+        </template>
+      </cute-table-column-settings>
     </div>
+    <h3>滚动加载的表-默认</h3>
+    <p>
+      一般应用与日志类表格，表格行高较窄，一般是34px，默认展示50-100条，滚动到表格底部后加载出下一页。在页面中表格自适应到页面底部，上下间距为20。
+    </p>
+    <el-table
+      ref="scrolledTableRef"
+      v-loading="scrolledTableHook.loading"
+      :data="scrolledTableHook.tableData"
+      fit
+      border
+      size="small"
+      height="614px"
+    >
+      <el-table-column prop="name" label="主机别名">
+        <template slot-scope="{ row }">
+          <router-link to="/">{{ row.name }}</router-link>
+        </template>
+      </el-table-column>
+      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
+      <el-table-column prop="ip" label="IP地址" />
+      <el-table-column prop="cpu" label="CPU利用率(%)" />
+      <el-table-column prop="memory" label="内存利用率(%)" />
+      <el-table-column prop="disk" label="磁盘利用率(%)" />
+      <el-table-column prop="health" label="健康状态">
+        <template slot-scope="{ row }">
+          <span class="health-state">
+            <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+          </span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="actions" label="操作" width="150" class-name="actions">
+        <template>
+          <el-button type="text">详情</el-button>
+          <el-button type="text">监控指标</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Watch, Ref } from 'vue-property-decorator'
+import { Component, Vue, Ref } from 'vue-property-decorator'
 import { STATUS, HEALTH, STATUS2 } from '@/dics/simpleTable'
 import { ElTable } from 'element-ui/types/table'
 import TableHookClass from '@cutedesign/base/hook/TableHook'
@@ -814,6 +949,10 @@ import CuteSortTable from '@cutedesign/sort-table'
 import { getTable } from '@/api/cuteSortTable'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTableComponent } from '@/api/tableComponent'
+import { getTable as getExpandTable } from '@/api/proTable6'
+import { getTable as getNestedTable } from '@/api/proTable7'
+import { STATUS as NESTED_TABLE_STATUS, TYPE as NESTED_TABLE_TYPE } from '@/dics/proTable6'
+import { formatDatetime } from '@/utils/date'
 import * as TableComponent from '@/types/TableComponent'
 @Component({
   name: 'UiTable',
@@ -825,7 +964,12 @@ export default class extends Vue {
   @Ref('tableRef')
   private tableRef: ElTable
 
+  @Ref('scrolledTableRef')
+  private scrolledTableRef: ElTable
+
   public tableHook = new TableHookClass()
+
+  private scrolledTableHook = new TableHookClass()
 
   private tableColumns = [
     { prop: 'name', label: '主机别名', slot: 'name' },
@@ -835,19 +979,66 @@ export default class extends Vue {
     { prop: 'memory', label: '内存利用率(%)' },
     { prop: 'disk', label: '磁盘利用率(%)' },
     { prop: 'healthy', label: '健康状态', slot: 'healthy' },
-    { prop: 'operation', label: '操作', width: 190, slot: 'operation' },
+    { prop: 'operation', label: '操作', slot: 'operation', props: { align: 'left', width: 190 } },
   ]
+
+  private tableComponentColumns = [
+    { prop: 'name', label: '主机别名', isSelected: true, isDisabled: true, slot: 'name' },
+    { prop: 'status', label: '实例状态', isSelected: true, isDisabled: true },
+    { prop: 'ip', label: 'IP地址', isSelected: true, isDisabled: false },
+    { prop: 'time', label: '时间', isSelected: true, isDisabled: false, props: { width: 150 } },
+    {
+      prop: 'label',
+      label: '标签',
+      isSelected: true,
+      isDisabled: false,
+      slot: 'label',
+      props: { width: 150 },
+    },
+    {
+      prop: 'description',
+      label: '描述',
+      isSelected: false,
+      isDisabled: false,
+      slot: 'description',
+      props: { width: 150 },
+    },
+    { prop: 'healthy', label: '健康状态', isSelected: true, isDisabled: false, slot: 'healthy' },
+    {
+      prop: 'operation',
+      label: '操作',
+      isSelected: true,
+      isDisabled: true,
+      slot: 'operation',
+      props: { width: 190 },
+    },
+  ]
+
   private HEALTH = HEALTH
   private flag = false
 
   private tableComponentData: TableComponent.TableComponentData = null
+  private expandTableData: any[] = []
+  private expandTableLoading = false
+
+  private nestedTableLoading = false
+  private nestedTableData: any[] = []
+  private NESTED_TABLE_STATUS = NESTED_TABLE_STATUS
+  private NESTED_TABLE_TYPE = NESTED_TABLE_TYPE
+
+  formatDatetime = formatDatetime
+
   /**
    * 页面Mounted
    */
   private mounted() {
     this.tableHook = new TableHookClass({}, this.getTable, this.tableRef, false)
+    this.scrolledTableHook = new TableHookClass({}, this.getScrolldTable, this.scrolledTableRef, true)
     this.tableHook.query()
+    this.scrolledTableHook.query()
     this.getTableComponentData()
+    this.getExpandTableData()
+    this.getNestedTableData()
   }
 
   /**
@@ -866,6 +1057,69 @@ export default class extends Vue {
     // 接口
     const res = await getTableComponent()
     this.tableComponentData = res.data
+  }
+
+  /**
+   * 获取滚动加载表格数据
+   */
+  private async getScrolldTable(param) {
+    const res = await getTable(param)
+    this.scrolledTableHook.setResult(res.data.list, res.data.total)
+  }
+
+  /**
+   * 获取可展开表格数据
+   */
+  private async getExpandTableData() {
+    this.expandTableLoading = true
+    try {
+      const res = await getExpandTable()
+      if ((res as any).code === 200) {
+        const genData = (data, _id): any[] => {
+          const menu = data.filter(o => o.parentId === _id)
+          menu.forEach(o => {
+            const children = genData(data, o._id)
+            if (children && children.length > 0) {
+              o.children = children
+            }
+          })
+          return menu
+        }
+        const res_menus = res.data.result.map(item => {
+          item.label = item.name
+          item.id = item._id
+          return item
+        })
+        if (res_menus && res_menus.length > 0) {
+          this.expandTableData = genData(res_menus, '')
+        } else {
+          this.expandTableData = []
+        }
+      }
+    } catch (e) {
+      console.error(e)
+    } finally {
+      this.expandTableLoading = false
+    }
+  }
+
+  /**
+   * 获取嵌套表格数据
+   */
+  private async getNestedTableData() {
+    try {
+      this.nestedTableLoading = true
+      const res = await getNestedTable()
+      this.nestedTableData = (res as any).data
+    } catch (e) {
+      console.error(e)
+    } finally {
+      this.nestedTableLoading = false
+    }
+  }
+
+  private handleDistribute(row) {
+    this.$message.success(`前往${row}`)
   }
 
   /**
@@ -1006,127 +1260,6 @@ export default class extends Vue {
     console.log(index, row)
   }
 
-  // popver 状态变量
-  private popverShow = false
-
-  public handlePopverShow() {
-    this.popverShow = true
-  }
-
-  public handlePopverhide() {
-    this.popverShow = false
-  }
-
-  // 全选状态变量
-  private allSelected = false
-
-  // 判断是否已全选
-  public isAllSelected() {
-    if (this.selectedOptions.length === this.allOptions.length) {
-      this.allSelected = true
-    } else {
-      this.allSelected = false
-    }
-  }
-
-  // 全选按钮 全选事件
-  // 根据全选状态变量，来判断将要做什么
-  public handleSelectedChange() {
-    const data = []
-    if (!this.allSelected) {
-      this.allOptions.forEach((v: any) => {
-        if (this.disabledOptions.some(item => item === v.label)) {
-          data.push(v.label)
-        }
-      })
-    } else {
-      this.allOptions.forEach((v: any) => {
-        data.push(v.label)
-      })
-    }
-    this.selectedOptions = data
-  }
-
-  private allOptions = [
-    {
-      label: '主机别名',
-      prop: 'name',
-      disabled: true,
-    },
-    {
-      label: '实例状态',
-      prop: 'status',
-      disabled: true,
-    },
-    {
-      label: 'IP地址',
-      prop: 'ip',
-      disabled: false,
-    },
-    {
-      label: '时间',
-      prop: 'time',
-      disabled: false,
-    },
-    {
-      label: '标签',
-      prop: 'label',
-      disabled: false,
-    },
-    {
-      label: '描述',
-      prop: 'description',
-      disabled: false,
-    },
-    {
-      label: '健康状态',
-      prop: 'healthy',
-      disabled: false,
-    },
-  ]
-  private selectedOptions = ['主机别名', '实例状态', 'IP地址', '时间', '健康状态']
-  private selectedOptionsWithProp = [
-    {
-      label: '主机别名',
-      prop: 'name',
-    },
-    {
-      label: '实例状态',
-      prop: 'status',
-    },
-    {
-      label: 'IP地址',
-      prop: 'ip',
-    },
-    {
-      label: '时间',
-      prop: 'time',
-    },
-    {
-      label: '健康状态',
-      prop: 'healthy',
-    },
-  ]
-
-  // 监听selectedOptions，判断是否需要修改全选按钮
-  @Watch('selectedOptions')
-  onChangeValue() {
-    this.isAllSelected() // 判断是否已全选
-    this.syncSelectedOptions() // 同步
-  }
-
-  private syncSelectedOptions() {
-    const data = []
-    this.allOptions.forEach((v: { label: string; prop: string }) => {
-      if (this.selectedOptions.some(item => item === v.label)) {
-        data.push({ label: v.label, prop: v.prop })
-      }
-    })
-    this.selectedOptionsWithProp = data
-  }
-
-  private disabledOptions = ['主机别名', '实例状态']
-
   private STATUS = STATUS
 }
 </script>
@@ -1154,7 +1287,7 @@ export default class extends Vue {
       font-size: 12px;
     }
 
-    .el-button--text:last-child:before {
+    .el-button--text:last-child:nth-child(n + 3):before {
       content: '|';
       color: $border-color-primary;
       margin-right: 10px;
@@ -1224,6 +1357,11 @@ export default class extends Vue {
   color: $color-master-1;
 }
 
+.sub-state {
+  display: inline-flex;
+  align-items: center;
+}
+
 .sub-spot {
   display: inline-block;
   width: 6px;
@@ -1250,6 +1388,11 @@ export default class extends Vue {
   &--5 {
     background: $disabled-color;
   }
+}
+
+.sub-small-state {
+  display: inline-flex;
+  align-items: center;
 }
 
 .sub-small-spot {
@@ -1314,10 +1457,15 @@ export default class extends Vue {
     }
   }
 
+  .health-state {
+    display: inline-flex;
+    align-items: center;
+  }
+
   .health-dot {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     margin-right: 8px;
     border-radius: 100%;
 

@@ -1,8 +1,8 @@
 <!--
  * @Author: 赵昕
  * @Date: 2022-07-18 13:11:31
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-08-08 14:29:59
+ * @LastEditors: 秦瑞斌
+ * @LastEditTime: 2022-12-21 14:44:04
  * @Description: 复杂详情1
 -->
 <template>
@@ -16,8 +16,8 @@
         <cute-button-group :data="buttonData" :max="2" />
       </div>
     </div>
-    <el-tabs>
-      <el-tab-pane label="选项一">
+    <el-tabs v-model="activeName">
+      <el-tab-pane name="a" label="选项一">
         <cute-titled-block title="灰度发布升级策略">
           <template #content
             ><div class="sub-table-horizon">
@@ -60,6 +60,7 @@
             <cute-titled-block title="第一批次">
               <template #content>
                 <el-table
+                  v-if="activeName === 'a'"
                   :data="ProDetail1Info && ProDetail1Info.batches && ProDetail1Info.batches.firstBatch"
                   class="table"
                 >
@@ -67,8 +68,11 @@
                   <el-table-column prop="date" label="编辑下发事件"></el-table-column>
                   <el-table-column prop="status" label="状态">
                     <template slot-scope="{ row }">
-                      <span class="status-dot" :class="`status-dot--${row.status}`" />
-                      {{ STATUS[row.status] }}
+                      <span class="status">
+                        <span class="status-dot" :class="`status-dot--${row.status}`" />{{
+                          STATUS[row.status]
+                        }}
+                      </span>
                     </template>
                   </el-table-column>
                 </el-table>
@@ -77,6 +81,7 @@
             <cute-titled-block title="手动第二批次">
               <template #content>
                 <el-table
+                  v-if="activeName === 'a'"
                   :data="ProDetail1Info && ProDetail1Info.batches && ProDetail1Info.batches.secondBatch"
                   class="table"
                 >
@@ -84,8 +89,11 @@
                   <el-table-column prop="date" label="编辑下发事件"></el-table-column>
                   <el-table-column prop="status" label="状态">
                     <template slot-scope="{ row }">
-                      <span class="status-dot" :class="`status-dot--${row.status}`" />
-                      {{ STATUS[row.status] }}
+                      <span class="status">
+                        <span class="status-dot" :class="`status-dot--${row.status}`" />{{
+                          STATUS[row.status]
+                        }}
+                      </span>
                     </template>
                   </el-table-column>
                 </el-table>
@@ -107,19 +115,22 @@
                       :timestamp="item.title"
                       placement="top"
                     >
-                      <h4 v-if="item.message">
+                      <h4 v-if="item.message" class="status">
                         {{ item.message }}
                         <span class="status-dot" :class="`status-dot--${item.status}`" />
                         {{ RESULT[item.status] }}
                       </h4>
                       <p v-if="item.time">{{ item.time }}</p>
-                      <el-table v-if="item.list" :data="item.list" class="table">
+                      <el-table v-if="item.list && activeName === 'a'" :data="item.list" class="table">
                         <el-table-column prop="id" label="序号"></el-table-column>
                         <el-table-column prop="name" label="集群名称"></el-table-column>
                         <el-table-column prop="status" label="状态">
                           <template slot-scope="{ row }">
-                            <span class="status-dot" :class="`status-dot--${row.status}`" />
-                            {{ STATUS[row.status] }}
+                            <span class="status">
+                              <span class="status-dot" :class="`status-dot--${row.status}`" />{{
+                                STATUS[row.status]
+                              }}
+                            </span>
                           </template>
                         </el-table-column>
                         <el-table-column prop="running" label="运行中"></el-table-column>
@@ -138,7 +149,7 @@
         </el-card>
       </el-tab-pane>
       <el-tab-pane label="禁用项" disabled>禁用项</el-tab-pane>
-      <el-tab-pane label="默认项">默认项</el-tab-pane>
+      <el-tab-pane name="b" label="默认项">默认项</el-tab-pane>
     </el-tabs>
   </el-card>
 </template>
@@ -165,6 +176,9 @@ export default class extends Vue {
   private dynamicTags = ['标签1', '标签2', '标签3']
   // 按钮组名称
   private buttonData = ['操作一', '操作二', '操作三']
+
+  private activeName = 'a'
+
   /**
    * 页面Mounted
    */

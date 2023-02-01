@@ -1,8 +1,8 @@
 <!--
  * @Author: 肖仁
  * @Date: 2022-07-12 16:20:34
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-09-27 09:15:52
+ * @LastEditors: 庄晓欣
+ * @LastEditTime: 2023-01-10 14:22:15
  * @Description: 复杂表格4
 -->
 <template>
@@ -49,12 +49,15 @@
           <div class="table-tools__right table-tools__conditions">
             <el-form ref="conditions" :model="conditions" inline @submit.native.prevent>
               <el-form-item prop="host">
-                <el-select v-model="conditions.host" placeholder="请选择主机">
-                  <el-option v-for="item in hostOptions" :key="item" :label="item" :value="item" />
-                </el-select>
+                <cute-remind-select
+                  v-model="conditions.host"
+                  :options="hostOptions"
+                  title="主机"
+                  placeholder="请选择主机"
+                />
               </el-form-item>
               <el-form-item prop="name">
-                <el-input v-model="conditions.name" placeholder="请输入IP地址" />
+                <cute-remind-input v-model="conditions.name" placeholder="请输入IP地址" title="IP地址" />
                 <el-form-item class="table-tools__conditions__buttons">
                   <el-button type="primary" @click="search">查 询</el-button>
                   <el-button @click="resetConditions">重 置</el-button>
@@ -76,7 +79,9 @@
           <el-table-column prop="memory" label="内存利用率(%)" />
           <el-table-column prop="health" label="健康状态">
             <template slot-scope="{ row }">
-              <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+              <span class="health-state">
+                <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+              </span>
             </template>
           </el-table-column>
         </el-table>
@@ -145,8 +150,13 @@ export default class extends Vue {
   private async getHosts() {
     try {
       const res = await getHosts()
-
-      this.hostOptions = res.data
+      const options = res.data.map(item => {
+        return {
+          value: item,
+          label: item,
+        }
+      })
+      this.hostOptions = options
     } catch (e) {
       this.$message.error(e)
     }
@@ -244,10 +254,15 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.health-state {
+  display: inline-flex;
+  align-items: center;
+}
+
 .health-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   margin-right: 8px;
   border-radius: 100%;
 

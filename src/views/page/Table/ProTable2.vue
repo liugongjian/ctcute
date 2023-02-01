@@ -1,15 +1,15 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2022-12-08 10:23:44
+ * @LastEditors: 庄晓欣
+ * @LastEditTime: 2023-01-17 16:31:50
  * @Description: 复杂表格2
 -->
 <template>
   <el-card class="pro-table-2">
     <!--表格工具栏-->
     <div class="table-tools">
-      <div class="table-tools__right table-tools__conditions">
+      <div class="table-tools__conditions">
         <el-form
           ref="conditions"
           class="complex-table_from"
@@ -22,7 +22,7 @@
             <el-form-item prop="name">
               <cute-remind-input
                 v-model="conditions.name"
-                :placeholder="placeholder"
+                placeholder="请输入数据资源名称"
                 title="数据资源名称"
                 @change="cahngeFun3"
               >
@@ -58,9 +58,14 @@
                 @change="changeFun2"
               />
             </el-form-item>
+            <el-form-item>
+              <!-- 占位 -->
+            </el-form-item>
             <el-form-item class="table-tools__conditions__buttons">
-              <el-button type="primary" @click="search">查 询</el-button>
-              <el-button @click="resetConditions">重 置</el-button>
+              <div class="buttons">
+                <el-button type="primary" @click="search">查 询</el-button>
+                <el-button @click="resetConditions">重 置</el-button>
+              </div>
             </el-form-item>
           </div>
         </el-form>
@@ -94,7 +99,9 @@
       <el-table-column prop="disk" label="磁盘利用率(%)" />
       <el-table-column prop="health" label="健康状态">
         <template slot-scope="{ row }">
-          <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+          <span class="health-state">
+            <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+          </span>
         </template>
       </el-table-column>
       <el-table-column prop="actions" label="操作" fixed="right" class-name="actions" width="190px">
@@ -163,7 +170,6 @@ export default class extends Vue {
   @Ref('conditions')
   private conditionsForm: ElForm
 
-  private placeholder = '请输入主机别名'
   // 表格选中数据
   private selectedData = []
 
@@ -351,10 +357,15 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.health-state {
+  display: inline-flex;
+  align-items: center;
+}
+
 .health-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   margin-right: 8px;
   border-radius: 100%;
 

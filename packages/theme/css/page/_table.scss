@@ -1,13 +1,15 @@
 @mixin table {
+
   /* 分页 */
   .el-pagination {
     text-align: right;
   }
 
   .el-table {
+
     /* 操作按钮 */
     .actions.el-table__cell {
-      .el-button--text + .el-button--text {
+      .el-button--text+.el-button--text {
         margin-left: 16px;
 
         &:before {
@@ -23,6 +25,7 @@
 
 /* 简单表格 */
 .simple-table {
+
   /* 表格工具栏 */
   .table-tools {
     display: flex;
@@ -44,10 +47,9 @@
       }
 
       &__buttons {
-        margin-left: 10px;
         margin-right: 0;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
       }
@@ -58,34 +60,44 @@
 }
 
 .simple-table2 {
+
   /* 表格工具栏 */
   .table-tools {
+
     /* 筛选表单 */
     &__conditions {
       .el-form {
         display: flex;
-        justify-content: space-between;
         width: 100%;
       }
 
       .el-form-item {
         margin-bottom: 0;
+        flex: 1;
+        margin-right: 20px;
+
+        .el-form-item__content {
+          width: 100%;
+        }
 
         &:last-child {
           margin-right: 0;
+          flex: none;
         }
       }
 
       .el-input,
       .el-select {
-        width: 304px;
+        width: 100%;
+
       }
 
-      &__buttons {
-        margin-left: 10px;
-        margin-right: 0;
 
-        .el-button + .el-button {
+      &__buttons {
+        margin-right: 0;
+        float: right;
+
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
       }
@@ -97,15 +109,17 @@
 
 /* 复杂表格 3 */
 .pro-table-3 {
+
   /* 分页 */
   .el-pagination {
     text-align: right;
   }
 
   .el-table {
+
     /* 操作按钮 */
     .actions.el-table__cell {
-      .el-button--text + .el-button--text {
+      .el-button--text+.el-button--text {
         margin-left: 10px;
 
         &:nth-last-child(2) {
@@ -193,7 +207,7 @@
         margin-right: 0;
         float: right;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
 
@@ -213,6 +227,7 @@
 /* 复杂表格 4 */
 .pro-table-4 {
   .el-card__body {
+    position: relative;
     width: 100%;
     height: 100%;
     // overflow: hidden;
@@ -220,11 +235,10 @@
   }
 
   .table4-left {
-    position: fixed;
+    position: absolute;
     width: 15%;
-
-    top: 139px;
-    left: 227px;
+    top: 20px;
+    left: 13px;
 
     .tree-wrap {
       height: 752px;
@@ -269,9 +283,8 @@
       }
     }
 
-    .is-expanded > .el-tree-node__content {
+    .is-expanded>.el-tree-node__content {
       .node-icon {
-        color: $color-grey-5;
 
         .svg-icon {
           display: none;
@@ -283,7 +296,8 @@
       }
     }
 
-    .el-tree-node:focus > .el-tree-node__content {
+    .el-tree-node:focus>.el-tree-node__content {
+
       .node-content,
       .node-icon,
       .handler-icon {
@@ -304,20 +318,27 @@
           margin: 0.9em 0.3em;
         }
 
-        .handler-icon {
-          color: $color-grey-5;
-        }
       }
 
       &:hover {
         .handler-menu {
-          display: block;
+          display: flex;
+          color: $color-white;
         }
       }
     }
 
-    .el-tree-node > .el-tree-node__children {
+    .el-tree-node>.el-tree-node__children {
       overflow: initial;
+    }
+
+    .el-tree-node:focus {
+      background: none;
+    }
+
+    .el-tree-node:focus>.el-tree-node__content {
+      background-color: $color-master-1;
+
     }
 
     .hover-wrapper {
@@ -343,6 +364,7 @@
 
   /* 表格 */
   .table-wrap {
+
     /* 表格工具栏 */
     .table-tools {
       display: flex;
@@ -358,8 +380,6 @@
 
       /* 筛选表单 */
       &__conditions {
-        margin-bottom: 16px;
-
         .el-form-item {
           margin-bottom: 0;
 
@@ -377,7 +397,7 @@
           margin-left: 24px;
           margin-right: 0;
 
-          .el-button + .el-button {
+          .el-button+.el-button {
             margin-left: $button-margin;
           }
         }
@@ -388,15 +408,128 @@
   }
 }
 
-.pro-table-6 {
-  .table6-title {
-    font-size: 16px;
-    color: $color-grey-1;
-    font-weight: 500;
-    margin: 0;
+/* 复杂表格 5 */
+.pro-table-5 {
+
+  /* 分页 */
+  .el-pagination {
+    text-align: right;
   }
 
-  .table6-explain {
+  .el-table {
+
+    /* 操作按钮 */
+    .actions.el-table__cell {
+      .el-button--text+.el-button--text {
+        margin-left: 10px;
+
+        &:nth-last-child(2) {
+          margin-right: 10px;
+        }
+
+        &:nth-last-child(1) {
+          &:before {
+            content: ' ';
+            position: relative;
+            left: -10px;
+            border-left: 1px solid $border-color-primary;
+          }
+        }
+      }
+    }
+
+    .actions__svgicon {
+      margin-left: 6px;
+      cursor: pointer;
+      width: 10px;
+      color: $color-master-1;
+    }
+
+    .actions__txt {
+      font-size: 12px;
+      color: $color-master-1;
+      line-height: 20px;
+      font-weight: 400;
+    }
+  }
+
+  /* 表格工具栏 */
+  .table-tools {
+    &__left {
+      display: flex;
+    }
+
+    &__right {
+      display: flex;
+      align-items: center;
+
+      &__button__txt {
+        font-size: 12px;
+        color: $color-grey-1;
+        line-height: 20px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+    }
+
+    /* 按钮组 */
+    &__bottom {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* 筛选表单 */
+    &__conditions {
+      border-bottom: 1px solid $color-grey-7;
+
+      .el-form {
+        display: flex;
+        margin-bottom: 16px;
+      }
+
+      .el-form-item {
+        margin-bottom: 0;
+        margin-right: 20px;
+        flex: 1;
+      }
+
+      .el-input,
+      .el-select {
+        width: 100%;
+      }
+
+      &__buttons {
+        margin-right: 0;
+
+        .el-button+.el-button {
+          margin-left: $button-margin;
+        }
+
+        &__txt {
+          font-size: 12px;
+          color: $color-master-1;
+          line-height: 20px;
+          font-weight: 400;
+          margin-left: 12px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.pro-table-7 {
+
+  .table7-title {
+    margin: 0;
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: #333333;
+    font-weight: 600;
+  }
+
+  .table7-explain {
     font-size: 12px;
     color: $color-grey-1;
     max-width: 80%;
@@ -407,14 +540,18 @@
 
   .el-table__expanded-cell {
     width: 100% !important;
-    padding: 9px 10px 0 20px !important;
+    padding: 1px 10px 0 20px !important;
     background-color: $color-bg-2;
   }
 
-  .el-table__row:last-child {
+  .el-table__row.expanded {
     .el-table__cell {
       border-bottom: 0;
     }
+  }
+
+  .el-table__cell.el-table__expanded-cell .el-table__row:last-child .el-table__cell {
+    border-bottom: 0;
   }
 
   .used {
@@ -427,7 +564,7 @@
 
   .el-table {
     background-color: $color-bg-2;
-    margin: 0 !important;
+    margin: 0;
   }
 }
 
@@ -458,10 +595,9 @@
       }
 
       &__buttons {
-        margin-left: 10px;
         margin-right: 0;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
       }
@@ -497,32 +633,58 @@
 
 /* 复杂表格2 */
 .pro-table-2 {
+
   /* 表格工具栏 */
   .table-tools {
+
     /* 筛选表单 */
     &__conditions {
       margin-bottom: 16px;
 
-      .el-form-item {
-        margin-bottom: 0;
-        width: 357px;
+      .table-tools_top,
+      .table-tools_bottom {
+        display: flex;
+      }
 
-        &:last-child {
-          margin-right: 0;
-          text-align: right;
+      .table-tools_top {
+        .el-form-item {
+          margin-bottom: 16px;
+          flex: 1;
+
+          .el-form-item__content {
+            width: 100%;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
         }
       }
 
-      .el-input,
-      .el-select {
-        width: 357px;
+      .table-tools_bottom {
+        .el-form-item {
+          margin-bottom: 0;
+          flex: 1;
+
+          .el-form-item__content {
+            width: 100%;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
       }
 
       &__buttons {
-        margin-left: 24px;
         margin-right: 0;
 
-        .el-button + .el-button {
+        .buttons {
+          width: auto;
+          float: right;
+        }
+
+        .el-button+.el-button {
           margin-left: $button-margin;
         }
       }
@@ -557,23 +719,7 @@
     line-height: 32px;
   }
 
-  .el-form {
-    .el-form-item {
-      margin-bottom: 16px !important;
-    }
 
-    .table-tools_top,
-    .table-tools_bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .table-tools_bottom {
-      .el-form-item__content {
-        justify-content: flex-end;
-      }
-    }
-  }
 
   .el-dropdown-link {
     cursor: pointer;

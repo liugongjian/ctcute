@@ -1,5 +1,27 @@
 import Layout from '@/layout/index.vue'
 const indexPageRoutes = [
+  //首页展示
+  {
+    path: '/page',
+    redirect: '/page/dashboard',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+      icon: 'dashboard',
+    },
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/page/Dashboard/Dashboard.vue'),
+        meta: {
+          title: 'Dashboard',
+          breadcrumb: true,
+          icon: 'dashboard',
+        },
+      },
+    ],
+  },
   // 图表
   {
     path: '/page/chart',
@@ -10,6 +32,7 @@ const indexPageRoutes = [
       title: 'Chart 图表',
       alwaysShow: true,
       breadcrumb: true,
+      icon: 'area-chart',
     },
     children: [
       {
@@ -51,6 +74,15 @@ const restPageRoutes = [
         name: 'MediumDialog',
         meta: {
           title: 'MediumDialog 中弹窗',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'medium-dialog2',
+        component: () => import('@/views/page/Dialog/MediumDialog2.vue'),
+        name: 'MediumDialog2',
+        meta: {
+          title: 'MediumDialog 中弹窗2',
           breadcrumb: true,
         },
       },
@@ -230,6 +262,15 @@ const restPageRoutes = [
         name: 'ProTable4',
         meta: {
           title: 'ProTable4 复杂表格4',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-table5',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable5.vue'),
+        name: 'ProTable5',
+        meta: {
+          title: 'ProTable5 复杂表格5',
           breadcrumb: true,
         },
       },

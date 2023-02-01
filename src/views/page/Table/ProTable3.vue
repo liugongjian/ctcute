@@ -1,8 +1,8 @@
 <!--
  * @Author: 张晨曦
  * @Date: 2022-07-10 13:13:36
- * @LastEditors: 马妍
- * @LastEditTime: 2022-07-22 17:51:23
+ * @LastEditors: 庄晓欣
+ * @LastEditTime: 2023-01-10 14:17:50
  * @Description: 复杂表格3
 -->
 <template>
@@ -14,56 +14,78 @@
           <el-row v-show="conditionsOpenFlag" :gutter="24">
             <el-col :span="8">
               <el-form-item prop="name">
-                <el-input v-model="conditions.name" placeholder="请输入主机别名" />
+                <cute-remind-input v-model="conditions.name" placeholder="请输入主机别名" title="主机别名" />
               </el-form-item>
             </el-col>
             <el-col :span="8">
               <el-form-item prop="host">
-                <el-select v-model="conditions.host" placeholder="请选择主机">
-                  <el-option v-for="item in hostOptions" :key="item" :label="item" :value="item" />
-                </el-select>
+                <cute-remind-select
+                  v-model="conditions.host"
+                  :options="hostOptions"
+                  title="主机"
+                  placeholder="请选择主机"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="8" class="mb-16">
               <el-form-item prop="env">
-                <el-select v-model="conditions.env" placeholder="请选择所属环境">
-                  <el-option v-for="item in envOptions" :key="item" :label="item" :value="item" />
-                </el-select>
+                <cute-remind-select
+                  v-model="conditions.env"
+                  :options="envOptions"
+                  title="所属环境"
+                  placeholder="请选择所属环境"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="8">
               <el-form-item prop="name_copy">
-                <el-input v-model="conditions.name_copy" placeholder="请输入主机别名" />
+                <cute-remind-input
+                  v-model="conditions.name_copy"
+                  placeholder="请输入主机别名"
+                  title="主机别名"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="8">
               <el-form-item prop="host_copy">
-                <el-select v-model="conditions.host_copy" placeholder="请选择主机">
-                  <el-option v-for="item in hostOptions" :key="item" :label="item" :value="item" />
-                </el-select>
+                <cute-remind-select
+                  v-model="conditions.host_copy"
+                  :options="hostOptions"
+                  title="主机"
+                  placeholder="请选择主机"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="8" class="mb-16">
               <el-form-item prop="env_copy">
-                <el-select v-model="conditions.env_copy" placeholder="请选择所属环境">
-                  <el-option v-for="item in envOptions" :key="item" :label="item" :value="item" />
-                </el-select>
+                <cute-remind-select
+                  v-model="conditions.env_copy"
+                  :options="envOptions"
+                  title="所属环境"
+                  placeholder="请选择所属环境"
+                />
               </el-form-item>
             </el-col>
           </el-row>
           <el-row :gutter="24">
             <el-col :span="8">
               <el-form-item prop="host_copy_copy">
-                <el-select v-model="conditions.host_copy_copy" placeholder="请选择主机">
-                  <el-option v-for="item in hostOptions" :key="item" :label="item" :value="item" />
-                </el-select>
+                <cute-remind-select
+                  v-model="conditions.host_copy_copy"
+                  :options="hostOptions"
+                  title="主机"
+                  placeholder="请选择主机"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="8">
               <el-form-item prop="env_copy_copy">
-                <el-select v-model="conditions.env_copy_copy" placeholder="请选择所属环境">
-                  <el-option v-for="item in envOptions" :key="item" :label="item" :value="item" />
-                </el-select>
+                <cute-remind-select
+                  v-model="conditions.env_copy_copy"
+                  :options="envOptions"
+                  title="所属环境"
+                  placeholder="请选择所属环境"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="8" class="mb-16">
@@ -88,14 +110,14 @@
           <el-button class="ml-12">次按钮</el-button>
         </div>
         <div class="table-tools__right">
-          <div class="table-tools__right__button__txt" @click="download">
-            <svg-icon name="vertical-align-bottom" />
-            <span class="ml-6">下载</span>
-          </div>
-          <div class="table-tools__right__button__txt ml-22" @click="exportFile">
+          <el-button type="text" plain @click="download">
+            <svg-icon name="download" />
+            <span>下载</span>
+          </el-button>
+          <el-button type="text" plain @click="exportFile">
             <svg-icon name="export" />
-            <span class="ml-6">导出</span>
-          </div>
+            <span>导出</span>
+          </el-button>
         </div>
       </div>
     </div>
@@ -114,7 +136,9 @@
       <el-table-column prop="disk" label="磁盘利用率(%)" />
       <el-table-column prop="health" label="健康状态">
         <template slot-scope="{ row }">
-          <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+          <span class="health-state">
+            <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+          </span>
         </template>
       </el-table-column>
       <el-table-column prop="actions" label="操作" width="200" fixed="right" class-name="actions">
@@ -236,7 +260,13 @@ export default class extends Vue {
   private async getHosts() {
     try {
       const res = await getHosts()
-      this.hostOptions = res.data
+      const options = res.data.map(item => {
+        return {
+          value: item,
+          label: item,
+        }
+      })
+      this.hostOptions = options
     } catch (e) {
       this.$message.error(e)
     }
@@ -248,7 +278,13 @@ export default class extends Vue {
   private async getEnvs() {
     try {
       const res = await getEnvs()
-      this.envOptions = res.data
+      const options = res.data.map(item => {
+        return {
+          value: item,
+          label: item,
+        }
+      })
+      this.envOptions = options
     } catch (e) {
       this.$message.error(e)
     }
@@ -366,10 +402,15 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.health-state {
+  display: inline-flex;
+  align-items: center;
+}
+
 .health-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   margin-right: 8px;
   border-radius: 100%;
 

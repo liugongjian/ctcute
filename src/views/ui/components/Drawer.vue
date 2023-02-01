@@ -114,52 +114,53 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.sub-drawer .first-tag {
-  margin: 0 8px 0 16px;
-}
-
-.sub-tags {
-  display: flex;
-  align-items: center;
-
-  ::v-deep.el-form-item__label {
-    padding: 0 !important;
+.sub-drawer {
+  .first-tag {
+    margin: 0 8px 0 16px;
   }
-}
+  .sub-tags {
+    display: flex;
+    align-items: center;
 
-.sub-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  p {
-    flex: 1;
-    padding: 30px;
-    font-size: 14px;
-    color: $text-color-primary;
-    font-weight: 400;
-  }
-
-  .el-form {
-    flex: 1;
-    padding: 24px 24px 52px;
-    font-size: 14px;
-
-    .tip {
-      width: 100%;
+    ::v-deep.el-form-item__label {
+      padding: 0 !important;
     }
   }
-
-  .sub-foot {
-    position: fixed;
-    bottom: 0;
-    width: 30%;
-    padding: 10px 0;
+  .sub-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: $color-grey-9;
+    flex-direction: column;
+
+    p {
+      flex: 1;
+      padding: 30px;
+      font-size: 14px;
+      color: $text-color-primary;
+      font-weight: 400;
+    }
+
+    .el-form {
+      flex: 1;
+      padding: 24px 24px 52px;
+      font-size: 14px;
+
+      .tip {
+        width: 100%;
+      }
+    }
+
+    .sub-foot {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $color-grey-9;
+    }
   }
 }
 </style>

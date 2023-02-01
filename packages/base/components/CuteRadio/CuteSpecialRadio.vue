@@ -2,18 +2,17 @@
  * @Author: 马妍
  * @Date: 2022-07-15 10:12:49
  * @LastEditors: 马妍
- * @LastEditTime: 2022-10-20 15:47:16
+ * @LastEditTime: 2022-12-15 21:08:45
  * @Description:
 -->
 <template>
   <div class="special-radio">
-    <el-radio-group :value="value" :size="size">
+    <el-radio-group :value="value" :size="size" @input="myChange">
       <el-radio-button
         v-for="(item, i) in options"
         :key="i"
         :label="item.label"
         :disabled="item.disabled"
-        @change="myChange($event)"
       ></el-radio-button>
     </el-radio-group>
   </div>

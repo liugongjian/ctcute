@@ -5,16 +5,8 @@
       "path": "@/views/page/Table/ProTable6.vue"
     },
     {
-      "name": "ProTable6.d.ts",
-      "path": "@/types/ProTable6.d.ts"
-    },
-    {
       "name": "api/proTable6.ts",
       "path": "@/api/proTable6.ts"
-    },
-    {
-      "name": "dics/proTable6.ts",
-      "path": "@/dics/proTable6.ts"
     }
   ]
 }

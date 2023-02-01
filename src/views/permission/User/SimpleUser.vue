@@ -104,7 +104,7 @@
       <el-scrollbar
         ref="scrollBar"
         class="medium-dialog--scroll"
-        :wrap-style="{ maxHeight: isFullscreen ? '100%' : '461px', width: '100%' }"
+        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '461px' }]"
       >
         <div class="medium-dialog--content">
           <el-form :model="roleDataForm" label-width="80px">

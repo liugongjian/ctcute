@@ -77,7 +77,8 @@ export default class extends Vue {
         window.open('https://cloud.ctcdn.cn/s/LPtSGxCiHAcibEe')
         break
       case 2:
-        window.open('https://cloud.ctcdn.cn/s/3p5eTTn9J8FaRC3')
+        // window.open('https://cloud.ctcdn.cn/s/3p5eTTn9J8FaRC3')
+        window.open('https://cloud.ctcdn.cn/s/fR3YnW3BBXxrcH5')
         break
       case 3:
         window.open('http://fed.ctyuncdn.cn/page/chart')

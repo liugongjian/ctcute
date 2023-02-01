@@ -370,7 +370,7 @@ export default class extends Vue {
 }
 
 .node-icon {
-  color: $color-grey-5;
+  color: $color-grey-3;
 
   .svg-icon {
     display: none;
@@ -384,7 +384,7 @@ export default class extends Vue {
 
 .is-expanded > .el-tree-node__content {
   .node-icon {
-    color: $color-grey-5;
+    color: $color-grey-3;
 
     .svg-icon {
       display: none;
@@ -400,7 +400,7 @@ export default class extends Vue {
   .node-content,
   .node-icon,
   .handler-icon {
-    color: $color-white;
+    //color: $color-white;
   }
 }
 
@@ -418,13 +418,13 @@ export default class extends Vue {
     }
 
     .handler-icon {
-      color: $color-grey-5;
+      color: $color-grey-3;
     }
   }
 
   &:hover {
     .handler-menu {
-      display: block;
+      display: flex;
     }
   }
 }

@@ -1,30 +1,33 @@
 <template>
-  <div>
+  <div class="table-column-settings">
     <!-- 列设置选择表单 -->
     <el-popover
       placement="bottom-end"
       trigger="click"
-      class="table-column-settings__popover"
+      popper-class="table-column-settings__popover"
       @show="handlePopoverShow"
       @hide="handlePopoverHide"
     >
       <!-- 固定的，用来全选 -->
-      <el-checkbox v-model="allSelected" label="全选" @change="handleSelectedChange"></el-checkbox>
+      <el-checkbox v-model="allSelected" label="全选" @change="handleSelectedChange" />
       <!-- 分割线 -->
-      <el-divider class="table-column-settings__divider"></el-divider>
+      <el-divider class="table-column-settings__popover__divider" />
       <!-- 列出全部选项 -->
-      <el-checkbox-group v-model="selectedColumns" class="table-column-settings__label-group">
-        <el-checkbox v-for="v in tableColumns" :key="v.label" :label="v.label" :disabled="v.isDisabled">
-        </el-checkbox>
+      <el-checkbox-group v-model="selectedColumns" class="table-column-settings__popover__label-group">
+        <el-checkbox v-for="v in tableColumns" :key="v.label" :label="v.label" :disabled="v.isDisabled" />
       </el-checkbox-group>
-
       <!-- 列设置图标 -->
-      <div slot="reference" :class="['head-title', { 'table-column-settings__svg--active': popoverShow }]">
-        <svg-icon name="setting" width="14" height="14" class="table-column-settings__svg" />
-        <span>列设置</span>
+      <div slot="reference" class="table-column-settings__btns">
+        <el-button
+          type="text"
+          plain
+          :class="['table-column-settings__btn', { 'table-column-settings__btn--active': popoverShow }]"
+        >
+          <svg-icon name="setting" />
+          列设置
+        </el-button>
       </div>
     </el-popover>
-
     <!-- 表格 -->
     <el-table
       ref="tableRef"
@@ -173,35 +176,13 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .table-column-settings {
-  &__popover {
-    float: right;
-    cursor: pointer;
-
-    .head-title {
-      margin-bottom: 13px;
-    }
+  &__btns {
+    display: flex;
+    justify-content: right;
   }
 
-  &__divider {
-    margin: 10px 0 !important;
-  }
-
-  &__label-group {
-    max-height: 300px;
-    overflow: auto;
-
-    label {
-      margin-bottom: 10px;
-      display: block;
-    }
-  }
-
-  &__svg {
-    margin-right: 6px;
-  }
-
-  &__svg--active {
-    color: $color-master-3;
+  &__btn--active {
+    color: $color-master-3 !important;
   }
 
   &-paginationContainer {
@@ -210,6 +191,41 @@ export default class extends Vue {
 
   &__page {
     float: right;
+  }
+}
+</style>
+<style lang="scss">
+// TODO 讨论：自定义全局样式
+.table-column-settings__popover {
+  min-width: 190px;
+  padding: 0;
+
+  &__divider {
+    margin: 0;
+  }
+
+  &__label-group {
+    max-height: 300px;
+    overflow: auto;
+  }
+
+  label.el-checkbox {
+    display: block;
+    margin: 5px 0;
+    height: 30px;
+    line-height: 30px;
+
+    .el-checkbox__inner {
+      margin-left: 12px;
+    }
+
+    &:hover:not(.is-disabled) {
+      background-color: $color-master-7;
+
+      .el-checkbox__label {
+        color: $color-master-1;
+      }
+    }
   }
 }
 </style>

@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-11 16:23:57
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-07-18 13:38:46
+ * @LastEditTime: 2022-12-16 19:55:33
  * @Description: 卡片2
 -->
 <template>
@@ -26,13 +26,15 @@
     <div>
       <el-row :gutter="20">
         <el-col v-for="(card, index) in cardData" :key="index" :span="8">
-          <el-card shadow="hover" class="card-box-less">
+          <el-card
+            shadow="hover"
+            :class="[0, 1].includes(index) ? 'card-box active' : 'card-box'"
+            class="card-box-less"
+          >
             <div class="card-box">
               <div class="card-cont">
                 <div class="card-box--title">
-                  <div class="card-box--title-icon">
-                    <svg-icon name="detail-fill" width="14px" height="14px" />
-                  </div>
+                  <svg-icon name="question-circle-fill" width="24px" height="24px" />
                   <div class="card-box--title-text">
                     {{ card.title }}
                   </div>
@@ -48,27 +50,36 @@
                 <div class="card-box--info">
                   描述：
                   <div class="card-box--input">
-                    <cute-edit-input :value="card.remark" class="input-box" />
+                    <div class="card-box--input-text" v-if="index === 0">
+                      <span>{{ card.remark }}</span>
+                    </div>
+
+                    <cute-edit-input
+                      v-else
+                      :value="card.remark"
+                      class="input-box"
+                      @edit-input-save="editInputSave(index)"
+                      @edit-input-close="editInputClose(index)"
+                    />
                   </div>
                 </div>
               </div>
-              <div class="card-box--btns-less">
+              <div class="card-box--btns-less" :class="{ 'card-disabled': index === 0 }">
                 <div>
                   <svg-icon name="setting" />
                 </div>
                 <div>
                   <svg-icon name="eye" />
                 </div>
-                <!-- <div>
-                  <svg-icon name="edit" />
-                </div> -->
-                <div>
+                <div v-if="index === 0">
+                  <svg-icon name="ellipsis" />
+                </div>
+                <div v-else>
                   <el-dropdown>
                     <span class="el-dropdown-link">
                       <svg-icon name="ellipsis" />
                     </span>
                     <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>编辑</el-dropdown-item>
                       <el-dropdown-item>删除</el-dropdown-item>
                     </el-dropdown-menu>
                   </el-dropdown>
@@ -113,12 +124,72 @@ export default class extends Vue {
     try {
       this.loading = true
       const { data } = await getCardList()
-      this.cardData = data
+      this.cardData = data.map(item => {
+        item.editType = false
+        return item
+      })
+      console.log(this.cardData, 'this.cardData')
+      // 补充mockData数据
+      this.cardData.unshift(
+        ...[
+          {
+            deploy: 234,
+            editType: false,
+            remark: '内业资料上传合规性检验方法和字数很多很多内业资料上传合规性检验方法和字数很多很多',
+            size: 14,
+            title: '年计划审核',
+          },
+          {
+            deploy: 234,
+            editType: false,
+            remark: '这是一个描述这是一个短的描述',
+            size: 14,
+            title: '巡检上传合规性检验方法',
+          },
+          {
+            deploy: 234,
+            editType: false,
+            remark: '这是一个描述这是一个短的描述',
+            size: 14,
+            title: '封道管理上传',
+          },
+          {
+            deploy: 234,
+            editType: false,
+            remark: '这是一个描述这是一个短的描述',
+            size: 14,
+            title: '内业资料上传合规性检验方法和字数很多很多内业资料上传合规性检验方法和字数很多很多',
+          },
+          {
+            deploy: 234,
+            editType: true,
+            remark: '这是一个描述这是一个短的描述',
+            size: 14,
+            title: '年计划审核',
+          },
+          {
+            deploy: 234,
+            editType: false,
+            remark: '这是一个描述这是一个短的描述',
+            size: 14,
+            title: '封道管理上传',
+          },
+        ]
+      )
     } finally {
       this.loading = false
     }
   }
 
+  private handleEdit(index) {
+    this.cardData[index].editType = true
+  }
+  private editInputSave(index) {
+    this.cardData[index].editType = false
+  }
+  private editInputClose(index) {
+    this.cardData[index].editType = false
+  }
   /**
    * 搜索表单
    */

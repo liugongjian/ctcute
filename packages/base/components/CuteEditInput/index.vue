@@ -1,3 +1,10 @@
+<!--
+ * @Author: 孙善鹏
+ * @Date: 2022-10-11 15:06:30
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2022-12-14 17:06:08
+ * @Description: 
+-->
 <template>
   <span v-if="!editing"
     >{{ syncedValue }} <svg-icon class="edit-input-icon" name="edit" @click="editing = true"
@@ -46,11 +53,13 @@ export default class extends Vue {
 
 .wrap {
   width: 100%;
+  height: 100%;
   display: inline-block;
 
   .el-input,
   .el-textarea {
     width: calc(100% - 84px);
+    height: 100%;
     margin-right: 10px;
   }
 
@@ -64,5 +73,8 @@ export default class extends Vue {
     margin-right: 4px;
     vertical-align: sub;
   }
+}
+::v-deep textarea {
+  height: 100%;
 }
 </style>

@@ -3,6 +3,7 @@ import Step from './Steps/Step.vue'
 import Alert from './Alert/index.vue'
 import Collapse from './Collapse/index.vue'
 import Rate from './Rate/index.vue'
+import ColorPicker from './ColorPicker/index.vue'
 
 export default {
   install(Vue) {
@@ -11,6 +12,7 @@ export default {
     Vue.component(Alert.name, Alert)
     Vue.component(Collapse.name, Collapse)
     Vue.component(Rate.name, Rate)
+    Vue.component(ColorPicker.name, ColorPicker)
   },
 }
-export { Steps, Step, Alert, Collapse, Rate }
+export { Steps, Step, Alert, Collapse, Rate, ColorPicker }

@@ -2,7 +2,7 @@
  * @Author: 黄璐璐
  * @Date: 2022-07-13 13:41:05
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-10-18 14:11:23
+ * @LastEditTime: 2023-01-30 10:26:08
  * @Description: 添加用户
 -->
 <template>
@@ -17,7 +17,7 @@
       <el-scrollbar
         ref="scrollBar"
         class="medium-dialog--scroll"
-        :wrap-style="{ maxHeight: isFullscreen ? '100%' : '461px', width: '100%' }"
+        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '521px' }]"
       >
         <div class="medium-dialog--content">
           <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">

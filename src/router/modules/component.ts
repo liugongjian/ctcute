@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 王月功
- * @LastEditTime: 2022-11-30 09:25:20
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-01-04 16:52:44
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -12,7 +12,7 @@ const componentRoutes = [
   {
     path: '/component/base',
     component: Layout,
-    redirect: '/component/base/cute-redmind-select',
+    redirect: '/component/biz/vss-video-player',
     meta: {
       title: '基础组件',
       alwaysShow: true,
@@ -20,7 +20,7 @@ const componentRoutes = [
     },
     children: [
       {
-        path: 'cute-redmind-select',
+        path: 'cute-remind-select',
         name: 'CuteRemindSelect',
         component: () => import('@/views/component/Base/CuteRemindSelect/index.vue'),
         meta: {
@@ -134,12 +134,21 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
-       {
+      {
         path: 'cute-steps-multi',
         name: 'CuteSteps',
         component: () => import('@/views/component/Base/CuteStepsMulti/index.vue'),
         meta: {
           title: 'CuteStepsMulti',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-distribution-bar',
+        name: 'CuteDistributionBar',
+        component: () => import('@/views/component/Base/CuteDistributionBar/index.vue'),
+        meta: {
+          title: 'CuteDistributionBar',
           breadcrumb: true,
         },
       },
@@ -159,6 +168,23 @@ const componentRoutes = [
         meta: {
           title: 'ElCollapse',
           breadcrumb: true,
+        },
+      },
+      {
+        path: 'el-color-picker',
+        name: 'ElColorPicker',
+        component: () => import('@/views/component/Base/ElColorPicker/index.vue'),
+        meta: {
+          title: 'ElColorPicker',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'vxe-table',
+        name: 'VxeTable',
+        component: () => import('@/views/component/Base/VxeTable/index.vue'),
+        meta: {
+          title: 'VxeTable',
         },
       },
     ],
@@ -205,6 +231,33 @@ const componentRoutes = [
         component: () => import('@/views/component/Biz/Markdown/index.vue'),
         meta: {
           title: 'Markdown',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'markdown-book',
+        name: 'MarkdownBook',
+        component: () => import('@/views/component/Biz/MarkdownBook/index.vue'),
+        meta: {
+          title: 'MarkdownBook',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'ct-log',
+        name: 'CtLog',
+        component: () => import('@/views/component/Biz/CtLog/index.vue'),
+        meta: {
+          title: 'CtLog',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'ct-monaco',
+        name: 'CtMonaco',
+        component: () => import('@/views/component/Biz/CtMonaco/index.vue'),
+        meta: {
+          title: 'CtMonaco',
           breadcrumb: true,
         },
       },

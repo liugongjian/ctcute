@@ -1,8 +1,8 @@
 <!--
  * @Author: 赵丹
  * @Date: 2022-07-08 14:18:41
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-08 15:51:52
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2022-12-16 19:50:09
  * @Description: 卡片3
 -->
 <template>
@@ -13,18 +13,20 @@
       </div>
       <el-row :gutter="20" class="card-box">
         <el-col v-for="(item, index) in cardData" :key="index" :span="12">
-          <el-card shadow="hover">
+          <el-card shadow="hover" :class="index === 0 ? 'card-box active' : 'card-box'">
             <div class="card-box__info">
               <div class="card-box__info__header">
                 <div class="card-box__info__title">
-                  <span class="card-box__info__avatar"></span>
+                  <span class="card-box__info__avatar">
+                    <svg-icon name="question-circle-fill" width="24px" height="24px" />
+                  </span>
                   <span class="card-box__info__name">{{ item.name }}</span>
                   <span class="card-box__info__version">
                     支持版本号:
                     <span class="card-box__info__version__num">{{ item.version }}</span>
                   </span>
                 </div>
-                <div class="card-box__info__handle">
+                <div class="card-box__info__handle" :class="{ 'card-disabled': index === 0 }">
                   <svg-icon name="edit" />
                   <svg-icon name="delete" />
                 </div>

@@ -133,6 +133,24 @@ const docRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'headerLogo',
+        component: () => import('@/views/doc/BestPractice/HeaderLogo.vue'),
+        name: 'HeaderLogo',
+        meta: {
+          title: 'HeaderLogo 头部Logo',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'menuIcon',
+        component: () => import('@/views/doc/BestPractice/MenuIcon.vue'),
+        name: 'MenuIcon',
+        meta: {
+          title: 'MenuIcon 菜单Icon',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 资源

@@ -1,8 +1,8 @@
 <!--
- * @Author: 
- * @Date:
+ * @Author: 邱文琦
+ * @Date: 2022-10-11 13:30
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-01-12 20:10:12
+ * @LastEditTime: 2023-02-01 15:33:01
  * @Description: 首页
 -->
 <template>
@@ -764,7 +764,7 @@ export default class extends Vue {
         x: '49%',
         y: '30%',
         textStyle: {
-          fontFamily: 'din-bold',
+          fontFamily: 'bahnschrift',
           fontSize: 26,
           fontWeight: 400,
         },
@@ -1359,11 +1359,13 @@ export default class extends Vue {
                 color: this.variables.colorGrey1,
                 padding: [-25, 3, 1, -8],
                 fontSize: 26,
-                fontFamily: 'din-bold',
+                fontFamily: 'bahnschrift',
+                fontWeight: 'bold',
               },
               b: {
                 color: this.variables.colorGrey2,
-                fontFamily: 'din-bold',
+                fontFamily: 'bahnschrift',
+                fontWeight: 'bold',
                 padding: [4, 0, 0, -4],
                 fontSize: 14,
                 // padding: [0, 10],
@@ -1376,7 +1378,8 @@ export default class extends Vue {
             show: false,
           },
           textStyle: {
-            fontFamily: 'din-bold',
+            fontFamily: 'bahnschrift',
+            fontWeight: 'bold',
           },
           data: [
             {
@@ -1421,7 +1424,7 @@ export default class extends Vue {
                 color: this.variables.colorGrey1,
                 padding: [-25, 3, 1, -8],
                 fontSize: 26,
-                fontFamily: 'din-bold',
+                fontFamily: 'bahnschrift',
               },
               b: {
                 color: this.variables.colorGrey1,
@@ -1714,12 +1717,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: 'din-bold';
-  src: url('../../../assets/din-bold.ttf');
-  font-stretch: 'normal';
-  font-weight: 400;
-}
 .header {
   .el-card {
     display: flex;
@@ -1750,7 +1747,8 @@ export default class extends Vue {
       .chart-card-count-warp {
         h3 {
           padding: 4px 0;
-          font-family: 'din-bold';
+          font-family: 'bahnschrift';
+          font-weight: bold;
         }
       }
     }
@@ -1994,10 +1992,10 @@ export default class extends Vue {
     height: calc(100% - 32px);
 
     .chart-box {
-      height: calc(100% + 6px);
+      height: calc(100% - 14px);
 
       .sub-table {
-        height: calc(100% - 40px);
+        height: calc(100% - 43px);
 
         th {
           padding: 0 !important;
@@ -2080,7 +2078,8 @@ export default class extends Vue {
       letter-spacing: 0;
       font-weight: 400;
       font-size: 26px;
-      font-family: 'din-bold';
+      font-family: 'bahnschrift';
+      font-weight: bold;
     }
     .access-rate {
       display: flex;

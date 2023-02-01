@@ -2,11 +2,26 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-08 10:16:32
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-12-09 16:00:20
+ * @LastEditTime: 2023-02-01 17:27:09
  * @Description:
 -->
 
 # 一、版本日志
+
+## v1.1.4
+
+- 新增
+  - ColorPicker 组件样式
+  - $margin-large: 20px 变量
+- 修改
+  - alert 组件去除 border
+  - 侧边菜单栏样式修改，$sidebar-width 调整为 240px
+  - 头部 logo 图表和文字兼容
+  - .el-form--inline .el-form-item 重置为$margin-large
+  - 调整日期选择器 sidebar 宽度
+  - 去掉无关的强制样式
+  - 修复 tree 在 windows 上不兼容的问题
+  - 修复 select 在 win 下被遮挡边框的 bug
 
 ## v1.1.3
 

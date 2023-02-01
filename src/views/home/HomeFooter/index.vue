@@ -68,7 +68,7 @@ export default class extends Vue {
         window.open('http://172.21.65.214:888/')
         break
       case 2:
-        window.open('http://fed.ctyuncdn.cn/')
+        window.open('https://blog.fed.ctcdn.cn/')
         break
       case 3:
         window.open('http://fed.ctyuncdn.cn:8088')

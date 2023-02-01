@@ -97,15 +97,6 @@ export default class extends Vue {
             {
               text: '新增ColorPicker',
             },
-            {
-              text: '修改color picker高亮阴影',
-            },
-            {
-              text: 'ColorPicker组件文件重命名',
-            },
-            {
-              text: '重命名Predfine.vue -> PredefinePanel.vue',
-            },
           ],
         },
         {
@@ -2217,7 +2208,7 @@ export default class extends Vue {
       padding-bottom: 5px;
     }
 
-    .el-link+.el-link {
+    .el-link + .el-link {
       margin-left: 20px;
     }
   }

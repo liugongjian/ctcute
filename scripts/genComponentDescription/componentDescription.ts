@@ -150,6 +150,14 @@ const componentDescription = [
 	},
 	{
 		"name": "Demo1",
+		"descriptionInfo": "Author:  朱凌浩\nDate:  2023-01-11 14:18:32\nLastEditors:  朱凌浩\nLastEditTime:  2023-01-11 14:18:32\nDescription:  仅显示预定义颜色\n"
+	},
+	{
+		"name": "ElColorPicker",
+		"descriptionInfo": "Author:  朱凌浩\nDate:  2023-01-11 14:18:32\nLastEditors:  朱凌浩\nLastEditTime:  2023-01-11 14:18:32\nDescription:  此为直接覆写element-ui的组件，el-color-picker原有的属性和事件未变，下面只列出新增/有改动的部分\n"
+	},
+	{
+		"name": "Demo1",
 		"descriptionInfo": "Author:  fanzhengle\nDate:  2022-12-03 11:18:32\nLastEditors:  范郑乐\nLastEditTime:  2022-12-13 11:18:32\nDescription: \n"
 	},
 	{
@@ -207,6 +215,22 @@ const componentDescription = [
 	{
 		"name": "VxeTable",
 		"descriptionInfo": "Author:  fanzhengle\nDate:  2022-12-03 11:18:32\nLastEditors:  范郑乐\nLastEditTime:  2022-12-13 11:18:32\nDescription: \n"
+	},
+	{
+		"name": "Demo1",
+		"descriptionInfo": "Description: \nAuthor:  甘雨涛\nDate:  2022-12-28 15:41:27\nLastEditTime:  2022-12-28 20:03:25\nLastEditors:  甘雨涛\n"
+	},
+	{
+		"name": "CtLog",
+		"descriptionInfo": "Description: \nAuthor:  甘雨涛\nDate:  2022-12-28 13:41:27\nLastEditTime:  2022-12-28 20:03:27\nLastEditors:  甘雨涛\n"
+	},
+	{
+		"name": "Demo1",
+		"descriptionInfo": "Description: \nAuthor:  甘雨涛\nDate:  2023/1/11 15:50\nLastEditors:  甘雨涛\n"
+	},
+	{
+		"name": "CtMonaco",
+		"descriptionInfo": "Description: \nAuthor:  甘雨涛\nDate:  2023/1/11 15:52\nLastEditors:  甘雨涛\n"
 	},
 	{
 		"name": "Demo1",

@@ -14,7 +14,11 @@ const pageDescription = [
 	},
 	{
 		"name": "SimpleChart",
-		"descriptionInfo": "Author:  孙善鹏\nDate:  2022-07-14 19:41:25\nLastEditors:  胡一苗\nLastEditTime:  2022-12-19 10:18:20\nDescription:  基础图表\n"
+		"descriptionInfo": "Author:  孙善鹏\nDate:  2022-07-14 19:41:25\nLastEditors:  孙善鹏\nLastEditTime:  2023-01-30 09:43:08\nDescription:  基础图表\n"
+	},
+	{
+		"name": "Dashboard",
+		"descriptionInfo": "Author:  邱文琦\nDate:  2022-10-11 13:30\nLastEditors:  孙善鹏\nLastEditTime:  2023-02-01 15:33:01\nDescription:  首页\n"
 	},
 	{
 		"name": "ProDetail1",
@@ -38,7 +42,11 @@ const pageDescription = [
 	},
 	{
 		"name": "MediumDialog",
-		"descriptionInfo": "Author:  秦瑞斌\nDate:  2022-07-13 13:41:05\nLastEditors:  胡一苗\nLastEditTime:  2022-12-20 13:51:57\nDescription:  中弹窗\n"
+		"descriptionInfo": "Author:  秦瑞斌\nDate:  2022-07-13 13:41:05\nLastEditors:  黄璐璐\nLastEditTime:  2023-01-30 10:27:48\nDescription:  中弹窗\n"
+	},
+	{
+		"name": "MediumDialog2",
+		"descriptionInfo": "Author:  zhaodan\nDate:  2023-01-06 14:40:32\nLastEditors:  zhaodan\nLastEditTime:  2023-01-09 14:12:23\nDescription:  中弹窗2\n"
 	},
 	{
 		"name": "ProMediumDialog",
@@ -106,43 +114,43 @@ const pageDescription = [
 	},
 	{
 		"name": "ProTable1",
-		"descriptionInfo": "Author:  马妍\nDate:  2022-07-14 19:41:25\nLastEditors:  胡一苗\nLastEditTime:  2022-12-13 17:59:04\nDescription:  复杂表格1\n"
+		"descriptionInfo": "Author:  马妍\nDate:  2022-07-14 19:41:25\nLastEditors:  庄晓欣\nLastEditTime:  2023-01-10 12:40:27\nDescription:  复杂表格1\n"
 	},
 	{
 		"name": "ProTable2",
-		"descriptionInfo": "Author:  马妍\nDate:  2022-07-14 19:41:25\nLastEditors:  马妍\nLastEditTime:  2022-12-16 13:31:44\nDescription:  复杂表格2\n"
+		"descriptionInfo": "Author:  马妍\nDate:  2022-07-14 19:41:25\nLastEditors:  庄晓欣\nLastEditTime:  2023-01-17 16:31:50\nDescription:  复杂表格2\n"
 	},
 	{
 		"name": "ProTable3",
-		"descriptionInfo": "Author:  张晨曦\nDate:  2022-07-10 13:13:36\nLastEditors:  胡一苗\nLastEditTime:  2022-12-13 18:06:45\nDescription:  复杂表格3\n"
+		"descriptionInfo": "Author:  张晨曦\nDate:  2022-07-10 13:13:36\nLastEditors:  庄晓欣\nLastEditTime:  2023-01-10 14:17:50\nDescription:  复杂表格3\n"
 	},
 	{
 		"name": "ProTable4",
-		"descriptionInfo": "Author:  肖仁\nDate:  2022-07-12 16:20:34\nLastEditors:  胡一苗\nLastEditTime:  2022-12-13 18:06:45\nDescription:  复杂表格4\n"
+		"descriptionInfo": "Author:  肖仁\nDate:  2022-07-12 16:20:34\nLastEditors:  庄晓欣\nLastEditTime:  2023-01-10 14:22:15\nDescription:  复杂表格4\n"
 	},
-		{
+	{
 		"name": "ProTable5",
 		"descriptionInfo": "Author:  黄靖\nDate:  2023-01-10 16:45:36\nLastEditors:  黄靖\nLastEditTime:  2023-01-10 16:45:36\nDescription:  复杂表格5\n"
 	},
 	{
 		"name": "ProTable6",
-		"descriptionInfo": "Author:  秦瑞斌\nDate:  2022-10-21 13:41:25\nLastEditors:  胡一苗\nLastEditTime:  2022-12-13 18:13:39\nDescription:  复杂表格6\n"
+		"descriptionInfo": "Author:  秦瑞斌\nDate:  2022-11-11 13:41:25\nLastEditors:  钟有承\nLastEditTime:  2023-01-11 16:38:51\nDescription:  复杂表格6\n"
 	},
 	{
 		"name": "ProTable7",
-		"descriptionInfo": "Author:  秦瑞斌\nDate:  2022-11-11 13:41:25\nLastEditors:  秦瑞斌\nLastEditTime:  2022-11-11 16:03:51\nDescription:  复杂表格7\n"
+		"descriptionInfo": "Author:  秦瑞斌\nDate:  2022-10-21 13:41:25\nLastEditors:  钟有承\nLastEditTime:  2023-01-11 16:38:51\nDescription:  复杂表格7\n"
 	},
 	{
 		"name": "ScrolledToLoadTable",
-		"descriptionInfo": "Author:  朱凌浩\nDate:  2022-07-26 15:13:36\nLastEditors:  胡一苗\nLastEditTime:  2022-12-13 18:13:39\nDescription:  基础表格 - 滚动底部加载\n"
+		"descriptionInfo": "Author:  朱凌浩\nDate:  2022-07-26 15:13:36\nLastEditors:  庄晓欣\nLastEditTime:  2023-01-10 14:23:01\nDescription:  基础表格 - 滚动底部加载\n"
 	},
 	{
 		"name": "SimpleTable",
-		"descriptionInfo": "Author:  朱凌浩\nDate:  2022-06-18 13:13:36\nLastEditors:  胡一苗\nLastEditTime:  2022-12-13 18:13:39\nDescription:  基础表格\n"
+		"descriptionInfo": "Author:  朱凌浩\nDate:  2022-06-18 13:13:36\nLastEditors:  庄晓欣\nLastEditTime:  2023-01-10 10:34:01\nDescription:  基础表格\n"
 	},
 	{
 		"name": "SimpleTable2",
-		"descriptionInfo": "Author:  朱凌浩\nDate:  2022-06-18 13:13:36\nLastEditors:  胡一苗\nLastEditTime:  2022-12-13 18:13:39\nDescription:  基础表格\n"
+		"descriptionInfo": "Author:  朱凌浩\nDate:  2022-06-18 13:13:36\nLastEditors:  庄晓欣\nLastEditTime:  2023-01-10 12:38:36\nDescription:  基础表格\n"
 	},
 	{
 		"name": "TsDemo",

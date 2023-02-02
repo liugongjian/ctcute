@@ -1,0 +1,258 @@
+/* Table
+-------------------------- */
+.el-table-filter {
+
+  .el-table-filter__content,
+  .el-table-filter__bottom {
+    background: $color-bg-1;
+    box-shadow: 0 2px 8px 0 $color-bg-3;
+  }
+}
+
+.el-table__column-filter-trigger {
+  .el-icon-arrow-down::before {
+    font-family: 'cute-icons' !important;
+    content: '\eb5c' !important;
+    color: $color-grey-3;
+  }
+
+  .el-icon-arrow-up::before {
+    font-family: 'cute-icons' !important;
+    content: '\ea80' !important;
+    color: $color-grey-3;
+  }
+}
+
+.el-table-filter {
+  background-color: $color-form-component-bg;
+  box-shadow: 0 2px 8px 0 $color-body-bg;
+}
+
+.el-table-filter__content {
+  min-width: 190px;
+}
+
+.el-table-filter__checkbox-group {
+  padding: 0;
+}
+
+.el-table-filter__bottom {
+  padding-top: 12px;
+}
+
+.el-table-filter__checkbox-group .el-checkbox:first-child {
+  margin-top: 5px;
+}
+
+.el-table-filter__checkbox-group .el-checkbox:last-child {
+  margin-bottom: 5px;
+}
+
+.el-table-filter__checkbox-group label.el-checkbox {
+  height: 30px;
+  margin: 0;
+  line-height: 30px;
+  margin-bottom: 5px;
+
+  &:hover {
+    background-color: $color-master-7;
+
+    .el-checkbox__label {
+      color: $color-master-1;
+    }
+  }
+
+  .el-checkbox__inner {
+    margin-left: 12px;
+  }
+}
+
+.el-table__header-wrapper {
+  background-color: $table-header-fill;
+
+  .is-group {
+    line-height: 31px;
+  }
+}
+
+.el-table--border .el-table__cell {
+  border-right: 0px solid $border-color-primary;
+}
+
+.el-table__fixed::before,
+.el-table__fixed-right::before {
+  background-color: $border-color-primary;
+}
+
+.el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed,
+.el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed-right {
+  &::before {
+    background-color: transparent;
+  }
+}
+
+.el-table--border .el-table__cell:first-child .cell {
+  padding-left: 20px
+}
+
+.el-table__cell:last-child .cell {
+  padding-right: 20px;
+}
+
+.el-table .el-table__header tr,
+.el-table .el-table__header th {
+  background-color: $table-header-fill;
+
+  .el-table__cell {
+    padding: 0px;
+  }
+}
+
+.el-table--border .el-table__header tr,
+.el-table--border .el-table__header th {
+  border-right: 1px solid $color-bg-2;
+  background-color: $table-header-fill;
+
+  .el-table__cell {
+    padding: 0px;
+  }
+}
+
+.el-table--medium .el-table__cell {
+  padding: 9px 0;
+}
+
+.el-table .el-table__body-wrapper tr,
+.el-table .el-table__body-wrapper td {
+  .el-table__cell {
+    padding: 9px 0px;
+  }
+}
+
+.el-table--small .el-table__header tr,
+.el-table--small .el-table__header th {
+  .el-table__cell {
+    padding: 0px;
+  }
+}
+
+.el-table--small .el-table__body-wrapper tr,
+.el-table--small .el-table__body-wrapper th {
+  .el-table__cell {
+    padding: 5px;
+  }
+}
+
+.el-table .el-table__header tr,
+.el-table .el-table__header .el-table th.el-table-column--selection > .cell {
+  padding-left: 14px;
+}
+
+.el-table {
+  margin: 16px 0 10px 0;
+
+  .el-table__empty-block {
+    background-color: $color-bg-2;
+  }
+}
+
+.el-table .cell {
+  font-size: $text-size-primary;
+
+  span {
+    font-size: $text-size-primary;
+  }
+}
+
+.el-table .caret-wrapper {
+  height: inherit;
+}
+
+.el-table th.el-table__cell > .cell {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.el-table .sort-caret {
+  border: solid 4px transparent;
+}
+
+.el-table .sort-caret.ascending {
+  border-bottom-color: $table-sort-caret-fill;
+  top: -10px;
+}
+
+.el-table .sort-caret.descending {
+  border-top-color: $table-sort-caret-fill;
+  bottom: -8px;
+}
+
+.el-table--border {
+  border: 0px;
+}
+
+.el-table::before,
+.el-table--group::after,
+.el-table--border::after {
+  content: '';
+  position: absolute;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.el-table .el-icon-arrow-down:before {
+  content: '\e790';
+}
+
+.el-table--group {
+  border-left: 1px solid $border-color-primary;
+  border-top: 1px solid $border-color-primary;
+  border-right: 1px solid $border-color-primary;
+  border-bottom-color: $border-color-primary;
+
+  .el-table__body {
+    td {
+      border-right: 1px solid $border-color-primary;
+    }
+  }
+}
+
+.el-table thead.is-group th.el-table__cell {
+  border-color: $border-color-primary;
+  background: $color-grey-11;
+}
+
+.el-table thead.is-group td.el-table__cell {
+  border-color: $border-color-primary;
+}
+
+.el-table thead {
+  color: $color-grey-2;
+}
+
+.el-table {
+  background-color: $color-bg-2;
+  color: $color-grey-1;
+
+  tr {
+    background-color: $color-bg-2;
+  }
+}
+
+.el-table__body-wrapper .el-table__row .el-table__expand-icon .el-icon-arrow-right::before {
+  content: '\e791';
+  color: $color-grey-3;
+}
+
+.el-table [class*=el-table__row--level] .el-table__expand-icon {
+  // margin-left: -3px;
+  margin-right: 0;
+}
+
+.el-table__row.expanded.el-table__row--level-0 .el-table__expand-icon {
+  margin-left: -20px;
+}
+
+.el-table__row:not(.el-table__row--level-0) .el-table__indent {
+  margin-left: -20px;
+}

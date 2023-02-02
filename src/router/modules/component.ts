@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-01-04 16:52:44
+ * @LastEditTime: 2023-02-02 12:06:52
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -12,7 +12,7 @@ const componentRoutes = [
   {
     path: '/component/base',
     component: Layout,
-    redirect: '/component/biz/vss-video-player',
+    redirect: '/component/base/cute-remind-select',
     meta: {
       title: '基础组件',
       alwaysShow: true,
@@ -192,6 +192,7 @@ const componentRoutes = [
   {
     path: '/component/biz',
     component: Layout,
+    redirect: '/component/biz/vss-video-player',
     meta: {
       title: '业务组件',
       alwaysShow: true,

@@ -1,8 +1,8 @@
 /*
  * @Author: 马妍
  * @Date: 2022-07-29 10:25:03
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-10 13:47:51
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-02-02 12:06:17
  * @Description:
  */
 import Vue from 'vue'
@@ -78,7 +78,7 @@ const base = [
   },
   {
     path: '/component',
-    redirect: '/component/base',
+    redirect: '/component/biz',
     meta: { hidden: true },
   },
 ]

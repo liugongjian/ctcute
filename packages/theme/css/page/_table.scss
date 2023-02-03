@@ -199,7 +199,7 @@
 
       .el-input,
       .el-select {
-        min-width: 357px;
+        //min-width: 357px;
         width: 100%;
       }
 
@@ -390,7 +390,7 @@
 
         .el-input,
         .el-select {
-          width: 268px;
+          width: 240px;
         }
 
         &__buttons {
@@ -750,4 +750,8 @@
 
 .el-table__empty-block {
   border-bottom: 1px solid $border-color-primary;
+}
+
+.el-table__append-row {
+  border-bottom: 1px solid $color-grey-6;
 }

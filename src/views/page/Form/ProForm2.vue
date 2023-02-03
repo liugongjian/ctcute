@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2022-11-17 09:58:54
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2023-02-03 13:27:48
  * @Description: 复杂表单2
 -->
 <template>
@@ -197,13 +197,14 @@
                     <el-button type="text" @click="handleDelete(scope.row.id)">删除</el-button>
                   </template>
                 </el-table-column>
+                <template #append>
+                  <div class="el-table__append-row" style="margin-bottom: 24px">
+                    <el-button style="width: 100%; height: 42px" type="text" @click="addCondit">
+                      +添加条件
+                    </el-button>
+                  </div>
+                </template>
               </el-table>
-              <el-button
-                style="width: 100%; height: 42px; box-shadow: #555861 0 1px 0 0; margin-bottom: 24px"
-                type="text"
-                @click="addCondit"
-                >+添加条件</el-button
-              >
             </el-form-item>
           </template>
         </cute-titled-block>

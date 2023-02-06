@@ -29,7 +29,7 @@ import settings from '../../../settings'
   },
 })
 export default class extends Vue {
-  public logoIcon = settings.logoIcon
+  public logoIcon = settings.logoIcon || ''
   public logoText = settings.logoText || ''
   public isSvgName = false
   private toHome() {
@@ -37,7 +37,7 @@ export default class extends Vue {
   }
   private mounted() {
     // 若包含/说明是路径，否则是svgName
-    this.isSvgName = !settings.logoIcon.includes('/')
+    this.isSvgName = !settings.logoIcon?.includes('/')
   }
 }
 </script>

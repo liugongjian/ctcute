@@ -30,7 +30,7 @@ import settings from '../../../settings'
 })
 export default class extends Vue {
   public logoIcon = settings.logoIcon
-  public logoText = settings.logoText
+  public logoText = settings.logoText || ''
   public isSvgName = false
   private toHome() {
     this.$router.push('/')

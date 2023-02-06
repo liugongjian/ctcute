@@ -256,3 +256,9 @@
 .el-table__row:not(.el-table__row--level-0) .el-table__indent {
   margin-left: -20px;
 }
+
+.el-table__fixed-right{
+  &-patch{
+    background-color: $color-grey-8;
+  }
+}

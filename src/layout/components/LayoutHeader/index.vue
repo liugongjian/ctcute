@@ -48,7 +48,7 @@ export default class extends Vue {
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 1002;
+  z-index: 2001;
   height: $header-height;
   display: flex;
   justify-content: space-between;

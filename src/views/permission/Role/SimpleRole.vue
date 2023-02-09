@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-01-30 10:27:37
+ * @LastEditTime: 2023-02-06 17:50:27
  * @Description: 基础表格
 -->
 <template>
@@ -97,11 +97,12 @@
 
     <!--分页-->
     <el-pagination
-      :current-page="tableHook.pager.page"
-      :page-size="tableHook.pager.limit"
-      :total="tableHook.pager.total"
-      @size-change="tableHook.handleSizeChange"
-      @current-change="tableHook.handleCurrentChange"
+      class="pagination"
+      :current-page.sync="tableHook.pager.page"
+      :page-size.sync="tableHook.pager.limit"
+      :total="tableHook.total"
+      @size-change="() => tableHook.handleSizeChange(tableHook.pager.limit)"
+      @current-change="() => tableHook.handleCurrentChange(tableHook.pager.page)"
     />
   </el-card>
 </template>

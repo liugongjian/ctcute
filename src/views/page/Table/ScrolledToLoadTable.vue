@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-07-26 15:13:36
- * @LastEditors: 庄晓欣
- * @LastEditTime: 2023-01-10 14:23:01
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2023-02-06 17:49:27
  * @Description: 基础表格 - 滚动底部加载
 -->
 <template>
@@ -68,11 +68,12 @@
     </el-table>
     <!--分页-->
     <!-- <el-pagination
-      :current-page="tableHook.pager.page"
-      :page-size="tableHook.pager.limit"
+      class="pagination"
+      :current-page.sync="tableHook.pager.page"
+      :page-size.sync="tableHook.pager.limit"
       :total="tableHook.total"
-      @size-change="tableHook.handleSizeChange"
-      @current-change="tableHook.handleCurrentChange"
+      @size-change="() => tableHook.handleSizeChange(tableHook.pager.limit)"
+      @current-change="() => tableHook.handleCurrentChange(tableHook.pager.page)"
     /> -->
   </el-card>
 </template>

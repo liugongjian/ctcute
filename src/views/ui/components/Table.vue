@@ -459,11 +459,11 @@
       </cute-sort-table>
       <el-pagination
         class="pagination"
-        :current-page="tableHook.pager.page"
-        :page-size="tableHook.pager.limit"
+        :current-page.sync="tableHook.pager.page"
+        :page-size.sync="tableHook.pager.limit"
         :total="tableHook.total"
-        @size-change="tableHook.handleSizeChange"
-        @current-change="tableHook.handleCurrentChange"
+        @size-change="() => tableHook.handleSizeChange(tableHook.pager.limit)"
+        @current-change="() => tableHook.handleCurrentChange(tableHook.pager.page)"
       />
     </div>
     <h3>可在表头进行筛选的表格</h3>

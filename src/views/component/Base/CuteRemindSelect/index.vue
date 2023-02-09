@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-09-01 10:01:49
  * @LastEditors: 马妍
- * @LastEditTime: 2022-09-01 10:04:31
+ * @LastEditTime: 2023-02-09 17:52:42
  * @Description:
 -->
 <template>
@@ -65,6 +65,13 @@ export default class extends Vue {
       type: 'string',
       options: null,
       default: null,
+    },
+    {
+      name: 'multiple',
+      desc: '是否多选',
+      type: 'Boolean',
+      options: null,
+      default: 'false',
     },
   ]
 }

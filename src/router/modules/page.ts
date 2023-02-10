@@ -44,6 +44,16 @@ const indexPageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'simpleChart',
+        component: () => import(/* webpackChunkName: "simplechart" */ '@/views/page/Chart/SimpleChart.vue'),
+        name: 'SimpleChart',
+        meta: {
+          title: 'SimpleChart 基础图表',
+          breadcrumb: true,
+          hidden: true,
+        },
+      },
     ],
   },
 ]

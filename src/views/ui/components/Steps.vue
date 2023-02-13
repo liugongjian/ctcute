@@ -58,7 +58,7 @@
       <cute-steps-multi
         :active="activeMulti"
         :steps="multisteps"
-        :last-step-width='120'
+        :last-step-width="120"
         max-width="80%"
         :has-go-button="true"
         @clickStep="clickmulti"
@@ -81,7 +81,7 @@
         :active="activeMultiMini"
         :steps="multisteps"
         size="mini"
-        :last-step-width='100'
+        :last-step-width="100"
         max-width="100%"
         :step-size="2"
         :has-go-button="true"

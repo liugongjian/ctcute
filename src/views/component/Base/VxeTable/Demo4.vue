@@ -37,7 +37,7 @@
       <vxe-column field="time" title="时间" sortable></vxe-column>
       <vxe-column field="tags" title="标签">
         <template #default="{ row }">
-          <el-tag type="info" v-for="item in row.tags" :key="item">{{ item }}</el-tag>
+          <el-tag v-for="item in row.tags" :key="item" type="info">{{ item }}</el-tag>
         </template>
       </vxe-column>
       <vxe-column field="desc" title="描述" show-overflow></vxe-column>
@@ -94,7 +94,7 @@
       <vxe-column field="time" title="时间" sortable></vxe-column>
       <vxe-column field="tags" title="标签">
         <template #default="{ row }">
-          <el-tag type="info" v-for="item in row.tags" :key="item">{{ item }}</el-tag>
+          <el-tag v-for="item in row.tags" :key="item" type="info">{{ item }}</el-tag>
         </template>
       </vxe-column>
       <vxe-column field="desc" title="描述" show-overflow></vxe-column>
@@ -147,7 +147,7 @@
       <vxe-column field="time" title="时间" sortable></vxe-column>
       <vxe-column field="tags" title="标签">
         <template #default="{ row }">
-          <el-tag type="info" v-for="item in row.tags" :key="item">{{ item }}</el-tag>
+          <el-tag v-for="item in row.tags" :key="item" type="info">{{ item }}</el-tag>
         </template>
       </vxe-column>
       <vxe-column field="desc" title="描述" show-overflow></vxe-column>

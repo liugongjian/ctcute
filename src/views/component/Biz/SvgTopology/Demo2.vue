@@ -1,7 +1,7 @@
 <template>
   <div>
     <topology id="topology" :node="nodes" :links="links" :defs="false">
-      <template v-for="i in nodeIds" v-slot:[`node-${i}`]="{ node }">
+      <template v-for="i in nodeIds" #[`node-${i}`]="{ node }">
         <g :key="i">
           <custom-node
             :node="node"
@@ -10,11 +10,11 @@
           ></custom-node>
         </g>
       </template>
-      <template v-slot:graph-dom-root="{ parentScope, injectModel, injectModelFunc }">
+      <template #graph-dom-root="{ parentScope, injectModel, injectModelFunc }">
         <drag-viewbox
-          :parentScope="parentScope"
-          :injectModel="injectModel"
-          :injectModelFunc="injectModelFunc"
+          :parent-scope="parentScope"
+          :inject-model="injectModel"
+          :inject-model-func="injectModelFunc"
         ></drag-viewbox>
       </template>
     </topology>
@@ -122,7 +122,7 @@ export default class extends Vue {
     let rootId
     nodes.forEach(n => {
       const rootParentId = null
-      let result = this.recursiveFindNodeInTree(n, id, rootParentId)
+      const result = this.recursiveFindNodeInTree(n, id, rootParentId)
       if (result) {
         const { node: f, parentId: pId } = result
         node = f

@@ -1,14 +1,24 @@
+<!--
+ * @Author: 胡佳婷
+ * @Date: 2023-02-03 15:17:40
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-02-08 08:35:42
+ * @Description:
+-->
 <template>
   <div class="chart-cont" :style="'width:' + width + ';height:' + height">
-    <v-chart class="chart" :option="option" autoresize />
+    <v-chart class="chart" :option="option" autoresize :theme="theme" />
   </div>
 </template>
 
 <script lang="ts">
 import * as echarts from 'echarts'
-import ECharts from 'vue-echarts'
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import ECharts, { THEME_KEY } from 'vue-echarts'
+import { Component, Prop, Vue, Provide } from 'vue-property-decorator'
 import china from './json/全国地图.json'
+import themeOrange from './theme/orange.json'
+
+echarts.registerTheme('cuted-orange', themeOrange)
 @Component({
   name: 'CuteChart',
   components: {
@@ -20,10 +30,12 @@ export default class extends Vue {
   @Prop({ type: String, default: '--' }) title?: '--' // 标题
   @Prop({ type: [Number, String], default: '300px' }) width?: '300px' // 高度
   @Prop({ type: [Number, String], default: '200px' }) height?: '200px' // 宽度
+  @Prop({ type: String, default: 'cuted-orange' }) theme?: 'cuted-orange' // 主题
   mounted() {
     echarts.registerMap('china', china)
   }
+  @Provide(THEME_KEY) private getTheme(): string {
+    return this.theme
+  }
 }
 </script>
-
-<style lang="scss" scoped></style>

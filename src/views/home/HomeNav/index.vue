@@ -2,7 +2,7 @@
   <div class="home-nav">
     <h3>在用项目</h3>
     <div class="home-nav-inner">
-      <div class="nav-item" v-for="(item, index) in items" :key="index">
+      <div v-for="(item, index) in items" :key="index" class="nav-item">
         <svg-icon :name="item.icon" color="#FA8334" width="24" height="24"></svg-icon>
         <p class="nav-item-title" @click="go(item.href)">{{ item.title }}</p>
       </div>

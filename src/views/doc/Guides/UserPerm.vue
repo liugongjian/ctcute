@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-05 07:53:38
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-01-04 11:17:29
+ * @LastEditTime: 2023-02-15 07:55:38
  * @Description: 用户权限
 -->
 
@@ -149,14 +149,14 @@ window.commonConfig = {
 
 > 注意：需配置hosts需配置hosts: 127.0.0.1 local.ctcdn.cn，并使用npm run serve:iam启动
 
-### c) 自建用户
+### c) cuted内置用户
 
-通过脚手架初始化项目时，选择用户类型为"自建用户"。在\`public/config/index.js\`中，初始化的选项如下：
+通过脚手架初始化项目时，选择用户类型为"cuted内置用户"。在\`public/config/index.js\`中，初始化的选项如下：
 
 \`\`\`js
 window.commonConfig = {
   authConfig: {
-    authenticateType: 'local', // 使用 自建用户 登录
+    authenticateType: 'local', // 使用 cuted内置用户 登录
     enableAuthorize: true, // 启动权限控制
     baseUrl: 'http://fed.ctyuncdn.cn:8088',
 

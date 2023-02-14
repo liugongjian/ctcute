@@ -58,8 +58,8 @@ cuted theme <themeName>
 ### 初始化项目
 
 1. 执行fe-cli create <projectName>时，选择egg-template-service模板的master分支创建项目
-2.选择是否安装依赖
-3.若选择是，则选择相应的依赖
+2. 选择是否安装依赖
+3. 若选择是，则选择相应的依赖
 
 ### 启动项
 
@@ -75,9 +75,10 @@ $ open http://localhost:7040/
 - 模板提供者：陈俊滔
 
 ### 初始化项目
+
 1. 执行fe-cli create <projectName>时，选择electron-template模板的master分支创建项目
-2.选择是否安装依赖
-3.若选择是，则选择相应的依赖
+2. 选择是否安装依赖
+3. 若选择是，则选择相应的依赖
 
 ### 启动项目
 #### 项目安装
@@ -94,8 +95,8 @@ yarn electron:build
 ### 初始化项目
 
 1. 执行fe-cli create <projectName>时，选择library-template模板的master分支创建项目
-2.输入第三方依赖名称
-3.输入作者
+2. 输入第三方依赖名称
+3. 输入作者
 ### 启动项目
 - 1、package.json 参考配置，其中'NAME'为依赖名，自行替换
 \`\`\`\`json
@@ -130,8 +131,8 @@ npm install
 npm run make-lib
 
 ### 发布
-- 1、私服添加个人账户
-- 2、本地登录账户并发布
+1. 私服添加个人账户
+2. 本地登录账户并发布
 \`\`\`\` bash
 nrm use 私服地址
 npm login

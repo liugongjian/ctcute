@@ -11,6 +11,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import CuteMavonEditor from '../components/CuteMavonEditor.vue'
+import {ILLUSTRATE }from './constant'
 
 @Component({
   name: 'QuickStart',
@@ -19,7 +20,7 @@ import CuteMavonEditor from '../components/CuteMavonEditor.vue'
   },
 })
 export default class extends Vue {
-  private content = `
+  private content = ILLUSTRATE/* `
 ## 快速上手
 ### 1. 把镜像源切换到私库[\`http://verdaccio.ctcdn.cn/\`](http://verdaccio.ctcdn.cn/)。PS：需要本地配置hosts【36.111.140.224 verdaccio.ctcdn.cn】
 ### 2. 全局安装脚手架\`npm install -g fe-cli\`和命令行工具\`npm install -g cute-design-tools\`
@@ -47,6 +48,6 @@ cuted theme <themeName>
 
 ## 详细文档说明
 [脚手架使用说明书](https://cloud.ctcdn.cn/s/9ELNBiqyW96y7Kg)
-`
+` */
 }
 </script>

@@ -1,4 +1,14 @@
 @mixin card1-page {
+  .el-tabs__header {
+    margin-bottom: 16px;
+  }
+
+  .card-tools__right {
+    margin-left: auto;
+    .el-form--inline .el-form-item { margin: 0 0 16px; }
+    .card1-input { width: 300px; }
+  }
+
   .card-tools {
     display: flex;
     justify-content: space-between;

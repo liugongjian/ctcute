@@ -34,7 +34,7 @@
       </template>
       <div
         v-if="item.children"
-        :class="['vertical-bar', { 'vertical-bar__one': item.children.length === 1 }]"
+        :class="['vertical-bar', { 'vertical-bar__one': isOneDisplayChildren(item.children) }]"
       >
         <sidebar-item
           v-for="child in item.children"
@@ -118,6 +118,19 @@ export default class extends Vue {
       return this.basePath
     }
     return path.resolve(this.basePath, routePath)
+  }
+
+  public isOneDisplayChildren(children) {
+    if (
+      Array.isArray(children) &&
+      children.filter(v => {
+        return !(v.meta && Boolean(v.meta.hidden) === true)
+      }).length === 1
+    ) {
+      return true
+    } else {
+      return false
+    }
   }
 }
 </script>

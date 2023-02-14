@@ -8,7 +8,7 @@ export const ILLUSTRATE = `
 ## cute-design-template：基于前端组件库的项目模板
 - 从 UI 到前端，统一研三后管系统的风格，保持各项目的一致性，大到页面，小到交互。
 - 适用范围：新项目中应用系统或控制台类型的项目
-- 具体使用详情，见 http://fed.ctyuncdn.cn/
+- 具体使用详情 [脚手架使用说明书](https://cloud.ctcdn.cn/s/9ELNBiqyW96y7Kg)
 - 参考项目：http://fed.ctyuncdn.cn/
 - 模板提供者：胡佳婷
 ### 初始化项目
@@ -46,8 +46,6 @@ cuted theme <themeName>
 [https://gitlab.ctyuncdn.cn/ct-basic/cute-design-web.git](https://gitlab.ctyuncdn.cn/ct-basic/cute-design-web.git)
 如果您没有权限，请联系胡佳婷（企业微信）帮您开通开发权限。
 
-### 详细文档说明
-[脚手架使用说明书](https://cloud.ctcdn.cn/s/9ELNBiqyW96y7Kg)
 
 
 ## egg-template-service：基于 Egg 的项目模板

@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2023-02-07 08:08:18
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-02-13 18:20:17
+ * @LastEditTime: 2023-02-14 17:46:07
  * @Description: echarts的demo页，用于展示自定义的echarts主题效果
 -->
 
@@ -93,6 +93,10 @@ export default class extends Vue {}
 </script>
 
 <style lang="scss" scoped>
+.echarts-demo {
+  overflow: hidden;
+}
+
 .el-row {
   margin-bottom: 22px;
 

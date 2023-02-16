@@ -74,7 +74,9 @@
           <el-table-column prop="healthy" label="健康状态">
             <template slot-scope="scope">
               <span class="health-state">
-                <span class="health-dot" :class="`health-dot--${scope.row.healthy}`" />{{ HEALTH[scope.row.healthy] }}
+                <span class="health-dot" :class="`health-dot--${scope.row.healthy}`" />{{
+                  HEALTH[scope.row.healthy]
+                }}
               </span>
             </template>
           </el-table-column>

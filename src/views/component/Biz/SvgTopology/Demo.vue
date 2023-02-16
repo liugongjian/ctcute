@@ -6,31 +6,31 @@
       :links="links"
       :width="width"
       :height="height"
-      @select-node="handleSelectNode"
       :graph-style="{ canvasPadding: 100 }"
       layout="forcedGraph"
+      @select-node="handleSelectNode"
     >
-      <template v-slot:graph-dom-root="{ parentScope, injectModel, injectModelFunc }">
+      <template #graph-dom-root="{ parentScope, injectModel, injectModelFunc }">
         <graph-toolbar
-          :parentScope="parentScope"
-          :injectModel="injectModel"
-          :injectModelFunc="injectModelFunc"
+          :parent-scope="parentScope"
+          :inject-model="injectModel"
+          :inject-model-func="injectModelFunc"
         ></graph-toolbar>
         <drag-viewbox
-          :parentScope="parentScope"
-          :injectModel="injectModel"
-          :injectModelFunc="injectModelFunc"
+          :parent-scope="parentScope"
+          :inject-model="injectModel"
+          :inject-model-func="injectModelFunc"
         ></drag-viewbox>
       </template>
-      <template v-slot:graph-svg-front="{ parentScope, injectModel, injectModelFunc }">
+      <template #graph-svg-front="{ parentScope, injectModel, injectModelFunc }">
         <highlight-select-node-links
-          :parentScope="parentScope"
-          :injectModel="injectModel"
-          :injectModelFunc="injectModelFunc"
-          :links="links"
           ref="highlight-node"
+          :parent-scope="parentScope"
+          :inject-model="injectModel"
+          :inject-model-func="injectModelFunc"
+          :links="links"
         ></highlight-select-node-links>
-        <network-links :parentScope="parentScope" :links="links" ref="network-links"></network-links>
+        <network-links ref="network-links" :parent-scope="parentScope" :links="links"></network-links>
       </template>
     </topology>
   </div>

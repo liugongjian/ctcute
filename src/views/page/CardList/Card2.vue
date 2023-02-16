@@ -50,7 +50,7 @@
                 <div class="card-box--info">
                   描述：
                   <div class="card-box--input">
-                    <div class="card-box--input-text" v-if="index === 0">
+                    <div v-if="index === 0" class="card-box--input-text">
                       <span>{{ card.remark }}</span>
                     </div>
 

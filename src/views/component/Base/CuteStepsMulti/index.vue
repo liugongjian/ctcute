@@ -55,7 +55,7 @@ export default class extends Vue {
       name: 'steps',
       desc: '步骤条内容,对象数组,可对应设置每个步骤的标题(title)、可用状态(disabled)、当前步骤的状态(status)',
       type: 'Array',
-      options: `disabled(false / true); status(wait / process / finish / error / success)`,
+      options: 'disabled(false / true); status(wait / process / finish / error / success)',
       default: null,
     },
     {

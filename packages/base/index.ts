@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-12-16 19:53:13
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-02-09 08:44:19
  * @Description:
  */
 import ElementUI, {
@@ -113,6 +113,7 @@ import CuteSelectTree from './components/CuteSelect/CuteSelectTree.vue'
 import CuteArea from './components/CuteArea/index.vue'
 import CuteSlider from './components/CuteSlider/index.vue'
 import CuteDistributionBar from './components/CuteDistributionBar/index.vue'
+import CuteCardBox from './components/CuteCardBox/index.vue'
 export {
   CuteButtonGroup,
   CuteEditInput,
@@ -131,6 +132,7 @@ export {
   CuteArea,
   CuteSlider,
   CuteDistributionBar,
+  CuteCardBox,
 }
 
 /**
@@ -149,6 +151,7 @@ const componentsList = [
   CuteArea,
   CuteSlider,
   CuteStepsMulti,
+  CuteCardBox,
 ]
 
 export default {

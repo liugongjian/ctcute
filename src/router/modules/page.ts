@@ -495,6 +495,15 @@ const restPageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'echarts-demo',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/EchartsDemo/index.vue'),
+        name: 'EchartsDemo',
+        meta: {
+          title: 'Echarts Demo',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

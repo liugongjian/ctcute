@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-19 22:03:32
  * @LastEditors: 马妍
- * @LastEditTime: 2023-02-09 17:34:20
+ * @LastEditTime: 2023-02-16 10:46:07
  * @Description: 
 -->
 <template>
@@ -24,6 +24,15 @@
       :placeholder="name"
       @change="changeFun1"
     />
+    <cute-remind-select
+      v-model="valueTags"
+      :options="options"
+      multiple
+      collapse-tags
+      :title="name"
+      :placeholder="name"
+      @change="changeFun2"
+    />
   </div>
 </template>
 <script lang="ts">
@@ -36,6 +45,7 @@ export default class extends Vue {
   private name = '数据资源名称'
   private value = ''
   private values = []
+  private valueTags = []
 
   private options = [
     {
@@ -66,12 +76,19 @@ export default class extends Vue {
   private changeFun1(key) {
     this.values = key
   }
+  private changeFun2(key) {
+    this.valueTags = key
+  }
 }
 </script>
 <style lang="scss" scoped>
 .component__container {
   .el-select {
     width: 300px;
+  }
+
+  .el-select + .el-select {
+    margin-left: 20px;
   }
 }
 </style>

@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2023-02-09 18:06:30
+ * @LastEditTime: 2023-02-16 10:35:46
  * @Description: 带提示的选择器
 -->
 <template>
@@ -11,6 +11,7 @@
     :multiple="multiple ? true : false"
     :placeholder="placeholder"
     clearable
+    :collapse-tags="collapseTags ? true : fasle"
     :value="value"
     @change="myChange($event)"
   >
@@ -28,6 +29,8 @@ export default class extends Vue {
   @Prop({ type: Array, default: [] }) options?: [] // 下拉数据
   @Prop({ type: String, default: '' }) placeholder?: '' // placeholder
   @Prop({ type: String, default: '' }) title?: '' // 提示文案
+  @Prop({ type: Boolean, default: '' }) collapseTags?: false // 提示文案
+
   @Model('change', { default: '' }) value: Array<any> | string
   @Emit('change')
   myChange(key) {
@@ -42,6 +45,10 @@ export default class extends Vue {
 
   ::v-deep.el-input__inner {
     padding-left: 12px;
+  }
+
+  ::v-deep.el-select__tags {
+    padding-right: 42px;
   }
 
   ::v-deep.el-input__prefix {

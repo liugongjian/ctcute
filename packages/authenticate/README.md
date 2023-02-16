@@ -87,12 +87,12 @@ this.$auth.isLogin
 ```javascript
 export default {
   baseUrl: null, // 后端接口的基础路径
-  tokenName: 'token', // 自建用户体系token的名字
-  tokenPrefix: 'vueauth', // 自建用户体系token的前缀
-  tokenHeader: 'Authorization', // 自建用户体系接口中传的tokenHeader字段名
-  tokenType: null, // 自建用户体系token类型，常用的是'Bear'
-  loginUrl: '/v1/auth/login', // 自建用户体系登录接口
-  logoutUrl: '/v1/auth/logout', // 自建用户体系退出接口
+  tokenName: 'token', // cuted用户体系token的名字
+  tokenPrefix: 'vueauth', // cuted内置用户体系token的前缀
+  tokenHeader: 'Authorization', // cuted内置用户体系接口中传的tokenHeader字段名
+  tokenType: null, // cuted内置用户体系token类型，常用的是'Bear'
+  loginUrl: '/v1/auth/login', // cuted内置用户体系登录接口
+  logoutUrl: '/v1/auth/logout', // cuted内置用户体系退出接口
   storageNamespace: 'vue-authenticate', // 内部存储的namespace
   cookieStorage: {
     // 内部存储cookie的一些参数

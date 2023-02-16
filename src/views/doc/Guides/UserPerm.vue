@@ -167,9 +167,9 @@ window.commonConfig = {
 }
 \`\`\`
 
-其中，\`authenticateType\`指定了用户类型，无需改变；\`enableAuthorize\`指定了是否开启权限，一般自建用户默认开启权限；\`baseUrl\`为业务前缀，您需要根据自己的后端接口进行调整，这边只是示例，大部分情况不会与您相同。
+其中，\`authenticateType\`指定了用户类型，无需改变；\`enableAuthorize\`指定了是否开启权限，一般cuted默认开启权限；\`baseUrl\`为业务前缀，您需要根据自己的后端接口进行调整，这边只是示例，大部分情况不会与您相同。
 
-\`providers\`可以定义每一种用户权限的自定义字段，对自建用户来说，需要在\`local\`对象中定义。
+\`providers\`可以定义每一种用户权限的自定义字段，对cuted内置用户来说，需要在\`local\`对象中定义。
 
 默认定义了四个接口，若您的接口不一致，请重写对应的配置，但需要提供同等功能的接口：
 
@@ -180,7 +180,7 @@ window.commonConfig = {
 
 全量的可配置字段，可参考[@cutedesign/authenticate](http://verdaccio.ctcdn.cn/-/web/detail/@cutedesign/authenticate)
 
-对于自建用户权限，我们提供了一整套页面，包括登录页、头部用户信息展示（包括退出）、用户管理页、角色管理页、菜单管理页。您可以在此基础上进行修改。相关的接口文档可参考[自建用户接口文档](https://cloud.ctcdn.cn/s/kYcJi9wj8ocwk7m)
+对于cuted内置用户权限，我们提供了一整套页面，包括登录页、头部用户信息展示（包括退出）、用户管理页、角色管理页、菜单管理页。您可以在此基础上进行修改。相关的接口文档可参考[cuted内置用户接口文档](https://cloud.ctcdn.cn/s/kYcJi9wj8ocwk7m)
 `
 }
 </script>

@@ -77,10 +77,10 @@
 @mixin formBottom {
   .pro-form-bottom {
     box-shadow: 0 2px 8px 0 $color-body-bg;
-    position: fixed;
-    left: $sidebar-width;
+    position: absolute;
+    left: 0;
     bottom: 0;
-    width: unquote('-webkit-calc(100% - #{$sidebar-width})');
+    width: 100%;
     background: $color-form-component-bg;
     line-height: 48px;
     transition: 0.3s;

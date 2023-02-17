@@ -12,14 +12,12 @@
         <h3>简单样式</h3>
         <el-button @click="drawer = true">简单样式 </el-button>
         <!-- 抽屉 -->
-        <el-drawer title="抽屉" :visible.sync="drawer">
+        <el-drawer title="抽屉" :visible.sync="drawer" class="drawer-content">
           <div class="sub-content">
-            <div class="el-form">
-              抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到到原任务。
-            </div>
-            <div class="sub-foot">
-              <el-button @click="drawer = false">关闭</el-button>
-            </div>
+            抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到到原任务。
+          </div>
+          <div class="sub-foot">
+            <el-button @click="drawer = false">关闭</el-button>
           </div>
         </el-drawer>
       </el-col>
@@ -27,7 +25,7 @@
         <h3>复杂样式</h3>
         <el-button @click="drawer1 = true">复杂样式 </el-button>
         <!-- 抽屉 -->
-        <el-drawer title="小弹窗(提示框)" :visible.sync="drawer1">
+        <el-drawer title="小弹窗(提示框)" :visible.sync="drawer1" class="drawer-content">
           <div class="sub-content">
             <el-form
               ref="ruleForm"
@@ -53,7 +51,6 @@
                 <el-input v-model="form.password" value="" placeholder="请提供具有sudo权限的账号"></el-input>
               </el-form-item>
               <el-form-item label="标签" class="sub-tags">
-                <el-tag type="info" class="first-tag">标签</el-tag>
                 <cute-tag tag-name="+ 标签" :dynamic-tags="dynamicTags"></cute-tag>
               </el-form-item>
 
@@ -72,10 +69,10 @@
                 ></el-input>
               </el-form-item>
             </el-form>
-            <div class="sub-foot">
-              <el-button @click="drawer1 = false">取消</el-button>
-              <el-button type="primary" @click="drawer1 = false">确定</el-button>
-            </div>
+          </div>
+          <div class="sub-foot">
+            <el-button @click="drawer1 = false">取消</el-button>
+            <el-button type="primary" @click="drawer1 = false">确定</el-button>
           </div>
         </el-drawer>
       </el-col>
@@ -109,58 +106,31 @@ export default class extends Vue {
   }
 
   private form = {}
-  private dynamicTags = ['标签']
+  private dynamicTags = ['标签', '标签1']
 }
 </script>
 
 <style lang="scss" scoped>
-.sub-drawer {
-  .first-tag {
-    margin: 0 8px 0 16px;
-  }
-  .sub-tags {
-    display: flex;
-    align-items: center;
+.drawer-content .el-drawer__body {
+  position: relative;
+  overflow: hidden;
 
-    ::v-deep.el-form-item__label {
-      padding: 0 !important;
-    }
-  }
   .sub-content {
-    position: relative;
+    padding: 24px 24px 0;
+    overflow: auto;
+    height: calc(100% - 52px);
+  }
+
+  .sub-foot {
+    position: absolute;
+    z-index: 9;
+    bottom: 0;
     width: 100%;
-    height: 100%;
+    padding: 10px 0;
     display: flex;
-    flex-direction: column;
-
-    p {
-      flex: 1;
-      padding: 30px;
-      font-size: 14px;
-      color: $text-color-primary;
-      font-weight: 400;
-    }
-
-    .el-form {
-      flex: 1;
-      padding: 24px 24px 52px;
-      font-size: 14px;
-
-      .tip {
-        width: 100%;
-      }
-    }
-
-    .sub-foot {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      padding: 10px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: $color-grey-9;
-    }
+    justify-content: center;
+    align-items: center;
+    background: $color-grey-9;
   }
 }
 </style>

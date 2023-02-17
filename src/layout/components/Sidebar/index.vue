@@ -12,7 +12,7 @@
         <div v-if="index === 0" class="division"></div>
       </div>
     </div>
-    <el-scrollbar v-if="isShowMenu" wrap-class="scrollbar-wrapper">
+    <div v-if="isShowMenu" class="scrollbar-wrapper">
       <div class="layout-sidebar__title">{{ title }}</div>
       <el-menu
         :default-active="activeMenu"
@@ -28,7 +28,7 @@
           :base-path="route.path"
         />
       </el-menu>
-    </el-scrollbar>
+    </div>
     <!-- 展开与收缩按钮 -->
     <div class="sidebar--knob" @click="toggleSideBar">
       <svg-icon :name="`${isShowMenu ? 'caret-left' : 'caret-right'}`" />

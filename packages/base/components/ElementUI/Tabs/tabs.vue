@@ -183,15 +183,3 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-.el-tab-pane {
-  position: absolute;
-  left: 400px;
-  height: 28px;
-  line-height: 28px;
-  z-index: 99;
-  cursor: pointer;
-  color: #333;
-  font-weight: 500;
-}
-</style>

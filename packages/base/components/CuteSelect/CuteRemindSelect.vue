@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2023-02-21 09:43:52
+ * @LastEditTime: 2023-02-27 10:40:59
  * @Description: 带提示的选择器
 -->
 <template>
@@ -31,14 +31,13 @@ export default class extends Vue {
   @Prop({ type: String, default: '' }) placeholder?: '' // placeholder
   @Prop({ type: String, default: '' }) title?: '' // 提示文案
   @Prop({ type: Boolean, default: false }) collapseTags?: false
-
   @Model('change', { default: '' }) value: Array<any> | string
   @Emit('change')
   myChange(key) {
-    ;(this.$refs.select as any).$el.childNodes[0].style.padding = `0px ${
-      (this.$refs.prefix as any).getBoundingClientRect().width
-    }px 0px 0px`
-
+    this.multiple &&
+      ((this.$refs.select as any).$el.childNodes[0].style.padding = `0px ${
+        (this.$refs.prefix as any).getBoundingClientRect().width
+      }px 0px 0px`)
     return key
   }
 }

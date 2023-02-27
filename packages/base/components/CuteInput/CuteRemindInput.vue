@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: 马妍
- * @LastEditTime: 2023-02-27 10:56:29
+ * @LastEditTime: 2023-02-27 14:00:04
  * @Description: 
 -->
 <template>
@@ -45,7 +45,6 @@ export default class extends Vue {
 ::v-deep.el-autocomplete.inline-input {
   width: 300px;
   height: 32px;
-  cursor: pointer;
 
   .prompt-title {
     line-height: 32px;

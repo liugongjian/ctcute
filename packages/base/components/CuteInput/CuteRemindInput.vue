@@ -2,11 +2,12 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: 马妍
- * @LastEditTime: 2022-10-13 15:10:38
+ * @LastEditTime: 2023-02-27 15:17:48
  * @Description: 
 -->
 <template>
   <el-input
+    ref="input"
     class="inline-input"
     :placeholder="placeholder"
     :trigger-on-focus="false"
@@ -14,7 +15,7 @@
     :size="size"
     @input="myChange($event)"
   >
-    <span slot="suffix" class="prompt-title"
+    <span ref="suffix" slot="suffix" class="prompt-title"
       ><div>{{ value ? title : '' }}</div>
     </span>
   </el-input>
@@ -29,10 +30,12 @@ export default class extends Vue {
   @Prop({ type: String, default: '' }) placeholder?: '' //placeholder
   @Prop({ type: String, default: '' }) title?: '' //label
   @Prop({ type: String, default: '' }) size?: '' //size
-
   @Model('change', { type: String }) value: string
   @Emit('change')
   myChange(key) {
+    ;(this.$refs.input as any).$refs.input.style.padding = `0px ${
+      (this.$refs.suffix as any).getBoundingClientRect().width + 15
+    }px 0px 12px`
     return key
   }
 }
@@ -42,10 +45,6 @@ export default class extends Vue {
 ::v-deep.el-autocomplete.inline-input {
   width: 300px;
   height: 32px;
-
-  .el-input--suffix .el-input__inner {
-    padding-right: 86px;
-  }
 
   .prompt-title {
     line-height: 32px;

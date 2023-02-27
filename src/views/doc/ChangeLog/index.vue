@@ -41,6 +41,178 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
+      version: '1.1.6',
+      date: '2023-02-27',
+      features: [
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '将误解的文案"自建用户"改成"cuted内建用户',
+            },
+            {
+              text: '对fe-cli中每个template进行文档说明',
+            },
+            {
+              text: '头部logo、菜单icon说明文档，菜单文字前的竖线偏移微调',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Tabs',
+          desc: [
+            {
+              text: 'tabs addable属性下样式的更新',
+            },
+          ],
+        },
+        {
+          name: 'Component-CuteRemindSelect',
+          desc: [
+            {
+              text: 'CuteRemindSelect支持多选',
+            },
+          ],
+        },
+        {
+          name: 'Page-card',
+          desc: [
+            {
+              text: ' card1更新样式',
+            },
+          ],
+        },
+        {
+          name: 'Echarts主题色的前端预演,',
+          desc: [
+            {
+              text: '增加了CuteCardBox组件及其demo',
+            },
+            {
+              text: '增加了Echarts Demo页,展示了常用echarts组件在新的主题色下的样式',
+            },
+            {
+              text: '其他文件是格式错误自动校验提交的timecat截屏',
+            },
+          ],
+        },
+      ],
+
+      bugfix: [
+        {
+          name: '修复依赖包版本冲突',
+          desc: [
+            {
+              text: '@typescript-eslint/eslint-plugin 由 ^5.12.1 降为 ~4.33.0 ',
+            },
+            {
+              text: ' @typescript-eslint/parser 由 ^5.12.1 降为 ~4.33.0',
+            },
+            {
+              text: '@vue/eslint-config-standard 由 ^6.1.0 降为 ~5.1.2',
+            },
+            {
+              text: '@vue/eslint-config-typescript 由 ^11.0.0 降为 ~7.0.0',
+            },
+            {
+              text: 'eslint 由 ^7.32.0 降为 ~6.8.0',
+            },
+            {
+              text: 'eslint-config-standard 由 ^16.0.3 降为 ~14.1.1',
+            },
+            {
+              text: ' eslint-plugin-prettier 由 ^4.2.1 降为 ~3.4.1',
+            },
+
+            {
+              text: ' eslint-plugin-prettier 由 ^5.2.0 降为 ~4.2.1',
+            },
+
+            {
+              text: ' eslint-plugin-vue 由 ^8.5.0 降为 ~7.0.0',
+            },
+            {
+              text: '修复菜单中存在隐藏子项的样式bug',
+            },
+            {
+              text: 'settings为空时报错logoText未定义修复',
+            },
+            {
+              text: '修复进入相同的路由报错问题',
+            },
+            {
+              text: '修复.app-main不兼容老项目的问题',
+            },
+            {
+              text: '使用垫片解决axios响应拦截器数据处理导致的ts类型报错',
+            },
+            {
+              text: ' _element-override.scss样式拆分',
+            },
+          ],
+        },
+        {
+          name: 'Page-Form',
+          desc: [
+            {
+              text: '修复proForm1,proForm2在左侧菜单栏收起的时候，底部的样式不对',
+            },
+          ],
+        },
+        {
+          name: 'Ui-Pagination',
+          desc: [
+            {
+              text: '删除hideOnSinglePage配置，使其默认为false',
+            },
+          ],
+        },
+        {
+          name: 'Component-CuteEditInput',
+          desc: [
+            {
+              text: '可编辑按钮组件，在取消的时候，编辑的东西也生效了，不应该生效',
+            },
+          ],
+        },
+        {
+          name: 'tableHook',
+          desc: [
+            {
+              text: '解决使用tableHook的组件，点击分页报错',
+            },
+          ],
+        },
+        {
+          name: 'Page-Table',
+          desc: [
+            {
+              text: 'table的loading会挡住页眉header，修改header的z-index为2001',
+            },
+            {
+              text: '修复dark模式下，滚动表格的样式不正确',
+            },
+          ],
+        },
+        {
+          name: 'Breadcrumb',
+          desc: [
+            {
+              text: '修复组件页面面包屑跳转错误的问题',
+            },
+          ],
+        },
+        {
+          name: 'Dashboard',
+          desc: [
+            {
+              text: 'dashboard 更改字体，修复dashboard底部分页器bug',
+            },
+          ],
+        },
+      ],
+    },
+    {
       version: '1.1.5',
       date: '2023-02-01',
       features: [

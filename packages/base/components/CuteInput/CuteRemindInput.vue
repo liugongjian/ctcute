@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: 马妍
- * @LastEditTime: 2023-02-27 14:00:04
+ * @LastEditTime: 2023-02-27 15:17:48
  * @Description: 
 -->
 <template>
@@ -34,7 +34,7 @@ export default class extends Vue {
   @Emit('change')
   myChange(key) {
     ;(this.$refs.input as any).$refs.input.style.padding = `0px ${
-      (this.$refs.suffix as any).getBoundingClientRect().width + 12
+      (this.$refs.suffix as any).getBoundingClientRect().width + 15
     }px 0px 12px`
     return key
   }

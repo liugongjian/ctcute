@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-01-04 16:52:44
+ * @LastEditTime: 2023-02-09 08:46:22
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -12,7 +12,7 @@ const componentRoutes = [
   {
     path: '/component/base',
     component: Layout,
-    redirect: '/component/biz/vss-video-player',
+    redirect: '/component/base/cute-remind-select',
     meta: {
       title: '基础组件',
       alwaysShow: true,
@@ -52,6 +52,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteTitledBlock/index.vue'),
         meta: {
           title: 'CuteTitledBlock',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-card-box',
+        name: 'CuteCardBox',
+        component: () => import('@/views/component/Base/CuteCardBox/index.vue'),
+        meta: {
+          title: 'CuteCardBox',
           breadcrumb: true,
         },
       },
@@ -192,6 +201,7 @@ const componentRoutes = [
   {
     path: '/component/biz',
     component: Layout,
+    redirect: '/component/biz/vss-video-player',
     meta: {
       title: '业务组件',
       alwaysShow: true,

@@ -27,10 +27,6 @@
     border-bottom: 1px solid $border-color-primary;
   }
 
-  &__menu {
-    padding-bottom: 50px;
-  }
-
   .el-menu {
     border: none;
     background-color: $color-bg-2;
@@ -61,12 +57,12 @@
     vertical-align: baseline !important;
   }
 
-  .el-submenu.is-active>.el-submenu__title {
+  .el-submenu.is-active > .el-submenu__title {
     color: $text-color-primary;
   }
 
   .el-menu-item,
-  .el-submenu>.el-submenu__title,
+  .el-submenu > .el-submenu__title,
   .el-submenu .el-menu-item {
     min-width: calc($sidebar-width - 40px);
     background-color: $color-bg-2;
@@ -127,46 +123,25 @@
       top: 16px;
     }
   }
+  .scrollbar-wrapper { height: 100%; overflow-y: auto; }
 
   .vertical-bar {
-    margin: 14px 0 18px 32px;
+    margin: 0 0 0 32px;
+
     &:after {
       position: absolute;
       content: '';
       display: inline-block;
       background-color: $border-color-primary;
       width: 2px;
-      height: calc(100% - 32px);
+      height: calc(100% - 31px);
       left: 42px;
       top: 14px;
     }
 
-    > div:first-child {
-      .el-menu-item {
-        height: 26px;
-        line-height: 12px;
-      }
-    }
-
     >div:last-child {
       .el-menu-item {
-        height: 29px;
-        line-height: 40px;
-      }
-    }
-
-    &__one {
-      >div:last-child {
-        .el-menu-item {
-          display: flex;
-          align-items: center;
-          height: 16px;
-          line-height: 16px;
-
-          >span {
-            line-height: 16px;
-          }
-        }
+        margin-bottom: 8px;
       }
     }
   }
@@ -203,12 +178,12 @@
     overflow: auto;
 
     .app-main {
-      // 最小分辨率 - 侧边栏宽度 - 边距 - 边距
+      /* 最小分辨率 - 侧边栏宽度 - 边距 - 边距 */
       min-width: calc(1366px - $sidebar-width - $padding-primary - $padding-primary);
     }
   }
 
-  // 兼容老项目，无.app-main-wrap
+  /* 兼容老项目，无.app-main-wrap */
   > .app-main {
     flex: 1;
     overflow: auto;
@@ -220,7 +195,7 @@
     color: inherit;
   }
 
-  // 组件规范页需要支持滚动
+  /* 组件规范页需要支持滚动 */
   > .el-card {
     max-height: 100%;
     overflow: auto;

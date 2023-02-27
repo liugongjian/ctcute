@@ -12,7 +12,9 @@
       :show-recent="showRecent"
       @change="selectCityClick"
     >
-      <span slot="other" class="suffix-other">其他区域<span>{{ otherCount }}</span></span>
+      <span slot="other" class="suffix-other"
+        >其他区域<span>{{ otherCount }}</span></span
+      >
     </cute-area>
   </div>
 </template>
@@ -27,7 +29,7 @@ export default class extends Vue {
   otherCount = 2
 
   showRecent = true
-  recentData =  [
+  recentData = [
     { label: '深圳', value: 'shenzhen', count: 2 },
     { label: '广州', value: 'guangzhou', count: 20 },
     { label: '西安', value: 'xian', count: 27 },

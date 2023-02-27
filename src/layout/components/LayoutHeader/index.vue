@@ -29,15 +29,15 @@ import settings from '../../../settings'
   },
 })
 export default class extends Vue {
-  public logoIcon = settings.logoIcon
-  public logoText = settings.logoText
+  public logoIcon = settings.logoIcon || ''
+  public logoText = settings.logoText || ''
   public isSvgName = false
   private toHome() {
     this.$router.push('/')
   }
   private mounted() {
     // 若包含/说明是路径，否则是svgName
-    this.isSvgName = !settings.logoIcon.includes('/')
+    this.isSvgName = !settings.logoIcon?.includes('/')
   }
 }
 </script>
@@ -48,7 +48,7 @@ export default class extends Vue {
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 1002;
+  z-index: 1999;
   height: $header-height;
   display: flex;
   justify-content: space-between;

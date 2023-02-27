@@ -13,10 +13,6 @@ Pagination.props.pageSizes = {
 Pagination.props.popperClass = {
   default: 'pagination__dropdown',
 }
-Pagination.props.hideOnSinglePage = {
-  default: true,
-}
-
 Table.props.emptyText = {
   default: '暂无数据',
 }

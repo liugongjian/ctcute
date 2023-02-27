@@ -2,32 +2,28 @@
  * @Author: 王亚振
  * @Date: 2022-07-10 13:13:36
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-12-16 19:40:19
+ * @LastEditTime: 2023-02-14 09:52:19
  * @Description: 卡片1
 -->
 <template>
   <el-card class="card1-page">
-    <div class="card-tools">
-      <div class="card-tools__left">
-        <el-button type="primary">+ 新增质检方案</el-button>
-      </div>
-      <div class="card-tools__right">
-        <el-form ref="conditionsForm" inline @submit.native.prevent>
-          <el-form-item>
-            <el-input v-model="name" placeholder="请输入名称" />
-          </el-form-item>
-          <el-form-item class="card-tolls__btn">
-            <el-button type="primary" @click="search">查 询</el-button>
-            <el-button @click="resetConditions">重 置</el-button>
-          </el-form-item>
-        </el-form>
-      </div>
-    </div>
     <el-tabs value="third" type="card" size="small">
       <el-tab-pane label="默认项" name="second"></el-tab-pane>
       <el-tab-pane label="选中项" name="third"></el-tab-pane>
       <el-tab-pane label="不可用" name="fourth" disabled></el-tab-pane>
     </el-tabs>
+    <div class="card-tools">
+      <div class="card-tools__right">
+        <el-form ref="conditionsForm" inline @submit.native.prevent>
+          <el-form-item>
+            <el-input v-model="name" class="card1-input" placeholder="请输入名称">
+              <i slot="prefix" class="el-input__icon el-icon-search"></i>
+            </el-input>
+          </el-form-item>
+        </el-form>
+      </div>
+    </div>
+
     <div>
       <el-row :gutter="20">
         <el-col v-for="(card, index) in cardData" :key="index" :span="8">

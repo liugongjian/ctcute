@@ -1,0 +1,107 @@
+/* Transfer
+-------------------------- */
+.el-transfer {
+  .el-transfer-panel {
+    background-color: $color-bg-1;
+  }
+
+  .el-transfer-panel .el-transfer-panel__header {
+    background: $color-bg-1;
+  }
+
+  .el-transfer-panel__body {
+    background-color: $color-bg-1;
+  }
+
+  .el-transfer-panel .el-checkbox__inner {
+    border-radius: $border-radius;
+  }
+
+  .el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
+    top: 5px;
+    left: 5px;
+    width: 2px;
+    height: 2px;
+    transform: scale(3);
+  }
+
+  .el-transfer__buttons {
+    padding: 0px;
+  }
+
+  .el-button--medium {
+    padding: 6px 6px;
+    display: block;
+    margin: 4px 8px;
+  }
+
+  .el-button--medium:not(.is-disabled) {
+    .el-icon-arrow-right {
+      color: $color-white;
+    }
+  }
+
+  .el-icon-arrow-right:before {
+    content: '\eb44';
+    @include iconfont;
+  }
+
+  .el-icon-arrow-left:before {
+    content: '\eb21';
+    @include iconfont;
+  }
+
+  .el-transfer-panel__header {
+    margin-bottom: 0;
+  }
+
+  .is-disabled.el-transfer__button {
+    background: $disabled-fill;
+    border: 1px solid $border-color-primary;
+    border-radius: $border-radius;
+    color: $disabled-icon-color;
+
+    &:hover {
+      background: $disabled-fill;
+      color: $disabled-icon-color;
+    }
+
+    .el-icon-arrow-right {
+      color: $disabled-icon-color;
+    }
+  }
+
+  .el-transfer-panel__filter {
+    margin: 8px 12px;
+
+    .el-input__inner {
+      border-radius: $border-radius;
+    }
+  }
+
+  .el-checkbox.el-transfer-panel__item.is-checked {
+    background-color: $color-master-7;
+  }
+
+  .el-checkbox__input.is-checked + .el-checkbox__label {
+    color: $text-color-primary;
+  }
+
+  .el-checkbox {
+    margin-right: 0;
+  }
+
+  .el-checkbox__label {
+    font-size: $text-size-primary;
+  }
+}
+
+.el-transfer-panel .el-transfer-panel__header .el-checkbox .el-checkbox__label {
+  font-size: $text-size-primary;
+}
+
+.el-transfer-panel__filter {
+  .el-input__icon {
+    margin-left: 0;
+  }
+}

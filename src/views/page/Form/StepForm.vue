@@ -180,7 +180,7 @@
         </el-form>
         <!-- 第三步表单 -->
         <div v-show="active === 2">
-          <el-descriptions  class="descriptions" :column="1" size="small" border>
+          <el-descriptions class="descriptions" :column="1" size="small" border>
             <el-descriptions-item>
               <template slot="label"> 数据库类型 </template>
               Spark
@@ -218,10 +218,9 @@
             </el-button>
           </div>
         </div>
-        
+
         <div v-show="active > 2">
-          <el-result icon="success" sub-title="恭喜你提交成功" style="width: 350px">
-          </el-result>
+          <el-result icon="success" sub-title="恭喜你提交成功" style="width: 350px"> </el-result>
           <div class="footer--center">
             <el-button class="btn-style" type="primary" @click="resetForm"> 再来一次 </el-button>
             <el-button @click="handleClick">查看结构表</el-button>
@@ -397,12 +396,12 @@ export default class extends Vue {
   .form-content {
     display: flex;
     justify-content: center;
-    .footer--center{
+    .footer--center {
       display: flex;
       justify-content: center;
       margin-top: -14px;
     }
-    .footer{
+    .footer {
       margin-top: 24px;
     }
   }

@@ -36,7 +36,14 @@
     </el-row>
     <h3>可删除小选项卡</h3>
     <el-row class="delete-tabs">
-      <el-tabs v-model="editableTabsValue" type="card" closable @tab-remove="removeTab">
+      <el-tabs
+        v-model="editableTabsValue"
+        type="card"
+        closable
+        addable
+        @tab-remove="removeTab"
+        @tab-add="addTab"
+      >
         <el-tab-pane
           v-for="item in editableTabs"
           :key="item.name"
@@ -87,7 +94,7 @@ export default class extends Vue {
   ]
 
   private editableTabsValue = '1'
-
+  private tabIndex = 3
   private removeTab(targetName) {
     const tabs = this.editableTabs
     let activeName = this.editableTabsValue
@@ -104,6 +111,16 @@ export default class extends Vue {
 
     this.editableTabsValue = activeName
     this.editableTabs = tabs.filter(tab => tab.name !== targetName)
+  }
+
+  private addTab(targetName) {
+    const newTabName = ++this.tabIndex + ''
+    this.editableTabs.push({
+      title: 'New Tab',
+      name: newTabName,
+      content: 'New Tab content',
+    })
+    this.editableTabsValue = newTabName
   }
 }
 </script>

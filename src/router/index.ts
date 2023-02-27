@@ -1,8 +1,8 @@
 /*
  * @Author: 马妍
  * @Date: 2022-07-29 10:25:03
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-10 13:47:51
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-02-02 12:06:17
  * @Description:
  */
 import Vue from 'vue'
@@ -37,10 +37,16 @@ const _componentRoutes = componentRoutes.map((route: any) => {
   route.meta.type = 'component'
   return route
 })
+
 const _consoleRoutes = consoleRoutes.map((route: any) => {
   route.meta.type = 'page'
   return route
 })
+
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 // TODO 除了404，其他需要配合后端接口的状态跳转
 const _statusRoutes = [
@@ -78,7 +84,7 @@ const base = [
   },
   {
     path: '/component',
-    redirect: '/component/base',
+    redirect: '/component/biz',
     meta: { hidden: true },
   },
 ]

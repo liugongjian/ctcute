@@ -11,10 +11,10 @@
       :links="links"
       :width="width"
       :height="height"
-      @layout-change="handleLayoutChange"
       :defs="false"
+      @layout-change="handleLayoutChange"
     >
-      <template v-slot:[`node-1`]="{ node }">
+      <template #[`node-1`]="{ node }">
         <text y="22" x="33">
           <tspan>
             {{ node.data.title }}
@@ -23,20 +23,20 @@
         <rect width="110px" height="1px" style="stroke: white" />
       </template>
       <!--非子网节点-->
-      <template v-for="i in 8" v-slot:[`node-${i}`]="{ node }">
+      <template v-for="i in 8" #[`node-${i}`]="{ node }">
         <g :key="i">
           <image :xlink:href="getImage(node.data.icon)" :x="i > 1 ? 0 : 30" y="0" height="30" width="30" />
           <text :y="22" :x="i > 1 ? 33 : 63" :class="{ 't-text': i > 1 && i < 6 }">
             <tspan :fill="i > 1 && i < 6 ? '#009dff' : '#000'">
               {{ node.data.title }}
             </tspan>
-            <tspan fill="#009dff" v-if="i > 1 && i < 6">✖{{ node.data.num }}</tspan>
+            <tspan v-if="i > 1 && i < 6" fill="#009dff">✖{{ node.data.num }}</tspan>
           </text>
           <rect width="120px" height="1px" style="stroke: white" />
         </g>
       </template>
       <!--子网父节点-->
-      <template v-for="subnet in subnetNode" v-slot:[subnet]="{ node }">
+      <template v-for="subnet in subnetNode" #[subnet]="{ node }">
         <g :key="subnet">
           <text y="12">
             <tspan> {{ node.data.typeName }}({{ node.data.title }}){{ node.data.cidr }} </tspan>
@@ -44,7 +44,7 @@
         </g>
       </template>
       <!-- 子网实例-->
-      <template v-for="instance in subnetInstance" v-slot:[instance]="{ node }">
+      <template v-for="instance in subnetInstance" #[instance]="{ node }">
         <g :key="instance">
           <image :xlink:href="getImage(node.data.icon)" x="0" y="0" height="30" width="30" />
           <text y="22" x="33" class="t-text">

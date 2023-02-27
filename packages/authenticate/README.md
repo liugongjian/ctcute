@@ -7,7 +7,7 @@
 @cutedesign/authenticate 包括两部分，一部分是用户、一部分是权限。
 其中用户部分支持三种模式：
 
-- 自建用户(local)
+- cuted 内置用户(local)
 - 天翼云用户(ctyun)
 - IAM 用户(iam)
 
@@ -87,12 +87,12 @@ this.$auth.isLogin
 ```javascript
 export default {
   baseUrl: null, // 后端接口的基础路径
-  tokenName: 'token', // 自建用户体系token的名字
-  tokenPrefix: 'vueauth', // 自建用户体系token的前缀
-  tokenHeader: 'Authorization', // 自建用户体系接口中传的tokenHeader字段名
-  tokenType: null, // 自建用户体系token类型，常用的是'Bear'
-  loginUrl: '/v1/auth/login', // 自建用户体系登录接口
-  logoutUrl: '/v1/auth/logout', // 自建用户体系退出接口
+  tokenName: 'token', // cuted用户体系token的名字
+  tokenPrefix: 'vueauth', // cuted内置用户体系token的前缀
+  tokenHeader: 'Authorization', // cuted内置用户体系接口中传的tokenHeader字段名
+  tokenType: null, // cuted内置用户体系token类型，常用的是'Bear'
+  loginUrl: '/v1/auth/login', // cuted内置用户体系登录接口
+  logoutUrl: '/v1/auth/logout', // cuted内置用户体系退出接口
   storageNamespace: 'vue-authenticate', // 内部存储的namespace
   cookieStorage: {
     // 内部存储cookie的一些参数
@@ -226,12 +226,14 @@ export default {
         method: 'GET',
         // dataHandler: data => data, // 数据格式转换，转换成统一的格式，按需提供
         // afterLogin: userinfo => {}, // 登录成功后，拿到用户信息执行一些操作
-        loggedRouterBeforeEach: (to) => {
+        loggedRouterBeforeEach: to => {
           if (to.name !== 'interceptor') {
             return IamWorkspace.routerBeforeEach(to)
           }
         },
-        unloggedRouterBeforeEach: () => { window.location.href = IamUser.loginUrl }
+        unloggedRouterBeforeEach: () => {
+          window.location.href = IamUser.loginUrl
+        },
       },
       perms: {
         domain: '', // 菜单接口对应的domain （osp 中的菜单代码），业务方按需重写
@@ -240,7 +242,7 @@ export default {
         responseDataKey: 'data.items', // 可以拿到数据的key
         dataHandler: IamMenu.dataFormat, // 数据格式转换，转换成统一的格式
         setWorkspaceId: IamWorkspace.setWorkspaceId,
-        canGetPermsBeforeRoute: (to) => to.name !== 'interceptor'
+        canGetPermsBeforeRoute: to => to.name !== 'interceptor',
       },
     },
     ctyun: {
@@ -266,7 +268,9 @@ export default {
           CtyunWorkspace.setWorkspaceId(userId)
         },
         loggedRouterBeforeEach: CtyunWorkspace.routerBeforeEach,
-        unloggedRouterBeforeEach: () => { window.location.href = CtyunUser.loginUrl }
+        unloggedRouterBeforeEach: () => {
+          window.location.href = CtyunUser.loginUrl
+        },
       },
       // TODO ctyun 不需要鉴权，这个配置的意义主要在于菜单上下线，存在意义待定
       perms: {
@@ -288,9 +292,9 @@ export default {
         url: '/v1/auth/account/ifLogin',
         method: 'GET',
         dataHandler: data => data,
-	afterLogin: $auth => $auth.getPermInfo(true),
-        loggedRouterBeforeEach: (to) => (to.path === '/login') ? '/' : void 0,
-        unloggedRouterBeforeEach: (to) => `/login?redirect=${to.path === '/login' ? '/' : to.path}`
+        afterLogin: $auth => $auth.getPermInfo(true),
+        loggedRouterBeforeEach: to => (to.path === '/login' ? '/' : void 0),
+        unloggedRouterBeforeEach: to => `/login?redirect=${to.path === '/login' ? '/' : to.path}`,
       },
       // TODO 以后考虑多个接口，改成数组
       perms: {
@@ -312,4 +316,4 @@ routes 的格式与正常的 vue-router 要求的 routes 格式一致，通过 m
 
 ## 限制
 
-- 对接 iam/ctuyn 用户+自建权限，预期后端使用 iam/ctyun 的 cookie 来作为身份认证
+- 对接 iam/ctuyn 用户+cuted 自带权限，预期后端使用 iam/ctyun 的 cookie 来作为身份认证

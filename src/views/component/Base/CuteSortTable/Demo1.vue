@@ -1,8 +1,8 @@
 <!--
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:23
- * @LastEditors: 马妍
- * @LastEditTime: 2022-11-18 14:06:30
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2023-02-06 17:36:41
  * @Description:
 -->
 <template>
@@ -56,11 +56,11 @@
     </cute-sort-table>
     <el-pagination
       class="pagination"
-      :current-page="tableHook.pager.page"
-      :page-size="tableHook.pager.limit"
+      :current-page.sync="tableHook.pager.page"
+      :page-size.sync="tableHook.pager.limit"
       :total="tableHook.total"
-      @size-change="tableHook.handleSizeChange"
-      @current-change="tableHook.handleCurrentChange"
+      @size-change="() => tableHook.handleSizeChange(tableHook.pager.limit)"
+      @current-change="() => tableHook.handleCurrentChange(tableHook.pager.page)"
     />
   </div>
 </template>

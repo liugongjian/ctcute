@@ -51,11 +51,11 @@
     <div class="table-column-settings-paginationContainer">
       <el-pagination
         class="table-column-settings__page"
-        :current-page="tableHook.pager.page"
-        :page-size="tableHook.pager.limit"
+        :current-page.sync="tableHook.pager.page"
+        :page-size.sync="tableHook.pager.limit"
         :total="tableHook.total"
-        @size-change="tableHook.handleSizeChange.call(tableHook)"
-        @current-change="tableHook.handleCurrentChange.call(tableHook)"
+        @size-change="() => tableHook.handleSizeChange(tableHook.pager.limit)"
+        @current-change="() => tableHook.handleCurrentChange(tableHook.pager.page)"
       />
     </div>
   </div>

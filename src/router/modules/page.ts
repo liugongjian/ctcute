@@ -44,6 +44,16 @@ const indexPageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'simpleChart2',
+        component: () => import(/* webpackChunkName: "simplechart" */ '@/views/page/Chart/SimpleChart.vue'),
+        name: 'SimpleChart2',
+        meta: {
+          title: 'SimpleChart 基础图表',
+          breadcrumb: true,
+          hidden: true,
+        },
+      },
     ],
   },
 ]
@@ -482,6 +492,15 @@ const restPageRoutes = [
         name: 'TypeScriptDemo',
         meta: {
           title: 'TypeScript Demo',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'echarts-demo',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/EchartsDemo/index.vue'),
+        name: 'EchartsDemo',
+        meta: {
+          title: 'Echarts Demo',
           breadcrumb: true,
         },
       },

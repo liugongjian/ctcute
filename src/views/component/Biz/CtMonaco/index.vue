@@ -9,7 +9,7 @@
   <div>
     <div class="component__container">
       <h1>CtMonaco / Monaco代码编辑器</h1>
-      <component-demo path="@/views/component/Biz/CtLog/Demo1.vue">
+      <component-demo path="@/views/component/Biz/CtMonaco/Demo1.vue">
         <demo1 />
       </component-demo>
       <h2>CtMonaco Attributes</h2>
@@ -21,7 +21,8 @@
         <el-table-column prop="default" label="默认值" />
       </el-table>
       <h2>Others</h2>
-      不同语言按需加载，需在vue.config.js进行配置，详见 lib README.md 。
+      不同语言按需加载，需在vue.config.js进行配置，详见
+      <a href="https://gitlab.ctyuncdn.cn/uefe/component-library/ct-monaco">lib README.md</a>
     </div>
   </div>
 </template>

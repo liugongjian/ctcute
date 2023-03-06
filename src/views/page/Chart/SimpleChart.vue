@@ -140,7 +140,7 @@
   </div>
 </template>
 <script lang="ts">
-import color from '@cutedesign/theme/css/_variables.scss'
+// import color from '@cutedesign/theme/css/_variables.scss'
 import { CuteChartCard, CuteChart } from '@cutedesign/chart'
 import { Component, Vue } from 'vue-property-decorator'
 
@@ -153,7 +153,7 @@ import { Component, Vue } from 'vue-property-decorator'
 })
 export default class extends Vue {
   private get variables(): any {
-    return color
+    return {}
   }
   statusDate = ''
   activeName = 'first'
@@ -655,6 +655,7 @@ export default class extends Vue {
     .chart-table.el-table {
       margin: 0 !important;
     }
+
     .chart-table.el-table {
       margin: 0 !important;
 

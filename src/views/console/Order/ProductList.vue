@@ -124,7 +124,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import variables from '@cutedesign/theme/css/_variables.scss'
+// import variables from '@cutedesign/theme/css/_variables.scss'
 
 import { getTableComponent } from '@/api/tableComponent'
 import { HEALTH } from '@/dics/productList'
@@ -135,7 +135,7 @@ import { HEALTH } from '@/dics/productList'
 export default class extends Vue {
   // 健康状态字典
   private HEALTH = HEALTH
-  private colorVariables = variables
+  private colorVariables = {}
   // 小三角旋转开关
   private flag = false
   private currentPage4 = 4

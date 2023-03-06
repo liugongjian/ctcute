@@ -1,0 +1,11 @@
+/* Card
+-------------------------- */
+.el-card {
+  background-color: $card-bg;
+  border-radius: $border-radius-medium;
+  box-shadow: $card-shadow;
+}
+
+.el-card.is-always-shadow {
+  box-shadow: $card-shadow;
+}

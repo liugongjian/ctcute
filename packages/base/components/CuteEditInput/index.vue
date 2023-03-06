@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { Component, Prop, VModel, Vue } from 'vue-property-decorator'
-import variables from '@cutedesign/theme/css/_variables.scss'
+// import variables from '@cutedesign/theme/css/_variables.scss'
 
 @Component({
   name: 'CuteEditInput',
@@ -26,7 +26,7 @@ import variables from '@cutedesign/theme/css/_variables.scss'
 export default class extends Vue {
   @VModel({ type: String }) syncedValue!: string
   @Prop({ default: false }) private textarea!: boolean
-  private colorVariables = variables
+  private colorVariables = {}
   private editing = false
   private editValue = ''
   private onOk() {
@@ -80,6 +80,7 @@ export default class extends Vue {
     vertical-align: sub;
   }
 }
+
 ::v-deep textarea {
   height: 100%;
 }

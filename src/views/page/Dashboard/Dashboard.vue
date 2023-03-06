@@ -267,7 +267,7 @@
 <script lang="ts">
 import { HEALTH } from '@/dics/simpleTable'
 import { formatDatetime } from '@/utils/date'
-import color from '@cutedesign/theme/css/_variables.scss'
+// import color from '@cutedesign/theme/css/_variables.scss'
 import { getTableComponent } from '@/api/tableComponent'
 import * as TableComponent from '@/types/TableComponent'
 import { CuteChart, CuteChartItem } from '@cutedesign/chart'
@@ -286,7 +286,7 @@ import iconInstall from './Images/icon-install.svg'
 })
 export default class extends Vue {
   private get variables(): any {
-    return color
+    return {}
   }
   private iconReach = iconReach
   private iconClick = iconClick
@@ -1723,9 +1723,10 @@ export default class extends Vue {
     flex-direction: column;
     justify-content: center;
     height: 9.1vw;
+
     &:hover {
-      box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.08), 0 9px 28px 0 rgba(0, 0, 0, 0.05),
-        0 12px 48px 16px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 8%), 0 9px 28px 0 rgba(0, 0, 0, 5%),
+        0 12px 48px 16px rgba(0, 0, 0, 3%);
     }
 
     ::v-deep &__body {
@@ -1737,17 +1738,20 @@ export default class extends Vue {
           margin-right: 3px;
         }
       }
+
       .rise {
         font-weight: 600;
+
         svg {
           margin-top: 1px;
           margin-right: 3px;
         }
       }
+
       .chart-card-count-warp {
         h3 {
           padding: 4px 0;
-          font-family: 'bahnschrift';
+          font-family: bahnschrift;
           font-weight: bold;
         }
       }
@@ -1760,12 +1764,15 @@ export default class extends Vue {
   justify-content: flex-end;
   padding-right: 10px;
   width: 100%;
+
   ::v-deep .el-select {
     width: 90px;
   }
 }
+
 .chart-img {
   position: absolute;
+
   > img:nth-child(1) {
     position: relative;
     top: -193px;
@@ -1773,6 +1780,7 @@ export default class extends Vue {
     width: 23px;
     height: 23px;
   }
+
   > img:nth-child(2) {
     position: relative;
     top: -74px;
@@ -1781,16 +1789,20 @@ export default class extends Vue {
     height: 23px;
   }
 }
+
 .chart-inner {
   display: flex;
   justify-content: space-between;
+
   ::v-deep .el-table td.el-table__cell div {
     font-size: 14px;
   }
+
   ::v-deep .el-table tr:last-child td.el-table__cell {
     border-bottom: none;
   }
 }
+
 .text-ellipsis {
   display: inline-block;
   overflow: hidden;
@@ -1799,6 +1811,7 @@ export default class extends Vue {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .sub-spot {
   display: inline-block;
   margin-right: 10px;
@@ -1826,30 +1839,37 @@ export default class extends Vue {
     background: $disabled-color;
   }
 }
+
 .chart-card-tabs {
   margin-top: -10px;
+
   ::v-deep .el-tabs__header {
     margin-bottom: 0;
   }
 }
+
 .chart-items .el-table {
   overflow: scroll;
   margin: 0 !important;
   width: 100%;
 }
+
 .chart-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   // height: 60px;
 }
+
 ::v-deep .el-range-editor {
   width: 243px;
   height: 32px;
 }
+
 ::v-deep .el-card {
   border-radius: 14px;
 }
+
 .chart-table-box {
   ::v-deep .el-col {
     margin-top: 20px;
@@ -1861,6 +1881,7 @@ export default class extends Vue {
     &.chart-card-view {
       height: 519px;
     }
+
     & ::v-deep > .el-card__body {
       height: calc(100% - 70px);
 
@@ -1909,9 +1930,11 @@ export default class extends Vue {
   &:first-child {
     padding-top: 5px;
   }
+
   &:last-child {
     margin-bottom: 0;
   }
+
   margin-bottom: 1vw;
   height: 303px;
 
@@ -1929,8 +1952,9 @@ export default class extends Vue {
 
 .process {
   height: 390px;
+
   ::v-deep .el-card__body {
-    padding: 10px 0 0 0 !important;
+    padding: 10px 0 0 !important;
     height: calc(100% - 50px) !important;
 
     .chart-box {
@@ -1941,6 +1965,7 @@ export default class extends Vue {
 
 .map {
   height: 390px;
+
   ::v-deep .el-card__header {
     .el-select {
       width: 107px;
@@ -1950,6 +1975,7 @@ export default class extends Vue {
       .map_select {
         display: flex;
       }
+
       .el-range-editor {
         margin-left: 16px;
         height: 28px;
@@ -1958,11 +1984,13 @@ export default class extends Vue {
       .el-input__inner {
         height: 28px;
       }
+
       .el-input__suffix {
         height: 28px;
       }
     }
   }
+
   ::v-deep .el-card__body {
     height: calc(100% - 45px) !important;
 
@@ -1985,6 +2013,7 @@ export default class extends Vue {
 ::v-deep .el-card__body .chart-table-box .el-card__body .el-tabs__header {
   margin: 0;
 }
+
 .table {
   height: 390px;
 
@@ -2012,7 +2041,7 @@ export default class extends Vue {
     }
 
     .el-table {
-      margin: 10px 0 10px 0 !important;
+      margin: 10px 0 !important;
       border-bottom: 1px solid $color-grey-6;
     }
   }
@@ -2040,6 +2069,7 @@ export default class extends Vue {
     clear: both;
     align-items: center;
     justify-content: space-between;
+
     .header-time-line {
       display: flex;
       align-items: center;
@@ -2059,6 +2089,7 @@ export default class extends Vue {
           line-height: 28px;
         }
       }
+
       ::v-deep .el-select {
         .el-input__inner {
           margin-left: 0;
@@ -2072,19 +2103,21 @@ export default class extends Vue {
 
   .visit-data {
     padding: 0 10px;
+
     .visits {
       margin: 0;
       color: $color-grey-1;
       letter-spacing: 0;
-      font-weight: 400;
       font-size: 26px;
-      font-family: 'bahnschrift';
+      font-family: bahnschrift;
       font-weight: bold;
     }
+
     .access-rate {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 0px;
+      margin-bottom: 0;
+
       .increase {
         padding-left: 4px;
         color: '#ff5b68';
@@ -2095,6 +2128,7 @@ export default class extends Vue {
 
   .chart-box-container {
     position: relative;
+
     img {
       position: absolute;
       top: 41%;
@@ -2102,12 +2136,15 @@ export default class extends Vue {
     }
   }
 }
+
 .visit-box {
   height: 200px;
 }
+
 ::v-deep .el-col .chart-card-box.el-card.map .el-card__body {
   padding: 10px 20px;
 }
+
 .chart-user {
   height: 300px;
   overflow-y: auto;

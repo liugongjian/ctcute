@@ -6,7 +6,7 @@ module.exports = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['mixin', 'include'],
+        ignoreAtRules: ['mixin', 'include', 'use'],
       },
     ],
     'declaration-block-no-redundant-longhand-properties': [true, { ignoreShorthands: ['grid-template'] }],

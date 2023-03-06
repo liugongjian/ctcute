@@ -1,0 +1,83 @@
+/* Cascader
+-------------------------- */
+
+.el-cascader {
+  // .el-input.el-input--small {
+  //   height: auto !important;
+  // }
+
+  .el-cascader__caret.el-input__icon.el-icon-arrow-down {
+    transform: rotate(360deg);
+    color: $text-color-light-2;
+  }
+
+  .el-cascader__caret.el-input__icon.el-icon-arrow-down.is-reverse {
+    transform: rotate(180deg);
+    color: $text-color-light-2;
+  }
+
+  .el-icon-arrow-down:before {
+    content: '\e790';
+  }
+
+  .el-icon-circle-close:before {
+    font-family: $font-family-cute-icons;
+    content: '\ea4f';
+  }
+
+  .el-input--medium .el-input__icon {
+    line-height: $input-height;
+  }
+
+  .el-input__suffix {
+    height: $input-height + 5;
+    line-height: $input-height;
+    right: 2px;
+  }
+
+  .el-cascader__tags {
+    .el-tag > span {
+      background: $cascader-tag-bg;
+    }
+
+    .el-tag:not(.is-hit) {
+      border-color: $cascader-tag-border;
+    }
+
+    .el-icon-close:before {
+      color: $cascader-tag-close-color;
+      background-color: $cascader-tag-close-bg;
+      border-radius: 50%;
+      line-height: 17px;
+    }
+  }
+}
+
+.el-popper.el-cascader__dropdown {
+  margin-bottom: $margin;
+  margin-top: $margin;
+  transform: none;
+  box-shadow: $cascader-panel-shadow;
+
+  .el-cascader-node:hover {
+    background-color: $cascader-node-hover;
+  }
+
+  .in-active-path {
+    background-color: transparent;
+  }
+
+  .el-radio,
+  .el-checkbox {
+    padding-right: $padding-2x;
+  }
+
+
+  .el-icon-arrow-right::before {
+    content: '\e791';
+  }
+
+  .el-cascader-panel {
+    background-color: $cascader-panel-bg;
+  }
+}

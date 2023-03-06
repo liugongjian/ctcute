@@ -101,7 +101,7 @@ import { formatDatetime } from '@/utils/date'
 import * as SimpleTable from '@/types/ProTable7'
 import { getTable } from '@/api/proTable7'
 import { STATUS, TYPE } from '@/dics/proTable7'
-import variables from '@cutedesign/theme/css/_variables.scss'
+// import variables from '@cutedesign/theme/css/_variables.scss'
 
 @Component({
   name: 'ProTable7',
@@ -111,7 +111,7 @@ export default class extends Vue {
   private STATUS = STATUS
   private TYPE = TYPE
   private formatDatetime = formatDatetime
-  private colorVariables = variables
+  private colorVariables = {}
 
   // 加载状态
   private loading = false

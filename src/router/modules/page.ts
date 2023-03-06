@@ -496,6 +496,16 @@ const restPageRoutes = [
         },
       },
       {
+        path: 'variables-refactor',
+        component: () =>
+          import(/* webpackChunkName: "ts-demo" */ '@/views/page/TsDemo/VariablesRefactor.vue'),
+        name: 'VariablesRefactor',
+        meta: {
+          title: 'VariablesRefactor(临时)',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'echarts-demo',
         component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/EchartsDemo/index.vue'),
         name: 'EchartsDemo',

@@ -1,0 +1,342 @@
+/*
+  重置按钮样式
+  $type: 类名;
+  $color-bg: 背景颜色;
+  $color-bg-hover: 背景悬浮颜色;
+  $color-bg-active: 背景激活颜色;
+*/
+@mixin button-color($type, $color-bg, $color-bg-hover, $color-bg-active) {
+  $color-text: $color-white;
+  $color-text-hover: $color-white;
+  $color-text-active: $color-white;
+  $color-border: $color-bg;
+  $color-border-hover: $color-bg-hover;
+  $color-border-active: $color-bg-active;
+
+  // 针对default特殊处理
+  @if $type == default {
+    $color-text: $text-color-light;
+    $color-text-hover: $color-bg-hover;
+    $color-text-active: $color-bg-active;
+    $color-border-hover: $color-bg-hover;
+    $color-border-active: $color-bg-active;
+    $color-border: $color-bg;
+    $color-bg: $color-bg-1;
+    $color-bg-hover: $color-bg-1;
+    $color-bg-active: $color-bg-1;
+  }
+
+  .el-button--#{$type} {
+    background: $color-bg;
+    border-color: $color-border;
+
+    &:hover {
+      color: $color-text-hover;
+      background: $color-bg-hover;
+      border-color: $color-border-hover;
+    }
+    
+    &:active,
+    &:focus {
+      color: $color-text-active;
+      background: $color-bg-active;
+      border-color: $color-border-active;
+    }
+  }
+}
+@include button-color(default, $color-grey-6, $color-master, $color-master-active);
+@include button-color(primary, $color-master, $color-master-hover, $color-master-active);
+@include button-color(info, $color-info, $color-info-hover, $color-info-active);
+@include button-color(success, $color-success, $color-success-hover, $color-success-active);
+@include button-color(warning, $color-warning, $color-warning-hover, $color-warning-active);
+@include button-color(danger, $color-danger, $color-danger-hover, $color-danger-active);
+
+/*
+  重置朴素(plain)按钮样式
+  $type: 类名;
+  $color-border: 边框颜色;
+  $color-bg: 背景颜色;
+  $color-bg-hover: 背景悬浮颜色;
+*/
+@mixin button-plain($type, $color-border, $color-border-hover, $color-border-active, $color-bg-hover) {
+  $color-text: $color-border;
+  $color-bg: $color-bg-1;
+
+  // 针对default特殊处理
+  @if $type == default {
+    $color-text: $text-color-light;
+  }
+
+  .el-button--#{$type}.is-plain {
+    color: $color-text;
+    background: $color-bg;
+    border-color: $color-border;
+
+    &:hover {
+      color: $color-border-hover;
+      background: $color-bg-hover;
+    }
+
+    &:active,
+    &:focus {
+      color: $color-border-active;
+      border-color: $color-border-active;
+      background: $color-bg-hover;
+    }
+  }
+
+  .el-button--#{$type}.is-plain.is-disabled,
+  .el-button--#{$type}.is-plain.is-disabled:hover,
+  .el-button--#{$type}.is-plain.is-disabled:active,
+  .el-button--#{$type}.is-plain.is-disabled:focus {
+    color: $color-text;
+    background: $color-bg;
+    border-color: $color-border;
+    opacity: 0.6;
+  }
+}
+@include button-plain(default, $color-grey-6, $color-master-hover, $color-master-active, $tag-master);
+@include button-plain(primary, $color-master, $color-master-hover, $color-master-active, $tag-master);
+@include button-plain(info, $color-info, $color-info-hover, $color-info-active, $tag-info);
+@include button-plain(success, $color-success, $color-success-hover, $color-success-active, $tag-success);
+@include button-plain(warning, $color-warning, $color-warning-hover, $color-warning-active, $tag-warning);
+@include button-plain(danger, $color-danger, $color-danger-hover, $color-danger-active, $tag-danger);
+
+/*
+  重置按钮尺寸
+  $size: 大小名称;
+  $font-size: 字体大小;
+*/
+@mixin button-size($size, $font-size, $padding, $icon-vertical-align) {
+  .el-button--#{$size} {
+    font-size: $font-size;
+    padding: $padding;
+
+    .svg-icon {
+      vertical-align: $icon-vertical-align;
+    }
+  }
+}
+@include button-size(mini, $text-size, $button-padding-mini, -0.21em);
+@include button-size(small, $text-size, $button-padding-small, -0.21em);
+@include button-size(medium, $text-size, $button-padding-medium, -0.19em);
+@include button-size(large, $text-size-md, $button-padding-large, -0.15em);
+
+/*
+  重置按钮图标样式
+*/
+.el-button .svg-icon {
+  font-size: $text-size-md;
+  line-height: 1;
+  margin-right: 4px;
+}
+
+/*
+  重置loading图标样式
+*/
+.el-button .el-icon-loading {
+  margin-right: 4px;
+}
+
+/*
+  重置下拉框箭头位置
+*/
+.el-dropdown .el-button .svg-icon:not(:first-child) {
+  margin-right: 0;
+}
+
+/*
+  重置按钮与下拉框的间距
+*/
+.el-button + .el-dropdown {
+  margin-left: $margin-4x;
+  margin-right: $margin-4x;
+}
+
+/*
+  重置按钮与按钮的间距
+*/
+.el-button + .el-button {
+  margin-left: $button-margin;
+}
+
+
+/* TextButton
+-------------------------- */
+.el-button--text {
+  color: $color-master;
+  padding: 0;
+
+  .svg-icon {
+    margin-right: 4px;
+  }
+
+  &:hover {
+    color: $color-master-hover;
+  }
+
+  &.light:not(.is-disabled) {
+    color: $color-master-hover;
+  }
+
+  &.is-plain {
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: transparent;
+        background: transparent;
+    }
+  }
+}
+
+// .el-button.el-button--primary.el-button--medium.is-loading {
+//   background: $color-master;
+//   border-color: $color-master;
+//   opacity: 0.6;
+// }
+
+// .el-button.el-button--default.el-button--medium.is-loading {
+//   background: $loading-default-color;
+//   border-color: $loading-default-border;
+// }
+
+// .el-button + .el-dropdown {
+//   margin-left: $margin-4x;
+//   margin-right: $margin-4x;
+// }
+
+// .el-button + .el-button {
+//   margin-left: $button-margin;
+// }
+
+// .el-button-rect {
+//   padding: $padding-10;
+// }
+
+// .sub-special {
+//   .el-button--danger {
+//     background-color: $color-sp-1;
+//     border-color: $color-sp-1;
+
+//     &:hover {
+//       background-color: $color-sp-2;
+//       border-color: $color-sp-2;
+//     }
+
+//     &:active {
+//       background-color: $color-sp-3;
+//       border-color: $color-sp-3;
+//     }
+//   }
+// }
+
+// .el-button--danger.is-plain {
+//   background: $color-bg-1;
+//   border-color: $color-status-danger-1;
+
+//   &:hover,
+//   &:active,
+//   &:focus {
+//     color: $color-status-danger-1;
+//     background: $color-status-danger-2;
+//   }
+// }
+
+// .el-button--medium {
+//   padding: 9px $padding-primary;
+//   font-size: $text-size-primary;
+//   border-radius: $border-radius;
+// }
+
+// .el-button.el-button--default.el-button--medium:not(.is-disabled),
+// .el-button.el-button--default.el-button--small:not(.is-disabled),
+// .el-button.el-button--default.el-button--mini:not(.is-disabled) {
+//   background-color: $color-bg-1;
+// }
+
+// .el-button--small {
+//   padding: 7px $padding-primary;
+//   border-radius: $border-radius;
+
+//   .svg-icon {
+//     margin-right: 4px;
+//   }
+// }
+
+// .el-button.el-button--default:not(.is-disabled, .el-button--primary):hover {
+//   background: $color-bg-1;
+//   border-color: $color-master-1;
+// }
+
+// .el-button.is-loading:before {
+//   background: transparent;
+// }
+
+// .el-button--primary {
+
+//   &:hover,
+//   &:active,
+//   &:focus {
+//     background-color: $color-master-3;
+//     border-color: $color-master-3;
+//   }
+// }
+
+// .el-button.el-button--primary.el-button--mini {
+//   padding: 7px $padding-primary;
+// }
+
+// /* TextButton
+// -------------------------- */
+// .el-button--text {
+//   color: $color-master-1;
+//   padding: 0;
+
+//   .svg-icon {
+//     margin-right: 4px;
+//   }
+
+//   &:hover {
+//     color: $color-master-3;
+//   }
+
+//   &.light:not(.is-disabled) {
+//     color: $color-master-3;
+//   }
+// }
+
+// /* IconButton
+// -------------------------- */
+// .el-button.el-button--medium {
+//   .svg-icon {
+//     font-size: $text-size-large;
+//   }
+// }
+
+// .el-button.el-button--text.el-button--medium.is-plain {
+//   color: $color-grey-3;
+//   border: 0;
+
+//   &:hover,
+//   &:active,
+//   &:focus {
+//     color: $color-master-3;
+//     border: none;
+//     background-color: transparent;
+//   }
+// }
+
+// .el-button.el-button--default.el-button--medium.is-plain {
+//   border: 1px solid $border-color-primary;
+//   padding: 7px;
+
+//   &:not(.el-button.el-button--default.el-button--medium.is-disabled.is-plain):hover {
+//     border: 1px solid $color-master-1;
+//   }
+// }
+
+// .el-button.el-button--primary.el-button--medium.is-disabled {
+//   .svg-icon {
+//     color: $color-grey-5;
+//   }
+// }

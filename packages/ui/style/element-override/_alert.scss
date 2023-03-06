@@ -1,0 +1,54 @@
+/* Alert
+-------------------------- */
+/*
+  $class:类名;
+  $icon-color:icon颜色;
+  $bg-color:背景颜色;
+*/
+@mixin global-tips($class, $icon-color, $bg-color) {
+  .is-alert-tip {
+    .el-alert--#{$class}.is-light {
+      color: $text-color;
+      background-color: $bg-color;
+
+      .el-alert__icon {
+        color: $icon-color;
+      }
+    }
+  }
+}
+@include global-tips(info, $color-master, $tag-master);
+@include global-tips(success, $color-success, $tag-success);
+@include global-tips(warning, $color-warning, $tag-warning);
+@include global-tips(error, $color-danger, $tag-danger);
+@include global-tips(weak, $color-weak, $tag-weak);
+
+.el-alert {
+  padding: $margin-2x $margin-4x;
+  width: auto;
+}
+
+.el-alert__title {
+  font-size: $text-size;
+  line-height: 20px; // TODO替换为变量
+}
+
+.el-alert__content {
+  padding-right: 0;
+}
+
+.el-alert > .el-alert__content:first-child {
+  padding-left: 0;
+}
+
+.is-alert-tip {
+  .el-alert__closebtn {
+    position: static;
+    margin-left: $margin-4x;
+  }
+
+  .el-alert__closebtn.is-customed {
+    font-size: $text-size-primary;
+    top: $common-sapce-2x;
+  }
+}

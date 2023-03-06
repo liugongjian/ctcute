@@ -40,19 +40,20 @@ module.exports = {
     historyApiFallback: true,
     disableHostCheck: true,
   },
-  pluginOptions: {
-    'style-resources-loader': {
-      preProcessor: 'scss',
-      patterns: [
-        path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_variables.scss'),
-        path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_mixins.scss'),
-      ],
-    },
-  },
+  // pluginOptions: {
+  //   'style-resources-loader': {
+  //     preProcessor: 'scss',
+  //     patterns: [
+  //       path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_variables.scss'),
+  //       path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_mixins.scss'),
+  //     ],
+  //   },
+  // },
   css: {
     loaderOptions: {
       sass: {
         sassOptions: { outputStyle: 'expanded', quietDeps: true },
+        additionalData: '@import "node_modules/@cutedesign/theme/css/_variables.scss";@import "node_modules/@cutedesign/theme/css/_mixins.scss";@import "node_modules/@cutedesign/ui/style/default/variables.scss";'
       },
     },
   },

@@ -53,7 +53,9 @@
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import SplitBar from './SplitBar.vue'
 import { cloneDeep } from 'lodash'
-import variables from '@cutedesign/theme/css/_variables.scss'
+// import variables from '@cutedesign/theme/css/_variables.scss'
+
+const variables = {}
 
 @Component({
   name: 'CuteDistributionBar',
@@ -66,16 +68,16 @@ export default class extends Vue {
   @Prop({
     type: Array,
     default: () => [
-      variables.chartColorH12,
-      variables.chartColor3,
-      variables.chartColor4,
-      variables.chartColor11,
-      variables.chartColor8,
-      variables.chartColor9,
-      variables.chartColor5,
-      variables.chartColor1,
-      variables.chartColor6,
-      variables.chartColor10,
+      // variables.chartColorH12,
+      // variables.chartColor3,
+      // variables.chartColor4,
+      // variables.chartColor11,
+      // variables.chartColor8,
+      // variables.chartColor9,
+      // variables.chartColor5,
+      // variables.chartColor1,
+      // variables.chartColor6,
+      // variables.chartColor10,
     ],
   })
   colors: []

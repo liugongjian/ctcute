@@ -1,0 +1,51 @@
+/* Tag
+-------------------------- */
+@mixin global-tag($class: info,
+  $bdcolor: $disabled-border,
+  $fontColor: $text-color-primary,
+  $bgColor: $disabled-fill) {
+  .el-tag.el-tag--#{$class} {
+    border: 1px solid $bdcolor;
+    color: $fontColor;
+    background-color: $bgColor;
+  }
+}
+
+@include global-tag();
+@include global-tag(success, $color-tag-success-1, $color-status-success, $color-tag-success-2);
+@include global-tag(warning, $color-tag-warning-1, $color-status-warning, $color-tag-warning-2);
+@include global-tag(danger, $color-tag-danger-1, $color-status-danger, $color-tag-danger-2);
+@include global-tag(newtag, $color-tag-master-1, $color-status-master, $color-tag-master-2);
+
+.el-tag--newtag {
+  &:hover {
+    background: $color-master-6;
+    cursor: pointer;
+  }
+}
+
+.el-tag {
+  background-color: $color-tag-info-2;
+  color: $color-status-info;
+  border: 1px solid $color-tag-info-1;
+  border-radius: $border-radius;
+}
+
+.el-tag.el-tag--info .el-tag__close {
+  color: $color-grey-1;
+
+  &:hover {
+    color: $color-grey-1;
+    background-color: $color-grey-10;
+  }
+}
+
+.el-tag--medium {
+  height: 22px;
+  line-height: 20px;
+}
+
+.el-tag--large {
+  height: 28px;
+  line-height: 26px;
+}

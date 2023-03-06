@@ -14,8 +14,10 @@
   </div>
 </template>
 <script lang="ts">
-import variables from '@cutedesign/theme/css/_variables.scss'
+// import variables from '@cutedesign/theme/css/_variables.scss'
 import { Vue, Component } from 'vue-property-decorator'
+
+const variables = {}
 
 @Component({
   name: 'Demo1',

@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 马妍
- * @LastEditTime: 2023-02-27 10:40:59
+ * @LastEditTime: 2023-02-28 16:53:20
  * @Description: 带提示的选择器
 -->
 <template>
@@ -16,7 +16,9 @@
     :value="value"
     @change="myChange($event)"
   >
-    <span slot="prefix" ref="prefix" class="prefix-placeholder">{{ value.length > 0 ? title : '' }}</span>
+    <span slot="prefix" ref="prefix" class="prefix-placeholder">{{
+      value && value.length > 0 ? title : ''
+    }}</span>
     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
   </el-select>
 </template>

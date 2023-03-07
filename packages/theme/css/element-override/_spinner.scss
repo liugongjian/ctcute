@@ -1,8 +1,7 @@
-
-.el-time-spinner__list::before {
+.el-time-spinner__list:before {
   height: 0;
 }
 
 .el-time-spinner__item.active:not(.disabled) {
-  margin-top: 4px;
+  margin-top: $margin;
 }

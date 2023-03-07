@@ -18,11 +18,11 @@
   }
 
   .el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
-    top: 5px;
-    left: 5px;
-    width: 2px;
-    height: 2px;
-    transform: scale(3);
+    top: 5px; //TODO
+    left: 5px; //TODO
+    width: 2px; //TODO
+    height: 2px; //TODO
+    transform: scale(3); //TODO
   }
 
   .el-transfer__buttons {
@@ -30,9 +30,9 @@
   }
 
   .el-button--medium {
-    padding: 6px 6px;
+    padding: $padding-6 $padding-6;
     display: block;
-    margin: 4px 8px;
+    margin: $margin $margin-2x;
   }
 
   .el-button--medium:not(.is-disabled) {
@@ -56,13 +56,13 @@
   }
 
   .is-disabled.el-transfer__button {
-    background: $disabled-fill;
-    border: 1px solid $border-color-primary;
+    background: $disabled-bg;
+    border: 1px solid $border-color;
     border-radius: $border-radius;
     color: $disabled-icon-color;
 
     &:hover {
-      background: $disabled-fill;
+      background: $disabled-bg;
       color: $disabled-icon-color;
     }
 
@@ -80,11 +80,11 @@
   }
 
   .el-checkbox.el-transfer-panel__item.is-checked {
-    background-color: $color-master-7;
+    background-color: $color-master-bg-light-2;
   }
 
   .el-checkbox__input.is-checked + .el-checkbox__label {
-    color: $text-color-primary;
+    color: $text-color;
   }
 
   .el-checkbox {
@@ -92,12 +92,12 @@
   }
 
   .el-checkbox__label {
-    font-size: $text-size-primary;
+    font-size: $text-size;
   }
 }
 
 .el-transfer-panel .el-transfer-panel__header .el-checkbox .el-checkbox__label {
-  font-size: $text-size-primary;
+  font-size: $text-size;
 }
 
 .el-transfer-panel__filter {

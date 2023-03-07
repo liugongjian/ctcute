@@ -3,24 +3,24 @@
 .el-drawer {
   .el-form {
     .el-form-item--medium .el-form-item__label {
-      line-height: 30px;
+      line-height: 30px; //TODO
       font-weight: 400;
-      color: $text-color-primary;
-      font-size: $text-size-primary;
+      color: $text-color;
+      font-size: $text-size;
     }
   }
 }
 
 .el-drawer.rtl {
   .el-drawer__header {
-    padding-bottom: 20px;
-    border-bottom: 1px solid $border-color-light-1;
+    padding-bottom: $padding-5x;
+    border-bottom: 1px solid $border-color-light;
     margin-bottom: 0;
     background-color: $color-bg-1;
 
     &:first-child {
-      color: $text-color-primary;
-      font-size: 16px;
+      color: $text-color;
+      font-size: $text-size-lg;
       font-weight: bold;
     }
   }
@@ -37,10 +37,10 @@
 
 .el-drawer {
   .el-form--label-top .el-form-item__label {
-    padding: 0 0 8px 0;
+    padding: 0 0 $padding-2x;
   }
 
   .el-form-item {
-    margin-bottom: 24px;
+    margin-bottom: $padding-6x;
   }
 }

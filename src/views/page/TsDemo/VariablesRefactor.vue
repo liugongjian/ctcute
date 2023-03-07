@@ -7,10 +7,44 @@
 -->
 <template>
   <div>
-    <el-card>
-      <el-checkbox-group v-model="checkboxGroup1">
-        <el-checkbox-button v-for="city in cities" :key="city" :label="city">{{ city }}</el-checkbox-button>
-      </el-checkbox-group>
+    <el-card class="demo-input">
+      <div class="demo-input-suffix">
+        <el-input v-model="input1" disabled placeholder="请选择日期" suffix-icon="el-icon-date"> </el-input>
+        <el-input v-model="input2" placeholder="请输入内容" prefix-icon="el-icon-search"> </el-input>
+      </div>
+      <div class="demo-input-suffix">
+        <el-input v-model="input3" placeholder="请选择日期">
+          <i slot="suffix" class="el-input__icon el-icon-date"></i>
+        </el-input>
+        <el-input v-model="input4" placeholder="请输入内容">
+          <i slot="prefix" class="el-input__icon el-icon-search"></i>
+        </el-input>
+      </div>
+      <div>
+        <el-input v-model="input1" placeholder="请输入内容">
+          <template slot="prepend">Http://</template>
+        </el-input>
+      </div>
+      <div style="margin-top: 15px">
+        <el-input v-model="input2" placeholder="请输入内容">
+          <template slot="append">.com</template>
+        </el-input>
+      </div>
+      <div style="margin-top: 15px">
+        <el-input v-model="input3" placeholder="请输入内容" class="input-with-select">
+          <el-select slot="prepend" v-model="select" placeholder="请选择">
+            <el-option label="餐厅名" value="1"></el-option>
+            <el-option label="订单号" value="2"></el-option>
+            <el-option label="用户电话" value="3"></el-option>
+          </el-select>
+          <el-button slot="append" icon="el-icon-search"></el-button>
+        </el-input>
+      </div>
+      <el-input v-model="input1" placeholder="请输入内容" suffix-icon="el-icon-date"> </el-input>
+      <el-input v-model="input2" size="medium" placeholder="请输入内容" suffix-icon="el-icon-date">
+      </el-input>
+      <el-input v-model="input3" size="small" placeholder="请输入内容" suffix-icon="el-icon-date"> </el-input>
+      <el-input v-model="input4" size="mini" placeholder="请输入内容" suffix-icon="el-icon-date"> </el-input>
     </el-card>
     <el-card>
       <el-collapse v-model="activeName" accordion>
@@ -174,9 +208,21 @@ import { Component, Vue } from 'vue-property-decorator'
   name: 'TypeScriptDemo',
 })
 export default class extends Vue {
+  input1: ''
+  input2: ''
+  input3: ''
+  input4: ''
+  select: ''
   private activeName = '1'
   private cities = ['上海', '北京', '广州', '深圳']
   private checkboxGroup1 = ['上海']
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.demo-input {
+  .el-input {
+    width: 800px;
+    margin: 10px;
+  }
+}
+</style>

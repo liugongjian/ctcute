@@ -1,6 +1,5 @@
 /* DatePicker
---------------------------*/
-
+-------------------------- */
 .el-date-picker:not(.el-picker-panel.el-date-picker.el-popper.has-sidebar) {
   width: 270px;
 
@@ -21,34 +20,29 @@
 
 .el-picker-panel__footer {
   background-color: $color-bg-1;
-  // .el-button--default {
-  //   background: $color-form-component-bg;
-  //   border: 1px solid $border-color-primary;
-  //   border-radius: 2px;
-  // }
 }
 
 .el-picker-panel.el-popper.has-time {
   .el-time-panel__footer {
-    border-top: 1px solid $border-color-light-1;
+    border-top: 1px solid $border-color-light;
   }
 }
 
 .el-picker-panel.el-popper.time-select {
   background-color: $color-bg-1;
-  box-shadow: 0 2px 8px 0 $color-bg-3;
-  border-radius: 2px;
+  box-shadow: $datepicker-shadow;
+  border-radius: $border-radius;
 
   .time-select-item {
-    font-size: 12px;
+    font-size: $text-size;
 
     &:hover {
-      background-color: $color-master-7;
-      color: $color-master-1;
+      background-color: $color-master-bg-light-2;
+      color: $color-master;
     }
 
     &.selected {
-      background-color: $color-master-1;
+      background-color: $color-master;
       color: $color-white;
     }
   }
@@ -57,28 +51,28 @@
 .el-picker-panel.el-date-picker.el-popper.has-sidebar,
 .el-picker-panel.el-date-range-picker.el-popper.has-sidebar {
   .el-picker-panel__sidebar {
-    padding-top: 12px;
+    padding-top: $padding-3x;
     background-color: $color-bg-1;
-    border-right: 1px solid $border-color-light-1;
+    border-right: 1px solid $border-color-light;
 
     .el-picker-panel__shortcut {
-      font-size: 12px;
+      font-size: $text-size;
       font-weight: 400;
       color: $color-grey-1;
 
       &:hover {
-        color: $color-master-1;
+        color: $color-master;
       }
     }
   }
 
   .el-picker-panel__footer {
-    border-top: 1px solid $border-color-light-1;
+    border-top: 1px solid $border-color-light;
     background-color: $color-bg-1;
   }
 
   .el-date-range-picker__time-header {
-    border-bottom: 1px solid $border-color-light-1;
+    border-bottom: 1px solid $border-color-light;
   }
 }
 
@@ -88,19 +82,19 @@
 }
 
 .el-picker-panel.el-date-range-picker.el-popper {
-  box-shadow: 0 2px 8px 0 $color-bg-3;
+  box-shadow: $datepicker-shadow;
 
   .el-date-range-picker__content.is-left {
-    border-right: 1px solid $border-color-light-1;
+    border-right: 1px solid $border-color-light;
   }
 }
 
 .el-picker-panel.el-date-range-picker.el-popper[x-placement^='bottom'] {
-  margin-top: $margin-tiny;
+  margin-top: $margin;
 }
 
 .el-picker-panel.el-date-range-picker.el-popper[x-placement^='top'] {
-  margin-bottom: $margin-tiny;
+  margin-bottom: $margin;
 }
 
 .el-picker-panel.el-date-range-picker.el-popper.has-sidebar {
@@ -109,37 +103,37 @@
 
 .el-picker-panel.el-date-range-picker.el-popper.has-time {
   .el-date-range-picker__time-header {
-    border-bottom: 1px solid $border-color-light-1;
+    border-bottom: 1px solid $border-color-light;
   }
 
   .el-picker-panel__footer {
-    border-top: 1px solid $border-color-light-1;
+    border-top: 1px solid $border-color-light;
   }
 
-  .el-time-spinner__list::after {
+  .el-time-spinner__list:after {
     height: 160px;
   }
 }
 
 .el-picker-panel.el-date-picker.el-popper {
   background-color: $color-bg-1;
-  box-shadow: 0 2px 8px 0 $color-bg-3;
-  border-radius: 2px;
+  box-shadow: $datepicker-shadow;
+  border-radius: $border-radius;
 
   .el-picker-panel__sidebar {
-    border-right: 1px solid $border-color-light-1;
+    border-right: 1px solid $border-color-light;
   }
 
   .el-picker-panel__footer {
     background-color: $color-bg-1;
-    border-top: 1px solid $border-color-light-1;
+    border-top: 1px solid $border-color-light;
   }
 
   .el-date-picker__time-header {
-    border-bottom: 1px solid $border-color-light-1;
+    border-bottom: 1px solid $border-color-light;
   }
 
-  .el-time-spinner__list::after {
+  .el-time-spinner__list:after {
     height: 160px;
   }
 }
@@ -153,15 +147,15 @@
 }
 
 /* DatePicker-editor
---------------------------*/
+-------------------------- */
 
 .el-range-editor.el-input__inner {
   background-color: $color-bg-1;
 }
 
 .el-range-editor--medium.el-input__inner {
-  height: 32px;
-  line-height: 32px;
+  height: $input-height;
+  line-height: $input-height;
 }
 
 .el-range-editor .el-range__icon,
@@ -189,12 +183,11 @@
 
 .el-range-editor--medium .el-range-input,
 .el-date-editor.el-range-input {
-  font-size: 12px;
+  font-size: $text-size;
   background-color: $color-bg-1;
 }
 
 .el-date-editor {
-
   .el-range-input,
   .el-input__inner {
     background-color: $color-bg-1;
@@ -207,7 +200,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: $text-size;
 }
 
 .el-date-editor.el-input {
@@ -218,20 +211,20 @@
 
 .el-date-editor.el-input.el-input--medium {
   .el-input__icon.el-icon-time {
-    line-height: 32px;
+    line-height: $input-height;
   }
 
   .el-input__icon.el-icon-date {
-    line-height: 32px;
+    line-height: $input-height;
   }
 }
 
-.el-time-panel__content::before {
+.el-time-panel__content:before {
   top: 19px;
   border: 0;
-  background-color: $color-master-7;
+  background-color: $color-master-bg-light-2;
 }
 
-.el-time-panel__content.has-seconds::before {
+.el-time-panel__content.has-seconds:before {
   margin: -15px 0;
 }

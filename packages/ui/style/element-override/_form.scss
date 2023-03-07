@@ -1,47 +1,47 @@
 /* Form
 -------------------------- */
 .el-form-item__label {
-  padding-right: $padding-medium;
-  color: $text-color-primary;
+  padding-right: $padding-4x;
+  color: $text-color;
 }
 
 .el-form-item {
-  margin-bottom: 24px;
+  margin-bottom: $margin-6x;
 }
 
 .el-form-item__error {
-  padding-top: 6px;
+  padding-top: $form-item-error-padding-top;
 }
 
 .el-form-item--medium {
   .el-form-item__label {
-    line-height: 32px;
+    line-height: $form-item-label-line-height;
   }
 }
 
 .el-form--inline .el-form-item {
-  margin-right: $margin-large;
+  margin-right: $margin-5x;
 }
 
 .el-form-item--medium .el-form-item__content {
-  line-height: 32px;
+  line-height: $form-item-label-line-height;
 }
 
 .el-form-item__error {
   display: flex;
   align-items: center;
 
-  &::before {
-    font-family: 'cute-icons';
+  &:before {
+    font-family: $font-family-cute-icons;
+    font-size: $text-size-md;
     content: '\ea5c';
-    color: $color-status-danger-1;
-    font-size: 14px;
+    color: $color-danger;
     vertical-align: top;
-    margin-right: $margin-tiny;
+    margin-right: $margin;
   }
 }
 
 .el-form-item.is-error .el-input__inner {
-  border: 1px solid $color-status-danger-1;
-  background: $color-status-danger-2;
+  border: 1px solid $color-danger;
+  background: $color-danger-bg;
 }

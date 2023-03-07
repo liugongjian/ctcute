@@ -4,26 +4,26 @@
   border: none;
 
   .el-collapse-item.is-disabled .el-collapse-item__header {
-    font-family: PingFangSC-Medium;
-    font-size: 12px;
+    font-family: PingFangSC-Medium; // TODO
+    font-size: $text-size;
     color: $disabled-color;
   }
 
   .el-collapse-item__header {
-    height: 36px;
-    background: $collapse-header-fill;
-    border: 1px solid $border-color-primary;
-    color: $text-color-primary;
+    height: $collapse-header-height;
+    background: $collapse-header-bg;
+    border: 1px solid $border-color;
+    color: $text-color;
     font-weight: bold;
-    font-size: 12px;
-    margin-top: 24px;
-    padding-left: 36px;
+    font-size: $text-size;
+    margin-top: $margin-6x;
+    padding-left: $padding-9x;
     position: relative;
 
     .el-collapse-item__arrow {
       position: absolute;
-      left: 16px;
-      color: $text-color-light-1;
+      left: $common-sapce-4x;
+      color: $text-color-light;
     }
   }
 
@@ -33,12 +33,12 @@
   }
 
   .el-collapse-item__content {
-    font-size: 12px;
-    color: $text-color-light-1;
-    line-height: 20px;
-    padding: 10px;
+    font-size: $text-size;
+    color: $text-color-light;
+    line-height: 20px; // TODO
+    padding: $padding-10;
     background-color: $color-bg-1;
-    border: 1px solid $border-color-primary;
+    border: 1px solid $border-color;
     border-top: none;
   }
 }
@@ -47,11 +47,11 @@
   .el-collapse-item__header {
     background-color: $color-grey-8;
     border: none;
-    height: 32px;
+    height: $collapse-item-header-height;
   }
 
   .el-collapse-item__content {
-    margin-top: 16px;
+    margin-top: $margin-4x;
     border: none;
     padding: 0;
   }

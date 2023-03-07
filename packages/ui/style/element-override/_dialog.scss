@@ -1,9 +1,9 @@
 /* Dialog
 -------------------------- */
 .el-dialog__footer {
-  margin-top: -30px;
+  margin-top: $dialog-footer-margin-top;
 }
 
 .el-dialog__headerbtn .el-dialog__close {
-  color: $text-color-light-1;
+  color: $text-color-light;
 }

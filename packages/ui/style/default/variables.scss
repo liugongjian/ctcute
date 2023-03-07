@@ -7,6 +7,9 @@
 $color-master: palette.$orange-base; // 默认
 $color-master-hover: palette.$orange-5; // 悬停
 $color-master-active: palette.$orange-7; // 触发
+$color-master-bg: palette.$orange-3; // 背景
+$color-master-bg-light: palette.$orange-2; // 背景浅色
+$color-master-bg-light-2: palette.$orange-1; // 背景浅色2
 
 $color-master-1: palette.$orange-base; // deprecated(弃用)
 $color-master-2: palette.$orange-5; // deprecated(弃用)
@@ -29,21 +32,27 @@ $color-sp-3: palette.$red-7; // deprecated(弃用)
 $color-info: palette.$blue-base; // 信息通知
 $color-info-hover: palette.$blue-5;
 $color-info-active: palette.$blue-7;
+$color-info-bg: palette.$blue-1;
 $color-success: palette.$green-base; // 成功
 $color-success-hover: palette.$green-5;
 $color-success-active: palette.$green-7;
+$color-success-bg: palette.$green-1;
 $color-warning: palette.$gold-base; // 警告
 $color-warning-hover: palette.$gold-5;
 $color-warning-active: palette.$gold-7;
+$color-warning-bg: palette.$gold-1;
 $color-danger: palette.$ruby-base; // 危险
 $color-danger-hover: palette.$ruby-5;
 $color-danger-active: palette.$ruby-7;
+$color-danger-bg: palette.$ruby-1;
 $color-fatal-danger: palette.$ruby-8; // 严重危险
 $color-fatal-danger-hover: palette.$ruby-7;
 $color-fatal-danger-active: palette.$ruby-9;
+$color-fatal-danger-bg: palette.$ruby-1;
 $color-weak: palette.$grey-5; // 轻微提示(2.0版本新增)
 $color-weak-hover: palette.$grey-4;
 $color-weak-active: palette.$grey-6;
+$color-weak-bg: palette.$grey-9;
 
 $color-status-master-1: $color-master; // deprecated(弃用)
 $color-status-danger-1: palette.$ruby-base; // deprecated(弃用)
@@ -105,9 +114,9 @@ $font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, ari
 $font-family-cute-icons: 'cute-icons';
 $text-size: 12px; // 标准字体大小
 $text-size-sm: 12px; // 字号small
-$text-size-md: $text-size-sm + 2px; // 字号medium
-$text-size-lg: $text-size-md +2px; // 字号large
-$text-size-xl: $text-size-lg +2px; // 字号extra large
+$text-size-md: $text-size-sm + 2px; // 字号medium = 14px
+$text-size-lg: $text-size-md +2px; // 字号large = 16px
+$text-size-xl: $text-size-lg +2px; // 字号extra large = 18px
 $text-color: palette.$grey-1; // 正文颜色
 $text-color-light: palette.$grey-2; // 提示文字
 $text-color-light-2: palette.$grey-4; // 次要文本、表单占位文本
@@ -226,19 +235,28 @@ $button-padding-small: 7px 20px;
 $button-padding-medium: 9px 20px;
 $button-padding-large: 11px 20px;
 
-/* Checkbox
+/* Form
 -------------------------- */
-$checkbox-bg: palette.$orange-1;
-$checkbox-border: palette.$orange-base;
-$checkbox-button: palette.$orange-1;
-$checkbox-button-hover: palette.$orange-2;
+$form-item-label-line-height: 32px;
+$form-item-error-padding-top: $padding-6;
 
 /* Input
 -------------------------- */
 $input-bg: $color-white;
-$input-height: 32px;
+$input-xs-height: 28px;
+$input-sm-height: 28px;
+$input-md-height: 32px;
+$input-lg-height: 32px;
+$input-height: $input-md-height;
 
 $input-fill: $color-white; // deprecated(弃用)
+
+/* Checkbox
+-------------------------- */
+$checkbox-bg: $color-master-bg-light-2;
+$checkbox-border: $color-master;
+$checkbox-button: $color-master-bg-light-2;
+$checkbox-button-hover: $color-master-bg-light;
 
 /* Table
 -------------------------- */
@@ -279,15 +297,32 @@ $cascader-tag-bg: palette.$grey-10;
 $cascader-tag-border: palette.$grey-6;
 $cascader-tag-close-color: palette.$white;
 $cascader-tag-close-bg: palette.$grey-4;
-$cascader-node-hover: palette.$orange-1;
+$cascader-node-hover: $color-master-bg-light-2;
 $cascader-panel-bg: $color-bg-1;
 $cascader-panel-shadow: 0 2px 8px 0 $color-bg-3;
 
 /* Collapse
 -------------------------- */
 $collapse-header-bg: $color-grey-11;
+$collapse-header-height: 36px;
+$collapse-item-header-height: 32px;
 
 $collapse-header-fill: $color-grey-11; // deprecated(弃用)
+
+/* Datepicker
+-------------------------- */
+$datepicker-shadow: 0 2px 8px 0 $color-bg-3;
+
+/* Descriptions
+-------------------------- */
+$descriptions-label-width: 165px;
+$descriptions-item-height: 36px;
+$descriptions-item-content-width: 525px;
+$descriptions-item-content-line-height: 22px;
+
+/* Dialog
+-------------------------- */
+$dialog-footer-margin-top: -30px;
 
 /* Icon
 -------------------------- */
@@ -295,7 +330,7 @@ $icon-color: $color-grey-3;
 
 /* Loading
 -------------------------- */
-$loading-primary-color: mix($color-white, $color-master-1, 50%);
+$loading-primary-color: mix($color-white, $color-master, 50%);
 $loading-primary-border: $loading-primary-color;
 $loading-default-color: $color-grey-10;
 $loading-default-border: $color-grey-6;
@@ -314,7 +349,7 @@ $header-search-text-color: palette.$grey-4;
 $sidebar-width: 240px;
 $sidebar-fill: $color-white;
 $sidebar-sub-fill: $color-white;
-$sidebar-sub-hover: palette.$orange-1;
+$sidebar-sub-hover: $color-master-bg-light-2;
 
 /* Animation
 -------------------------- */

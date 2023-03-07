@@ -3,7 +3,7 @@
 @mixin uploader-success {
   .el-upload-list__item .el-upload-list__item-name {
     color: $color-grey-1;
-    font-size: $text-size-small;
+    font-size: $text-size-sm;
     display: flex;
     align-items: center;
 
@@ -15,34 +15,34 @@
   }
 
   .el-icon-document:before {
-    font-family: 'cute-icons' !important;
+    font-family: $font-family-cute-icons !important;
     font-style: normal;
     content: '\ea3e';
-    font-size: $text-size-large;
+    font-size: $text-size-lg;
   }
 
   .el-upload-list__item:hover {
     background: $color-grey-9;
   }
 
-  .el-icon-close::before {
-    font-family: 'cute-icons' !important;
+  .el-icon-close:before {
+    font-family: $font-family-cute-icons !important;
     font-style: normal;
     content: '\ea70' !important;
-    font-size: $text-size-large;
+    font-size: $text-size-lg;
   }
 
   .el-upload__tip {
     color: $color-grey-2;
-    font-size: $text-size-small;
-    margin: 8px 0 10px 0;
+    font-size: $text-size-sm;
+    margin: $margin-2x 0 $margin-10;
   }
 
-  .el-icon-circle-check::before {
-    font-family: 'cute-icons' !important;
+  .el-icon-circle-check:before {
+    font-family: $font-family-cute-icons !important;
     font-style: normal;
     content: '\ea64' !important;
-    font-size: $text-size-large;
+    font-size: $text-size-lg;
   }
 
   .el-upload-list__item-name {
@@ -52,40 +52,41 @@
 
 //小文件
 .small-uploader {
-  width: 316px;
-  padding: 20px;
-  border: 1px solid $border-color-primary;
-  border-radius: 2px;
+  width: 316px; // TODO
+  padding: $padding-5x;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+
   @include uploader-success();
 }
 
 //图片上传
 .picture-uploader {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: $margin-10;
 
   .el-upload--picture-card {
-    width: 80px;
-    height: 80px;
-    border-color: $border-color-primary;
+    width: 80px;// TODO
+    height: 80px;// TODO
+    border-color: $border-color;
     display: flex;
     align-items: center;
     justify-content: center;
     background: $color-grey-11;
 
     .el-icon-plus {
-      font-size: 18px;
-      color: $text-color-light-1;
+      font-size: $text-size-xl;
+      color: $text-color-light;
     }
 
     &:hover {
-      border-color: $color-master-1;
+      border-color: $color-master;
     }
   }
 
   .el-upload-list__item.is-uploading {
-    width: 80px;
-    height: 80px;
+    width: 80px;// TODO
+    height: 80px;// TODO
     background-color: $color-grey-11;
     border: 1px dashed $loading-default-border;
   }
@@ -97,14 +98,14 @@
   }
 
   .el-upload-list.el-upload-list--picture-card .el-progress {
-    width: 50px;
+    width: 50px;// TODO
   }
 
   .el-upload-list--picture-card .el-upload-list__item {
-    width: 80px;
-    height: 80px;
+    width: 80px;// TODO
+    height: 80px;// TODO
     display: flex;
-    border-color: $border-color-primary;
+    border-color: $border-color;
     align-items: center;
     justify-content: center;
     background-color: $color-bg-1;
@@ -115,73 +116,74 @@
   }
 
   .el-upload-list.el-upload-list--picture-card .is-uploading .el-progress.el-progress-circle {
-    width: 50px !important;
-    height: 50px !important;
+    width: 50px !important;// TODO
+    height: 50px !important;// TODO
   }
 
   .el-upload-list--picture-card {
     display: flex;
 
     .el-upload-list__item-thumbnail {
-      width: 68px;
-      height: 68px;
+      width: 68px;// TODO
+      height: 68px;// TODO
     }
   }
 
-  .el-icon-delete::before {
+  .el-icon-delete:before {
     content: '\ea70';
-    font-family: 'cute-icons' !important;
+    font-family: $font-family-cute-icons !important;
     font-style: normal;
   }
 
   .el-progress-circle svg path:nth-child(2) {
-    stroke: $color-master-1;
+    stroke: $color-master;
   }
 }
 
 //文件上传
 .file-uploader {
-  width: 320px;
+  width: 320px;// TODO
+
   @include uploader-success();
 
   .file-uploader_content {
-    width: 320px;
-    height: 80px;
-    border: 1px solid $border-color-primary;
-    border-radius: 2px;
+    width: 320px;// TODO
+    height: 80px;// TODO
+    border: 1px solid $border-color;// TODO
+    border-radius: $border-radius;
     background-color: $color-bg-1;
 
     &:hover {
-      border-color: $color-master-1;
+      border-color: $color-master;
     }
   }
 
   .sub-svg-text {
-    margin-top: 18px;
+    margin-top: 18px;// TODO
 
     svg {
-      color: $color-master-1;
-      margin-right: 10px;
+      color: $color-master;
+      margin-right: $margin-10;
     }
 
     span {
-      font-size: 12px;
-      color: $color-master-1;
+      font-size: $text-size;
+      color: $color-master;
     }
   }
 }
 
 //拖拽上传
 .drag-uploader {
-  width: 360px;
+  width: 360px;// TODO
 
   .el-upload-dragger {
-    background-color: $upload-fill;
+    background-color: $upload-bg;
 
     .el-icon-upload {
-      width: 33px !important;
-      height: 42px !important;
-      margin-top: 38px;
+      width: 33px !important;// TODO
+      height: 42px !important;// TODO
+      margin-top: 38px;// TODO
       color: $color-master-1;
     }
   }
@@ -191,19 +193,19 @@
 
 .el-upload__text {
   b {
-    font-size: 12px;
-    margin-top: 20px;
-    line-height: 20px;
+    font-size: $text-size;
+    margin-top: $margin-5x;
+    line-height: $common-sapce-5x;
   }
 
   div {
-    font-size: 12px;
+    font-size: $text-size;
     color: $text-color-light-2;
-    margin: 6px 0 38px 0;
-    line-height: 20px;
+    margin: $margin-6 0 38px;// TODO
+    line-height: $common-sapce-5x;
   }
 }
 
 .el-upload-dragger {
-  border: 1px dashed $border-color-primary;
+  border: 1px dashed $border-color;// TODO
 }

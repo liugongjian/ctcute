@@ -1,14 +1,14 @@
 /* Tree
 -------------------------- */
 .el-tree {
-  margin-top: 10px;
-  background: transparent;
+  margin-top: $margin-10;
+  background: transparent; //TODO
 }
 
 .el-tree-node {
   &__content {
     height: 30px;
-    margin-bottom: 6px;
+    margin-bottom: $margin-6;
     font-size: $text-size-primary;
     color: $color-grey-4;
 
@@ -22,12 +22,12 @@
 
     .node-content {
       .handler-menu {
-        height: 30px;
+        height: 30px; //TODO
         display: flex;
         align-items: center;
 
         .hover-wrapper {
-          height: 100%;
+          height: 100%; //TODO
           display: flex;
           align-items: center;
         }
@@ -44,15 +44,15 @@
   .pop-tooltip {
     display: none;
     position: absolute;
-    z-index: 2019;
-    top: 24px;
+    z-index: 2019; //TODO
+    top: $common-sapce-6x;
     right: 0;
     background: $color-bg-1;
   }
 }
 
 .el-tree-node.is-focusable {
-  & > .el-tree-node__content {
+  &>.el-tree-node__content {
     color: $color-grey-1;
 
     &:hover:not(.is-current>.el-tree-node__content:hover) {
@@ -66,7 +66,7 @@
   }
 
   &.is-current {
-    & > .el-tree-node__content {
+    &>.el-tree-node__content {
       color: $color-white;
       background: $color-master-1;
 
@@ -105,10 +105,10 @@
     .el-button {
       margin: 0;
       padding: 0.8em 1.2em;
-      color: $text-color-light-1;
+      color: $text-color-light;
 
       &:hover {
-        background: $color-master-7;
+        background: $color-master-bg-light-2;
       }
     }
   }
@@ -119,5 +119,5 @@
 }
 
 .el-tree-node__expand-icon.is-leaf {
-  padding: 2px;
+  padding: 2px; // TODO
 }

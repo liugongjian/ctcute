@@ -7,37 +7,37 @@
 }
 
 .el-popover {
-  padding: 20px 24px 20px 16px;
+  padding: $padding-5x $padding-6x $padding-5x $padding-4x;
   border: none;
-  box-shadow: 0 2px 8px 0 $color-bg-3;
-
+  box-shadow: 0 2px $padding-2x 0 $color-bg-3;
+  // TODO
   p {
     margin: 0;
   }
 
   .el-popover__title {
-    font-size: 12px;
-    margin-bottom: 15px;
+    font-size: $text-size;
+    margin-bottom: 15px;// TODO
   }
 }
 
 .el-popper {
   background-color: $color-bg-1;
-  box-shadow: 0 2px 8px 0 $color-bg-3;
+  box-shadow: 0 2px $common-sapce-2x 0 $color-bg-3; //TODO
 }
 
 .el-popper[x-placement^='top'] .popper__arrow,
-.el-popper[x-placement^='top'] .popper__arrow::after {
+.el-popper[x-placement^='top'] .popper__arrow:after {
   border-top-color: $color-bg-1;
 }
 
 .el-popper[x-placement^='left'] .popper__arrow,
-.el-popper[x-placement^='left'] .popper__arrow::after {
+.el-popper[x-placement^='left'] .popper__arrow:after {
   border-left-color: $color-bg-1;
 }
 
 .el-popper[x-placement^='right'] .popper__arrow,
-.el-popper[x-placement^='right'] .popper__arrow::after {
+.el-popper[x-placement^='right'] .popper__arrow:after {
   border-right-color: $color-bg-1;
 }
 

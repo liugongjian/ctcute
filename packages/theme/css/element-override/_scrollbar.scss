@@ -1,16 +1,16 @@
 /* Scrollbar
 -------------------------- */
 .el-scrollbar__thumb {
-  border-radius: 8px;
+  border-radius: 8px; //TODO
   background-color: $color-grey-6;
 }
 
 .el-scrollbar__bar {
   &.is-vertical {
-    width: 8px;
+    width: $common-sapce-2x;
   }
 
   &.is-horizontal {
-    height: 8px !important;
+    height: $common-sapce-2x !important;
   }
 }

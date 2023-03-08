@@ -2,11 +2,11 @@
 -------------------------- */
 
 .el-textarea {
-  font-size: $text-size-primary;
+  font-size: $text-size;
   width: 100%;
 
   .el-textarea__inner {
-    padding: 7px 12px;
+    padding: 7px $padding-3x; //TODO
     background-color: $color-bg-1;
   }
 
@@ -17,10 +17,10 @@
 }
 
 .el-textarea .el-input__count {
-  color: $text-color-light-1;
+  color: $text-color-light;
   line-height: 150%;
 }
 
 .el-textarea.is-disabled .el-textarea__inner {
-  border-color: $border-color-primary;
+  border-color: $border-color;
 }

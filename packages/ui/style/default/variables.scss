@@ -246,10 +246,16 @@ $input-bg: $color-white;
 $input-xs-height: 28px;
 $input-sm-height: 28px;
 $input-md-height: 32px;
-$input-lg-height: 32px;
+$input-lg-height: 40px;
 $input-height: $input-md-height;
+$input-prefix-padding: $padding-9x;
+$input-suffix-padding: $padding-9x;
 
 $input-fill: $color-white; // deprecated(弃用)
+
+/* Select
+-------------------------- */
+$select-dropdown-shadow: 0 0 8px 0 $color-bg-3;
 
 /* Checkbox
 -------------------------- */

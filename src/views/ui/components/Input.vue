@@ -70,7 +70,7 @@
     <div class="sub-input">
       <div class="input-search">
         <div>
-          <el-input v-model="searchValue" placeholder="请输入内容" prefix-icon="el-icon-search" size="samll">
+          <el-input v-model="searchValue" placeholder="请输入内容" prefix-icon="el-icon-search" size="small">
           </el-input>
         </div>
         <div>

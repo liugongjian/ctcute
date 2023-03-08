@@ -49,8 +49,8 @@ export default class extends Vue {
 .el-select {
   width: 100%;
 
-  ::v-deep.el-input__inner {
-    padding-left: 12px;
+  ::v-deep.el-input.el-input--prefix .el-input__inner {
+    padding-left: $padding-3x;
   }
 
   ::v-deep.el-input__prefix {

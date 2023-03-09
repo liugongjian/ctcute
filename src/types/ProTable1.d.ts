@@ -13,6 +13,7 @@ export type Host = {
   memory: string
   disk: string
   health: string
+  flag: boolean
 }
 
 /* 过滤条件 */

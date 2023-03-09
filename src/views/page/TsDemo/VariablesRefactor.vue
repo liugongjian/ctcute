@@ -7,7 +7,30 @@
 -->
 <template>
   <div>
-    <el-card class="demo-input">
+    <el-card>
+      <el-select v-model="selectVal" size="large" placeholder="请选择">
+        <el-option label="餐厅名" value="1"></el-option>
+        <el-option label="订单号" value="2"></el-option>
+        <el-option label="用户电话" value="3"></el-option>
+      </el-select>
+      <el-select v-model="selectVal" placeholder="请选择">
+        <el-option label="餐厅名" value="1"></el-option>
+        <el-option label="订单号" value="2"></el-option>
+        <el-option label="用户电话" value="3"></el-option>
+      </el-select>
+      <el-select v-model="selectVal" size="small" placeholder="请选择">
+        <el-option label="餐厅名" value="1"></el-option>
+        <el-option label="订单号" value="2"></el-option>
+        <el-option label="用户电话" value="3"></el-option>
+      </el-select>
+
+      <el-select v-model="selectVal" size="mini" placeholder="请选择">
+        <el-option label="餐厅名" value="1"></el-option>
+        <el-option label="订单号" value="2"></el-option>
+        <el-option label="用户电话" value="3"></el-option>
+      </el-select>
+    </el-card>
+    <!-- <el-card class="demo-input">
       <div class="demo-input-suffix">
         <el-input v-model="input1" disabled placeholder="请选择日期" suffix-icon="el-icon-date"> </el-input>
         <el-input v-model="input2" placeholder="请输入内容" prefix-icon="el-icon-search"> </el-input>
@@ -40,12 +63,12 @@
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
       </div>
-      <el-input v-model="input1" placeholder="请输入内容" suffix-icon="el-icon-date"> </el-input>
+      <el-input v-model="input1" size="large" placeholder="请输入内容" suffix-icon="el-icon-date"> </el-input>
       <el-input v-model="input2" size="medium" placeholder="请输入内容" suffix-icon="el-icon-date">
       </el-input>
       <el-input v-model="input3" size="small" placeholder="请输入内容" suffix-icon="el-icon-date"> </el-input>
       <el-input v-model="input4" size="mini" placeholder="请输入内容" suffix-icon="el-icon-date"> </el-input>
-    </el-card>
+    </el-card> -->
     <el-card>
       <el-collapse v-model="activeName" accordion>
         <el-collapse-item title="一致性 Consistency" name="1">
@@ -208,14 +231,10 @@ import { Component, Vue } from 'vue-property-decorator'
   name: 'TypeScriptDemo',
 })
 export default class extends Vue {
-  input1: ''
-  input2: ''
-  input3: ''
-  input4: ''
-  select: ''
   private activeName = '1'
   private cities = ['上海', '北京', '广州', '深圳']
   private checkboxGroup1 = ['上海']
+  private selectVal = '1'
 }
 </script>
 <style lang="scss" scoped>

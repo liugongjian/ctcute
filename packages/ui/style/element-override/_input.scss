@@ -26,24 +26,43 @@
     }
   }
 
-  // 前置元素样式
-  &.el-input__prefix {
-    display: flex;
-    align-items: center;
+  // 含前置前置元素的输入框样式，区别于下面的.el-input__prefix
+  &.el-input--prefix {
+    .el-input__inner {
+      padding-left: $input-prefix-padding;
+    }
 
-    // 前置搜索图标样式
-    .el-input__icon.el-icon-search {
+    // 前置元素样式
+    .el-input__prefix {
       display: flex;
       align-items: center;
-      justify-content: center;
+      left: $padding-4x;
+
+      .el-input__icon {
+        width: auto;
+      }
+      // .el-input__icon.el-icon-search {
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      // }
     }
   }
+  
 
   // 后置元素样式
-  &.el-input__suffix {
+  .el-input__suffix {
     display: flex;
     align-items: center;
-    right: $common-sapce-3x;
+    right: $padding-4x;
+
+    .el-input__icon {
+      width: auto;
+    }
+
+    .el-input__inner {
+      padding-right: $input-suffix-padding;
+    }
 
     // 后置图标样式
     .el-input__suffix-inner {
@@ -52,18 +71,32 @@
         vertical-align: text-bottom;
       }
   
-      .el-icon-view {
-        font-size: $text-size-lg;
-        vertical-align: text-bottom;
-      }
+      // .el-icon-view {
+      //   font-size: $text-size-lg;
+      //   vertical-align: text-bottom;
+      // }
   
       // 关闭图标样式
-      .el-icon-close {
-        padding-right: 15px; //TODO
-  
+      .el-icon-close {  
         &:hover {
           color: $color-master;
           cursor: pointer;
+        }
+      }
+    }
+  }
+
+  // 复杂输入框组
+  &.el-input-group {
+    .el-input-group__append,
+    .el-input-group__prepend {
+      color: $text-color;
+
+      .el-select {
+        min-width: 80px;
+
+        .el-input__inner::placeholder {
+          color: $text-color;
         }
       }
     }
@@ -78,11 +111,12 @@
   }
 }
 
+/*
+  重置Input尺寸
+*/
 @mixin input-size($size, $height, $text-size) {
   .el-input.el-input--#{$size} {
     font-size: $text-size;
-    height: $height;
-
 
     .el-input__inner {
       height: $height;
@@ -98,6 +132,11 @@
     }
   }
 }
+
+@include input-size(large, $input-lg-height, $text-size);
+@include input-size(medium, $input-md-height, $text-size);
+@include input-size(small, $input-sm-height, $text-size);
+@include input-size(mini, $input-xs-height, $text-size);
 
 
 // .el-input.el-input--small {
@@ -130,36 +169,36 @@
 //   // line-height: 1 !important; // 无效删掉
 // }
 
-.el-input-group__append,
-.el-input-group__prepend {
-  .el-select {
-    .el-input.el-input--suffix {
-      width: 100%;
+// .el-input-group__append,
+// .el-input-group__prepend {
+//   .el-select {
+//     .el-input.el-input--suffix {
+//       width: 100%;
 
-      .el-input__inner {
-        background-color: $color-bg-1;
-        height: 28px;
-      }
-    }
+//       .el-input__inner {
+//         background-color: $color-bg-1;
+//         height: 28px;
+//       }
+//     }
 
-    .el-input__suffix {
-      height: 28px;
-      line-height: 28px;
-    }
-  }
+//     .el-input__suffix {
+//       height: 28px;
+//       line-height: 28px;
+//     }
+//   }
 
-  width: 80px;
-  background: $color-bg-1;
-  color: $text-color-primary;
+//   // width: 80px;
+//   background: $color-bg-1;
+//   color: $text-color-primary;
 
-  .el-input__inner::placeholder {
-    color: $text-color-primary;
-  }
-}
+//   .el-input__inner::placeholder {
+//     color: $text-color-primary;
+//   }
+// }
 
-.el-input-group__prepend {
-  color: $text-color-light-1;
-}
+// .el-input-group__prepend {
+//   color: $text-color-light-1;
+// }
 
 // .el-input__prefix {
 //   display: flex;
@@ -206,14 +245,14 @@
 //   }
 // }
 
-.el-input--medium .el-input__inner {
-  height: 32px;
-  line-height: 32px;
-  background-color: $color-bg-1;
-}
+// .el-input--medium .el-input__inner {
+//   height: 32px;
+//   line-height: 32px;
+//   background-color: $color-bg-1;
+// }
 
-.el-input.el-input--mini.el-input--suffix {
-  .el-input__inner {
-    background-color: $color-bg-1;
-  }
-}
+// .el-input.el-input--mini.el-input--suffix {
+//   .el-input__inner {
+//     background-color: $color-bg-1;
+//   }
+// }

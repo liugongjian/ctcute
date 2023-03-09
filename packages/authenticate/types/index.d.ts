@@ -1,7 +1,6 @@
 import { VueInstance } from 'vue'
 import { AxiosInstance } from 'axios'
-import Router, { RouteConfig, Route, NavigationGuardNext } from 'vue-router'
-import { ExecFileOptionsWithStringEncoding } from 'child_process'
+import Router, { RouteConfig, Route } from 'vue-router'
 
 declare module 'vue-router/types/router' {
   interface RouteMeta {
@@ -41,6 +40,7 @@ interface ApiConfig extends RequestOptions {
   dataHandler?: (data: any) => any
 }
 export interface CommonAuthProvider {
+  enableWorkspace?: boolean // 是否启用 wid
   layout: {
     containerId: string
     bizDomain?: string
@@ -52,14 +52,14 @@ export interface CommonAuthProvider {
   }
   ifLogin: ApiConfig & {
     afterLogin?: ($auth: AuthInstance, userId: string) => any // 已登录后的操作
-    loggedRouterBeforeEach?: (to: Route) => Route | string | void // 已登录状态下，路由前置操作
-    unloggedRouterBeforeEach?: (to: Route) => Route | string | void // 未登录状态下，路由前置操作
+    loggedRouterBeforeEach?: (to: Route, $auth: AuthInstance) => Route | string | void // 已登录状态下，路由前置操作
+    unloggedRouterBeforeEach?: (to: Route, $auth: AuthInstance) => Route | string | void // 未登录状态下，路由前置操作
   }
   perms?: ApiConfig & {
     domain?: string
     responseDataKey?: string
-    setWorkspaceId?: (data: any) => any
-    canGetPermsBeforeRoute?: (to: Route) => boolean
+    setWorkspaceId?: (data: any) => any // 当使用 wid 时，可由外部指定
+    canGetPermsBeforeRoute?: (to: Route, $auth: AuthInstance) => boolean // 判断当前路由是否需要获取权限信息
   }
 }
 
@@ -86,8 +86,8 @@ export interface AuthConfigOptions {
   enableAuthorize?: boolean
   bindRequestInterceptor?: ($auth: AuthInstance) => void
   bindResponseInterceptor?: ($auth: AuthInstance) => void
-  beforeEachStartHook?: (to: Route) => Promise<Route | undefined>
-  beforeEachErrorHook?: (to: Route) => Promise<Route | undefined>
+  beforeEachStartHook?: (to: Route, $auth: AuthInstance) => Promise<Route | undefined>
+  beforeEachErrorHook?: (to: Route, $auth: AuthInstance) => Promise<Route | undefined>
   loadLayout?: ($auth: AuthInstance) => void
   providers?: AuthProviders
 }

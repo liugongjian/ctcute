@@ -8,7 +8,7 @@ import {
   CtyunMenu,
   IamWorkspace,
   CtyunWorkspace,
-} from '@cutedesign/layout'
+} from './layout'
 import { isUndefined, lodashGet } from './utils'
 import { AxiosRequestConfig } from 'axios'
 import { AuthConfigOptions } from '../types'
@@ -16,7 +16,7 @@ import { AuthConfigOptions } from '../types'
 export function getCookieDomainUrl() {
   try {
     return window.location.hostname
-  } catch (e) { }
+  } catch (e) {}
 
   return ''
 }
@@ -24,7 +24,7 @@ export function getCookieDomainUrl() {
 export function getRedirectUri(uri) {
   try {
     return !isUndefined(uri) ? `${window.location.origin}${uri}` : window.location.origin
-  } catch (e) { }
+  } catch (e) {}
 
   return uri || null
 }
@@ -74,9 +74,9 @@ export default <AuthConfigOptions>{
         }
         return config
       })
-    } else if (authenticateType === 'iam') {
+    } else if (authenticateType === 'iam' && $auth.currentProvider.enableWorkspace) {
       $auth.$http.interceptors.request.use(IamWorkspace.requestInterceptor)
-    } else if (authenticateType === 'ctyun') {
+    } else if (authenticateType === 'ctyun' && $auth.currentProvider.enableWorkspace) {
       $auth.$http.interceptors.request.use(CtyunWorkspace.requestInterceptor)
     }
   },
@@ -157,10 +157,10 @@ export default <AuthConfigOptions>{
                 .map(item =>
                   item.menuCode === 'logout'
                     ? {
-                      ...item,
-                      href: logoutUrl,
-                      hrefLocal: logoutUrl,
-                    }
+                        ...item,
+                        href: logoutUrl,
+                        hrefLocal: logoutUrl,
+                      }
                     : item
                 )
             })
@@ -183,6 +183,7 @@ export default <AuthConfigOptions>{
   // 三种用户权限相关的配置
   providers: {
     iam: {
+      enableWorkspace: true, // iam 默认启用 wid
       layout: {
         containerId: 'iam-console-container',
         bizDomain: '', // 侧边栏高亮配置，按需重写
@@ -203,7 +204,9 @@ export default <AuthConfigOptions>{
         method: 'GET',
         // dataHandler: data => data, // 数据格式转换，转换成统一的格式，按需提供
         // afterLogin: userinfo => {}, // 登录成功后，拿到用户信息执行一些操作
-        loggedRouterBeforeEach: to => {
+        loggedRouterBeforeEach: (to, $auth) => {
+          if (!$auth.currentProvider.enableWorkspace) return
+
           if (to.name !== 'interceptor') {
             return IamWorkspace.routerBeforeEach(to)
           }
@@ -219,10 +222,11 @@ export default <AuthConfigOptions>{
         responseDataKey: 'data.items', // 可以拿到数据的key
         dataHandler: IamMenu.dataFormat, // 数据格式转换，转换成统一的格式
         setWorkspaceId: IamWorkspace.setWorkspaceId,
-        canGetPermsBeforeRoute: to => to.name !== 'interceptor',
+        canGetPermsBeforeRoute: to => to.name !== 'interceptor', // 判断当前路由是否需要获取权限信息
       },
     },
     ctyun: {
+      enableWorkspace: false, // iam 默认不启用 wid
       layout: {
         containerId: 'ctcloud-console', // 注意：该 id 不要重写，会导致 ctyun layout 初始化异常
         bizDomain: '', // 侧边栏高亮配置，按需重写
@@ -242,9 +246,13 @@ export default <AuthConfigOptions>{
         url: CtyunUser.fetchUrl,
         method: 'GET',
         afterLogin: ($auth, userId) => {
-          CtyunWorkspace.setWorkspaceId(userId)
+          $auth.currentProvider.enableWorkspace && CtyunWorkspace.setWorkspaceId(userId)
         },
-        loggedRouterBeforeEach: CtyunWorkspace.routerBeforeEach,
+        loggedRouterBeforeEach: (to, $auth) => {
+          if (!$auth.currentProvider.enableWorkspace) return
+
+          return CtyunWorkspace.routerBeforeEach(to)
+        },
         unloggedRouterBeforeEach: () => {
           window.location.href = CtyunUser.loginUrl
         },

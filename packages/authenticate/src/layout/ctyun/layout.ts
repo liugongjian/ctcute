@@ -1,6 +1,6 @@
 import BaseLayout from '../common/BaseLayout'
 import { loadJs, loadCss } from '../common/utils'
-import { LayoutConfigOptions, CtyunLayoutInitOptions } from '../../types/layout'
+import { LayoutConfigOptions, CtyunLayoutInitOptions } from '../../../types/layout'
 
 export default class CtyunLayout extends BaseLayout {
   constructor(options?: LayoutConfigOptions) {

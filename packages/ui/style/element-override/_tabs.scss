@@ -1,7 +1,7 @@
 /* Tabs
 -------------------------- */
 .el-tabs__item {
-  font-size: $text-size-primary;
+  font-size: $text-size;
 }
 
 .el-tab-pane {
@@ -10,17 +10,17 @@
 
 .el-tabs.el-tabs--card.el-tabs--top {
   .el-tabs__item {
-    padding: 0px 12px;
-    height: 28px;
-    line-height: 28px;
+    padding: 0 $padding-3x;
+    height: $common-sapce-7x;
+    line-height: $common-sapce-7x;
   }
 
   .el-tabs__item .el-icon-close {
-    margin-left: 8px;
+    margin-left: $margin-2x;
   }
 
   .el-tabs__item.is-top:not(.is-closable).is-active {
-    padding-left: 12px;
+    padding-left: $margin-3x;
   }
 
   .el-tabs__header .el-tabs__item {
@@ -32,23 +32,23 @@
   }
 
   .el-tabs__item.is-top.is-active {
-    border-top: 1px solid $border-color-primary;
-    border-left: 1px solid $border-color-primary;
-    border-right: 1px solid $border-color-primary;
+    border-top: 1px solid $border-color;
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
     transform: translateY(1px);
     border-bottom-color: $color-bg-2;
   }
 }
 
-.el-tabs__nav-wrap::after {
+.el-tabs__nav-wrap:after {
   height: 1px;
-  background-color: $border-color-primary;
+  background-color: $border-color;
 }
 
 .el-tabs--card > .el-tabs__header {
-  border-bottom: 1px solid $border-color-primary;
+  border-bottom: 1px solid $border-color;
 
   .el-tabs__item.is-active.is-closable {
-    padding: 0 10px 0 12px;
+    padding: 0 $padding-10 0 $padding-3x;
   }
 }

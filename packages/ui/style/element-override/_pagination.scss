@@ -6,8 +6,8 @@
 
   span:not([class*='suffix']),
   button {
-    height: 24px;
-    line-height: 24px;
+    height: $common-sapce-6x;
+    line-height: $common-sapce-6x;
 
     &:disabled {
       color: $color-grey-5;
@@ -24,28 +24,28 @@
 
   .el-select.el-select--mini {
     .el-select__caret.el-input__icon.el-icon-arrow-up.is-reverse {
-      line-height: 24px;
+      line-height: $common-sapce-6x;
     }
 
     .el-input__inner {
-      width: 60px;
-      height: 24px;
+      width: 60px; //TODO
+      height: $common-sapce-6x;
       background-color: $color-bg-1;
     }
 
     .el-input.el-input--suffix {
-      width: 60px;
+      width: 60px;//TODO
     }
 
     .el-input__icon {
-      line-height: 24px;
+      line-height: $common-sapce-6x;
       color: $icon-color;
     }
   }
 
   .el-select .el-input__suffix {
-    height: 24px;
-    line-height: 24px;
+    height: $common-sapce-6x;
+    line-height: $common-sapce-6x;
   }
 
   .el-select .el-input {
@@ -57,34 +57,34 @@
   }
 
   .el-pagination__total {
-    color: $text-color-primary;
-    font-size: $text-size-primary;
+    color: $text-color;
+    font-size: $text-size;
     font-weight: normal;
-    margin: 0 20px 0 10px;
+    margin: 0 $margin-5x 0 $margin-10;
   }
 
   .el-pager li + li {
-    margin-left: 10px;
+    margin-left: $margin-10;
   }
 
   .el-pager {
     li {
-      color: $text-color-primary;
+      color: $text-color;
       font-weight: 400;
       font-size: 12px;
       min-width: 20px;
-      height: 24px;
-      line-height: 24px;
+      height: $common-sapce-6x;
+      line-height: $common-sapce-6x;
       border-radius: 2px;
       background: none;
 
       &.active {
-        background-color: $color-master-1;
+        background-color: $color-master;
         color: $color-white;
       }
 
       &:not(.active):hover {
-        background-color: $color-master-7;
+        background-color: $color-master-bg-light-2;
       }
     }
 

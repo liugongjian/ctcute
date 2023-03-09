@@ -6,8 +6,8 @@
    $bgColor:背景颜色
 */
 @mixin steps-page($class: is-success,
-  $bdColor: $color-master-1,
-  $color: $color-master-1,
+  $bdColor: $color-master,
+  $color: $color-master,
   $bgColor: $color-bg-2) {
   .el-step__head.#{$class} {
     border-color: $bdColor;
@@ -20,11 +20,11 @@
 }
 
 @include steps-page();
-@include steps-page(is-process, $color-master-1, $color-master-1, $color-white);
+@include steps-page(is-process, $color-master, $color-master, $color-white);
 
 .el-step__icon-inner.is-status {
   transform: translateY(0px);
-  font-size: 16px;
+  font-size: $text-size-lg;
 }
 
 .el-step.is-horizontal .el-step__line {
@@ -53,13 +53,13 @@
 }
 
 .el-step__head.is-process {
-  border-color: $color-master-1;
+  border-color: $color-master;
 }
 
 .el-step__head.is-process .el-step__icon.is-text {
   color: $color-white;
-  border-color: $color-master-1;
-  background-color: $color-master-1;
+  border-color: $color-master;
+  background-color: $color-master;
 }
 
 .el-step__title.is-wait {
@@ -67,12 +67,12 @@
 }
 
 .el-step__title.is-success {
-  color: $text-color-light-1;
+  color: $text-color-light;
 }
 
 .el-step.is-horizontal .el-step__line {
-  left: 30px;
-  right: 10px;
+  left: 30px; //TODO
+  right: $common-sapce-10;
 }
 
 .el-step.is-horizontal:last-child {
@@ -81,14 +81,14 @@
 
 .el-steps.max.el-steps--horizontal {
   .el-step__line {
-    top: 15px;
-    left: 38px;
+    top: 15px; //TODO
+    left: 38px; //TODO
   }
 
   .el-step__icon.is-text {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
+    width: $common-sapce-8x;
+    height: $common-sapce-8x;
+    font-size: $text-size-lg;
   }
 }
 
@@ -101,19 +101,19 @@
   box-sizing: border-box;
   width: 0;
   height: 0;
-  background-color: $color-master-1;
+  background-color: $color-master;
 }
 
 .is-error .el-step__line-inner {
   display: block;
-  border-width: 1px;
+  border-width: 1px;//TODO
   border-style: solid;
   border-color: inherit;
   transition: 0.15s ease-out;
   box-sizing: border-box;
   width: 0;
   height: 0;
-  background-color: $color-status-danger-1;
+  background-color: $color-status-danger;
 }
 
 .stepSuc :hover {
@@ -127,7 +127,7 @@
 .el-steps {
   .el-step__head.is-success > .el-step__line > .el-step__line-inner {
     width: 100% !important;
-    border-width: 1px !important;
-    border-bottom: 0px !important;
+    border-width: 1px !important;//TODO
+    border-bottom: 0px !important;//TODO
   }
 }

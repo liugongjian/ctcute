@@ -1,19 +1,19 @@
 /* Radio
 -------------------------- */
 .el-radio-button__orig-radio:checked + .el-radio-button__inner {
-  color: $color-master-1;
-  background-color: $color-master-7;
+  color: $color-master;
+  background-color: $color-master-bg-light-2;
 }
 
 .el-radio__inner {
-  width: 16px;
-  height: 16px;
+  width: $common-sapce-4x;
+  height: $common-sapce-4x;
   background-color: $color-bg-1;
 
-  &::after {
-    width: 8px;
-    height: 8px;
-    background: $color-master-1;
+  &:after {
+    width: $common-sapce-2x;
+    height: $common-sapce-2x;
+    background: $color-master;
   }
 }
 
@@ -22,19 +22,19 @@
 .el-radio-group {
   .el-radio-button {
     .el-radio-button__inner {
-      color: $text-color-primary;
-      font-size: $text-size-primary;
-      padding: 7px 20px;
-
+      color: $text-color;
+      font-size: $text-size;
+      padding: 7px $padding-5x;
+      //TODO
       &:not(.el-radio-group .el-radio-button.is-disabled .el-radio-button__inner):hover {
-        color: $color-master-1;
+        color: $color-master;
       }
     }
 
     &.is-active .el-radio-button__inner {
-      background: $color-master-7;
-      color: $color-master-1;
-      border-right: 1px solid $color-master-1;
+      background: $color-master-bg-light-2;
+      color: $color-master;
+      border-right: 1px solid $color-master;
     }
   }
 }
@@ -58,12 +58,12 @@
   font-weight: 400;
 }
 
-.el-radio__input.is-disabled.is-checked .el-radio__inner::after {
+.el-radio__input.is-disabled.is-checked .el-radio__inner:after {
   background: $disabled-border;
 }
 
 .el-radio__input.is-disabled .el-radio__inner {
-  background: $disabled-fill;
+  background: $disabled-bg;
 }
 
 .el-radio__input.is-checked .el-radio__inner {

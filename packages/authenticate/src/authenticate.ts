@@ -5,7 +5,14 @@ import { objectExtend, isFunction, getObjectProperty, lodashGet } from './utils'
 import defaultOptions from './options'
 import StorageFactory from './storage'
 import { hasPermission, filterAsyncRouter } from './permissions'
-import { AuthInstance, RequestOptions, RequestParams, BizAuthConfigOptions, CommonAuthProvider, UserInfo } from '../types'
+import {
+  AuthInstance,
+  RequestOptions,
+  RequestParams,
+  BizAuthConfigOptions,
+  CommonAuthProvider,
+  UserInfo,
+} from '../types'
 
 let __permInfoInstance__: any
 
@@ -159,10 +166,9 @@ export default class VueAuthenticate implements AuthInstance {
         const { ifLogin: ifLoginConfig, perms: permsConfig } = this.currentProvider
 
         if (this.options.beforeEachStartHook && isFunction(this.options.beforeEachStartHook)) {
-          const _to = await this.options.beforeEachStartHook(to)
+          const _to = await this.options.beforeEachStartHook(to, this)
           if (_to) next(_to)
         }
-
 
         try {
           // 虽然当前路由未必需要登录信息，但是需要通过根据鉴权信息获取可用路由
@@ -171,7 +177,7 @@ export default class VueAuthenticate implements AuthInstance {
           if (isLogin) {
             // 已登录的前置处理
             if (ifLoginConfig.loggedRouterBeforeEach && isFunction(ifLoginConfig.loggedRouterBeforeEach)) {
-              const _to = ifLoginConfig.loggedRouterBeforeEach(to)
+              const _to = ifLoginConfig.loggedRouterBeforeEach(to, this)
               if (_to) return next(_to)
             }
 
@@ -180,7 +186,7 @@ export default class VueAuthenticate implements AuthInstance {
               // 默认可以发起鉴权请求，可以通过配置拦截
               let canGet = true
               if (permsConfig.canGetPermsBeforeRoute && isFunction(permsConfig.canGetPermsBeforeRoute)) {
-                canGet = permsConfig.canGetPermsBeforeRoute(to)
+                canGet = permsConfig.canGetPermsBeforeRoute(to, this)
               }
               if (canGet) {
                 await this.getPermInfo()
@@ -195,8 +201,11 @@ export default class VueAuthenticate implements AuthInstance {
 
           // 未登录的前置处理
           if (!isLogin) {
-            if (ifLoginConfig.unloggedRouterBeforeEach && isFunction(ifLoginConfig.unloggedRouterBeforeEach)) {
-              const _to = ifLoginConfig.unloggedRouterBeforeEach(to)
+            if (
+              ifLoginConfig.unloggedRouterBeforeEach &&
+              isFunction(ifLoginConfig.unloggedRouterBeforeEach)
+            ) {
+              const _to = ifLoginConfig.unloggedRouterBeforeEach(to, this)
               if (_to) return next(_to)
             }
           }
@@ -221,7 +230,7 @@ export default class VueAuthenticate implements AuthInstance {
         } catch (e) {
           console.error(e)
           if (this.options.beforeEachErrorHook && isFunction(this.options.beforeEachErrorHook)) {
-            const _to = await this.options.beforeEachErrorHook(to)
+            const _to = await this.options.beforeEachErrorHook(to, this)
             if (_to) next(_to)
           } else {
             next()
@@ -333,9 +342,9 @@ export default class VueAuthenticate implements AuthInstance {
   login({
     user,
     requestOptions = {},
-    successCb = () => { },
-    errorCb = () => { },
-    finallyCb = () => { },
+    successCb = () => {},
+    errorCb = () => {},
+    finallyCb = () => {},
     dataHandler = data => data,
     instance,
   }: RequestParams) {
@@ -407,9 +416,9 @@ export default class VueAuthenticate implements AuthInstance {
    */
   logout({
     requestOptions = {},
-    successCb = () => { },
-    errorCb = () => { },
-    finallyCb = () => { },
+    successCb = () => {},
+    errorCb = () => {},
+    finallyCb = () => {},
     dataHandler = data => data,
     instance,
   }: RequestParams) {

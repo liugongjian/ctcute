@@ -1,11 +1,11 @@
 /* Progress
 -------------------------- */
 .el-progress.is-success .el-progress-bar__inner {
-  background-color: $color-status-success;
+  background-color: $color-success;
 }
 
 .el-progress.is-success .el-progress__text {
-  color: $color-status-success;
+  color: $color-success;
 }
 
 .el-progress-bar__inner,
@@ -14,5 +14,5 @@
 }
 
 .el-progress__text {
-  font-size: $text-size-primary !important;
+  font-size: $text-size !important;
 }

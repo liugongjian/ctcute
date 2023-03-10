@@ -8,6 +8,75 @@
 <template>
   <div>
     <el-card>
+      <el-button type="text" @click="openMessageBox">点击打开 Message Box</el-button>
+    </el-card>
+    <el-card>
+      <h1>Link</h1>
+      <div>
+        <h2>基础用法</h2>
+        <el-link href="https://element.eleme.io" target="_blank">默认链接</el-link>
+        <el-link type="primary">主要链接</el-link>
+        <el-link type="success">成功链接</el-link>
+        <el-link type="warning">警告链接</el-link>
+        <el-link type="danger">危险链接</el-link>
+        <el-link type="info">信息链接</el-link>
+      </div>
+      <div>
+        <h2>禁用状态</h2>
+        <el-link disabled>默认链接</el-link>
+        <el-link type="primary" disabled>主要链接</el-link>
+        <el-link type="success" disabled>成功链接</el-link>
+        <el-link type="warning" disabled>警告链接</el-link>
+        <el-link type="danger" disabled>危险链接</el-link>
+        <el-link type="info" disabled>信息链接</el-link>
+      </div>
+      <div>
+        <h2>下划线</h2>
+        <el-link :underline="false">无下划线</el-link>
+        <el-link>有下划线</el-link>
+      </div>
+      <div>
+        <h2>图标</h2>
+        <el-link icon="el-icon-edit">编辑</el-link>
+        <el-link>查看<i class="el-icon-view el-icon--right"></i> </el-link>
+      </div>
+    </el-card>
+    <el-card>
+      <h1>Tag</h1>
+      <div class="tag-group">
+        <h2>尺寸</h2>
+        <el-tag closable>默认标签</el-tag>
+        <el-tag size="large" closable>大标签</el-tag>
+        <el-tag size="medium" closable>中等标签</el-tag>
+        <el-tag size="small" closable>小型标签</el-tag>
+        <el-tag size="mini" closable>超小标签</el-tag>
+      </div>
+      <div class="tag-group">
+        <h2>Default</h2>
+        <el-tag v-for="item in items" :key="item.label" :type="item.type" closable>
+          {{ item.label }}
+        </el-tag>
+      </div>
+      <div class="tag-group">
+        <h2>Dark</h2>
+        <el-tag v-for="item in items" :key="item.label" :type="item.type" effect="dark" closable>
+          {{ item.label }}
+        </el-tag>
+      </div>
+      <div class="tag-group">
+        <h2>Light</h2>
+        <el-tag v-for="item in items" :key="item.label" :type="item.type" effect="light" closable>
+          {{ item.label }}
+        </el-tag>
+      </div>
+      <div class="tag-group">
+        <h2>Plain</h2>
+        <el-tag v-for="item in items" :key="item.label" :type="item.type" effect="plain" closable>
+          {{ item.label }}
+        </el-tag>
+      </div>
+    </el-card>
+    <el-card>
       <el-select v-model="selectVal" size="large" placeholder="请选择">
         <el-option label="餐厅名" value="1"></el-option>
         <el-option label="订单号" value="2"></el-option>
@@ -235,6 +304,33 @@ export default class extends Vue {
   private cities = ['上海', '北京', '广州', '深圳']
   private checkboxGroup1 = ['上海']
   private selectVal = '1'
+  private items = [
+    { type: '', label: '标签一' },
+    { type: 'success', label: '标签二' },
+    { type: 'info', label: '标签三' },
+    { type: 'danger', label: '标签四' },
+    { type: 'warning', label: '标签五' },
+  ]
+
+  private openMessageBox() {
+    this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+    })
+      .then(() => {
+        this.$message({
+          type: 'success',
+          message: '删除成功!',
+        })
+      })
+      .catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除',
+        })
+      })
+  }
 }
 </script>
 <style lang="scss" scoped>

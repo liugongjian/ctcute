@@ -1,0 +1,93 @@
+/* 重置 Element UI 变量
+-------------------------- */
+
+/* 主题色
+-------------------------- */
+$--color-primary: $color-master;
+$--color-success: $color-success;
+$--color-warning: $color-warning;
+$--color-danger: $color-danger;
+$--color-info: $color-info;
+
+$--color-text-primary: $text-color;
+$--color-text-regular: $text-color;
+$--color-text-secondary: $text-color-light;
+$--color-text-placeholder: $text-color-light-2;
+$--border-color-base: $border-color;
+$--border-color-light: $border-color-light;
+$--border-color-lighter: $border-color-light;
+$--border-color-extra-light: $border-color-light;
+$--background-color-base: $color-bg-3;
+
+/* Box-shadow
+-------------------------- */
+$--box-shadow-base: $shadow-card;
+$--box-shadow-dark: $shadow-dialog;
+$--box-shadow-light: $shadow-card;
+
+/* Link
+-------------------------- */
+$--link-color: $color-master;
+$--link-hover-color: $color-master-hover;
+
+/* Typography
+-------------------------- */
+$--font-size-base: $text-size;
+$--font-size-small: $text-size;
+$--size-base: $text-size;
+$--font-color-disabled-base: $disabled-color;
+
+/* Border
+-------------------------- */
+$--border-radius-base: $border-radius;
+
+/* Button
+-------------------------- */
+$--button-font-weight: 400;
+
+/* Input
+-------------------------- */
+$--input-border: 1px solid $border-color;
+$--input-disabled-fill: $disabled-bg;
+
+/* Table
+-------------------------- */
+$--table-border: 1px solid $border-color;
+
+/* Tree
+-------------------------- */
+$--tree-node-hover-background-color: $color-master-bg-light-2;
+
+/* Rate
+-------------------------- */
+$--rate-icon-color: $color-master;
+
+/* MessageBox
+-------------------------- */
+$--msgbox-border-radius: $border-radius;
+
+/* Icon
+-------------------------- */
+$--icon-color: $text-color-light;
+$--icon-color-base: $text-color-light;
+$--radio-icon-color: $text-color-light;
+$--radio-checked-icon-color: $text-color-light;
+$--message-close-icon-color: $text-color-light;
+$--input-icon-color: $text-color-light;
+$--tree-expand-icon-color: $text-color-light;
+$--rate-icon-color: $text-color-light;
+$--datepicker-icon-color: $text-color-light;
+$--notification-success-icon-color: $text-color-light;
+
+/* DisabledIcon
+-------------------------- */
+$--checkbox-disabled-icon-color: $disabled-color;
+$--checkbox-disabled-checked-icon-color: $disabled-color;
+$--radio-disabled-icon-color: $disabled-color;
+$--radio-disabled-checked-icon-color: $disabled-color;
+
+/* Icon font path, required */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+/* Apply overrided variables in Element UI */
+@import '~element-ui/packages/theme-chalk/src/index';

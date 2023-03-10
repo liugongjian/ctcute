@@ -17,11 +17,11 @@
     }
   }
 }
-@include global-tips(info, $color-master, $tag-master);
+@include global-tips(info, $color-master, $tag-master); // 与element-ui不同的是这里UI规定了info使用蓝色主题色，额外增加了weak类型显示灰色的提示
 @include global-tips(success, $color-success, $tag-success);
 @include global-tips(warning, $color-warning, $tag-warning);
 @include global-tips(error, $color-danger, $tag-danger);
-@include global-tips(weak, $color-weak, $tag-weak);
+@include global-tips(weak, $color-info, $tag-info);
 
 .el-alert {
   padding: $margin-2x $margin-4x;
@@ -30,7 +30,7 @@
 
 .el-alert__title {
   font-size: $text-size;
-  line-height: 20px; // TODO替换为变量
+  line-height: $line-height;
 }
 
 .el-alert__content {

@@ -92,12 +92,28 @@
     .el-input-group__prepend {
       color: $text-color;
 
+      div.el-select, button.el-button {
+        border-color: transparent;
+        background-color: transparent;
+        color: inherit;
+        border-top: 0;
+        border-bottom: 0;
+      }
+
       .el-select {
         min-width: 80px;
 
         .el-input__inner::placeholder {
           color: $text-color;
         }
+      }
+    }
+
+    
+    &.input-with-select {
+      .el-input-group__append,
+      .el-input-group__prepend {
+        background-color: transparent;  
       }
     }
   }

@@ -1,4 +1,4 @@
-import './css/element-variables.scss'
+// import './css/element-variables.scss'
 import './fonts/iconfont.css'
 import './fonts/bahnschrift.css'
 import './icons/index'

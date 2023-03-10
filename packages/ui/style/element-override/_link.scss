@@ -1,25 +1,28 @@
 /* Link
 -------------------------- */
-.el-link.el-link--primary {
-  &:hover {
-    color: $color-master-3;
-  }
-
-  &:active {
-    color: $color-master-3;
-  }
-}
-
 .el-link.el-link--default {
-  &:hover {
-    color: $color-master-3;
-  }
-
-  &:active {
-    color: $color-master-3;
-  }
+  text-decoration: none;
 }
+// .el-link.el-link--primary {
+//   &:hover {
+//     color: $color-master-3;
+//   }
 
-.el-link.is-underline:hover:after {
-  border-bottom: none;
-}
+//   &:active {
+//     color: $color-master-3;
+//   }
+// }
+
+// .el-link.el-link--default {
+//   &:hover {
+//     color: $color-master-3;
+//   }
+
+//   &:active {
+//     color: $color-master-3;
+//   }
+// }
+
+// .el-link.is-underline:hover:after {
+//   border-bottom: none;
+// }

@@ -1,51 +1,91 @@
+@use 'sass:color';
+
 /* Tag
 -------------------------- */
-@mixin global-tag($class: info,
-  $bdcolor: $disabled-border,
-  $fontColor: $text-color-primary,
-  $bgColor: $disabled-fill) {
-  .el-tag.el-tag--#{$class} {
-    border: 1px solid $bdcolor;
-    color: $fontColor;
-    background-color: $bgColor;
-  }
-}
-
-@include global-tag();
-@include global-tag(success, $color-tag-success-1, $color-status-success, $color-tag-success-2);
-@include global-tag(warning, $color-tag-warning-1, $color-status-warning, $color-tag-warning-2);
-@include global-tag(danger, $color-tag-danger-1, $color-status-danger, $color-tag-danger-2);
-@include global-tag(newtag, $color-tag-master-1, $color-status-master, $color-tag-master-2);
-
-.el-tag--newtag {
-  &:hover {
-    background: $color-master-6;
-    cursor: pointer;
-  }
-}
-
+/*
+  重置Tag基本样式
+*/
 .el-tag {
-  background-color: $color-tag-info-2;
-  color: $color-status-info;
-  border: 1px solid $color-tag-info-1;
   border-radius: $border-radius;
 }
 
-.el-tag.el-tag--info .el-tag__close {
-  color: $color-grey-1;
+/*
+  重置Tag颜色
+  $type: 类名;
+  $color-light: 浅色;
+  $color-dark: 深色;
+  $color-dark-hover: 深色悬浮;
+*/
+@mixin tag-color($type, $color-light, $color-dark, $color-dark-hover) {
+  .el-tag {
+    // light
+    &.el-tag--light.el-tag#{$type} {
+      border-color: $color-light;
+      color: $color-dark;
+      background-color: $color-light;
 
-  &:hover {
-    color: $color-grey-1;
-    background-color: $color-grey-10;
+      .el-tag__close {
+        color: $color-dark;
+        
+        &:hover {
+          color: $color-dark-hover;
+          background: none;
+        }
+      }
+    }
+
+    // dark
+    &.el-tag--dark.el-tag#{$type} {
+      border-color: $color-dark;
+      color: $color-white;
+      background-color: $color-dark;
+  
+      .el-tag__close {
+        color: $color-white;
+
+        &:hover {
+          color: color.adjust($color-info, $lightness: 15%);
+          background: none;
+        }
+      }
+    }
+
+    // plain
+    &.el-tag--plain.el-tag#{$type} {
+      border-color: $color-dark;
+      color: $color-dark;
+
+      .el-tag__close {
+        color: $color-dark;
+    
+        &:hover {
+          color: $color-dark-hover;
+          background: none;
+        }
+      }
+    }
   }
 }
+@include tag-color(null, $tag-master, $tag-master-border, $color-master-hover);
+@include tag-color(--info, $tag-info, $tag-info-border, $color-info-hover);
+@include tag-color(--success, $tag-success, $tag-success-border, $color-success-hover);
+@include tag-color(--danger, $tag-danger, $tag-danger-border, $color-danger-hover);
+@include tag-color(--warning, $tag-warning, $tag-warning-border, $color-warning-hover);
 
-.el-tag--medium {
-  height: 22px;
-  line-height: 20px;
-}
 
-.el-tag--large {
-  height: 28px;
-  line-height: 26px;
+/*
+  重置Tag尺寸
+  $size: 尺寸名;
+*/
+@mixin tag-size($size, $height) {
+  .el-tag.el-tag#{$size} {
+    height: $height;
+    line-height: $height - 2px;
+    padding: 0 $padding-2x;
+  }
 }
+@include tag-size(null, $common-sapce-6x);
+@include tag-size(--large, $common-sapce-7x);
+@include tag-size(--medium, $common-sapce-6x);
+@include tag-size(--small, $common-sapce-5x);
+@include tag-size(--mini, $common-sapce-5x);

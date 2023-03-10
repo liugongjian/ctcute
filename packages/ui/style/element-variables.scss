@@ -66,6 +66,18 @@ $--rate-icon-color: $color-master;
 -------------------------- */
 $--msgbox-border-radius: $border-radius;
 
+/* Notification
+-------------------------- */
+$--notification-title-font-size: $text-size;
+$--notification-icon-size: $text-size-md;
+$--notification-shadow: $shadow-3;
+$--notification-width: 480px;
+$--notification-radius: $border-radius;
+$--notification-success-icon-color: $color-success;
+$--notification-danger-icon-color: $color-danger;
+$--notification-info-icon-color: $color-master;
+$--notification-warning-icon-color: $color-warning;
+
 /* Icon
 -------------------------- */
 $--icon-color: $text-color-light;

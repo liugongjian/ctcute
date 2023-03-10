@@ -246,11 +246,16 @@ $margin-primary: $margin-small; // deprecated(弃用)
 
 /* Shadow
 -------------------------- */
-$shadow-input: 0 0 4px 0 rgba(250, 131, 52, 20%);
-$shadow-card: 0 2px 8px 0 rgba(200, 201, 204, 50%);
+$shadow-1: 0px 0px 8px rgba(100, 110, 144, 0.1); // 背景卡片使用
+$shadow-2: 0px 0px 15px rgba(100, 110, 144, 0.2); // 下拉组件使用，如下拉菜单、下拉选择器、气泡确认框
+$shadow-3: 0px 0px 40px rgba(0, 0, 0, 0.1); // 最上层投影，对话框、抽屉使用
+$shadow-form-item: 0px 2px 2px rgba(0, 0, 0, 0.1); // 组件Focused状态使用
+
+$shadow-input: 0 0 4px 0 rgba(250, 131, 52, 20%); // deprecated(弃用)
+$shadow-card: 0 2px 8px 0 rgba(200, 201, 204, 50%); // deprecated(弃用)
 $shadow-dialog: 0 6px 16px -8px rgba(0, 0, 0, 8%), 0 9px 28px 0 rgba(0, 0, 0, 5%),
-  0 12px 48px 16px rgba(0, 0, 0, 3%);
-$shadow-table-card: rgba(200, 201, 204, 50%);
+  0 12px 48px 16px rgba(0, 0, 0, 3%); // deprecated(弃用)
+$shadow-table-card: rgba(200, 201, 204, 50%); // deprecated(弃用)
 
 /* Button
 -------------------------- */
@@ -386,6 +391,25 @@ $sidebar-sub-hover: $color-master-bg-light-2;
 /* Animation
 -------------------------- */
 $transition-time: 200ms;
+
+/* Z-Index
+-------------------------- */
+$zindex-badge: auto;
+$zindex-table-fixed: 2;
+$zindex-affix: 10;
+$zindex-back-top: 10;
+$zindex-picker-panel: 10;
+$zindex-popup-close: 10;
+$zindex-modal: 1000;
+$zindex-modal-mask: 1000;
+$zindex-message: 1010;
+$zindex-notification: 1010;
+$zindex-popover: 1030;
+$zindex-dropdown: 1050;
+$zindex-picker: 1050;
+$zindex-popoconfirm: 1060;
+$zindex-tooltip: 1070;
+$zindex-image: 1080;
 
 /* 图表颜色(deprecated(弃用))
 -------------------------- */

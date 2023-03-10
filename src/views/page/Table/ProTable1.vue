@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 庄晓欣
- * @LastEditTime: 2023-01-10 12:40:27
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2023-03-09 15:39:46
  * @Description: 复杂表格1
 -->
 <template>
@@ -70,11 +70,11 @@
           <el-button type="text" size="small" class="bt-operation">卸载</el-button>
           <el-button type="text" size="small" class="bt-operation">扩容</el-button>
           <el-divider direction="vertical"></el-divider>
-          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
             <span class="el-dropdown-link">
               更多<i
                 class="el-icon-arrow-down el-icon--right"
-                :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
               ></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -111,8 +111,6 @@ import { CuteTableFilter } from '@cutedesign/base'
 export default class extends Vue {
   // 健康状态字典
   private HEALTH = HEALTH
-  // 小三角旋转开关
-  private flag = false
 
   // 搜索信息
   private conditions: ProTable1.Conditions = {
@@ -176,7 +174,10 @@ export default class extends Vue {
       }
       const res = await getTable(params)
       this.pager.total = res.data.total
-      this.tableData = res.data.list
+      this.tableData = res.data.list.map(item => {
+        item.flag = false
+        return item
+      })
     } catch (e) {
       console.error(e)
     } finally {
@@ -242,8 +243,8 @@ export default class extends Vue {
   }
 
   /** * 下拉展开旋转小三角 */
-  private openDropdown(e) {
-    e ? (this.flag = true) : (this.flag = false)
+  private openDropdown(index) {
+    this.tableData[index].flag = !this.tableData[index].flag
   }
   /** * 新增过滤表单对象 */
   private formData = [

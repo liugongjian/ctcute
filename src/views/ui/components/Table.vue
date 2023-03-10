@@ -7,7 +7,7 @@
     </p>
     <h3>基础表格</h3>
     <div class="sub-table">
-      <el-table :data="tableComponentData && tableComponentData.tableData" border height="614px">
+      <el-table v-loading="loading" :data="table1" fit border height="614px">
         <el-table-column prop="name" label="主机别名" width="150px">
           <template slot-scope="scope">
             <div>
@@ -52,11 +52,15 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+            <el-dropdown
+              trigger="click"
+              :append-to-body="false"
+              @visible-change="openDropdown(scope.$index, 1)"
+            >
               <span class="el-dropdown-link">
                 更多<i
                   class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                  :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
                 ></i>
               </span>
               <el-dropdown-menu slot="dropdown">
@@ -87,7 +91,8 @@
       </div>
       <el-table
         ref="multipleTable"
-        :data="tableComponentData && tableComponentData.tableData10"
+        v-loading="loading"
+        :data="table2"
         tooltip-effect="dark"
         border
         @selection-change="handleSelectionChange"
@@ -135,11 +140,15 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+            <el-dropdown
+              trigger="click"
+              :append-to-body="false"
+              @visible-change="openDropdown(scope.$index, 2)"
+            >
               <span class="el-dropdown-link">
                 更多<i
                   class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                  :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
                 ></i>
               </span>
               <el-dropdown-menu slot="dropdown">
@@ -174,8 +183,9 @@
       </div>
       <el-table
         ref="multipleTable"
+        v-loading="loading"
         tooltip-effect="dark"
-        :data="tableComponentData && tableComponentData.tableData10"
+        :data="table3"
         border
         @selection-change="handleSelectionChangeOver3"
       >
@@ -224,11 +234,15 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+            <el-dropdown
+              trigger="click"
+              :append-to-body="false"
+              @visible-change="openDropdown(scope.$index, 3)"
+            >
               <span class="el-dropdown-link">
                 更多<i
                   class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                  :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
                 ></i>
               </span>
               <el-dropdown-menu slot="dropdown">
@@ -253,7 +267,7 @@
 
     <h3>展示不全的表格</h3>
     <div class="sub-table">
-      <el-table :data="tableComponentData && tableComponentData.tableData10" border>
+      <el-table v-loading="loading" :data="table4" border>
         <el-table-column type="selection" width="55" fixed> </el-table-column>
         <el-table-column prop="name" label="主机别名" width="120">
           <template slot-scope="scope">
@@ -297,11 +311,15 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+            <el-dropdown
+              trigger="click"
+              :append-to-body="false"
+              @visible-change="openDropdown(scope.$index, 4)"
+            >
               <span class="el-dropdown-link">
                 更多<i
                   class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                  :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
                 ></i>
               </span>
               <el-dropdown-menu slot="dropdown">
@@ -326,7 +344,7 @@
 
     <h3>列表中同时存在两列状态栏</h3>
     <div class="sub-table">
-      <el-table :data="tableComponentData && tableComponentData.tableDataWithStatus" border>
+      <el-table v-loading="loading" :data="table5" border>
         <el-table-column prop="name" label="主机别名" width="150px">
           <template slot-scope="scope">
             <div>
@@ -378,11 +396,15 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+            <el-dropdown
+              trigger="click"
+              :append-to-body="false"
+              @visible-change="openDropdown(scope.$index, 5)"
+            >
               <span class="el-dropdown-link">
                 更多<i
                   class="el-icon-arrow-down el-icon--right"
-                  :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                  :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
                 ></i>
               </span>
               <el-dropdown-menu slot="dropdown">
@@ -441,11 +463,11 @@
           <el-button type="text" size="small" class="bt-operation">卸载</el-button>
           <el-button type="text" size="small" class="bt-operation">扩容</el-button>
           <el-divider direction="vertical"></el-divider>
-          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
             <span class="el-dropdown-link">
               更多<i
                 class="el-icon-arrow-down el-icon--right"
-                :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
               ></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -467,7 +489,7 @@
       />
     </div>
     <h3>可在表头进行筛选的表格</h3>
-    <el-table :data="tableComponentData && tableComponentData.tableData" border height="614px">
+    <el-table v-loading="loading" :data="table6" border height="614px">
       <el-table-column prop="name" label="主机别名" width="150px">
         <template slot-scope="scope">
           <div>
@@ -528,11 +550,15 @@
           <el-button type="text" size="small" class="bt-operation">卸载</el-button>
           <el-button type="text" size="small" class="bt-operation">扩容</el-button>
           <el-divider direction="vertical"></el-divider>
-          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+          <el-dropdown
+            trigger="click"
+            :append-to-body="false"
+            @visible-change="openDropdown(scope.$index, 6)"
+          >
             <span class="el-dropdown-link">
               更多<i
                 class="el-icon-arrow-down el-icon--right"
-                :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
               ></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -1047,16 +1073,53 @@ export default class extends Vue {
   private async getTable(param) {
     // 接口
     const res = await getTable(param)
-    this.tableHook.setResult(res.data.list, res.data.total)
+    const list = res.data.list.map(item => {
+      item.flag = false
+      return item
+    })
+    this.tableHook.setResult(list, res.data.total)
   }
-
+  // private tableMap = {}
+  private table1 = []
+  private table2 = []
+  private table3 = []
+  private table4 = []
+  private table5 = []
+  private table6 = []
+  private loading = false
   /**
    * 获取表格数据
    */
   private async getTableComponentData() {
+    this.loading = true
     // 接口
     const res = await getTableComponent()
     this.tableComponentData = res.data
+    this.table1 = this.tableComponentData.tableData.map(item => {
+      ;(item as any).flag = false
+      return item
+    })
+    this.table2 = this.tableComponentData.tableData10.map(item => {
+      ;(item as any).flag = false
+      return item
+    })
+    this.table3 = this.tableComponentData.tableData10.map(item => {
+      ;(item as any).flag = false
+      return item
+    })
+    this.table4 = this.tableComponentData.tableData10.map(item => {
+      ;(item as any).flag = false
+      return item
+    })
+    this.table5 = this.tableComponentData.tableDataWithStatus.map(item => {
+      ;(item as any).flag = false
+      return item
+    })
+    this.table6 = this.tableComponentData.tableData.map(item => {
+      ;(item as any).flag = false
+      return item
+    })
+    this.loading = false
   }
 
   /**
@@ -1140,8 +1203,17 @@ export default class extends Vue {
     })
   }
 
-  private openDropdown(e) {
-    e ? (this.flag = true) : (this.flag = false)
+  /** * 下拉展开旋转小三角 */
+  private openDropdown(index, tableIndex) {
+    if (tableIndex) {
+      this[`table${tableIndex}`][index] = {
+        ...this[`table${tableIndex}`][index],
+        flag: !this[`table${tableIndex}`][index].flag,
+      }
+      this[`table${tableIndex}`].splice(1, 0)
+    } else {
+      this.tableHook.tableData[index].flag = !this.tableHook.tableData[index].flag
+    }
   }
 
   private STATUS2 = STATUS2

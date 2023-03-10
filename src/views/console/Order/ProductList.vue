@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-10-21 13:45:25
- * @LastEditors: 胡一苗
- * @LastEditTime: 2022-12-13 18:20:10
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2023-03-09 14:08:08
  * @Description: 云硬盘列表
 -->
 <template>
@@ -93,11 +93,15 @@
               <el-button type="text" size="small" class="bt-operation">卸载</el-button>
               <el-button type="text" size="small" class="bt-operation">扩容</el-button>
               <el-divider direction="vertical"></el-divider>
-              <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+              <el-dropdown
+                trigger="click"
+                :append-to-body="false"
+                @visible-change="openDropdown(scope.$index)"
+              >
                 <span class="el-dropdown-link">
                   更多<i
                     class="el-icon-arrow-down el-icon--right"
-                    :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                    :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
                   ></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
@@ -136,8 +140,6 @@ export default class extends Vue {
   // 健康状态字典
   private HEALTH = HEALTH
   private colorVariables = variables
-  // 小三角旋转开关
-  private flag = false
   private currentPage4 = 4
   private searchValue = ''
 
@@ -160,7 +162,12 @@ export default class extends Vue {
     // 接口
     this.loading = true
     const res = await getTableComponent()
-    this.tableComponentData = res.data
+    // 小三角旋转开关
+    const tableData = res.data.tableData.map(item => {
+      ;(item as any).flag = false
+      return item
+    })
+    this.tableComponentData = { ...res.data.tableData, tableData: tableData }
     this.loading = false
   }
   private handleSizeChange(val) {
@@ -171,8 +178,8 @@ export default class extends Vue {
   }
 
   /** * 下拉展开旋转小三角 */
-  private openDropdown(e) {
-    e ? (this.flag = true) : (this.flag = false)
+  private openDropdown(index) {
+    this.tableComponentData.tableData[index].flag = !this.tableComponentData.tableData[index].flag
   }
 }
 </script>

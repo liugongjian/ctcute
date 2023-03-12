@@ -21,9 +21,9 @@ $--background-color-base: $color-bg-3;
 
 /* Box-shadow
 -------------------------- */
-$--box-shadow-base: $shadow-card;
-$--box-shadow-dark: $shadow-dialog;
-$--box-shadow-light: $shadow-card;
+$--box-shadow-base: $shadow-2;
+$--box-shadow-dark: $shadow-3;
+$--box-shadow-light: $shadow-1;
 
 /* Link
 -------------------------- */
@@ -49,22 +49,51 @@ $--button-font-weight: 400;
 -------------------------- */
 $--input-border: 1px solid $border-color;
 $--input-disabled-fill: $disabled-bg;
+$--input-icon-color: $text-color-light;
+
+/* Checkbox
+-------------------------- */
+$--checkbox-disabled-icon-color: $disabled-color;
+$--checkbox-disabled-checked-icon-color: $disabled-color;
+
+/* Checkbox
+-------------------------- */
+$--radio-icon-color: $text-color-light;
+$--radio-checked-icon-color: $text-color-light;
+$--radio-disabled-icon-color: $disabled-color;
+$--radio-disabled-checked-icon-color: $disabled-color;
+
+/* Datepicker
+-------------------------- */
+$--datepicker-icon-color: $text-color-light;
 
 /* Table
 -------------------------- */
+$--table-border-color: $--border-color-lighter;
 $--table-border: 1px solid $border-color;
+// $--table-font-color: $--color-text-regular;
+// $--table-header-font-color: $--color-text-secondary;
+// $--table-row-hover-background-color: $--background-color-base;
+// $--table-current-row-background-color: $--color-primary-light-9;
+$--table-header-background-color: $color-neutral-1;
+$--table-fixed-box-shadow: $shadow-1;
 
 /* Tree
 -------------------------- */
 $--tree-node-hover-background-color: $color-master-bg-light-2;
+$--tree-expand-icon-color: $text-color-light;
 
 /* Rate
 -------------------------- */
-$--rate-icon-color: $color-master;
+$--rate-icon-color: $text-color-light;
 
 /* MessageBox
 -------------------------- */
 $--msgbox-border-radius: $border-radius;
+
+/* Message
+-------------------------- */
+$--message-close-icon-color: $text-color-light;
 
 /* Notification
 -------------------------- */
@@ -82,21 +111,6 @@ $--notification-warning-icon-color: $color-warning;
 -------------------------- */
 $--icon-color: $text-color-light;
 $--icon-color-base: $text-color-light;
-$--radio-icon-color: $text-color-light;
-$--radio-checked-icon-color: $text-color-light;
-$--message-close-icon-color: $text-color-light;
-$--input-icon-color: $text-color-light;
-$--tree-expand-icon-color: $text-color-light;
-$--rate-icon-color: $text-color-light;
-$--datepicker-icon-color: $text-color-light;
-$--notification-success-icon-color: $text-color-light;
-
-/* DisabledIcon
--------------------------- */
-$--checkbox-disabled-icon-color: $disabled-color;
-$--checkbox-disabled-checked-icon-color: $disabled-color;
-$--radio-disabled-icon-color: $disabled-color;
-$--radio-disabled-checked-icon-color: $disabled-color;
 
 /* Icon font path, required */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';

@@ -297,13 +297,13 @@ $checkbox-button-hover: $color-master-bg-light;
 
 /* Table
 -------------------------- */
-$table-header-bg: $color-grey-8;
-$table-cell-bg: $color-grey-8;
-$table-sort-caret-bg: $color-grey-4;
+$table-header-bg: $color-neutral-1;
+$table-cell-bg: $color-neutral-8;
+$table-sort-caret-bg: $color-neutral-6;
 
-$table-header-fill: $color-grey-8; // deprecated(弃用)
-$table-cell-fill: $color-grey-8; // deprecated(弃用)
-$table-sort-caret-fill: $color-grey-4; // deprecated(弃用)
+$table-header-fill: $table-header-bg; // deprecated(弃用)
+$table-cell-fill: $table-cell-bg; // deprecated(弃用)
+$table-sort-caret-fill: $table-sort-caret-bg; // deprecated(弃用)
 
 /* Pagination
 -------------------------- */

@@ -1,74 +1,121 @@
 /* Table
 -------------------------- */
-.el-table-filter {
+.el-table {
+  margin: $margin-4x 0 $margin-10 0;
+  background-color: $color-bg-2;
 
-  .el-table-filter__content,
-  .el-table-filter__bottom {
-    background: $color-bg-1;
-    box-shadow: 0 2px 8px 0 $color-bg-3;
-  }
-}
-
-.el-table__column-filter-trigger {
-  .el-icon-arrow-down::before {
-    font-family: 'cute-icons' !important;
-    content: '\eb5c' !important;
-    color: $color-grey-3;
-  }
-
-  .el-icon-arrow-up::before {
-    font-family: 'cute-icons' !important;
-    content: '\ea80' !important;
-    color: $color-grey-3;
-  }
-}
-
-.el-table-filter {
-  background-color: $color-form-component-bg;
-  box-shadow: 0 2px 8px 0 $color-body-bg;
-}
-
-.el-table-filter__content {
-  min-width: 190px;
-}
-
-.el-table-filter__checkbox-group {
-  padding: 0;
-}
-
-.el-table-filter__bottom {
-  padding-top: 12px;
-}
-
-.el-table-filter__checkbox-group .el-checkbox:first-child {
-  margin-top: 5px;
-}
-
-.el-table-filter__checkbox-group .el-checkbox:last-child {
-  margin-bottom: 5px;
-}
-
-.el-table-filter__checkbox-group label.el-checkbox {
-  height: 30px;
-  margin: 0;
-  line-height: 30px;
-  margin-bottom: 5px;
-
-  &:hover {
-    background-color: $color-master-7;
-
-    .el-checkbox__label {
-      color: $color-master-1;
+  & &__column-filter-trigger {
+    .el-icon-arrow-down::before,
+    .el-icon-arrow-up::before {
+      font-family: $font-family-cute-icons;
+      content: '\ea80';
+      color: $text-color-light-2;
     }
   }
 
-  .el-checkbox__inner {
-    margin-left: 12px;
+  .el-table__cell {
+    &:first-child .cell {
+      padding-left: $margin-5x;
+    }
+
+    &:last-child .cell {
+      padding-right: $margin-5x;
+    }
+  }
+
+  thead {
+    // color: $color-grey-2;
+  }
+
+  tr {
+    background-color: $color-bg-2;
+  }
+
+  .cell, .cell span {
+    font-size: $text-size;
+  }
+
+  // 排序图标
+  .sort-caret {
+    border: solid 4px transparent;
+
+    &.ascending {
+      border-bottom-color: $table-sort-caret-bg;
+      top: -10px;
+    }
+
+    &.descending {
+      border-top-color: $table-sort-caret-bg;
+      bottom: -8px;
+    }
+  }
+
+  &--border {
+    .el-table__header tr, .el-table__header th {
+      border-right: 1px solid $color-bg-2;
+      background-color: $table-header-bg;
+  
+      .el-table__cell {
+        padding: 0;
+      }
+    }
+  }
+
+  .el-table__empty-block {
+    background-color: $color-bg-2;
+  }
+}
+
+/*
+  重置表格过滤器
+*/
+.el-table-filter {
+  background-color: $color-bg-1;
+  box-shadow: $shadow-2;
+  border-radius: $border-radius;
+
+  &__content {
+    min-width: 190px;
+  }
+
+  &__checkbox-group {
+    padding: 0;
+  }
+
+  &__bottom {
+    padding-top: $margin-3x;
+  }
+
+  &__checkbox-group {
+
+    .el-checkbox:first-child,
+    .el-checkbox:last-child {
+      margin-top: $margin;
+    }
+
+    label.el-checkbox {
+      height: 30px;
+      line-height: 30px;
+      margin: 0;
+      margin-bottom: margin;
+
+      &:hover {
+        background-color: $color-master-bg-light-2;
+
+        .el-checkbox__label {
+          color: $color-master;
+        }
+      }
+
+      .el-checkbox__inner {
+        margin-left: $margin-3x;
+      }
+    }
   }
 }
 
 .el-table__header-wrapper {
-  background-color: $table-header-fill;
+  background-color: $table-header-bg;
 
   .is-group {
     line-height: 31px;
@@ -91,32 +138,13 @@
   }
 }
 
-.el-table--border .el-table__cell:first-child .cell {
-  padding-left: 20px
-}
+// .el-table--border .el-table__cell:first-child .cell {
+//   padding-left: 20px
+// }
 
-.el-table__cell:last-child .cell {
-  padding-right: 20px;
-}
-
-.el-table .el-table__header tr,
-.el-table .el-table__header th {
-  background-color: $table-header-fill;
-
-  .el-table__cell {
-    padding: 0px;
-  }
-}
-
-.el-table--border .el-table__header tr,
-.el-table--border .el-table__header th {
-  border-right: 1px solid $color-bg-2;
-  background-color: $table-header-fill;
-
-  .el-table__cell {
-    padding: 0px;
-  }
-}
+// .el-table__cell:last-child .cell {
+//   padding-right: 20px;
+// }
 
 .el-table--medium .el-table__cell {
   padding: 9px 0;
@@ -148,21 +176,14 @@
   padding-left: 14px;
 }
 
-.el-table {
-  margin: 16px 0 10px 0;
+// .el-table {
+//   margin: 16px 0 10px 0;
 
-  .el-table__empty-block {
-    background-color: $color-bg-2;
-  }
-}
+//   .el-table__empty-block {
+//     background-color: $color-bg-2;
+//   }
+// }
 
-.el-table .cell {
-  font-size: $text-size-primary;
-
-  span {
-    font-size: $text-size-primary;
-  }
-}
 
 .el-table .caret-wrapper {
   height: inherit;
@@ -171,20 +192,6 @@
 .el-table th.el-table__cell > .cell {
   padding-top: 2px;
   padding-bottom: 2px;
-}
-
-.el-table .sort-caret {
-  border: solid 4px transparent;
-}
-
-.el-table .sort-caret.ascending {
-  border-bottom-color: $table-sort-caret-fill;
-  top: -10px;
-}
-
-.el-table .sort-caret.descending {
-  border-top-color: $table-sort-caret-fill;
-  bottom: -8px;
 }
 
 .el-table--border {
@@ -226,18 +233,6 @@
   border-color: $border-color-primary;
 }
 
-.el-table thead {
-  color: $color-grey-2;
-}
-
-.el-table {
-  background-color: $color-bg-2;
-  color: $color-grey-1;
-
-  tr {
-    background-color: $color-bg-2;
-  }
-}
 
 .el-table__body-wrapper .el-table__row .el-table__expand-icon .el-icon-arrow-right::before {
   content: '\e791';

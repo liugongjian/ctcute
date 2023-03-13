@@ -40,11 +40,11 @@ ${exports.join('\n')}
 
 function toUpperCamelCase(str) {
   // 去除所有空格和连字符
-  str = str.replace(/[\s-]+/g, '')
+  // str = str.replace(/[\s-]+/g, '')
   // 将首字母转为大写
-  str = str.charAt(0).toUpperCase() + str.slice(1)
+  str = str.charAt(0).toLowerCase() + str.slice(1)
   // 将连字符后的字符转为大写
-  str = str.replace(/-([a-z])/g, function (match, char) {
+  str = str.replace(/-([a-z\d])/g, function (match, char) {
     return char.toUpperCase()
   })
   return str

@@ -101,7 +101,7 @@ import { formatDatetime } from '@/utils/date'
 import * as SimpleTable from '@/types/ProTable7'
 import { getTable } from '@/api/proTable7'
 import { STATUS, TYPE } from '@/dics/proTable7'
-import variables from '@cutedesign/ui/style/default/index.scss'
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 
 @Component({
   name: 'ProTable7',

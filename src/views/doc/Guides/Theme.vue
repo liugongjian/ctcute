@@ -37,7 +37,7 @@ pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
       patterns: [
-        path.resolve(__dirname, 'node_modules/@cutedesign/ui/style/default/index.scss'),
+        path.resolve(__dirname, 'node_modules/@cutedesign/ui/style/themes/default/index.scss'),
         path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_mixins.scss'),
       ],
     },
@@ -45,7 +45,7 @@ pluginOptions: {
 \`\`\`
 ### 3. 若您在项目中需要以js变量的形式直接使用颜色变量，为了让ts找到的定义，需要在项目目录的\`src/assets/css\`目录下创建\`_variables.scss.d.ts\`文件，并写入如下内容：
 \`\`\`
-import { IScssVariablesRevised } from '@cutedesign/ui/style/default/index.scss'
+import { IScssVariablesRevised } from '@cutedesign/ui/style/themes/default/index.scss'
 export const variablesRevised: IScssVariablesRevised
 export default variablesRevised
 

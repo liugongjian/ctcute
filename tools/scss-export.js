@@ -22,7 +22,6 @@ fs.readFile(filePath, 'utf-8', (err, data) => {
     }
   })
   const result = `/* stylelint-disable property-case */
-@import 'variables';
 
 :export {
 ${exports.join('\n')}

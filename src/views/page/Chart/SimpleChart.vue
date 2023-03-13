@@ -140,7 +140,7 @@
   </div>
 </template>
 <script lang="ts">
-import color from '@cutedesign/ui/style/default/index.scss'
+import color from '@cutedesign/ui/style/themes/default/index.scss'
 import { CuteChartCard, CuteChart } from '@cutedesign/chart'
 import { Component, Vue } from 'vue-property-decorator'
 

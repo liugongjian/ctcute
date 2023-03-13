@@ -267,7 +267,7 @@
 <script lang="ts">
 import { HEALTH } from '@/dics/simpleTable'
 import { formatDatetime } from '@/utils/date'
-import color from '@cutedesign/ui/style/default/index.scss'
+import color from '@cutedesign/ui/style/themes/default/index.scss'
 import { getTableComponent } from '@/api/tableComponent'
 import * as TableComponent from '@/types/TableComponent'
 import { CuteChart, CuteChartItem } from '@cutedesign/chart'

@@ -112,7 +112,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
-// import variables from '@cutedesign/ui/style/default/index.scss'
+// import variables from '@cutedesign/ui/style/themes/default/index.scss'
 import { CuteSpecialRadio } from '@cutedesign/ui'
 // import { getOptions } from '@/api/orderList'
 @Component({

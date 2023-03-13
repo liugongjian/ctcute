@@ -37,7 +37,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { CuteState as DotState } from '@cutedesign/ui'
-import variables from '@cutedesign/ui/style/default/index.scss'
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 
 @Component({
   name: 'UiState',

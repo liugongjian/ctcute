@@ -63,30 +63,33 @@ export default class extends Vue {
   padding-bottom: 50px;
   font-size: 16px;
   font-weight: 500;
+
   > h3 {
     text-align: center;
-    margin: 0 0 50px 0;
-    font-weight: 500;
+    margin: 0 0 50px;
     font-size: 26px;
     color: #181818;
     letter-spacing: 0;
     font-weight: 500;
   }
+
   &-inner {
     max-width: 1180px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+
     .nav-item {
       display: flex;
       align-items: center;
       border-radius: 4px;
       background: $color-white;
-      padding: 14px 13px 15px 13px;
-      box-shadow: 0 2px 8px 0 $shadow-table-card;
+      padding: 14px 13px 15px;
+      box-shadow: 0 $shadow-1;
       margin-right: 20px;
       margin-bottom: 20px;
+
       &-title {
         display: inline-block;
         font-size: 12px;
@@ -99,6 +102,7 @@ export default class extends Vue {
       }
     }
   }
+
   &-more {
     font-family: PingFangSC-Regular;
     margin: 0 auto;

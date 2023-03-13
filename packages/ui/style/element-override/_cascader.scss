@@ -57,7 +57,7 @@
   margin-bottom: $margin;
   margin-top: $margin;
   transform: none;
-  box-shadow: $cascader-panel-shadow;
+  box-shadow: $shadow-2;
 
   .el-cascader-node:hover {
     background-color: $cascader-node-hover;

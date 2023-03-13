@@ -217,7 +217,6 @@ export interface IScssVariablesRevised {
   inputPrefixPadding: string
   inputSuffixPadding: string
   inputFill: string
-  selectDropdownShadow: string
   checkboxBg: string
   checkboxBorder: string
   checkboxButton: string

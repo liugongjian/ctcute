@@ -22,7 +22,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
 .el-state {
   display: inline-flex;
   align-items: center;
@@ -40,13 +39,14 @@ export default class extends Vue {
 }
 
 .icon-wrap {
-  font-size: $text-size-large;
+  font-size: $text-size-lg;
 }
 
 @keyframes rotating {
   0% {
     transform: rotate(0);
   }
+
   100% {
     transform: rotate(1turn);
   }

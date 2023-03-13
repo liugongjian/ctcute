@@ -30,7 +30,7 @@
 
 .el-picker-panel.el-popper.time-select {
   background-color: $color-bg-1;
-  box-shadow: $datepicker-shadow;
+  box-shadow: $shadow-2;
   border-radius: $border-radius;
 
   .time-select-item {
@@ -82,7 +82,7 @@
 }
 
 .el-picker-panel.el-date-range-picker.el-popper {
-  box-shadow: $datepicker-shadow;
+  box-shadow: $shadow-2;
 
   .el-date-range-picker__content.is-left {
     border-right: 1px solid $border-color-light;
@@ -117,7 +117,7 @@
 
 .el-picker-panel.el-date-picker.el-popper {
   background-color: $color-bg-1;
-  box-shadow: $datepicker-shadow;
+  box-shadow: $shadow-2;
   border-radius: $border-radius;
 
   .el-picker-panel__sidebar {

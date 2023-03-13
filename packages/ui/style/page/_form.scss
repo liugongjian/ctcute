@@ -76,7 +76,7 @@
 
 @mixin formBottom {
   .pro-form-bottom {
-    box-shadow: 0 2px 8px 0 $color-body-bg;
+    box-shadow: $shadow-2;
     position: absolute;
     left: 0;
     bottom: 0;

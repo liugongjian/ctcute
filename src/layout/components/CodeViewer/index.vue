@@ -272,7 +272,7 @@ $width: 640px;
     width: $width;
     height: 100%;
     background: $color-grey-9;
-    box-shadow: 0 2px 8px 0 $shadow-table-card;
+    box-shadow: $shadow-1;
 
     .vue-codemirror {
       height: calc(100% - 56px);

@@ -281,10 +281,6 @@ $input-suffix-padding: $padding-9x;
 
 $input-fill: $color-white; // deprecated(弃用)
 
-/* Select
--------------------------- */
-$select-dropdown-shadow: 0 0 8px 0 $color-bg-3;
-
 /* Checkbox
 -------------------------- */
 $checkbox-bg: $color-master-bg-light-2;
@@ -378,7 +374,7 @@ $loading-default-border: $color-grey-6;
 /* Header */
 $header-height: 50px;
 $header-fill-1: #272b39;
-$header-fill-2: #3a3e4c;
+$header-fill-2: #353f58;
 $header-border: #585b62;
 $header-text-color: #c2c2c2;
 $header-search-text-color: $text-color-light-2;

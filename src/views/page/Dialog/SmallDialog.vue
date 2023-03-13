@@ -12,13 +12,7 @@
       <p>在小尺寸弹窗中，宽度为480px</p>
       <el-button type="primary" @click="handleClick">小弹窗</el-button>
     </div>
-    <el-dialog
-      class="small-dialog"
-      :title="title"
-      :visible="visible"
-      :close-on-click-modal="false"
-      @close="close"
-    >
+    <el-dialog :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
       <div class="small-dialog--content">
         <slot name="content"
           >何时使用：需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 Modal

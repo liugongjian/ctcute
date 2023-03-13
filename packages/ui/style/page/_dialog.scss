@@ -7,16 +7,16 @@
     width: 480px;
     margin: 0 auto !important;
     background-color: $color-bg-2;
+    border-radius: $border-radius;
 
     /* 弹窗Header */
     .el-dialog__header {
-      padding: 32px 0 0 32px;
+      padding: $padding-8x 0 0 $padding-8x;
       background-color: $color-bg-2;
 
       .el-dialog__title {
-        color: $color-grey-1;
-        font-size: $text-size-large;
-        font-family: PingFangSC-Medium;
+        color: $text-color;
+        font-size: $text-size-lg;
         font-weight: 500;
       }
 
@@ -27,7 +27,7 @@
 
     /* 弹窗Body */
     .el-dialog__body {
-      padding: 16px 32px 32px;
+      padding: $padding-4x $padding-8x $padding-8x;
     }
   }
 
@@ -38,22 +38,22 @@
       /* 图标 */
       flex: none;
       font-size: 20px;
-      margin-right: 12px;
+      margin-right: $margin-3x;
     }
 
     > div {
       /* 内容 */
-      line-height: 20px;
-      color: $color-grey-1;
+      line-height: $line-height;
+      color: $text-color;
     }
   }
 
   &--btns {
     text-align: center;
-    margin-top: 24px;
+    margin-top: $margin-6x;
 
     .el-button + .el-button {
-      margin-left: 16px;
+      margin-left: $margin-4x;
     }
   }
 }
@@ -67,17 +67,17 @@
     width: 480px;
     margin: 0 auto !important;
     background-color: $color-bg-2;
+    border-radius: $border-radius;
 
     /* 弹窗Header */
     .el-dialog__header {
-      padding: 17px 24px;
-      border-bottom: 1px solid $border-color-light-1;
+      padding: $margin-4x $margin-6x;
+      border-bottom: 1px solid $border-color-light;
       background-color: $color-bg-1;
 
       .el-dialog__title {
-        color: $color-grey-1;
-        font-size: $text-size-large;
-        font-family: PingFangSC-Medium;
+        color: $text-color;
+        font-size: $text-size-lg;
         font-weight: 500;
       }
     }
@@ -85,15 +85,14 @@
     /* 弹窗Body */
     .el-dialog__body {
       padding: 0;
+      font-size: $text-size;
+      color: $color-grey-1;
     }
   }
 
   &--content {
     display: flex;
-    margin: 24px;
-    color: $color-grey-1;
-    font-size: $text-size-medium;
-    font-weight: 400;
+    margin: $margin-6x;
   }
 
   &--footer {
@@ -102,7 +101,7 @@
     background-color: $color-grey-9;
 
     .el-button + .el-button {
-      margin-left: 16px;
+      margin-left: $margin-4x;
     }
   }
 }
@@ -125,16 +124,6 @@
     .el-dialog__header {
       height: auto;
     }
-
-    // .el-dialog__body {
-    //   flex: 1;
-    //   overflow: scroll;
-    //   .medium-dialog--footer{
-    //     position: absolute;
-    //     bottom: 0px;
-    //     width: 100%;
-    //   }
-    // }
   }
 
   &--scroll {
@@ -144,13 +133,13 @@
   &--content {
     display: block;
     clear: both;
-    // max-height: 521px;
-    // overflow-y: auto;
-    margin-bottom: 0px;
+    margin-bottom: 0;
+
     .warn-tip {
       display: block !important;
-      margin-bottom: 24px;
+      margin-bottom: $margin-6x;
     }
+
     .el-form-item--medium {
       display: flex;
       align-items: center;
@@ -160,7 +149,7 @@
       }
 
       .el-form-item__content {
-        margin-left: 0px !important;
+        margin-left: 0 !important;
         width: 100%;
       }
     }
@@ -174,9 +163,9 @@
 
 /* 中弹窗2 */
 .medium-dialog2 {
-   @include base-dialog();
+  @include base-dialog();
 
-  .el-dialog{
+  .el-dialog {
     width: 560px;
     max-height: 570px;
     display: flex;
@@ -191,7 +180,7 @@
     display: block;
     clear: both;
     max-height: 461px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 
     .el-form-item--medium {
       display: flex;
@@ -202,7 +191,7 @@
       }
 
       .el-form-item__content {
-        margin-left: 0px !important;
+        margin-left: 0 !important;
         width: 100%;
       }
 
@@ -214,10 +203,10 @@
 
   &__explain {
     border-top: 1px solid $color-grey-7;
-    padding-top: 16px;
-    
+    padding-top: $padding-4x;
+
     .el-form-item__content {
-      font-size: 12px;
+      font-size: $text-size-sm;
       line-height: 20px;
       color: $color-grey-2;
       font-weight: 400;
@@ -227,10 +216,9 @@
     &__text {
       display: inline-block;
       width: 354px;
-      margin-left: 10px;
+      margin-left: $margin-10;
     }
   }
- 
 }
 
 /* 全屏弹窗 */
@@ -238,7 +226,7 @@
   @include base-dialog();
 
   .el-dialog {
-    margin: 24px !important;
+    margin: $margin-6x !important;
     width: 100%;
     height: calc(100% - 48px);
     display: flex;
@@ -275,23 +263,28 @@
   }
 }
 
-/* 警告弹窗 --有二次输入确认*/
+/* 警告弹窗 --有二次输入确认 */
 .warn-dialog2 {
   @include special-dialog();
 
   .svg-icon {
     color: $color-status-warning;
   }
+
   .warn-dialog--content {
     display: inline-block;
+
     .warn-dialog--content_describe {
       display: flex;
       align-items: center;
     }
+
     .el-form {
-      margin-top: 24px;
+      margin-top: $margin-6x;
+
       .el-form-item {
         display: flex;
+
         .el-input {
           width: 304px;
         }
@@ -307,8 +300,9 @@
   .el-button + .el-button {
     margin-left: 14px;
   }
+
   .last-button {
-    margin-right: 10px;
+    margin-right: $margin-10;
   }
 
   .el-dialog {
@@ -319,7 +313,7 @@
     display: block;
     background-color: $color-grey-10;
     color: $color-grey-1;
-    font-size: 12px;
+    font-size: $text-size;
   }
 
   &--pre {
@@ -349,6 +343,7 @@
 /* 大弹窗 */
 .large-dialog {
   @include base-dialog();
+
   .el-dialog {
     width: 1000px;
     margin: 0 auto !important;

@@ -66,10 +66,10 @@ export default class extends Vue {
   display: block;
   border: 1px solid $border-color-primary;
   transition: $transition-time all;
-  box-shadow: 0 0 8px 0 $color-bg-3 !important;
+  box-shadow: $shadow-1 !important;
 
   &:hover {
-    box-shadow: $shadow-card;
+    box-shadow: $shadow-2;
   }
 
   &__content {

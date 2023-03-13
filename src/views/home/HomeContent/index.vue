@@ -95,23 +95,27 @@ export default class extends Vue {
   font-size: 16px;
   color: $color-grey-1;
   font-weight: 500;
+
   > h3 {
     text-align: center;
     font-size: 24px;
     color: $color-grey-1;
     font-weight: 500;
   }
+
   &-inner {
     margin: 50px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     > div {
       text-align: center;
       position: relative;
       width: 380px;
       height: 305px;
       cursor: pointer;
+
       > div {
         position: absolute;
         width: 380px;
@@ -119,11 +123,13 @@ export default class extends Vue {
         background: #ebf3f9;
         border-radius: 10px;
       }
+
       > img {
         position: absolute;
         left: -20px;
         top: 16px;
       }
+
       > h4 {
         position: absolute;
         z-index: 999;
@@ -135,15 +141,19 @@ export default class extends Vue {
         font-weight: 400;
         pointer-events: none;
       }
+
       .text1 {
         left: 127px;
       }
+
       .text2 {
         left: 134px;
       }
+
       .text3 {
         left: 92px;
       }
+
       > p {
         position: absolute;
         left: 157px;
@@ -154,17 +164,20 @@ export default class extends Vue {
         margin: 0;
       }
     }
+
     .content-img2 {
       left: 85px;
       top: 52px;
       border-radius: 5px;
-      box-shadow: 0 0 8px 0 $shadow-table-card;
+      box-shadow: $shadow-1;
     }
+
     .content-img3 {
       left: 100px;
       top: 41px;
     }
   }
+
   &-video {
     width: 100%;
     border-radius: 10px;

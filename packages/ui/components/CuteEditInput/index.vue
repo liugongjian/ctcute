@@ -43,7 +43,7 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .edit-input-icon {
-  font-size: $text-size-large;
+  font-size: $text-size-lg;
   margin-left: 10px;
   color: $color-grey-3;
   cursor: pointer;
@@ -75,7 +75,7 @@ export default class extends Vue {
 
   svg {
     cursor: pointer;
-    font-size: $text-size-large;
+    font-size: $text-size-lg;
     margin-right: 4px;
     vertical-align: sub;
   }

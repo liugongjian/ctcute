@@ -1,7 +1,7 @@
 .document-preview {
   padding: 30px 20px;
   background: $color-bg-2;
-  box-shadow: 0 0 8px 0;
+  box-shadow: $shadow-1;
 
   .document-preview-title {
     border-bottom: 1px solid $border-color-primary;

@@ -66,6 +66,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .el-color-predefine__color-selector.selected {
-  box-shadow: 0 2px 8px 0 $color-grey-3;
+  box-shadow: $shadow-2;
 }
 </style>

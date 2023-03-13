@@ -97,7 +97,7 @@ export default class extends Vue {
       position: absolute;
       top: 32px;
       left: 0;
-      box-shadow: 0 2px 8px 0 $color-bg-3;
+      box-shadow: $shadow-2;
       z-index: 999;
       background: $color-bg-1;
 

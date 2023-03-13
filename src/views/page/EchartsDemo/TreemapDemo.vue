@@ -15,7 +15,7 @@
 </template>
 <script lang="ts">
 import * as echarts from 'echarts'
-import { CuteCardBox } from '@cutedesign/base'
+import { CuteCardBox } from '@cutedesign/ui'
 import { CuteChart } from '@cutedesign/chart'
 import { Component, Vue } from 'vue-property-decorator'
 

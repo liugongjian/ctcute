@@ -1164,7 +1164,7 @@ export default class extends Vue {
           name: 'TableHook',
           desc: [
             {
-              text: '把类型引用的Request改成引用@cutedesign/base内部的，而非项目中的',
+              text: '把类型引用的Request改成引用@cutedesign/ui内部的，而非项目中的',
             },
           ],
         },
@@ -2078,7 +2078,7 @@ export default class extends Vue {
           name: 'Cascader',
           desc: [
             {
-              text: '修改@cutedesign/base版本号',
+              text: '修改@cutedesign/ui版本号',
             },
             {
               text: '将基础组件相关依赖移到packages/base下',

@@ -944,7 +944,7 @@
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import { STATUS, HEALTH, STATUS2 } from '@/dics/simpleTable'
 import { ElTable } from 'element-ui/types/table'
-import TableHookClass from '@cutedesign/base/hook/TableHook'
+import TableHookClass from '@cutedesign/ui/hook/TableHook'
 import CuteSortTable from '@cutedesign/sort-table'
 import { getTable } from '@/api/cuteSortTable'
 import * as SimpleTable from '@/types/SimpleTable'

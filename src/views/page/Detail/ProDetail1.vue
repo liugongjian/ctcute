@@ -156,7 +156,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import * as ProDetail1 from '@/types/ProDetail1'
-import { CuteButtonGroup, CuteTitledBlock } from '@cutedesign/base'
+import { CuteButtonGroup, CuteTitledBlock } from '@cutedesign/ui'
 import { getProDetail1 } from '@/api/proDetail1'
 import { STATUS, RESULT } from '@/dics/proDetail1'
 @Component({

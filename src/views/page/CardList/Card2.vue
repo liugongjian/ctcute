@@ -93,7 +93,7 @@
   </el-card>
 </template>
 <script lang="ts">
-import { CuteEditInput } from '@cutedesign/base'
+import { CuteEditInput } from '@cutedesign/ui'
 import { Component, Vue } from 'vue-property-decorator'
 import { getCardList } from '@/api/card2'
 import type { CardListItem } from '@/types/Card2'

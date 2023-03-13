@@ -10,7 +10,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { CuteSpecialRadio } from '@cutedesign/base'
+import { CuteSpecialRadio } from '@cutedesign/ui'
 
 @Component({
   name: 'Demo4',

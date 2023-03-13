@@ -102,7 +102,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import * as ProTable1 from '@/types/ProTable1'
 import { getTable, getHosts } from '@/api/proTable1'
 import { STATUS, HEALTH } from '@/dics/proTable1'
-import { CuteTableFilter } from '@cutedesign/base'
+import { CuteTableFilter } from '@cutedesign/ui'
 
 @Component({
   name: 'SimpleTable',

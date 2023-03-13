@@ -49,8 +49,8 @@ function viteTransformSource() {
       if (id.endsWith('src/main.ts')) {
         // 给main.ts加上virtual:svg-icons-register，是为了vue-cli也能运行
         return code.replace(
-          "import Vue from 'vue'",
-          ["import Vue from 'vue'", "import 'virtual:svg-icons-register'"].join('\n')
+          'import Vue from \'vue\'',
+          ['import Vue from \'vue\'', 'import \'virtual:svg-icons-register\''].join('\n')
         )
       }
       if (id.endsWith('views/page/Icon/index.vue')) {
@@ -59,7 +59,7 @@ function viteTransformSource() {
       this.icons = Object.keys(req)
         .map(k => k.split('/').reverse()[0].replace(/\.svg/, ''))
         .sort`
-        // 替换require.context('@cutedesign/theme/icons/svg', true, /\.svg$/)，使用import.meta.globEager
+        // 替换require.context('@cutedesign/ui/icons/svg', true, /\.svg$/)，使用import.meta.globEager
         return code.replace(/private\s+mounted\(\)\s+{\s+[\w\W]*?\.sort/, replacement)
       }
       return null

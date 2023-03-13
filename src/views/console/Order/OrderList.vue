@@ -113,7 +113,7 @@
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
 // import variables from '@cutedesign/theme/css/_variables.scss'
-import { CuteSpecialRadio } from '@cutedesign/base'
+import { CuteSpecialRadio } from '@cutedesign/ui'
 // import { getOptions } from '@/api/orderList'
 @Component({
   name: 'OrderList',

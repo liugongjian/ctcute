@@ -10,7 +10,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { CuteRemindInput } from '@cutedesign/base'
+import { CuteRemindInput } from '@cutedesign/ui'
 
 @Component({
   name: 'Demo4',

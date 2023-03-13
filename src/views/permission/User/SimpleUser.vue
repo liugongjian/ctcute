@@ -225,7 +225,7 @@ import { formatDatetime } from '@/utils/date'
 import copy from 'copy-to-clipboard'
 import WarnDialog from './components/WarnDialog.vue'
 import AddOrEditUserDialog from './components/AddOrEditUserDialog.vue'
-import TableHookClass from '@cutedesign/base/hook/TableHook'
+import TableHookClass from '@cutedesign/ui/hook/TableHook'
 import { getRoles } from '@/api/simpleRole'
 
 @Component({

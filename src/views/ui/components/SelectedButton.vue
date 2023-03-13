@@ -53,7 +53,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { CuteSpecialRadio } from '@cutedesign/base'
+import { CuteSpecialRadio } from '@cutedesign/ui'
 
 @Component({
   name: 'UiSelectedButton',

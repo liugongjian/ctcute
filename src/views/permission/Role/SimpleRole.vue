@@ -113,7 +113,7 @@ import { ElTransfer } from 'element-ui/types/transfer'
 import WarnDialog from './components/WarnDialog.vue'
 import { getRoles, copyRoles, delRoles, getRoleUser, setRole } from '@/api/simpleRole'
 import { getUsers } from '@/api/simpleUser'
-import TableHookClass from '@cutedesign/base/hook/TableHook'
+import TableHookClass from '@cutedesign/ui/hook/TableHook'
 import AddOrEditRoleDialog from './components/AddOrEditRoleDialog.vue'
 @Component({
   name: 'SimpleTable',

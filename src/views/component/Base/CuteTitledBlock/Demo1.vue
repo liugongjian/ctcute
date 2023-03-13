@@ -61,7 +61,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { CuteTitledBlock } from '@cutedesign/base'
+import { CuteTitledBlock } from '@cutedesign/ui'
 @Component({
   name: 'CuteTitledBlockDemo1',
   components: {

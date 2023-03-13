@@ -103,8 +103,6 @@
   },
   "workspaces": [
     "packages/ui",
-    "packages/theme",
-    "packages/base",
     "packages/chart",
     "packages/appendix",
     "packages/sort-table",

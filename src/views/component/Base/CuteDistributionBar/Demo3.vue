@@ -10,7 +10,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { CuteDistributionBar } from '@cutedesign/base'
+import { CuteDistributionBar } from '@cutedesign/ui'
 @Component({
   name: 'CuteDistributionBarDemo3',
   components: {

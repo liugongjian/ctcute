@@ -223,7 +223,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { CuteEditInput } from '@cutedesign/base'
+import { CuteEditInput } from '@cutedesign/ui'
 @Component({
   name: 'UiInput',
   components: {

@@ -14,7 +14,7 @@
   </cute-card-box>
 </template>
 <script lang="ts">
-import { CuteCardBox } from '@cutedesign/base'
+import { CuteCardBox } from '@cutedesign/ui'
 import { CuteChart } from '@cutedesign/chart'
 import { Component, Vue } from 'vue-property-decorator'
 const easingFuncs = {

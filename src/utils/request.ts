@@ -7,7 +7,7 @@
  */
 import axios from 'axios'
 import settings from '@/settings'
-import { Message } from '@cutedesign/base'
+import { Message } from '@cutedesign/ui'
 
 /** 创建axios实例 */
 const service = axios.create({

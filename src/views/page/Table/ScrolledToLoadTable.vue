@@ -84,7 +84,7 @@ import { ElTable } from 'element-ui/types/table'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTable, getHosts } from '@/api/simpleTable'
 import { STATUS, HEALTH } from '@/dics/simpleTable'
-import TableHookClass from '@cutedesign/base/hook/TableHook'
+import TableHookClass from '@cutedesign/ui/hook/TableHook'
 @Component({
   name: 'ScrolledToLoadTable',
 })

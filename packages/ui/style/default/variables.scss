@@ -243,9 +243,9 @@ $margin-primary: $margin-small; // deprecated(弃用)
 
 /* Shadow
 -------------------------- */
-$shadow-1: 0px 0px 8px rgba(100, 110, 144, 0.1); // 背景卡片使用
-$shadow-2: 0px 0px 15px rgba(100, 110, 144, 0.2); // 下拉组件使用，如下拉菜单、下拉选择器、气泡确认框
-$shadow-3: 0px 0px 40px rgba(0, 0, 0, 0.1); // 最上层投影，对话框、抽屉使用
+$shadow-1: 0px 0px 8px rgba(100, 110, 144, 0.1); // 一级阴影: 背景卡片使用
+$shadow-2: 0px 0px 15px rgba(100, 110, 144, 0.2); // 二级阴影: 下拉组件使用，如下拉菜单、下拉选择器、气泡确认框
+$shadow-3: 0px 0px 40px rgba(0, 0, 0, 0.1); // 三级阴影: 最上层投影，对话框、抽屉使用
 $shadow-form-item: 0px 2px 2px rgba(0, 0, 0, 0.1); // 组件Focused状态使用
 
 $shadow-input: 0 0 4px 0 rgba(250, 131, 52, 20%); // deprecated(弃用)

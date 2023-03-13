@@ -1073,7 +1073,7 @@ export default class extends Vue {
   private async getTable(param) {
     // 接口
     const res = await getTable(param)
-    const list = res.data.list.map(item => {
+    const list = res.data.list.map((item: any) => {
       item.flag = false
       return item
     })

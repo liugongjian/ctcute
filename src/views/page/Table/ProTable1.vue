@@ -174,7 +174,7 @@ export default class extends Vue {
       }
       const res = await getTable(params)
       this.pager.total = res.data.total
-      this.tableData = res.data.list.map(item => {
+      this.tableData = res.data.list.map((item: any) => {
         item.flag = false
         return item
       })

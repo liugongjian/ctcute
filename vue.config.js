@@ -71,16 +71,16 @@ module.exports = {
     // set svg-sprite-loader
     config.module
       .rule('svg')
-      .exclude.add(path.join(__dirname, 'packages/theme/icons'))
-      .add(path.join(__dirname, 'node_modules/@cutedesign/theme/icons'))
+      .exclude.add(path.join(__dirname, 'packages/ui/icons'))
+      .add(path.join(__dirname, 'node_modules/@cutedesign/ui/icons'))
       .add(path.join(__dirname, 'src/assets/icons'))
       .end()
 
     config.module
       .rule('icons')
       .test(/\.svg$/)
-      .include.add(path.join(__dirname, 'packages/theme/icons'))
-      .add(path.join(__dirname, 'node_modules/@cutedesign/theme/icons'))
+      .include.add(path.join(__dirname, 'packages/ui/icons'))
+      .add(path.join(__dirname, 'node_modules/@cutedesign/ui/icons'))
       .add(path.join(__dirname, 'src/assets/icons'))
       .end()
       .use('svg-sprite-loader')

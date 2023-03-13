@@ -8,6 +8,9 @@
 <template>
   <div>
     <el-card>
+      <Table />
+    </el-card>
+    <el-card>
       <div class="sub-notification">
         <p>全局展示通知提醒信息</p>
         <h3>普通通知提醒</h3>
@@ -383,9 +386,13 @@
  */
 // 引入Vue TypeScript组件包
 import { Component, Vue } from 'vue-property-decorator'
+import Table from '@/views/ui/components/Table.vue'
 
 @Component({
   name: 'TypeScriptDemo',
+  components: {
+    Table,
+  },
 })
 export default class extends Vue {
   private activeName = '1'

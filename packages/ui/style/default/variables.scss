@@ -136,9 +136,6 @@ $text-size-sm: 12px; // 字号small
 $text-size-md: 14px; // 字号medium
 $text-size-lg: 16px; // 字号large
 $text-size-xl: 18px; // 字号extra large
-// $text-size-xxl: 20px; // 字号xx large
-// $text-size-xxxl: 24px; // 字号xxx large
-// $text-size-xxxxl: 28px; // 字号xxxx large
 $text-color: palette.$neutral-10; // 强调/正文标题
 $text-color-light: palette.$neutral-9; // 次强调/正文标题
 $text-color-light-2: palette.$neutral-6; // 置灰信息
@@ -300,6 +297,10 @@ $checkbox-button-hover: $color-master-bg-light;
 $table-header-bg: $color-neutral-1;
 $table-cell-bg: $color-neutral-8;
 $table-sort-caret-bg: $color-neutral-6;
+$table-cell-padding-sm: $margin-2x;
+$table-cell-padding-md: $margin-10;
+$table-cell-padding-lg: $margin-3x;
+$table-border-color: $color-neutral-3;
 
 $table-header-fill: $table-header-bg; // deprecated(弃用)
 $table-cell-fill: $table-cell-bg; // deprecated(弃用)

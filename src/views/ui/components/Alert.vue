@@ -58,10 +58,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-// import variables from '@cutedesign/theme/css/_variables.scss'
-
-const variables: any = {}
-
+import variables from '@cutedesign/ui/style/default/index.scss'
 @Component({
   name: 'UiAlert',
 })

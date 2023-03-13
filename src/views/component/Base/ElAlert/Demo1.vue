@@ -28,7 +28,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-// import variables from '@cutedesign/theme/css/_variables.scss'
+// import variables from '@cutedesign/ui/style/default/index.scss'
 
 const variables: any = {}
 @Component({

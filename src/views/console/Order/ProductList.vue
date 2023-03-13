@@ -124,7 +124,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-// import variables from '@cutedesign/theme/css/_variables.scss'
+// import variables from '@cutedesign/ui/style/default/index.scss'
 
 import { getTableComponent } from '@/api/tableComponent'
 import { HEALTH } from '@/dics/productList'

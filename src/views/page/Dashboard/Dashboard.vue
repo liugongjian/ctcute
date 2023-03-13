@@ -267,7 +267,7 @@
 <script lang="ts">
 import { HEALTH } from '@/dics/simpleTable'
 import { formatDatetime } from '@/utils/date'
-// import color from '@cutedesign/theme/css/_variables.scss'
+import color from '@cutedesign/ui/style/default/index.scss'
 import { getTableComponent } from '@/api/tableComponent'
 import * as TableComponent from '@/types/TableComponent'
 import { CuteChart, CuteChartItem } from '@cutedesign/chart'
@@ -286,7 +286,7 @@ import iconInstall from './Images/icon-install.svg'
 })
 export default class extends Vue {
   private get variables(): any {
-    return {}
+    return color
   }
   private iconReach = iconReach
   private iconClick = iconClick

@@ -99,7 +99,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-// import variables from '@cutedesign/theme/css/_variables.scss'
+// import variables from '@cutedesign/ui/style/default/index.scss'
 import { CuteSpecialRadio } from '@cutedesign/ui'
 import { CuteTitledBlock } from '@cutedesign/ui'
 import { STATUS, HEALTH } from '@/dics/productDetails'

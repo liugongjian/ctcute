@@ -257,10 +257,10 @@ $shadow-table-card: rgba(200, 201, 204, 50%); // deprecated(弃用)
 -------------------------- */
 $button-icon-color: $text-color-light-2;
 $button-margin: $margin-3x;
-$button-padding-mini: 7px 20px;
-$button-padding-small: 7px 20px;
-$button-padding-medium: 9px 20px;
-$button-padding-large: 11px 20px;
+$button-padding-mini: $padding $padding-2x;
+$button-padding-small: $padding $padding-2x;
+$button-padding-medium: 9px $padding-4x;
+$button-padding-large: $margin-3x $padding-6x;
 
 /* Form
 -------------------------- */

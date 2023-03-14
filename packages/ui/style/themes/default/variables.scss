@@ -100,7 +100,7 @@ $color-grey-10: palette.$neutral-1; // deprecated(弃用)
 $color-grey-11: palette.$neutral-1; // deprecated(弃用)
 
 /* 其他 */
-$color-other-1: #3b3e4b;
+$color-other-1: #3b3e4b; // deprecated(弃用) 使用在tooltip背景, order页眉背景
 
 
 /* Background
@@ -323,7 +323,7 @@ $upload-fill: $color-grey-11; // deprecated(弃用)
 /* Card
 -------------------------- */
 $card-bg: $color-bg-2;
-$card-shadow: 0 0 8px 0 $color-bg-3;
+$card-shadow: $shadow-1;
 
 /* Cascader
 -------------------------- */
@@ -333,7 +333,7 @@ $cascader-tag-close-color: palette.$white;
 $cascader-tag-close-bg: palette.$neutral-6;
 $cascader-node-hover: $color-master-bg-light-2;
 $cascader-panel-bg: $color-bg-1;
-$cascader-panel-shadow: 0 2px 8px 0 $color-bg-3;
+$cascader-panel-shadow: $shadow-2;
 
 /* Collapse
 -------------------------- */
@@ -345,7 +345,7 @@ $collapse-header-fill: $color-grey-11; // deprecated(弃用)
 
 /* Datepicker
 -------------------------- */
-$datepicker-shadow: 0 2px 8px 0 $color-bg-3;
+$datepicker-shadow: $shadow-2;
 
 /* Descriptions
 -------------------------- */

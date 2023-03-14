@@ -51,9 +51,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Prop, Watch, Ref } from 'vue-property-decorator'
-// import variables from '@cutedesign/theme/css/_variables.scss'
-
-const variables: any = {}
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 
 const defaultValue = [50, 50]
 @Component({

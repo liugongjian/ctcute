@@ -74,12 +74,10 @@ export default class extends Vue {
 .select-uncheck {
   padding-right: 0;
   color: $color-grey-1;
-  padding-left: 11px;
 }
 
 .select-field {
   padding-right: 0;
-  color: $color-master-1;
-  padding-left: 11px;
+  color: $color-master;
 }
 </style>

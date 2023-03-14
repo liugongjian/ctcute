@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { Component, Prop, VModel, Vue } from 'vue-property-decorator'
-// import variables from '@cutedesign/theme/css/_variables.scss'
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 
 @Component({
   name: 'CuteEditInput',
@@ -26,7 +26,7 @@ import { Component, Prop, VModel, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   @VModel({ type: String }) syncedValue!: string
   @Prop({ default: false }) private textarea!: boolean
-  private colorVariables = {}
+  private colorVariables = variables
   private editing = false
   private editValue = ''
   private onOk() {
@@ -43,7 +43,7 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .edit-input-icon {
-  font-size: $text-size-lg;
+  font-size: $text-size-large;
   margin-left: 10px;
   color: $color-grey-3;
   cursor: pointer;
@@ -75,7 +75,7 @@ export default class extends Vue {
 
   svg {
     cursor: pointer;
-    font-size: $text-size-lg;
+    font-size: $text-size-large;
     margin-right: 4px;
     vertical-align: sub;
   }

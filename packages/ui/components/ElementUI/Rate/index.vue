@@ -40,9 +40,7 @@
 import { hasClass } from 'element-ui/src/utils/dom'
 import { isObject } from 'element-ui/src/utils/types'
 import Migrating from 'element-ui/src/mixins/migrating'
-// import variables from '@cutedesign/theme/css/_variables.scss'
-
-const variables = {}
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 
 export default {
   name: 'ElRate',

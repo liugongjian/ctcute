@@ -103,7 +103,7 @@ export default class extends Vue {
 
       .table-filter_top {
         padding: 0 16px 16px;
-        min-width: 332px;
+        min-width: 335px;
 
         .el-form-item {
           margin: 0;

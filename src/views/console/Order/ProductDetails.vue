@@ -99,7 +99,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-// import variables from '@cutedesign/ui/style/themes/default/index.scss'
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 import { CuteSpecialRadio } from '@cutedesign/ui'
 import { CuteTitledBlock } from '@cutedesign/ui'
 import { STATUS, HEALTH } from '@/dics/productDetails'
@@ -108,7 +108,7 @@ import { STATUS, HEALTH } from '@/dics/productDetails'
   components: { CuteSpecialRadio, CuteTitledBlock },
 })
 export default class extends Vue {
-  private colorVariables = {}
+  private colorVariables = variables
 
   private searchValue = ''
   // 加载状态

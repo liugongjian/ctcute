@@ -112,7 +112,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
-// import variables from '@cutedesign/ui/style/themes/default/index.scss'
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 import { CuteSpecialRadio } from '@cutedesign/ui'
 // import { getOptions } from '@/api/orderList'
 @Component({
@@ -124,7 +124,7 @@ export default class extends Vue {
   private ruleFormRef
   @Ref('Sliders')
   private RefSlider
-  // private colorVariables = variables
+  private colorVariables = variables
   private areas = [
     {
       label: '华南地区',

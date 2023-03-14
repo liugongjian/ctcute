@@ -1,0 +1,11 @@
+/* 仅用于非基于cutedesign的项目替换element-ui样式
+-------------------------- */
+@import './themes/default/variables.scss';
+@import './mixins.scss';
+@import './element-variables.scss';
+@import './element-override/index.scss';
+@import '../fonts/iconfont.css';
+
+body {
+  font-family: $font-family;
+}

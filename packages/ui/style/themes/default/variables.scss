@@ -1,103 +1,102 @@
-@use 'palette';
-@use 'sass:color';
+@import 'palette';
 
 /* Color
 -------------------------- */
 
 /* 主题色 */
-$color-master: palette.$blue-base; // 默认
-$color-master-hover: palette.$blue-5; // 悬停
-$color-master-active: palette.$blue-7; // 触发
-$color-master-disabled: palette.$blue-4; // 触发
-$color-master-bg: palette.$blue-3; // 背景
-$color-master-bg-light: palette.$blue-2; // 背景浅色
-$color-master-bg-light-2: palette.$blue-1; // 背景浅色2
+$color-master: $blue-base; // 默认
+$color-master-hover: $blue-5; // 悬停
+$color-master-active: $blue-7; // 触发
+$color-master-disabled: $blue-4; // 触发
+$color-master-bg: $blue-3; // 背景
+$color-master-bg-light: $blue-2; // 背景浅色
+$color-master-bg-light-2: $blue-1; // 背景浅色2
 
-$color-master-1: palette.$blue-base; // deprecated(弃用)
-$color-master-2: palette.$blue-5; // deprecated(弃用)
-$color-master-3: palette.$blue-7; // deprecated(弃用)
-$color-master-4: palette.$blue-3; // deprecated(弃用)
-$color-master-5: palette.$blue-2; // deprecated(弃用)
-$color-master-6: palette.$blue-1; // deprecated(弃用)
-$color-master-7: palette.$blue-1; // deprecated(弃用)
+$color-master-1: $blue-base; // deprecated(弃用)
+$color-master-2: $blue-5; // deprecated(弃用)
+$color-master-3: $blue-7; // deprecated(弃用)
+$color-master-4: $blue-3; // deprecated(弃用)
+$color-master-5: $blue-2; // deprecated(弃用)
+$color-master-6: $blue-1; // deprecated(弃用)
+$color-master-7: $blue-1; // deprecated(弃用)
 
 /* 特殊色 */
-$color-sp: palette.$red-base; // 默认
-$color-sp-hover: palette.$red-5; // 悬停
-$color-sp-active: palette.$red-7; // 触发
+$color-sp: $red-base; // 默认
+$color-sp-hover: $red-5; // 悬停
+$color-sp-active: $red-7; // 触发
 
-$color-sp-1: palette.$red-base; // deprecated(弃用)
-$color-sp-2: palette.$red-5; // deprecated(弃用)
-$color-sp-3: palette.$red-7; // deprecated(弃用)
+$color-sp-1: $red-base; // deprecated(弃用)
+$color-sp-2: $red-5; // deprecated(弃用)
+$color-sp-3: $red-7; // deprecated(弃用)
 
 /* 状态色 */
-$color-info: palette.$neutral-6; // 信息通知
-$color-info-hover: color.adjust($color-info, $lightness: 15%);
-$color-info-active: color.adjust($color-info, $blackness: 15%);
-$color-info-disabled: color.adjust($color-info, $lightness: 20%);
-$color-info-bg: palette.$neutral-1;
-$color-success: palette.$green-base; // 成功
-$color-success-hover: palette.$green-5;
-$color-success-active: palette.$green-7;
-$color-success-disabled: palette.$green-4;
-$color-success-bg: palette.$green-1;
-$color-warning: palette.$orange-base; // 警告
-$color-warning-hover: palette.$orange-5;
-$color-warning-active: palette.$orange-7;
-$color-warning-disabled: palette.$orange-4;
-$color-warning-bg: palette.$orange-1;
-$color-danger: palette.$ruby-base; // 危险
-$color-danger-hover: palette.$ruby-5;
-$color-danger-active: palette.$ruby-7;
-$color-danger-disabled: palette.$ruby-4;
-$color-danger-bg: palette.$ruby-1;
-$color-fatal-danger: palette.$ruby-8; // 严重危险
-$color-fatal-danger-hover: palette.$ruby-7;
-$color-fatal-danger-active: palette.$ruby-9;
-$color-fatal-danger-disabled: palette.$ruby-4;
-$color-fatal-danger-bg: palette.$ruby-1;
+$color-info: $neutral-6; // 信息通知
+$color-info-hover: mix($white, $color-info, 15%);
+$color-info-active: mix($black, $color-info, 15%);
+$color-info-disabled: mix($white, $color-info, 20%);
+$color-info-bg: $neutral-1;
+$color-success: $green-base; // 成功
+$color-success-hover: $green-5;
+$color-success-active: $green-7;
+$color-success-disabled: $green-4;
+$color-success-bg: $green-1;
+$color-warning: $orange-base; // 警告
+$color-warning-hover: $orange-5;
+$color-warning-active: $orange-7;
+$color-warning-disabled: $orange-4;
+$color-warning-bg: $orange-1;
+$color-danger: $ruby-base; // 危险
+$color-danger-hover: $ruby-5;
+$color-danger-active: $ruby-7;
+$color-danger-disabled: $ruby-4;
+$color-danger-bg: $ruby-1;
+$color-fatal-danger: $ruby-8; // 严重危险
+$color-fatal-danger-hover: $ruby-7;
+$color-fatal-danger-active: $ruby-9;
+$color-fatal-danger-disabled: $ruby-4;
+$color-fatal-danger-bg: $ruby-1;
 
 
 $color-status-master: $color-master; // deprecated(弃用)
 $color-status-master-1: $color-master; // deprecated(弃用)
-$color-status-danger: palette.$ruby-base; // deprecated(弃用)
-$color-status-danger-1: palette.$ruby-base; // deprecated(弃用)
-$color-status-danger-2: palette.$ruby-1; // deprecated(弃用)
-$color-status-danger-3: palette.$ruby-8; // deprecated(弃用)
-$color-status-info: palette.$blue-base; // deprecated(弃用)
-$color-status-info-1: palette.$blue-base; // deprecated(弃用)
-$color-status-success: palette.$green-base; // deprecated(弃用)
-$color-status-success-1: palette.$green-base; // deprecated(弃用)
-$color-status-warning: palette.$orange-base; // deprecated(弃用)
-$color-status-warning-1: palette.$orange-base; // deprecated(弃用)
+$color-status-danger: $ruby-base; // deprecated(弃用)
+$color-status-danger-1: $ruby-base; // deprecated(弃用)
+$color-status-danger-2: $ruby-1; // deprecated(弃用)
+$color-status-danger-3: $ruby-8; // deprecated(弃用)
+$color-status-info: $blue-base; // deprecated(弃用)
+$color-status-info-1: $blue-base; // deprecated(弃用)
+$color-status-success: $green-base; // deprecated(弃用)
+$color-status-success-1: $green-base; // deprecated(弃用)
+$color-status-warning: $orange-base; // deprecated(弃用)
+$color-status-warning-1: $orange-base; // deprecated(弃用)
 
 /* 中性色 */
-$color-neutral-1: palette.$neutral-1;
-$color-neutral-2: palette.$neutral-2;
-$color-neutral-3: palette.$neutral-3;
-$color-neutral-4: palette.$neutral-4;
-$color-neutral-5: palette.$neutral-5;
-$color-neutral-6: palette.$neutral-6;
-$color-neutral-7: palette.$neutral-7;
-$color-neutral-8: palette.$neutral-8;
-$color-neutral-9: palette.$neutral-9;
-$color-neutral-10: palette.$neutral-10;
-$color-neutral-11: palette.$neutral-10;
-$color-white: palette.$white;
-$color-black: palette.$black;
+$color-neutral-1: $neutral-1;
+$color-neutral-2: $neutral-2;
+$color-neutral-3: $neutral-3;
+$color-neutral-4: $neutral-4;
+$color-neutral-5: $neutral-5;
+$color-neutral-6: $neutral-6;
+$color-neutral-7: $neutral-7;
+$color-neutral-8: $neutral-8;
+$color-neutral-9: $neutral-9;
+$color-neutral-10: $neutral-10;
+$color-neutral-11: $neutral-10;
+$color-white: $white;
+$color-black: $black;
 
-$color-grey-0: palette.$black; // deprecated(弃用)
-$color-grey-1: palette.$neutral-10; // deprecated(弃用)
-$color-grey-2: palette.$neutral-9; // deprecated(弃用)
-$color-grey-3: palette.$neutral-8; // deprecated(弃用)
-$color-grey-4: palette.$neutral-7; // deprecated(弃用)
-$color-grey-5: palette.$neutral-6; // deprecated(弃用)
-$color-grey-6: palette.$neutral-5; // deprecated(弃用)
-$color-grey-7: palette.$neutral-4; // deprecated(弃用)
-$color-grey-8: palette.$neutral-3; // deprecated(弃用)
-$color-grey-9: palette.$neutral-2; // deprecated(弃用)
-$color-grey-10: palette.$neutral-1; // deprecated(弃用)
-$color-grey-11: palette.$neutral-1; // deprecated(弃用)
+$color-grey-0: $black; // deprecated(弃用)
+$color-grey-1: $neutral-10; // deprecated(弃用)
+$color-grey-2: $neutral-9; // deprecated(弃用)
+$color-grey-3: $neutral-8; // deprecated(弃用)
+$color-grey-4: $neutral-7; // deprecated(弃用)
+$color-grey-5: $neutral-6; // deprecated(弃用)
+$color-grey-6: $neutral-5; // deprecated(弃用)
+$color-grey-7: $neutral-4; // deprecated(弃用)
+$color-grey-8: $neutral-3; // deprecated(弃用)
+$color-grey-9: $neutral-2; // deprecated(弃用)
+$color-grey-10: $neutral-1; // deprecated(弃用)
+$color-grey-11: $neutral-1; // deprecated(弃用)
 
 /* 其他 */
 $color-other-1: #3b3e4b; // deprecated(弃用) 使用在tooltip背景, order页眉背景
@@ -105,9 +104,9 @@ $color-other-1: #3b3e4b; // deprecated(弃用) 使用在tooltip背景, order页�
 
 /* Background
 -------------------------- */
-$color-bg-1: palette.$white;
-$color-bg-2: palette.$white;
-$color-bg-3: palette.$neutral-1;
+$color-bg-1: $white;
+$color-bg-2: $white;
+$color-bg-3: $neutral-1;
 $color-form-component-bg: $color-bg-1;
 $color-content-bg: $color-bg-2;
 $color-body-bg: $color-bg-3;
@@ -116,13 +115,13 @@ $body-fill: $color-bg-3; // deprecated(弃用)
 
 /* Disable
 -------------------------- */
-$disabled-bg: palette.$neutral-1;
-$disabled-border: palette.$neutral-5;
-$disabled-color: palette.$neutral-6;
-$disabled-icon-color: palette.$neutral-6;
+$disabled-bg: $neutral-1;
+$disabled-border: $neutral-5;
+$disabled-color: $neutral-6;
+$disabled-icon-color: $neutral-6;
 
 $disabled-danger-bg: $color-white; // deprecated(弃用)
-$disabled-danger-color: mix($color-white, $color-status-danger-1, 50%); // deprecated(弃用)
+$disabled-danger-color: mix($white, $color-status-danger-1, 50%); // deprecated(弃用)
 $disabled-danger-border: $disabled-danger-color; // deprecated(弃用)
 $disabled-fill: $disabled-bg; // deprecated(弃用)
 $disabled-danger-fill: $color-white; // deprecated(弃用)
@@ -136,10 +135,10 @@ $text-size-sm: 12px; // 字号small
 $text-size-md: 14px; // 字号medium
 $text-size-lg: 16px; // 字号large
 $text-size-xl: 18px; // 字号extra large
-$text-color: palette.$neutral-10; // 强调/正文标题
-$text-color-light: palette.$neutral-9; // 次强调/正文标题
-$text-color-light-2: palette.$neutral-6; // 置灰信息
-$text-color-feature: palette.$neutral-7; // 说明文字
+$text-color: $neutral-10; // 强调/正文标题
+$text-color-light: $neutral-9; // 次强调/正文标题
+$text-color-light-2: $neutral-6; // 置灰信息
+$text-color-feature: $neutral-7; // 说明文字
 
 $text-size-primary: $text-size; // deprecated(弃用)
 $text-size-small: $text-size-sm; // deprecated(弃用)
@@ -154,18 +153,18 @@ $line-height: 1.5;
 
 /* 标签(Tag)
 -------------------------- */
-$tag-master: palette.$blue-1; // 主题色标签背景
-$tag-master-border: palette.$blue-base; // 主题色标签边框
-$tag-info: palette.$neutral-1; // 信息色标签背景
-$tag-info-border: palette.$neutral-6; // 信息色标签边框
-$tag-success: palette.$green-1; // 成功色标签背景
-$tag-success-border: palette.$green-base; // 成功色标签边框
-$tag-warning: palette.$orange-1; // 警告色标签背景
-$tag-warning-border: palette.$orange-base; // 警告色标签边框
-$tag-danger: palette.$ruby-1; // 危险色标签背景
-$tag-danger-border: palette.$ruby-base; // 危险色标签边框
-$tag-weak: palette.$neutral-1; // 轻微提示色标签背景
-$tag-weak-border: palette.$neutral-6; // 轻微提示色标签边框
+$tag-master: $blue-1; // 主题色标签背景
+$tag-master-border: $blue-base; // 主题色标签边框
+$tag-info: $neutral-1; // 信息色标签背景
+$tag-info-border: $neutral-6; // 信息色标签边框
+$tag-success: $green-1; // 成功色标签背景
+$tag-success-border: $green-base; // 成功色标签边框
+$tag-warning: $orange-1; // 警告色标签背景
+$tag-warning-border: $orange-base; // 警告色标签边框
+$tag-danger: $ruby-1; // 危险色标签背景
+$tag-danger-border: $ruby-base; // 危险色标签边框
+$tag-weak: $neutral-1; // 轻微提示色标签背景
+$tag-weak-border: $neutral-6; // 轻微提示色标签边框
 
 $color-tag-master-1: $tag-master-border; // deprecated(弃用)
 $color-tag-master-2: $tag-master; // deprecated(弃用)
@@ -180,9 +179,9 @@ $color-tag-danger-2: $tag-danger; // deprecated(弃用)
 
 /* Border
 -------------------------- */
-$border-color: palette.$neutral-5;
-$border-color-light: palette.$neutral-1;
-$border-color-dark: palette.$neutral-6;
+$border-color: $neutral-5;
+$border-color-light: $neutral-1;
+$border-color-dark: $neutral-6;
 $border-radius: 3px; // 悬浮状态
 $border-radius-medium: 5px; // Card圆角
 
@@ -327,10 +326,10 @@ $card-shadow: $shadow-1;
 
 /* Cascader
 -------------------------- */
-$cascader-tag-bg: palette.$neutral-1;
-$cascader-tag-border: palette.$neutral-5;
-$cascader-tag-close-color: palette.$white;
-$cascader-tag-close-bg: palette.$neutral-6;
+$cascader-tag-bg: $neutral-1;
+$cascader-tag-border: $neutral-5;
+$cascader-tag-close-color: $white;
+$cascader-tag-close-bg: $neutral-6;
 $cascader-node-hover: $color-master-bg-light-2;
 $cascader-panel-bg: $color-bg-1;
 $cascader-panel-shadow: $shadow-2;

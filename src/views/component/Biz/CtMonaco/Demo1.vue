@@ -21,8 +21,8 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
-import axios from 'axios'
 import CtMonaco from '@cutedesign/ct-monaco'
+import { json, yaml, css, html, javascript, markdown, mysql, xml } from '@/views/component/Biz/CtMonaco/text'
 
 Vue.use(CtMonaco)
 
@@ -47,31 +47,38 @@ export default class extends Vue {
     { label: 'mysql', value: 'mysql' },
     { label: 'xml', value: 'xml' },
   ]
-  private loading = true
+  private loading = false
   private content = ''
-
+  private json = json
+  private yaml = yaml
+  private css = css
+  private html = html
+  private javascript = javascript
+  private markdown = markdown
+  private mysql = mysql
+  private xml = xml
   @Watch('language', { immediate: true })
   handleChangeLanguage() {
-    this.load()
+    this.content = this[this.language]
   }
 
-  private load() {
-    this.loading = true
-    const url = `https://microsoft.github.io/monaco-editor/index/samples/sample.${this.language}.txt`
-    axios.get(url).then(
-      res => {
-        // success
-        const data = res.data // 获取数据 需要的是res.data
-        this.content = this.language === 'json' ? JSON.stringify(data, null, 2) : data
-        this.loading = false
-      },
-      err => {
-        // error
-        console.log(err)
-        this.loading = false
-      }
-    )
-  }
+  //   private load() {
+  //     this.loading = true
+  //     const url = `https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/basic-languages/${this.language}/${this.language}.js`
+  //     axios.get(url).then(
+  //       res => {
+  //         // success
+  //         const code = res.data // 获取数据 需要的是res.data
+  //         const script = new Function(code)
+  //         script()
+  //       },
+  //       err => {
+  //         // error
+  //         console.log(err)
+  //         this.loading = false
+  //       }
+  //     )
+  //   }
 }
 </script>
 

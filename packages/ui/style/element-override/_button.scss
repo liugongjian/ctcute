@@ -29,6 +29,7 @@
   }
 
   .el-button--#{$type} {
+    color: $color-text;
     background: $color-bg;
     border-color: $color-border;
 
@@ -62,6 +63,7 @@
 @include button-color(success, $color-success, $color-success-hover, $color-success-active, $color-success-disabled);
 @include button-color(warning, $color-warning, $color-warning-hover, $color-warning-active, $color-warning-disabled);
 @include button-color(danger, $color-danger, $color-danger-hover, $color-danger-active, $color-danger-disabled);
+@include button-color(sp, $color-sp, $color-sp-hover, $color-sp-active, $color-sp-disabled);
 
 /*
   重置朴素(plain)按钮样式

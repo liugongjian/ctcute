@@ -3,7 +3,7 @@
     <p>常用的操作按钮</p>
     <h2>特殊按钮</h2>
     <div class="sub-special">
-      <el-button type="danger">特殊按钮</el-button>
+      <el-button type="sp">特殊按钮</el-button>
       <el-button disabled>不可用特殊按钮</el-button>
     </div>
     <h2>不同尺寸</h2>

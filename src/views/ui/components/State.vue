@@ -14,8 +14,8 @@
         <dot-state :color="colorVariables.colorSuccess">健康/正常/成功</dot-state>
         <dot-state :color="colorVariables.colorWarning">警告</dot-state>
         <dot-state :color="colorVariables.colorDanger">危险/故障/失败</dot-state>
-        <dot-state :color="colorVariables.colorDanger3">严重故障</dot-state>
-        <dot-state :color="colorVariables.colorInfo">进行中</dot-state>
+        <dot-state :color="colorVariables.colorFatalDanger">严重故障</dot-state>
+        <dot-state :color="colorVariables.colorMaster">进行中</dot-state>
         <dot-state>下线/未完成/未开始/中止/取消</dot-state>
       </p>
       <p>
@@ -26,7 +26,7 @@
         <dot-state icon="warning-circle">未运行/停止</dot-state>
         <dot-state icon="check-circle" :color="colorVariables.colorSuccess">正常/健康/成功</dot-state>
         <dot-state icon="inconsistent" :color="colorVariables.colorWarning">不一致</dot-state>
-        <dot-state icon="loading" :color="colorVariables.colorInfo" :loading="true">重启中</dot-state>
+        <dot-state icon="loading" :color="colorVariables.colorMaster" :loading="true">重启中</dot-state>
         <dot-state icon="loading" :color="colorVariables.colorSuccess" :loading="true">启动中</dot-state>
         <dot-state icon="loading" :color="colorVariables.colorDanger" :loading="true">卸载中</dot-state>
         <dot-state icon="loading" :loading="true">停止中</dot-state>

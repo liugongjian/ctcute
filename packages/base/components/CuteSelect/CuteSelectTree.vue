@@ -31,6 +31,7 @@
       <el-tree
         v-else
         ref="tree"
+        :show-checkbox="showCheckbox"
         :data="options"
         :node-key="treeNodeProps.key"
         :props="treeNodeProps"
@@ -46,14 +47,14 @@
 import { Vue, Component, Ref, Prop, Model, Emit, Watch } from 'vue-property-decorator'
 import { Tree, Select } from 'element-ui'
 
-const defaultNodeProps = { children: 'children', label: 'label', key: 'id' }
+const defaultNodeProps = { children: 'children', label: 'label', key: 'id', disabled: 'disabled' }
 
 interface NODE_PROPS {
   children?: string
   label?: string | ((data: any, node: any) => string)
   key?: string
-  disabled?: boolean | ((data: any, node: any) => boolean)
-  isLeaf?: boolean | ((data: any, node: any) => boolean)
+  disabled?: string | ((data: any, node: any) => boolean)
+  isLeaf?: string | ((data: any, node: any) => boolean)
 }
 
 @Component({
@@ -65,6 +66,7 @@ export default class extends Vue {
   @Prop({ type: Boolean, default: false }) multiple?: boolean // 是否多选
   @Prop({ type: Array, default: '' }) options?: [] //option 值
   @Prop({ type: Object, default: () => ({}) }) nodeProps!: NODE_PROPS //el-tree的props属性
+  @Prop({ type: Boolean, default: false }) showCheckbox!: boolean //el-tree的show-checkbox属性
   @Prop({ type: Boolean, default: false }) lazy!: boolean //el-tree的lazy属性
   @Prop({ type: Function }) load?: any //el-tree的load属性
   @Model('change', { default: '' }) treeData: Array<any> | string //select 值

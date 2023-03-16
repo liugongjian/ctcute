@@ -14,7 +14,7 @@
       <component-demo path="@/views/component/Base/CuteSelectTree/Demo1.vue">
         <demo1 />
       </component-demo>
-      <h1>可配置树节点字段名</h1>
+      <h1>可配置树节点字段名及禁用</h1>
       <component-demo path="@/views/component/Base/CuteSelectTree/Demo2.vue">
         <demo2 />
       </component-demo>
@@ -132,7 +132,7 @@ export default class extends Vue {
     {
       name: 'label',
       desc: '指定节点标签为节点对象的某个属性值',
-      type: 'string, function(data, node)',
+      type: 'string, function(data, node): string',
       options: null,
       default: '"label"',
     },
@@ -146,14 +146,14 @@ export default class extends Vue {
     {
       name: 'disabled',
       desc: '指定节点选择框是否禁用为节点对象的某个属性值',
-      type: 'boolean, function(data, node)',
+      type: 'string, function(data, node): boolean',
       options: null,
-      default: null,
+      default: '"disabled"',
     },
     {
       name: 'isLeaf',
       desc: '指定节点是否为叶子节点，仅在指定了 lazy 属性的情况下生效',
-      type: 'boolean, function(data, node)',
+      type: 'string, function(data, node): boolean',
       options: null,
       default: null,
     },

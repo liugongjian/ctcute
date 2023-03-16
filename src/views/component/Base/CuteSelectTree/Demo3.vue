@@ -36,6 +36,7 @@ export default class extends Vue {
         {
           id: 4,
           label: '二级 1-1',
+          desc: '一级 1-1相关信息',
         },
       ],
     },

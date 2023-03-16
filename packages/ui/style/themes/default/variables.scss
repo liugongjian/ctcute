@@ -20,11 +20,11 @@ $color-master-5: $blue-2; // deprecated(弃用)
 $color-master-6: $blue-1; // deprecated(弃用)
 $color-master-7: $blue-1; // deprecated(弃用)
 
-/* 特殊色 */
-$color-sp: $red-base; // 默认
-$color-sp-hover: $red-5; // 悬停
-$color-sp-active: $red-7; // 触发
-$color-sp-disabled: $red-4; // 禁用
+/* 特殊色, ct意为ctyun缩写 */
+$color-ct: $red-base; // 默认
+$color-ct-hover: $red-5; // 悬停
+$color-ct-active: $red-7; // 触发
+$color-ct-disabled: $red-4; // 禁用
 
 $color-sp-1: $red-base; // deprecated(弃用)
 $color-sp-2: $red-5; // deprecated(弃用)
@@ -407,6 +407,10 @@ $zindex-picker: 1050;
 $zindex-popoconfirm: 1060;
 $zindex-tooltip: 1070;
 $zindex-image: 1080;
+
+/* 响应式断点
+-------------------------- */
+$screen-lg: 1200px;
 
 /* 图表颜色(deprecated(弃用))
 -------------------------- */

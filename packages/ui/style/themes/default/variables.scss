@@ -100,7 +100,7 @@ $color-grey-10: $neutral-1; // deprecated(弃用)
 $color-grey-11: $neutral-1; // deprecated(弃用)
 
 /* 其他 */
-$color-other-1: #3b3e4b; // deprecated(弃用) 使用在tooltip背景, order页眉背景
+$color-other-1: $color-neutral-8; // deprecated(弃用) 使用在tooltip背景, order页眉背景
 
 
 /* Background
@@ -310,15 +310,15 @@ $pagination-fill: $color-white; // deprecated(弃用)
 
 /* Tooltip
 -------------------------- */
-$tooltip-bg: $color-other-1;
+$tooltip-bg: $color-neutral-8;
 
-$tooltip-fill: $color-other-1; // deprecated(弃用)
+$tooltip-fill: $tooltip-bg; // deprecated(弃用)
 
 /* Upload
 -------------------------- */
-$upload-bg: $color-grey-11;
+$upload-bg: $color-neutral-1;
 
-$upload-fill: $color-grey-11; // deprecated(弃用)
+$upload-fill: $upload-bg; // deprecated(弃用)
 
 /* Card
 -------------------------- */
@@ -337,11 +337,11 @@ $cascader-panel-shadow: $shadow-2;
 
 /* Collapse
 -------------------------- */
-$collapse-header-bg: $color-grey-11;
+$collapse-header-bg: $color-neutral-1;
 $collapse-header-height: 36px;
 $collapse-item-header-height: 32px;
 
-$collapse-header-fill: $color-grey-11; // deprecated(弃用)
+$collapse-header-fill: $collapse-header-bg; // deprecated(弃用)
 
 /* Datepicker
 -------------------------- */

@@ -5,19 +5,6 @@
   重置Select基本样式
 */
 .el-select {
-  .el-select__caret.el-input__icon.el-icon-arrow-up {
-    transform: rotate(360deg);
-    color: $text-color-light-2;
-
-    &.is-reverse {
-      transform: rotate(180deg);
-    }
-
-    &:before {
-      content: '\e790';
-    }
-  }
-
   .el-icon-circle-close:before {
     font-family: $font-family-cute-icons;
     content: '\ea4f';

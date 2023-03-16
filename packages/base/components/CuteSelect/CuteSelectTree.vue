@@ -1,62 +1,124 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2022-11-21 16:59:10
- * @Description: 带提示的选择器
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-03-15 16:59:10
+ * @Description: 树选择器
 -->
 <template>
   <el-select
-    :value="treeData"
+    ref="selector"
+    :value="multiple ? multiLabels : treeData"
     placeholder="请选择"
     :multiple="multiple ? true : false"
     @remove-tag="handelRemove"
   >
-    <el-option :value="value" :label="label" style="height: auto;">
+    <el-option :value="value" :label="label" style="height: auto">
       <el-tree
+        v-if="$scopedSlots.node"
         ref="tree"
         :data="options"
-        :props="defaultProps"
-        node-key="id"
+        :node-key="treeNodeProps.key"
+        :props="treeNodeProps"
+        :lazy="lazy"
+        :load="load"
         @node-click="handleNodeClick"
-      ></el-tree>
+      >
+        <template slot-scope="{ node, data }">
+          <slot name="node" :node="node" :data="data" />
+        </template>
+      </el-tree>
+      <el-tree
+        v-else
+        ref="tree"
+        :data="options"
+        :node-key="treeNodeProps.key"
+        :props="treeNodeProps"
+        :lazy="lazy"
+        :load="load"
+        @node-click="handleNodeClick"
+      >
+      </el-tree>
     </el-option>
   </el-select>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Model, Emit, Watch } from 'vue-property-decorator'
-import { Tree } from 'element-ui'
+import { Vue, Component, Ref, Prop, Model, Emit, Watch } from 'vue-property-decorator'
+import { Tree, Select } from 'element-ui'
+
+const defaultNodeProps = { children: 'children', label: 'label', key: 'id' }
+
+interface NODE_PROPS {
+  children?: string
+  label?: string | ((data: any, node: any) => string)
+  key?: string
+  disabled?: boolean | ((data: any, node: any) => boolean)
+  isLeaf?: boolean | ((data: any, node: any) => boolean)
+}
+
 @Component({
   name: 'CuteSelectTree',
 })
 export default class extends Vue {
-  @Prop({ type: Boolean, default: false }) multiple?: false // 是否多选
+  @Ref('tree') refTree!: Tree
+  @Ref('selector') refSelector!: Select
+  @Prop({ type: Boolean, default: false }) multiple?: boolean // 是否多选
   @Prop({ type: Array, default: '' }) options?: [] //option 值
-  @Model('updateParent', { default: '' }) treeData: Array<any> | string //select 值
-  private defaultProps = {
-    children: 'children',
-    label: 'label',
-  }
+  @Prop({ type: Object, default: () => ({}) }) nodeProps!: NODE_PROPS //el-tree的props属性
+  @Prop({ type: Boolean, default: false }) lazy!: boolean //el-tree的lazy属性
+  @Prop({ type: Function }) load?: any //el-tree的load属性
+  @Model('change', { default: '' }) treeData: Array<any> | string //select 值
+
   private value = ''
   private label = ''
-  @Emit('updateParent')
-  private handleNodeClick() {
-    const ref: Tree = this.$refs.tree as Tree
-    const checkedTreeData = ref.getCurrentNode()
+  // el-select中多选tags无法同时记录id和label，根据选择顺序记录labels；
+  private multiLabels: string[] = []
+
+  get treeNodeProps(): NODE_PROPS {
+    return {
+      ...defaultNodeProps,
+      ...this.nodeProps,
+    }
+  }
+
+  @Emit('change')
+  private handleNodeClick(checkedTreeData) {
+    if (this.getDisabled(checkedTreeData, checkedTreeData)) {
+      return this.treeData
+    }
     if (this.multiple) {
       //多选
       const arrayTreeData = Array.from(this.treeData)
 
-      if (arrayTreeData.indexOf(checkedTreeData['label']) === -1) {
-        arrayTreeData.push(checkedTreeData['label'])
-        this.$emit('change', checkedTreeData)
+      if (arrayTreeData.indexOf(checkedTreeData[this.treeNodeProps.key]) === -1) {
+        arrayTreeData.push(checkedTreeData[this.treeNodeProps.key])
+        this.multiLabels.push(this.getLabel(checkedTreeData, checkedTreeData))
       }
       return arrayTreeData
     } else {
       //单选
-      this.$emit('change', checkedTreeData)
-      return checkedTreeData['id']
+      return checkedTreeData[this.treeNodeProps.key]
     }
+  }
+
+  getDisabled(data: any, node?: any) {
+    const disabledKey = this.treeNodeProps.disabled
+    if (typeof disabledKey === 'string') {
+      return data[disabledKey]
+    } else if (typeof disabledKey === 'function') {
+      return disabledKey(data, node)
+    }
+    return false
+  }
+
+  getLabel(data: any, node?: any) {
+    const labelKey = this.treeNodeProps.label
+    if (typeof labelKey === 'string') {
+      return data[labelKey]
+    } else if (typeof labelKey === 'function') {
+      return labelKey(data, node)
+    }
+    return ''
   }
 
   queryTree(tree, value) {
@@ -64,11 +126,11 @@ export default class extends Vue {
     stark = stark.concat(tree)
     while (stark.length) {
       const temp = stark.shift()
-      if (temp.children) {
-        stark = stark.concat(temp.children)
+      if (temp[this.treeNodeProps.children]) {
+        stark = stark.concat(temp[this.treeNodeProps.children])
       }
-      if (temp.id === value) {
-        return temp.label
+      if (temp[this.treeNodeProps.key] === value) {
+        return this.getLabel(temp, temp)
       }
     }
     return ''
@@ -76,6 +138,7 @@ export default class extends Vue {
 
   @Watch('treeData', { deep: true })
   private fun(value) {
+    console.log('value', value)
     this.value = value
     this.label = this.queryTree(this.options, value)
   }
@@ -84,8 +147,17 @@ export default class extends Vue {
     this.fun(this.treeData)
   }
 
-  private handelRemove(e) {
-    this.$emit('remove-tag', e, this.treeData)
+  private handelRemove(value) {
+    try {
+      const removeIdx = this.multiLabels.findIndex((i: string) => i === value)
+      const updateTree = this.treeData.slice() as any[]
+      const removed = updateTree.splice(removeIdx, 1)
+      this.$emit('remove-tag', removed[this.treeNodeProps.key], this.treeData.slice())
+      this.multiLabels.splice(removeIdx, 1)
+      this.$emit('change', updateTree)
+    } catch (err) {
+      console.log(err)
+    }
   }
 }
 </script>

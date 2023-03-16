@@ -8,13 +8,7 @@
 <template>
   <div>
     <h3>多选</h3>
-    <cute-select-tree
-      v-model="multiTreeData"
-      :value="multiTsreeDataValue"
-      :options="treeOptions"
-      multiple
-      @remove-tag="handelRemove"
-    />
+    <cute-select-tree v-model="multiTreeData" :value="multiTsreeDataValue" :options="treeOptions" multiple />
 
     <h3>单选</h3>
     <cute-select-tree v-model="treeData" :value="treeDataValue" :options="treeOptions" />
@@ -24,7 +18,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 
 @Component({
-  name: 'Demo5',
+  name: 'Demo1',
 })
 export default class extends Vue {
   private checkList = ['已选中项']
@@ -77,15 +71,6 @@ export default class extends Vue {
       ],
     },
   ]
-
-  //删除tag
-  private handelRemove(e, value) {
-    value.forEach(item => {
-      if (e === item) {
-        value.splice(item, 1)
-      }
-    })
-  }
 }
 </script>
 <style lang="scss" scoped>

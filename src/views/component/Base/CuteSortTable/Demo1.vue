@@ -1,10 +1,3 @@
-<!--
- * @Author: huanglulu
- * @Date: 2022-07-21 10:08:23
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-02-06 17:36:41
- * @Description:
--->
 <template>
   <div>
     <cute-sort-table
@@ -38,11 +31,11 @@
         <el-button type="text" size="small" class="bt-operation">卸载</el-button>
         <el-button type="text" size="small" class="bt-operation">扩容</el-button>
         <el-divider direction="vertical"></el-divider>
-        <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown">
+        <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
           <span class="el-dropdown-link">
             更多<i
               class="el-icon-arrow-down el-icon--right"
-              :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+              :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
             ></i>
           </span>
           <el-dropdown-menu slot="dropdown">
@@ -96,7 +89,6 @@ export default class extends Vue {
     { prop: 'operation', label: '操作', slot: 'operation', props: { align: 'left', width: 190 } },
   ]
   private HEALTH = HEALTH
-  private flag = false
 
   /**
    * 页面Mounted
@@ -112,7 +104,12 @@ export default class extends Vue {
   private async getTable(param) {
     // 接口
     const res = await getTable(param)
-    this.tableHook.setResult(res.data.list, res.data.total)
+    // 有更多按钮 需要每个元素加个 flag 标志
+    const list = res.data.list.map(item => {
+      item.flag = false
+      return item
+    })
+    this.tableHook.setResult(list, res.data.total)
   }
 
   /**
@@ -133,8 +130,8 @@ export default class extends Vue {
     })
   }
 
-  private openDropdown(e) {
-    e ? (this.flag = true) : (this.flag = false)
+  private openDropdown(index) {
+    this.tableHook.tableData[index].flag = !this.tableHook.tableData[index].flag
   }
   private handleClick(index, row) {
     console.log(index, row)

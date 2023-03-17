@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-11 16:23:57
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2022-12-16 19:55:33
+ * @LastEditTime: 2023-03-14 13:55:22
  * @Description: 卡片2
 -->
 <template>
@@ -11,12 +11,12 @@
       <div class="card-tools__left">
         <el-button type="primary">+ 新增质检方案</el-button>
       </div>
-      <div class="card-tools__right">
+      <div class="table-tools__right table-tools__conditions">
         <el-form ref="conditions" inline @submit.native.prevent>
           <el-form-item>
             <el-input v-model="name" placeholder="请输入名称" />
           </el-form-item>
-          <el-form-item>
+          <el-form-item class="table-tools__conditions__buttons">
             <el-button type="primary" @click="search">查 询</el-button>
             <el-button @click="resetConditions">重 置</el-button>
           </el-form-item>

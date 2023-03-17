@@ -4,7 +4,6 @@
   .el-upload-list__item .el-upload-list__item-name {
     color: $color-grey-1;
     font-size: $text-size-sm;
-    display: flex;
     align-items: center;
 
     &:hover,
@@ -47,6 +46,10 @@
 
   .el-upload-list__item-name {
     text-decoration-line: none;
+
+    .el-icon-document {
+      vertical-align: middle;
+    }
   }
 }
 

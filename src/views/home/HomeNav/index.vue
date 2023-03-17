@@ -34,7 +34,7 @@ export default class extends Vue {
     { title: '一站式研发协作平台', icon: 'automation-fill', href: '', info: '' },
     { title: '实时计算flink', icon: 'bar-chart', href: '', info: '' },
     { title: '飞鸽盘', icon: 'guide', href: '', info: '' },
-    { title: '流水线平台', icon: 'data-screen', href: '', info: '' },
+    { title: '项目流水线平台', icon: 'data-screen', href: '', info: '' },
     { title: 'iStack安装管理平台', icon: 'cube', href: '', info: '' },
     { title: '看得见的项目管理平台', icon: 'datawarehouse', href: 'https://alm.ctcdn.cn/', info: '' },
     { title: '数据库多写引擎管理平台', icon: 'console-sql', href: '', info: '' },
@@ -43,11 +43,16 @@ export default class extends Vue {
     { title: '翼MR', icon: 'cloud-sync', href: '', info: '' },
     { title: '语音质检', icon: 'ungroup', href: '', info: '' },
     { title: 'Datawings2.0', icon: 'datamodel', href: '', info: '' },
-    { title: '分布式文件产品实例管理台', icon: 'file-protect', href: '', info: '' },
+    { title: '视频监控-运维平台', icon: 'file-protect', href: '', info: '' },
+    { title: '视频监控-ibox', icon: 'ai-face', href: '', info: '' },
+    { title: '云电竞租户控制台', icon: 'datawarehouse', href: '', info: '' },
+    { title: '云渲染pass管理平台', icon: 'cloud-server', href: '', info: '' },
+    { title: '分布式文件产品实例管理台', icon: 'control-fill', href: '', info: '' },
+    { title: '数据中台', icon: 'deployment-unit', href: '', info: '' },
   ]
   private go(href: string) {
     if (!href) {
-      this.$message.info('暂无生成环境')
+      this.$message.info('暂无生产环境')
       return
     }
     window.open(href, '_blank')

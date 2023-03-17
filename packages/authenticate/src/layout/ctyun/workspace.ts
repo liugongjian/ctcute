@@ -28,6 +28,7 @@ export default {
     if (workspaceId) {
       if (!/.*\?(.*&)?workspaceId=[^\s]+/.test(to.fullPath)) {
         return {
+          ...to,
           name: to.name as string,
           params: to.params,
           query: {

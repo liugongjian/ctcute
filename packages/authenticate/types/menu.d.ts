@@ -1,5 +1,3 @@
-import { MENU_TYPE } from '../common/config'
-
 // menu 项
 interface MenuItem {
   enable: 'true' | 'false' // 是否可用
@@ -32,7 +30,7 @@ export type CuteItem = {
   // name: string
   url?: string
   perms?: string
-  menuType: typeof MENU_TYPE[keyof typeof MENU_TYPE]
+  menuType: number
 }
 
 export declare const IamMenu: {

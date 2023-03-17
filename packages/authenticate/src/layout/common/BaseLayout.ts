@@ -1,5 +1,5 @@
 import { isObject } from './utils'
-import { LayoutConfig, LayoutConfigOptions } from '../../types/layout'
+import { LayoutConfig, LayoutConfigOptions } from '../../../types/layout'
 
 export default abstract class Base {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -14,12 +14,12 @@ export default abstract class Base {
   }
 
   // 读配置
-  public getConfig() {
+  public getConfig(): LayoutConfig {
     return { ...this.config }
   }
 
   // 写配置
-  public setConfig(conf: LayoutConfigOptions) {
+  public setConfig(conf: LayoutConfigOptions): void {
     if (!conf || !isObject(conf)) return
 
     Object.assign(this.config, conf)

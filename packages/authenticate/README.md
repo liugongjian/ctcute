@@ -85,9 +85,9 @@ this.$auth.isLogin
 ## 配置项
 
 ```javascript
-export default {
+export default <AuthConfigOptions>{
   baseUrl: null, // 后端接口的基础路径
-  tokenName: 'token', // cuted用户体系token的名字
+  tokenName: 'token', // cuted内置用户体系token的名字
   tokenPrefix: 'vueauth', // cuted内置用户体系token的前缀
   tokenHeader: 'Authorization', // cuted内置用户体系接口中传的tokenHeader字段名
   tokenType: null, // cuted内置用户体系token类型，常用的是'Bear'
@@ -127,9 +127,9 @@ export default {
         }
         return config
       })
-    } else if (authenticateType === 'iam') {
+    } else if (authenticateType === 'iam' && $auth.currentProvider.enableWorkspace) {
       $auth.$http.interceptors.request.use(IamWorkspace.requestInterceptor)
-    } else if (authenticateType === 'ctyun') {
+    } else if (authenticateType === 'ctyun' && $auth.currentProvider.enableWorkspace) {
       $auth.$http.interceptors.request.use(CtyunWorkspace.requestInterceptor)
     }
   },
@@ -157,7 +157,7 @@ export default {
     )
   },
 
-  // 在插件路由的beforeEach钩子最开始执行的钩子函数
+  // 在插件路由的beforeEach钩子最开始执行的钩子函数，需要调整 to 则按需返回，不需要任何处理则返回 undefined ，不影响后续流程
   beforeEachStartHook: async function () {
     return void 0
   },
@@ -176,7 +176,7 @@ export default {
   })(async function ($auth) {
     try {
       const container = document.querySelector($auth.options.containerId)
-      const { authenticateType, providers } = $auth.options
+      const { authenticateType, providers, responseDataKey } = $auth.options
       const { containerId, bizDomain } = providers[authenticateType].layout
       if (authenticateType === 'iam') {
         if (!window.AlogicLayout) {
@@ -193,7 +193,37 @@ export default {
           const layout = new CtyunLayout()
           await layout.load()
           container.id = containerId
-          const console = await layout.init()
+          // 重写登出地址
+          const { logoutUrl } = providers[authenticateType].user
+          const promise = $auth
+            .$http({
+              url: '/gw/v1/portal/menu/GetTree',
+              method: 'get',
+              params: {
+                domain: 'console.dropdown',
+              },
+            })
+            .then(data => {
+              const { list = [] } = lodashGet(data, responseDataKey)
+              return list
+                .filter(item => item.enable === 'true')
+                .map(item =>
+                  item.menuCode === 'logout'
+                    ? {
+                        ...item,
+                        href: logoutUrl,
+                        hrefLocal: logoutUrl,
+                      }
+                    : item
+                )
+            })
+            .catch(() => [])
+          const console = await layout.init({
+            consoleInitArgs: {
+              getDropdownMenuPromise: promise,
+            },
+            useAd: true,
+          })
           // 侧边栏高亮
           console.match({ domain: bizDomain })
         }
@@ -206,6 +236,7 @@ export default {
   // 三种用户权限相关的配置
   providers: {
     iam: {
+      enableWorkspace: true, // iam 默认启用 wid
       layout: {
         containerId: 'iam-console-container',
         bizDomain: '', // 侧边栏高亮配置，按需重写
@@ -214,8 +245,8 @@ export default {
         loginUrl: IamUser.loginUrl, // 对应业务后端的登录地址
         logoutUrl: IamUser.logoutUrl, // 对应业务后端的退出地址，按需重写
         setUrl(baseUrl) {
-          const loginUrl = `${baseUrl}${IamUser.loginUrl}`
-          const logoutUrl = `${baseUrl}${IamUser.logoutUrl}`
+          const loginUrl = `${baseUrl}${this.loginUrl}`
+          const logoutUrl = `${baseUrl}${this.logoutUrl}`
           this.loginUrl = loginUrl
           this.logoutUrl = logoutUrl
           IamUser.setConfig({ loginUrl, logoutUrl })
@@ -226,7 +257,9 @@ export default {
         method: 'GET',
         // dataHandler: data => data, // 数据格式转换，转换成统一的格式，按需提供
         // afterLogin: userinfo => {}, // 登录成功后，拿到用户信息执行一些操作
-        loggedRouterBeforeEach: to => {
+        loggedRouterBeforeEach: (to, $auth) => {
+          if (!$auth.currentProvider.enableWorkspace) return
+
           if (to.name !== 'interceptor') {
             return IamWorkspace.routerBeforeEach(to)
           }
@@ -242,10 +275,11 @@ export default {
         responseDataKey: 'data.items', // 可以拿到数据的key
         dataHandler: IamMenu.dataFormat, // 数据格式转换，转换成统一的格式
         setWorkspaceId: IamWorkspace.setWorkspaceId,
-        canGetPermsBeforeRoute: to => to.name !== 'interceptor',
+        canGetPermsBeforeRoute: to => to.name !== 'interceptor', // 判断当前路由是否需要获取权限信息
       },
     },
     ctyun: {
+      enableWorkspace: false, // iam 默认不启用 wid
       layout: {
         containerId: 'ctcloud-console', // 注意：该 id 不要重写，会导致 ctyun layout 初始化异常
         bizDomain: '', // 侧边栏高亮配置，按需重写
@@ -254,8 +288,8 @@ export default {
         loginUrl: CtyunUser.loginUrl,
         logoutUrl: CtyunUser.logoutUrl,
         setUrl(baseUrl) {
-          const loginUrl = `${baseUrl}${CtyunUser.loginUrl}`
-          const logoutUrl = `${baseUrl}${CtyunUser.logoutUrl}`
+          const loginUrl = `${baseUrl}${this.loginUrl}`
+          const logoutUrl = `${baseUrl}${this.logoutUrl}`
           this.loginUrl = loginUrl
           this.logoutUrl = logoutUrl
           CtyunUser.setConfig({ loginUrl, logoutUrl })
@@ -265,9 +299,13 @@ export default {
         url: CtyunUser.fetchUrl,
         method: 'GET',
         afterLogin: ($auth, userId) => {
-          CtyunWorkspace.setWorkspaceId(userId)
+          $auth.currentProvider.enableWorkspace && CtyunWorkspace.setWorkspaceId(userId)
         },
-        loggedRouterBeforeEach: CtyunWorkspace.routerBeforeEach,
+        loggedRouterBeforeEach: (to, $auth) => {
+          if (!$auth.currentProvider.enableWorkspace) return
+
+          return CtyunWorkspace.routerBeforeEach(to)
+        },
         unloggedRouterBeforeEach: () => {
           window.location.href = CtyunUser.loginUrl
         },
@@ -279,6 +317,7 @@ export default {
         method: 'GET',
         responseDataKey: 'data.list', // 可以拿到数据的key
         dataHandler: CtyunMenu.dataFormat, // 数据格式转换，转换成统一的格式
+        setWorkspaceId: CtyunWorkspace.setWorkspaceId,
       },
     },
     local: {

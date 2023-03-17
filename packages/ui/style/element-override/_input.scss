@@ -4,19 +4,11 @@
   重置Input基本样式
 */
 .el-input {
-  font-size: $text-size-primary;
-
   .el-input__inner {
     padding: 0 $margin-3x;
-    background-color: $color-bg-1;
-
-    &:hover {
-      border-color: $border-color-dark;
-    }
 
     &:active,
     &:focus {
-      border: 1px solid $color-master;
       box-shadow: $shadow-form-item;
     }
 
@@ -123,6 +115,10 @@
     .el-input__inner {
       background-color: $color-grey-10;
       border: 1px solid $disabled-border;
+
+      &:active, &:focus {
+        box-shadow: none;
+      }
     }
   }
 }

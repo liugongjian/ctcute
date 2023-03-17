@@ -47,16 +47,24 @@ $--button-font-weight: 400;
 
 /* Input
 -------------------------- */
+$--input-background-color: $input-bg;
 $--input-border: 1px solid $border-color;
-$--input-disabled-fill: $disabled-bg;
+$--input-hover-border: $input-hover-border;
+$--input-focus-border: $input-active-border;
+$--input-disabled-fill: $input-disabled-bg;
 $--input-icon-color: $text-color-light;
+
+/* Select
+-------------------------- */
+$--select-border-color-hover: $select-border-color-hover;
+$--select-disabled-border: $select-disabled-border;
 
 /* Checkbox
 -------------------------- */
 $--checkbox-disabled-icon-color: $disabled-color;
 $--checkbox-disabled-checked-icon-color: $disabled-color;
 
-/* Checkbox
+/* Radiobox
 -------------------------- */
 $--radio-icon-color: $text-color-light;
 $--radio-checked-icon-color: $text-color-light;

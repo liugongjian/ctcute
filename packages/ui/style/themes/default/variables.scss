@@ -114,18 +114,18 @@ $color-body-bg: $color-bg-3;
 
 $body-fill: $color-bg-3; // deprecated(弃用)
 
-/* Disable
+/* Disabled Base (由于多个表单组件会用到disabled的状态，因此仍然保留以下变量)
 -------------------------- */
 $disabled-bg: $neutral-1;
 $disabled-border: $neutral-5;
 $disabled-color: $neutral-6;
-$disabled-icon-color: $neutral-6;
 
 $disabled-danger-bg: $color-white; // deprecated(弃用)
 $disabled-danger-color: mix($white, $color-status-danger-1, 50%); // deprecated(弃用)
 $disabled-danger-border: $disabled-danger-color; // deprecated(弃用)
 $disabled-fill: $disabled-bg; // deprecated(弃用)
 $disabled-danger-fill: $color-white; // deprecated(弃用)
+$disabled-icon-color: $neutral-6; // deprecated(弃用)
 
 /* Typography
 -------------------------- */
@@ -152,35 +152,10 @@ $text-color-light-1: $text-color-light; // deprecated(弃用)
 /* 行间距 */
 $line-height: 1.5;
 
-/* 标签(Tag)
--------------------------- */
-$tag-master: $blue-1; // 主题色标签背景
-$tag-master-border: $blue-base; // 主题色标签边框
-$tag-info: $neutral-1; // 信息色标签背景
-$tag-info-border: $neutral-6; // 信息色标签边框
-$tag-success: $green-1; // 成功色标签背景
-$tag-success-border: $green-base; // 成功色标签边框
-$tag-warning: $orange-1; // 警告色标签背景
-$tag-warning-border: $orange-base; // 警告色标签边框
-$tag-danger: $ruby-1; // 危险色标签背景
-$tag-danger-border: $ruby-base; // 危险色标签边框
-$tag-weak: $neutral-1; // 轻微提示色标签背景
-$tag-weak-border: $neutral-6; // 轻微提示色标签边框
-
-$color-tag-master-1: $tag-master-border; // deprecated(弃用)
-$color-tag-master-2: $tag-master; // deprecated(弃用)
-$color-tag-info-1: $tag-info-border; // deprecated(弃用)
-$color-tag-info-2: $tag-info; // deprecated(弃用)
-$color-tag-success-1: $tag-success-border; // deprecated(弃用)
-$color-tag-success-2: $tag-success; // deprecated(弃用)
-$color-tag-warning-1: $tag-warning-border; // deprecated(弃用)
-$color-tag-warning-2: $tag-warning; // deprecated(弃用)
-$color-tag-danger-1: $tag-danger-border; // deprecated(弃用)
-$color-tag-danger-2: $tag-danger; // deprecated(弃用)
-
 /* Border
 -------------------------- */
 $border-color: $neutral-5;
+$border-color-hover: $neutral-9;
 $border-color-light: $neutral-1;
 $border-color-dark: $neutral-6;
 $border-radius: 3px; // 悬浮状态
@@ -254,6 +229,32 @@ $shadow-dialog: 0 6px 16px -8px rgba(0, 0, 0, 8%), 0 9px 28px 0 rgba(0, 0, 0, 5%
   0 12px 48px 16px rgba(0, 0, 0, 3%); // deprecated(弃用)
 $shadow-table-card: rgba(200, 201, 204, 50%); // deprecated(弃用)
 
+/* 标签(Tag)
+-------------------------- */
+$tag-master: $blue-1; // 主题色标签背景
+$tag-master-border: $blue-base; // 主题色标签边框
+$tag-info: $neutral-1; // 信息色标签背景
+$tag-info-border: $neutral-6; // 信息色标签边框
+$tag-success: $green-1; // 成功色标签背景
+$tag-success-border: $green-base; // 成功色标签边框
+$tag-warning: $orange-1; // 警告色标签背景
+$tag-warning-border: $orange-base; // 警告色标签边框
+$tag-danger: $ruby-1; // 危险色标签背景
+$tag-danger-border: $ruby-base; // 危险色标签边框
+$tag-weak: $neutral-1; // 轻微提示色标签背景
+$tag-weak-border: $neutral-6; // 轻微提示色标签边框
+
+$color-tag-master-1: $tag-master-border; // deprecated(弃用)
+$color-tag-master-2: $tag-master; // deprecated(弃用)
+$color-tag-info-1: $tag-info-border; // deprecated(弃用)
+$color-tag-info-2: $tag-info; // deprecated(弃用)
+$color-tag-success-1: $tag-success-border; // deprecated(弃用)
+$color-tag-success-2: $tag-success; // deprecated(弃用)
+$color-tag-warning-1: $tag-warning-border; // deprecated(弃用)
+$color-tag-warning-2: $tag-warning; // deprecated(弃用)
+$color-tag-danger-1: $tag-danger-border; // deprecated(弃用)
+$color-tag-danger-2: $tag-danger; // deprecated(弃用)
+
 /* Button
 -------------------------- */
 $button-icon-color: $text-color-light-2;
@@ -271,8 +272,8 @@ $form-item-error-padding-top: $padding-6;
 /* Input
 -------------------------- */
 $input-bg: $color-bg-1;
-$input-disabled-bg: $color-neutral-1;
-$input-hover-border: $color-neutral-9;
+$input-disabled-bg: $disabled-bg;
+$input-hover-border: $border-color-hover;
 $input-active-border: $color-master;
 $input-xs-height: 28px;
 $input-sm-height: 28px;
@@ -286,8 +287,8 @@ $input-fill: $color-white; // deprecated(弃用)
 
 /* Select
 -------------------------- */
-$select-border-color-hover: $color-neutral-9;
-$select-disabled-border: $color-neutral-5;
+$select-border-color-hover: $border-color-hover;
+$select-disabled-border: $disabled-border;
 
 /* Checkbox
 -------------------------- */

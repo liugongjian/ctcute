@@ -25,6 +25,12 @@ $--box-shadow-base: $shadow-2;
 $--box-shadow-dark: $shadow-3;
 $--box-shadow-light: $shadow-1;
 
+/* Disable base
+-------------------------- */
+$--disabled-fill-base: $disabled-bg;
+$--disabled-color-base: $disabled-color;
+$--disabled-border-base: $disabled-border;
+
 /* Link
 -------------------------- */
 $--link-color: $color-master;
@@ -40,6 +46,7 @@ $--font-color-disabled-base: $disabled-color;
 /* Border
 -------------------------- */
 $--border-radius-base: $border-radius;
+$--border-color-hover: $border-color-hover;
 
 /* Button
 -------------------------- */

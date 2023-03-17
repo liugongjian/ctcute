@@ -64,7 +64,7 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Ref } from 'vue-property-decorator'
 import { ElTable } from 'element-ui/types/table'
-import TableHookClass from '@cutedesign/base/hook/TableHook'
+import TableHookClass from '@cutedesign/ui/hook/TableHook'
 
 @Component({
   name: 'CuteTableColumnSettings',

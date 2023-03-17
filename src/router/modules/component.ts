@@ -273,6 +273,98 @@ const componentRoutes = [
       },
     ],
   },
+  {
+    path: '/component/test',
+    component: Layout,
+    meta: {
+      title: '组件测试',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'button',
+        name: 'Button',
+        component: () => import('@/views/component/Test/Button.vue'),
+        meta: {
+          title: 'Button',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'collapse',
+        name: 'Collapse',
+        component: () => import('@/views/component/Test/Collapse.vue'),
+        meta: {
+          title: 'Collapse',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'input',
+        name: 'Input',
+        component: () => import('@/views/component/Test/Input.vue'),
+        meta: {
+          title: 'Input',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'link',
+        name: 'Link',
+        component: () => import('@/views/component/Test/Link.vue'),
+        meta: {
+          title: 'Link',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'message-box',
+        name: 'MessageBox',
+        component: () => import('@/views/component/Test/MessageBox.vue'),
+        meta: {
+          title: 'MessageBox',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'notification',
+        name: 'Notification',
+        component: () => import('@/views/component/Test/Notification.vue'),
+        meta: {
+          title: 'Notification',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'select',
+        name: 'Select',
+        component: () => import('@/views/component/Test/Select.vue'),
+        meta: {
+          title: 'Select',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'table',
+        name: 'Table',
+        component: () => import('@/views/component/Test/Table.vue'),
+        meta: {
+          title: 'Table',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'tag',
+        name: 'Tag',
+        component: () => import('@/views/component/Test/Tag.vue'),
+        meta: {
+          title: 'Tag',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
 ]
 
 export default componentRoutes

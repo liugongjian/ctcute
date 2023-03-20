@@ -84,13 +84,13 @@ export default class extends Vue {
 
   h1 {
     margin: 10px 0;
-    color: $text-color-primary;
+    color: $text-color;
     font-size: $text-size-large;
   }
 
   ::v-deep {
     p {
-      color: $text-color-primary;
+      color: $text-color;
       font-size: 12px;
       line-height: 20px;
       font-weight: 400;
@@ -100,13 +100,13 @@ export default class extends Vue {
       font-size: $text-size-medium;
       line-height: 20px;
       font-weight: 500;
-      color: $text-color-primary;
+      color: $text-color;
     }
 
     h3 {
       font-size: 14px;
       margin-top: 24px;
-      color: $text-color-primary;
+      color: $text-color;
     }
 
     h4 {

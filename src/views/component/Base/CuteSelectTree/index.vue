@@ -71,15 +71,8 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 export default class extends Vue {
   private prop = [
     {
-      name: 'v-model',
+      name: 'value/v-model',
       desc: 'select绑定值',
-      type: 'Array/String',
-      options: null,
-      default: null,
-    },
-    {
-      name: 'value',
-      desc: 'option绑定值',
       type: 'Array/String',
       options: null,
       default: null,
@@ -97,6 +90,13 @@ export default class extends Vue {
       type: 'Array',
       options: null,
       default: null,
+    },
+    {
+      name: 'show-checkbox',
+      desc: '多选情况下，是否显示复选框',
+      type: 'boolean',
+      options: null,
+      default: false,
     },
     {
       name: 'lazy',
@@ -123,8 +123,8 @@ export default class extends Vue {
 
   private nodeProps = [
     {
-      name: 'key',
-      desc: '每个树节点用来作为唯一标识的属性，整棵树应该是唯一的',
+      name: 'value',
+      desc: '指定树节点选择后的取值value为节点对象的某个属性值，也作为每个树节点用来作为唯一标识的属性，整棵树应该是唯一的',
       type: 'string',
       options: null,
       default: '"id"',

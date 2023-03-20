@@ -7,12 +7,7 @@
 -->
 <template>
   <div>
-    <cute-select-tree
-      v-model="treeData"
-      :value="treeDataValue"
-      :options="treeOptions"
-      :node-props="nodeProps"
-    />
+    <cute-select-tree v-model="treeData" :options="treeOptions" :node-props="nodeProps" />
   </div>
 </template>
 <script lang="ts">
@@ -22,12 +17,11 @@ import { Vue, Component } from 'vue-property-decorator'
   name: 'Demo2',
 })
 export default class extends Vue {
-  private treeData = ''
-  private treeDataValue = ''
+  private treeData = 1
 
   private nodeProps = {
     label: 'name',
-    key: 'ucode',
+    value: 'ucode',
     disabled: data => data.group === 3,
     children: 'subItems',
   }

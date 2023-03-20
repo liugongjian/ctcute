@@ -1,31 +1,32 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-19 22:03:32
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-08-23 09:09:22
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-03-17 10:03:32
  * @Description: 
 -->
 <template>
   <div>
-    <h3>多选</h3>
-    <cute-select-tree v-model="multiTreeData" :value="multiTsreeDataValue" :options="treeOptions" multiple />
-
     <h3>单选</h3>
-    <cute-select-tree v-model="treeData" :value="treeDataValue" :options="treeOptions" />
+    <cute-select-tree v-model="treeData" :options="treeOptions" />
+
+    <h3>多选</h3>
+    <cute-select-tree v-model="multiTreeData" :options="treeOptions" multiple />
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-
+import { Vue, Component, Watch } from 'vue-property-decorator'
 @Component({
   name: 'Demo1',
 })
 export default class extends Vue {
-  private checkList = ['已选中项']
   private multiTreeData = []
-  private multiTsreeDataValue = []
   private treeData = ''
-  private treeDataValue = ''
+
+  @Watch('multiTreeData')
+  chagne(val) {
+    console.log('multiTreeData', val)
+  }
 
   treeOptions = [
     {

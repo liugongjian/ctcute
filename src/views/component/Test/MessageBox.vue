@@ -6,10 +6,10 @@
  * @Description: MessageBox
 -->
 <template>
-  <el-card>
+  <div>
     <h1>MessageBox</h1>
     <el-button type="text" @click="openMessageBox">点击打开 Message Box</el-button>
-  </el-card>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'

@@ -6,8 +6,9 @@
  * @Description: Button
 -->
 <template>
-  <el-card>
+  <div>
     <h1>Button</h1>
+    <ButtonDemo />
     <el-row>
       <h3>默认按钮</h3>
       <el-button>默认按钮</el-button>
@@ -131,13 +132,17 @@
         </el-dropdown-menu>
       </el-dropdown>
     </el-row>
-  </el-card>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import ButtonDemo from '@/views/ui/components/Button.vue'
 
 @Component({
   name: 'Button',
+  components: {
+    ButtonDemo,
+  },
 })
 export default class extends Vue {}
 </script>

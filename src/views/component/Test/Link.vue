@@ -6,10 +6,11 @@
  * @Description: Link
 -->
 <template>
-  <el-card>
+  <div>
     <h1>Link</h1>
+    <LinkDemo />
     <div>
-      <h2>基础用法</h2>
+      <h3>基础用法</h3>
       <el-link href="https://element.eleme.io" target="_blank">默认链接</el-link>
       <el-link type="primary">主要链接</el-link>
       <el-link type="success">成功链接</el-link>
@@ -18,7 +19,7 @@
       <el-link type="info">信息链接</el-link>
     </div>
     <div>
-      <h2>禁用状态</h2>
+      <h3>禁用状态</h3>
       <el-link disabled>默认链接</el-link>
       <el-link type="primary" disabled>主要链接</el-link>
       <el-link type="success" disabled>成功链接</el-link>
@@ -27,22 +28,26 @@
       <el-link type="info" disabled>信息链接</el-link>
     </div>
     <div>
-      <h2>下划线</h2>
+      <h3>下划线</h3>
       <el-link :underline="false">无下划线</el-link>
       <el-link>有下划线</el-link>
     </div>
     <div>
-      <h2>图标</h2>
+      <h3>图标</h3>
       <el-link icon="el-icon-edit">编辑</el-link>
       <el-link>查看<i class="el-icon-view el-icon--right"></i> </el-link>
     </div>
-  </el-card>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import LinkDemo from '@/views/ui/components/Link.vue'
 
 @Component({
   name: 'Link',
+  components: {
+    LinkDemo,
+  },
 })
 export default class extends Vue {}
 </script>

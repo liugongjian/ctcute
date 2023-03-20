@@ -6,8 +6,9 @@
  * @Description: Tag
 -->
 <template>
-  <el-card>
+  <div>
     <h1>Tag</h1>
+    <TagDemo />
     <div class="tag-group">
       <h3>尺寸</h3>
       <el-tag closable>默认标签</el-tag>
@@ -40,13 +41,17 @@
         {{ item.label }}
       </el-tag>
     </div>
-  </el-card>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import TagDemo from '@/views/ui/components/Tag.vue'
 
 @Component({
-  name: 'TypeScriptDemo',
+  name: 'Tag',
+  components: {
+    TagDemo,
+  },
 })
 export default class extends Vue {
   private items = [

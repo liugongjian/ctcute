@@ -15,18 +15,13 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Watch } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 @Component({
   name: 'Demo1',
 })
 export default class extends Vue {
   private multiTreeData = []
   private treeData = ''
-
-  @Watch('multiTreeData')
-  chagne(val) {
-    console.log('multiTreeData', val)
-  }
 
   treeOptions = [
     {

@@ -11,6 +11,7 @@
       <el-tree
         v-if="$scopedSlots.node"
         ref="tree"
+        :default-expand-all="defaultExpandAll"
         :data="options"
         :node-key="treeNodeProps.value"
         :props="treeNodeProps"
@@ -25,7 +26,7 @@
       <el-tree
         v-else
         ref="tree"
-        :show-checkbox="showCheckbox"
+        :default-expand-all="defaultExpandAll"
         :data="options"
         :node-key="treeNodeProps.value"
         :props="treeNodeProps"
@@ -61,13 +62,12 @@ export default class extends Vue {
   @Prop({ type: Boolean, default: false }) multiple?: boolean // 是否多选
   @Prop({ type: Array, default: '' }) options?: [] //option 值
   @Prop({ type: Object, default: () => ({}) }) nodeProps!: NODE_PROPS //el-tree的props属性
-  @Prop({ type: Boolean, default: false }) showCheckbox!: boolean //el-tree的show-checkbox属性
+  @Prop({ type: Boolean, default: false }) defaultExpandAll!: boolean //el-tree的default-expand-all属性
   @Prop({ type: Boolean, default: false }) lazy!: boolean //el-tree的lazy属性
   @Prop({ type: Boolean, default: false }) collapseTags!: boolean //el-tree的collapse-tags属性
   @Prop({ type: String, default: 'medium' }) size!: string //el-tree的collapse-tags属性
   @Prop({ type: Function }) load?: any //el-tree的load属性
   @Model('change', { default: '' }) treeData: Array<any> | string //select 值
-
   private value = ''
   private label = ''
   private initialInputHeight = 0
@@ -96,31 +96,21 @@ export default class extends Vue {
     return res
   }
 
-  @Watch('selectedTags')
-  onTagsChange() {
-    this.$nextTick(() => {
-      this.refSelector.resetInputHeight()
-    })
-  }
-
   // 取代el-select原本的tags，自己控制label和value取值
   mountMyTags() {
     const node = this.refSelector
     const tagWrapper = node.$el.querySelector('.el-select__tags > span')
+    // 解决tags撑开的高度减少时无法及时resize的问题，需要ResizeObserver支持
+    if (ResizeObserver) {
+      const ob = new ResizeObserver(() => {
+        this.refSelector.resetInputHeight()
+      })
+      ob.observe(node.$el.querySelector('.el-select__tags'))
+    }
     const { selectedTags } = this
     const tagSize = ['small', 'mini'].indexOf(this.size) > -1 ? 'mini' : 'small'
 
     const TagsCotent = Vue.extend(SelectedTags)
-    // const TagsCotent = Vue.extend({
-    //   props: { size: { type: String, default: 'small' }, value: { type: Array, default: () => [] } },
-    //   methods: {
-    //     handleClose(tag) {
-    //       this.$emit('close', tag)
-    //     },
-    //   },
-    //   template:
-    //     '<span><el-tag v-for="tag in value" :key="tag.value" type="info" :size="size" closable :disable-transitions="false" @close="handleClose(tag)">{{ tag.label }}</el-tag></span>',
-    // })
     const tagContent = new TagsCotent({
       propsData: {
         value: selectedTags,

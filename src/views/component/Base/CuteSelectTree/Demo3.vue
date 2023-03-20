@@ -8,12 +8,10 @@
 <template>
   <div>
     <cute-select-tree v-model="treeData" :value="treeDataValue" :options="treeOptions">
-      <template slot="node" slot-scope="{ node, data }">
-        <div class="custom-node">
-          {{ node.label }}{{ data.children ? `(总计:${data.children.length})` : '' }}
-          <span class="custom-info">{{ data.desc }}</span>
-        </div>
-      </template>
+      <div slot="node" slot-scope="{ node, data }" class="custom-node">
+        {{ node.label }}
+        <span class="custom-info">{{ data.desc }}</span>
+      </div>
     </cute-select-tree>
   </div>
 </template>

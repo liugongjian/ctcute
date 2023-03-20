@@ -7,7 +7,7 @@
 -->
 <template>
   <div>
-    <cute-select-tree v-model="treeData" :options="treeOptions" :node-props="nodeProps" />
+    <cute-select-tree v-model="treeData" :options="treeOptions" :node-props="nodeProps" default-expand-all />
   </div>
 </template>
 <script lang="ts">
@@ -17,58 +17,52 @@ import { Vue, Component } from 'vue-property-decorator'
   name: 'Demo2',
 })
 export default class extends Vue {
-  private treeData = 1
+  private treeData = ''
 
   private nodeProps = {
     label: 'name',
     value: 'ucode',
-    disabled: data => data.group === 3,
+    disabled: data => data.type !== 'zone',
     children: 'subItems',
   }
 
   treeOptions = [
     {
       ucode: 1,
-      name: '一级 1',
-      desc: '一级 1相关信息',
-      group: 1,
+      name: 'region1',
+      type: 'region',
       subItems: [
         {
           ucode: 4,
-          name: '二级 1-1',
-          group: 1,
+          name: 'zone1',
+          type: 'zone',
         },
       ],
     },
     {
       ucode: 2,
-      name: '一级 2',
-      desc: '一级 2相关信息',
-      group: 2,
+      name: 'region2',
+      type: 'region',
       subItems: [
         {
           ucode: 5,
-          name: '二级 2-1',
-          desc: '二级 2-1相关信息',
-          group: 2,
+          name: 'zone2',
+          type: 'zone',
         },
         {
           ucode: 6,
-          name: '二级 2-2',
-          desc: '二级 2-2相关信息',
-          group: 2,
+          name: 'zone3',
+          type: 'zone',
           subItems: [
             {
               ucode: 9,
-              name: '三级 2-2-1',
-              desc: '三级 2-2-1相关信息',
-              group: 2,
+              name: 'device1',
+              type: 'device',
             },
             {
               ucode: 10,
-              name: '三级 2-2-2',
-              desc: '三级 2-2-2相关信息',
-              group: 2,
+              name: 'device2',
+              type: 'device',
             },
           ],
         },
@@ -76,12 +70,10 @@ export default class extends Vue {
     },
     {
       ucode: 3,
-      name: '一级 3',
-      desc: '一级 3相关信息',
-      group: 3,
+      name: 'region3',
       subItems: [
-        { ucode: 7, name: '二级 3-1', desc: '二级 3-1相关信息', group: 3 },
-        { ucode: 8, name: '二级 3-2', desc: '二级 3-2相关信息', group: 3 },
+        { ucode: 7, name: 'zone4', type: 'zone' },
+        { ucode: 8, name: 'zone45', type: 'zone' },
       ],
     },
   ]

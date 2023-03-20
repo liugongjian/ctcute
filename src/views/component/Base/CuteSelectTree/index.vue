@@ -14,7 +14,7 @@
       <component-demo path="@/views/component/Base/CuteSelectTree/Demo1.vue">
         <demo1 />
       </component-demo>
-      <h1>可配置树节点字段名及禁用</h1>
+      <h1>可配置树节点字段名及禁用项</h1>
       <component-demo path="@/views/component/Base/CuteSelectTree/Demo2.vue">
         <demo2 />
       </component-demo>
@@ -92,8 +92,8 @@ export default class extends Vue {
       default: null,
     },
     {
-      name: 'show-checkbox',
-      desc: '多选情况下，是否显示复选框',
+      name: 'default-expand-all',
+      desc: '是否默认展开所有节点',
       type: 'boolean',
       options: null,
       default: false,
@@ -160,11 +160,6 @@ export default class extends Vue {
   ]
 
   private event = [
-    // {
-    //   name: 'remove-tag',
-    //   desc: '多选模式下移除tag时触发（回调参数第一个为移除tag的值，第二个参数为选中所有数据的值）',
-    //   callback: 'e（移除tag的值）, value（选中数据的值）',
-    // },
     {
       name: 'change',
       desc: '	选中值发生变化时触发',

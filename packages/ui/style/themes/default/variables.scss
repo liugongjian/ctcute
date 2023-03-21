@@ -140,6 +140,8 @@ $text-color: $neutral-10 !default; // 强调/正文标题
 $text-color-light: $neutral-9 !default; // 次强调/正文标题
 $text-color-light-2: $neutral-6 !default; // 置灰信息
 $text-color-feature: $neutral-7 !default; // 说明文字
+$text-title-weight: normal; // 标准字体粗细
+$text-title-weight: bold; // 标题的字体粗细
 
 $text-size-primary: $text-size !default; // deprecated(弃用)
 $text-size-small: $text-size-sm !default; // deprecated(弃用)

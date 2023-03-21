@@ -6,13 +6,13 @@
 }
 
 .el-radio__inner {
-  width: $common-sapce-4x;
-  height: $common-sapce-4x;
+  width: $common-space-4x;
+  height: $common-space-4x;
   background-color: $color-bg-1;
 
   &:after {
-    width: $common-sapce-2x;
-    height: $common-sapce-2x;
+    width: $common-space-2x;
+    height: $common-space-2x;
     background: $color-master;
   }
 }

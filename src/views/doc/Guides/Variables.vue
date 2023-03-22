@@ -219,7 +219,7 @@ export default class extends Vue {
         //     { name: '$text-color-light-1', type: 'color', scene: 'deprecated(弃用)' },
 
         /* 行间距 */
-        { name: '$line-height', type: 'string', scene: '' },
+        { name: '$line-height', type: 'string', scene: '标准行间距' },
 
         /* Border
 -------------------------- */

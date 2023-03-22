@@ -15,13 +15,13 @@
       @include iconfont;
 
       content: '\ea3c';
-      color: $color-white;
+      color: $disabled-icon-color;
       text-align: center;
       line-height: 17px;
       display: inline-block;
       width: 16px;
       height: 16px;
-      background: $disabled-icon-color;
+      background: unset;
       font-size: $text-size-primary;
       border-radius: 50%;
       margin-left: $margin;
@@ -52,10 +52,13 @@
     color: $color-master;
     cursor: pointer;
   }
-
+  .el-tag.el-tag--light.el-tag--info{
+    color: $text-color;
+  }
   .el-tag.el-tag--info .el-tag__close {
-    background: $text-color-light-2;
-    color: $color-white;
+    // background: $text-color-light-2;
+    background-color: unset;
+    color: $text-color;
 
     &:hover {
       background: $color-master;
@@ -63,6 +66,8 @@
     }
   }
 }
+
+.el-input__suffix .el-input__suffix-inner .suffix-other { margin-right: 16px;}
 
 /*
   重置Select Dropdown样式
@@ -74,17 +79,22 @@
 
   &__item {
     height: 30px;
+    line-height: 30px;
     font-size: $text-size;
     background-color: $color-bg-1;
-
+    
     &:not(.el-select-dropdown__item.selected):not(.el-select-dropdown__item.is-disabled):hover {
-      background-color: $color-master-bg-light-2;
-      color: $color-master;
+      // background-color: $color-master-bg-light-2;
+      background-color:unset;
+      span {
+        color: $color-master;
+      }
     }
 
     &.selected {
-      background: $color-master;
-      color: $color-white;
+       background-color: $color-master-bg-light-2;
+      // background: $color-master;
+      color: $color-master;
     }
 
     &.is-disabled:hover {
@@ -94,7 +104,7 @@
   }
 
   &.is-multiple &__item.selected {
-    background: $color-bg-1;
+    background: $color-bg-3;
     color: $color-master;
 
     &:hover {

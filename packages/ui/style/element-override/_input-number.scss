@@ -4,13 +4,31 @@
   text-align: left;
 }
 
-.el-input-number.is-controls-right[class*=medium] [class*=increase],
-.el-input-number.is-controls-right[class*=medium] [class*=decrease] {
-  line-height: 13px
+.el-input-number.is-controls-right[class*='medium'] [class*='increase'],
+.el-input-number.is-controls-right[class*='medium'] [class*='decrease'] {
+  line-height: 15px;
+}
+
+/*  inpit number size mini bugfix */
+.el-input-number.is-controls-right[class*='mini'] [class*='decrease'] {
+  line-height: 10px;
+  border-top: 1px solid $color-neutral-5;
+  z-index: 2;
+  height: 11px;
+}
+
+.el-input-number.is-controls-right[class*='mini'] [class*='increase'] {
+  line-height: 10px;
+  top: 2px;
+  border-bottom: 0;
 }
 
 .el-input-number--medium {
   line-height: 30px;
+}
+
+.el-input-number--mini {
+  line-height: 22px;
 }
 
 .el-input-number--small {

@@ -39,6 +39,51 @@
           <el-input v-model="value" disabled placeholder="请输入" size="small"> </el-input>
         </div>
       </div>
+      <h3>组合输入框 - 提醒内容</h3>
+      <div class="sub-input">
+        <el-input v-model="value1" placeholder="请输入"></el-input>
+        <span class="input-right-tips">提示内容</span>
+      </div>
+      <h3>IP地址输入框</h3>
+      <div class="sub-input">
+        <div class="input-ip">
+          <el-input-number
+            v-model="ip[0]"
+            step-strictly
+            :min="1"
+            :max="255"
+            :step="1"
+            :controls="false"
+          ></el-input-number>
+          <span class="ip-dot">·</span>
+          <el-input-number
+            v-model="ip[1]"
+            step-strictly
+            :min="1"
+            :max="255"
+            :step="1"
+            :controls="false"
+          ></el-input-number>
+          <span class="ip-dot">·</span>
+          <el-input-number
+            v-model="ip[2]"
+            step-strictly
+            :min="1"
+            :max="255"
+            :step="1"
+            :controls="false"
+          ></el-input-number>
+          <span class="ip-dot">·</span>
+          <el-input-number
+            v-model="ip[3]"
+            step-strictly
+            :min="1"
+            :max="255"
+            :step="1"
+            :controls="false"
+          ></el-input-number>
+        </div>
+      </div>
     </div>
     <div class="routine-input">
       <h3>
@@ -88,9 +133,11 @@
         </div>
         <div>
           <el-input v-model="address" placeholder="请输入详细地址" class="input-with-select">
-            <el-select slot="prepend" v-model="select" placeholder="城市" size="small">
-              <el-option label="上海" value="1"></el-option>
-            </el-select>
+            <div slot="prepend">
+              <el-select v-model="select" placeholder="城市">
+                <el-option label="上海" value="1"></el-option>
+              </el-select>
+            </div>
           </el-input>
         </div>
         <div>
@@ -117,25 +164,36 @@
         </div>
       </div>
       <div class="input-bottom">
+        <!-- 小 -->
         <div class="input-icon">
-          <el-input v-model="money">
+          <el-input v-model="money" size="mini">
             <span slot="suffix" class="icon-money">元</span>
           </el-input>
         </div>
+        <!-- 默认 -->
         <div>
-          <el-input v-model="formData.password" placeholder="请输入密码" type="text" @input="changeValue">
+          <el-input v-model="formData.password" placeholder="请输入" type="text" @input="changeValue">
+            <svg-icon slot="suffix" :name="flag ? 'eye-close-fill' : 'eye-fill'" @click="appearValue" />
+          </el-input>
+        </div>
+        <!-- 大 -->
+        <div>
+          <el-input
+            v-model="formData.password"
+            placeholder="请输入密码"
+            type="text"
+            size="primary"
+            @input="changeValue"
+          >
             <template slot="suffix">
-              <b class="suffix-forgot">
+              <div class="suffix-box">
                 <svg-icon slot="suffix" :name="flag ? 'eye-close-fill' : 'eye-fill'" @click="appearValue" />
-              </b>
-
-              <el-link> Forgot? </el-link>
+                <span class="suffix-forgot-line"></span>
+                <el-link> Forgot? </el-link>
+              </div>
             </template>
           </el-input>
         </div>
-        <el-input v-model="formData.password" placeholder="请输入" type="text" @input="changeValue">
-          <svg-icon slot="suffix" :name="flag ? 'eye-close-fill' : 'eye-fill'" @click="appearValue" />
-        </el-input>
       </div>
     </div>
     <h3 class="sub-title">
@@ -263,6 +321,7 @@ export default class extends Vue {
   private url = '' // url
   private url1 = ''
   private forgot = ''
+  private ip = ['', '', '', '']
   private formData = {
     password: '',
     password1: '',

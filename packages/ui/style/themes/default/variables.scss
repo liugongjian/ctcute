@@ -20,7 +20,7 @@ $color-master-5: $blue-2; // deprecated(弃用)
 $color-master-6: $blue-1; // deprecated(弃用)
 $color-master-7: $blue-1; // deprecated(弃用)
 
-/* 特殊色, ct意为ctyun缩写 */
+/* CT特殊色, ct意为ctyun缩写 */
 $color-ct: $red-base !default; // 默认
 $color-ct-hover: $red-5 !default; // 悬停
 $color-ct-active: $red-7 !default; // 触发
@@ -51,11 +51,11 @@ $color-danger-hover: $ruby-5 !default;
 $color-danger-active: $ruby-7 !default;
 $color-danger-disabled: $ruby-4 !default;
 $color-danger-bg: $ruby-1 !default;
-$color-fatal-danger: $ruby-8 !default; // 严重危险
-$color-fatal-danger-hover: $ruby-7 !default;
-$color-fatal-danger-active: $ruby-9 !default;
-$color-fatal-danger-disabled: $ruby-4 !default;
-$color-fatal-danger-bg: $ruby-1 !default;
+$color-fatal: $ruby-8 !default; // 严重危险
+$color-fatal-hover: $ruby-7 !default;
+$color-fatal-active: $ruby-9 !default;
+$color-fatal-disabled: $ruby-5 !default;
+$color-fatal-bg: $ruby-1 !default;
 
 
 $color-status-master: $color-master; // deprecated(弃用)
@@ -243,8 +243,12 @@ $tag-warning: $orange-1 !default; // 警告色标签背景
 $tag-warning-border: $orange-base !default; // 警告色标签边框
 $tag-danger: $ruby-1 !default; // 危险色标签背景
 $tag-danger-border: $ruby-base !default; // 危险色标签边框
+$tag-fatal: $ruby-2 !default; // 危险色标签背景
+$tag-fatal-border: $ruby-8 !default; // 危险色标签边框
 $tag-weak: $neutral-1 !default; // 轻微提示色标签背景
 $tag-weak-border: $neutral-6 !default; // 轻微提示色标签边框
+$tag-ct: $red-1 !default; // CT特殊色标签背景
+$tag-ct-border: $red-base !default; // CT特殊色标签边框
 
 $color-tag-master-1: $tag-master-border; // deprecated(弃用)
 $color-tag-master-2: $tag-master; // deprecated(弃用)

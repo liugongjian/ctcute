@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-02-09 08:46:22
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-03-21 15:39:06
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -360,6 +360,33 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Tag.vue'),
         meta: {
           title: 'Tag',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'tree',
+        name: 'Tree',
+        component: () => import('@/views/component/Test/Tree.vue'),
+        meta: {
+          title: 'Tree',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'descriptions',
+        name: 'Descriptions',
+        component: () => import('@/views/component/Test/Descriptions.vue'),
+        meta: {
+          title: 'Descriptions',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'dropdown',
+        name: 'DropDown',
+        component: () => import('@/views/component/Test/DropDown.vue'),
+        meta: {
+          title: 'DropDown',
           breadcrumb: true,
         },
       },

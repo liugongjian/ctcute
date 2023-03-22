@@ -1,26 +1,45 @@
 /* Descriptions
 -------------------------- */
-.el-descriptions td {
-  padding: $padding-10 0;
-}
 
-.el-descriptions__body .el-descriptions-item__label.is-bordered-label {
-  background: $color-grey-11;
-  text-align: right;
-  color: $color-grey-2;
-  font-weight: bold;
-  padding-right: $padding-6x;
-  width: $descriptions-label-width;
-}
+.el-descriptions{
+  &__header {
+    margin-bottom: $margin-4x;
+  }
+  &__title {
+    font-size: $text-size-md;
+  }
+  &-row {
+    padding: $padding 0;
+  }
 
-.el-descriptions .is-bordered .el-descriptions-item__cell {
-  border-color: $border-color;
-  height: $descriptions-item-height;
+  &__body{
+  .el-descriptions-item__label.is-bordered-label {
+      background: $color-grey-11;
+      // text-align: right;
+      color: $color-grey-2;
+      font-weight: bold;
+      padding-right: $padding-6x;
+      width: $descriptions-label-width;
+    }
+  }
+
+  .is-bordered{
+    .el-descriptions-item__cell{
+        border-color: $border-color;
+        height: $descriptions-item-height;
+    }
+  }
+  &-item{
+    &__label{
+      min-width: $descriptions-item-label-min-width;
+      margin-right: $margin-4x;
+    }
+  }
 }
 
 .el-descriptions-item__cell.el-descriptions-item__content {
   color: $color-grey-1;
-  border: 1px solid $border-color;
+  // border: 1px solid $border-color;
   width: $descriptions-item-content-width;
   background-color: $color-bg-2;
 

@@ -364,6 +364,27 @@ $descriptions-label-width: 165px !default;
 $descriptions-item-height: 36px !default;
 $descriptions-item-content-width: 525px !default;
 $descriptions-item-content-line-height: 22px !default;
+$descriptions-item-label-min-width: 128px !default;
+
+/* DropDown
+-------------------------- */
+$dropdown-item-padding-top-bottom: 7px !default;
+$dropdown-min-width: 120px !default;
+
+/* Tree
+-------------------------- */
+$tree-expand-icon-size: 4px !default;
+$tree-checkbox-size: 14px !default;
+$tree-node-icon-padding: 11px !default;
+$tree-checkbox-transform: -0.5px !default;
+$tree-checkbox-scale: 0.375 !default;
+$tree-checkbox-tick-top: 1px !default;
+$tree-handler-menu: 30px !default;
+$tree-node-popover-margin: 0.3em !default;
+$tree-button-tooltip-content-padding: 0.8em 1.2em !default;
+$tree-leaf-expand-icon-padding: 2px !default;
+
+
 
 /* Dialog
 -------------------------- */

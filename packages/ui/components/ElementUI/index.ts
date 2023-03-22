@@ -5,6 +5,8 @@ import Collapse from './Collapse/index.vue'
 import Rate from './Rate/index.vue'
 import ColorPicker from './ColorPicker/index.vue'
 import Tabs from './Tabs/tabs.vue'
+import Button from './Button/index.vue'
+
 export default {
   install(Vue) {
     Vue.component(Steps.name, Steps)
@@ -14,6 +16,7 @@ export default {
     Vue.component(Rate.name, Rate)
     Vue.component(ColorPicker.name, ColorPicker)
     Vue.component(Tabs.name, Tabs)
+    Vue.component(Button.name, Button)
   },
 }
-export { Steps, Step, Alert, Collapse, Rate, ColorPicker }
+export { Steps, Step, Alert, Collapse, Rate, ColorPicker, Button }

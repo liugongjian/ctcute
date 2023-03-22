@@ -28,7 +28,6 @@ import ElementUI, {
   Select,
   Option,
   OptionGroup,
-  Button,
   ButtonGroup,
   Table,
   TableColumn,
@@ -89,7 +88,7 @@ import ElementUI, {
   DescriptionsItem,
   Result,
 } from 'element-ui'
-import ElementUIOverride, { Steps, Step, Alert, Collapse, Rate } from './components/ElementUI'
+import ElementUIOverride, { Steps, Step, Alert, Collapse, Rate, Button } from './components/ElementUI'
 import './components/ElementUI/settings'
 import './style/index.scss'
 import './fonts/iconfont.css'

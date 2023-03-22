@@ -7,8 +7,9 @@
 */
 @mixin button-color($type, $color-bg, $color-bg-hover, $color-bg-active, $color-bg-disabled) {
   $color-text: $color-white;
-  $color-text-hover: $color-white;
-  $color-text-active: $color-white;
+  $color-text-hover: $color-text;
+  $color-text-active: $color-text;
+  $color-text-disabled: $color-text;
   $color-border: $color-bg;
   $color-border-hover: $color-bg-hover;
   $color-border-active: $color-bg-active;
@@ -16,16 +17,16 @@
 
   // 针对default特殊处理
   @if $type == default {
-    $color-text: $text-color-light;
+    $color-text: $button-default-text-color;
     $color-text-hover: $color-bg-hover;
     $color-text-active: $color-bg-active;
+    $color-text-disabled: $button-default-text-color-disabled;
     $color-border-hover: $color-bg-hover;
     $color-border-active: $color-bg-active;
-    $color-border: $color-bg;
-    $color-bg: $color-bg-1;
-    $color-bg-hover: $color-bg-1;
-    $color-bg-active: $color-bg-1;
-    $color-bg-disabled: $color-bg-1;
+    $color-border-disabled: $button-default-color-border-disabled;
+    $color-bg: $button-default-color-bg;
+    $color-bg-hover: $button-default-color-bg;
+    $color-bg-active: $button-default-color-bg;
   }
 
   .el-button--#{$type} {
@@ -48,7 +49,7 @@
 
     &.is-disabled, &.is-disabled:hover, &.is-disabled:active, &.is-disabled:focus,
     &.is-loading, &.is-loading:hover, &.is-loading:active, &.is-loading:focus {
-      color: $color-text;
+      color: $color-text-disabled;
       background: $color-bg-disabled;
       border-color: $color-border-disabled;
 
@@ -58,7 +59,7 @@
     }
   }
 }
-@include button-color(default, $color-grey-6, $color-master, $color-master-active, $color-info-disabled);
+@include button-color(default, $button-default-color-border, $color-master, $color-master-active, $button-default-color-bg-disabled);
 @include button-color(primary, $color-master, $color-master-hover, $color-master-active, $color-master-disabled);
 @include button-color(info, $color-info, $color-info-hover, $color-info-active, $color-info-disabled);
 @include button-color(success, $color-success, $color-success-hover, $color-success-active, $color-success-disabled);
@@ -124,12 +125,22 @@
   $font-size: 字体大小;
 */
 @mixin button-size($size, $font-size, $padding, $icon-vertical-align) {
+  $top-padding: str-slice(inspect($padding), 1, str-index(inspect($padding), ' ') - 1); // 从第1个字符开始，截取到第一个空格前的字符
+
   .el-button--#{$size} {
     font-size: $font-size;
     padding: $padding;
 
     .svg-icon {
       vertical-align: $icon-vertical-align !important;
+    }
+
+    [class*=el-icon-] {
+      vertical-align: $icon-vertical-align + 0.11em !important;
+    }
+
+    &.is-square {
+      padding: $top-padding $top-padding;
     }
   }
 }
@@ -141,17 +152,22 @@
 /*
   重置按钮图标样式
 */
-.el-button .svg-icon {
+.el-button .svg-icon,
+.el-button [class*=el-icon-] {
   font-size: $text-size-md;
   line-height: 1;
-  margin-right: 4px;
+}
+
+.el-button [class*=el-icon-] + span,
+.el-button .svg-icon + span {
+  margin-left: $margin;
 }
 
 /*
-  重置loading图标样式
+  无边框按钮
 */
-.el-button .el-icon-loading {
-  margin-right: 4px;
+.el-button.no-border {
+  border-width: 0;
 }
 
 /*
@@ -182,10 +198,6 @@
 .el-button--text {
   color: $color-master;
   padding: 0;
-
-  .svg-icon {
-    margin-right: 4px;
-  }
 
   &:hover {
     color: $color-master-hover;

@@ -189,6 +189,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-button',
+        name: 'ElButton',
+        component: () => import('@/views/component/Base/ElButton/index.vue'),
+        meta: {
+          title: 'ElButton',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'vxe-table',
         name: 'VxeTable',
         component: () => import('@/views/component/Base/VxeTable/index.vue'),

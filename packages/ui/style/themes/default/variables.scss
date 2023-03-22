@@ -263,6 +263,12 @@ $color-tag-danger-2: $tag-danger; // deprecated(弃用)
 
 /* Button
 -------------------------- */
+$button-default-text-color: $text-color !default;
+$button-default-text-color-disabled: $text-color-light-2 !default;
+$button-default-color-bg: $color-bg-1 !default;
+$button-default-color-bg-disabled: $color-neutral-1 !default;
+$button-default-color-border: $color-neutral-5 !default;
+$button-default-color-border-disabled: $color-neutral-5 !default;
 $button-icon-color: $text-color-light-2 !default;
 $button-margin: $margin-3x !default;
 $button-padding-mini: $padding $padding-2x !default;

@@ -48,6 +48,7 @@
 
     &.is-disabled, &.is-disabled:hover, &.is-disabled:active, &.is-disabled:focus,
     &.is-loading, &.is-loading:hover, &.is-loading:active, &.is-loading:focus {
+      color: $color-text;
       background: $color-bg-disabled;
       border-color: $color-border-disabled;
 
@@ -63,6 +64,7 @@
 @include button-color(success, $color-success, $color-success-hover, $color-success-active, $color-success-disabled);
 @include button-color(warning, $color-warning, $color-warning-hover, $color-warning-active, $color-warning-disabled);
 @include button-color(danger, $color-danger, $color-danger-hover, $color-danger-active, $color-danger-disabled);
+@include button-color(fatal, $color-fatal, $color-fatal-hover, $color-fatal-active, $color-fatal-disabled);
 @include button-color(ct, $color-ct, $color-ct-hover, $color-ct-active, $color-ct-disabled);
 
 /*
@@ -87,6 +89,7 @@
     border-color: $color-border;
 
     &:hover {
+      border-color: $color-border-hover;
       color: $color-border-hover;
       background: $color-bg-hover;
     }
@@ -112,6 +115,8 @@
 @include button-plain(success, $color-success, $color-success-hover, $color-success-active, $tag-success, $color-success-disabled);
 @include button-plain(warning, $color-warning, $color-warning-hover, $color-warning-active, $tag-warning, $color-warning-disabled);
 @include button-plain(danger, $color-danger, $color-danger-hover, $color-danger-active, $tag-danger, $color-danger-disabled);
+@include button-plain(fatal, $color-fatal, $color-fatal-hover, $color-fatal-active, $tag-fatal, $color-fatal-disabled);
+@include button-plain(ct, $color-ct, $color-ct-hover, $color-ct-active, $tag-ct, $color-ct-disabled);
 
 /*
   重置按钮尺寸

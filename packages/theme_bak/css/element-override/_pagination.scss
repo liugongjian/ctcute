@@ -6,8 +6,8 @@
 
   span:not([class*='suffix']),
   button {
-    height: $common-sapce-6x;
-    line-height: $common-sapce-6x;
+    height: $common-space-6x;
+    line-height: $common-space-6x;
 
     &:disabled {
       color: $color-grey-5;
@@ -24,12 +24,12 @@
 
   .el-select.el-select--mini {
     .el-select__caret.el-input__icon.el-icon-arrow-up.is-reverse {
-      line-height: $common-sapce-6x;
+      line-height: $common-space-6x;
     }
 
     .el-input__inner {
       width: 60px;//TODO
-      height: $common-sapce-6x;
+      height: $common-space-6x;
       background-color: $color-bg-1;
     }
 
@@ -38,14 +38,14 @@
     }
 
     .el-input__icon {
-      line-height: $common-sapce-6x;
+      line-height: $common-space-6x;
       color: $icon-color;
     }
   }
 
   .el-select .el-input__suffix {
-    height: $common-sapce-6x;
-    line-height: $common-sapce-6x;
+    height: $common-space-6x;
+    line-height: $common-space-6x;
   }
 
   .el-select .el-input {
@@ -72,9 +72,9 @@
       color: $text-color-primary;
       font-weight: 400;
       font-size: $text-size;
-      min-width: $common-sapce-5x;
-      height: $common-sapce-6x;
-      line-height: $common-sapce-6x;
+      min-width: $common-space-5x;
+      height: $common-space-6x;
+      line-height: $common-space-6x;
       border-radius: 2px;//TODO
       background: none;
 

@@ -7,10 +7,10 @@
 
 .el-scrollbar__bar {
   &.is-vertical {
-    width: $common-sapce-2x;
+    width: $common-space-2x;
   }
 
   &.is-horizontal {
-    height: $common-sapce-2x !important;
+    height: $common-space-2x !important;
   }
 }

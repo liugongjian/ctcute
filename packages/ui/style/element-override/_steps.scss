@@ -72,7 +72,7 @@
 
 .el-step.is-horizontal .el-step__line {
   left: 30px; //TODO
-  right: $common-sapce-10;
+  right: $common-space-10;
 }
 
 .el-step.is-horizontal:last-child {
@@ -86,8 +86,8 @@
   }
 
   .el-step__icon.is-text {
-    width: $common-sapce-8x;
-    height: $common-sapce-8x;
+    width: $common-space-8x;
+    height: $common-space-8x;
     font-size: $text-size-lg;
   }
 }

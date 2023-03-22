@@ -84,8 +84,8 @@
     padding: 0 $padding-2x;
   }
 }
-@include tag-size(null, $common-sapce-6x);
-@include tag-size(--large, $common-sapce-7x);
-@include tag-size(--medium, $common-sapce-6x);
-@include tag-size(--small, $common-sapce-5x);
-@include tag-size(--mini, $common-sapce-5x);
+@include tag-size(null, $common-space-6x);
+@include tag-size(--large, $common-space-7x);
+@include tag-size(--medium, $common-space-6x);
+@include tag-size(--small, $common-space-5x);
+@include tag-size(--mini, $common-space-5x);

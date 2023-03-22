@@ -20,7 +20,7 @@ $color-master-5: $blue-2 !default; // deprecated(弃用)
 $color-master-6: $blue-1 !default; // deprecated(弃用)
 $color-master-7: $blue-1 !default; // deprecated(弃用)
 
-/* 特殊色, ct意为ctyun缩写 */
+/* CT特殊色, ct意为ctyun缩写 */
 $color-ct: $red-base !default; // 默认
 $color-ct-hover: $red-5 !default; // 悬停
 $color-ct-active: $red-7 !default; // 触发
@@ -51,11 +51,11 @@ $color-danger-hover: $ruby-5 !default;
 $color-danger-active: $ruby-7 !default;
 $color-danger-disabled: $ruby-4 !default;
 $color-danger-bg: $ruby-1 !default;
-$color-fatal-danger: $ruby-8 !default; // 严重危险
-$color-fatal-danger-hover: $ruby-7 !default;
-$color-fatal-danger-active: $ruby-9 !default;
-$color-fatal-danger-disabled: $ruby-4 !default;
-$color-fatal-danger-bg: $ruby-1 !default;
+$color-fatal: $ruby-8 !default; // 严重危险
+$color-fatal-hover: $ruby-7 !default;
+$color-fatal-active: $ruby-9 !default;
+$color-fatal-disabled: $ruby-5 !default;
+$color-fatal-bg: $ruby-1 !default;
 
 
 $color-status-master: $color-master !default; // deprecated(弃用)
@@ -140,6 +140,8 @@ $text-color: $neutral-10 !default; // 强调/正文标题
 $text-color-light: $neutral-9 !default; // 次强调/正文标题
 $text-color-light-2: $neutral-6 !default; // 置灰信息
 $text-color-feature: $neutral-7 !default; // 说明文字
+$text-weight: normal; // 标准字体粗细
+$text-title-weight: bold; // 标题的字体粗细
 
 $text-size-primary: $text-size !default; // deprecated(弃用)
 $text-size-small: $text-size-sm !default; // deprecated(弃用)
@@ -167,44 +169,44 @@ $border-color-dark-1: $border-color-dark !default; // deprecated(弃用)
 
 /* 间距: Padding & Margin
 -------------------------- */
-$common-sapce: 4px !default;
-$common-sapce-2x: $common-sapce * 2 !default; // 8px
-$common-sapce-3x: $common-sapce * 3 !default; // 12px
-$common-sapce-4x: $common-sapce * 4 !default; // 16px
-$common-sapce-5x: $common-sapce * 5 !default; // 20px
-$common-sapce-6x: $common-sapce * 6 !default; // 24px
-$common-sapce-7x: $common-sapce * 7 !default; // 28px
-$common-sapce-8x: $common-sapce * 8 !default; // 32px
-$common-sapce-9x: $common-sapce * 9 !default; // 36px
-$common-sapce-10x: $common-sapce * 10 !default; // 40px
-$common-sapce-6: 6px !default; // 特殊场景使用6px
-$common-sapce-10: 10px !default; // 特殊场景使用10px
+$common-space: 4px !default;
+$common-space-2x: $common-space * 2 !default; // 8px
+$common-space-3x: $common-space * 3 !default; // 12px
+$common-space-4x: $common-space * 4 !default; // 16px
+$common-space-5x: $common-space * 5 !default; // 20px
+$common-space-6x: $common-space * 6 !default; // 24px
+$common-space-7x: $common-space * 7 !default; // 28px
+$common-space-8x: $common-space * 8 !default; // 32px
+$common-space-9x: $common-space * 9 !default; // 36px
+$common-space-10x: $common-space * 10 !default; // 40px
+$common-space-6: 6px !default; // 特殊场景使用6px
+$common-space-10: 10px !default; // 特殊场景使用10px
 
-$padding: $common-sapce !default;
-$padding-2x: $common-sapce-2x !default; // 8px
-$padding-3x: $common-sapce-3x !default; // 12px
-$padding-4x: $common-sapce-4x !default; // 16px
-$padding-5x: $common-sapce-5x !default; // 20px
-$padding-6x: $common-sapce-6x !default; // 24px
-$padding-7x: $common-sapce-7x !default; // 28px
-$padding-8x: $common-sapce-8x !default; // 32px
-$padding-9x: $common-sapce-9x !default; // 36px
-$padding-10x: $common-sapce-10x !default; // 40px
-$padding-6: $common-sapce-6 !default; // 特殊场景使用6px
-$padding-10: $common-sapce-10 !default; // 特殊场景使用10px
+$padding: $common-space !default;
+$padding-2x: $common-space-2x !default; // 8px
+$padding-3x: $common-space-3x !default; // 12px
+$padding-4x: $common-space-4x !default; // 16px
+$padding-5x: $common-space-5x !default; // 20px
+$padding-6x: $common-space-6x !default; // 24px
+$padding-7x: $common-space-7x !default; // 28px
+$padding-8x: $common-space-8x !default; // 32px
+$padding-9x: $common-space-9x !default; // 36px
+$padding-10x: $common-space-10x !default; // 40px
+$padding-6: $common-space-6 !default; // 特殊场景使用6px
+$padding-10: $common-space-10 !default; // 特殊场景使用10px
 
-$margin: $common-sapce !default;
-$margin-2x: $common-sapce-2x !default; // 8px
-$margin-3x: $common-sapce-3x !default; // 12px
-$margin-4x: $common-sapce-4x !default; // 16px
-$margin-5x: $common-sapce-5x !default; // 20px
-$margin-6x: $common-sapce-6x !default; // 24px
-$margin-7x: $common-sapce-7x !default; // 28px
-$margin-8x: $common-sapce-8x !default; // 32px
-$margin-9x: $common-sapce-9x !default; // 36px
-$margin-10x: $common-sapce-10x !default; // 40px
-$margin-6: $common-sapce-6 !default; // 特殊场景使用6px
-$margin-10: $common-sapce-10 !default; // 特殊场景使用10px
+$margin: $common-space !default;
+$margin-2x: $common-space-2x !default; // 8px
+$margin-3x: $common-space-3x !default; // 12px
+$margin-4x: $common-space-4x !default; // 16px
+$margin-5x: $common-space-5x !default; // 20px
+$margin-6x: $common-space-6x !default; // 24px
+$margin-7x: $common-space-7x !default; // 28px
+$margin-8x: $common-space-8x !default; // 32px
+$margin-9x: $common-space-9x !default; // 36px
+$margin-10x: $common-space-10x !default; // 40px
+$margin-6: $common-space-6 !default; // 特殊场景使用6px
+$margin-10: $common-space-10 !default; // 特殊场景使用10px
 
 $padding-primary: 20px !default; // deprecated(弃用)
 $padding-medium: 16px !default; // deprecated(弃用)
@@ -241,8 +243,12 @@ $tag-warning: $orange-1 !default; // 警告色标签背景
 $tag-warning-border: $orange-base !default; // 警告色标签边框
 $tag-danger: $ruby-1 !default; // 危险色标签背景
 $tag-danger-border: $ruby-base !default; // 危险色标签边框
+$tag-fatal: $ruby-2 !default; // 危险色标签背景
+$tag-fatal-border: $ruby-8 !default; // 危险色标签边框
 $tag-weak: $neutral-1 !default; // 轻微提示色标签背景
 $tag-weak-border: $neutral-6 !default; // 轻微提示色标签边框
+$tag-ct: $red-1 !default; // CT特殊色标签背景
+$tag-ct-border: $red-base !default; // CT特殊色标签边框
 
 $color-tag-master-1: $tag-master-border !default; // deprecated(弃用)
 $color-tag-master-2: $tag-master !default; // deprecated(弃用)

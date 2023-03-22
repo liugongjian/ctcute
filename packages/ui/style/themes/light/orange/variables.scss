@@ -169,53 +169,53 @@ $border-color-dark-1: $color-grey-4 !default; // deprecated(弃用)
 
 /* 间距: Padding & Margin
 -------------------------- */
-$common-sapce: 4px !default;
-$common-sapce-2x: $common-sapce * 2 !default; // 8px
-$common-sapce-3x: $common-sapce * 3 !default; // 12px
-$common-sapce-4x: $common-sapce * 4 !default; // 16px
-$common-sapce-5x: $common-sapce * 5 !default; // 20px
-$common-sapce-6x: $common-sapce * 6 !default; // 24px
-$common-sapce-7x: $common-sapce * 7 !default; // 28px
-$common-sapce-8x: $common-sapce * 8 !default; // 32px
-$common-sapce-9x: $common-sapce * 9 !default; // 36px
-$common-sapce-10x: $common-sapce * 10 !default; // 40px
-$common-sapce-6: 6px !default; // 特殊场景使用6px
-$common-sapce-10: 10px !default; // 特殊场景使用10px
+$common-space: 4px !default;
+$common-space-2x: $common-space * 2 !default; // 8px
+$common-space-3x: $common-space * 3 !default; // 12px
+$common-space-4x: $common-space * 4 !default; // 16px
+$common-space-5x: $common-space * 5 !default; // 20px
+$common-space-6x: $common-space * 6 !default; // 24px
+$common-space-7x: $common-space * 7 !default; // 28px
+$common-space-8x: $common-space * 8 !default; // 32px
+$common-space-9x: $common-space * 9 !default; // 36px
+$common-space-10x: $common-space * 10 !default; // 40px
+$common-space-6: 6px !default; // 特殊场景使用6px
+$common-space-10: 10px !default; // 特殊场景使用10px
 
-$padding: $common-sapce !default;
-$padding-2x: $common-sapce-2x !default; // 8px
-$padding-3x: $common-sapce-3x !default; // 12px
-$padding-4x: $common-sapce-4x !default; // 16px
-$padding-5x: $common-sapce-5x !default; // 20px
-$padding-6x: $common-sapce-6x !default; // 24px
-$padding-7x: $common-sapce-7x !default; // 28px
-$padding-8x: $common-sapce-8x !default; // 32px
-$padding-9x: $common-sapce-9x !default; // 36px
-$padding-10x: $common-sapce-10x !default; // 40px
-$padding-6: $common-sapce-6 !default; // 特殊场景使用6px
-$padding-10: $common-sapce-10 !default; // 特殊场景使用10px
+$padding: $common-space !default;
+$padding-2x: $common-space-2x !default; // 8px
+$padding-3x: $common-space-3x !default; // 12px
+$padding-4x: $common-space-4x !default; // 16px
+$padding-5x: $common-space-5x !default; // 20px
+$padding-6x: $common-space-6x !default; // 24px
+$padding-7x: $common-space-7x !default; // 28px
+$padding-8x: $common-space-8x !default; // 32px
+$padding-9x: $common-space-9x !default; // 36px
+$padding-10x: $common-space-10x !default; // 40px
+$padding-6: $common-space-6 !default; // 特殊场景使用6px
+$padding-10: $common-space-10 !default; // 特殊场景使用10px
 
-$margin: $common-sapce !default;
-$margin-2x: $common-sapce-2x !default; // 8px
-$margin-3x: $common-sapce-3x !default; // 12px
-$margin-4x: $common-sapce-4x !default; // 16px
-$margin-5x: $common-sapce-5x !default; // 20px
-$margin-6x: $common-sapce-6x !default; // 24px
-$margin-7x: $common-sapce-7x !default; // 28px
-$margin-8x: $common-sapce-8x !default; // 32px
-$margin-9x: $common-sapce-9x !default; // 36px
-$margin-10x: $common-sapce-10x !default; // 40px
-$margin-6: $common-sapce-6 !default; // 特殊场景使用6px
-$margin-10: $common-sapce-10 !default; // 特殊场景使用10px
+$margin: $common-space !default;
+$margin-2x: $common-space-2x !default; // 8px
+$margin-3x: $common-space-3x !default; // 12px
+$margin-4x: $common-space-4x !default; // 16px
+$margin-5x: $common-space-5x !default; // 20px
+$margin-6x: $common-space-6x !default; // 24px
+$margin-7x: $common-space-7x !default; // 28px
+$margin-8x: $common-space-8x !default; // 32px
+$margin-9x: $common-space-9x !default; // 36px
+$margin-10x: $common-space-10x !default; // 40px
+$margin-6: $common-space-6 !default; // 特殊场景使用6px
+$margin-10: $common-space-10 !default; // 特殊场景使用10px
 
-$padding-primary: 20px !default; // deprecated(弃用)
-$padding-medium: 16px !default; // deprecated(弃用)
-$padding-small: 8px !default; // deprecated(弃用)
-$padding-tiny: 4px !default; // deprecated(弃用)
-$margin-large: 20px !default; // deprecated(弃用)
-$margin-medium: 16px !default; // deprecated(弃用)
-$margin-small: 8px !default; // deprecated(弃用)
-$margin-tiny: 4px !default; // deprecated(弃用)
+$padding-primary: 20px !default !default; // deprecated(弃用)
+$padding-medium: 16px !default !default; // deprecated(弃用)
+$padding-small: 8px !default !default; // deprecated(弃用)
+$padding-tiny: 4px !default !default; // deprecated(弃用)
+$margin-large: 20px !default !default; // deprecated(弃用)
+$margin-medium: 16px !default !default; // deprecated(弃用)
+$margin-small: 8px !default !default; // deprecated(弃用)
+$margin-tiny: 4px !default !default; // deprecated(弃用)
 $margin-primary: $margin-small !default; // deprecated(弃用)
 
 /* Shadow

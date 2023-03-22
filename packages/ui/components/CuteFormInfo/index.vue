@@ -31,31 +31,3 @@ export default class extends Vue {
   @Prop() private width: number
 }
 </script>
-<style lang="scss" scoped>
-.form-item__info {
-  color: $icon-color;
-  width: 15px;
-  height: 15px;
-}
-</style>
-<style lang="scss">
-.form-item__info {
-  &--dark {
-    background: $color-other-1;
-    color: $color-white;
-
-    .el-popover__title {
-      color: $color-white;
-    }
-
-    &.el-popper[x-placement^='top'] .popper__arrow {
-      box-shadow: none;
-
-      &:after {
-        border-top-color: $color-other-1 !important;
-        box-shadow: none;
-      }
-    }
-  }
-}
-</style>

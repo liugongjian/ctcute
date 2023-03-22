@@ -9,7 +9,7 @@
   <span v-if="!editing"
     >{{ syncedValue }} <svg-icon class="edit-input-icon" name="edit" @click="startEdit"
   /></span>
-  <span v-else class="wrap">
+  <span v-else class="cute-edit-input-wrap">
     <el-input v-model="editValue" :type="textarea ? 'textarea' : 'text'" placeholder="请输入"></el-input>
     <svg-icon name="check" :color="colorVariables.colorSuccess" @click="onOk" />
     <svg-icon name="close" :color="colorVariables.colorDanger" @click="editing = false" />
@@ -40,48 +40,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.edit-input-icon {
-  font-size: $text-size-large;
-  margin-left: 10px;
-  color: $color-grey-3;
-  cursor: pointer;
-
-  &:hover {
-    color: $color-master-1;
-  }
-
-  &.svg-icon {
-    vertical-align: sub;
-  }
-}
-
-.wrap {
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-
-  .el-input,
-  .el-textarea {
-    width: calc(100% - 84px);
-    height: 100%;
-    margin-right: 10px;
-  }
-
-  .el-textarea ~ svg {
-    margin-bottom: 4px;
-  }
-
-  svg {
-    cursor: pointer;
-    font-size: $text-size-large;
-    margin-right: 4px;
-    vertical-align: sub;
-  }
-}
-
-::v-deep textarea {
-  height: 100%;
-}
-</style>

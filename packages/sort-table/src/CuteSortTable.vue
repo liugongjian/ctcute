@@ -67,21 +67,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.pagination {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.sort-icon {
-  font-size: 16px;
-  cursor: pointer;
-  color: $color-grey-3;
-
-  &:hover {
-    color: $color-master-1;
-  }
-}
-</style>

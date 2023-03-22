@@ -61,6 +61,8 @@ module.exports = {
   chainWebpack: config => {
     // 配置alias
     config.resolve.alias.set('scripts', path.join(__dirname, 'scripts'))
+    // module和main是原来就有的，不能少了，否则其他依赖包报错
+    config.resolve.mainFields.add('main').prepend('module').prepend('cuteMain')
 
     // 配置monaco
     config.plugin('monaco').use(

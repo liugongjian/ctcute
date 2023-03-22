@@ -40,15 +40,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-::v-deep.el-autocomplete.inline-input {
-  width: 300px;
-  height: 32px;
-
-  .prompt-title {
-    line-height: 32px;
-    margin-right: 12px;
-  }
-}
-</style>

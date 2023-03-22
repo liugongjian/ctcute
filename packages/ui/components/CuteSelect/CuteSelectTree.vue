@@ -11,6 +11,7 @@
     placeholder="请选择"
     :multiple="multiple ? true : false"
     @remove-tag="handelRemove"
+    popper-class="cute-select-tree"
   >
     <el-option :value="value" :label="label" style="height: auto;">
       <el-tree
@@ -89,23 +90,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.el-tree {
-  color: $color-grey-1;
-  font-weight: 400;
-}
-
-.el-select-dropdown__item,
-.el-select-dropdown__item.hover {
-  background: $color-bg-1 !important;
-  padding: 0;
-}
-
-.el-select-dropdown.el-popper.is-multiple {
-  .el-select-dropdown__item.hover {
-    background: $color-bg-1 !important;
-    padding: 0;
-  }
-}
-</style>

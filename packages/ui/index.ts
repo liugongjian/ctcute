@@ -91,10 +91,9 @@ import ElementUI, {
 } from 'element-ui'
 import ElementUIOverride, { Steps, Step, Alert, Collapse, Rate } from './components/ElementUI'
 import './components/ElementUI/settings'
-import './style/index.scss'
-import './fonts/iconfont.css'
-import './fonts/bahnschrift.css'
+// svgIcon
 import './icons/index'
+import SvgIcon from './icons/index.vue'
 
 /**
  * 组件清单
@@ -161,6 +160,7 @@ export default {
   install(Vue) {
     Vue.use(ElementUI, { size: 'medium' })
     Vue.use(ElementUIOverride)
+    Vue.component('SvgIcon', SvgIcon)
 
     componentsList.map((component: any) => {
       Vue.component(component.options ? component.options.name : component.name, component)

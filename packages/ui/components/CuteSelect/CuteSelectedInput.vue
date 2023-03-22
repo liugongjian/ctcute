@@ -6,7 +6,7 @@
  * @Description: 操作已选项
 -->
 <template>
-  <div class="selected-input">
+  <div class="cute-selected-input">
     <el-select ref="select" :value="''" placeholder="" @change="handelSelectChange">
       <span slot="prefix" :class="flag ? 'select-field' : 'select-uncheck'">{{ sele }}</span>
       <el-option
@@ -57,27 +57,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.el-select {
-  ::v-deep .el-input.el-input--medium.el-input--suffix {
-    width: 130px;
-    padding-right: 0;
-  }
-
-  ::v-deep.el-input__inner {
-    padding-right: 0;
-    color: $color-grey-1;
-  }
-}
-
-.select-uncheck {
-  padding-right: 0;
-  color: $color-grey-1;
-}
-
-.select-field {
-  padding-right: 0;
-  color: $color-master;
-}
-</style>

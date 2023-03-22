@@ -1,0 +1,19 @@
+.cute-steps {
+  .button-col {
+    font-size: 20px;
+  }
+
+  .el-icon-arrow-left,
+  .el-icon-arrow-right {
+    color: $color-grey-3;
+  }
+
+  .disabled {
+    cursor: not-allowed;
+    color: $color-grey-5;
+  }
+
+  .el-col-1 {
+    width: 30px;
+  }
+}

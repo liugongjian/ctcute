@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cute-steps">
     <el-row align="middle" :style="{ 'max-width': maxWidth }" type='flex'>
       <el-col v-if="hasGoButton" :span="1">
         <div class="button-col point-style" @click="goPre">
@@ -124,19 +124,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.button-col {
-  font-size: 20px;
-}
-.el-icon-arrow-left,
-.el-icon-arrow-right {
-  color: $color-grey-3;
-}
-.disabled {
-  cursor: not-allowed;
-  color: $color-grey-5;
-}
-::v-deep .el-col-1 {
-  width: 30px;
-}
-</style>

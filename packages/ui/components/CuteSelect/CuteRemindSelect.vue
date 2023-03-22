@@ -7,6 +7,7 @@
 -->
 <template>
   <el-select
+    class="cute-remind-select"
     ref="select"
     filterable
     :multiple="multiple ? true : false"
@@ -44,24 +45,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.el-select {
-  width: 100%;
-
-  ::v-deep.el-input.el-input--prefix .el-input__inner {
-    padding-left: $padding-3x;
-  }
-
-  ::v-deep.el-input__prefix {
-    position: absolute;
-    right: 33px;
-
-    span {
-      color: $color-grey-4;
-      position: absolute;
-      right: 0;
-    }
-  }
-}
-</style>

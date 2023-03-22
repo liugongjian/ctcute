@@ -1,0 +1,118 @@
+.table-column-settings {
+  &__btns {
+    display: flex;
+    justify-content: right;
+  }
+
+  &__btn--active {
+    color: $color-master-3 !important;
+  }
+
+  &-paginationContainer {
+    height: 20px;
+  }
+
+  &__page {
+    float: right;
+  }
+}
+
+// TODO 讨论：自定义全局样式
+.table-column-settings__popover {
+  min-width: 190px;
+  padding: 0;
+
+  &__divider {
+    margin: 0;
+  }
+
+  &__label-group {
+    max-height: 300px;
+    overflow: auto;
+  }
+
+  label.el-checkbox {
+    display: block;
+    margin: 5px 0;
+    height: 30px;
+    line-height: 30px;
+
+    .el-checkbox__inner {
+      margin-left: 12px;
+    }
+
+    &:hover:not(.is-disabled) {
+      background-color: $color-master-7;
+
+      .el-checkbox__label {
+        color: $color-master-1;
+      }
+    }
+  }
+}
+
+.table-filter {
+  display: flex;
+  align-items: center;
+
+  .el-popper {
+    padding: 0 $text-size-large $text-size-large $text-size-large;
+  }
+
+  .el-tag {
+    margin-right: 12px;
+  }
+
+  .table-filter-dropdown {
+    position: relative;
+
+    .table-filter_content {
+      position: absolute;
+      top: 32px;
+      left: 0;
+      box-shadow: 0 2px 8px 0 $color-bg-3;
+      z-index: 999;
+      background: $color-bg-1;
+
+      .table-filter_top {
+        padding: 0 16px 16px;
+        min-width: 332px;
+
+        .el-form-item {
+          margin: 0;
+          margin-top: $text-size-large;
+          display: flex;
+
+          .el-form-item__label {
+            padding-right: 12px;
+            color: $color-grey-1;
+            min-width: 84px;
+          }
+
+          .el-select,
+          .el-input {
+            width: 90px;
+            margin-right: 8px;
+          }
+
+          span {
+            font-size: 12px;
+            color: $color-grey-2;
+          }
+        }
+      }
+
+      .table-filter_foot {
+        height: 50px;
+        background: $color-grey-9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .el-button+.el-button {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+}

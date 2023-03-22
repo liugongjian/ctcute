@@ -2,7 +2,7 @@
   <transition name="el-zoom-in-top" @after-leave="doDestroy">
     <div
       v-show="showPopper"
-      class="el-color-dropdown"
+      class="el-color-dropdown cute-color-dropdown"
       :class="{ 'el-color-dropdown-simple': isSimpleLayout }"
     >
       <div v-if="!isSimpleLayout" class="el-color-dropdown__main-wrapper">
@@ -127,25 +127,3 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-.el-color-dropdown ::v-deep {
-  .hue-slider {
-    float: right;
-  }
-
-  .el-color-predefine.predefine-simple {
-    width: 232px;
-    margin: 0;
-
-    .el-color-predefine__color-selector {
-      margin: 4px 0 4px 8px;
-    }
-  }
-}
-</style>
-<style lang="scss">
-.el-color-picker__panel.el-color-dropdown-simple {
-  padding: 4px 0;
-  width: auto;
-}
-</style>

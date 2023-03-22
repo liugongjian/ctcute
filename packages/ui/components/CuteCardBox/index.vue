@@ -32,27 +32,3 @@ export default class extends Vue {
   @Prop({ default: '', required: true }) private readonly title: string
 }
 </script>
-<style lang="scss" scoped>
-.cute-card {
-  ::v-deep .el-card__header {
-    padding: 0 22px;
-  }
-
-  &__header {
-    clear: both;
-    display: flex;
-    align-items: center;
-
-    &__title {
-      font-size: 14px;
-      color: $color-grey-1;
-      line-height: 52px;
-      font-weight: bold;
-    }
-
-    &__extra {
-      margin-left: auto;
-    }
-  }
-}
-</style>

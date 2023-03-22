@@ -1,5 +1,5 @@
 <template>
-  <div class="el-color-predefine">
+  <div class="el-color-predefine cute-color-predefine">
     <div class="el-color-predefine__colors">
       <div
         v-for="(item, index) in rgbaColors"
@@ -64,8 +64,3 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-.el-color-predefine__color-selector.selected {
-  box-shadow: $shadow-2;
-}
-</style>

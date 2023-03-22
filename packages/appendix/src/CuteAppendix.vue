@@ -129,7 +129,7 @@ export default class extends Vue {
           win.focus() //让原窗口获取焦点
         })
     } catch (e) {
-      this.$message.error(e)
+      (this as any).$message.error(e)
     }
   }
   /**
@@ -151,72 +151,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.cute-appendix {
-  margin-top: 10px;
-}
-
-.appendix-link-icon {
-  margin-right: 4px;
-  color: $color-grey-3;
-  vertical-align: -4px;
-}
-
-.appendix-eye-icon {
-  margin-left: 8px;
-  color: $color-grey-3;
-  vertical-align: -4px;
-
-  &:hover {
-    color: $color-master-1;
-    cursor: pointer;
-  }
-}
-
-.appendix-big {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-
-  &-item {
-    width: 240px;
-    height: 52px;
-    background-color: $color-grey-11;
-    display: flex;
-    align-items: center;
-    padding: 0 8px;
-
-    &:hover {
-      background-color: $color-master-7;
-      cursor: pointer;
-    }
-
-    &-title {
-      margin-left: 10px;
-
-      p:nth-child(1) {
-        max-width: 186px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        font-family: PingFangSC-Medium;
-        font-size: 12px;
-        color: $color-grey-1;
-        line-height: 20px;
-        font-weight: 500;
-        margin: 5px 0;
-      }
-
-      p:nth-child(2) {
-        font-family: PingFangSC-Regular;
-        font-size: 12px;
-        color: $color-grey-2;
-        line-height: 20px;
-        font-weight: 400;
-        margin: 0;
-      }
-    }
-  }
-}
-</style>

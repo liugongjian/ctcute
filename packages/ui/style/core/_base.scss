@@ -81,7 +81,7 @@ h5 {
 }
 
 ::-webkit-resizer {
-  background-image: url('../images/pull.png');
+  background-image: url('#{$images-path}/pull.png');
   background-size: 9px 9px;
   background-repeat: no-repeat;
   background-position: 3px 3px;

@@ -15,7 +15,7 @@
 import * as echarts from 'echarts'
 import ECharts, { THEME_KEY } from 'vue-echarts'
 import { Component, Prop, Vue, Provide } from 'vue-property-decorator'
-import china from './json/全国地图.json'
+import china from './json/China.json'
 import themeOrange from './theme/orange.json'
 
 echarts.registerTheme('cuted-orange', themeOrange)

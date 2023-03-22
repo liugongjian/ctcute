@@ -1,0 +1,62 @@
+.cute-remind-select {
+  width: 100%;
+
+  .el-input.el-input--prefix .el-input__inner {
+    padding-left: 12px;
+  }
+
+  .el-input__prefix {
+    position: absolute;
+    right: 33px;
+
+    span {
+      color: $color-grey-4;
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+
+.cute-selected-input {
+  .el-input.el-input--medium.el-input--suffix {
+    width: 130px;
+    padding-right: 0;
+  }
+
+  .el-input__inner {
+    padding-right: 0;
+    color: $color-grey-1;
+  }
+
+  .select-uncheck {
+    padding-right: 0;
+    color: $color-grey-1;
+    padding-left: 11px;
+  }
+
+  .select-field {
+    padding-right: 0;
+    color: $color-master-1;
+    padding-left: 11px;
+  }
+}
+
+.cute-select-tree {
+  .el-tree {
+    color: $color-grey-1;
+    font-weight: 400;
+  }
+
+  .el-select-dropdown__item,
+  .el-select-dropdown__item.hover {
+    background: $color-bg-1 !important;
+    padding: 0;
+  }
+
+  .el-select-dropdown.el-popper.is-multiple {
+    .el-select-dropdown__item.hover {
+      background: $color-bg-1 !important;
+      padding: 0;
+    }
+  }
+}

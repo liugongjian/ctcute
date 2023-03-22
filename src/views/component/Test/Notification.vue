@@ -6,8 +6,9 @@
  * @Description: Notification
 -->
 <template>
-  <el-card>
+  <div>
     <h1>Notification</h1>
+    <NotificationDemo />
     <div class="sub-notification">
       <p>全局展示通知提醒信息</p>
       <h3>普通通知提醒</h3>
@@ -93,13 +94,17 @@
         </el-col>
       </el-row>
     </div>
-  </el-card>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import NotificationDemo from '@/views/ui/components/Table.vue'
 
 @Component({
   name: 'Notification',
+  components: {
+    NotificationDemo,
+  },
 })
 export default class extends Vue {}
 </script>

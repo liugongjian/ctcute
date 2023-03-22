@@ -6,8 +6,9 @@
  * @Description: Collapse
 -->
 <template>
-  <el-card>
+  <div>
     <h1>Collapse</h1>
+    <CollapseDemo />
     <el-collapse v-model="activeName" accordion>
       <el-collapse-item title="一致性 Consistency" name="1">
         <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
@@ -27,13 +28,17 @@
         <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
       </el-collapse-item>
     </el-collapse>
-  </el-card>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import CollapseDemo from '@/views/ui/components/Collapse.vue'
 
 @Component({
   name: 'Collapse',
+  components: {
+    CollapseDemo,
+  },
 })
 export default class extends Vue {
   private activeName = '1'

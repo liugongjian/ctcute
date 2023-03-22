@@ -6,8 +6,9 @@
  * @Description: Select
 -->
 <template>
-  <el-card>
+  <div>
     <h1>Select</h1>
+    <SelectDemo />
     <el-select v-model="selectVal" size="large" placeholder="请选择">
       <el-option label="餐厅名" value="1"></el-option>
       <el-option label="订单号" value="2"></el-option>
@@ -29,13 +30,17 @@
       <el-option label="订单号" value="2"></el-option>
       <el-option label="用户电话" value="3"></el-option>
     </el-select>
-  </el-card>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import SelectDemo from '@/views/ui/components/Select.vue'
 
 @Component({
   name: 'Select',
+  components: {
+    SelectDemo,
+  },
 })
 export default class extends Vue {
   private selectVal = '1'

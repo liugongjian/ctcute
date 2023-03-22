@@ -6,19 +6,19 @@
  * @Description: Table
 -->
 <template>
-  <el-card>
+  <div>
     <h1>Table</h1>
-    <Table />
-  </el-card>
+    <TableDemo />
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Table from '@/views/ui/components/Table.vue'
+import TableDemo from '@/views/ui/components/Table.vue'
 
 @Component({
   name: 'Table',
   components: {
-    Table,
+    TableDemo,
   },
 })
 export default class extends Vue {}

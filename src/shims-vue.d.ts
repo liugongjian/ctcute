@@ -1,10 +1,11 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-11 09:48:22
- * @LastEditors: 邱文琦
- * @LastEditTime: 2023-01-04 15:12:17
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-03-23 15:55:00
  * @Description:
  */
+import { AuthInstance } from '@cutedesign/authenticate'
 declare module '*.vue' {
   import Vue from 'vue'
   export default Vue
@@ -23,3 +24,9 @@ declare module '*.json'
 declare module '@wangeditor/editor-for-vue'
 
 declare const VueI18n: any
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $auth: AuthInstance
+  }
+}

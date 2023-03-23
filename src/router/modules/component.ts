@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
@@ -297,6 +298,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Button.vue'),
         meta: {
           title: 'Button',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'color-picker',
+        name: 'ColorPicker',
+        component: () => import('@/views/component/Test/ColorPicker.vue'),
+        meta: {
+          title: 'ColorPicker',
           breadcrumb: true,
         },
       },

@@ -26,6 +26,8 @@
   </button>
 </template>
 <script>
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable vue/require-default-prop */
 export default {
   name: 'ElButton',
 

@@ -1,58 +1,67 @@
 <!--
- * @Author: 马妍
- * @Date: 2022-07-19 22:03:32
+ * @Author: 黄靖
+ * @Date: 2023-03-16 19:03:32
  * @LastEditors: 黄靖
- * @LastEditTime: 2023-03-17 10:03:32
+ * @LastEditTime: 2023-03-16 19:03:32
  * @Description: 
 -->
 <template>
   <div>
-    <h3>单选</h3>
-    <cute-select-tree v-model="treeData" :options="treeOptions" />
-
-    <h3>多选</h3>
-    <cute-select-tree v-model="multiTreeData" :options="treeOptions" multiple />
+    <cute-select-tree v-model="treeData" :value="treeDataValue" :options="treeOptions">
+      <div slot="node" slot-scope="{ node, data }" class="custom-node">
+        {{ node.label }}
+        <span class="custom-info">{{ data.desc }}</span>
+      </div>
+    </cute-select-tree>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+
 @Component({
-  name: 'Demo1',
+  name: 'Demo2',
 })
 export default class extends Vue {
-  private multiTreeData = []
   private treeData = ''
+  private treeDataValue = ''
 
   treeOptions = [
     {
       id: 1,
       label: '一级 1',
+      desc: '一级 1相关信息',
       children: [
         {
           id: 4,
           label: '二级 1-1',
+          desc: '一级 1-1相关信息',
         },
       ],
     },
     {
       id: 2,
       label: '一级 2',
+      desc: '一级 2相关信息',
       children: [
         {
           id: 5,
           label: '二级 2-1',
+          desc: '二级 2-1相关信息',
         },
         {
           id: 6,
           label: '二级 2-2',
+          desc: '二级 2-2相关信息',
           children: [
             {
               id: 9,
               label: '三级 2-2-1',
+              desc: '三级 2-2-1相关信息',
             },
             {
               id: 10,
               label: '三级 2-2-2',
+              desc: '三级 2-2-2相关信息',
             },
           ],
         },
@@ -61,9 +70,10 @@ export default class extends Vue {
     {
       id: 3,
       label: '一级 3',
+      desc: '一级 3相关信息',
       children: [
-        { id: 7, label: '二级 3-1' },
-        { id: 8, label: '二级 3-2' },
+        { id: 7, label: '二级 3-1', desc: '二级 3-1相关信息' },
+        { id: 8, label: '二级 3-2', desc: '二级 3-2相关信息' },
       ],
     },
   ]
@@ -74,5 +84,13 @@ export default class extends Vue {
   .el-select {
     width: 300px;
   }
+}
+.custom-node {
+  width: 100%;
+  margin-right: 20px;
+}
+.custom-info {
+  float: right;
+  color: #999;
 }
 </style>

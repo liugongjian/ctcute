@@ -88,16 +88,6 @@ type LinkItem = {
   label?: string
 }
 
-type NodeWidthMeta = {
-  data: NodeItem
-  x: number
-  y: number
-  localX: number
-  localY: number
-  offsetX: number
-  offsetY: number
-}
-
 @Component({
   name: 'Demo',
   components: {

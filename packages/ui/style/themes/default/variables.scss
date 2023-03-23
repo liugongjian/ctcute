@@ -323,6 +323,16 @@ $pagination-bg: $color-white !default;
 
 $pagination-fill: $color-white; // deprecated(弃用)
 
+/* Transfer
+-------------------------- */
+$transfer-header-height: 40px !default; // Transfer组件高度
+$transfer-header-bg: $color-neutral-1 !default;
+$transfer-button-hegiht: 38px !default; // Transfer组件圆形按钮
+$transfer-button-width: 38px !default; // Transfer组件圆形按钮
+$transfer-button-radius: 50% !default; // Transfer组件圆形按钮
+$transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
+$transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
+
 /* Tooltip
 -------------------------- */
 $tooltip-bg: $color-neutral-8 !default;

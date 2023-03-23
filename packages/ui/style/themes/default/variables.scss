@@ -417,6 +417,28 @@ $sidebar-fill: $color-white !default;
 $sidebar-sub-fill: $color-white !default;
 $sidebar-sub-hover: $color-master-bg-light-2 !default;
 
+
+/* CuteButtonGroup */
+$cute-buttong-group-margin: -1px !default;
+$cute-buttong-group-zindex: 1 !default;
+$cute-buttong-group-border: 2px !default;
+
+/* CuteEditInput */
+$cute-edit-input-width: calc(100% - 84px) !default;
+
+/* CuteRemindInput */
+$cute-remind-input-width: 300px !default;
+
+/* CuteSpecialRadio */
+$cute-special-radio-padding: 9px !default;
+$cute-special-radio-size: 2px !default;
+
+/* CuteRemindSelect */
+$cute-remind-select-right: 33px !default;
+
+/* CuteSelectedInput */
+$cute-selected-input-width: 130px !default;
+
 /* Animation
 -------------------------- */
 $transition-time: 200ms !default;

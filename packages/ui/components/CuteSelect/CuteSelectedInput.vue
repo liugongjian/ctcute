@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2022-07-26 16:44:58
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-03-23 15:59:45
  * @Description: 操作已选项
 -->
 <template>
@@ -61,7 +61,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .el-select {
   ::v-deep .el-input.el-input--medium.el-input--suffix {
-    width: 130px;
+    width: $cute-selected-input-width;
     padding-right: 0;
   }
 

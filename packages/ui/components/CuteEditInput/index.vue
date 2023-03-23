@@ -1,9 +1,9 @@
 <!--
  * @Author: 王亚振
  * @Date: 2022-10-11 15:06:30
- * @LastEditors: 王亚振
- * @LastEditTime: 2023-02-10 17:06:08
- * @Description: 
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-03-23 15:40:57
+ * @Description:
 -->
 <template>
   <span v-if="!editing"
@@ -44,7 +44,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .edit-input-icon {
   font-size: $text-size-large;
-  margin-left: 10px;
+  margin-left: $margin-10;
   color: $color-grey-3;
   cursor: pointer;
 
@@ -64,19 +64,19 @@ export default class extends Vue {
 
   .el-input,
   .el-textarea {
-    width: calc(100% - 84px);
+    width: $cute-edit-input-width;
     height: 100%;
-    margin-right: 10px;
+    margin-right: $margin-10;
   }
 
   .el-textarea ~ svg {
-    margin-bottom: 4px;
+    margin-bottom: $margin;
   }
 
   svg {
     cursor: pointer;
     font-size: $text-size-large;
-    margin-right: 4px;
+    margin-right: $margin;
     vertical-align: sub;
   }
 }

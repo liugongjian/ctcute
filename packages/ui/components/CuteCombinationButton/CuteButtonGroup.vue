@@ -1,3 +1,10 @@
+<!--
+ * @Author: liugongjian
+ * @Date: 2023-03-21 14:03:10
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-03-23 15:36:23
+ * @Description:
+-->
 <template>
   <div class="combination-button">
     <el-button v-for="(v, i) in newData" :key="i">{{ v }} </el-button>
@@ -28,8 +35,8 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .combination-button {
   .el-button + .el-button {
-    margin-left: -1px;
-    z-index: 1;
+    margin-left: $cute-buttong-group-margin;
+    z-index: $cute-buttong-group-zindex;
   }
 
   .el-button + .el-dropdown {
@@ -50,18 +57,20 @@ export default class extends Vue {
   }
 
   .el-button--medium:first-child {
-    border-radius: 2px 0 0 2px;
+    border-radius: $cute-buttong-group-border 0 0 $cute-buttong-group-border;
   }
 
   .el-button--medium:last-child {
-    border-radius: 0 2px 2px 0;
+    border-radius: 0 $cute-buttong-group-border $cute-buttong-group-border 0;
   }
 
   .el-button + .el-dropdown {
-    margin-left: -1px;
+    margin-left: $cute-buttong-group-margin;
+
     .el-button--medium {
       border-radius: 0;
       border-right: 0;
+
       &:hover {
         position: relative;
         border-color: $color-master-1 !important;

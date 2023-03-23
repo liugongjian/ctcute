@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-08-16 16:52:14
  * @Description:
  */
-const CryptoJs = require('crypto-js')
+import CryptoJs from 'crypto-js'
 
 // AES加密
 export const encryptAes = message => {

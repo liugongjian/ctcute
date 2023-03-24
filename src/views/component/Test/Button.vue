@@ -175,6 +175,12 @@
       <el-button type="fatal" plain size="mini" icon="plus-circle">严重危险按钮</el-button>
     </el-row>
     <el-row>
+      <h3>文本按钮</h3>
+      <el-button type="text">默认按钮</el-button>
+      <el-button type="text" icon="plus-circle">默认按钮</el-button>
+      <el-button type="text" size="large">默认按钮</el-button>
+    </el-row>
+    <el-row>
       <h3>Dropdown Button</h3>
       <el-dropdown>
         <el-button size="small">

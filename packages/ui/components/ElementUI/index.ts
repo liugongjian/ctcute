@@ -6,6 +6,7 @@ import Rate from './Rate/index.vue'
 import ColorPicker from './ColorPicker/index.vue'
 import Tabs from './Tabs/tabs.vue'
 import Button from './Button/index.vue'
+import MessageBox from './MessageBox/index.js'
 
 export default {
   install(Vue) {
@@ -17,6 +18,10 @@ export default {
     Vue.component(ColorPicker.name, ColorPicker)
     Vue.component(Tabs.name, Tabs)
     Vue.component(Button.name, Button)
+    Vue.prototype.$msgbox = MessageBox
+    Vue.prototype.$alert = MessageBox.alert
+    Vue.prototype.$confirm = MessageBox.confirm
+    Vue.prototype.$prompt = MessageBox.prompt
   },
 }
-export { Steps, Step, Alert, Collapse, Rate, ColorPicker, Button }
+export { Steps, Step, Alert, Collapse, Rate, ColorPicker, Button, MessageBox }

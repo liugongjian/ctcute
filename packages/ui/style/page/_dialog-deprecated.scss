@@ -78,13 +78,13 @@
       .el-dialog__title {
         color: $text-color;
         font-size: $text-size-lg;
-        font-weight: 500;
+        font-weight: $text-title-weight;
       }
     }
 
     /* 弹窗Body */
     .el-dialog__body {
-      padding: 0;
+      // padding: 0;
       font-size: $text-size;
       color: $color-grey-1;
     }
@@ -92,13 +92,17 @@
 
   &--content {
     display: flex;
-    margin: $margin-6x;
+    // margin: $margin-6x;
   }
 
   &--footer {
-    text-align: center;
-    padding: 9px 0;
-    background-color: $color-grey-9;
+    $negative-margin-8x: -$margin-8x;
+    $negative-margin-6x: -$margin-6x;
+
+    text-align: right;
+    padding: $dialog-footer-padding;
+    background-color: $dialog-footer-bg;
+    margin: $margin-6x $negative-margin-8x $negative-margin-6x $negative-margin-8x;
 
     .el-button + .el-button {
       margin-left: $margin-4x;

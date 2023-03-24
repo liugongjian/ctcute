@@ -36,7 +36,6 @@ import ElementUI, {
   TimePicker,
   Popover,
   Tooltip,
-  MessageBox,
   Breadcrumb,
   BreadcrumbItem,
   Form,
@@ -88,7 +87,15 @@ import ElementUI, {
   DescriptionsItem,
   Result,
 } from 'element-ui'
-import ElementUIOverride, { Steps, Step, Alert, Collapse, Rate, Button } from './components/ElementUI'
+import ElementUIOverride, {
+  Steps,
+  Step,
+  Alert,
+  Collapse,
+  Rate,
+  Button,
+  MessageBox,
+} from './components/ElementUI'
 import './components/ElementUI/settings'
 import './style/index.scss'
 import './fonts/iconfont.css'

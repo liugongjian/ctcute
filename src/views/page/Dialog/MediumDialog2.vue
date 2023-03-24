@@ -1,8 +1,8 @@
 <!--
  * @Author: zhaodan
  * @Date: 2023-01-06 14:40:32
- * @LastEditors: zhaodan
- * @LastEditTime: 2023-01-09 14:12:23
+ * @LastEditors: zhulh
+ * @LastEditTime: 2023-03-24 14:50:27
  * @Description: 中弹窗2
 -->
 
@@ -16,56 +16,48 @@
       </p>
       <el-button type="primary" @click="handleClick">中弹窗2</el-button>
     </div>
-    <el-dialog
-      class="medium-dialog2"
-      :title="title"
-      :visible="visible"
-      :close-on-click-modal="false"
-      @close="close"
-    >
-      <div class="medium-dialog2--content">
-        <el-form ref="ruleForm" :rules="rules" :model="form" label-width="104px">
-          <el-form-item label="类型" prop="type">
-            <el-radio-group v-model="form.type">
-              <el-radio-button label="default">默认选项</el-radio-button>
-              <el-radio-button label="active">选中选项</el-radio-button>
-            </el-radio-group>
-          </el-form-item>
+    <el-dialog width="570px" :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
+      <el-form ref="ruleForm" :rules="rules" :model="form" label-width="104px">
+        <el-form-item label="类型" prop="type">
+          <el-radio-group v-model="form.type">
+            <el-radio-button label="default">默认选项</el-radio-button>
+            <el-radio-button label="active">选中选项</el-radio-button>
+          </el-radio-group>
+        </el-form-item>
 
-          <el-form-item label="名称" prop="name">
-            <el-input v-model="form.name" value="" placeholder="请输入名称"></el-input>
-          </el-form-item>
+        <el-form-item label="名称" prop="name">
+          <el-input v-model="form.name" value="" placeholder="请输入名称"></el-input>
+        </el-form-item>
 
-          <el-form-item label="上级菜单" prop="menu">
-            <el-select v-model="form.menu" placeholder="请选择上级菜单">
-              <el-option label="菜单一" value="shanghai"></el-option>
-              <el-option label="菜单二" value="beijing"></el-option>
-            </el-select>
-          </el-form-item>
+        <el-form-item label="上级菜单" prop="menu">
+          <el-select v-model="form.menu" placeholder="请选择上级菜单">
+            <el-option label="菜单一" value="shanghai"></el-option>
+            <el-option label="菜单二" value="beijing"></el-option>
+          </el-select>
+        </el-form-item>
 
-          <el-form-item label="排序" prop="sort">
-            <el-input v-model="form.sort" value="" placeholder="请输入排序"></el-input>
-          </el-form-item>
+        <el-form-item label="排序" prop="sort">
+          <el-input v-model="form.sort" value="" placeholder="请输入排序"></el-input>
+        </el-form-item>
 
-          <el-form-item label=" " class="medium-dialog2__explain">
-            <span>
-              <svg-icon name="warning-circle" />
-            </span>
-            <span class="medium-dialog2__explain__text">
-              权限标识与别名说明<br />
-              标识，别名属同一个权限，主要用于前后分离，前后权限标识不一致，且前后两端皆须判定权限的项目，一般情况别名指控即可，如有多个别名可逗号分隔。
-            </span>
-          </el-form-item>
+        <el-form-item label=" " class="medium-dialog2__explain">
+          <span>
+            <svg-icon name="warning-circle" />
+          </span>
+          <span class="medium-dialog2__explain__text">
+            权限标识与别名说明<br />
+            标识，别名属同一个权限，主要用于前后分离，前后权限标识不一致，且前后两端皆须判定权限的项目，一般情况别名指控即可，如有多个别名可逗号分隔。
+          </span>
+        </el-form-item>
 
-          <el-form-item label="标识" prop="permissionTag">
-            <el-input v-model="form.permissionTag" value="" placeholder="请输入权限标识"></el-input>
-          </el-form-item>
-          <el-form-item label="别名" prop="alias">
-            <el-input v-model="form.alias" value="" placeholder="请输入别名"></el-input>
-          </el-form-item>
-        </el-form>
-      </div>
-      <div class="medium-dialog2--footer">
+        <el-form-item label="标识" prop="permissionTag">
+          <el-input v-model="form.permissionTag" value="" placeholder="请输入权限标识"></el-input>
+        </el-form-item>
+        <el-form-item label="别名" prop="alias">
+          <el-input v-model="form.alias" value="" placeholder="请输入别名"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer">
         <el-button @click="close">{{ cancelButtonText }}</el-button>
         <el-button type="primary" :loading="submitting" @click="confirm">{{ confirmButtonText }}</el-button>
       </div>

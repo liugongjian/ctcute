@@ -320,6 +320,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'dialog',
+        name: 'Dialog',
+        component: () => import('@/views/component/Test/Dialog.vue'),
+        meta: {
+          title: 'Dialog',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'input',
         name: 'Input',
         component: () => import('@/views/component/Test/Input.vue'),

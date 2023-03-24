@@ -157,8 +157,8 @@ const componentsList = [
 ]
 
 export default {
-  install(Vue) {
-    Vue.use(ElementUI, { size: 'medium' })
+  install(Vue, opts = { size: 'medium' }) {
+    Vue.use(ElementUI, opts)
     Vue.use(ElementUIOverride)
     Vue.component('SvgIcon', SvgIcon)
 

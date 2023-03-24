@@ -78,7 +78,7 @@
 
 .el-tree-node.is-focusable {
   &>.el-tree-node__content {
-    color: $color-grey-1;
+    color: $color-neutral-11;
 
     &:hover:not(.is-current>.el-tree-node__content:hover) {
       color: $color-master;

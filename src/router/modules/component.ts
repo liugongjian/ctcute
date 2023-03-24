@@ -363,6 +363,24 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'transfer',
+        name: 'Transfer',
+        component: () => import('@/views/component/Test/Transfer.vue'),
+        meta: {
+          title: 'Transfer',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'rate',
+        name: 'Rate',
+        component: () => import('@/views/component/Test/Rate.vue'),
+        meta: {
+          title: 'Rate',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

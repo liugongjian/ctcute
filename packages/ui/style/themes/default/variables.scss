@@ -332,6 +332,8 @@ $transfer-button-width: 38px !default; // Transfer组件圆形按钮
 $transfer-button-radius: 50% !default; // Transfer组件圆形按钮
 $transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
 $transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
+$transfer-item-height: 32px !default; // Transfer组件选项高度
+$transfer-filter-height: $input-sm-height !default;  // Transfer组件搜索框高度
 
 /* Tooltip
 -------------------------- */

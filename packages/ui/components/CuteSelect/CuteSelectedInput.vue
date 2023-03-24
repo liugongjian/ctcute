@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-23 15:59:45
+ * @LastEditTime: 2023-03-24 14:41:47
  * @Description: 操作已选项
 -->
 <template>
@@ -67,13 +67,13 @@ export default class extends Vue {
 
   ::v-deep.el-input__inner {
     padding-right: 0;
-    color: $color-grey-1;
+    color: $color-neutral-10;
   }
 }
 
 .select-uncheck {
   padding-right: 0;
-  color: $color-grey-1;
+  color: $color-neutral-10;
 }
 
 .select-field {

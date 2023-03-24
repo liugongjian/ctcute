@@ -35,8 +35,8 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .combination-button {
   .el-button + .el-button {
-    margin-left: $cute-buttong-group-margin;
-    z-index: $cute-buttong-group-zindex;
+    margin-left: $cute-button-group-margin;
+    z-index: $cute-button-group-zindex;
   }
 
   .el-button + .el-dropdown {
@@ -52,20 +52,20 @@ export default class extends Vue {
 
     &:hover {
       position: relative;
-      border-color: $color-master-1 !important;
+      border-color: $color-master !important;
     }
   }
 
   .el-button--medium:first-child {
-    border-radius: $cute-buttong-group-border 0 0 $cute-buttong-group-border;
+    border-radius: $cute-button-group-border 0 0 $cute-button-group-border;
   }
 
   .el-button--medium:last-child {
-    border-radius: 0 $cute-buttong-group-border $cute-buttong-group-border 0;
+    border-radius: 0 $cute-button-group-border $cute-button-group-border 0;
   }
 
   .el-button + .el-dropdown {
-    margin-left: $cute-buttong-group-margin;
+    margin-left: $cute-button-group-margin;
 
     .el-button--medium {
       border-radius: 0;
@@ -73,7 +73,7 @@ export default class extends Vue {
 
       &:hover {
         position: relative;
-        border-color: $color-master-1 !important;
+        border-color: $color-master !important;
       }
     }
   }

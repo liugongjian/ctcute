@@ -2,7 +2,7 @@
  * @Author: 王亚振
  * @Date: 2022-10-11 15:06:30
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-23 15:40:57
+ * @LastEditTime: 2023-03-24 14:38:32
  * @Description:
 -->
 <template>
@@ -43,13 +43,13 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .edit-input-icon {
-  font-size: $text-size-large;
+  font-size: $text-size-lg;
   margin-left: $margin-10;
-  color: $color-grey-3;
+  color: $color-neutral-8;
   cursor: pointer;
 
   &:hover {
-    color: $color-master-1;
+    color: $color-master;
   }
 
   &.svg-icon {
@@ -75,7 +75,7 @@ export default class extends Vue {
 
   svg {
     cursor: pointer;
-    font-size: $text-size-large;
+    font-size: $text-size-lg;
     margin-right: $margin;
     vertical-align: sub;
   }

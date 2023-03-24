@@ -8,8 +8,11 @@
 @mixin global-tips($class, $icon-color, $bg-color) {
   .is-alert-tip {
     .el-alert--#{$class}.is-light {
-      color: $text-color;
+      color: $alert-text-color;
       background-color: $bg-color;
+      .el-alert__closebtn{
+        color: $icon-color; // 关闭按钮默认颜色
+      }
 
       .el-alert__icon {
         color: $icon-color;
@@ -17,11 +20,11 @@
     }
   }
 }
-@include global-tips(info, $color-master, $tag-master); // 与element-ui不同的是这里UI规定了info使用蓝色主题色，额外增加了weak类型显示灰色的提示
-@include global-tips(success, $color-success, $tag-success);
-@include global-tips(warning, $color-warning, $tag-warning);
-@include global-tips(error, $color-danger, $tag-danger);
-@include global-tips(weak, $color-info, $tag-info);
+@include global-tips(info, $color-master, $alert-info-bg); // 与element-ui不同的是这里UI规定了info使用蓝色主题色，额外增加了weak类型显示灰色的提示
+@include global-tips(success, $color-success, $alert-success-bg);
+@include global-tips(warning, $color-warning, $alert-warning-bg);
+@include global-tips(error, $color-danger, $alert-danger-bg);
+@include global-tips(weak, $color-info, $alert-weak-bg);
 
 .el-alert {
   padding: $margin-2x $margin-4x;

@@ -381,6 +381,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'alert',
+        name: 'Alert',
+        component: () => import('@/views/component/Test/Alert.vue'),
+        meta: {
+          title: 'Alert',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

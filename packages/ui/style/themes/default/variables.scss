@@ -396,6 +396,16 @@ $loading-primary-border: $loading-primary-color !default;
 $loading-default-color: $color-grey-10 !default;
 $loading-default-border: $color-grey-6 !default;
 
+/* Alert
+-------------------------- */
+$alert-height: $common-space-9x;
+$alert-text-color: $text-color-light!default;
+$alert-info-bg: $blue-2 !default;
+$alert-success-bg: $green-1 !default;
+$alert-warning-bg: $orange-2 !default;
+$alert-danger-bg: $ruby-2 !default;
+$alert-weak-bg: $neutral-1 !default;
+
 /* Layout
 -------------------------- */
 /* Header */

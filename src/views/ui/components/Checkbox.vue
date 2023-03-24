@@ -56,8 +56,8 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .el-row {
   margin-top: 24px;
+
   .el-checkbox-group {
-    display: inline-block;
     // padding-right: 10px;
     display: inline-block;
     padding-left: 10px;

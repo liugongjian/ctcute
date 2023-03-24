@@ -1,12 +1,18 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-10-17 20:57:52
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-03 16:36:33
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-03-24 16:50:04
  * @Description:
 -->
 <template>
   <div class="sub-slider">
+    <div>
+      <el-select v-model="value" placeholder="请选择" style="width: 100px;">
+        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+        </el-option>
+      </el-select>
+    </div>
     <el-row>
       <el-col>
         <el-slider range :min="5" :max="60" :marks="{ 5: '5岁', 60: '60岁' }"> </el-slider>
@@ -71,6 +77,29 @@ export default class extends Vue {
     zh: '滑动输入条',
     en: 'Slider',
   }
+  public options = [
+    {
+      value: '选项1',
+      label: '黄金糕',
+    },
+    {
+      value: '选项2',
+      label: '双皮奶',
+    },
+    {
+      value: '选项3',
+      label: '蚵仔煎',
+    },
+    {
+      value: '选项4',
+      label: '龙须面',
+    },
+    {
+      value: '选项5',
+      label: '北京烤鸭',
+    },
+  ]
+  public value = ''
   public static description = {
     maintainer: '马妍',
     version: 'v1.0',
@@ -91,8 +120,8 @@ export default class extends Vue {
     console.log(val, 'input值')
     this.value = val
   }
-  private values = 10
-  private value = [4, 8]
+  private values = 100
+  private value = [20, 100]
 }
 </script>
 

@@ -43,7 +43,7 @@
 */
 .el-select {
   .el-tag {
-    background: $disabled-fill;
+    background: $cascader-tag-bg;
     border: 1px solid $border-color;
     border-radius: $border-radius;
   }
@@ -78,21 +78,27 @@
   border: none;
 
   &__item {
-    height: 30px;
-    line-height: 30px;
+    &.hover{
+      background-color: unset;
+    }
+    &:hover {
+      background-color: $color-neutral-1;
+    }
+    height: 34px;
+    line-height: 34px;
     font-size: $text-size;
     background-color: $color-bg-1;
     
     &:not(.el-select-dropdown__item.selected):not(.el-select-dropdown__item.is-disabled):hover {
-      // background-color: $color-master-bg-light-2;
-      background-color:unset;
+      
+      // background-color:unset;
       span {
         color: $color-master;
       }
     }
 
     &.selected {
-       background-color: $color-master-bg-light-2;
+      //  background-color: $color-master-bg-light-2;
       // background: $color-master;
       color: $color-master;
     }
@@ -104,7 +110,7 @@
   }
 
   &.is-multiple &__item.selected {
-    background: $color-bg-3;
+    // background: $color-bg-3;
     color: $color-master;
 
     &:hover {

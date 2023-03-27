@@ -338,6 +338,21 @@ export interface IScssVariablesRevised {
   chartColorL10: string
   chartColorL11: string
   chartColorL12: string
+  alertTextColor: string
+  alertInfoBg: string
+  alertSuccessBg: string
+  alertWarningBg: string
+  alertDangerBg: string
+  alertWeakBg: string
+  transferHeaderHeight: string
+  transferHeaderBg: string
+  transferButtonHegiht: string
+  transferButtonWidth: string
+  transferButtonRadius: string
+  transferItemActiveBg: string
+  transferItemHoverBg: string
+  transferItemHeight: string
+  transferFilterHeigh: string
 }
 
 export const variablesRevised: IScssVariablesRevised

@@ -353,6 +353,13 @@ export interface IScssVariablesRevised {
   transferItemHoverBg: string
   transferItemHeight: string
   transferFilterHeigh: string
+  cuteSliderMarksHeight: string
+  cuteSliderBarHeight: string
+  cuteSliderInputWidth: string
+  cuteSliderBtnBg: string
+  cuteSliderBtnRadius: string
+  cuteSliderBtnWidth: string
+  cuteSliderBtnHeight: string
 }
 
 export const variablesRevised: IScssVariablesRevised

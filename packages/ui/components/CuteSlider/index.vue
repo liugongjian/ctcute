@@ -51,6 +51,7 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue, VModel, Watch } from 'vue-property-decorator'
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 @Component({
   name: 'CuteSlider',
 })
@@ -168,8 +169,8 @@ export default class extends Vue {
   private mounted() {
     const btn = document.querySelectorAll('.el-slider.cute-slider .el-tooltip.el-slider__button') as any
     for (let i = 0; i < btn.length; i++) {
-      btn[i].style.width = '20px'
-      btn[i].style.height = '28px'
+      btn[i].style.width = variables.cuteSliderBtnWidth
+      btn[i].style.height = variables.cuteSliderBtnHeight
       btn[i].innerHTML = '|||'
     }
   }
@@ -180,13 +181,13 @@ export default class extends Vue {
   display: flex;
 
   ::v-deep .disabled {
-    background: $color-grey-6 !important;
+    background: $disabled-border !important;
   }
 
   ::v-deep .el-slider__stop {
     border: 1px solid $color-bg-2;
     width: 1px;
-    height: 8px;
+    height: $cute-slider-marks-height;
     border-radius: 0;
   }
 
@@ -195,20 +196,20 @@ export default class extends Vue {
   }
 
   ::v-deep .el-slider {
-    margin-right: 20px;
+    margin-right: $margin-5x;
 
     //常规
     .el-slider__runway {
       width: var(--width-slider);
-      background: $color-master-5;
-      height: 8px;
+      background: $color-master-bg-light;
+      height: $cute-slider-marks-height;
 
       .el-slider__button {
-        border: 1px solid $color-master-1;
-        border-radius: 20px;
-        background: linear-gradient(to bottom, $color-white, $color-master-5);
-        line-height: 25px;
-        color: $color-master-1;
+        border: 1px solid $color-master;
+        border-radius: $cute-slider-btn-radius;
+        background: linear-gradient(to bottom, $color-white, $color-master-bg-light);
+        line-height: $cute-slider-btn-height - 1px * 2;
+        color: $color-master;
         letter-spacing: 1px;
       }
     }
@@ -216,28 +217,25 @@ export default class extends Vue {
     .el-slider__runway.disabled {
       .el-slider__button {
         border: 1px solid $disabled-border;
-        border-radius: 20px;
-        background: $color-grey-10;
-        line-height: 25px;
-        color: $color-grey-4;
-        letter-spacing: 1px;
+        background: $disabled-bg;
+        color: $disabled-color;
       }
     }
 
     .el-slider__bar {
-      height: 16px;
-      top: -4px;
-      border-radius: 3px;
+      height: $cute-slider-bar-height;
+      top: -($cute-slider-bar-height - $cute-slider-marks-height) / 2;
+      border-radius: $border-radius;
     }
 
     .el-slider__marks {
-      height: 8px;
+      height: $cute-slider-marks-height;
       // background: $color-master-5;
     }
 
     .el-slider__marks-text {
       text-align: left;
-      margin-top: 19px;
+      margin-top: $margin-5x;
     }
   }
 
@@ -247,10 +245,10 @@ export default class extends Vue {
   }
 
   .slider-unit {
-    margin-left: 10px;
-    font-size: 12px;
-    color: $color-grey-1;
-    font-weight: 400;
+    margin-left: $margin-3x;
+    font-size: $text-size;
+    color: $text-color;
+    font-weight: $text-weight;
   }
 
   .sliders-range {
@@ -260,10 +258,10 @@ export default class extends Vue {
     .range-input {
       display: flex;
       align-items: center;
-      color: $color-grey-1;
+      color: $text-color;
 
       .range-line {
-        margin: 0 10px;
+        margin: 0 $margin-3x;
       }
     }
   }
@@ -274,10 +272,6 @@ export default class extends Vue {
 }
 
 ::v-deep .el-input {
-  width: 60px;
-
-  .el-input__inner {
-    width: 64px;
-  }
+  width: $cute-slider-input-width;
 }
 </style>

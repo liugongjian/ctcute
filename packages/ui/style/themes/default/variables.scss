@@ -405,6 +405,17 @@ $alert-warning-bg: $orange-2 !default;
 $alert-danger-bg: $ruby-2 !default;
 $alert-weak-bg: $neutral-1 !default;
 
+/* CuteSlider
+-------------------------- */
+$cute-slider-marks-height: 8px !default;
+$cute-slider-bar-height: 16px !default;
+$cute-slider-input-width: 64px !default;
+$cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;
+$cute-slider-btn-radius: 20px !default;
+$cute-slider-btn-width: 20px !default;
+$cute-slider-btn-height: 28px !default;
+
+
 /* Layout
 -------------------------- */
 /* Header */

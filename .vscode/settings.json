@@ -23,5 +23,10 @@
     "LastEditTime": "Do not edit",
     "Description": ""
   },
-  "i18n-ally.localesPaths": ["src/i18n"]
+"i18n-ally.localesPaths": [
+    "src/i18n"
+],
+"emmet.preferences": {
+    "editor.formatOnSave": true
+}
 }

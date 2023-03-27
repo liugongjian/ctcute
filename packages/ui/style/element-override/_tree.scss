@@ -5,7 +5,6 @@
   background: transparent; //TODO
 }
 
-
 .el-tree-node {
   &__content {
     height: $common-space-8x;
@@ -13,32 +12,32 @@
     line-height: $line-height;
     font-size: $text-size;
     color: $color-grey-4;
-    & > .el-tree-node__expand-icon{
+    & > .el-tree-node__expand-icon {
       padding: $tree-node-icon-padding;
     }
-    .el-checkbox__input{
+    .el-checkbox__input {
       width: $tree-checkbox-size;
       height: $tree-checkbox-size;
-      .el-checkbox__inner{
+      .el-checkbox__inner {
         width: 100%;
         height: 100%;
-        &::before{
+        &::before {
           width: $tree-checkbox-size;
           height: $tree-checkbox-size;
           top: 0px;
           left: 0px;
-          transform: translate($tree-checkbox-transform,$tree-checkbox-transform) scale($tree-checkbox-scale);
+          transform: translate($tree-checkbox-transform, $tree-checkbox-transform) scale($tree-checkbox-scale);
         }
-        &::after{
+        &::after {
           left: $common-space;
           top: $tree-checkbox-tick-top;
         }
       }
     }
     .is-indeterminate {
-      .el-checkbox__inner{
+      .el-checkbox__inner {
         background: $color-master;
-        &::before{
+        &::before {
           background: $color-white;
         }
       }
@@ -66,7 +65,7 @@
       }
     }
     .is-disabled {
-      &~.el-tree-node__label {
+      & ~ .el-tree-node__label {
         color: $color-neutral-10;
       }
     }
@@ -82,10 +81,10 @@
 }
 
 .el-tree-node.is-focusable {
-  &>.el-tree-node__content {
+  & > .el-tree-node__content {
     color: $color-neutral-11;
 
-    &:hover:not(.is-current>.el-tree-node__content:hover) {
+    &:hover:not(.is-current > .el-tree-node__content:hover) {
       color: $color-master;
       background: $color-master-bg-light-2;
 
@@ -96,7 +95,7 @@
   }
 
   &.is-current {
-    &>.el-tree-node__content {
+    & > .el-tree-node__content {
       color: $color-white;
       background: $color-master;
 
@@ -145,7 +144,6 @@
 
 .el-tree-node__expand-icon {
   color: $color-grey-5;
-  // font-size: $tree-expand-icon-size;
 }
 
 .el-tree-node__expand-icon.is-leaf {

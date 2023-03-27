@@ -1,7 +1,7 @@
 /* Descriptions
 -------------------------- */
 
-.el-descriptions{
+.el-descriptions {
   &__header {
     margin-bottom: $margin-4x;
   }
@@ -12,35 +12,35 @@
     padding: $padding 0;
   }
 
-  &__body{
-    .el-descriptions-item__label{
+  &__body {
+    .el-descriptions-item__label {
       color: $descriptions-font-color-label;
       &.is-bordered-label {
-          background: $color-neutral-1;
-          // text-align: right;
-          color: $descriptions-font-color-label-bordered;
-          font-weight: 400;
-          padding-right: $padding-6x;
-          width: $descriptions-label-width;
-        }
+        background: $color-neutral-1;
+        // text-align: right;
+        color: $descriptions-font-color-label-bordered;
+        font-weight: 400;
+        padding-right: $padding-6x;
+        width: $descriptions-label-width;
       }
     }
+  }
 
-  .is-bordered{
-    .el-descriptions-item__cell{
-        border-color: $color-neutral-3;
-        height: $descriptions-item-height;
+  .is-bordered {
+    .el-descriptions-item__cell {
+      border-color: $color-neutral-3;
+      height: $descriptions-item-height;
     }
-    &.el-descriptions__table{
+    &.el-descriptions__table {
       border-radius: $border-radius;
     }
   }
-  &-item{
-    &__label{
+  &-item {
+    &__label {
       min-width: $descriptions-item-label-min-width;
       margin-right: $margin-4x;
     }
-    &__cell &__content{
+    &__cell &__content {
       width: $descriptions-item-content-width;
       background-color: $color-bg-2;
 
@@ -50,5 +50,3 @@
     }
   }
 }
-
-

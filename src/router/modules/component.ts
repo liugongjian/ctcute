@@ -364,6 +364,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'state',
+        name: 'State',
+        component: () => import('@/views/component/Test/State.vue'),
+        meta: {
+          title: 'State',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'card',
         name: 'Card',
         component: () => import('@/views/component/Test/Card.vue'),

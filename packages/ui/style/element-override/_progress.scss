@@ -1,6 +1,5 @@
 /* Progress
 -------------------------- */
-@use 'sass:color';
 
 .el-progress.is-success .el-progress-bar__inner {
   background-color: $color-success;
@@ -20,40 +19,39 @@
 
 .el-progress-bar__inner,
 .el-progress-bar__outer {
-  height: 12px !important;
+  height: $progress-text-height-sm !important;
 }
 
 .el-progress-bar__outer {
-  border-radius: 2px 0 0 2px;
+  border-radius: $border-radius 0 0 $border-radius;
 }
 
 .el-progress-bar__inner {
-  border-radius: 2px;
+  border-radius: $border-radius;
 }
 
 .el-progress-bar__innerText {
   position: absolute;
   right: 50%;
   top: 1px;
-  line-height: 10px;
-  font-size: 10px;
+  line-height: $progress-text-size-sm;
+  font-size: $progress-text-size-sm;
   color: $color-white !important;
 }
 
 .el-progress__text {
   font-size: $text-size !important;
   color: $color-neutral-10 !important;
-  font-weight: 400;
   font-family: $font-family;
-  margin-left: 16px;
+  margin-left: $common-space-4x;
 }
 
 .el-progress--circle .el-progress__text,
 .el-progress--dashboard .el-progress__text {
-  height: 30px;
-  line-height: 30px;
+  height: $progress-text-height-lm;
+  line-height: $progress-text-height-lm;
   color: $color-neutral-10 !important;
-  font-size: 20px !important;
-  font-weight: 600;
+  font-size: $progress-text-size-lm !important;
+  font-weight: $progress-text-title-weight;
   font-family: $font-family;
 }

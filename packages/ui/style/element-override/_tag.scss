@@ -20,7 +20,7 @@
   .el-tag {
     // light
     &.el-tag--light.el-tag#{$type} {
-      border-color: $color-dark;
+      border-color: $color-light;
       color: $color-dark;
       background-color: $color-light;
 
@@ -54,6 +54,7 @@
     &.el-tag--plain.el-tag#{$type} {
       border-color: $color-dark;
       color: $color-dark;
+      background-color: $color-light;
 
       .el-tag__close {
         color: $color-dark;

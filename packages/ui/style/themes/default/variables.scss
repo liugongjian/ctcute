@@ -323,6 +323,13 @@ $pagination-bg: $color-white !default;
 
 $pagination-fill: $color-white; // deprecated(弃用)
 
+/* Progress
+-------------------------- */
+$progress-text-height-lm: 30px;
+$progress-text-height-sm: 12px;
+$progress-text-size-lm: 20px;
+$progress-text-size-sm: 10px;
+$progress-text-title-weight: 600;
 /* Tooltip
 -------------------------- */
 $tooltip-bg: $color-neutral-8 !default;

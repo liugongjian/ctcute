@@ -338,6 +338,13 @@ export interface IScssVariablesRevised {
   chartColorL10: string
   chartColorL11: string
   chartColorL12: string
+  appendixBigItemWidth: string
+  appendixBigItemHeight: string
+  appendixBigTextMaxWidth: string
+  richTextToolbarWidth: string
+  richTextEditorHeight: string
+  codeboxWidth: string
+  codeboxPBContainer: string
 }
 
 export const variablesRevised: IScssVariablesRevised

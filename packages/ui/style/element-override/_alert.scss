@@ -27,8 +27,7 @@
 @include global-tips(weak, $color-info, $alert-weak-bg);
 
 .el-alert {
-  padding: $padding-2x $padding-4x;
-  width: auto;
+  padding: $padding-2x $padding-8x $padding-2x $padding-4x;
 }
 
 .el-alert.is-light .el-alert__description{
@@ -49,13 +48,7 @@
 }
 
 .is-alert-tip {
-  .el-alert__closebtn {
-    position: static;
-    margin-left: $margin-4x;
-  }
-
   .el-alert__closebtn.is-customed {
     font-size: $text-size-primary;
-    top: $common-space-2x;
   }
 }

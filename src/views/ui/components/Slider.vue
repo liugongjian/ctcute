@@ -2,17 +2,17 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-17 20:57:52
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-03-27 14:18:10
+ * @LastEditTime: 2023-03-27 14:25:33
  * @Description:
 -->
 <template>
   <div class="sub-slider">
-    <div>
+    <!-- <div>
       <el-select v-model="value" placeholder="请选择" style="width: 100px;">
         <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
         </el-option>
       </el-select>
-    </div>
+    </div> -->
     <el-row>
       <el-col>
         <el-slider range :min="5" :max="60" :marks="{ 5: '5岁', 60: '60岁' }"> </el-slider>

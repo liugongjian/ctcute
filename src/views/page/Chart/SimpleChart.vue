@@ -505,7 +505,7 @@ export default class extends Vue {
   ::v-deep .el-tabs__header {
     margin: 0;
     height: 40px;
-    margin-top: 12px;
+    margin-top: $margin-3x;
   }
 
   ::v-deep .el-tabs__nav-wrap:after {

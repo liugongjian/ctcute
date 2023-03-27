@@ -15,7 +15,7 @@
 import * as echarts from 'echarts'
 import ECharts, { THEME_KEY } from 'vue-echarts'
 import { Component, Prop, Vue, Provide } from 'vue-property-decorator'
-import china from './json/全国地图.json'
+// import china from './json/全国地图.json'
 import themeOrange from './theme/orange.json'
 
 echarts.registerTheme('cuted-orange', themeOrange)
@@ -32,7 +32,7 @@ export default class extends Vue {
   @Prop({ type: [Number, String], default: '200px' }) height?: '200px' // 宽度
   @Prop({ type: String, default: 'cuted-orange' }) theme?: 'cuted-orange' // 主题
   mounted() {
-    echarts.registerMap('china', china)
+    // echarts.registerMap('china', china)
   }
   @Provide(THEME_KEY) private getTheme(): string {
     return this.theme

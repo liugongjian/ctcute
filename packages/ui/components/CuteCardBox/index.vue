@@ -43,7 +43,7 @@ export default class extends Vue {
   }
 
   ::v-deep .el-card__body {
-    padding: $padding-4x $padding-6x $padding-5x;
+    padding: 0;
   }
 
   &__header {
@@ -64,6 +64,11 @@ export default class extends Vue {
       align-items: center;
       justify-content: space-between;
     }
+  }
+
+  &__content {
+    padding: $padding-4x $padding-6x $padding-5x;
+    box-sizing: border-box;
   }
 }
 </style>

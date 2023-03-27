@@ -172,6 +172,24 @@ const docRoutes = [
       },
     ],
   },
+  {
+    path: '/docs/variables',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'Variables',
+        component: () => import('@/views/doc/Guides/Variables.vue'),
+        meta: {
+          title: 'SASS变量',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
 ]
 
 export default docRoutes

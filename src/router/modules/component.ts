@@ -363,6 +363,42 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'card',
+        name: 'Card',
+        component: () => import('@/views/component/Test/Card.vue'),
+        meta: {
+          title: 'Card',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'badge',
+        name: 'Badge',
+        component: () => import('@/views/component/Test/Badge.vue'),
+        meta: {
+          title: 'Badge',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'progress',
+        name: 'Progress',
+        component: () => import('@/views/component/Test/Progress.vue'),
+        meta: {
+          title: 'Progress',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'timeline',
+        name: 'Timeline',
+        component: () => import('@/views/component/Test/Timeline.vue'),
+        meta: {
+          title: 'Timeline',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

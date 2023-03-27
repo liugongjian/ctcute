@@ -20,13 +20,13 @@
   .el-tag {
     // light
     &.el-tag--light.el-tag#{$type} {
-      border-color: $color-light;
+      border-color: $color-dark;
       color: $color-dark;
       background-color: $color-light;
 
       .el-tag__close {
         color: $color-dark;
-        
+
         &:hover {
           color: $color-dark-hover;
           background: none;
@@ -39,7 +39,7 @@
       border-color: $color-dark;
       color: $color-white;
       background-color: $color-dark;
-  
+
       .el-tag__close {
         color: $color-white;
 
@@ -57,7 +57,7 @@
 
       .el-tag__close {
         color: $color-dark;
-    
+
         &:hover {
           color: $color-dark-hover;
           background: none;

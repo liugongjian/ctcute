@@ -1,18 +1,59 @@
 /* Progress
 -------------------------- */
+@use 'sass:color';
+
 .el-progress.is-success .el-progress-bar__inner {
   background-color: $color-success;
 }
 
 .el-progress.is-success .el-progress__text {
-  color: $color-success;
+  color: $color-success !important;
+}
+
+.el-progress.is-exception .el-progress__text {
+  color: $color-danger !important;
+}
+
+.el-progress.is-warning .el-progress__text {
+  color: $color-warning !important;
 }
 
 .el-progress-bar__inner,
 .el-progress-bar__outer {
-  border-radius: 0;
+  height: 12px !important;
+}
+
+.el-progress-bar__outer {
+  border-radius: 2px 0 0 2px;
+}
+
+.el-progress-bar__inner {
+  border-radius: 2px;
+}
+
+.el-progress-bar__innerText {
+  position: absolute;
+  right: 50%;
+  top: 1px;
+  line-height: 10px;
+  font-size: 10px;
+  color: $color-white !important;
 }
 
 .el-progress__text {
   font-size: $text-size !important;
+  color: $color-neutral-10 !important;
+  font-weight: 400;
+  font-family: $font-family;
+  margin-left: 16px;
+}
+
+.el-progress--circle .el-progress__text,
+.el-progress--dashboard .el-progress__text {
+  height: 30px;
+  line-height: 30px;
+  color: $color-neutral-10 !important;
+  font-size: 20px !important;
+  font-weight: 600;
+  font-family: $font-family;
 }

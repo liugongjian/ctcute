@@ -1,12 +1,18 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-10-17 20:57:52
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-03 16:36:33
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-03-27 14:25:33
  * @Description:
 -->
 <template>
   <div class="sub-slider">
+    <!-- <div>
+      <el-select v-model="value" placeholder="请选择" style="width: 100px;">
+        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+        </el-option>
+      </el-select>
+    </div> -->
     <el-row>
       <el-col>
         <el-slider range :min="5" :max="60" :marks="{ 5: '5岁', 60: '60岁' }"> </el-slider>
@@ -36,14 +42,14 @@
     </el-row>
     <el-row>
       <cute-slider
-        v-model="value"
+        v-model="rangeValue"
         :min="1"
         :max="500"
         :disabled="false"
         :marks="marks"
         :range="true"
         unit="Mbit/s"
-        @moveChange="changes"
+        @moveChange="rangeChanges"
         @inputChange="inputChange"
       />
     </el-row>
@@ -71,6 +77,29 @@ export default class extends Vue {
     zh: '滑动输入条',
     en: 'Slider',
   }
+  public options = [
+    {
+      value: '选项1',
+      label: '黄金糕',
+    },
+    {
+      value: '选项2',
+      label: '双皮奶',
+    },
+    {
+      value: '选项3',
+      label: '蚵仔煎',
+    },
+    {
+      value: '选项4',
+      label: '龙须面',
+    },
+    {
+      value: '选项5',
+      label: '北京烤鸭',
+    },
+  ]
+  private value = ''
   public static description = {
     maintainer: '马妍',
     version: 'v1.0',
@@ -83,16 +112,20 @@ export default class extends Vue {
     400: '400',
     500: '500',
   }
+  private values = 200
+  private rangeValue = [100, 200]
   private changes(val) {
     console.log(val, 'slider值')
-    this.value = val
+    this.values = val
+  }
+  private rangeChanges(val) {
+    console.log(val, 'slider值')
+    this.rangeValue = val
   }
   private inputChange(val) {
     console.log(val, 'input值')
-    this.value = val
+    this.rangeValue = val
   }
-  private values = 10
-  private value = [4, 8]
 }
 </script>
 

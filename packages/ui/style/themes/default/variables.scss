@@ -10,7 +10,8 @@ $color-master-active: $blue-7 !default; // 触发
 $color-master-disabled: $blue-4 !default; // 禁用
 $color-master-bg: $blue-3 !default; // 背景
 $color-master-bg-light: $blue-2 !default; // 背景浅色
-$color-master-bg-light-2: $blue-1 !default; // 背景浅色2
+// $color-master-bg-light-2: $blue-1 !default; // 背景浅色2
+$color-master-bg-light-2: $neutral-1  !default; // 背景浅色2
 
 $color-master-1: $blue-base; // deprecated(弃用)
 $color-master-2: $blue-5; // deprecated(弃用)
@@ -288,8 +289,8 @@ $input-bg: $color-bg-1 !default;
 $input-disabled-bg: $disabled-bg !default;
 $input-hover-border: $border-color-hover !default;
 $input-active-border: $color-master !default;
-$input-xs-height: 28px !default;
-$input-sm-height: 28px !default;
+$input-xs-height: 24px !default;
+$input-sm-height: 24px !default;
 $input-md-height: 32px !default;
 $input-lg-height: 40px !default;
 $input-height: $input-md-height !default;
@@ -370,7 +371,8 @@ $cascader-tag-bg: $neutral-1 !default;
 $cascader-tag-border: $neutral-5 !default;
 $cascader-tag-close-color: $white !default;
 $cascader-tag-close-bg: $neutral-6 !default;
-$cascader-node-hover: $color-master-bg-light-2 !default;
+// $cascader-node-hover: $color-master-bg-light-2 !default;
+$cascader-node-hover: $neutral-1 !default;
 $cascader-panel-bg: $color-bg-1 !default;
 $cascader-panel-shadow: $shadow-2 !default;
 

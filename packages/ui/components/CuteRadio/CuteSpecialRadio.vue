@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-15 10:12:49
- * @LastEditors: 马妍
- * @LastEditTime: 2022-12-15 21:08:45
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-03-23 15:57:32
  * @Description:
 -->
 <template>
@@ -27,7 +27,7 @@ export default class extends Vue {
   @Prop({ type: String, default: '' }) size?: ''
   @Model('change', { type: String, default: '' }) value: string
   @Emit('change')
-  myChange(key) {
+  private myChange(key) {
     return key
   }
 }
@@ -36,7 +36,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .special-radio {
   ::v-deep.el-radio-group .el-radio-button--medium .el-radio-button__inner {
-    padding: 8px 20px;
+    padding: 6px 20px;
   }
 
   ::v-deep.el-radio-group .el-radio-button--small .el-radio-button__inner {
@@ -44,32 +44,37 @@ export default class extends Vue {
   }
 
   .el-radio-group .el-radio-button {
-    margin-left: 2px;
+    margin-left: 4px;
 
     ::v-deep.el-radio-button__inner {
-      border: none;
+      border: 1px solid $color-neutral-5;
     }
   }
 
   ::v-deep.el-radio-group .el-radio-button:not(.is-active):not(.is-disabled) .el-radio-button__inner {
     background: $color-master-6;
     color: $color-grey-1;
+    border-radius: 3px;
 
     &:hover {
       background: $color-master-5;
       color: $color-grey-1;
+      margin: 0;
     }
   }
 
   ::v-deep.el-radio-group .el-radio-button.is-active .el-radio-button__inner,
   .el-radio-group .el-radio-button.is-active .el-radio-button__inner :hover {
-    background: $color-master-1;
-    border-radius: 2px 0 0 2px;
-    color: $color-white !important;
+    background: $color-master-5;
+    border: 1px solid $color-master-1;
+    border-radius: 3px;
+    font-weight: 400;
+    color: $color-neutral-10 !important;
   }
 
   ::v-deep.el-radio-button__orig-radio:checked + .el-radio-button__inner {
     box-shadow: none;
   }
+
 }
 </style>

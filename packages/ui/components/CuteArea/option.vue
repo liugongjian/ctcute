@@ -35,7 +35,7 @@ export default {
     },
     valueKey: {
       type: String,
-      default: 'value'
+      default: 'value',
     },
     format: {
       type: Function,
@@ -77,12 +77,15 @@ export default {
 <style lang="scss" scoped>
 .cute-area-column {
   float: left;
+
   .cute-area-wrap {
     margin-bottom: 40px;
     text-align: center;
+
     &:last-child {
       margin-bottom: 12px;
     }
+
     .cute-area-head {
       margin: 12px 2px 0;
       color: $color-grey-2;
@@ -92,8 +95,10 @@ export default {
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
     .cute-area-body {
       padding: 0 2px;
+
       .cute-area-city {
         position: relative;
         margin-top: 10px;
@@ -107,10 +112,13 @@ export default {
         box-sizing: border-box;
         cursor: pointer;
       }
+
       .cute-area-city:hover {
-        background-color: $color-master-7;
+        background-color: $color-master-bg-light-2;
+        font-weight: normal;
         color: $color-master-1;
       }
+
       .cute-area-city.selected,
       .cute-area-city.selected.hover {
         background: $color-master-1;

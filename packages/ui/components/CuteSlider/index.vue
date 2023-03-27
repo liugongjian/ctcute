@@ -7,7 +7,7 @@
       :min="min"
       :max="max"
       :marks="marks"
-      :show-tooltip="false"
+      :show-tooltip="true"
       :step="step"
       :disabled="disabled"
       :style="{ '--width-slider': width + 'px' }"
@@ -168,9 +168,15 @@ export default class extends Vue {
   private mounted() {
     const btn = document.querySelectorAll('.el-slider.cute-slider .el-tooltip.el-slider__button') as any
     for (let i = 0; i < btn.length; i++) {
-      btn[i].style.width = '20px'
-      btn[i].style.height = '28px'
-      btn[i].innerHTML = '|||'
+      btn[i].style.width = '17px'
+      btn[i].style.height = '22px'
+      btn[i].innerHTML = `
+        <div class='cute-slider-user-button'>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      `
     }
   }
 }
@@ -180,7 +186,7 @@ export default class extends Vue {
   display: flex;
 
   ::v-deep .disabled {
-    background: $color-grey-6 !important;
+    background: $color-neutral-2 !important;
   }
 
   ::v-deep .el-slider__stop {
@@ -200,33 +206,33 @@ export default class extends Vue {
     //常规
     .el-slider__runway {
       width: var(--width-slider);
-      background: $color-master-5;
+      background: $color-neutral-2;
       height: 8px;
 
       .el-slider__button {
-        border: 1px solid $color-master-1;
-        border-radius: 20px;
-        background: linear-gradient(to bottom, $color-white, $color-master-5);
-        line-height: 25px;
+        line-height: 22px;
+        border: none;
         color: $color-master-1;
-        letter-spacing: 1px;
+        letter-spacing: 0;
       }
     }
     //禁用
     .el-slider__runway.disabled {
+      .el-slider__bar {
+        background-color: $color-master-bg;
+      }
+
       .el-slider__button {
-        border: 1px solid $disabled-border;
-        border-radius: 20px;
+        border: 1px solid $color-master;
+        border-radius: 8px;
         background: $color-grey-10;
-        line-height: 25px;
         color: $color-grey-4;
-        letter-spacing: 1px;
       }
     }
 
     .el-slider__bar {
-      height: 16px;
-      top: -4px;
+      height: 10px;
+      top: -1px;
       border-radius: 3px;
     }
 
@@ -278,6 +284,51 @@ export default class extends Vue {
 
   .el-input__inner {
     width: 64px;
+  }
+}
+
+::v-deep .cute-slider-user-button {
+  border: 1px solid $color-master-1;
+  border-radius: 8px;
+  background: linear-gradient(to bottom, $color-white, $color-master-5);
+  display: flex;
+  box-sizing: content-box;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 15px;
+
+  span {
+    display: block;
+    background-color: $color-master;
+    width: 1px;
+    height: 8px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:nth-child(2) {
+      height: 10px;
+      margin: 0 2px;
+    }
+  }
+}
+
+::v-deep .disabled {
+  .el-slider__button {
+    border: none !important;
+    background: none;
+  }
+
+  .cute-slider-user-button {
+    border: 1px solid $color-master-4;
+    width: 15px;
+    background: linear-gradient(to bottom, $color-white, $color-master-5);
+
+    span {
+      background-color: $color-master-4;
+    }
   }
 }
 </style>

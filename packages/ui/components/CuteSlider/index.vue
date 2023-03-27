@@ -7,7 +7,7 @@
       :min="min"
       :max="max"
       :marks="marks"
-      :show-tooltip="false"
+      :show-tooltip="true"
       :step="step"
       :disabled="disabled"
       :style="{ '--width-slider': width + 'px' }"
@@ -169,9 +169,19 @@ export default class extends Vue {
   private mounted() {
     const btn = document.querySelectorAll('.el-slider.cute-slider .el-tooltip.el-slider__button') as any
     for (let i = 0; i < btn.length; i++) {
-      btn[i].style.width = variables.cuteSliderBtnWidth
-      btn[i].style.height = variables.cuteSliderBtnHeight
-      btn[i].innerHTML = '|||'
+      btn[i].style.width = variables.cuteSliderBtnWidth // '17px'
+      btn[i].style.height = variables.cuteSliderBtnHeight //'22px'
+      btn[i].innerHTML = '<div class=\'cute-slider-user-button\'><span></span><span></span><span></span> </div>'
+      // '|||'
+      // btn[i].style.width = '17px'
+      // btn[i].style.height = '22px'
+      // btn[i].innerHTML = `
+      //   <div class='cute-slider-user-button'>
+      //     <span></span>
+      //     <span></span>
+      //     <span></span>
+      //   </div>
+      // `
     }
   }
 }
@@ -208,13 +218,17 @@ export default class extends Vue {
         border: 1px solid $color-master;
         border-radius: $cute-slider-btn-radius;
         background: linear-gradient(to bottom, $color-white, $color-master-bg-light);
-        line-height: $cute-slider-btn-height - 1px * 2;
+        // line-height: $cute-slider-btn-height - 1px * 2;
         color: $color-master;
-        letter-spacing: 1px;
+        // letter-spacing: 1px;
       }
     }
     //禁用
     .el-slider__runway.disabled {
+      .el-slider__bar {
+        background-color: $color-master-bg;
+      }
+
       .el-slider__button {
         border: 1px solid $disabled-border;
         background: $disabled-bg;
@@ -273,5 +287,51 @@ export default class extends Vue {
 
 ::v-deep .el-input {
   width: $cute-slider-input-width;
+}
+
+::v-deep .cute-slider-user-button {
+  // border: 1px solid $color-master-1;
+  // border-radius: 8px;
+  // background: linear-gradient(to bottom, $color-white, $color-master-5);
+  display: inline-flex;
+  box-sizing: content-box;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  // height: 20px;
+  // width: 15px;
+
+  span {
+    display: block;
+    background-color: $color-master;
+    width: 1px;
+    height: 8px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:nth-child(2) {
+      height: 10px;
+      margin: 0 2px;
+    }
+  }
+}
+
+::v-deep .disabled {
+  // .el-slider__button {
+  //   border: none !important;
+  //   background: none;
+  // }
+
+  .cute-slider-user-button {
+    // border: 1px solid $color-master-4;
+    // width: 15px;
+    // background: linear-gradient(to bottom, $color-white, $color-master-5);
+
+    span {
+      background-color: $color-master-4;
+    }
+  }
 }
 </style>

@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-07-13 13:41:05
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-01-30 10:27:48
+ * @LastEditors: zhulh
+ * @LastEditTime: 2023-03-24 14:50:27
  * @Description: 中弹窗
 -->
 <template>
@@ -15,55 +15,41 @@
       </p>
       <el-button type="primary" @click="handleClick">中弹窗</el-button>
     </div>
-    <el-dialog
-      class="medium-dialog"
-      :title="title"
-      :visible="visible"
-      :close-on-click-modal="false"
-      @close="close"
-    >
-      <el-scrollbar
-        ref="scrollBar"
-        class="medium-dialog--scroll"
-        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '521px' }]"
-      >
-        <div class="medium-dialog--content">
-          <el-alert
-            title="提示文案，这是一条警告提示提示"
-            type="warning"
-            show-icon
-            :closable="false"
-            class="warn-tip"
-          />
-          <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">
-            <el-form-item label="主机别名" prop="name" placeholder="111">
-              <el-input v-model="form.name" value="" placeholder="请输入主机别名"></el-input>
-            </el-form-item>
-            <el-form-item label="IP地址" prop="ip">
-              <el-input v-model="form.ip" value="" placeholder="请输入IP地址"></el-input>
-            </el-form-item>
-            <el-form-item label="SSH端口" prop="ssh">
-              <el-input v-model="form.ssh" value="" placeholder="请输入SSH端口"></el-input>
-            </el-form-item>
-            <el-form-item label="SSH用户名" prop="sshName">
-              <el-input v-model="form.sshName" value="" placeholder="请提供具有sudo权限的账号"></el-input>
-            </el-form-item>
-            <el-form-item label="SSH密码" prop="password">
-              <el-input v-model="form.password" value="" placeholder="请输入SSH密码"></el-input>
-            </el-form-item>
-            <el-form-item label="标签" class="sub-tags">
-              <cute-tag :dynamic-tags="form.dynamicTags" tag-name="+ 新标签"></cute-tag>
-            </el-form-item>
-            <el-form-item label="监控插件端口" prop="port">
-              <el-input v-model="form.port" value="" placeholder="请输入监控插件端口"></el-input>
-            </el-form-item>
-            <el-form-item label="监控插件部署目录" prop="catalogue">
-              <el-input v-model="form.catalogue" placeholder="请输入监控插件部署目录"></el-input>
-            </el-form-item>
-          </el-form>
-        </div>
-      </el-scrollbar>
-      <div class="medium-dialog--footer">
+    <el-dialog width="570px" :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
+      <el-alert
+        title="提示文案，这是一条警告提示提示"
+        type="warning"
+        show-icon
+        :closable="false"
+        class="warn-tip"
+      />
+      <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">
+        <el-form-item label="主机别名" prop="name" placeholder="111">
+          <el-input v-model="form.name" value="" placeholder="请输入主机别名"></el-input>
+        </el-form-item>
+        <el-form-item label="IP地址" prop="ip">
+          <el-input v-model="form.ip" value="" placeholder="请输入IP地址"></el-input>
+        </el-form-item>
+        <el-form-item label="SSH端口" prop="ssh">
+          <el-input v-model="form.ssh" value="" placeholder="请输入SSH端口"></el-input>
+        </el-form-item>
+        <el-form-item label="SSH用户名" prop="sshName">
+          <el-input v-model="form.sshName" value="" placeholder="请提供具有sudo权限的账号"></el-input>
+        </el-form-item>
+        <el-form-item label="SSH密码" prop="password">
+          <el-input v-model="form.password" value="" placeholder="请输入SSH密码"></el-input>
+        </el-form-item>
+        <el-form-item label="标签" class="sub-tags">
+          <cute-tag :dynamic-tags="form.dynamicTags" tag-name="+ 新标签"></cute-tag>
+        </el-form-item>
+        <el-form-item label="监控插件端口" prop="port">
+          <el-input v-model="form.port" value="" placeholder="请输入监控插件端口"></el-input>
+        </el-form-item>
+        <el-form-item label="监控插件部署目录" prop="catalogue">
+          <el-input v-model="form.catalogue" placeholder="请输入监控插件部署目录"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer">
         <el-button @click="close">{{ cancelButtonText }}</el-button>
         <el-button type="primary" :loading="submitting" @click="confirm">{{ confirmButtonText }}</el-button>
       </div>
@@ -151,3 +137,9 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.warn-tip {
+  display: block !important;
+  margin-bottom: $margin-6x;
+}
+</style>

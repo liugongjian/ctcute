@@ -15,6 +15,8 @@
 </template>
 
 <script>
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable vue/custom-event-name-casing */
 import Color from '../color'
 
 export default {

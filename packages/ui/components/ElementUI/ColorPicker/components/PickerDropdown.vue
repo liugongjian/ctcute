@@ -41,6 +41,7 @@
 </template>
 
 <script>
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import SvPanel from './SvPanel'
 import HueSlider from './HueSlider'
 import AlphaSlider from './AlphaSlider'
@@ -138,14 +139,14 @@ export default {
     margin: 0;
 
     .el-color-predefine__color-selector {
-      margin: 4px 0 4px 8px;
+      margin: $margin 0 $margin $margin-2x;
     }
   }
 }
 </style>
 <style lang="scss">
 .el-color-picker__panel.el-color-dropdown-simple {
-  padding: 4px 0;
+  padding: $padding 0;
   width: auto;
 }
 </style>

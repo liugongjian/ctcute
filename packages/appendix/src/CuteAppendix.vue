@@ -154,22 +154,22 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .cute-appendix {
-  margin-top: 10px;
+  margin-top: $margin-3x;
 }
 
 .appendix-link-icon {
-  margin-right: 4px;
-  color: $color-grey-3;
-  vertical-align: -4px;
+  margin-right: $margin;
+  color: $icon-color;
+  vertical-align: -$margin;
 }
 
 .appendix-eye-icon {
-  margin-left: 8px;
-  color: $color-grey-3;
-  vertical-align: -4px;
+  margin-left: $margin-2x;
+  color: $icon-color;
+  vertical-align: -$margin;
 
   &:hover {
-    color: $color-master-1;
+    color: $color-master;
     cursor: pointer;
   }
 }
@@ -177,43 +177,43 @@ export default class extends Vue {
 .appendix-big {
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: $margin-3x;
 
   &-item {
-    width: 240px;
-    height: 52px;
-    background-color: $color-grey-11;
+    width: $appendix-big-item-width;
+    height: $appendix-big-item-height;
+    background-color: $color-neutral-1;
     display: flex;
     align-items: center;
-    padding: 0 8px;
+    padding: 0 $padding-2x;
 
     &:hover {
-      background-color: $color-master-7;
+      background-color: $color-master-bg-light-2;
       cursor: pointer;
     }
 
     &-title {
-      margin-left: 10px;
+      margin-left: $margin-2x;
 
       p:nth-child(1) {
-        max-width: 186px;
+        max-width: $appendix-big-text-max-width;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-        font-family: PingFangSC-Medium;
-        font-size: 12px;
-        color: $color-grey-1;
-        line-height: 20px;
-        font-weight: 500;
-        margin: 5px 0;
+        font-family: $font-family;
+        font-size: $text-size;
+        color: $color-neutral-10;
+        line-height: $line-height;
+        font-weight: $text-title-weight;
+        margin: $margin 0;
       }
 
       p:nth-child(2) {
-        font-family: PingFangSC-Regular;
-        font-size: 12px;
-        color: $color-grey-2;
-        line-height: 20px;
-        font-weight: 400;
+        font-family: $font-famil;
+        font-size: $text-size;
+        color: $color-neutral-9;
+        line-height: $line-height;
+        font-weight: $text-weight;
         margin: 0;
       }
     }

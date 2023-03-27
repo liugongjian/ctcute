@@ -105,6 +105,8 @@ $--rate-icon-color: $text-color-light;
 /* MessageBox
 -------------------------- */
 $--msgbox-border-radius: $border-radius;
+$--messagebox-font-size: $text-size-lg;
+$--msgbox-padding-primary: $messagebox-header-padding;
 
 /* Message
 -------------------------- */
@@ -121,6 +123,14 @@ $--notification-success-icon-color: $color-success;
 $--notification-danger-icon-color: $color-danger;
 $--notification-info-icon-color: $color-master;
 $--notification-warning-icon-color: $color-warning;
+
+/* Dialog
+-------------------------- */
+$--dialog-background-color: $color-bg-1;
+$--dialog-box-shadow: $shadow-3;
+$--dialog-title-font-size: $text-size-lg;
+$--dialog-font-line-height: $line-height;
+$--dialog-content-font-size: $text-size;
 
 /* Timeline
 -------------------------- */

@@ -41,20 +41,18 @@
     </div>
     <div>
       <h3>自定义内容</h3>
-      <el-badge value="new" class="item">
+      <el-badge value="NEW" class="item">
         <el-button size="small">评论</el-button>
       </el-badge>
-      <el-badge value="hot" class="item">
+      <el-badge value="HOT" class="item">
         <el-button size="small">回复</el-button>
       </el-badge>
     </div>
     <div>
       <h3>小红点</h3>
-      <el-badge value="new" class="item">
-        <el-button size="small">评论</el-button>
-      </el-badge>
-      <el-badge value="hot" class="item">
-        <el-button size="small">回复</el-button>
+      <el-badge is-dot class="item fw-600">数据查询</el-badge>
+      <el-badge is-dot class="item">
+        <el-button class="share-button" icon="el-icon-share" type="primary"></el-button>
       </el-badge>
     </div>
   </div>
@@ -76,5 +74,9 @@ export default class extends Vue {}
 .item {
   margin-top: 10px;
   margin-right: 40px;
+}
+
+.fw-600 {
+  font-weight: 600;
 }
 </style>

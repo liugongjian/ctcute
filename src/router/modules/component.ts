@@ -363,6 +363,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'state',
+        name: 'State',
+        component: () => import('@/views/component/Test/State.vue'),
+        meta: {
+          title: 'State',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

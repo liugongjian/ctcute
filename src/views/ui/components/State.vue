@@ -14,7 +14,7 @@
         <dot-state :color="colorVariables.colorSuccess">健康/正常/成功</dot-state>
         <dot-state :color="colorVariables.colorWarning">警告</dot-state>
         <dot-state :color="colorVariables.colorDanger">危险/故障/失败</dot-state>
-        <dot-state :color="colorVariables.colorFatalDanger">严重故障</dot-state>
+        <dot-state :color="colorVariables.colorFatal">严重故障</dot-state>
         <dot-state :color="colorVariables.colorMaster">进行中</dot-state>
         <dot-state>下线/未完成/未开始/中止/取消</dot-state>
       </p>

@@ -400,6 +400,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'pagination',
+        name: 'Pagination',
+        component: () => import('@/views/component/Test/Pagination.vue'),
+        meta: {
+          title: 'Pagination',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

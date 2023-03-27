@@ -65,6 +65,11 @@
         }
       }
     }
+    .is-disabled {
+      &~.el-tree-node__label {
+        color: $color-neutral-10;
+      }
+    }
   }
   .pop-tooltip {
     display: none;
@@ -140,7 +145,7 @@
 
 .el-tree-node__expand-icon {
   color: $color-grey-5;
-  font-size: $tree-expand-icon-size;
+  // font-size: $tree-expand-icon-size;
 }
 
 .el-tree-node__expand-icon.is-leaf {

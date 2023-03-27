@@ -5,13 +5,13 @@
       <div class="line">
         <div class="line__left">
           <!-- <cute-rich-text :img-url="imgUrl" :video-url="videoUrl"></cute-rich-text> -->
-          <div style="border: 1px solid #ccc; margin-top: 10px; width: 1120px">
+          <div class="tool-bar-box">
             <!-- 工具栏 -->
-            <Toolbar style="border-bottom: 1px solid #ccc" :editor="editor" :default-config="toolbarConfig" />
+            <Toolbar class="tool-bar-content" :editor="editor" :default-config="toolbarConfig" />
             <!-- 编辑器 -->
             <Editor
+              id="editor-content"
               v-model="html"
-              style="height: 400px; overflow-y: hidden"
               :default-config="editorConfig"
               @onChange="onChange"
               @onCreated="onCreated"
@@ -115,44 +115,61 @@ export default class extends Vue {
 <style src="@wangeditor/editor/dist/css/style.css"></style>
 <style lang="scss" scoped>
 .line {
-  margin: 24px 0;
+  margin: $margin-3x 0;
   width: 100%;
 
   &__left {
     width: 100%;
-    height: 500px;
     overflow-y: hidden;
+
     ::v-deep.w-e-full-screen-container {
       position: relative !important;
     }
   }
 
   &__border {
-    border: 1px solid $color-grey-6;
+    border: 1px solid $border-color;
   }
 
   .el-cascader {
     width: 100%;
   }
 }
+
 .rich-text {
   width: 100%;
 }
+
+.tool-bar-box {
+  border: 1px solid $border-color;
+  margin-top: $margin-3x;
+  width: $rich-text-toolbar-width;
+
+  .tool-bar-content {
+    border-bottom: 1px solid $border-color;
+  }
+
+  #editor-content {
+    height: $rich-text-editor-height;
+    overflow-y: hidden;
+  }
+}
+
 .sub-down {
   width: 100%;
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
 
   > h3 {
-    margin: 24px 0;
-    font-family: PingFangSC-Medium;
-    font-size: 14px;
-    color: $color-grey-1;
-    line-height: 20px;
-    font-weight: 500;
+    margin: $margin-6x 0;
+    font-family: $font-family;
+    font-size: $text-size-md;
+    color: $text-color;
+    line-height: $line-height;
+    font-weight: $text-title-weight;
   }
 
   .el-row {
-    margin: 24px 0;
+    margin: $margin-6x 0;
   }
 }
 
@@ -160,7 +177,7 @@ export default class extends Vue {
   border-bottom: none;
 
   .el-row {
-    margin-top: 24px;
+    margin-top: $margin-6x;
   }
 }
 </style>

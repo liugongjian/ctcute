@@ -2,7 +2,7 @@
   <div>
     <div v-if="!append" class="cute-appendix">
       <svg-icon class="appendix-link-icon" name="attachment" :width="16" :height="16" />
-      <el-link type="primary" class="appendix-link" @click="handleDownload"> {{ value }} </el-link>
+      <el-link type="primary" class="appendix-link" :underline="false" @click="handleDownload"> {{ value }} </el-link>
       <svg-icon
         v-if="showEye"
         class="appendix-eye-icon"
@@ -202,7 +202,7 @@ export default class extends Vue {
         white-space: nowrap;
         font-family: $font-family;
         font-size: $text-size;
-        color: $color-neutral-10;
+        color: $text-color;
         line-height: $line-height;
         font-weight: $text-title-weight;
         margin: $margin 0;
@@ -211,7 +211,7 @@ export default class extends Vue {
       p:nth-child(2) {
         font-family: $font-family;
         font-size: $text-size;
-        color: $color-neutral-9;
+        color: $text-color-light;
         line-height: $line-height;
         font-weight: $text-weight;
         margin: 0;

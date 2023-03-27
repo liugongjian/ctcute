@@ -245,33 +245,33 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .code-box {
   ::v-deep .CodeMirror-line {
-    line-height: 150% !important;
+    line-height: $line-height !important;
   }
 
   .line {
     // display: flex;
     // align-items: center;
-    width: 597px;
-    margin-bottom: 24px;
+    width: $codebox-width;
+    margin-bottom: $margin-6x;
 
     .pB_Container {
       width: 100%;
-      background-color: $color-grey-9;
-      height: 4px;
+      background-color: $color-neutral-2;
+      height: $codebox-pB-Container;
       display: inline-flex;
-      line-height: 10px;
+      line-height: $line-height;
       overflow: hidden;
       color: $color-white;
     }
 
     &__code {
       width: 100%;
-      margin-top: 24px;
+      margin-top: $margin-6x;
       // margin-right: 47px;
     }
 
     &__border {
-      border: 1px solid $color-grey-6;
+      border: 1px solid $border-color;
     }
 
     .el-cascader {
@@ -284,19 +284,19 @@ export default class extends Vue {
   }
 
   .sub-down {
-    border-bottom: 1px solid $border-color-light-1;
+    border-bottom: 1px solid $border-color-light;
 
     > h3 {
       margin-bottom: 0;
-      font-family: PingFangSC-Medium;
-      font-size: 14px;
-      color: $color-grey-1;
-      line-height: 20px;
-      font-weight: 500;
+      font-family: $font-family;
+      font-size: $text-size-md;
+      color: $text-color;
+      line-height: $line-height;
+      font-weight: $text-title-weight;
     }
 
     .el-row {
-      margin: 24px 0;
+      margin: $margin-6x 0;
     }
   }
 
@@ -304,7 +304,7 @@ export default class extends Vue {
     border-bottom: none;
 
     .el-row {
-      margin-top: 24px;
+      margin-top: $margin-6x;
     }
   }
 }

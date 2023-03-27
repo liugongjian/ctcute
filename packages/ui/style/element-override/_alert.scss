@@ -27,8 +27,12 @@
 @include global-tips(weak, $color-info, $alert-weak-bg);
 
 .el-alert {
-  padding: $margin-2x $margin-4x;
+  padding: $padding-2x $padding-4x;
   width: auto;
+}
+
+.el-alert.is-light .el-alert__description{
+  color: $alert-text-color;
 }
 
 .el-alert__title {

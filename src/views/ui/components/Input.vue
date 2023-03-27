@@ -128,11 +128,29 @@
     <h3>特殊输入框</h3>
     <div class="sub-input">
       <div class="input-content">
+        <el-radio-group v-model="inputSize" size="small">
+          <el-radio-button value="medium" label="medium">默认</el-radio-button>
+          <el-radio-button value="small" label="small">小</el-radio-button>
+          <el-radio-button value="large" label="large">大</el-radio-button>
+        </el-radio-group>
+      </div>
+      <div class="input-content">
         <div>
-          <el-input-number v-model="num" controls-position="right" :min="1" :max="10"></el-input-number>
+          <el-input-number
+            v-model="num"
+            :size="inputSize"
+            controls-position="right"
+            :min="1"
+            :max="10"
+          ></el-input-number>
         </div>
         <div>
-          <el-input v-model="address" placeholder="请输入详细地址" class="input-with-select">
+          <el-input
+            v-model="address"
+            :size="inputSize"
+            placeholder="请输入详细地址"
+            class="input-with-select"
+          >
             <div slot="prepend">
               <el-select v-model="select" placeholder="城市">
                 <el-option label="上海" value="1"></el-option>
@@ -141,7 +159,7 @@
           </el-input>
         </div>
         <div>
-          <el-input v-model="height" placeholder="请输入身高" class="input-with-select">
+          <el-input v-model="height" :size="inputSize" placeholder="请输入身高" class="input-with-select">
             <el-select slot="append" v-model="select" placeholder="CM">
               <el-option label="cm" value="2"></el-option>
             </el-select>
@@ -150,39 +168,48 @@
       </div>
       <div class="input-content">
         <div>
-          <el-input-number v-model="num1" :min="1" :max="10" label="描述文字"></el-input-number>
+          <el-input-number
+            v-model="num1"
+            :size="inputSize"
+            :min="1"
+            :max="10"
+            label="描述文字"
+          ></el-input-number>
         </div>
         <div>
-          <el-input v-model="url" placeholder="请输入url">
+          <el-input v-model="url" :size="inputSize" placeholder="请输入url">
             <template slot="prepend">Http://</template>
           </el-input>
         </div>
         <div>
-          <el-input v-model="url1" placeholder="请输入url">
+          <el-input v-model="url1" :size="inputSize" placeholder="请输入url">
             <template slot="append">.com</template>
           </el-input>
         </div>
       </div>
       <div class="input-bottom">
-        <!-- 小 -->
         <div class="input-icon">
-          <el-input v-model="money" size="mini">
+          <el-input v-model="money" :size="inputSize">
             <span slot="suffix" class="icon-money">元</span>
           </el-input>
         </div>
-        <!-- 默认 -->
-        <div>
-          <el-input v-model="formData.password" placeholder="请输入" type="text" @input="changeValue">
-            <svg-icon slot="suffix" :name="flag ? 'eye-close-fill' : 'eye-fill'" @click="appearValue" />
-          </el-input>
-        </div>
-        <!-- 大 -->
         <div>
           <el-input
             v-model="formData.password"
+            :size="inputSize"
+            placeholder="请输入"
+            type="text"
+            @input="changeValue"
+          >
+            <svg-icon slot="suffix" :name="flag ? 'eye-close-fill' : 'eye-fill'" @click="appearValue" />
+          </el-input>
+        </div>
+        <div>
+          <el-input
+            v-model="formData.password"
+            :size="inputSize"
             placeholder="请输入密码"
             type="text"
-            size="primary"
             @input="changeValue"
           >
             <template slot="suffix">
@@ -328,7 +355,7 @@ export default class extends Vue {
   }
 
   private newPassword = ''
-
+  private inputSize = 'medium'
   private rules = {
     password: [
       { required: true, message: '密码输入错误', trigger: 'change' },

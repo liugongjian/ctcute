@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-17 20:57:52
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-03-24 16:50:04
+ * @LastEditTime: 2023-03-27 14:18:10
  * @Description:
 -->
 <template>
@@ -42,14 +42,14 @@
     </el-row>
     <el-row>
       <cute-slider
-        v-model="value"
+        v-model="rangeValue"
         :min="1"
         :max="500"
         :disabled="false"
         :marks="marks"
         :range="true"
         unit="Mbit/s"
-        @moveChange="changes"
+        @moveChange="rangeChanges"
         @inputChange="inputChange"
       />
     </el-row>
@@ -99,7 +99,7 @@ export default class extends Vue {
       label: '北京烤鸭',
     },
   ]
-  public value = ''
+  private value = ''
   public static description = {
     maintainer: '马妍',
     version: 'v1.0',
@@ -112,16 +112,20 @@ export default class extends Vue {
     400: '400',
     500: '500',
   }
+  private values = 200
+  private rangeValue = [100, 200]
   private changes(val) {
     console.log(val, 'slider值')
-    this.value = val
+    this.values = val
+  }
+  private rangeChanges(val) {
+    console.log(val, 'slider值')
+    this.rangeValue = val
   }
   private inputChange(val) {
     console.log(val, 'input值')
-    this.value = val
+    this.rangeValue = val
   }
-  private values = 100
-  private value = [20, 100]
 }
 </script>
 

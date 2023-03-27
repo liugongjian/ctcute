@@ -22,17 +22,46 @@
   top: 1px;
   border-bottom: 0;
 }
+.el-input-number.is-controls-right[class*='small'] [class*='decrease'] {
+  line-height: 10px;
+  border-top: 1px solid $color-neutral-5;
+  z-index: 2;
+  height: 11px;
+}
 
-.el-input-number--medium {
+.el-input-number.is-controls-right[class*='small'] [class*='increase'] {
+  line-height: 10px;
+  top: 1px;
+  border-bottom: 0;
+}
+
+
+// height: 12px;
+//     line-height: 10px;
+.el-input-number.el-input-number--medium {
   line-height: 30px;
+
+  .el-input__inner {
+    height: $input-md-height;
+    line-height: $input-md-height;
+  }
+}
+
+.el-input-number.el-input-number--small {
+  line-height: 22px;
+
+  .el-input__inner {
+    height: $input-sm-height;
+    line-height: $input-sm-height;
+  }
 }
 
 .el-input-number--mini {
   line-height: 22px;
-}
-
-.el-input-number--small {
-  line-height: 26px;
+  .el-input__inner {
+    height: $input-sm-height;
+    line-height: $input-sm-height;
+  }
 }
 
 .el-input-number__increase,

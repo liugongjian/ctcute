@@ -3,4 +3,29 @@
 .el-message-box {
   background-color: $color-bg-2;
   border: none;
+  padding-bottom: $messagebox-padding-bottom;
+
+  &__header {
+    font-weight: $text-title-weight;
+    padding-bottom: $messagebox-header-padding-bottom;
+  }
+
+  &__status {
+    font-size: $text-size-lg !important;
+    top: $common-space + 1;
+    transform: none;
+  }
+
+  &__status + &__message {
+    padding-right: 0;
+    padding-left: $padding-6x;
+  }
+
+  &__content {
+    padding: $messagebox-content-padding;
+  }
+
+  &__btns {
+    padding: $messagebox-btns-padding;
+  }
 }

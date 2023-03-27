@@ -3,19 +3,17 @@
     <p>常用的文字按钮</p>
     <h2>默认状态</h2>
     <div class="sub-sample">
-      <el-button class="button" plain>
-        <svg-icon name="setting" />
-      </el-button>
-      <el-button type="text" plain><svg-icon name="setting" /> </el-button>
-      <el-button type="text" plain><svg-icon name="download" />下载</el-button>
-      <el-button type="text"><svg-icon name="download" />下载</el-button>
+      <el-button icon="setting" square></el-button>
+      <el-button icon="setting" square :border="false"></el-button>
+      <el-button icon="download" :border="false">下载</el-button>
+      <el-button type="primary" icon="download" :border="false" plain>下载</el-button>
     </div>
     <h2>禁用状态</h2>
     <div class="sub-sample">
-      <el-button disabled plain><svg-icon name="setting" /></el-button>
-      <el-button disabled type="text"><svg-icon name="setting" /></el-button>
-      <el-button disabled type="text"><svg-icon name="download" />下载</el-button>
-      <el-button disabled type="text"><svg-icon name="download" />下载</el-button>
+      <el-button icon="setting" square disabled></el-button>
+      <el-button icon="setting" square disabled :border="false"></el-button>
+      <el-button icon="download" disabled :border="false">下载</el-button>
+      <el-button type="primary" icon="download" disabled :border="false" plain>下载</el-button>
     </div>
   </div>
 </template>

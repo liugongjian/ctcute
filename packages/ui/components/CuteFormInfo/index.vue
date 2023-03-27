@@ -34,14 +34,14 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .form-item__info {
   color: $icon-color;
-  width: 15px;
-  height: 15px;
+  width: $common-space-4x;
+  height: $common-space-4x;
 }
 </style>
 <style lang="scss">
 .form-item__info {
   &--dark {
-    background: $color-other-1;
+    background: $tooltip-bg;
     color: $color-white;
 
     .el-popover__title {
@@ -52,7 +52,7 @@ export default class extends Vue {
       box-shadow: none;
 
       &:after {
-        border-top-color: $color-other-1 !important;
+        border-top-color: $tooltip-bg !important;
         box-shadow: none;
       }
     }

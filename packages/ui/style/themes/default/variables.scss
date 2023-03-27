@@ -129,7 +129,7 @@ $disabled-icon-color: $neutral-6; // deprecated(弃用)
 
 /* Typography
 -------------------------- */
-$font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif !default; // 标准字体
+$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif, '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
 $font-family-cute-icons: 'cute-icons' !default;
 $text-size: 12px !default; // 标准字体大小
 $text-size-sm: 12px !default; // 字号small
@@ -263,6 +263,12 @@ $color-tag-danger-2: $tag-danger; // deprecated(弃用)
 
 /* Button
 -------------------------- */
+$button-default-text-color: $text-color !default;
+$button-default-text-color-disabled: $text-color-light-2 !default;
+$button-default-color-bg: $color-bg-1 !default;
+$button-default-color-bg-disabled: $color-neutral-1 !default;
+$button-default-color-border: $color-neutral-5 !default;
+$button-default-color-border-disabled: $color-neutral-5 !default;
 $button-icon-color: $text-color-light-2 !default;
 $button-margin: $margin-3x !default;
 $button-padding-mini: $padding $padding-2x !default;
@@ -274,6 +280,7 @@ $button-padding-large: $margin-3x $padding-6x !default;
 -------------------------- */
 $form-item-label-line-height: 32px;
 $form-item-error-padding-top: $padding-6 !default;
+$form-item-margin-bottom: $margin-6x;
 
 /* Input
 -------------------------- */
@@ -371,7 +378,21 @@ $descriptions-item-content-line-height: 22px !default;
 
 /* Dialog
 -------------------------- */
+$dialog-header-padding: $padding-4x $padding-8x !default;
+$dialog-header-border: $color-neutral-3 !default;
+$dialog-body-padding: $padding-6x $padding-8x !default;
+$dialog-footer-bg: $color-neutral-1 !default;
+$dialog-footer-padding: $padding-3x $padding-8x !default;
 $dialog-footer-margin-top: -30px !default;
+$dialog-fullscreen-margin: $margin-6x !default;
+
+/* MessageBox
+-------------------------- */
+$messagebox-padding-bottom: $padding-3x !default;
+$messagebox-header-padding: $padding-8x !default;
+$messagebox-header-padding-bottom: $padding-3x !default;
+$messagebox-content-padding: $padding-3x $padding-8x !default;
+$messagebox-btns-padding: $padding-3x $padding-8x $padding-5x $padding-8x !default;
 
 /* Icon
 -------------------------- */

@@ -209,7 +209,7 @@ export default class extends Vue {
       }
 
       p:nth-child(2) {
-        font-family: $font-famil;
+        font-family: $font-family;
         font-size: $text-size;
         color: $color-neutral-9;
         line-height: $line-height;

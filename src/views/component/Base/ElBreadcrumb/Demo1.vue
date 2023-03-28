@@ -1,6 +1,12 @@
+/*
+* @Author: 胡一苗
+* @Date: 2023-03-22 15:42:05
+* @LastEditors: 胡一苗
+* @LastEditTime: 2023-03-22 15:50:25
+* @Description: desc
+*/
 <template>
-  <div>
-    <p>显示当前页面的路径，快速返回之前的任意页</p>
+  <div class="collapse-demo">
     <div class="sub-sample">
       <h3>默认尺寸</h3>
       <el-breadcrumb separator="/">
@@ -20,20 +26,11 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 
 @Component({
-  name: 'UiBreadcrumb',
+  name: 'Demo1',
 })
 export default class extends Vue {
-  public static title = {
-    zh: '面包屑',
-    en: 'Breadcrumb',
-  }
-  public static description = {
-    maintainer: '马妍',
-    version: 'v1.0',
-    updateTime: '2022.07.12',
-  }
 }
 </script>

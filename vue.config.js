@@ -53,7 +53,7 @@ module.exports = {
     loaderOptions: {
       sass: {
         sassOptions: { outputStyle: 'expanded', quietDeps: true },
-        additionalData: `@import "node_modules/@cutedesign/ui/style/themes/default/variables.scss";
+        additionalData: `@import "node_modules/@cutedesign/ui/style/themes/dark/blue/variables.scss";
                           @import "node_modules/@cutedesign/ui/style/_mixins.scss";`
       },
     },

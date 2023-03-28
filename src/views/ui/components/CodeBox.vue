@@ -251,13 +251,13 @@ export default class extends Vue {
   .line {
     // display: flex;
     // align-items: center;
-    width: $codebox-width;
+    width: 600px;
     margin-bottom: $margin-6x;
 
     .pB_Container {
       width: 100%;
       background-color: $color-neutral-2;
-      height: $codebox-pB-Container;
+      height: 4px;
       display: inline-flex;
       line-height: $line-height;
       overflow: hidden;

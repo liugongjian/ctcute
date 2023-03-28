@@ -143,14 +143,14 @@ export default class extends Vue {
 .tool-bar-box {
   border: 1px solid $border-color;
   margin-top: $margin-3x;
-  width: $rich-text-toolbar-width;
+  width: 1100px;
 
   .tool-bar-content {
     border-bottom: 1px solid $border-color;
   }
 
   #editor-content {
-    height: $rich-text-editor-height;
+    height: 400px;
     overflow-y: hidden;
   }
 }

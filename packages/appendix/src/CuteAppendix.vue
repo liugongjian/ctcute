@@ -180,8 +180,8 @@ export default class extends Vue {
   margin-top: $margin-3x;
 
   &-item {
-    width: $appendix-big-item-width;
-    height: $appendix-big-item-height;
+    width: 240px;
+    height: 52px;
     background-color: $color-neutral-1;
     display: flex;
     align-items: center;
@@ -196,7 +196,7 @@ export default class extends Vue {
       margin-left: $margin-2x;
 
       p:nth-child(1) {
-        max-width: $appendix-big-text-max-width;
+        max-width: 184px;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;

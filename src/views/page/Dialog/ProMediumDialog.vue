@@ -1,50 +1,37 @@
 <!--
  * @Author: 吴博聪
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 胡一苗
- * @LastEditTime: 2022-12-20 14:29:30
+ * @LastEditors: zhulh
+ * @LastEditTime: 2023-03-24 14:50:27
  * @Description: 复杂中弹窗
 -->
 <template>
-  <el-card>
+  <el-card class="pro-dialog">
     <h2>特殊弹窗-中</h2>
     <div>
       <p>查看日志，宽度560px</p>
       <el-button type="primary" @click="handleClick">特殊弹窗-中</el-button>
     </div>
     <el-dialog
-      class="log-dialog"
+      width="560px"
       :title="title"
       :visible="visible"
       :close-on-click-modal="false"
+      custom-class="dialog"
       @close="close"
     >
       <template #title>
         <span class="el-dialog__title">{{ title }}</span>
-        <div style="position: absolute; right: 40px; top: 20px">
-          <el-button type="text" plain @click="$emit('download')"
-            ><svg-icon name="cloud-download" width="14" height="14"
-          /></el-button>
-          <el-button type="text" plain @click="$emit('reload')"
-            ><svg-icon name="reload" width="14" height="14"
-          /></el-button>
-          <el-button class="last-button" type="text" plain @click="openFullscreen"
-            ><svg-icon name="fullscreen" width="14" height="14"
-          /></el-button>
+        <div class="pro-dialog__header__buttons">
+          <el-button :border="false" square icon="cloud-download" @click="$emit('download')"></el-button>
+          <el-button :border="false" square icon="reload" @click="$emit('reload')"></el-button>
+          <el-button :border="false" square icon="fullscreen" @click="openFullscreen"></el-button>
         </div>
       </template>
-      <el-scrollbar
-        ref="scrollBar"
-        class="log-dialog--content"
-        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '483px' }]"
-      >
-        <slot name="content">
-          <pre class="log-dialog--pre">
-            {{ log }}
-          </pre>
-        </slot>
-      </el-scrollbar>
-      <div class="log-dialog--footer">
+      <pre class="pro-dialog__pre">
+        {{ log }}
+      </pre>
+      <div slot="footer">
         <el-button @click="close">{{ cancelButtonText }}</el-button>
         <el-button type="primary">{{ confirmButtonText }}</el-button>
       </div>
@@ -154,7 +141,7 @@ export default class extends Vue {
   private visible = false
 
   @Watch('visible')
-  async onVisibleChange() {
+  private async onVisibleChange() {
     await this.$nextTick()
     if (!this.scrollBar.$el.onfullscreenchange)
       this.scrollBar.$el.onfullscreenchange = async event => {
@@ -179,3 +166,27 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.pro-dialog {
+  ::v-deep .dialog {
+    height: 75vh;
+  }
+
+  &__header__buttons {
+    position: absolute;
+    top: $common-space-3x;
+    right: $common-space * 14;
+
+    .el-button + .el-button {
+      margin: 0;
+    }
+  }
+
+  &__pre {
+    width: 100%;
+    margin: 0;
+    line-height: $line-height;
+    background: $color-neutral-1;
+  }
+}
+</style>

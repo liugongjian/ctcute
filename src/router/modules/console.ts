@@ -1,11 +1,11 @@
-import ConsoleLayout from '@/layout/console.vue'
+import Layout from '@/layout/index.vue'
 
 const consoleRoutes = [
   // 订购页
   {
     path: '/console/order',
     redirect: '/console/order/order-list',
-    component: ConsoleLayout,
+    component: Layout,
     name: 'Order',
     meta: {
       title: 'Order 订购页',

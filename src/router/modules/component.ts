@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
@@ -189,6 +190,24 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-button',
+        name: 'ElButton',
+        component: () => import('@/views/component/Base/ElButton/index.vue'),
+        meta: {
+          title: 'ElButton',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'el-breadcrumb',
+        name: 'ElBreadcrumb',
+        component: () => import('@/views/component/Base/ElBreadcrumb/index.vue'),
+        meta: {
+          title: 'ElBreadcrumb',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'vxe-table',
         name: 'VxeTable',
         component: () => import('@/views/component/Base/VxeTable/index.vue'),
@@ -292,11 +311,29 @@ const componentRoutes = [
         },
       },
       {
+        path: 'color-picker',
+        name: 'ColorPicker',
+        component: () => import('@/views/component/Test/ColorPicker.vue'),
+        meta: {
+          title: 'ColorPicker',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'collapse',
         name: 'Collapse',
         component: () => import('@/views/component/Test/Collapse.vue'),
         meta: {
           title: 'Collapse',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'dialog',
+        name: 'Dialog',
+        component: () => import('@/views/component/Test/Dialog.vue'),
+        meta: {
+          title: 'Dialog',
           breadcrumb: true,
         },
       },
@@ -360,6 +397,60 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Tag.vue'),
         meta: {
           title: 'Tag',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'state',
+        name: 'State',
+        component: () => import('@/views/component/Test/State.vue'),
+        meta: {
+          title: 'State',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'breadcrumb',
+        name: 'Breadcrumb',
+        component: () => import('@/views/component/Test/Breadcrumb.vue'),
+        meta: {
+          title: 'Breadcrumb',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'transfer',
+        name: 'Transfer',
+        component: () => import('@/views/component/Test/Transfer.vue'),
+        meta: {
+          title: 'Transfer',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'rate',
+        name: 'Rate',
+        component: () => import('@/views/component/Test/Rate.vue'),
+        meta: {
+          title: 'Rate',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'alert',
+        name: 'Alert',
+        component: () => import('@/views/component/Test/Alert.vue'),
+        meta: {
+          title: 'Alert',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pagination',
+        name: 'Pagination',
+        component: () => import('@/views/component/Test/Pagination.vue'),
+        meta: {
+          title: 'Pagination',
           breadcrumb: true,
         },
       },

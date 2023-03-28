@@ -21,7 +21,7 @@ $color-master-5: $blue-2; // deprecated(弃用)
 $color-master-6: $blue-1; // deprecated(弃用)
 $color-master-7: $blue-1; // deprecated(弃用)
 
-/* 特殊色, ct意为ctyun缩写 */
+/* CT特殊色, ct意为ctyun缩写 */
 $color-ct: $red-base !default; // 默认
 $color-ct-hover: $red-5 !default; // 悬停
 $color-ct-active: $red-7 !default; // 触发
@@ -52,11 +52,11 @@ $color-danger-hover: $ruby-5 !default;
 $color-danger-active: $ruby-7 !default;
 $color-danger-disabled: $ruby-4 !default;
 $color-danger-bg: $ruby-1 !default;
-$color-fatal-danger: $ruby-8 !default; // 严重危险
-$color-fatal-danger-hover: $ruby-7 !default;
-$color-fatal-danger-active: $ruby-9 !default;
-$color-fatal-danger-disabled: $ruby-4 !default;
-$color-fatal-danger-bg: $ruby-1 !default;
+$color-fatal: $ruby-8 !default; // 严重危险
+$color-fatal-hover: $ruby-7 !default;
+$color-fatal-active: $ruby-9 !default;
+$color-fatal-disabled: $ruby-5 !default;
+$color-fatal-bg: $ruby-1 !default;
 
 
 $color-status-master: $color-master; // deprecated(弃用)
@@ -130,7 +130,7 @@ $disabled-icon-color: $neutral-6; // deprecated(弃用)
 
 /* Typography
 -------------------------- */
-$font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif !default; // 标准字体
+$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif, '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
 $font-family-cute-icons: 'cute-icons' !default;
 $text-size: 12px !default; // 标准字体大小
 $text-size-sm: 12px !default; // 字号small
@@ -244,8 +244,12 @@ $tag-warning: $orange-1 !default; // 警告色标签背景
 $tag-warning-border: $orange-base !default; // 警告色标签边框
 $tag-danger: $ruby-1 !default; // 危险色标签背景
 $tag-danger-border: $ruby-base !default; // 危险色标签边框
+$tag-fatal: $ruby-2 !default; // 危险色标签背景
+$tag-fatal-border: $ruby-8 !default; // 危险色标签边框
 $tag-weak: $neutral-1 !default; // 轻微提示色标签背景
 $tag-weak-border: $neutral-6 !default; // 轻微提示色标签边框
+$tag-ct: $red-1 !default; // CT特殊色标签背景
+$tag-ct-border: $red-base !default; // CT特殊色标签边框
 
 $color-tag-master-1: $tag-master-border; // deprecated(弃用)
 $color-tag-master-2: $tag-master; // deprecated(弃用)
@@ -260,6 +264,12 @@ $color-tag-danger-2: $tag-danger; // deprecated(弃用)
 
 /* Button
 -------------------------- */
+$button-default-text-color: $text-color !default;
+$button-default-text-color-disabled: $text-color-light-2 !default;
+$button-default-color-bg: $color-bg-1 !default;
+$button-default-color-bg-disabled: $color-neutral-1 !default;
+$button-default-color-border: $color-neutral-5 !default;
+$button-default-color-border-disabled: $color-neutral-5 !default;
 $button-icon-color: $text-color-light-2 !default;
 $button-margin: $margin-3x !default;
 $button-padding-mini: $padding $padding-2x !default;
@@ -271,6 +281,7 @@ $button-padding-large: $margin-3x $padding-6x !default;
 -------------------------- */
 $form-item-label-line-height: 32px;
 $form-item-error-padding-top: $padding-6 !default;
+$form-item-margin-bottom: $margin-6x;
 
 /* Input
 -------------------------- */
@@ -316,9 +327,37 @@ $table-sort-caret-fill: $table-sort-caret-bg; // deprecated(弃用)
 
 /* Pagination
 -------------------------- */
-$pagination-bg: $color-white !default;
+$pagination-bg: $neutral-1 !default;
+//$pagination-bg: $color-white !default;
 
 $pagination-fill: $color-white; // deprecated(弃用)
+$pagination-font-size: $text-size !default;
+$pagination-font-size-sm: $text-size !default;
+$pagination-height: 24px !default;
+$pagination-height-sm: 24px !default;
+$pagination-input-width: 56px !default; // TODO 如何实现自适应
+$pagination-button-width: 20px !default;
+$pagination-button-width-sm: 20px !default;
+$pagination-button-margin: $margin-2x !default;
+$pagination-button-margin-sm: $margin !default;
+$pagination-button-color: $text-color-light !default;
+$pagination-hover-color: $color-master !default;
+$pagination-hover-bg: $color-bg-3 !default;
+$pagination-active-color: $color-white !default;
+$pagination-active-bg: $color-master !default;
+$pagination-active-bg-disabled: $color-master-disabled !default;
+
+/* Transfer
+-------------------------- */
+$transfer-header-height: 40px !default; // Transfer组件高度
+$transfer-header-bg: $color-neutral-1 !default;
+$transfer-button-hegiht: 38px !default; // Transfer组件圆形按钮
+$transfer-button-width: 38px !default; // Transfer组件圆形按钮
+$transfer-button-radius: 50% !default; // Transfer组件圆形按钮
+$transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
+$transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
+$transfer-item-height: 32px !default; // Transfer组件选项高度
+$transfer-filter-height: $input-sm-height !default;  // Transfer组件搜索框高度
 
 /* Tooltip
 -------------------------- */
@@ -369,7 +408,21 @@ $descriptions-item-content-line-height: 22px !default;
 
 /* Dialog
 -------------------------- */
+$dialog-header-padding: $padding-4x $padding-8x !default;
+$dialog-header-border: $color-neutral-3 !default;
+$dialog-body-padding: $padding-6x $padding-8x !default;
+$dialog-footer-bg: $color-neutral-1 !default;
+$dialog-footer-padding: $padding-3x $padding-8x !default;
 $dialog-footer-margin-top: -30px !default;
+$dialog-fullscreen-margin: $margin-6x !default;
+
+/* MessageBox
+-------------------------- */
+$messagebox-padding-bottom: $padding-3x !default;
+$messagebox-header-padding: $padding-8x !default;
+$messagebox-header-padding-bottom: $padding-3x !default;
+$messagebox-content-padding: $padding-3x $padding-8x !default;
+$messagebox-btns-padding: $padding-3x $padding-8x $padding-5x $padding-8x !default;
 
 /* Icon
 -------------------------- */
@@ -381,6 +434,26 @@ $loading-primary-color: mix($color-white, $color-master, 50%) !default;
 $loading-primary-border: $loading-primary-color !default;
 $loading-default-color: $color-grey-10 !default;
 $loading-default-border: $color-grey-6 !default;
+
+/* Alert
+-------------------------- */
+$alert-text-color: $text-color-light!default;
+$alert-info-bg: $blue-2 !default;
+$alert-success-bg: $green-2  !default;
+$alert-warning-bg: $orange-2 !default;
+$alert-danger-bg: $ruby-2 !default;
+$alert-weak-bg: $neutral-1 !default;
+
+/* CuteSlider
+-------------------------- */
+$cute-slider-marks-height: 6px !default;
+$cute-slider-bar-height: 10px !default;
+$cute-slider-input-width: 64px !default;
+$cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;
+$cute-slider-btn-radius: 8px !default;
+$cute-slider-btn-width: 16px !default;
+$cute-slider-btn-height: 22px !default;
+
 
 /* Layout
 -------------------------- */

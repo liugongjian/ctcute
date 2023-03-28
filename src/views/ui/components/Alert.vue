@@ -105,20 +105,16 @@ export default class extends Vue {
 
   .long-text {
     ::v-deep.el-alert {
-      align-items: flex-start;
+      align-items: center;
     }
 
     .el-alert__icon {
-      margin-top: 2px;
-    }
-
-    ::v-deep.el-alert__closebtn {
-      margin-top: 4px;
+      margin-top: $margin;
     }
   }
 
   ::v-deep .el-alert {
-    margin-top: 20px;
+    margin-top: $margin-5x;
   }
 }
 </style>

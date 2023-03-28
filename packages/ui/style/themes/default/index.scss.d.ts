@@ -13,9 +13,10 @@ export interface IScssVariablesRevised {
   colorMaster5: string
   colorMaster6: string
   colorMaster7: string
-  colorSp: string
-  colorSpHover: string
-  colorSpActive: string
+  colorCt: string
+  colorCtHover: string
+  colorCtActive: string
+  colorCtDisabled: string
   colorSp1: string
   colorSp2: string
   colorSp3: string
@@ -39,11 +40,11 @@ export interface IScssVariablesRevised {
   colorDangerActive: string
   colorDangerDisabled: string
   colorDangerBg: string
-  colorFatalDanger: string
-  colorFatalDangerHover: string
-  colorFatalDangerActive: string
-  colorFatalDangerDisabled: string
-  colorFatalDangerBg: string
+  colorFatal: string
+  colorFatalHover: string
+  colorFatalActive: string
+  colorFatalDisabled: string
+  colorFatalBg: string
   colorStatusMaster: string
   colorStatusMaster1: string
   colorStatusDanger: string
@@ -92,12 +93,12 @@ export interface IScssVariablesRevised {
   disabledBg: string
   disabledBorder: string
   disabledColor: string
-  disabledIconColor: string
   disabledDangerBg: string
   disabledDangerColor: string
   disabledDangerBorder: string
   disabledFill: string
   disabledDangerFill: string
+  disabledIconColor: string
   fontFamily: string
   fontFamilyCuteIcons: string
   textSize: string
@@ -109,6 +110,8 @@ export interface IScssVariablesRevised {
   textColorLight: string
   textColorLight2: string
   textColorFeature: string
+  textWeight: string
+  textTitleWeight: string
   textSizePrimary: string
   textSizeSmall: string
   textSizeMedium: string
@@ -117,29 +120,8 @@ export interface IScssVariablesRevised {
   textColorPrimary: string
   textColorLight1: string
   lineHeight: string
-  tagMaster: string
-  tagMasterBorder: string
-  tagInfo: string
-  tagInfoBorder: string
-  tagSuccess: string
-  tagSuccessBorder: string
-  tagWarning: string
-  tagWarningBorder: string
-  tagDanger: string
-  tagDangerBorder: string
-  tagWeak: string
-  tagWeakBorder: string
-  colorTagMaster1: string
-  colorTagMaster2: string
-  colorTagInfo1: string
-  colorTagInfo2: string
-  colorTagSuccess1: string
-  colorTagSuccess2: string
-  colorTagWarning1: string
-  colorTagWarning2: string
-  colorTagDanger1: string
-  colorTagDanger2: string
   borderColor: string
+  borderColorHover: string
   borderColorLight: string
   borderColorDark: string
   borderRadius: string
@@ -147,18 +129,18 @@ export interface IScssVariablesRevised {
   borderColorPrimary: string
   borderColorLight1: string
   borderColorDark1: string
-  commonSapce: string
-  commonSapce2x: string
-  commonSapce3x: string
-  commonSapce4x: string
-  commonSapce5x: string
-  commonSapce6x: string
-  commonSapce7x: string
-  commonSapce8x: string
-  commonSapce9x: string
-  commonSapce10x: string
-  commonSapce6: string
-  commonSapce10: string
+  commonSpace: string
+  commonSpace2x: string
+  commonSpace3x: string
+  commonSpace4x: string
+  commonSpace5x: string
+  commonSpace6x: string
+  commonSpace7x: string
+  commonSpace8x: string
+  commonSpace9x: string
+  commonSpace10x: string
+  commonSpace6: string
+  commonSpace10: string
   padding: string
   padding2x: string
   padding3x: string
@@ -200,6 +182,32 @@ export interface IScssVariablesRevised {
   shadowCard: string
   shadowDialog: string
   shadowTableCard: string
+  tagMaster: string
+  tagMasterBorder: string
+  tagInfo: string
+  tagInfoBorder: string
+  tagSuccess: string
+  tagSuccessBorder: string
+  tagWarning: string
+  tagWarningBorder: string
+  tagDanger: string
+  tagDangerBorder: string
+  tagFatal: string
+  tagFatalBorder: string
+  tagWeak: string
+  tagWeakBorder: string
+  tagCt: string
+  tagCtBorder: string
+  colorTagMaster1: string
+  colorTagMaster2: string
+  colorTagInfo1: string
+  colorTagInfo2: string
+  colorTagSuccess1: string
+  colorTagSuccess2: string
+  colorTagWarning1: string
+  colorTagWarning2: string
+  colorTagDanger1: string
+  colorTagDanger2: string
   buttonIconColor: string
   buttonMargin: string
   buttonPaddingMini: string
@@ -209,6 +217,9 @@ export interface IScssVariablesRevised {
   formItemLabelLineHeight: string
   formItemErrorPaddingTop: string
   inputBg: string
+  inputDisabledBg: string
+  inputHoverBorder: string
+  inputActiveBorder: string
   inputXsHeight: string
   inputSmHeight: string
   inputMdHeight: string
@@ -217,6 +228,8 @@ export interface IScssVariablesRevised {
   inputPrefixPadding: string
   inputSuffixPadding: string
   inputFill: string
+  selectBorderColorHover: string
+  selectDisabledBorder: string
   checkboxBg: string
   checkboxBorder: string
   checkboxButton: string
@@ -288,6 +301,7 @@ export interface IScssVariablesRevised {
   zindexPopoconfirm: string
   zindexTooltip: string
   zindexImage: string
+  screenLg: string
   chartColor1: string
   chartColor2: string
   chartColor3: string
@@ -324,6 +338,28 @@ export interface IScssVariablesRevised {
   chartColorL10: string
   chartColorL11: string
   chartColorL12: string
+  alertTextColor: string
+  alertInfoBg: string
+  alertSuccessBg: string
+  alertWarningBg: string
+  alertDangerBg: string
+  alertWeakBg: string
+  transferHeaderHeight: string
+  transferHeaderBg: string
+  transferButtonHegiht: string
+  transferButtonWidth: string
+  transferButtonRadius: string
+  transferItemActiveBg: string
+  transferItemHoverBg: string
+  transferItemHeight: string
+  transferFilterHeigh: string
+  cuteSliderMarksHeight: string
+  cuteSliderBarHeight: string
+  cuteSliderInputWidth: string
+  cuteSliderBtnBg: string
+  cuteSliderBtnRadius: string
+  cuteSliderBtnWidth: string
+  cuteSliderBtnHeight: string
 }
 
 export const variablesRevised: IScssVariablesRevised

@@ -29,8 +29,44 @@ export default class extends Vue {
   @Ref('mdEditor') private mdEditor: MdEditor
 
   // md 编辑器的内容（解析前）
-  private mdStr =
-    "[[toc]]\n\n# 标题1\n\n## 标题2\n\n### 标题3\n\n**粗体**\n\n*斜体*\n\n~~删除线~~\n\n> 引用\n\n- 无序列表1\n- 无序列表2\n\n1. 有序列表a\n2. 有序列表b\n\n表格：\n|column1|column2|column3|\n|-|-|-|\n|content1|content2|content3|\n\n分割线： ------------------------------------\n\n链接： [链接](https://www.ctyun.cn)\n\n图片： ![Description](https://www.ctyun.cn/portal/_nuxt/img/logo.red.3211b23.svg)\n\n代码块：基于 [prismjs](https://prismjs.com/) 实现，目前支持 `js、jsx、java、go、php、python、ruby、json、yaml、shell、sql、mongodb、regex、nginx、docker、http、uri、css、sass、scss、less`。\n```js\nimport Vue from 'vue';\n```\n"
+  private mdStr = `[[toc]]
+
+  # 标题1
+
+  ## 标题2
+
+  ### 标题3
+
+  **粗体**
+
+  *斜体*
+
+  ~~删除线~~
+
+  > 引用
+
+  - 无序列表1
+  - 无序列表2
+
+  1. 有序列表a
+  2. 有序列表b
+
+  表格：
+  |column1|column2|column3|
+  |-|-|-|
+  |content1|content2|content3|
+
+  分割线： ------------------------------------
+
+  链接： [链接](https://www.ctyun.cn)
+
+  图片： ![Description](https://www.ctyun.cn/portal/_nuxt/img/logo.red.3211b23.svg)
+
+  代码块：基于 [prismjs](https://prismjs.com/) 实现，目前支持 \`js、jsx、java、go、php、python、ruby、json、yaml、shell、sql、mongodb、regex、nginx、docker、http、uri、css、sass、scss、less\`。
+  \`\`\`js
+  import Vue from 'vue';
+  \`\`\`
+  `
 
   // md 上传图片
   private async uploadImage() {

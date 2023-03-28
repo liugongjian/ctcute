@@ -36,6 +36,7 @@
 </template>
 
 <script>
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Color from './color'
 import PickerDropdown from './components/PickerDropdown.vue'
 import Clickoutside from 'element-ui/src/utils/clickoutside'

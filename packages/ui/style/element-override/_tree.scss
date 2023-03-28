@@ -67,16 +67,16 @@
 
   &.is-current {
     &>.el-tree-node__content {
-      color: $color-white;
-      background: $color-master;
+      color:  $color-master;
+      background: $color-neutral-1;
 
-      .el-tree-node__expand-icon:not(.is-leaf),
-      .node-icon,
-      .node-content,
-      .handler-icon {
-        // color: $color-white !important; 不需要加
-        color: $color-white;
-      }
+      // .el-tree-node__expand-icon:not(.is-leaf),
+      // .node-icon,
+      // .node-content,
+      // .handler-icon {
+      //   // color: $color-white !important; 不需要加
+      //   // color: $color-white;
+      // }
 
       .el-checkbox__inner {
         border-color: $color-white;

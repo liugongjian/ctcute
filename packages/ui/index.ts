@@ -28,7 +28,6 @@ import ElementUI, {
   Select,
   Option,
   OptionGroup,
-  Button,
   ButtonGroup,
   Table,
   TableColumn,
@@ -37,7 +36,6 @@ import ElementUI, {
   TimePicker,
   Popover,
   Tooltip,
-  MessageBox,
   Breadcrumb,
   BreadcrumbItem,
   Form,
@@ -89,7 +87,15 @@ import ElementUI, {
   DescriptionsItem,
   Result,
 } from 'element-ui'
-import ElementUIOverride, { Steps, Step, Alert, Collapse, Rate } from './components/ElementUI'
+import ElementUIOverride, {
+  Steps,
+  Step,
+  Alert,
+  Collapse,
+  Rate,
+  Button,
+  MessageBox,
+} from './components/ElementUI'
 import './components/ElementUI/settings'
 import './style/index.scss'
 import './fonts/iconfont.css'
@@ -112,7 +118,7 @@ import CuteTableFilter from './components/CuteTable/CuteTableFilter.vue'
 import CuteTag from './components/CuteTag/index.vue'
 import CuteTitledBlock from './components/CuteTitledBlock/index.vue'
 import CuteTableColumnSettings from './components/CuteTable/CuteTableColumnSettings.vue'
-import CuteSelectTree from './components/CuteSelect/CuteSelectTree.vue'
+import CuteSelectTree from './components/CuteSelect/CuteSelectTree/index.vue'
 import CuteArea from './components/CuteArea/index.vue'
 import CuteSlider from './components/CuteSlider/index.vue'
 import CuteDistributionBar from './components/CuteDistributionBar/index.vue'

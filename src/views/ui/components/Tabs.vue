@@ -113,7 +113,7 @@ export default class extends Vue {
     this.editableTabs = tabs.filter(tab => tab.name !== targetName)
   }
 
-  private addTab(targetName) {
+  private addTab() {
     const newTabName = ++this.tabIndex + ''
     this.editableTabs.push({
       title: 'New Tab',

@@ -78,11 +78,11 @@ export default {
     },
     voidColor: {
       type: String,
-      default: variables.colorGrey6,
+      default: variables.disabledBorder,
     },
     disabledVoidColor: {
       type: String,
-      default: variables.colorGrey6,
+      default: variables.disabledBorder,
     },
     iconClasses: {
       type: [Array, Object],
@@ -116,7 +116,7 @@ export default {
     },
     textColor: {
       type: String,
-      default: variables.colorGrey1,
+      default: variables.textColor,
     },
     texts: {
       type: Array,

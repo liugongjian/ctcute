@@ -36,19 +36,30 @@
   }
 
   .el-cascader__tags {
+    .el-tag{
+      display: flex;
+      justify-content: center;
+      &.el-tag--small{ line-height: 20px; height: 20px;}
+    }
     .el-tag > span {
       background: $cascader-tag-bg;
+      color: $color-grey-1;
+    
     }
 
     .el-tag:not(.is-hit) {
-      border-color: $cascader-tag-border;
+      // border-color: $cascader-tag-border;
+      border: 0;
     }
-
+     .el-icon-close{
+      color: $cascader-tag-close-bg;
+      background-color: unset;
+     }
     .el-icon-close:before {
-      color: $cascader-tag-close-color;
-      background-color: $cascader-tag-close-bg;
-      border-radius: 50%;
-      line-height: 17px;
+      color: $cascader-tag-close-bg;
+      // background-color: $cascader-tag-close-bg;
+      // border-radius: 50%;
+      line-height: 20px;
     }
   }
 }
@@ -59,8 +70,11 @@
   transform: none;
   box-shadow: $shadow-2;
 
-  .el-cascader-node:hover {
-    background-color: $cascader-node-hover;
+  .el-cascader-node {
+    // padding: 0 30px 0 2px; // 有选择框不能按设计稿处理，需要重新想办法
+    &:hover {
+      background-color: $cascader-node-hover;
+    }
   }
 
   .in-active-path {

@@ -1,8 +1,8 @@
 <!--
  * @Author: 王亚振
  * @Date: 2022-12-06 17:56:09
- * @LastEditors: 王亚振
- * @LastEditTime: 2022-12-06 17:59:10
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2023-03-24 11:53:52
  * @Description:
 -->
 <template>
@@ -27,11 +27,11 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Demo1 from './Demo1.vue'
 import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
+import Demo1 from './Demo1.vue'
 
 @Component({
-  name: 'CuteTitledBlockDemo',
+  name: 'CuteStateDemo',
   components: {
     ComponentDemo,
     Demo1,
@@ -40,12 +40,12 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 export default class extends Vue {
   private prop = [
     {
-      name: 'icon',
-      desc: '图标',
+      name: 'type',
+      desc: '类型',
       type: 'String',
       required: '选填',
-      options: null,
-      default: null,
+      options: 'info/success/warning/danger/fatal/master',
+      default: 'info',
     },
     {
       name: 'color',
@@ -56,11 +56,19 @@ export default class extends Vue {
       default: null,
     },
     {
+      name: 'icon',
+      desc: '图标',
+      type: 'String',
+      required: '选填',
+      options: null,
+      default: null,
+    },
+    {
       name: 'loading',
       desc: '是否加载中',
       type: 'Boolean',
       required: '选填',
-      options: null,
+      options: 'true/false',
       default: 'false',
     },
   ]

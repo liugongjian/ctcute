@@ -1,0 +1,13 @@
+.el-color-picker {
+  &__trigger {
+    border-color: $border-color;
+  }
+
+  &__color {
+    border-color: $border-color-dark;
+  }
+
+  &__panel {
+    background-color: $color-bg-1;
+  }
+}

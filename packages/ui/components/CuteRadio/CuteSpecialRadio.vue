@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-15 10:12:49
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-23 15:55:01
+ * @LastEditTime: 2023-03-28 14:11:08
  * @Description:
 -->
 <template>
@@ -35,6 +35,20 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .special-radio {
+  ::v-deep.el-radio-button {
+    &:last-child .el-radio-button__inner {
+      border-radius: 3px;
+    }
+  }
+
+  ::v-deep.el-radio-group .el-radio-button .el-radio-button__inner {
+    padding: 13px 20px;
+  }
+
+  ::v-deep.el-radio-group .el-radio-button--large .el-radio-button__inner {
+    padding: 13px 20px;
+  }
+
   ::v-deep.el-radio-group .el-radio-button--medium .el-radio-button__inner {
     padding: $padding-2x $padding-5x;
   }
@@ -52,12 +66,12 @@ export default class extends Vue {
   }
 
   ::v-deep.el-radio-group .el-radio-button:not(.is-active):not(.is-disabled) .el-radio-button__inner {
-    background: $color-master-6;
+    background: unset;
     color: $color-grey-1;
     border-radius: 3px;
 
     &:hover {
-      background: $color-master-5;
+      background: unset;
       color: $color-grey-1;
       margin: 0;
     }

@@ -3,7 +3,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-21 15:39:06
+ * @LastEditTime: 2023-03-28 14:12:07
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -195,6 +195,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/ElButton/index.vue'),
         meta: {
           title: 'ElButton',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'el-breadcrumb',
+        name: 'ElBreadcrumb',
+        component: () => import('@/views/component/Base/ElBreadcrumb/index.vue'),
+        meta: {
+          title: 'ElBreadcrumb',
           breadcrumb: true,
         },
       },
@@ -415,6 +424,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Descriptions.vue'),
         meta: {
           title: 'Descriptions',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'breadcrumb',
+        name: 'Breadcrumb',
+        component: () => import('@/views/component/Test/Breadcrumb.vue'),
+        meta: {
+          title: 'Breadcrumb',
           breadcrumb: true,
         },
       },

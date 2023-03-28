@@ -2,46 +2,58 @@
   <div class="ui-input">
     <div class="sub-input">
       <h3>常规用法</h3>
-      <div class="input-search">
-        <div>
-          <el-form>
-            <el-form-item><el-input v-model="value1" placeholder="请输入"></el-input></el-form-item
-          ></el-form>
-        </div>
-        <div>
-          <el-form :model="formData" :rules="rules">
-            <el-form-item prop="password">
-              <el-input v-model="formData.password" placeholder="请输入" type="text" @input="changeValue">
-                <svg-icon
-                  slot="suffix"
-                  :name="flag ? 'eye-close-fill' : 'eye-fill'"
-                  class="switch"
-                  @click="appearValue"
-                />
-              </el-input>
-            </el-form-item>
-          </el-form>
-        </div>
+      <div class="input-content">
+        <el-radio-group v-model="inputSize" size="small">
+          <el-radio-button value="medium" label="medium">默认</el-radio-button>
+          <el-radio-button value="small" label="small">小</el-radio-button>
+          <el-radio-button value="large" label="large">大</el-radio-button>
+        </el-radio-group>
+        <el-radio-group v-model="inputDisabled" size="small">
+          <el-radio-button :value="true" :label="true">禁用</el-radio-button>
+          <el-radio-button :value="false" :label="false">启用</el-radio-button>
+        </el-radio-group>
       </div>
-      <div class="input-search">
-        <div><el-input disabled placeholder="请输入"></el-input></div>
-        <div>
-          <el-input v-model="value" disabled placeholder="请输入"> </el-input>
-        </div>
-      </div>
-      <h3>常规用法-小</h3>
-      <div class="input-small">
-        <el-input v-model="value1" placeholder="请输入" size="small"></el-input>
-      </div>
-      <div class="input-search">
-        <div><el-input disabled placeholder="请输入" size="small"></el-input></div>
-        <div>
-          <el-input v-model="value" disabled placeholder="请输入" size="small"> </el-input>
+      <div class="sub-input">
+        <div class="input-content">
+          <div>
+            <el-input
+              v-model="value1"
+              :size="inputSize"
+              :disabled="inputDisabled"
+              placeholder="请输入"
+            ></el-input>
+          </div>
+          <div>
+            <el-input
+              v-model="formData.password"
+              :disabled="inputDisabled"
+              placeholder="请输入"
+              :size="inputSize"
+              type="text"
+              @input="changeValue"
+            >
+              <svg-icon
+                slot="suffix"
+                :name="flag ? 'eye-close-fill' : 'eye-fill'"
+                class="switch"
+                @click="appearValue"
+              />
+            </el-input>
+          </div>
+          <div>
+            <el-input v-model="value" placeholder="请输入" :size="inputSize" :disabled="inputDisabled">
+            </el-input>
+          </div>
         </div>
       </div>
       <h3>组合输入框 - 提醒内容</h3>
       <div class="sub-input">
-        <el-input v-model="value1" placeholder="请输入"></el-input>
+        <el-input
+          v-model="value1"
+          placeholder="请输入"
+          :size="inputSize"
+          :disabled="inputDisabled"
+        ></el-input>
         <span class="input-right-tips">提示内容</span>
       </div>
       <h3>IP地址输入框</h3>
@@ -49,6 +61,7 @@
         <div class="input-ip">
           <el-input-number
             v-model="ip[0]"
+            :size="inputSize"
             step-strictly
             :min="1"
             :max="255"
@@ -58,6 +71,7 @@
           <span class="ip-dot">·</span>
           <el-input-number
             v-model="ip[1]"
+            :size="inputSize"
             step-strictly
             :min="1"
             :max="255"
@@ -67,6 +81,7 @@
           <span class="ip-dot">·</span>
           <el-input-number
             v-model="ip[2]"
+            :size="inputSize"
             step-strictly
             :min="1"
             :max="255"
@@ -76,6 +91,7 @@
           <span class="ip-dot">·</span>
           <el-input-number
             v-model="ip[3]"
+            :size="inputSize"
             step-strictly
             :min="1"
             :max="255"
@@ -102,24 +118,21 @@
     <div>
       <div class="input-search">
         <div>
-          <el-input v-model="searchValue" placeholder="请输入内容" prefix-icon="el-icon-search"> </el-input>
-        </div>
-        <div>
-          <el-input v-model="searchValue1" placeholder="请输入内容" prefix-icon="el-icon-search">
-            <i slot="suffix" class="el-icon-close" @click="searchValue1 = ''"></i>
-          </el-input>
-        </div>
-      </div>
-    </div>
-    <h3>搜索输入框-小</h3>
-    <div class="sub-input">
-      <div class="input-search">
-        <div>
-          <el-input v-model="searchValue" placeholder="请输入内容" prefix-icon="el-icon-search" size="samll">
+          <el-input
+            v-model="searchValue"
+            :size="inputSize"
+            placeholder="请输入内容"
+            prefix-icon="el-icon-search"
+          >
           </el-input>
         </div>
         <div>
-          <el-input v-model="searchValue1" placeholder="请输入内容" prefix-icon="el-icon-search" size="small">
+          <el-input
+            v-model="searchValue1"
+            :size="inputSize"
+            placeholder="请输入内容"
+            prefix-icon="el-icon-search"
+          >
             <i slot="suffix" class="el-icon-close" @click="searchValue1 = ''"></i>
           </el-input>
         </div>
@@ -356,6 +369,7 @@ export default class extends Vue {
 
   private newPassword = ''
   private inputSize = 'medium'
+  private inputDisabled = false
   private rules = {
     password: [
       { required: true, message: '密码输入错误', trigger: 'change' },
@@ -426,6 +440,10 @@ export default class extends Vue {
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
+
+  .el-input {
+    width: 250px;
+  }
 }
 
 .input-bottom {

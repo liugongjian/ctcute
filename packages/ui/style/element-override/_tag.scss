@@ -1,5 +1,3 @@
-@use 'sass:color';
-
 /* Tag
 -------------------------- */
 /*
@@ -44,7 +42,7 @@
         color: $color-white;
 
         &:hover {
-          color: color.adjust($color-info, $lightness: 15%);
+          color: mix($color-white, $color-info, 15%);
           background: none;
         }
       }

@@ -3,6 +3,10 @@
 .el-transfer {
   .el-transfer-panel {
     background-color: $color-bg-1;
+
+    .el-transfer-panel__footer {
+      background: $transfer-footert-bg;
+    }
   }
 
   .el-transfer-panel__body {

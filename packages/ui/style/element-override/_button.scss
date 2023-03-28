@@ -263,3 +263,25 @@
 .el-dropdown .el-button .svg-icon:not(:first-child) {
   margin-right: 0;
 }
+
+/*
+  按钮组样式
+*/
+.el-button-group {
+  @each $type in (primary, success, warning, danger, info, fatal, ct) {
+    .el-button--#{$type} {
+      &:first-child {
+        border-right-color: rgba($button-group-border, 0.5);
+      }
+
+      &:last-child {
+        border-left-color: rgba($button-group-border, 0.5);
+      }
+
+      &:not(:first-child):not(:last-child) {
+        border-left-color: rgba($button-group-border, 0.5);
+        border-right-color: rgba($button-group-border, 0.5);
+      }
+    }
+  }
+}

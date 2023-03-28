@@ -331,7 +331,6 @@ $pagination-bg: $neutral-1 !default;
 //$pagination-bg: $color-white !default;
 
 $pagination-fill: $color-white; // deprecated(弃用)
-
 $pagination-font-size: $text-size !default;
 $pagination-font-size-sm: $text-size !default;
 $pagination-height: 24px !default;
@@ -347,6 +346,18 @@ $pagination-hover-bg: $color-bg-3 !default;
 $pagination-active-color: $color-white !default;
 $pagination-active-bg: $color-master !default;
 $pagination-active-bg-disabled: $color-master-disabled !default;
+
+/* Transfer
+-------------------------- */
+$transfer-header-height: 40px !default; // Transfer组件高度
+$transfer-header-bg: $color-neutral-1 !default;
+$transfer-button-hegiht: 38px !default; // Transfer组件圆形按钮
+$transfer-button-width: 38px !default; // Transfer组件圆形按钮
+$transfer-button-radius: 50% !default; // Transfer组件圆形按钮
+$transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
+$transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
+$transfer-item-height: 32px !default; // Transfer组件选项高度
+$transfer-filter-height: $input-sm-height !default;  // Transfer组件搜索框高度
 
 /* Tooltip
 -------------------------- */
@@ -423,6 +434,26 @@ $loading-primary-color: mix($color-white, $color-master, 50%) !default;
 $loading-primary-border: $loading-primary-color !default;
 $loading-default-color: $color-grey-10 !default;
 $loading-default-border: $color-grey-6 !default;
+
+/* Alert
+-------------------------- */
+$alert-text-color: $text-color-light!default;
+$alert-info-bg: $blue-2 !default;
+$alert-success-bg: $green-2  !default;
+$alert-warning-bg: $orange-2 !default;
+$alert-danger-bg: $ruby-2 !default;
+$alert-weak-bg: $neutral-1 !default;
+
+/* CuteSlider
+-------------------------- */
+$cute-slider-marks-height: 6px !default;
+$cute-slider-bar-height: 10px !default;
+$cute-slider-input-width: 64px !default;
+$cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;
+$cute-slider-btn-radius: 8px !default;
+$cute-slider-btn-width: 16px !default;
+$cute-slider-btn-height: 22px !default;
+
 
 /* Layout
 -------------------------- */

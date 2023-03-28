@@ -401,6 +401,33 @@ const componentRoutes = [
         },
       },
       {
+        path: 'transfer',
+        name: 'Transfer',
+        component: () => import('@/views/component/Test/Transfer.vue'),
+        meta: {
+          title: 'Transfer',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'rate',
+        name: 'Rate',
+        component: () => import('@/views/component/Test/Rate.vue'),
+        meta: {
+          title: 'Rate',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'alert',
+        name: 'Alert',
+        component: () => import('@/views/component/Test/Alert.vue'),
+        meta: {
+          title: 'Alert',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'pagination',
         name: 'Pagination',
         component: () => import('@/views/component/Test/Pagination.vue'),

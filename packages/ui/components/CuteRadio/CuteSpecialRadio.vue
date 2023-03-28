@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-15 10:12:49
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-28 14:11:08
+ * @LastEditTime: 2023-03-28 17:01:08
  * @Description:
 -->
 <template>
@@ -81,7 +81,7 @@ export default class extends Vue {
   .el-radio-group .el-radio-button.is-active .el-radio-button__inner :hover {
     background: $color-master-1;
     border-radius: $cute-special-radio-size 0 0 $cute-special-radio-size;
-    color: $color-white !important;
+    color: $color-white;
   }
 
   ::v-deep.el-radio-button__orig-radio:checked + .el-radio-button__inner {

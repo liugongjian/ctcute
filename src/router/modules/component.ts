@@ -199,6 +199,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-breadcrumb',
+        name: 'ElBreadcrumb',
+        component: () => import('@/views/component/Base/ElBreadcrumb/index.vue'),
+        meta: {
+          title: 'ElBreadcrumb',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'vxe-table',
         name: 'VxeTable',
         component: () => import('@/views/component/Base/VxeTable/index.vue'),
@@ -397,6 +406,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/State.vue'),
         meta: {
           title: 'State',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'breadcrumb',
+        name: 'Breadcrumb',
+        component: () => import('@/views/component/Test/Breadcrumb.vue'),
+        meta: {
+          title: 'Breadcrumb',
           breadcrumb: true,
         },
       },

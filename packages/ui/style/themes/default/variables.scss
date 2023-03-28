@@ -391,10 +391,15 @@ $cascader-panel-shadow: $shadow-2 !default;
 
 /* Collapse
 -------------------------- */
+$collapse-border-color: $color-neutral-3 !default;
+$collapse-content-background-color: $color-bg-1!default;
 $collapse-header-bg: $color-neutral-1 !default;
+$collapse-header-arrow-color: $neutral-6 !default;
 $collapse-header-height: 36px !default;
-$collapse-item-header-height: 32px !default;
+$collapse-seperate-header-height: 32px !default;
+$collapse-seperate-header-bg: $color-neutral-2 !default;
 
+$collapse-item-header-height: $collapse-seperate-header-height !default; // deprecated(弃用)
 $collapse-header-fill: $collapse-header-bg; // deprecated(弃用)
 
 /* Datepicker

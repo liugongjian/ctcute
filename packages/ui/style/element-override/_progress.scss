@@ -48,10 +48,10 @@
 
 .el-progress--circle .el-progress__text,
 .el-progress--dashboard .el-progress__text {
-  height: $progress-text-height-lm;
-  line-height: $progress-text-height-lm;
+  height: $progress-text-height-lg;
+  line-height: $progress-text-height-lg;
   color: $color-neutral-10 !important;
-  font-size: $progress-text-size-lm !important;
-  font-weight: $progress-text-title-weight;
+  font-size: $progress-text-size-lg !important;
+  font-weight: $text-title-weight;
   font-family: $font-family;
 }

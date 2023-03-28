@@ -2,7 +2,7 @@
  * @Author: liugongjian
  * @Date: 2023-03-21 14:03:10
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-23 15:36:23
+ * @LastEditTime: 2023-03-28 16:26:41
  * @Description:
 -->
 <template>
@@ -52,7 +52,7 @@ export default class extends Vue {
 
     &:hover {
       position: relative;
-      border-color: $color-master !important;
+      border-color: $color-master;
     }
   }
 
@@ -73,7 +73,7 @@ export default class extends Vue {
 
       &:hover {
         position: relative;
-        border-color: $color-master !important;
+        border-color: $color-master;
       }
     }
   }

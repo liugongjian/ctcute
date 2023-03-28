@@ -182,6 +182,48 @@
     margin-right: $margin-4x;
   }
 
+.el-radio-group {
+  .el-radio-button.el-radio-button--small{ 
+    .el-radio-button__inner{
+      padding: 5px 15px;
+    }
+  }
+
+  .el-radio-button.el-radio-button--mini{
+    .el-radio-button__inner{
+      padding: 5px 15px;
+    }
+  }
+
+  .el-radio-button.el-radio-button--medium{
+    .el-radio-button__inner{
+      padding: 9px 20px;
+    }
+  }
+
+  .el-radio-button.el-radio-button--large{
+    .el-radio-button__inner{
+      padding: 13px 20px;
+    }
+  }
+}
+
+// .el-button.el-button--primary.el-button--medium.is-loading {
+//   background: $color-master;
+//   border-color: $color-master;
+//   opacity: 0.6;
+// }
+
+// .el-button.el-button--default.el-button--medium.is-loading {
+//   background: $loading-default-color;
+//   border-color: $loading-default-border;
+// }
+
+// .el-button + .el-dropdown {
+//   margin-left: $margin-4x;
+//   margin-right: $margin-4x;
+// }
+
   /*
     重置按钮与按钮的间距
   */

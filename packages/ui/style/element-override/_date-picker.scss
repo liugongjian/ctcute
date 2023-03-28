@@ -42,11 +42,13 @@
     }
 
     &.selected {
-      background-color: $color-master;
-      color: $color-white;
+      background-color: unset;
+      color: $color-master;
+      font-weight: normal;
     }
   }
 }
+.time-select-item:hover { font-weight: normal; }
 
 .el-picker-panel.el-date-picker.el-popper.has-sidebar,
 .el-picker-panel.el-date-range-picker.el-popper.has-sidebar {

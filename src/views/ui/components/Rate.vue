@@ -33,11 +33,11 @@ export default class extends Vue {
 </script>
 <style lang="scss">
 .sub-rate {
-  margin-top: 24px;
+  margin-top: $margin-6x;
   display: flex;
 
   .el-rate + .el-rate {
-    margin-left: 48px;
+    margin-left: $margin-10x;
   }
 }
 </style>

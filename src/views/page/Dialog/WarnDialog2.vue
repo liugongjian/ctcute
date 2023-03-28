@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-08 13:45:09
- * @LastEditors: 马妍
- * @LastEditTime: 2022-10-26 09:36:52
+ * @LastEditors: zhulh
+ * @LastEditTime: 2023-03-24 14:50:27
  * @Description: 告警弹窗-有2次输入确认
 -->
 <template>
@@ -10,28 +10,20 @@
     <h2>警告弹窗</h2>
     <p>警告提示-有2次输入确认</p>
     <el-button type="primary" @click="open">警告弹窗</el-button>
-    <el-dialog
-      class="warn-dialog2"
-      :title="title"
-      :visible="visible"
-      :close-on-click-modal="false"
-      @close="close"
-    >
-      <div class="warn-dialog--content">
-        <div class="warn-dialog--content_describe">
-          <slot name="icon">
-            <svg-icon name="warning-circle-fill" />
-          </slot>
-          <span>删除该project数据后，数据将无法恢复，确定要删除吗？ </span>
-        </div>
-
-        <slot name="content">
-          <el-form ref="warnDialog2" :rules="rules" :model="form">
-            <el-form-item label="项目名称" prop="name">
-              <el-input v-model="form.name" placeholder="请输入项目名称"></el-input></el-form-item></el-form
-        ></slot>
-      </div>
-      <div class="warn-dialog--btns">
+    <el-dialog width="480px" :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
+      <el-alert
+        title="删除该project数据后，数据将无法恢复，确定要删除吗？"
+        type="warning"
+        show-icon
+        :closable="false"
+        class="warn-tip"
+      />
+      <el-form ref="warnDialog2" :rules="rules" :model="form" label-width="84px">
+        <el-form-item label="项目名称" prop="name">
+          <el-input v-model="form.name" placeholder="请输入项目名称" />
+        </el-form-item>
+      </el-form>
+      <div slot="footer">
         <el-button @click="close">{{ cancelButtonText }}</el-button>
         <el-button type="primary" :loading="submitting" @click="confirm">{{ confirmButtonText }}</el-button>
       </div>
@@ -64,17 +56,17 @@ export default class extends Vue {
   private rules = {
     name: [{ required: true, message: '请输入活动名称', trigger: 'blur' }],
   }
-  public visible = false
-  public title = '警告提示'
-  public open() {
+  private visible = false
+  private title = '警告提示'
+  private open() {
     this.visible = true
   }
-  public close() {
+  private close() {
     this.visible = false
   }
 
   //弹窗确认事件
-  public async confirm() {
+  private async confirm() {
     this.warnDialog2Ref.validate(valid => {
       if (valid) {
         this.create()
@@ -102,3 +94,9 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.warn-tip {
+  display: block !important;
+  margin-bottom: $margin-6x;
+}
+</style>

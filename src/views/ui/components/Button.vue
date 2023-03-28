@@ -17,10 +17,10 @@
       <el-button type="primary">主按钮</el-button>
       <el-button>次按钮</el-button>
       <el-button type="danger" plain>危险</el-button>
-      <el-button size="small"><svg-icon name="plus-circle" /> 带图标按钮</el-button>
+      <el-button size="small" icon="plus-circle">带图标按钮</el-button>
       <el-dropdown @visible-change="openDropdown">
-        <el-button size="small">
-          <svg-icon name="select" /> 按钮2
+        <el-button size="small" icon="select">
+          按钮2
           <svg-icon name="caret-down" :class="flag ? 'top-fill' : 'svg-icon svg-fill'" />
         </el-button>
         <el-dropdown-menu slot="dropdown" class="conventional-dropdown">
@@ -41,8 +41,8 @@
       <el-button disabled type="primary">主按钮</el-button>
       <el-button disabled>次按钮</el-button>
       <el-button disabled type="danger" plain>危险</el-button>
-      <el-button disabled size="small"><svg-icon name="plus-circle" /> 带图标按钮</el-button>
-      <el-button disabled size="small"><svg-icon name="select" /> 按钮2 </el-button>
+      <el-button disabled size="small" icon="plus-circle">带图标按钮</el-button>
+      <el-button disabled size="small" icon="select">按钮2 </el-button>
       <el-button disabled size="small">小次按钮</el-button>
     </div>
     <h2>组合按钮</h2>

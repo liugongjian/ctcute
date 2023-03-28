@@ -1,9 +1,54 @@
 /* Dialog
 -------------------------- */
-.el-dialog__footer {
-  margin-top: $dialog-footer-margin-top;
-}
+.el-dialog {
+  display: flex;
+  flex-direction: column;
 
-.el-dialog__headerbtn .el-dialog__close {
-  color: $text-color-light;
+  /*
+    重置Dialog Header
+  */
+  &__header {
+    border-bottom: 1px solid $dialog-header-border;
+    padding: $dialog-header-padding;
+  }
+
+  &__headerbtn &__close {
+    color: $text-color-light;
+  }
+
+  &__headerbtn {
+    right: $common-space-8x;
+  }
+
+  /*
+    重置Dialog Body
+  */
+  &__body {
+    flex: 1;
+    padding: $dialog-body-padding;
+    overflow: auto;
+
+    /* 抵消form表单最后一行的margin-bottom */
+    > .el-form {
+      margin-bottom: -$form-item-margin-bottom;
+    }
+  }
+
+  /*
+    重置Dialog Footer
+  */
+  &__footer {
+    background-color: $dialog-footer-bg;
+    padding: $dialog-footer-padding;
+  }
+
+  /*
+    重置全屏模式
+  */
+  &.is-fullscreen {
+    margin: $dialog-fullscreen-margin;
+    width: calc(100% - $dialog-fullscreen-margin * 2);
+    height: calc(100% - $dialog-fullscreen-margin * 2);
+    overflow: visible;
+  }
 }

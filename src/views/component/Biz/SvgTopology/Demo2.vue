@@ -22,8 +22,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Ref } from 'vue-property-decorator'
-import { nodes, links } from './data2'
+import { Component, Vue } from 'vue-property-decorator'
+import { nodes } from './data2'
 import { CustomNode, DragViewbox } from 'svg-topology'
 
 type NodeItem = {
@@ -33,25 +33,6 @@ type NodeItem = {
   shape?: 'line' | 'rect'
   borderRadius?: string
   children?: NodeItem[]
-}
-
-type LinkItem = {
-  from: string
-  to: string
-  id?: string
-  success?: boolean
-  arrow?: boolean
-  label?: string
-}
-
-type NodeWidthMeta = {
-  data: NodeItem
-  x: number
-  y: number
-  localX: number
-  localY: number
-  offsetX: number
-  offsetY: number
 }
 
 @Component({
@@ -150,7 +131,7 @@ export default class extends Vue {
   }
 
   handleDeleteNode(id) {
-    const { node, parentId, rootId } = this.getNode(id, this.nodes)
+    const { parentId, rootId } = this.getNode(id, this.nodes)
     if (id === rootId) {
       const index = this.nodes.findIndex(i => i.id === id)
       this.nodes = [...this.nodes.slice(0, index), ...this.nodes.slice(index + 1)]

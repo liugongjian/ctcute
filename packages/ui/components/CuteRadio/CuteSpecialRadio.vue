@@ -27,7 +27,7 @@ export default class extends Vue {
   @Prop({ type: String, default: '' }) size?: ''
   @Model('change', { type: String, default: '' }) value: string
   @Emit('change')
-  myChange(key) {
+  private myChange(key) {
     return key
   }
 }
@@ -47,17 +47,19 @@ export default class extends Vue {
     margin-left: $cute-special-radio-size;
 
     ::v-deep.el-radio-button__inner {
-      border: none;
+      border: 1px solid $color-neutral-5;
     }
   }
 
   ::v-deep.el-radio-group .el-radio-button:not(.is-active):not(.is-disabled) .el-radio-button__inner {
     background: $color-master-6;
     color: $color-grey-1;
+    border-radius: 3px;
 
     &:hover {
       background: $color-master-5;
       color: $color-grey-1;
+      margin: 0;
     }
   }
 

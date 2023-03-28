@@ -5,39 +5,43 @@
     background-color: $color-bg-1;
   }
 
-  .el-transfer-panel .el-transfer-panel__header {
-    background: $color-bg-1;
-  }
-
   .el-transfer-panel__body {
     background-color: $color-bg-1;
   }
 
-  .el-transfer-panel .el-checkbox__inner {
-    border-radius: $border-radius;
-  }
-
-  .el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
-    top: 5px; //TODO
-    left: 5px; //TODO
-    width: 2px; //TODO
-    height: 2px; //TODO
-    transform: scale(3); //TODO
-  }
-
   .el-transfer__buttons {
-    padding: 0px;
-  }
+    padding: 0 $padding-4x;
 
-  .el-button--medium {
-    padding: $padding-6 $padding-6;
-    display: block;
-    margin: $margin $margin-2x;
-  }
+    & > .el-transfer__button, & > .el-transfer__button.is-disabled {
+      display: block;
+      margin: 0;
+      &:last-child{
+        margin-top: $margin-8x;
+      }
+      & [class*="el-icon-"] + span {
+        margin-left: 0;
+      }
+      &:not(.is-with-texts){
+        height: $transfer-button-hegiht;
+        width: $transfer-button-width;
+        line-height: $transfer-button-hegiht;
+        border-radius: $transfer-button-radius;
+        padding: 0;
+      }
+      &:is(.is-with-texts) > span{
+        display: flex;
+        align-items: center;
+        
+      }
+      &:is(.is-with-texts) span{
+        font-size: $text-size;
+      }
+    }
 
-  .el-button--medium:not(.is-disabled) {
-    .el-icon-arrow-right {
-      color: $color-white;
+    & > .el-transfer__button.is-disabled{
+      background-color: $disabled-bg;
+      border-color: $disabled-border;
+      color: $disabled-border;
     }
   }
 
@@ -55,22 +59,6 @@
     margin-bottom: 0;
   }
 
-  .is-disabled.el-transfer__button {
-    background: $disabled-bg;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
-    color: $disabled-icon-color;
-
-    &:hover {
-      background: $disabled-bg;
-      color: $disabled-icon-color;
-    }
-
-    .el-icon-arrow-right {
-      color: $disabled-icon-color;
-    }
-  }
-
   .el-transfer-panel__filter {
     margin: $margin-2x $margin-3x;
 
@@ -79,12 +67,13 @@
     }
   }
 
-  .el-checkbox.el-transfer-panel__item.is-checked {
-    background-color: $color-master-bg-light-2;
+  .el-checkbox.el-transfer-panel__item:hover{
+    background-color: $transfer-item-hover-bg;
   }
 
+
   .el-checkbox__input.is-checked + .el-checkbox__label {
-    color: $text-color;
+    color: $color-master;
   }
 
   .el-checkbox {

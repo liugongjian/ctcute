@@ -1,7 +1,5 @@
 // _element-override.scss中剩余样式
-
 // TODO 待确认作用后优化：转移、删除
-
 .top-fill {
   transform: rotate(180deg);
 }
@@ -12,7 +10,21 @@
   }
 }
 
-.suffix-forgot,
+.suffix-box {
+  display: flex;
+  justify-content: center;
+    .suffix-forgot-line {
+      height: 12px;
+      width: 1px;
+      display: inline-block;
+      background-color: $border-color-primary;
+      margin:2px $text-size-primary;
+  }
+
+  // .suffix-forgot + .el-link {
+  //   line-height: 32px;
+  // }
+}
 .icon-money {
   line-height: 32px;
   margin-right: $text-size-primary;
@@ -21,17 +33,6 @@
   &:hover {
     cursor: pointer;
   }
-}
-
-.suffix-forgot + .el-link {
-  height: 16px;
-  line-height: 32px;
-}
-
-.suffix-forgot::after {
-  content: '|';
-  color: $border-color-primary;
-  margin-left: $text-size-primary;
 }
 
 .bt-operation {

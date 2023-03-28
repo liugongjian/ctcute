@@ -5,6 +5,8 @@ import Collapse from './Collapse/index.vue'
 import Rate from './Rate/index.vue'
 import ColorPicker from './ColorPicker/index.vue'
 import Tabs from './Tabs/tabs.vue'
+import Breadcrumb from './Breadcrumb/Breadcrumb.vue'
+import BreadcrumbItem from './Breadcrumb/BreadcrumbItem.vue'
 import Button from './Button/index.vue'
 import MessageBox from './MessageBox/index.js'
 
@@ -17,6 +19,8 @@ export default {
     Vue.component(Rate.name, Rate)
     Vue.component(ColorPicker.name, ColorPicker)
     Vue.component(Tabs.name, Tabs)
+    Vue.component(Breadcrumb.name, Breadcrumb)
+    Vue.component(BreadcrumbItem.name, BreadcrumbItem)
     Vue.component(Button.name, Button)
     Vue.prototype.$msgbox = MessageBox
     Vue.prototype.$alert = MessageBox.alert

@@ -32,7 +32,7 @@
   }
 
   .el-upload__tip {
-    color: $color-grey-2;
+    color: $color-neutral-7;
     font-size: $text-size-sm;
     margin: $margin-2x 0 $margin-10;
   }
@@ -88,9 +88,10 @@
   }
 
   .el-upload-list__item.is-uploading {
-    width: 80px;// TODO
-    height: 80px;// TODO
-    background-color: $color-grey-11;
+    width: 100px;
+    height: 100px;
+    background-color: none;
+    border-radius: 2px;
     border: 1px dashed $loading-default-border;
   }
 
@@ -178,16 +179,27 @@
 
 //拖拽上传
 .drag-uploader {
-  width: 360px;// TODO
-
+  width: 320px;
+  
   .el-upload-dragger {
+    border-radius: 0;
     background-color: $upload-bg;
-
-    .el-icon-upload {
-      width: 33px !important;// TODO
-      height: 42px !important;// TODO
-      margin-top: 38px;// TODO
-      color: $color-master-1;
+    height: 100px;
+    width: 320px;
+    // .el-icon-upload {
+    //   width: 33px !important;
+    //   height: 42px !important;
+    //   margin-top: 38px;
+    //   color: $color-master-1;
+    // }
+    .el-upload__text {
+      line-height: 30px;
+      color: $text-color;
+      vertical-align: middle;
+      padding-top: 34px;
+      span {
+        color: $color-master
+      }
     }
   }
 
@@ -196,6 +208,7 @@
 
 .el-upload__text {
   b {
+    font-weight: normal;
     font-size: $text-size;
     margin-top: $margin-5x;
     line-height: $common-space-5x;
@@ -209,6 +222,19 @@
   }
 }
 
+.el-upload__tip{
+  color: $color-neutral-7;
+  margin-top: 8px;
+}
+.el-upload {
+  .el-button--medium{ padding: 8px 16px ;}
+}
+
 .el-upload-dragger {
   border: 1px dashed $border-color;// TODO
+}
+.el-upload-out__tip {
+  font-size: 12px;
+  color: $color-neutral-7;
+  margin-top: 8px;
 }

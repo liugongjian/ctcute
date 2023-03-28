@@ -245,7 +245,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .code-box {
   ::v-deep .CodeMirror-line {
-    line-height: $line-height !important;
+    line-height: $line-height;
   }
 
   .line {

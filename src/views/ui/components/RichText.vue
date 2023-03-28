@@ -10,7 +10,7 @@
             <Toolbar class="tool-bar-content" :editor="editor" :default-config="toolbarConfig" />
             <!-- 编辑器 -->
             <Editor
-              id="editor-content"
+              class="editor-content"
               v-model="html"
               :default-config="editorConfig"
               @onChange="onChange"
@@ -149,7 +149,7 @@ export default class extends Vue {
     border-bottom: 1px solid $border-color;
   }
 
-  #editor-content {
+  .editor-content {
     height: 400px;
     overflow-y: hidden;
   }

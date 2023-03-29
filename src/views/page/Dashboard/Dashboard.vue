@@ -1,184 +1,169 @@
 <!--
  * @Author: 邱文琦
  * @Date: 2022-10-11 13:30
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-02-01 15:33:01
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-03-13 09:36:43
  * @Description: 首页
 -->
 <template>
   <div class="dashboard">
-    <div class="simple-table" shadow="never">
-      <div class="chart-title">
-        <h2>数据总览</h2>
-        <el-date-picker v-model="overviewDate" type="daterange" size="mini"></el-date-picker>
-      </div>
-      <!-- 统计数据 -->
-      <el-row :gutter="20" class="header">
-        <el-col :span="6">
-          <cute-chart-item
-            :loading="loading"
-            :icon="iconReach"
-            title="短链触达量"
-            total="42,965.00"
-            background="139, 178, 249"
-            percentage="2.5%"
-            :lift="false"
-          >
-          </cute-chart-item>
-        </el-col>
-        <el-col :span="6">
-          <cute-chart-item
-            :loading="loading"
-            :icon="iconClick"
-            title="短链点击量"
-            total="22,412.00"
-            background="182, 221, 119"
-            percentage="2.5%"
-            :lift="true"
-          >
-          </cute-chart-item>
-        </el-col>
-        <el-col :span="6">
-          <cute-chart-item
-            :loading="loading"
-            :icon="iconStartUp"
-            title="短链启动量"
-            total="18,296.00"
-            background="248, 211, 76"
-            percentage="2.5%"
-            :lift="false"
-          >
-          </cute-chart-item>
-        </el-col>
-        <el-col :span="6">
-          <cute-chart-item
-            :loading="loading"
-            :icon="iconInstall"
-            title="短链安装量"
-            total="9,480.00"
-            background="248, 211, 76"
-            percentage="2.5%"
-            :lift="false"
-          >
-          </cute-chart-item>
-        </el-col>
-      </el-row>
-      <el-row :gutter="20" class="chart-table-box">
-        <el-col :span="18">
-          <el-card class="chart-card-box chart-card-view" shadow="never">
-            <div slot="header" class="chart-card-header">
-              <h2>今日数据概况</h2>
-              <div class="header-time-line">
-                <el-select v-model="value" placeholder="请选择">
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  >
-                  </el-option>
-                </el-select>
-                <el-input v-model="searchValue" placeholder="请搜索短链名称" prefix-icon="el-icon-search">
-                </el-input>
+    <div class="chart-title">
+      <h2>数据总览</h2>
+      <el-date-picker v-model="overviewDate" type="daterange" size="mini"></el-date-picker>
+    </div>
+    <!-- 统计数据 -->
+    <el-row :gutter="22" class="header">
+      <el-col :span="6">
+        <cute-chart-item
+          :loading="loading"
+          :icon="iconReach"
+          title="短链触达量"
+          total="42,965.00"
+          background="139, 178, 249"
+          percentage="2.5%"
+          :lift="false"
+        >
+        </cute-chart-item>
+      </el-col>
+      <el-col :span="6">
+        <cute-chart-item
+          :loading="loading"
+          :icon="iconClick"
+          title="短链点击量"
+          total="22,412.00"
+          background="182, 221, 119"
+          percentage="2.5%"
+          :lift="true"
+        >
+        </cute-chart-item>
+      </el-col>
+      <el-col :span="6">
+        <cute-chart-item
+          :loading="loading"
+          :icon="iconStartUp"
+          title="短链启动量"
+          total="18,296.00"
+          background="248, 211, 76"
+          percentage="2.5%"
+          :lift="false"
+        >
+        </cute-chart-item>
+      </el-col>
+      <el-col :span="6">
+        <cute-chart-item
+          :loading="loading"
+          :icon="iconInstall"
+          title="短链安装量"
+          total="9,480.00"
+          background="248, 211, 76"
+          percentage="2.5%"
+          :lift="false"
+        >
+        </cute-chart-item>
+      </el-col>
+    </el-row>
+    <el-row :gutter="22">
+      <el-col :span="18">
+        <cute-card-box title="今日数据概况" content-height="410px">
+          <template #extra>
+            <div class="header-time-line">
+              <el-select v-model="value" placeholder="请选择">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-select>
+              <el-input v-model="searchValue" placeholder="请搜索短链名称" prefix-icon="el-icon-search">
+              </el-input>
+            </div>
+            <el-radio-group v-model="radio1">
+              <el-radio-button label="昨日"></el-radio-button>
+              <el-radio-button label="近7天"></el-radio-button>
+              <el-radio-button label="近30天"></el-radio-button>
+              <el-radio-button label="近6个月"></el-radio-button>
+            </el-radio-group>
+          </template>
+          <template #content>
+            <div class="chart-select-item">
+              <el-select v-model="value" placeholder="请选择">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-select>
+            </div>
+            <CuteChart :option="option8" :height="'100%'" :width="'100%'" />
+          </template>
+        </cute-card-box>
+      </el-col>
+      <el-col :span="6">
+        <el-row>
+          <cute-card-box content-height="258px">
+            <template #content>
+              <div class="chart-box-container">
+                <CuteChart :option="option6" :height="'100%'" :width="'100%'" />
+                <img src="./Images/icon-hit.svg" alt="" />
               </div>
-              <el-radio-group v-model="radio1">
-                <el-radio-button label="昨日"></el-radio-button>
-                <el-radio-button label="近7天"></el-radio-button>
-                <el-radio-button label="近30天"></el-radio-button>
-                <el-radio-button label="近6个月"></el-radio-button>
-              </el-radio-group>
-            </div>
-            <div class="chart-box">
-              <div class="chart-select-item">
-                <el-select v-model="value" placeholder="请选择">
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  >
-                  </el-option>
-                </el-select>
+
+              <div class="chart-box-container">
+                <CuteChart :option="option7" :height="'100%'" :width="'100%'" />
+                <img src="./Images/icon-deal.svg" alt="" />
               </div>
-              <CuteChart :option="option8" :height="'100%'" :width="'100%'" />
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="6">
-          <el-card class="chart-card-box annular" shadow="never">
-            <div class="chart-box-container">
-              <CuteChart :option="option6" :height="'138px'" :width="'100%'" />
-              <img src="./Images/icon-hit.svg" alt="" />
-            </div>
-            <div class="chart-box-container">
-              <CuteChart :option="option7" :height="'138px'" :width="'100%'" />
-              <img src="./Images/icon-deal.svg" alt="" />
-            </div>
-          </el-card>
-          <el-card class="chart-card-box annular line visit-box" shadow="never">
-            <div class="chart-box">
-              <CuteChart :option="option5" :height="'100px'" :width="'100%'" />
-            </div>
-            <div class="visit-data">
-              <h2 class="visits">12,835</h2>
-              <p class="access-rate">
-                <span>访问率</span>
-                <span>
-                  <svg-icon name="arrow-up" color="#FF5B68" width="14" height="14" />
-                  <span class="increase">2.5%</span>
-                </span>
-              </p>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="12">
-          <el-card class="chart-card-box" shadow="never">
-            <div slot="header" class="chart-card-header">
-              <h2>地区分布概况</h2>
-            </div>
-            <div class="chart-box">
-              <CuteChart :option="option2" :height="'250px'" :width="'100%'" />
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="12">
-          <el-card class="chart-card-box" shadow="never">
-            <div slot="header" class="chart-card-header">
-              <h2>短链数据统计</h2>
-            </div>
-            <div class="chart-box">
-              <CuteChart :option="option3" :height="'250px'" :width="'100%'" />
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="6">
-          <el-card class="chart-card-box process" shadow="never">
-            <div slot="header" class="chart-card-header">
-              <h2>流程状态统计</h2>
-            </div>
-            <div class="chart-box">
-              <CuteChart :option="option" :height="'100%'" :width="'100%'" />
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="18">
-          <el-card class="chart-card-box map" shadow="never">
-            <div slot="header" class="chart-card-header">
-              <h2>短链地区访问统计</h2>
-              <div class="map_select">
-                <el-select v-model="value" placeholder="请选择">
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  >
-                  </el-option>
-                </el-select>
-                <el-date-picker v-model="shortChainDate" type="daterange" size="mini"></el-date-picker>
+            </template>
+          </cute-card-box>
+        </el-row>
+        <el-row>
+          <cute-card-box>
+            <template #content>
+              <CuteChart :option="option5" :height="'86px'" :width="'100%'" />
+              <div class="visit-data">
+                <h2 class="visits">12,835</h2>
+                <p class="access-rate">
+                  <span>访问率</span>
+                  <span>
+                    <svg-icon name="arrow-up" color="#FF5B68" width="14" height="14" />
+                    <span class="increase">2.5%</span>
+                  </span>
+                </p>
               </div>
+            </template>
+          </cute-card-box>
+        </el-row>
+      </el-col>
+    </el-row>
+    <el-row :gutter="22">
+      <el-col :span="12">
+        <cute-card-box title="地区分布概况">
+          <template #content>
+            <CuteChart :option="option2" :height="'250px'" :width="'100%'" />
+          </template>
+        </cute-card-box>
+      </el-col>
+      <el-col :span="12">
+        <cute-card-box title="短链数据统计">
+          <template #content>
+            <CuteChart :option="option3" :height="'250px'" :width="'100%'" />
+          </template>
+        </cute-card-box>
+      </el-col>
+    </el-row>
+    <el-row :gutter="22">
+      <el-col :span="6">
+        <cute-card-box title="流程状态统计">
+          <template #content>
+            <CuteChart :option="option" :height="'304px'" :width="'100%'" />
+          </template>
+        </cute-card-box>
+      </el-col>
+      <el-col :span="18">
+        <cute-card-box title="短链地区访问统计" content-height="300px">
+          <template #extra>
+            <div class="map-select">
+              <el-select v-model="value" placeholder="请选择">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-select>
+              <el-date-picker v-model="shortChainDate" type="daterange" size="mini"></el-date-picker>
             </div>
-            <div class="chart-box chart-inner">
+          </template>
+          <template #content>
+            <div class="chart-inner">
               <div class="chart-items">
                 <el-tabs v-model="activeName" class="chart-card-tabs">
                   <el-tab-pane label="TOP10城市" name="first"></el-tab-pane>
@@ -193,23 +178,23 @@
               </div>
               <CuteChart :option="option9" :height="'100%'" :width="'100%'" />
             </div>
-          </el-card>
-        </el-col>
-        <el-col :span="10" style="margin-bottom: 22px">
-          <el-card class="chart-card-box message" shadow="never">
-            <div slot="header" class="chart-card-header">
-              <h2>短信渠道用户排行榜</h2>
+          </template>
+        </cute-card-box>
+      </el-col>
+    </el-row>
+    <el-row :gutter="22">
+      <el-col :span="10">
+        <cute-card-box title="短信渠道用户排行榜">
+          <template #content>
+            <div class="chart-user">
+              <CuteChart :option="option4" :width="'100%'" height="350px" />
             </div>
-            <div class="chart-box chart-user">
-              <CuteChart :option="option4" :width="'100%'" height="440px" />
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="14" style="margin-bottom: 22px">
-          <el-card class="chart-card-box table" shadow="never">
-            <div slot="header" class="chart-card-header">
-              <h2>数据列表</h2>
-            </div>
+          </template>
+        </cute-card-box>
+      </el-col>
+      <el-col :span="14">
+        <cute-card-box title="数据列表" class="table">
+          <template #content>
             <div class="chart-box">
               <el-tabs value="third" type="card" size="small">
                 <el-tab-pane label="默认项" name="second"></el-tab-pane>
@@ -257,20 +242,21 @@
                 </el-pagination>
               </div>
             </div>
-          </el-card>
-        </el-col>
-      </el-row>
-    </div>
+          </template>
+        </cute-card-box>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script lang="ts">
 import { HEALTH } from '@/dics/simpleTable'
 import { formatDatetime } from '@/utils/date'
-import color from '@cutedesign/ui/style/themes/default/index.scss'
+import color from '@cutedesign/theme/css/_variables.scss'
 import { getTableComponent } from '@/api/tableComponent'
 import * as TableComponent from '@/types/TableComponent'
 import { CuteChart, CuteChartItem } from '@cutedesign/chart'
+import { CuteCardBox } from '@cutedesign/ui'
 import { Component, Vue } from 'vue-property-decorator'
 import iconReach from './Images/icon-reach.svg'
 import iconClick from './Images/icon-click.svg'
@@ -282,6 +268,7 @@ import iconInstall from './Images/icon-install.svg'
   components: {
     CuteChart,
     CuteChartItem,
+    CuteCardBox,
   },
 })
 export default class extends Vue {
@@ -747,15 +734,6 @@ export default class extends Vue {
     const lists = this.list
     // 饼图
     this.option = {
-      color: [
-        this.variables.chartColorH1,
-        this.variables.chartColor2,
-        this.variables.chartColor3,
-        this.variables.chartColor4,
-        this.variables.chartColor5,
-        this.variables.chartColor6,
-        this.variables.chartColor7,
-      ],
       title: {
         text: '22,870',
         subtext: '流程状态数量',
@@ -773,9 +751,6 @@ export default class extends Vue {
           fontWeight: 400,
           fontFamily: 'PingFangSC-Regular',
         },
-      },
-      textStyle: {
-        color: this.variables.colorGrey1,
       },
       tooltip: {
         trigger: 'none',
@@ -814,15 +789,11 @@ export default class extends Vue {
           // selectedMode: false,
           labelLine: {
             length: 15,
-            lineStyle: {
-              color: this.variables.colorGrey1,
-            },
           },
           emphasis: {
             label: {
               show: true,
               fontSize: 12, // 字体大小
-              color: this.variables.colorGrey1,
               padding: [5, 10],
               formatter: '{b}  {c}',
             },
@@ -836,7 +807,7 @@ export default class extends Vue {
             normal: {
               label: {
                 fontSize: 14, // 字体大小
-                color: this.variables.colorGrey1,
+                // color: this.variables.colorGrey1,
                 show: false,
                 padding: [5, 10],
                 // formatter:  '{b} \n {c} ({d}%)'
@@ -850,18 +821,6 @@ export default class extends Vue {
     }
     // 线图
     this.option2 = {
-      color: [
-        this.variables.chartColorH1,
-        this.variables.chartColor2,
-        this.variables.chartColor3,
-        this.variables.chartColor4,
-        this.variables.chartColor5,
-        this.variables.chartColor6,
-        this.variables.chartColor7,
-      ],
-      textStyle: {
-        color: this.variables.colorGrey1,
-      },
       tooltip: {
         trigger: 'none',
         show: true,
@@ -871,10 +830,6 @@ export default class extends Vue {
       },
       legend: {
         show: true,
-        textStyle: {
-          fontSize: 12, // 字体大小
-          color: this.variables.colorGrey1, // 字体颜色
-        },
         icon: 'circle',
         top: '8%',
         right: '15%',
@@ -894,7 +849,6 @@ export default class extends Vue {
             label: {
               show: true,
               fontSize: 12, // 字体大小
-              color: this.variables.colorGrey1,
               padding: [5, 10],
               formatter: '{b}  {c}',
             },
@@ -916,7 +870,6 @@ export default class extends Vue {
             normal: {
               label: {
                 fontSize: 12, // 字体大小
-                color: this.variables.chartColor11,
                 show: false,
                 padding: [5, 10],
                 // formatter:  '{b} \n {c} ({d}%)'
@@ -929,27 +882,16 @@ export default class extends Vue {
       ],
     }
     this.option3 = {
-      // legend: {
-      //   data: ['Growth', 'Budget 2011', 'Budget 2012'],
-      // itemGap: 5
-      // },
       grid: {
         top: '15%',
         left: '2%',
-        // right: '3%',
+        right: '3%',
         bottom: '15%',
         containLabel: true,
       },
-      color: [this.variables.chartColor10, this.variables.chartColor1],
 
       tooltip: {
         trigger: 'axis',
-        axisPointer: {
-          // type: 'cross',
-          // crossStyle: {
-          //   color: 'this.variables.color-grey-4'
-          // }
-        },
       },
       legend: {
         data: ['短链触达量', '短链点击量'],
@@ -978,9 +920,6 @@ export default class extends Vue {
           },
           axisLine: {
             show: true,
-            lineStyle: {
-              color: this.variables.colorGrey4,
-            },
           },
         },
       ],
@@ -990,9 +929,6 @@ export default class extends Vue {
           name: '数量',
           axisLine: {
             show: true,
-            lineStyle: {
-              color: this.variables.colorGrey4,
-            },
           },
           splitLine: {
             //网格线
@@ -1247,43 +1183,6 @@ export default class extends Vue {
           },
         },
       ],
-      // dataZoom: [
-      //   {
-      //     type: 'slider',
-      //     yAxisIndex: [0],
-      //     // top: 60,
-      //     // 数据窗口范围的起始百分比。范围是：0 ~ 100。表示 0% ~ 100%
-      //     // 也可以用 startValue设置起始值
-      //     start: 1,
-      //     end: 100,
-      //     width: 6,
-      //     maxValueSpan: 6, // 显示数据的条数(默认显示10个，注意：从 0 开始计算)
-      //     show: true, // 是否显示Y轴滚动条(this.departmentsList换成自己的数据)
-      //     // 组件的背景颜色
-      //     // left: 650, //左边的距离
-      //     borderRadius: 50, //滚动条圆角
-      //     // borderColor: 'E1E1E1', //滚动条边框颜色
-      //     // fillerColor: '#E1E1E1', // 滚动条颜色
-      //     // backgroundColor: '#fff', //两边未选中的滑动条区域的颜色
-      //     // 是否显示detail，即拖拽时候显示详细数值信息
-      //     showDetail: false,
-      //     // 控制手柄的尺寸
-      //     handleSize: 10,
-      //     // 是否在 dataZoom-silder 组件中显示数据阴影。数据阴影可以简单地反应数据走势。
-      //     showDataShadow: false,
-      //     brushSelect: false, // 滚动条刷选功能
-      //   },
-      //   {
-      //     type: 'inside',
-      //     yAxisIndex: [0],
-      //     start: 1,
-      //     // end: 36,
-      //     // 不按任何功能键，鼠标滚轮能触发缩放
-      //     zoomOnMouseWheel: false,
-      //     // 不按任何功能键，鼠标移动能触发数据窗口平移
-      //     moveOnMouseWheel: true,
-      //   },
-      // ],
     }
     this.option5 = {
       grid: {
@@ -1417,7 +1316,6 @@ export default class extends Vue {
             textShadowOffsetX: 20,
             show: true,
             position: 'right',
-            // fontWeight: 'bold',
             formatter: ' {a|{d}%}\n{b|{b}}', // {b}:数据名； {c}：数据值； {d}：百分比，可以自定义显示内容，
             rich: {
               a: {
@@ -1461,9 +1359,6 @@ export default class extends Vue {
       ],
     }
     this.option8 = {
-      // title: {
-      //   text: 'Stacked Line'
-      // },
       tooltip: {
         trigger: 'axis',
       },
@@ -1624,20 +1519,21 @@ export default class extends Vue {
       },
       // 热力地图
       visualMap: {
-        type: 'piecewise',
+        // type: 'piecewise',
         orient: 'horizontal',
-        itemGap: 0,
-        itemSymbol: 'rect',
+        // itemGap: 0,
+        // itemSymbol: 'rect',
         show: true,
         min: 0,
         max: 200,
         left: '13%',
         top: '85%',
-        text: ['  低', '高  '], // 文本，默认为数值文本
+        // text: ['  低', '高  '], // 文本，默认为数值文本
+        text: ['High', 'Low'],
         calculable: false,
         seriesIndex: [1],
         inRange: {
-          color: ['#497DFF', '#EEF2FA'],
+          color: ['#96CDF6', '#FEFD54', '#EC5428'],
         },
       },
       geo: {
@@ -1645,14 +1541,6 @@ export default class extends Vue {
         zoom: 1.7,
         top: '30%',
         map: 'china', //此处的china就是之前博客中全局注册的china地图
-        itemStyle: {
-          // 定义样式
-          areaColor: '#EEF2FA', //地图块的颜色
-          emphasis: {
-            // 高亮状态下的样式
-            areaColor: this.variables.chartColor3,
-          },
-        },
       },
 
       series: [
@@ -1700,9 +1588,9 @@ export default class extends Vue {
               formatter: '数值为{b}:{c}',
               emphasis: {
                 show: false,
-                textStyle: {
-                  color: this.variables.colorGrey0,
-                },
+                // textStyle: {
+                //   color: this.variables.colorGrey0,
+                // },
               },
             },
           },
@@ -1717,388 +1605,76 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.header {
-  .el-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 9.1vw;
-
-    &:hover {
-      box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 8%), 0 9px 28px 0 rgba(0, 0, 0, 5%),
-        0 12px 48px 16px rgba(0, 0, 0, 3%);
-    }
-
-    ::v-deep &__body {
-      .decline {
-        font-weight: 600;
-
-        svg {
-          margin-top: 1px;
-          margin-right: 3px;
-        }
-      }
-
-      .rise {
-        font-weight: 600;
-
-        svg {
-          margin-top: 1px;
-          margin-right: 3px;
-        }
-      }
-
-      .chart-card-count-warp {
-        h3 {
-          padding: 4px 0;
-          font-family: bahnschrift;
-          font-weight: bold;
-        }
-      }
-    }
-  }
-}
-
-.chart-select-item {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 10px;
-  width: 100%;
-
-  ::v-deep .el-select {
-    width: 90px;
-  }
-}
-
-.chart-img {
-  position: absolute;
-
-  > img:nth-child(1) {
-    position: relative;
-    top: -193px;
-    left: 122px;
-    width: 23px;
-    height: 23px;
-  }
-
-  > img:nth-child(2) {
-    position: relative;
-    top: -74px;
-    left: 99px;
-    width: 23px;
-    height: 23px;
-  }
-}
-
-.chart-inner {
-  display: flex;
-  justify-content: space-between;
-
-  ::v-deep .el-table td.el-table__cell div {
-    font-size: 14px;
-  }
-
-  ::v-deep .el-table tr:last-child td.el-table__cell {
-    border-bottom: none;
-  }
-}
-
-.text-ellipsis {
-  display: inline-block;
+.dashboard {
   overflow: hidden;
-  width: 100%;
-  vertical-align: middle;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 
-.sub-spot {
-  display: inline-block;
-  margin-right: 10px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-
-  &--1 {
-    background: $color-status-success;
+  ::v-deep .el-range-editor {
+    width: 243px;
+    height: 32px;
   }
-
-  &--2 {
-    background: $color-status-warning;
-  }
-
-  &--3 {
-    background: $color-status-danger;
-  }
-
-  &--4 {
-    background: $color-status-info;
-  }
-
-  &--5 {
-    background: $disabled-color;
-  }
-}
-
-.chart-card-tabs {
-  margin-top: -10px;
-
-  ::v-deep .el-tabs__header {
-    margin-bottom: 0;
-  }
-}
-
-.chart-items .el-table {
-  overflow: scroll;
-  margin: 0 !important;
-  width: 100%;
-}
-
-.chart-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  // height: 60px;
-}
-
-::v-deep .el-range-editor {
-  width: 243px;
-  height: 32px;
-}
-
-::v-deep .el-card {
-  border-radius: 14px;
-}
-
-.chart-table-box {
-  ::v-deep .el-col {
-    margin-top: 20px;
-  }
-
-  .el-col-18 .el-card {
-    height: 390px;
-
-    &.chart-card-view {
-      height: 519px;
-    }
-
-    & ::v-deep > .el-card__body {
-      height: calc(100% - 70px);
-
-      .chart-box {
-        height: 95%;
-      }
-    }
-  }
-}
-
-.simple-table {
-  padding: 0 10px !important;
 
   .chart-title {
-    padding: 0 2px 14px;
-  }
-}
-
-.dashboard .simple-table {
-  padding: 10px 0;
-  background: none;
-
-  h2 {
-    margin: 0;
-    width: 150px;
-    font-weight: 500;
-    font-size: 16px;
-    font-family: PingFangSC-Medium;
-    line-height: 28px;
-  }
-
-  & ::v-deep > .el-card__body {
-    padding: 0;
-
-    .el-card {
-      background: $color-white;
-
-      .el-card__body {
-        padding: 10px;
-      }
-    }
-  }
-}
-
-.annular {
-  &:first-child {
-    padding-top: 5px;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  margin-bottom: 1vw;
-  height: 303px;
-
-  ::v-deep .el-card__body {
+    margin-bottom: $margin-5x;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-  }
-}
-
-.line {
-  height: 12.8vw;
-}
-
-.process {
-  height: 390px;
-
-  ::v-deep .el-card__body {
-    padding: 10px 0 0 !important;
-    height: calc(100% - 50px) !important;
-
-    .chart-box {
-      height: 100%;
-    }
-  }
-}
-
-.map {
-  height: 390px;
-
-  ::v-deep .el-card__header {
-    .el-select {
-      width: 107px;
-    }
-
-    .chart-card-header {
-      .map_select {
-        display: flex;
-      }
-
-      .el-range-editor {
-        margin-left: 16px;
-        height: 28px;
-      }
-
-      .el-input__inner {
-        height: 28px;
-      }
-
-      .el-input__suffix {
-        height: 28px;
-      }
-    }
-  }
-
-  ::v-deep .el-card__body {
-    height: calc(100% - 45px) !important;
-
-    .chart-box {
-      height: 100% !important;
-    }
-  }
-}
-
-.message {
-  height: 390px;
-
-  ::v-deep .el-card__body {
-    .chart-cont {
-      height: 21vw !important;
-    }
-  }
-}
-
-::v-deep .el-card__body .chart-table-box .el-card__body .el-tabs__header {
-  margin: 0;
-}
-
-.table {
-  height: 390px;
-
-  ::v-deep .el-card__body {
-    height: calc(100% - 32px);
-
-    .chart-box {
-      height: calc(100% - 14px);
-
-      .sub-table {
-        height: calc(100% - 43px);
-
-        th {
-          padding: 0 !important;
-        }
-
-        .el-table__cell {
-          padding: 7px 0;
-        }
-
-        .el-tag {
-          margin-right: 8px;
-        }
-      }
-    }
-
-    .el-table {
-      margin: 10px 0 !important;
-      border-bottom: 1px solid $color-grey-6;
-    }
-  }
-}
-
-.chart-card-box {
-  ::v-deep .el-card__header {
-    padding: 10px 20px;
-  }
-
-  ::v-deep .el-card__body {
-    .chart-select-item {
-      .el-input__inner {
-        height: 28px;
-      }
-
-      .el-input__suffix {
-        height: 28px;
-      }
-    }
-  }
-
-  .chart-card-header {
-    display: flex;
-    clear: both;
     align-items: center;
     justify-content: space-between;
 
-    .header-time-line {
-      display: flex;
-      align-items: center;
+    h2 {
+      margin: 0;
+      font-weight: $text-title-weight;
+      font-size: $text-size-lg;
+    }
+  }
 
-      ::v-deep .el-input {
-        .el-input__inner {
-          margin-left: -1px;
-          height: 28px;
-          border-radius: 0 2px 2px 0;
-        }
+  .header-time-line {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
 
-        .el-input__suffix {
-          height: 28px;
-        }
-
-        .el-input__icon {
-          line-height: 28px;
-        }
+    ::v-deep .el-input {
+      .el-input__inner {
+        margin-left: -1px;
+        height: 28px;
+        border-radius: 0 2px 2px 0;
       }
 
-      ::v-deep .el-select {
-        .el-input__inner {
-          margin-left: 0;
-          border-right: none;
-          border-radius: 2px 0 0 2px;
-        }
+      .el-input__suffix {
+        height: 28px;
+      }
+
+      .el-input__icon {
+        line-height: 28px;
       }
     }
-    // height: 52px;
+
+    ::v-deep .el-select {
+      .el-input__inner {
+        margin-left: 0;
+        border-right: none;
+        border-radius: 2px 0 0 2px;
+      }
+    }
+  }
+
+  .chart-select-item {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    width: 100%;
+
+    ::v-deep .el-select {
+      width: 90px;
+    }
+  }
+
+  .chart-box-container {
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 40%;
+      left: 34%;
+    }
   }
 
   .visit-data {
@@ -2126,28 +1702,89 @@ export default class extends Vue {
     }
   }
 
-  .chart-box-container {
-    position: relative;
+  .map-select {
+    ::v-deep .el-select {
+      width: 107px;
+      margin-right: 16px;
+    }
+  }
 
-    img {
-      position: absolute;
-      top: 41%;
-      left: 37%;
+  .chart-inner {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+
+    ::v-deep .el-table {
+      margin: 0;
+
+      td.el-table__cell {
+        padding: 7px 0;
+
+        div {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .text-ellipsis {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .chart-card-tabs {
+    margin-top: -10px;
+
+    ::v-deep .el-tabs__header {
+      margin-bottom: 0;
+    }
+  }
+
+  .chart-items .el-table {
+    overflow: scroll;
+    margin: 0 !important;
+    width: 100%;
+  }
+
+  .chart-user {
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .table {
+    .sub-table {
+      height: 246px;
+
+      th {
+        padding: 0 !important;
+      }
+
+      .el-table__cell {
+        padding: 7px 0;
+      }
+
+      .el-tag {
+        margin-right: 8px;
+      }
+    }
+
+    .el-table {
+      margin: 10px 0 !important;
+      border-bottom: 1px solid $color-grey-6;
     }
   }
 }
 
-.visit-box {
-  height: 200px;
-}
+.el-row {
+  margin-bottom: $margin-5x;
 
-::v-deep .el-col .chart-card-box.el-card.map .el-card__body {
-  padding: 10px 20px;
-}
-
-.chart-user {
-  height: 300px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 </style>

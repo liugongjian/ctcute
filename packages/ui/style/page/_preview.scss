@@ -1,78 +1,78 @@
 .document-preview {
-  padding: 30px 20px;
-  background: $color-bg-2;
+  padding: $padding-8x $padding-5x;
+  background: $color-white;
   box-shadow: $shadow-1;
 
   .document-preview-title {
-    border-bottom: 1px solid $border-color-primary;
+    border-bottom: 1px solid $border-color;
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: $padding-3x;
 
     h1 {
-      color: $color-grey-1;
-      font-size: 16px;
+      color: $text-color;
+      font-size: $text-size-lg;
       margin: 0;
     }
 
     div {
-      font-size: 12px;
-      color: $color-grey-2;
-      line-height: 20px;
-      font-weight: 400;
-      margin-top: 20px;
+      font-size: $text-size;
+      color: $text-color-light;
+      line-height: $line-height;
+      font-weight: $text-weight;
+      margin-top: $margin-5x;
     }
   }
 
   .document-preview-content {
-    border-bottom: 1px solid $border-color-light-1;
-    padding-bottom: 20px;
+    border-bottom: 1px solid $border-color-light;
+    padding-bottom: $padding-5x;
 
     .preview-content-desc {
-      padding-left: 20px;
+      padding-left: $padding-5x;
 
       .preview-content-paragraph {
-        margin: 5px 0;
+        margin: $margin 0;
       }
 
       h2 {
-        font-size: 14px;
-        color: $color-grey-1;
+        font-size: $text-size-md;
+        color: $text-color;
       }
 
       h2:first-child {
-        margin-top: 20px;
+        margin-top: $margin-5x;
       }
 
       h2:not(:first-child) {
-        margin-top: 10px;
+        margin-top: $margin-3x;
       }
 
       p {
-        font-size: 12px;
-        color: $color-grey-1;
-        line-height: 20px;
-        font-weight: 400;
+        font-size: $text-size-sm;
+        color: $text-color;
+        line-height: $line-height;
+        font-weight: $text-weight;
         margin: 0;
       }
     }
   }
 
   .document-preview-content_file {
-    padding: 0 20px 20px;
+    padding: 0 $padding-5x $padding-5x;
 
     p,
     h3 {
-      font-size: 12px;
-      color: $color-grey-2;
-      font-weight: 400;
+      font-size: $text-size;
+      color: $text-color-light;
+      font-weight: $text-weight;
     }
 
     h3 {
-      margin-top: 5px;
+      margin-top: $margin;
     }
 
     p {
-      margin-top: 10px;
+      margin-top: $margin-2x;
     }
   }
 }

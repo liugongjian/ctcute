@@ -4,26 +4,22 @@
   border: none;
 
   .el-collapse-item.is-disabled .el-collapse-item__header {
-    font-family: PingFangSC-Medium; // TODO
+    font-family: $font-family;
     font-size: $text-size;
     color: $disabled-color;
   }
 
   .el-collapse-item__header {
-    height: $collapse-header-height;
-    background: $collapse-header-bg;
-    border: 1px solid $border-color;
-    color: $text-color;
-    font-weight: bold;
+    border: 1px solid $collapse-border-color;
+    font-weight: $text-title-weight;
     font-size: $text-size;
-    margin-top: $margin-6x;
     padding-left: $padding-9x;
     position: relative;
 
     .el-collapse-item__arrow {
       position: absolute;
       left: $common-space-4x;
-      color: $text-color-light;
+      color: $collapse-header-arrow-color;
     }
   }
 
@@ -33,21 +29,30 @@
   }
 
   .el-collapse-item__content {
-    font-size: $text-size;
-    color: $text-color-light;
-    line-height: 20px; // TODO
+    // font-size: $text-size;
+    // color: $text-color-light;
+    line-height: $line-height;
     padding: $padding-10;
-    background-color: $color-bg-1;
-    border: 1px solid $border-color;
+    // background-color: $color-bg-1;
+    border: 1px solid $collapse-border-color;
     border-top: none;
+  }
+
+  &:not(.el-collapse--seperate) {
+    .el-collapse-item + .el-collapse-item {
+      .el-collapse-item__header {
+        border-top: none;
+      }
+    }
   }
 }
 
 .el-collapse--seperate {
   .el-collapse-item__header {
-    background-color: $color-grey-8;
+    background-color: $collapse-seperate-header-bg;
     border: none;
-    height: $collapse-item-header-height;
+    height: $collapse-seperate-header-height;
+    margin-top: $margin-6x;
   }
 
   .el-collapse-item__content {

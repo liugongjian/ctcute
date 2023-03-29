@@ -177,11 +177,11 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .status-dot {
   &--1 {
-    background: $color-status-info;
+    background: $color-master;
   }
 
   &--2 {
-    background: $color-status-success;
+    background: $color-success;
   }
 }
 </style>

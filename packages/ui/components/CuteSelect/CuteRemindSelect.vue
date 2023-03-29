@@ -55,7 +55,7 @@ export default class extends Vue {
 
   ::v-deep.el-input__prefix {
     position: absolute;
-    right: 33px;
+    right: $cute-remind-select-right;
 
     span {
       color: $color-grey-4;

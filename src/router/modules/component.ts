@@ -20,6 +20,15 @@ const componentRoutes = [
     },
     children: [
       {
+        path: 'cute-layout',
+        name: 'CuteLayout',
+        component: () => import('@/views/component/Base/CuteLayout/index.vue'),
+        meta: {
+          title: 'CuteLayout',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'cute-remind-select',
         name: 'CuteRemindSelect',
         component: () => import('@/views/component/Base/CuteRemindSelect/index.vue'),

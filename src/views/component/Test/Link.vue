@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2023-03-17 13:45:09
- * @LastEditors: 朱凌浩
- * @LastEditTime: 2023-03-17 14:09:19
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-03-21 15:35:58
  * @Description: Link
 -->
 <template>
@@ -51,3 +51,8 @@ import LinkDemo from '@/views/ui/components/Link.vue'
 })
 export default class extends Vue {}
 </script>
+<style lang="scss" scoped>
+.el-link {
+  margin-right: 20px;
+}
+</style>

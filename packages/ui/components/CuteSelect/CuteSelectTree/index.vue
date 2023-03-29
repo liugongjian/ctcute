@@ -7,7 +7,7 @@
 -->
 <template>
   <el-select ref="selector" :value="treeData" placeholder="请选择" :multiple="multiple ? true : false">
-    <el-option :value="value" :label="label" style="height: auto">
+    <el-option :value="value" :label="label" style="height: auto;">
       <el-tree
         v-if="$scopedSlots.node"
         ref="tree"
@@ -81,7 +81,7 @@ export default class extends Vue {
     }
   }
 
-  get treeValueLabelMap() {
+  get treeValueLabelMap(): any {
     const res = {}
     const mapTree = tree => {
       for (const node of tree) {

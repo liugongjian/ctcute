@@ -1,23 +1,27 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-19 16:30:50
- * @LastEditors: 马妍
- * @LastEditTime: 2022-08-25 16:11:10
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-03-28 12:25:13
  * @Description:
 -->
 <template>
   <div>
+    <el-radio-group v-model="inputSize" size="small">
+      <el-radio-button value="small" label="small">小</el-radio-button>
+      <el-radio-button value="" label="">默认</el-radio-button>
+      <el-radio-button value="large" label="large">大</el-radio-button>
+    </el-radio-group>
     <h2>默认单选块</h2>
     <div class="sub-sample">
-      <el-radio-group v-model="radio">
+      <el-radio-group v-model="radio" :size="inputSize">
         <el-radio-button label="默认选项"></el-radio-button>
         <el-radio-button label="选中选项"></el-radio-button>
         <el-radio-button label="禁用选项" disabled></el-radio-button>
       </el-radio-group>
       <div class="disabled">
-        <el-radio-group v-model="radios">
+        <el-radio-group v-model="radios" :size="inputSize">
           <el-radio-button label="禁用选项" disabled></el-radio-button>
-
           <el-radio-button label="选中不可选" disabled></el-radio-button>
         </el-radio-group>
       </div>
@@ -29,19 +33,19 @@
       组件
     </h2>
     <div class="sub-sample">
-      <cute-special-radio v-model="radio0" :options="buutonData" @change="changeFun" />
+      <cute-special-radio v-model="radio0" :size="inputSize" :options="buutonData" @change="changeFun" />
     </div>
-    <h2>
+    <!-- <h2>
       小单选块-使用了
       <a href="/component/base/cute-special-radio" target="_blank">CuteSpecialRadio</a>
       组件
     </h2>
     <div class="sub-sample">
       <cute-special-radio v-model="radio1" :options="buutonData" :size="size" @change="changeFun" />
-    </div>
+    </div> -->
     <h2>多选块</h2>
     <div class="sub-sample">
-      <el-checkbox-group v-model="radio2">
+      <el-checkbox-group v-model="radio2" :size="inputSize">
         <el-checkbox-button label="多选默认"></el-checkbox-button>
         <el-checkbox-button label="多选选中"></el-checkbox-button>
         <el-checkbox-button label="不可用选中" disabled></el-checkbox-button>
@@ -64,6 +68,7 @@ export default class extends Vue {
     zh: '选择按钮',
     en: 'SelectedButton',
   }
+  public inputSize = ''
   public static description = {
     maintainer: '马妍、王亚振',
     version: 'v1.0',

@@ -276,6 +276,7 @@ $button-padding-mini: $padding $padding-2x !default;
 $button-padding-small: $padding $padding-2x !default;
 $button-padding-medium: 9px $padding-4x !default;
 $button-padding-large: $margin-3x $padding-6x !default;
+$button-group-border: rgba($color-white, 0.5) !default;
 
 /* Form
 -------------------------- */
@@ -349,7 +350,7 @@ $pagination-active-bg-disabled: $color-master-disabled !default;
 
 /* Transfer
 -------------------------- */
-$transfer-header-height: 40px !default; // Transfer组件高度
+$transfer-header-height: 40px !default; // Transfer组件header高度
 $transfer-header-bg: $color-neutral-1 !default;
 $transfer-button-hegiht: 38px !default; // Transfer组件圆形按钮
 $transfer-button-width: 38px !default; // Transfer组件圆形按钮
@@ -358,6 +359,8 @@ $transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项�
 $transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
 $transfer-item-height: 32px !default; // Transfer组件选项高度
 $transfer-filter-height: $input-sm-height !default;  // Transfer组件搜索框高度
+$transfer-footert-bg: $color-white !default;  // Transfer组件footer背景色
+$transfer-footer-height: 40px !default; // Transfer组件footer高度
 
 /* Progress
 -------------------------- */
@@ -375,7 +378,7 @@ $tooltip-fill: $tooltip-bg; // deprecated(弃用)
 
 /* Upload
 -------------------------- */
-$upload-bg: $color-neutral-1 !default;
+$upload-bg: $color-white !default;
 
 $upload-fill: $upload-bg; // deprecated(弃用)
 
@@ -397,10 +400,15 @@ $cascader-panel-shadow: $shadow-2 !default;
 
 /* Collapse
 -------------------------- */
+$collapse-border-color: $color-neutral-3 !default;
+$collapse-content-background-color: $color-bg-1!default;
 $collapse-header-bg: $color-neutral-1 !default;
+$collapse-header-arrow-color: $neutral-6 !default;
 $collapse-header-height: 36px !default;
-$collapse-item-header-height: 32px !default;
+$collapse-seperate-header-height: 32px !default;
+$collapse-seperate-header-bg: $color-neutral-2 !default;
 
+$collapse-item-header-height: $collapse-seperate-header-height !default; // deprecated(弃用)
 $collapse-header-fill: $collapse-header-bg; // deprecated(弃用)
 
 /* Datepicker
@@ -413,6 +421,27 @@ $descriptions-label-width: 165px !default;
 $descriptions-item-height: 36px !default;
 $descriptions-item-content-width: 525px !default;
 $descriptions-item-content-line-height: 22px !default;
+$descriptions-item-label-min-width: 128px !default;
+$descriptions-font-color-label: $color-neutral-9 !default;
+$descriptions-font-color-label-bordered: $color-neutral-10 !default;
+/* DropDown
+-------------------------- */
+$dropdown-item-padding-top-bottom: 7px !default;
+$dropdown-min-width: 120px !default;
+
+/* Tree
+-------------------------- */
+$tree-checkbox-size: 14px !default;
+$tree-node-icon-padding: 11px !default;
+$tree-checkbox-transform: -0.85px !default;
+$tree-checkbox-scale: 0.375 !default;
+$tree-checkbox-tick-top: 1px !default;
+$tree-handler-menu: 30px !default;
+$tree-node-popover-margin: 0.3em !default;
+$tree-button-tooltip-content-padding: 0.8em 1.2em !default;
+$tree-leaf-expand-icon-padding: 2px !default;
+
+
 
 /* Dialog
 -------------------------- */
@@ -478,6 +507,28 @@ $sidebar-width: 240px !default;
 $sidebar-fill: $color-white !default;
 $sidebar-sub-fill: $color-white !default;
 $sidebar-sub-hover: $color-master-bg-light-2 !default;
+
+
+/* CuteButtonGroup */
+$cute-button-group-margin: -1px !default;
+$cute-button-group-zindex: 1 !default;
+$cute-button-group-border: 2px !default;
+
+/* CuteEditInput */
+$cute-edit-input-width: calc(100% - 84px) !default;
+
+/* CuteRemindInput */
+$cute-remind-input-width: 300px !default;
+
+/* CuteSpecialRadio */
+$cute-special-radio-padding: 9px !default;
+$cute-special-radio-size: 2px !default;
+
+/* CuteRemindSelect */
+$cute-remind-select-right: 33px !default;
+
+/* CuteSelectedInput */
+$cute-selected-input-width: 130px !default;
 
 /* Animation
 -------------------------- */

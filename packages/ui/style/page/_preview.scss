@@ -6,7 +6,7 @@
   .document-preview-title {
     border-bottom: 1px solid $border-color;
     text-align: center;
-    padding-bottom: $padding-3x;
+    padding-bottom: $padding-10;
 
     h1 {
       color: $text-color;
@@ -44,7 +44,7 @@
       }
 
       h2:not(:first-child) {
-        margin-top: $margin-3x;
+        margin-top: $margin-10;
       }
 
       p {
@@ -72,7 +72,7 @@
     }
 
     p {
-      margin-top: $margin-2x;
+      margin-top: $margin-10;
     }
   }
 }

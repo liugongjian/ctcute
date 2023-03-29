@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-15 10:12:49
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-03-28 10:51:13
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-03-28 17:01:08
  * @Description:
 -->
 <template>
@@ -50,19 +50,15 @@ export default class extends Vue {
   }
 
   ::v-deep.el-radio-group .el-radio-button--medium .el-radio-button__inner {
-    padding: 9px 20px;
+    padding: $padding-2x $padding-5x;
   }
 
   ::v-deep.el-radio-group .el-radio-button--small .el-radio-button__inner {
-    padding: 5px 9px;
-  }
-
-  ::v-deep.el-radio-group .el-radio-button--mini .el-radio-button__inner {
-    padding: 5px 9px;
+    padding: $padding-6 $cute-special-radio-padding;
   }
 
   .el-radio-group .el-radio-button {
-    margin-left: 4px;
+    margin-left: $cute-special-radio-size;
 
     ::v-deep.el-radio-button__inner {
       border: 1px solid $color-neutral-5;
@@ -83,11 +79,9 @@ export default class extends Vue {
 
   ::v-deep.el-radio-group .el-radio-button.is-active .el-radio-button__inner,
   .el-radio-group .el-radio-button.is-active .el-radio-button__inner :hover {
-    background: $color-master-5;
-    border: 1px solid $color-master-1;
-    border-radius: 3px;
-    font-weight: 400;
-    color: $color-neutral-10 !important;
+    background: $color-master-1;
+    border-radius: $cute-special-radio-size 0 0 $cute-special-radio-size;
+    color: $color-white;
   }
 
   ::v-deep.el-radio-button__orig-radio:checked + .el-radio-button__inner {

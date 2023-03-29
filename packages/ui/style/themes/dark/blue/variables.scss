@@ -260,6 +260,20 @@ $pagination-bg: $color-white;
 
 $pagination-fill: $color-white; // deprecated(弃用)
 
+/* Transfer
+-------------------------- */
+$transfer-header-height: 40px; // Transfer组件高度
+$transfer-header-bg: $color-neutral-1;
+$transfer-button-hegiht: 38px; // Transfer组件圆形按钮
+$transfer-button-width: 38px; // Transfer组件圆形按钮
+$transfer-button-radius: 50%; // Transfer组件圆形按钮
+$transfer-item-active-bg: $color-neutral-1; // Transfer组件选中项背景色
+$transfer-item-hover-bg: $color-neutral-1; // Transfer组件选中项悬停色
+$transfer-item-height: 32px; // Transfer组件选项高度
+$transfer-filter-height: $input-sm-height; // Transfer组件搜索框高度
+$transfer-footert-bg: $color-neutral-1;  // Transfer组件footer背景色
+$transfer-footer-height: 40px; // Transfer组件footer高度
+
 /* Tooltip
 -------------------------- */
 $tooltip-bg: $color-neutral-8;
@@ -289,10 +303,15 @@ $cascader-panel-shadow: $shadow-2;
 
 /* Collapse
 -------------------------- */
+$collapse-border-color: $color-neutral-3;
+$collapse-content-background-color: $color-bg-1;
 $collapse-header-bg: $color-neutral-1;
+$collapse-header-arrow-color: $neutral-6;
 $collapse-header-height: 36px;
-$collapse-item-header-height: 32px;
+$collapse-seperate-header-height: 32px;
+$collapse-seperate-header-bg: $color-neutral-2;
 
+$collapse-item-header-height: $collapse-seperate-header-height; // deprecated(弃用)
 $collapse-header-fill: $collapse-header-bg; // deprecated(弃用)
 
 /* Datepicker

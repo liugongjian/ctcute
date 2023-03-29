@@ -112,7 +112,18 @@ $--transfer-panel-header-height: $transfer-header-height;
 $--transfer-panel-header-background-color: $transfer-header-bg;
 $--transfer-item-height: $transfer-item-height;
 $--transfer-filter-height: $transfer-filter-height;
+$--transfer-panel-footer-height: $transfer-footer-height;
 
+/* Collapse
+-------------------------- */
+
+$--collapse-header-height: $collapse-header-height;
+$--collapse-header-background-color: $collapse-header-bg;
+$--collapse-header-font-color: $--color-text-primary;
+$--collapse-header-font-size: $text-size;
+$--collapse-content-background-color: $collapse-content-background-color;
+$--collapse-content-font-size: $text-size;
+$--collapse-content-font-color: $text-color-light;
 
 /* MessageBox
 -------------------------- */

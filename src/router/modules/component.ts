@@ -3,7 +3,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
  * @LastEditors: 李志伟
- * @LastEditTime: 2023-03-30 09:21:12
+ * @LastEditTime: 2023-03-30 18:26:09
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -478,51 +478,6 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Pagination.vue'),
         meta: {
           title: 'Pagination',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'content-area-tips',
-        name: 'ContentAreaTips',
-        component: () => import('@/views/component/Test/ContentAreaTips.vue'),
-        meta: {
-          title: 'ContentAreaTips',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'loading',
-        name: 'Loading',
-        component: () => import('@/views/component/Test/Loading.vue'),
-        meta: {
-          title: 'Loading',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'popover',
-        name: 'Popover',
-        component: () => import('@/views/component/Test/Popover.vue'),
-        meta: {
-          title: 'Popover',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'toast',
-        name: 'Toast',
-        component: () => import('@/views/component/Test/Toast.vue'),
-        meta: {
-          title: 'Toast',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'tooltip',
-        name: 'Tooltip',
-        component: () => import('@/views/component/Test/Tooltip.vue'),
-        meta: {
-          title: 'Tooltip',
           breadcrumb: true,
         },
       },

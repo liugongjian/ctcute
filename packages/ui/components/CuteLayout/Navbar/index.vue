@@ -1,16 +1,18 @@
 <template>
   <div class="navbar desc-nav">
-    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
-    <!-- <description class="desc"></description>
-    <code-viewer /> -->
+    <slot name="navbar-breadcrumb">
+      <breadcrumb v-if="navbarBreadcrumb" id="breadcrumb-container" class="breadcrumb-container" />
+    </slot>
+
+    <slot name="navbar-right"></slot>
+
+    <slot name="navbar-bottom"></slot>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 import Breadcrumb from '../Breadcrumb/index.vue'
-// import Description from '../Description/index.vue'
-// import CodeViewer from '../CodeViewer/index.vue'
 
 @Component({
   name: 'Navbar',
@@ -20,7 +22,9 @@ import Breadcrumb from '../Breadcrumb/index.vue'
     // CodeViewer,
   },
 })
-export default class extends Vue {}
+export default class extends Vue {
+  @Prop({ type: Boolean, default: true }) navbarBreadcrumb?: boolean
+}
 </script>
 <style lang="scss" scoped>
 .desc-nav {

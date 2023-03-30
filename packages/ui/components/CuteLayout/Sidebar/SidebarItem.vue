@@ -144,9 +144,11 @@ export default class extends Vue {
     margin-left: 20px;
   }
 }
+
 .append-icon {
   display: inline-flex;
   align-items: center;
+
   .svg-icon {
     margin-right: 5px;
   }

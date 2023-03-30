@@ -13,7 +13,7 @@
       </div>
     </div>
     <div v-if="isShowMenu" class="scrollbar-wrapper">
-      <div class="layout-sidebar__title">{{ title }}</div>
+      <div v-if="sidebarTitle" class="layout-sidebar__title">{{ sidebarTitle }}</div>
       <el-menu
         :default-active="activeMenu"
         :unique-opened="false"
@@ -30,7 +30,7 @@
       </el-menu>
     </div>
     <!-- 展开与收缩按钮 -->
-    <div class="sidebar--knob" @click="toggleSideBar">
+    <div v-if="sidebarKnob" class="sidebar--knob" @click="toggleSideBar">
       <svg-icon :name="`${isShowMenu ? 'caret-left' : 'caret-right'}`" />
     </div>
   </div>
@@ -49,10 +49,16 @@ import SidebarItem from './SidebarItem.vue'
 export default class extends Vue {
   $auth: any
   @Prop()
-  private routes
+  private sidebarRoutes
 
   @Prop()
-  public title
+  public sidebarFilter
+
+  @Prop({ default: '' })
+  public sidebarTitle: string
+
+  @Prop({ default: true })
+  public sidebarKnob: boolean
 
   @Prop()
   private type
@@ -68,7 +74,6 @@ export default class extends Vue {
   public moduleList = []
 
   public get isShowModule(): boolean {
-    console.log(this.moduleList.length)
     return this.moduleList && this.moduleList.length > 0
   }
 
@@ -83,8 +88,8 @@ export default class extends Vue {
   }
 
   public get currentRoutes(): any {
-    const routes = this.routes || (this.$auth && this.$auth.getRoutes())
-    return routes.filter(route => route.meta.type === this.type)
+    const routes = this.sidebarRoutes || (this.$auth && this.$auth.getRoutes())
+    return this.sidebarFilter ? this.sidebarFilter(routes) : routes
   }
 
   private setSidbarWidth() {

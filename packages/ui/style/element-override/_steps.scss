@@ -21,15 +21,13 @@
 
 @include steps-page();
 @include steps-page(is-process, $color-master, $color-master, $color-white);
+// @include steps-page(is-wait, $color-master, $color-master, $color-white);
+// @include steps-page(is-wait, $color-master, $color-master, $color-white);
+// @include steps-page(is-wait, $color-master, $color-master, $color-white);
 
-.el-step__icon-inner.is-status {
-  transform: translateY(0px);
-  font-size: $text-size-lg;
-}
-
-.el-step.is-horizontal .el-step__line {
-  height: 0.5px;
-}
+// .el-step.is-horizontal .el-step__line {
+//   height: 0.5px;
+// }
 
 .el-step__icon-inner {
   font-weight: normal;
@@ -37,6 +35,9 @@
 
 .el-step__line {
   background-color: $color-grey-6; //rgba(0, 0, 0, 0.15);
+  .el-step__line-inner{
+    border-bottom: 0;
+  }
 }
 
 .el-step__icon.is-text {
@@ -45,7 +46,7 @@
 
 .el-step__title.is-process {
   font-weight: 400;
-  color: $color-grey-1; //rgba(51, 51, 51, 0.85)
+  // color: $color-master;
 }
 
 .el-step__title.is-success {
@@ -71,50 +72,36 @@
 }
 
 .el-step.is-horizontal .el-step__line {
-  left: 30px; //TODO
-  right: $common-space-10;
+  right: $common-space-2x;
 }
 
 .el-step.is-horizontal:last-child {
   flex-basis: auto !important;
 }
 
-.el-steps.max.el-steps--horizontal {
-  .el-step__line {
-    top: 15px; //TODO
-    left: 38px; //TODO
-  }
+// .is-success .el-step__line-inner {
+//   display: block;
+//   // border-width: 1px;
+//   border-style: solid;
+//   border-color: inherit;
+//   transition: 0.15s ease-out;
+//   box-sizing: border-box;
+//   width: 0;
+//   height: 0;
+//   background-color: $color-master;
+// }
 
-  .el-step__icon.is-text {
-    width: $common-space-8x;
-    height: $common-space-8x;
-    font-size: $text-size-lg;
-  }
-}
-
-.is-success .el-step__line-inner {
-  display: block;
-  border-width: 1px;
-  border-style: solid;
-  border-color: inherit;
-  transition: 0.15s ease-out;
-  box-sizing: border-box;
-  width: 0;
-  height: 0;
-  background-color: $color-master;
-}
-
-.is-error .el-step__line-inner {
-  display: block;
-  border-width: 1px;//TODO
-  border-style: solid;
-  border-color: inherit;
-  transition: 0.15s ease-out;
-  box-sizing: border-box;
-  width: 0;
-  height: 0;
-  background-color: $color-status-danger;
-}
+// .is-error .el-step__line-inner {
+//   display: block;
+//   // border-width: 1px;//TODO
+//   border-style: solid;
+//   border-color: inherit;
+//   transition: 0.15s ease-out;
+//   box-sizing: border-box;
+//   width: 0;
+//   height: 0;
+//   background-color: $color-status-danger;
+// }
 
 .stepSuc :hover {
   cursor: pointer;
@@ -124,10 +111,10 @@
   cursor: not-allowed;
 }
 
-.el-steps {
-  .el-step__head.is-success > .el-step__line > .el-step__line-inner {
-    width: 100% !important;
-    border-width: 1px !important;//TODO
-    border-bottom: 0px !important;//TODO
-  }
-}
+// .el-steps {
+//   .el-step__head.is-success > .el-step__line > .el-step__line-inner {
+//     width: 100% !important;
+//     border-width: 1px !important;//TODO
+//     border-bottom: 0px !important;//TODO
+//   }
+// }

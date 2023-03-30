@@ -481,6 +481,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'steps',
+        name: 'Steps',
+        component: () => import('@/views/component/Test/Steps.vue'),
+        meta: {
+          title: 'Steps',
+          breadcrumb: true,
+        },
+      },
     ],
   },
 ]

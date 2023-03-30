@@ -25,9 +25,9 @@
         <el-button @click="() => (active = 0)">重 置</el-button>
       </div>
     </div>
-    <h3>迷你步骤条</h3>
+    <h3>较小步骤条</h3>
     <div class="sub-steps">
-      <el-steps :space="180" :active="activeMini" finish-status="success" size="mini">
+      <el-steps :space="180" :active="activeMini" finish-status="success" size="small">
         <el-step
           v-for="(s, index) in steps"
           :key="index"
@@ -219,8 +219,8 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .btn-style {
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: $margin-6x;
+  margin-bottom: $margin-6x;
 }
 
 .max-style {

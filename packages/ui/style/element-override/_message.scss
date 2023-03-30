@@ -7,13 +7,22 @@
 */
 @mixin toast-page($class: success, $iconColor: $color-status-success, $iconClass: success) {
   .el-message.el-message--#{$class}.toast-#{$class} {
-    min-width: 150px;
-    height: 40px;
+    min-width: $toast-width;
+    height: $toast-height;
     background: $color-bg-1;
     box-shadow: $shadow-3;
-    border-radius: 2px;
+    border-radius: $border-radius;
     border: none;
-    padding: $margin-small 12px;
+    padding: $padding-2x $padding-4x;
+
+    .el-message__icon {
+      font-size: $text-size-md;
+    }
+
+    .el-message__closeBtn {
+      font-size: $text-size-md;
+      margin-top: 1px; // 更改字体大小后，上下距离有1px的偏移
+    }
 
     .el-icon-success {
       color: $iconColor;

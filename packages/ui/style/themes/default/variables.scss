@@ -368,6 +368,10 @@ $tooltip-bg: $color-neutral-8 !default;
 
 $tooltip-fill: $tooltip-bg; // deprecated(弃用)
 
+/* Popover
+-------------------------- */
+$popover-min-width: 160px !default;
+
 /* Upload
 -------------------------- */
 $upload-bg: $color-white !default;
@@ -452,6 +456,11 @@ $messagebox-header-padding: $padding-8x !default;
 $messagebox-header-padding-bottom: $padding-3x !default;
 $messagebox-content-padding: $padding-3x $padding-8x !default;
 $messagebox-btns-padding: $padding-3x $padding-8x $padding-5x $padding-8x !default;
+
+/* Message(Toast)
+-------------------------- */
+$toast-width: 400px !default;
+$toast-height: 36px !default;
 
 /* Icon
 -------------------------- */

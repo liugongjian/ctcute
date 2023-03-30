@@ -1,5 +1,3 @@
-@use 'sass:color';
-
 /* Tag
 -------------------------- */
 /*
@@ -26,7 +24,7 @@
 
       .el-tag__close {
         color: $color-dark;
-        
+
         &:hover {
           color: $color-dark-hover;
           background: none;
@@ -39,12 +37,12 @@
       border-color: $color-dark;
       color: $color-white;
       background-color: $color-dark;
-  
+
       .el-tag__close {
         color: $color-white;
 
         &:hover {
-          color: color.adjust($color-info, $lightness: 15%);
+          color: mix($color-white, $color-info, 15%);
           background: none;
         }
       }
@@ -54,10 +52,11 @@
     &.el-tag--plain.el-tag#{$type} {
       border-color: $color-dark;
       color: $color-dark;
+      background-color: $color-light;
 
       .el-tag__close {
         color: $color-dark;
-    
+
         &:hover {
           color: $color-dark-hover;
           background: none;

@@ -13,6 +13,14 @@
   }
 
   &__body {
+    .el-descriptions-row {
+      .el-descriptions-item__cell {
+        padding-bottom: $padding-4x;
+        .el-descriptions-item__label {
+          margin-right: $margin-4x;
+        }
+      }
+    }
     .el-descriptions-item__label {
       color: $descriptions-font-color-label;
       &.is-bordered-label {
@@ -29,16 +37,19 @@
   .is-bordered {
     .el-descriptions-item__cell {
       border-color: $color-neutral-3;
-      height: $descriptions-item-height;
+      min-height: $descriptions-item-height;
     }
     &.el-descriptions__table {
       border-radius: $border-radius;
+    }
+    th.is-bordered-label,
+    td.el-descriptions-item__content {
+      padding: $padding-10 0 $padding-4x $padding-3x;
     }
   }
   &-item {
     &__label {
       min-width: $descriptions-item-label-min-width;
-      margin-right: $margin-4x;
     }
     &__cell &__content {
       width: $descriptions-item-content-width;

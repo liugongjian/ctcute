@@ -208,6 +208,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-steps',
+        name: 'ElSteps',
+        component: () => import('@/views/component/Base/ElSteps/index.vue'),
+        meta: {
+          title: 'ElSteps',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'vxe-table',
         name: 'VxeTable',
         component: () => import('@/views/component/Base/VxeTable/index.vue'),

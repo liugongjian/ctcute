@@ -1,40 +1,34 @@
 <template>
-  <div>
-    <el-row align="middle" :style="{ 'max-width': maxWidth }" type="flex">
-      <el-col v-if="hasGoButton" :span="1">
-        <div class="button-col point-style" @click="goPre">
-          <i :class="['el-icon-arrow-left', disableLeft ? 'disabled' : '']"></i>
-        </div>
-      </el-col>
-      <el-col :span="14">
-        <div>
-          <el-steps
-            :space="space"
-            :active="active"
-            finish-status="success"
-            :direction="direction"
-            :size="size"
-          >
-            <el-step
-              v-for="(s, index) in steps"
-              v-show="getShow(index)"
-              :key="index"
-              :title="getTitle(s, index)"
-              :last-step-width="lastStepWidth"
-              :status="s.status"
-              :class="{ stepErr: s.disabled }"
-              @click.native="!s.disabled && handleStep(s, index)"
-            >
-            </el-step>
-          </el-steps>
-        </div>
-      </el-col>
-      <el-col v-if="hasGoButton" :span="1">
-        <div class="button-col point-style" @click="goNext">
-          <i :class="['el-icon-arrow-right', disableRight ? 'disabled' : '']"></i>
-        </div>
-      </el-col>
-    </el-row>
+  <div :style="{ 'max-width': maxWidth }" class="cute-steps-multi">
+    <div v-if="hasGoButton" class="button-col point-style" @click="goPre">
+      <i :class="['el-icon-arrow-left', disableLeft ? 'disabled' : '']"></i>
+    </div>
+    <!-- <div> -->
+    <el-steps
+      class="cute-steps-multi-main"
+      :space="space"
+      :active="active"
+      finish-status="success"
+      :direction="direction"
+      :size="size"
+      :style="{ 'max-width': space * (stepSize + 2) + 'px' }"
+    >
+      <el-step
+        v-for="(s, index) in steps"
+        v-show="getShow(index)"
+        :key="index"
+        :title="getTitle(s, index)"
+        :last-step-width="lastStepWidth"
+        :status="s.status"
+        :class="{ stepErr: s.disabled }"
+        @click.native="!s.disabled && handleStep(s, index)"
+      >
+      </el-step>
+    </el-steps>
+    <!-- </div> -->
+    <div v-if="hasGoButton" class="button-col point-style" @click="goNext">
+      <i :class="['el-icon-arrow-right', disableRight ? 'disabled' : '']"></i>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -138,21 +132,35 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.button-col {
-  font-size: 20px;
-}
+.cute-steps-multi {
+  display: flex;
+  align-items: center;
 
-.el-icon-arrow-left,
-.el-icon-arrow-right {
-  color: $color-grey-3;
-}
+  &-main {
+    flex-grow: 1;
+  }
 
-.disabled {
-  cursor: not-allowed;
-  color: $color-grey-5;
-}
+  .button-col {
+    font-size: 20px;
+    width: 30px;
+  }
+  // .stepSuc :hover {
+  //   cursor: pointer;
+  // }
 
-::v-deep .el-col-1 {
-  width: 30px;
+  .stepErr :hover {
+    cursor: not-allowed;
+  }
+
+  .el-icon-arrow-left,
+  .el-icon-arrow-right {
+    cursor: pointer;
+    color: $icon-color;
+  }
+
+  .disabled {
+    cursor: not-allowed;
+    color: $disabled-color;
+  }
 }
 </style>

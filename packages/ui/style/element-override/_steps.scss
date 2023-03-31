@@ -1,5 +1,95 @@
 /* Steps
 -------------------------- */
+
+/* $size:大小;
+   $icon-height:步骤标号大小
+   $title-size:标题字体大小
+   $icon-inner-status-size: 步骤标号中状态icon字体大小
+   $icon-inner-text-size：步骤标号中数字字体大小
+*/
+@mixin steps-size($size, $icon-height, $title-size, $icon-inner-status-size, $icon-inner-text-size) {
+  // 垂直方向、simple模式、居中模式不改变title位置
+  // size为重写el-step增加的class
+  .el-steps--#{$size} {
+     .el-step.is-horizontal:not(.is-center):not(.is-simple) {
+      .el-step__title {
+        position: absolute;
+        left: $icon-height;
+        top: 0;
+        background-color: $color-bg-2;
+      }
+
+      .el-step__description {
+        margin-left: $icon-height;
+        margin-top: 0;
+      }
+
+      .el-step__title,
+      .el-step__description {
+        @if $size == small {
+          padding: 0 $padding-2x 0 $padding;
+        }
+
+        @else {
+          padding: 0 $padding-2x;
+        }
+      }
+    }
+
+    .el-step.is-vertical {
+      .el-step__line {
+        left: calc(($icon-height - $steps-line-size) / 2);
+      }
+
+      .el-step__head {
+        width: $icon-height;
+      }
+    }
+
+     .el-step.is-horizontal .el-step__line {
+      top: calc(($icon-height - $steps-line-size) / 2);
+    }
+
+     .el-step {
+      .el-step__title {
+        font-size: $title-size;
+        line-height: $icon-height;
+      }
+
+      .el-step__icon .el-step__icon-inner {
+        &:is(.is-text) {
+          font-size: $icon-inner-text-size;
+        }
+
+        &:is(.is-status) {
+          transform: translateY(0);
+          font-size: $icon-inner-status-size;
+        }
+      }
+
+      .el-step__icon.is-text {
+        width: $icon-height;
+        height: $icon-height;
+      }
+    }
+  }
+}
+
+@include steps-size(
+  medium,
+  $steps-icon-height-md,
+  $steps-title-size-md,
+  $steps-icon-inner-status-size-md,
+  $steps-icon-inner-text-size-md
+);
+@include steps-size(
+  small,
+  $steps-icon-height-sm,
+  $steps-title-size-sm,
+  $steps-icon-inner-status-size-sm,
+  $steps-icon-inner-text-size-sm
+);
+
 /* $class:类名;
    $bdColor:边框颜色
    $color:字体颜色
@@ -16,105 +106,60 @@
     .el-step__icon.is-text {
       background-color: $bgColor;
     }
+    .el-step__icon.is-status {
+      background-color: $color;
+    }
+  }
+  .el-step__title.#{$class}{
+    color: $color;
   }
 }
 
 @include steps-page();
 @include steps-page(is-process, $color-master, $color-master, $color-white);
-// @include steps-page(is-wait, $color-master, $color-master, $color-white);
-// @include steps-page(is-wait, $color-master, $color-master, $color-white);
-// @include steps-page(is-wait, $color-master, $color-master, $color-white);
+@include steps-page(is-wait, $border-color, $text-color-light-2, $color-white);
 
-// .el-step.is-horizontal .el-step__line {
-//   height: 0.5px;
-// }
 
 .el-step__icon-inner {
   font-weight: normal;
 }
 
-.el-step__line {
-  background-color: $color-grey-6; //rgba(0, 0, 0, 0.15);
-  .el-step__line-inner{
-    border-bottom: 0;
+.el-step {
+  .el-step__main > .el-step__description {
+    color: $text-color-light-2;
+  }
+
+  &:not(.is-center).is-horizontal .el-step__line {
+    right: $common-space-2x;
+  }
+
+  &:is(.is-horizontal) .el-step__line {
+    height: $steps-line-size;
+  }
+
+  &:is(.is-vertical) .el-step__line {
+    width: $steps-line-size;
+  }
+
+  .el-step__line {
+    background-color: $color-grey-6;
+
+    .el-step__line-inner {
+      border-bottom: 0;
+    }
+  }
+
+  .el-step__icon.is-text {
+    border: 1px solid;
+  }
+
+  .el-step__title.is-process {
+    font-weight: $text-weight;
+  }
+
+  .el-step__head.is-process .el-step__icon.is-text {
+    color: $color-white;
+    border-color: $color-master;
+    background-color: $color-master;
   }
 }
-
-.el-step__icon.is-text {
-  border: 1px solid;
-}
-
-.el-step__title.is-process {
-  font-weight: 400;
-  // color: $color-master;
-}
-
-.el-step__title.is-success {
-  color: $color-grey-2; //rgba(0, 0, 0, 0.65);
-}
-
-.el-step__head.is-process {
-  border-color: $color-master;
-}
-
-.el-step__head.is-process .el-step__icon.is-text {
-  color: $color-white;
-  border-color: $color-master;
-  background-color: $color-master;
-}
-
-.el-step__title.is-wait {
-  color: $color-grey-4;
-}
-
-.el-step__title.is-success {
-  color: $text-color-light;
-}
-
-.el-step.is-horizontal .el-step__line {
-  right: $common-space-2x;
-}
-
-.el-step.is-horizontal:last-child {
-  flex-basis: auto !important;
-}
-
-// .is-success .el-step__line-inner {
-//   display: block;
-//   // border-width: 1px;
-//   border-style: solid;
-//   border-color: inherit;
-//   transition: 0.15s ease-out;
-//   box-sizing: border-box;
-//   width: 0;
-//   height: 0;
-//   background-color: $color-master;
-// }
-
-// .is-error .el-step__line-inner {
-//   display: block;
-//   // border-width: 1px;//TODO
-//   border-style: solid;
-//   border-color: inherit;
-//   transition: 0.15s ease-out;
-//   box-sizing: border-box;
-//   width: 0;
-//   height: 0;
-//   background-color: $color-status-danger;
-// }
-
-.stepSuc :hover {
-  cursor: pointer;
-}
-
-.stepErr :hover {
-  cursor: not-allowed;
-}
-
-// .el-steps {
-//   .el-step__head.is-success > .el-step__line > .el-step__line-inner {
-//     width: 100% !important;
-//     border-width: 1px !important;//TODO
-//     border-bottom: 0px !important;//TODO
-//   }
-// }

@@ -9,7 +9,6 @@
           :key="index"
           :title="getTitle(s, index)"
           :status="s.status"
-          :class="{ stepErr: s.disabled }"
         ></el-step>
       </el-steps>
       <div class="btn-style">
@@ -33,7 +32,6 @@
           :key="index"
           :title="getTitle(s, index)"
           :status="s.status"
-          :class="{ stepErr: s.disabled }"
         ></el-step>
       </el-steps>
       <div class="btn-style">

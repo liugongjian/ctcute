@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 export default {
   name: 'ElStep',
 
@@ -203,7 +204,7 @@ export default {
         style.transitionDelay = -150 * this.index + 'ms'
       }
 
-      style.borderWidth = step && !this.isSimple ? '1px' : 0
+      style.borderWidth = step && !this.isSimple ? variables.stepsLineSize : 0
       this.$parent.direction === 'vertical' ? (style.height = step + '%') : (style.width = step + '%')
 
       this.lineStyle = style

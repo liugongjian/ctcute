@@ -261,8 +261,6 @@
   cascaderNodeHover: $cascader-node-hover;
   cascaderPanelBg: $cascader-panel-bg;
   cascaderPanelShadow: $cascader-panel-shadow;
-  collapseHeaderBg: $collapse-header-bg;
-  collapseHeaderHeight: $collapse-header-height;
   collapseItemHeaderHeight: $collapse-item-header-height;
   collapseHeaderFill: $collapse-header-fill;
   datepickerShadow: $datepicker-shadow;
@@ -341,14 +339,14 @@
   chartColorL11: $chartColorL11;
   chartColorL12: $chartColorL12;
   alertTextColor: $alert-text-color;
-  alertInfoBg: $alert-info-bg;;
+  alertInfoBg: $alert-info-bg;
   alertSuccessBg: $alert-success-bg;
   alertWarningBg: $alert-warning-bg;
   alertDangerBg: $alert-danger-bg;
   alertWeakBg: $alert-weak-bg;
   transferHeaderHeight: $transfer-header-height;
   transferHeaderBg: $transfer-header-bg;
-  transferButtonHegiht:$transfer-button-hegiht;
+  transferButtonHegiht: $transfer-button-hegiht;
   transferButtonWidth: $transfer-button-width;
   transferButtonRadius: $transfer-button-radius;
   transferItemActiveBg: $transfer-item-active-bg;
@@ -362,4 +360,11 @@
   cuteSliderBtnRadius: $cute-slider-btn-radius;
   cuteSliderBtnWidth: $cute-slider-btn-width;
   cuteSliderBtnHeight: $cute-slider-btn-height;
+  collapseBorderColor: $collapse-border-color;
+  collapseContentBackgroundColor: $collapse-content-background-color;
+  collapseHeaderBg: $collapse-header-bg;
+  collapseHeaderArrowColor: $collapse-header-arrow-color;
+  collapseHeaderHeight: $collapse-header-height;
+  collapseSeperateHeaderHeight: $collapse-seperate-header-height;
+  collapseSeperateHeaderBg: $collapse-seperate-header-bg;
 }

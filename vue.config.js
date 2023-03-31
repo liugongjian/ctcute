@@ -1,6 +1,7 @@
 const path = require('path')
 const isHttps = process.argv[process.argv.length - 1] === '--https'
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 console.info('是否开启https:', isHttps)
 
 module.exports = {
@@ -54,9 +55,12 @@ module.exports = {
       sass: {
         sassOptions: { outputStyle: 'expanded', quietDeps: true },
         additionalData: `@import "node_modules/@cutedesign/ui/style/themes/default/variables.scss";
-                          @import "node_modules/@cutedesign/ui/style/_mixins.scss";`
+                          @import "node_modules/@cutedesign/ui/style/_mixins.scss";`,
       },
     },
+  },
+  configureWebpack: {
+    plugins: [new HardSourceWebpackPlugin()],
   },
   chainWebpack: config => {
     // 配置alias

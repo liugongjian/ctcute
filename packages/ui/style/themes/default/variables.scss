@@ -349,7 +349,7 @@ $pagination-active-bg-disabled: $color-master-disabled !default;
 
 /* Transfer
 -------------------------- */
-$transfer-header-height: 40px !default; // Transfer组件高度
+$transfer-header-height: 40px !default; // Transfer组件header高度
 $transfer-header-bg: $color-neutral-1 !default;
 $transfer-button-hegiht: 38px !default; // Transfer组件圆形按钮
 $transfer-button-width: 38px !default; // Transfer组件圆形按钮
@@ -358,6 +358,16 @@ $transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项�
 $transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
 $transfer-item-height: 32px !default; // Transfer组件选项高度
 $transfer-filter-height: $input-sm-height !default; // Transfer组件搜索框高度
+$transfer-footert-bg: $color-white !default; // Transfer组件footer背景色
+$transfer-footer-height: 40px !default; // Transfer组件footer高度
+
+/* Progress
+-------------------------- */
+$progress-text-height-lg: 30px;
+$progress-text-height-sm: 12px;
+$progress-text-size-lg: 20px;
+$progress-text-size-sm: 10px;
+$progress-text-weight: 600;
 
 /* Tooltip
 -------------------------- */
@@ -389,10 +399,15 @@ $cascader-panel-shadow: $shadow-2 !default;
 
 /* Collapse
 -------------------------- */
+$collapse-border-color: $color-neutral-3 !default;
+$collapse-content-background-color: $color-bg-1 !default;
 $collapse-header-bg: $color-neutral-1 !default;
+$collapse-header-arrow-color: $neutral-6 !default;
 $collapse-header-height: 36px !default;
-$collapse-item-header-height: 32px !default;
+$collapse-seperate-header-height: 32px !default;
+$collapse-seperate-header-bg: $color-neutral-2 !default;
 
+$collapse-item-header-height: $collapse-seperate-header-height !default; // deprecated(弃用)
 $collapse-header-fill: $collapse-header-bg; // deprecated(弃用)
 
 /* Datepicker

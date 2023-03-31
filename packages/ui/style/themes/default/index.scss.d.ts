@@ -360,6 +360,13 @@ export interface IScssVariablesRevised {
   cuteSliderBtnRadius: string
   cuteSliderBtnWidth: string
   cuteSliderBtnHeight: string
+  collapseBorderColor: string
+  collapseContentBackgroundColor: string
+  collapseHeaderBg: string
+  collapseHeaderArrowColor: string
+  collapseHeaderHeight: string
+  collapseSeperateHeaderHeight: string
+  collapseSeperateHeaderBg: string
 }
 
 export const variablesRevised: IScssVariablesRevised

@@ -1,9 +1,9 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
- * @LastEditors: 马妍
- * @LastEditTime: 2023-02-27 15:17:48
- * @Description: 
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-03-23 15:49:13
+ * @Description:
 -->
 <template>
   <el-input
@@ -43,12 +43,12 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 ::v-deep.el-autocomplete.inline-input {
-  width: 300px;
-  height: 32px;
+  width: $cute-remind-input-width;
+  height: $common-space-8x;
 
   .prompt-title {
-    line-height: 32px;
-    margin-right: 12px;
+    line-height: $common-space-8x;
+    margin-right: $margin-3x;
   }
 }
 </style>

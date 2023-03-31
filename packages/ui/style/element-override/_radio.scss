@@ -35,14 +35,24 @@
   .el-radio-button__inner {
     transition: none;
   }
-  .el-radio-button--medium{
+  .el-radio-button--large{
     .el-radio-button__inner{
       padding: 13px 20px;
     }
   }
+  .el-radio-button--medium{
+    .el-radio-button__inner{
+      padding: 9px 20px;
+    }
+  }
   .el-radio-button--mini{
     .el-radio-button__inner{
-      padding: 5px  20px;
+      padding: 5px 15px;
+    }
+  }
+  .el-radio-button--small{
+    .el-radio-button__inner{
+      padding: 5px 15px;
     }
   }
   .el-radio-button{

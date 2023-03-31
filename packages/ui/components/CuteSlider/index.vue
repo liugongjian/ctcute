@@ -238,7 +238,7 @@ export default class extends Vue {
 
     .el-slider__bar {
       height: $cute-slider-bar-height;
-      top: -($cute-slider-bar-height - $cute-slider-marks-height) / 2;
+      top: calc(-1 * ($cute-slider-bar-height - $cute-slider-marks-height) / 2);
       border-radius: $border-radius;
     }
 

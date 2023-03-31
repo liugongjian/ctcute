@@ -2,8 +2,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-02-09 08:46:22
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-03-28 14:12:07
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -195,6 +195,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/ElButton/index.vue'),
         meta: {
           title: 'ElButton',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'el-breadcrumb',
+        name: 'ElBreadcrumb',
+        component: () => import('@/views/component/Base/ElBreadcrumb/index.vue'),
+        meta: {
+          title: 'ElBreadcrumb',
           breadcrumb: true,
         },
       },
@@ -392,6 +401,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'tree',
+        name: 'Tree',
+        component: () => import('@/views/component/Test/Tree.vue'),
+        meta: {
+          title: 'Tree',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'state',
         name: 'State',
         component: () => import('@/views/component/Test/State.vue'),
@@ -401,11 +419,38 @@ const componentRoutes = [
         },
       },
       {
+        path: 'descriptions',
+        name: 'Descriptions',
+        component: () => import('@/views/component/Test/Descriptions.vue'),
+        meta: {
+          title: 'Descriptions',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'breadcrumb',
+        name: 'Breadcrumb',
+        component: () => import('@/views/component/Test/Breadcrumb.vue'),
+        meta: {
+          title: 'Breadcrumb',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'transfer',
         name: 'Transfer',
         component: () => import('@/views/component/Test/Transfer.vue'),
         meta: {
           title: 'Transfer',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'dropdown',
+        name: 'DropDown',
+        component: () => import('@/views/component/Test/DropDown.vue'),
+        meta: {
+          title: 'DropDown',
           breadcrumb: true,
         },
       },
@@ -433,6 +478,42 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Pagination.vue'),
         meta: {
           title: 'Pagination',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'card',
+        name: 'Card',
+        component: () => import('@/views/component/Test/Card.vue'),
+        meta: {
+          title: 'Card',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'badge',
+        name: 'Badge',
+        component: () => import('@/views/component/Test/Badge.vue'),
+        meta: {
+          title: 'Badge',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'progress',
+        name: 'Progress',
+        component: () => import('@/views/component/Test/Progress.vue'),
+        meta: {
+          title: 'Progress',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'timeline',
+        name: 'Timeline',
+        component: () => import('@/views/component/Test/Timeline.vue'),
+        meta: {
+          title: 'Timeline',
           breadcrumb: true,
         },
       },

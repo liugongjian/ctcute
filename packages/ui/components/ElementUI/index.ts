@@ -9,6 +9,8 @@ import Breadcrumb from './Breadcrumb/Breadcrumb.vue'
 import BreadcrumbItem from './Breadcrumb/BreadcrumbItem.vue'
 import Button from './Button/index.vue'
 import MessageBox from './MessageBox/index.js'
+import Popover from './Popover/index.vue'
+import directive from './Popover/directive.js'
 
 export default {
   install(Vue) {
@@ -22,10 +24,12 @@ export default {
     Vue.component(Breadcrumb.name, Breadcrumb)
     Vue.component(BreadcrumbItem.name, BreadcrumbItem)
     Vue.component(Button.name, Button)
+    Vue.directive('popover', directive)
+    Vue.component(Popover.name, Popover)
     Vue.prototype.$msgbox = MessageBox
     Vue.prototype.$alert = MessageBox.alert
     Vue.prototype.$confirm = MessageBox.confirm
     Vue.prototype.$prompt = MessageBox.prompt
   },
 }
-export { Steps, Step, Alert, Collapse, Rate, ColorPicker, Button, MessageBox }
+export { Steps, Step, Alert, Collapse, Rate, ColorPicker, Button, Popover, MessageBox }

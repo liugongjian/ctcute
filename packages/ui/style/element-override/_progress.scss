@@ -1,57 +1,18 @@
 /* Progress
 -------------------------- */
-
 .el-progress.is-success .el-progress-bar__inner {
   background-color: $color-success;
 }
 
 .el-progress.is-success .el-progress__text {
-  color: $color-success !important;
-}
-
-.el-progress.is-exception .el-progress__text {
-  color: $color-danger !important;
-}
-
-.el-progress.is-warning .el-progress__text {
-  color: $color-warning !important;
+  color: $color-success;
 }
 
 .el-progress-bar__inner,
 .el-progress-bar__outer {
-  height: $progress-text-height-sm !important;
-}
-
-.el-progress-bar__outer {
-  border-radius: $border-radius 0 0 $border-radius;
-}
-
-.el-progress-bar__inner {
-  border-radius: $border-radius;
-}
-
-.el-progress-bar__innerText {
-  position: absolute;
-  right: 50%;
-  top: 1px;
-  line-height: $progress-text-size-sm;
-  font-size: $progress-text-size-sm;
-  color: $color-white !important;
+  border-radius: 0;
 }
 
 .el-progress__text {
   font-size: $text-size !important;
-  color: $color-neutral-10 !important;
-  font-family: $font-family;
-  margin-left: $common-space-4x;
-}
-
-.el-progress--circle .el-progress__text,
-.el-progress--dashboard .el-progress__text {
-  height: $progress-text-height-lg;
-  line-height: $progress-text-height-lg;
-  color: $color-neutral-10 !important;
-  font-size: $progress-text-size-lg !important;
-  font-weight: $text-title-weight;
-  font-family: $font-family;
 }

@@ -6,10 +6,6 @@
   border: none;
 }
 
-.el-tooltip.item {
-  color: $color-grey-1;
-}
-
 .el-tooltip__popper.is-dark[x-placement^='left'] .popper__arrow,
 .el-tooltip__popper.is-dark[x-placement^='left'] .popper__arrow:after {
   border-left-color: $tooltip-bg;

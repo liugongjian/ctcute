@@ -362,19 +362,15 @@ $transfer-filter-height: $input-sm-height !default;  // Transfer组件搜索框�
 $transfer-footert-bg: $color-white !default;  // Transfer组件footer背景色
 $transfer-footer-height: 40px !default; // Transfer组件footer高度
 
-/* Progress
--------------------------- */
-$progress-text-height-lg: 30px;
-$progress-text-height-sm: 12px;
-$progress-text-size-lg: 20px;
-$progress-text-size-sm: 10px;
-$progress-text-weight: 600;
-
 /* Tooltip
 -------------------------- */
 $tooltip-bg: $color-neutral-8 !default;
 
 $tooltip-fill: $tooltip-bg; // deprecated(弃用)
+
+/* Popover
+-------------------------- */
+$popover-min-width: 160px !default;
 
 /* Upload
 -------------------------- */
@@ -460,6 +456,11 @@ $messagebox-header-padding: $padding-8x !default;
 $messagebox-header-padding-bottom: $padding-3x !default;
 $messagebox-content-padding: $padding-3x $padding-8x !default;
 $messagebox-btns-padding: $padding-3x $padding-8x $padding-5x $padding-8x !default;
+
+/* Message(Toast)
+-------------------------- */
+$toast-width: 400px !default;
+$toast-height: 36px !default;
 
 /* Icon
 -------------------------- */

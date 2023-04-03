@@ -13,6 +13,8 @@
   }
 
   &__body {
+    background: transparent;
+    color: $text-color;
     .el-descriptions-row {
       .el-descriptions-item__cell {
         padding-bottom: $padding-4x;
@@ -22,11 +24,13 @@
       }
     }
     .el-descriptions-item__label {
-      color: $descriptions-font-color-label;
+      // color: $descriptions-font-color-label;
+      color: $text-color-light;
       &.is-bordered-label {
         background: $color-neutral-1;
         // text-align: right;
-        color: $descriptions-font-color-label-bordered;
+        // color: $descriptions-font-color-label-bordered;
+        color: $text-color;
         font-weight: 400;
         padding-right: $padding-6x;
         width: $descriptions-label-width;
@@ -45,6 +49,9 @@
     th.is-bordered-label,
     td.el-descriptions-item__content {
       padding: $padding-10 0 $padding-4x $padding-3x;
+    }
+    td.el-descriptions-item__content {
+      color: $text-color;
     }
   }
   &-item {

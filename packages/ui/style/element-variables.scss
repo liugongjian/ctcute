@@ -86,14 +86,14 @@ $--datepicker-icon-color: $text-color-light;
 
 /* Table
 -------------------------- */
-$--table-border-color: $--border-color-lighter;
-$--table-border: 1px solid $border-color;
+$--table-border-color: $table-border-color;
+$--table-border: 1px solid $table-border-color;
 // $--table-font-color: $--color-text-regular;
 // $--table-header-font-color: $--color-text-secondary;
-// $--table-row-hover-background-color: $--background-color-base;
+$--table-row-hover-background-color: $table-row-hover-background-color;
 // $--table-current-row-background-color: $--color-primary-light-9;
 $--table-header-background-color: $color-neutral-1;
-$--table-fixed-box-shadow: $shadow-1;
+$--table-fixed-box-shadow: $table-fixed-box-shadow;
 
 /* Tree
 -------------------------- */

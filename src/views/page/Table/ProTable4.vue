@@ -1,8 +1,8 @@
 <!--
  * @Author: 肖仁
  * @Date: 2022-07-12 16:20:34
- * @LastEditors: 庄晓欣
- * @LastEditTime: 2023-01-10 14:22:15
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2023-03-30 18:00:02
  * @Description: 复杂表格4
 -->
 <template>
@@ -58,30 +58,30 @@
               </el-form-item>
               <el-form-item prop="name">
                 <cute-remind-input v-model="conditions.name" placeholder="请输入IP地址" title="IP地址" />
-                <el-form-item class="table-tools__conditions__buttons">
-                  <el-button type="primary" @click="search">查 询</el-button>
-                  <el-button @click="resetConditions">重 置</el-button>
-                </el-form-item>
+              </el-form-item>
+              <el-form-item class="table-tools__conditions__buttons">
+                <el-button type="primary" @click="search">查 询</el-button>
+                <el-button @click="resetConditions">重 置</el-button>
               </el-form-item>
             </el-form>
           </div>
         </div>
         <!--表格-->
-        <el-table v-loading="loading" :data="tableData" fit border>
+        <el-table v-loading="loading" :data="tableData" fit>
           <el-table-column prop="name" label="主机别名">
             <template slot-scope="{ row }">
               <router-link to="/">{{ row.name }}</router-link>
             </template>
           </el-table-column>
-          <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
+          <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"></el-table-column>
           <el-table-column prop="ip" label="IP地址" />
           <el-table-column prop="cpu" label="CPU利用率(%)" />
           <el-table-column prop="memory" label="内存利用率(%)" />
           <el-table-column prop="health" label="健康状态">
-            <template slot-scope="{ row }">
-              <span class="health-state">
-                <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
-              </span>
+            <template slot-scope="scope">
+              <cute-state :type="HEALTH[scope.row.health].colorType">
+                {{ HEALTH[scope.row.health].text }}
+              </cute-state>
             </template>
           </el-table-column>
         </el-table>
@@ -101,14 +101,14 @@
 import { Component, Vue } from 'vue-property-decorator'
 import * as SimpleTable from '@/types/ProTable4'
 import { getTable, getHosts, getTrees } from '@/api/proTable4'
-import { STATUS, HEALTH } from '@/dics/proTable4'
+import { STATUS, HEALTH2 } from '@/dics/proTable4'
 
 @Component({
-  name: 'SimpleTable',
+  name: 'ProTable4',
 })
 export default class extends Vue {
   // 健康状态字典
-  private HEALTH = HEALTH
+  private HEALTH = HEALTH2
 
   // 搜索信息
   private conditions: SimpleTable.Conditions = {
@@ -161,6 +161,7 @@ export default class extends Vue {
       this.$message.error(e)
     }
   }
+
   /** * 获取树形列表 */
   private async getTrees() {
     try {
@@ -253,37 +254,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.health-state {
-  display: inline-flex;
-  align-items: center;
-}
-
-.health-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin-right: 8px;
-  border-radius: 100%;
-
-  &--1 {
-    background: $color-status-success;
-  }
-
-  &--2 {
-    background: $color-status-warning;
-  }
-
-  &--3 {
-    background: $color-status-danger;
-  }
-
-  &--4 {
-    background: $color-status-info;
-  }
-
-  &--5 {
-    background: $disabled-color;
-  }
-}
-</style>

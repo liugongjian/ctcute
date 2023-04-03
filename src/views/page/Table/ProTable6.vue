@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-11-11 13:41:25
- * @LastEditors: 钟有承
- * @LastEditTime: 2023-01-11 16:38:51
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2023-03-30 20:19:08
  * @Description: 复杂表格6
 -->
 <template>
@@ -17,12 +17,11 @@
       v-loading="loading"
       :data="tableData"
       fit
-      border
       row-key="_id"
       default-expand-all
       :tree-props="{ children: 'children' }"
     >
-      <el-table-column prop="name" label="名称" width="180"> </el-table-column>
+      <el-table-column prop="name" label="名称" width="180"></el-table-column>
       <el-table-column prop="menuType" label="其他状态" width="180">
         <template slot-scope="scope">
           <el-tag v-if="scope.row.menuType === 0" class="table6-tag" type="info">目录</el-tag>
@@ -30,10 +29,10 @@
           <el-tag v-if="scope.row.menuType === 2" class="table6-tag" type="success">权限</el-tag>
         </template>
       </el-table-column>
-      <el-table-column prop="orderNum" label="排序"> </el-table-column>
-      <el-table-column prop="url" label="路由"> </el-table-column>
-      <el-table-column prop="perms" label="标识"> </el-table-column>
-      <el-table-column prop="alias" label="别名" :show-overflow-tooltip="true"> </el-table-column>
+      <el-table-column prop="orderNum" label="排序"></el-table-column>
+      <el-table-column prop="url" label="路由"></el-table-column>
+      <el-table-column prop="perms" label="标识"></el-table-column>
+      <el-table-column prop="alias" label="别名" :show-overflow-tooltip="true"></el-table-column>
       <el-table-column prop="actions" label="操作" width="100" class-name="actions">
         <template slot-scope="{}">
           <el-button type="text">编辑</el-button>
@@ -108,6 +107,7 @@ export default class extends Vue {
     } finally {
     }
   }
+
   private o(data, _id) {
     const menu = data.filter(o => o.parentId === _id)
     menu.forEach(o => {
@@ -120,10 +120,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.table6-tag {
-  width: 40px;
-  padding: 0;
-  text-align: center;
-}
-</style>

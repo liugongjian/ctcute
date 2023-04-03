@@ -2,8 +2,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-28 14:12:07
+ * @LastEditors: 李志伟
+ * @LastEditTime: 2023-03-30 18:27:31
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -504,34 +504,52 @@ const componentRoutes = [
         name: 'Card',
         component: () => import('@/views/component/Test/Card.vue'),
         meta: {
-          title: 'Card',
+          title: 'ContentAreaTips',
           breadcrumb: true,
         },
       },
       {
-        path: 'badge',
-        name: 'Badge',
-        component: () => import('@/views/component/Test/Badge.vue'),
+        path: 'content-area-tips',
+        name: 'ContentAreaTips',
+        component: () => import('@/views/component/Test/ContentAreaTips.vue'),
         meta: {
-          title: 'Badge',
+          title: 'ContentAreaTips',
           breadcrumb: true,
         },
       },
       {
-        path: 'progress',
-        name: 'Progress',
-        component: () => import('@/views/component/Test/Progress.vue'),
+        path: 'loading',
+        name: 'Loading',
+        component: () => import('@/views/component/Test/Loading.vue'),
         meta: {
-          title: 'Progress',
+          title: 'Loading',
           breadcrumb: true,
         },
       },
       {
-        path: 'timeline',
-        name: 'Timeline',
-        component: () => import('@/views/component/Test/Timeline.vue'),
+        path: 'popover',
+        name: 'Popover',
+        component: () => import('@/views/component/Test/Popover.vue'),
         meta: {
-          title: 'Timeline',
+          title: 'Popover',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'toast',
+        name: 'Toast',
+        component: () => import('@/views/component/Test/Toast.vue'),
+        meta: {
+          title: 'Toast',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'tooltip',
+        name: 'Tooltip',
+        component: () => import('@/views/component/Test/Tooltip.vue'),
+        meta: {
+          title: 'Tooltip',
           breadcrumb: true,
         },
       },

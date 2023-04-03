@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-07-26 15:13:36
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-02-06 17:49:27
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2023-03-30 20:43:49
  * @Description: 基础表格 - 滚动底部加载
 -->
 <template>
@@ -39,7 +39,6 @@
       v-loading="tableHook.loading"
       :data="tableHook.tableData"
       fit
-      border
       height="calc(100vh - 230px)"
     >
       <el-table-column prop="name" label="主机别名">
@@ -47,16 +46,16 @@
           <router-link to="/">{{ row.name }}</router-link>
         </template>
       </el-table-column>
-      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
+      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"></el-table-column>
       <el-table-column prop="ip" label="IP地址" />
       <el-table-column prop="cpu" label="CPU利用率(%)" />
       <el-table-column prop="memory" label="内存利用率(%)" />
       <el-table-column prop="disk" label="磁盘利用率(%)" />
       <el-table-column prop="health" label="健康状态">
-        <template slot-scope="{ row }">
-          <span class="health-state">
-            <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
-          </span>
+        <template slot-scope="scope">
+          <cute-state :type="HEALTH[scope.row.health].colorType">
+            {{ HEALTH[scope.row.health].text }}
+          </cute-state>
         </template>
       </el-table-column>
       <el-table-column prop="actions" label="操作" width="150" fixed="right" class-name="actions">
@@ -66,15 +65,6 @@
         </template>
       </el-table-column>
     </el-table>
-    <!--分页-->
-    <!-- <el-pagination
-      class="pagination"
-      :current-page.sync="tableHook.pager.page"
-      :page-size.sync="tableHook.pager.limit"
-      :total="tableHook.total"
-      @size-change="() => tableHook.handleSizeChange(tableHook.pager.limit)"
-      @current-change="() => tableHook.handleCurrentChange(tableHook.pager.page)"
-    /> -->
   </el-card>
 </template>
 <script lang="ts">
@@ -83,14 +73,15 @@ import { ElForm } from 'element-ui/types/form'
 import { ElTable } from 'element-ui/types/table'
 import * as SimpleTable from '@/types/SimpleTable'
 import { getTable, getHosts } from '@/api/simpleTable'
-import { STATUS, HEALTH } from '@/dics/simpleTable'
+import { STATUS, HEALTH2 } from '@/dics/simpleTable'
 import TableHookClass from '@cutedesign/ui/hook/TableHook'
+
 @Component({
   name: 'ScrolledToLoadTable',
 })
 export default class extends Vue {
   // 健康状态字典
-  private HEALTH = HEALTH
+  private HEALTH = HEALTH2
 
   // 搜索信息
   private conditions: SimpleTable.Conditions = {
@@ -177,37 +168,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.health-state {
-  display: inline-flex;
-  align-items: center;
-}
-
-.health-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin-right: 8px;
-  border-radius: 100%;
-
-  &--1 {
-    background: $color-status-success;
-  }
-
-  &--2 {
-    background: $color-status-warning;
-  }
-
-  &--3 {
-    background: $color-status-danger;
-  }
-
-  &--4 {
-    background: $color-status-info;
-  }
-
-  &--5 {
-    background: $disabled-color;
-  }
-}
-</style>

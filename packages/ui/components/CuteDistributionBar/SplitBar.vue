@@ -322,11 +322,10 @@ export default class extends Vue {
   align-items: center;
 
   .sp-slider__bar {
-    width: 400px;
-    height: 8px;
-    // margin: 16px 0;
+    width: $cute-distribution-bar-slider-width;
+    height: $cute-distribution-bar-slider-height;
     background-color: $color-grey-8;
-    border-radius: 4px;
+    border-radius: $border-radius-medium;
     position: relative;
     cursor: pointer;
     vertical-align: middle;
@@ -334,15 +333,13 @@ export default class extends Vue {
     .sp-slider__bar-item {
       position: absolute;
       left: 0;
-      height: 8px;
-      border-radius: 4px;
-      // border-top-left-radius: 4px;
-      // border-bottom-left-radius: 4px;
+      height: $cute-distribution-bar-slider-height;
+      border-radius: $border-radius-medium;
     }
 
     .sp-slider__wrap {
-      width: 32px;
-      height: 32px;
+      width: $cute-distribution-bar-slider-item-width;
+      height: $cute-distribution-bar-slider-item-height;
       position: absolute;
       top: 50%;
       left: 0;
@@ -368,8 +365,8 @@ export default class extends Vue {
     }
 
     .sp-slider__button {
-      width: 16px;
-      height: 16px;
+      width: $cute-distribution-bar-slider-button-width;
+      height: $cute-distribution-bar-slider-button-height;
       background-color: $color-white;
       border-radius: 50%;
       transition: 0.2s;
@@ -382,11 +379,11 @@ export default class extends Vue {
 
     .sp-slider__text {
       position: absolute;
-      top: -32px;
-      font-size: 12px;
-      width: 32px;
-      height: 32px;
-      line-height: 32px;
+      top: -$cute-distribution-bar-slider-item-height;
+      font-size: $text-size;
+      width: $cute-distribution-bar-slider-item-width;
+      height: $cute-distribution-bar-slider-item-height;
+      line-height: $cute-distribution-bar-slider-item-height;
       text-align: center;
       transform: translateX(-50%);
     }

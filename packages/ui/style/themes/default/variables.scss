@@ -11,7 +11,7 @@ $color-master-disabled: $blue-4 !default; // 禁用
 $color-master-bg: $blue-3 !default; // 背景
 $color-master-bg-light: $blue-2 !default; // 背景浅色
 // $color-master-bg-light-2: $blue-1 !default; // 背景浅色2
-$color-master-bg-light-2: $neutral-1  !default; // 背景浅色2
+$color-master-bg-light-2: $neutral-1 !default; // 背景浅色2
 
 $color-master-1: $blue-base; // deprecated(弃用)
 $color-master-2: $blue-5; // deprecated(弃用)
@@ -316,11 +316,16 @@ $checkbox-button-hover: $color-master-bg-light !default;
 -------------------------- */
 $table-header-bg: $color-neutral-1 !default;
 $table-cell-bg: $color-neutral-8 !default;
-$table-sort-caret-bg: $color-neutral-6 !default;
-$table-cell-padding-sm: $margin-2x !default;
+$table-cell-padding-xs: $margin-6 !default;
+$table-cell-padding-sm: $margin-6 !default;
 $table-cell-padding-md: $margin-10 !default;
 $table-cell-padding-lg: $margin-3x !default;
+$table-cell-selection-line-height: 20px !default;
 $table-border-color: $color-neutral-3 !default;
+$table-sort-caret-bg: $color-neutral-6 !default;
+$table-fixed-box-shadow: 0px 2px 8px rgba(100, 110, 144, 0.2) !default;
+$table-row-hover-background-color: $neutral-2 !default;
+$table-filter-item-height: 32px !default;
 
 $table-header-fill: $table-header-bg; // deprecated(弃用)
 $table-cell-fill: $table-cell-bg; // deprecated(弃用)
@@ -362,19 +367,15 @@ $transfer-filter-height: $input-sm-height !default;  // Transfer组件搜索框�
 $transfer-footert-bg: $color-white !default;  // Transfer组件footer背景色
 $transfer-footer-height: 40px !default; // Transfer组件footer高度
 
-/* Progress
--------------------------- */
-$progress-text-height-lg: 30px;
-$progress-text-height-sm: 12px;
-$progress-text-size-lg: 20px;
-$progress-text-size-sm: 10px;
-$progress-text-weight: 600;
-
 /* Tooltip
 -------------------------- */
 $tooltip-bg: $color-neutral-8 !default;
 
 $tooltip-fill: $tooltip-bg; // deprecated(弃用)
+
+/* Popover
+-------------------------- */
+$popover-min-width: 160px !default;
 
 /* Upload
 -------------------------- */
@@ -471,6 +472,11 @@ $messagebox-header-padding-bottom: $padding-3x !default;
 $messagebox-content-padding: $padding-3x $padding-8x !default;
 $messagebox-btns-padding: $padding-3x $padding-8x $padding-5x $padding-8x !default;
 
+/* Message(Toast)
+-------------------------- */
+$toast-width: 400px !default;
+$toast-height: 36px !default;
+
 /* Icon
 -------------------------- */
 $icon-color: $color-grey-3 !default;
@@ -484,9 +490,9 @@ $loading-default-border: $color-grey-6 !default;
 
 /* Alert
 -------------------------- */
-$alert-text-color: $text-color-light!default;
+$alert-text-color: $text-color-light !default;
 $alert-info-bg: $blue-2 !default;
-$alert-success-bg: $green-2  !default;
+$alert-success-bg: $green-2 !default;
 $alert-warning-bg: $orange-2 !default;
 $alert-danger-bg: $ruby-2 !default;
 $alert-weak-bg: $neutral-1 !default;
@@ -500,6 +506,16 @@ $cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-l
 $cute-slider-btn-radius: 8px !default;
 $cute-slider-btn-width: 16px !default;
 $cute-slider-btn-height: 22px !default;
+
+/* CuteDistributionBar
+-------------------------- */
+$cute-distribution-bar-input-width: 54px !default;
+$cute-distribution-bar-slider-width: 400px !default;
+$cute-distribution-bar-slider-height: 8px !default;
+$cute-distribution-bar-slider-item-width: 32px !default;
+$cute-distribution-bar-slider-item-height: 32px !default;
+$cute-distribution-bar-slider-button-width: 16px !default;
+$cute-distribution-bar-slider-button-height: 16px !default;
 
 
 /* Layout

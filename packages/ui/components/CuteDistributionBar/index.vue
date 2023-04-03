@@ -334,20 +334,20 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .distribution-bar {
   &__split {
-    margin-top: 22px;
+    margin-top: $margin-5x;
   }
 
   &__wrap {
-    margin-bottom: -20px;
+    margin-bottom: -$margin-5x;
   }
 
   &__checkbox {
-    margin-right: 24px;
-    margin-bottom: 20px;
+    margin-right: $margin-6x;
+    margin-bottom: $margin-5x;
 
     ::v-deep {
       .el-checkbox__label {
-        padding-left: 8px;
+        padding-left: $padding-2x;
       }
 
       .el-checkbox__input.is-checked + .el-checkbox__label {
@@ -357,20 +357,20 @@ export default class extends Vue {
 
     &__value {
       display: inline-block;
-      margin-left: 6px;
-      width: 54px;
+      margin-left: $margin-2x;
+      width: $cute-distribution-bar-input-width;
 
       ::v-deep {
         .el-input .el-input__inner {
-          padding-left: 10px;
-          padding-right: 10px;
+          padding-left: $padding-2x;
+          padding-right: $padding-2x;
         }
       }
     }
 
     &__rate {
       display: inline-block;
-      padding-left: 6px;
+      padding-left: $padding-3x;
       cursor: default;
     }
   }

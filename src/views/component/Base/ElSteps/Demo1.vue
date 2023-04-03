@@ -15,7 +15,6 @@
           :key="index"
           :title="getTitle(s, index)"
           :status="s.status"
-          :disabled="s.disabled"
         ></el-step>
       </el-steps>
       <div class="btn-style">
@@ -67,12 +66,29 @@ export default class extends Vue {
     { title: '步骤1' },
     { title: '步骤2' },
     { title: '步骤3' },
-    { title: '不可点击', disabled: true },
+    { title: '步骤3、4' },
     { title: '错误/失败', status: 'error' },
     { title: '结束' },
   ]
   private active = 1
   private activeMini = 1
+
+  private getTitle(s: any, index: number) {
+    if (index === this.active) {
+      return '正在处理'
+    } else if (index === this.active + 1) {
+      return '等待处理'
+    } else if (this.steps.length - 1 === this.active) {
+      return '处理完成'
+    } else {
+      return s.title
+    }
+  }
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.btn-style {
+  margin-top: $margin-6x;
+  margin-bottom: $margin-6x;
+}
+</style>

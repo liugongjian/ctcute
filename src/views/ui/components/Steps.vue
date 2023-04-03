@@ -126,7 +126,7 @@ export default class extends Vue {
     { title: '步骤1' },
     { title: '步骤2' },
     { title: '步骤3' },
-    { title: '不可点击', disabled: true },
+    { title: '步骤4' },
     { title: '错误/失败', status: 'error' },
     { title: '结束' },
   ]
@@ -219,9 +219,5 @@ export default class extends Vue {
 .btn-style {
   margin-top: $margin-6x;
   margin-bottom: $margin-6x;
-}
-
-.max-style {
-  max-width: 800px;
 }
 </style>

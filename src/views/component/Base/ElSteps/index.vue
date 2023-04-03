@@ -9,7 +9,7 @@
   <div>
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
-      <h1>ElSteps / 尺寸</h1>
+      <h1>ElSteps / 基础步骤条</h1>
       <component-demo path="@/views/component/Base/ElSteps/Demo1.vue">
         <demo1 />
       </component-demo>

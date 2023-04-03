@@ -15,6 +15,7 @@
     color: $color;
 
     .el-step__icon.is-text, .el-step__icon.is-icon {
+      // 用背景色盖住线条
       background-color: $bgColor;
     }
     .el-step__icon.is-status {
@@ -35,6 +36,10 @@
 
 .el-step__icon-inner {
   font-weight: normal;
+}
+
+.el-step.is-simple > .el-step__head > .el-step__icon{
+  background-color: transparent;
 }
 
 .el-step {

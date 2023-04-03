@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "name": "ProTable8.vue",
+      "path": "@/views/page/Table/ProTable8.vue"
+    },
+    {
+      "name": "ProTable8.d.ts",
+      "path": "@/types/ProTable8.d.ts"
+    },
+    {
+      "name": "api/proTable8.ts",
+      "path": "@/api/proTable8.ts"
+    },
+    {
+      "name": "dics/proTable8.ts",
+      "path": "@/dics/proTable8.ts"
+    }
+  ]
+}

@@ -1,7 +1,12 @@
 <template>
   <div class="navbar desc-nav">
     <slot name="navbar-breadcrumb">
-      <breadcrumb v-if="navbarBreadcrumb" id="breadcrumb-container" class="breadcrumb-container" />
+      <breadcrumb
+        v-if="navbarBreadcrumb"
+        id="breadcrumb-container"
+        class="breadcrumb-container"
+        v-bind="$attrs"
+      />
     </slot>
 
     <slot name="navbar-right"></slot>

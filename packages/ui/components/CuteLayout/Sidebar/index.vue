@@ -13,20 +13,20 @@
       </div>
     </div>
     <div v-if="isShowMenu" class="scrollbar-wrapper">
-      <div v-if="sidebarTitle" class="layout-sidebar__title">{{ sidebarTitle }}</div>
+      <div v-if="isNewMenu" class="layout-sidebar__title back" @click="onBackMenu">
+        <svg-icon name="arrow-left" width="16" height="16" />{{ currentNewMenu.meta.title }}
+      </div>
+      <div v-else-if="sidebarTitle" class="layout-sidebar__title">{{ sidebarTitle }}</div>
+
       <el-menu
         :default-active="activeMenu"
         :unique-opened="false"
         :collapse-transition="false"
         mode="vertical"
         class="layout-sidebar__menu"
+        @select="handleSelect"
       >
-        <sidebar-item
-          v-for="route in currentRoutes"
-          :key="route.path"
-          :item="route"
-          :base-path="route.path"
-        />
+        <sidebar-item v-for="route in routesList" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
     </div>
     <!-- 展开与收缩按钮 -->
@@ -37,7 +37,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import SidebarItem from './SidebarItem.vue'
 
 @Component({
@@ -69,10 +69,14 @@ export default class extends Vue {
 
   public isShowMenu = true
 
+  public isNewMenu = false
+
+  public currentNewMenu = {}
+
   public isActiveModule = 'home'
 
   public moduleList = []
-
+  public routesList = []
   public get isShowModule(): boolean {
     return this.moduleList && this.moduleList.length > 0
   }
@@ -89,7 +93,32 @@ export default class extends Vue {
 
   public get currentRoutes(): any {
     const routes = this.sidebarRoutes || (this.$auth && this.$auth.getRoutes())
+    console.log(routes)
     return this.sidebarFilter ? this.sidebarFilter(routes) : routes
+  }
+
+  @Watch('sidebarRoutes', { immediate: true })
+  onChangeRoutes() {
+    const routes = this.sidebarRoutes || (this.$auth && this.$auth.getRoutes())
+    console.log(routes)
+    this.routesList = this.sidebarFilter ? this.sidebarFilter(routes) : routes
+  }
+  handleSelect(key, keyPath) {
+    const item = this.currentRoutes.filter(route => route.path === key)[0]
+    if (item && item.expandMenus && item.expandMenus.length > 0) {
+      const expandMenus = JSON.parse(JSON.stringify(item.expandMenus))
+      expandMenus.map(menu => {
+        menu.path = keyPath + '/' + menu.path
+        return menu
+      })
+      this.routesList = expandMenus
+      this.isNewMenu = true
+      this.currentNewMenu = item
+    }
+  }
+  private onBackMenu() {
+    this.routesList = this.currentRoutes
+    this.isNewMenu = false
   }
 
   private setSidbarWidth() {
@@ -113,12 +142,23 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 ::v-deep .scrollbar-wrapper {
-  width: $sidebar-width;
+  width: $layout-sidebar-width;
+
+  .back-sidebar {
+    font-size: 14px;
+    color: $color-grey-2;
+    padding: 0 0 10px 32px;
+    font-weight: bold;
+  }
 }
 
 .sidebar {
   display: flex;
   position: relative;
+
+  .back {
+    cursor: pointer;
+  }
 
   &--left {
     width: 50px;
@@ -134,7 +174,7 @@ export default class extends Vue {
       cursor: pointer;
 
       &:hover {
-        background-color: $sidebar-sub-hover;
+        background-color: $layout-sidebar-sub-hover;
       }
 
       &.is-first {
@@ -142,7 +182,7 @@ export default class extends Vue {
       }
 
       &.is-active {
-        background-color: $sidebar-sub-hover;
+        background-color: $layout-sidebar-sub-hover;
         color: $color-master-1;
       }
 
@@ -158,7 +198,7 @@ export default class extends Vue {
     height: 80px;
     width: 12px;
     position: absolute;
-    top: calc(50% - 40px - $header-height / 2); // 40px是自身高度的一半
+    top: calc(50% - 40px - $layout-header-height / 2); // 40px是自身高度的一半
     right: -12px;
     background: $color-bg-2;
     border-top-right-radius: 10px;

@@ -1,5 +1,15 @@
 <template>
-  <el-breadcrumb class="app-breadcrumb" separator="/">
+  <el-breadcrumb v-if="breadcrumbCustomlast">
+    <el-breadcrumb-item>
+      <span>{{ breadcrumbCustomlast }}</span>
+    </el-breadcrumb-item>
+  </el-breadcrumb>
+  <el-breadcrumb v-else-if="breadcrumbShowlast">
+    <el-breadcrumb-item>
+      <span>{{ lastcrumbs.meta.title }}</span>
+    </el-breadcrumb-item>
+  </el-breadcrumb>
+  <el-breadcrumb v-else class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
         <span v-if="item.redirect === 'noredirect' || index === breadcrumbs.length - 1" class="no-redirect">{{
@@ -13,14 +23,24 @@
 
 <script lang="ts">
 import { compile } from 'path-to-regexp'
-import { Component, Vue, Watch } from 'vue-property-decorator'
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import { RouteRecord, Route } from 'vue-router'
 
 @Component({
   name: 'Breadcrumb',
 })
 export default class extends Vue {
+  @Prop({ default: '' })
+  public breadcrumbCustomlast: string
+
+  @Prop({ default: true })
+  public breadcrumbShowlast: boolean
+
   private breadcrumbs: RouteRecord[] = []
+
+  private get lastcrumbs() {
+    return this.breadcrumbs[this.breadcrumbs.length - 1]
+  }
 
   @Watch('$route')
   private onRouteChange(route: Route) {

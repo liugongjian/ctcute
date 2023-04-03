@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-11-19 07:41:39
  * @Description:
  */
-import Layout from '@/layout/doc.vue'
-
+import LayoutBak from '@/layout/doc.vue'
+import Layout from '@/layout/CuteLayout.vue'
 const docRoutes = [
   // 更新日志
   {

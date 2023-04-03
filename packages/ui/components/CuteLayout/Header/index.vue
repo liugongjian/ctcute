@@ -58,10 +58,10 @@ export default class extends Vue {
   top: 0;
   width: 100%;
   z-index: 1999;
-  height: $header-height;
+  height: $layout-header-height;
   display: flex;
   justify-content: space-between;
-  background: $header-fill-1;
+  background: $layout-header-fill-1;
 
   &__logo {
     display: flex;
@@ -77,7 +77,7 @@ export default class extends Vue {
       align-items: center;
       margin-left: 15px;
       padding-left: 15px;
-      border-left: 1px solid $header-border;
+      border-left: 1px solid $layout-header-border;
       color: $color-white;
 
       .logo-normal,

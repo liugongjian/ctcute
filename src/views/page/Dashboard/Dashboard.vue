@@ -194,206 +194,59 @@
       </el-col>
     </el-row>
     <el-row :gutter="22">
-      <el-col :span="10">
-        <cute-card-box title="短信渠道用户排行榜">
+      <el-col :span="8">
+        <cute-card-box title="短信渠道用户排行榜" class="mini-padding">
           <template #content>
             <div class="chart-user">
-              <CuteChart :option="option4" :width="'100%'" height="350px" />
+              <CuteChart :option="option4" :width="'100%'" height="100%" />
             </div>
           </template>
         </cute-card-box>
       </el-col>
-      <el-col :span="14">
+      <el-col :span="16">
         <cute-card-box title="数据列表" class="table">
           <template #content>
-            <div class="chart-box">
-              <el-tabs value="third" type="card" size="small">
-                <el-tab-pane label="默认项" name="second">
-                  <div class="sub-table simple-table">
-                    <el-table
-                      :data="tableComponentData && tableComponentData.tableData"
-                      border
-                      height="calc(100% - 40px)"
-                    >
-                      <el-table-column prop="ip" label="IP地址" width="130px"> </el-table-column>
-                      <el-table-column prop="time" label="时间" sortable width="140px"> </el-table-column>
-                      <el-table-column prop="label" label="标签" width="150px">
-                        <template slot-scope="scope">
-                          <el-tag type="info" size="small"> {{ scope.row.label[0] }}</el-tag>
-                          <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
-                        </template>
-                      </el-table-column>
-                      <el-table-column prop="description" label="描述" width="240px">
-                        <template slot-scope="scope">
-                          <el-tooltip
-                            class="item"
-                            effect="dark"
-                            :content="scope.row.description"
-                            placement="top"
-                          >
-                            <span class="text-ellipsis">{{ scope.row.description }}</span>
-                          </el-tooltip>
-                        </template>
-                      </el-table-column>
-                      <el-table-column prop="healthy" label="健康状态">
-                        <template slot-scope="scope">
-                          <div>
-                            <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
-                            <span>{{ HEALTH[scope.row.healthy] }}</span>
-                          </div>
-                        </template>
-                      </el-table-column>
-                    </el-table>
-                    <el-pagination
-                      class="pagination"
-                      :current-page="currentPage4"
-                      :total="153"
-                      @size-change="handleSizeChange"
-                      @current-change="handleCurrentChange"
-                    >
-                    </el-pagination>
-                  </div>
-                </el-tab-pane>
-                <el-tab-pane label="选中项" name="third">
-                  <div class="sub-table simple-table">
-                    <el-table
-                      :data="tableComponentData && tableComponentData.tableData"
-                      border
-                      height="calc(100% - 40px)"
-                    >
-                      <el-table-column prop="ip" label="IP地址" width="130px"> </el-table-column>
-                      <el-table-column prop="time" label="时间" sortable width="140px"> </el-table-column>
-                      <el-table-column prop="label" label="标签" width="150px">
-                        <template slot-scope="scope">
-                          <el-tag type="info" size="small"> {{ scope.row.label[0] }}</el-tag>
-                          <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
-                        </template>
-                      </el-table-column>
-                      <el-table-column prop="description" label="描述" width="240px">
-                        <template slot-scope="scope">
-                          <el-tooltip
-                            class="item"
-                            effect="dark"
-                            :content="scope.row.description"
-                            placement="top"
-                          >
-                            <span class="text-ellipsis">{{ scope.row.description }}</span>
-                          </el-tooltip>
-                        </template>
-                      </el-table-column>
-                      <el-table-column prop="healthy" label="健康状态">
-                        <template slot-scope="scope">
-                          <div>
-                            <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
-                            <span>{{ HEALTH[scope.row.healthy] }}</span>
-                          </div>
-                        </template>
-                      </el-table-column>
-                    </el-table>
-                    <el-pagination
-                      class="pagination"
-                      :current-page="currentPage4"
-                      :total="153"
-                      @size-change="handleSizeChange"
-                      @current-change="handleCurrentChange"
-                    >
-                    </el-pagination>
-                  </div>
-                </el-tab-pane>
-                <el-tab-pane label="禁用选项" name="fourth" disabled>
-                  <div class="sub-table simple-table">
-                    <el-table
-                      :data="tableComponentData && tableComponentData.tableData"
-                      border
-                      height="calc(100% - 40px)"
-                    >
-                      <el-table-column prop="ip" label="IP地址" width="130px"> </el-table-column>
-                      <el-table-column prop="time" label="时间" sortable width="140px"> </el-table-column>
-                      <el-table-column prop="label" label="标签" width="150px">
-                        <template slot-scope="scope">
-                          <el-tag type="info" size="small"> {{ scope.row.label[0] }}</el-tag>
-                          <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
-                        </template>
-                      </el-table-column>
-                      <el-table-column prop="description" label="描述" width="240px">
-                        <template slot-scope="scope">
-                          <el-tooltip
-                            class="item"
-                            effect="dark"
-                            :content="scope.row.description"
-                            placement="top"
-                          >
-                            <span class="text-ellipsis">{{ scope.row.description }}</span>
-                          </el-tooltip>
-                        </template>
-                      </el-table-column>
-                      <el-table-column prop="healthy" label="健康状态">
-                        <template slot-scope="scope">
-                          <div>
-                            <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
-                            <span>{{ HEALTH[scope.row.healthy] }}</span>
-                          </div>
-                        </template>
-                      </el-table-column>
-                    </el-table>
-                    <el-pagination
-                      class="pagination"
-                      :current-page="currentPage4"
-                      :total="153"
-                      @size-change="handleSizeChange"
-                      @current-change="handleCurrentChange"
-                    >
-                    </el-pagination>
-                  </div>
-                </el-tab-pane>
-                <el-tab-pane label="悬停项" name="fifth">
-                  <div class="sub-table simple-table">
-                    <el-table
-                      :data="tableComponentData && tableComponentData.tableData"
-                      border
-                      height="calc(100% - 40px)"
-                    >
-                      <el-table-column prop="ip" label="IP地址" width="130px"> </el-table-column>
-                      <el-table-column prop="time" label="时间" sortable width="140px"> </el-table-column>
-                      <el-table-column prop="label" label="标签" width="150px">
-                        <template slot-scope="scope">
-                          <el-tag type="info" size="small"> {{ scope.row.label[0] }}</el-tag>
-                          <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
-                        </template>
-                      </el-table-column>
-                      <el-table-column prop="description" label="描述" width="240px">
-                        <template slot-scope="scope">
-                          <el-tooltip
-                            class="item"
-                            effect="dark"
-                            :content="scope.row.description"
-                            placement="top"
-                          >
-                            <span class="text-ellipsis">{{ scope.row.description }}</span>
-                          </el-tooltip>
-                        </template>
-                      </el-table-column>
-                      <el-table-column prop="healthy" label="健康状态">
-                        <template slot-scope="scope">
-                          <div>
-                            <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
-                            <span>{{ HEALTH[scope.row.healthy] }}</span>
-                          </div>
-                        </template>
-                      </el-table-column>
-                    </el-table>
-                    <el-pagination
-                      class="pagination"
-                      :current-page="currentPage4"
-                      :total="153"
-                      @size-change="handleSizeChange"
-                      @current-change="handleCurrentChange"
-                    >
-                    </el-pagination>
-                  </div>
-                </el-tab-pane>
-              </el-tabs>
-            </div>
+            <el-tabs value="third" type="card" size="small">
+              <el-tab-pane label="默认项" name="second"> </el-tab-pane>
+              <el-tab-pane label="选中项" name="third"> </el-tab-pane>
+              <el-tab-pane label="禁用选项" name="fourth" disabled> </el-tab-pane>
+              <el-tab-pane label="悬停项" name="fifth"> </el-tab-pane>
+              <div class="sub-table simple-table">
+                <el-table :data="tableComponentData && tableComponentData.tableData" border height="236px">
+                  <el-table-column prop="ip" label="IP地址"> </el-table-column>
+                  <el-table-column prop="time" label="时间" sortable> </el-table-column>
+                  <el-table-column prop="label" label="标签">
+                    <template slot-scope="scope">
+                      <el-tag type="info" size="small"> {{ scope.row.label[0] }}</el-tag>
+                      <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
+                    </template>
+                  </el-table-column>
+                  <el-table-column prop="description" label="描述">
+                    <template slot-scope="scope">
+                      <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+                        <span class="text-ellipsis">{{ scope.row.description }}</span>
+                      </el-tooltip>
+                    </template>
+                  </el-table-column>
+                  <el-table-column prop="healthy" label="健康状态">
+                    <template slot-scope="scope">
+                      <div>
+                        <span class="sub-spot" :class="`sub-spot--${scope.row.healthy}`"></span>
+                        <span>{{ HEALTH[scope.row.healthy] }}</span>
+                      </div>
+                    </template>
+                  </el-table-column>
+                </el-table>
+                <el-pagination
+                  class="pagination"
+                  :current-page="currentPage4"
+                  :total="153"
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                >
+                </el-pagination>
+              </div>
+            </el-tabs>
           </template>
         </cute-card-box>
       </el-col>
@@ -1828,7 +1681,7 @@ export default class extends Vue {
 
     .visits {
       margin: 0;
-      color: $color-grey-1;
+      color: $neutral-10;
       letter-spacing: 0;
       font-size: 26px;
       font-family: bahnschrift;
@@ -1842,7 +1695,7 @@ export default class extends Vue {
 
       .increase {
         padding-left: $padding;
-        color: '#ff5b68';
+        color: #ff5b68;
         font-weight: $text-title-weight;
       }
     }
@@ -1886,15 +1739,22 @@ export default class extends Vue {
     white-space: nowrap;
   }
 
+  .mini-padding {
+    ::v-deep .cute-card__content {
+      padding-top: $padding;
+    }
+  }
+
   .chart-user {
-    height: 300px;
-    overflow-y: auto;
+    height: 328px;
     overflow-x: hidden;
   }
 
   .table {
     .sub-table {
-      height: 246px;
+      ::v-deep .el-table {
+        margin-top: 0;
+      }
 
       .el-tag {
         margin-right: $margin-2x;

@@ -99,12 +99,9 @@
               <el-table-column prop="time" label="耗时"></el-table-column>
               <el-table-column prop="status" label="状态" width="80" align="center">
                 <template slot-scope="scope">
-                  <span class="status" :class="'status' + scope.row.status">
-                    <span v-if="scope.row.status === 1">停止</span>
-                    <span v-else-if="scope.row.status === 2">失败</span>
-                    <span v-else-if="scope.row.status === 3">暂停</span>
-                    <span v-else>成功</span>
-                  </span>
+                  <cute-state :type="STATUS[scope.row.status].type">
+                    {{ STATUS[scope.row.status].text }}
+                  </cute-state>
                 </template>
               </el-table-column>
             </el-table>
@@ -148,6 +145,25 @@ export default class extends Vue {
   value1 = [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)]
   // 表格数据
   tableData = []
+  // 表格状态字典
+  STATUS = {
+    1: {
+      text: '成功',
+      type: 'success',
+    },
+    2: {
+      text: '暂停',
+      type: 'warning',
+    },
+    3: {
+      text: '停止',
+      type: 'info',
+    },
+    4: {
+      text: '失败',
+      type: 'fatal',
+    },
+  }
   // 饼图
   option = {}
   // 线图
@@ -487,10 +503,6 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .simple-chart {
   overflow: hidden;
-
-  ::v-deep .el-table {
-    margin: 0;
-  }
 }
 
 .el-row {
@@ -513,7 +525,6 @@ export default class extends Vue {
   }
 }
 
-// TODO 改成CuteState组件
 .chart-table.el-table {
   margin: 0 !important;
 
@@ -530,70 +541,20 @@ export default class extends Vue {
   }
 
   .solt1 {
-    background: $chartColor1;
+    background: #8bb2f9;
     color: $color-white;
   }
 
   .solt2 {
-    background: $chartColor1;
+    background: #8bb2f9;
     color: $color-white;
     opacity: 0.8;
   }
 
   .solt3 {
-    background: $chartColor1;
+    background: #8bb2f9;
     color: $color-white;
     opacity: 0.6;
-  }
-
-  .status:after {
-    content: '';
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: $chartColor10;
-    left: 2px;
-    top: 50%;
-    margin-top: -4px;
-  }
-
-  .status1:after {
-    background: $color-grey-4;
-  }
-
-  .status2:after {
-    background: $chartColor11;
-  }
-
-  .status3:after {
-    background: $chartColor4;
-  }
-
-  ::v-deep th.el-table__cell > .cell {
-    color: $color-grey-2;
-    font-weight: $text-weight;
-  }
-
-  ::v-deep .el-table__header .el-table__cell {
-    border-right: 0;
-    border-bottom: 0;
-    background: $neutral-1;
-  }
-
-  ::v-deep .el-table__header .el-table__cell {
-    border-right: 0;
-    border-bottom: 0;
-    background: $neutral-1;
-    line-height: 40px;
-  }
-
-  ::v-deep .el-table__body-wrapper td .el-table__cell {
-    padding: 5px 0;
-  }
-
-  ::v-deep td.el-table__cell {
-    color: $neutral-10;
   }
 }
 </style>

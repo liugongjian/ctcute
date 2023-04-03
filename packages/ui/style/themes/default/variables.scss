@@ -58,7 +58,6 @@ $color-fatal-active: $ruby-9 !default;
 $color-fatal-disabled: $ruby-5 !default;
 $color-fatal-bg: $ruby-1 !default;
 
-
 $color-status-master: $color-master; // deprecated(弃用)
 $color-status-master-1: $color-master; // deprecated(弃用)
 $color-status-danger: $ruby-base; // deprecated(弃用)
@@ -103,7 +102,6 @@ $color-grey-11: $neutral-1; // deprecated(弃用)
 /* 其他 */
 $color-other-1: $color-neutral-8; // deprecated(弃用) 使用在tooltip背景, order页眉背景
 
-
 /* Background
 -------------------------- */
 $color-bg-1: $white !default;
@@ -130,7 +128,8 @@ $disabled-icon-color: $neutral-6; // deprecated(弃用)
 
 /* Typography
 -------------------------- */
-$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif, '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
+$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif,
+  '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
 $font-family-cute-icons: 'cute-icons' !default;
 $text-size: 12px !default; // 标准字体大小
 $text-size-sm: 12px !default; // 字号small
@@ -363,8 +362,8 @@ $transfer-button-radius: 50% !default; // Transfer组件圆形按钮
 $transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
 $transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
 $transfer-item-height: 32px !default; // Transfer组件选项高度
-$transfer-filter-height: $input-sm-height !default;  // Transfer组件搜索框高度
-$transfer-footert-bg: $color-white !default;  // Transfer组件footer背景色
+$transfer-filter-height: $input-sm-height !default; // Transfer组件搜索框高度
+$transfer-footert-bg: $color-white !default; // Transfer组件footer背景色
 $transfer-footer-height: 40px !default; // Transfer组件footer高度
 
 /* Tooltip
@@ -402,7 +401,7 @@ $cascader-panel-shadow: $shadow-2 !default;
 /* Collapse
 -------------------------- */
 $collapse-border-color: $color-neutral-3 !default;
-$collapse-content-background-color: $color-bg-1!default;
+$collapse-content-background-color: $color-bg-1 !default;
 $collapse-header-bg: $color-neutral-1 !default;
 $collapse-header-arrow-color: $neutral-6 !default;
 $collapse-header-height: 36px !default;
@@ -418,8 +417,8 @@ $datepicker-shadow: $shadow-2 !default;
 
 /* Descriptions
 -------------------------- */
-$descriptions-label-width: 165px !default;
-$descriptions-item-height: 36px !default;
+$descriptions-label-width: 160px !default;
+$descriptions-item-height: 40px !default;
 $descriptions-item-content-width: 525px !default;
 $descriptions-item-content-line-height: 22px !default;
 $descriptions-item-label-min-width: 128px !default;
@@ -429,6 +428,7 @@ $descriptions-font-color-label-bordered: $color-neutral-10 !default;
 -------------------------- */
 $dropdown-item-padding-top-bottom: 7px !default;
 $dropdown-min-width: 120px !default;
+$dropdown-icon-line-height: 0.5 !default;
 
 /* Tree
 -------------------------- */
@@ -517,7 +517,6 @@ $cute-distribution-bar-slider-item-height: 32px !default;
 $cute-distribution-bar-slider-button-width: 16px !default;
 $cute-distribution-bar-slider-button-height: 16px !default;
 
-
 /* Layout
 -------------------------- */
 /* Header */
@@ -533,7 +532,6 @@ $sidebar-width: 240px !default;
 $sidebar-fill: $color-white !default;
 $sidebar-sub-fill: $color-white !default;
 $sidebar-sub-hover: $color-master-bg-light-2 !default;
-
 
 /* CuteButtonGroup */
 $cute-button-group-margin: -1px !default;

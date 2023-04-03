@@ -33,10 +33,10 @@
 .el-progress-bar__innerText {
   position: absolute;
   right: 50%;
-  top: 2px;
+  top: -4px;
   font-size: $progress-text-size-lg;
   color: $color-white !important;
-  zoom: 0.5;
+  transform: scale(0.5);
 }
 
 .el-progress__text {

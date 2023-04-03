@@ -417,8 +417,8 @@ $datepicker-shadow: $shadow-2 !default;
 
 /* Descriptions
 -------------------------- */
-$descriptions-label-width: 165px !default;
-$descriptions-item-height: 36px !default;
+$descriptions-label-width: 160px !default;
+$descriptions-item-height: 40px !default;
 $descriptions-item-content-width: 525px !default;
 $descriptions-item-content-line-height: 22px !default;
 $descriptions-item-label-min-width: 128px !default;
@@ -428,6 +428,7 @@ $descriptions-font-color-label-bordered: $color-neutral-10 !default;
 -------------------------- */
 $dropdown-item-padding-top-bottom: 7px !default;
 $dropdown-min-width: 120px !default;
+$dropdown-icon-line-height: 0.5 !default;
 
 /* Tree
 -------------------------- */
@@ -440,6 +441,18 @@ $tree-handler-menu: 30px !default;
 $tree-node-popover-margin: 0.3em !default;
 $tree-button-tooltip-content-padding: 0.8em 1.2em !default;
 $tree-leaf-expand-icon-padding: 2px !default;
+
+/* Steps
+-------------------------- */
+$steps-icon-height-md: 32px; // 中号尺寸
+$steps-icon-height-sm: 24px; // 小号尺寸
+$steps-title-size-md: $text-size-lg; // 中号标题：16px
+$steps-title-size-sm: $text-size-sm; // 小号标题：12px
+$steps-icon-inner-status-size-md: $text-size-md; // 中号状态icon size：14px
+$steps-icon-inner-status-size-sm: $text-size-sm; // 小号状态icon size：12px
+$steps-icon-inner-text-size-md: $text-size-md; // 小号标号size：14px
+$steps-icon-inner-text-size-sm: $text-size-md; // 中号标号size：14px
+$steps-line-size: 1px; // 线条粗细;
 
 /* Dialog
 -------------------------- */

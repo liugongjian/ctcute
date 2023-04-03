@@ -14,7 +14,7 @@
     border-color: $bdColor;
     color: $color;
 
-    .el-step__icon.is-text {
+    .el-step__icon.is-text, .el-step__icon.is-icon {
       background-color: $bgColor;
     }
     .el-step__icon.is-status {
@@ -27,8 +27,10 @@
 }
 
 @include steps-page();
-@include steps-page(is-process, $color-master, $color-master, $color-white);
-@include steps-page(is-wait, $border-color, $text-color-light-2, $color-white);
+@include steps-page(is-finish);
+@include steps-page(is-process, $color-master, $color-master, $color-bg-2);
+@include steps-page(is-error, $color-danger, $color-danger, $color-bg-2);
+@include steps-page(is-wait, $border-color, $text-color-light-2, $color-bg-2);
 
 
 .el-step__icon-inner {

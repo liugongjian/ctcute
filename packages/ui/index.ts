@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-02-09 08:44:19
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-03 16:01:25
  * @Description:
  */
 import ElementUI, {
@@ -263,3 +263,5 @@ export {
   Collapse,
   Rate,
 }
+
+export { default as createI18n } from './i18n'

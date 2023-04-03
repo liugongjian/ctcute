@@ -1,40 +1,34 @@
 <template>
-  <div>
-    <el-row align="middle" :style="{ 'max-width': maxWidth }" type='flex'>
-      <el-col v-if="hasGoButton" :span="1">
-        <div class="button-col point-style" @click="goPre">
-          <i :class="['el-icon-arrow-left', disableLeft ? 'disabled' : '']"></i>
-        </div>
-      </el-col>
-      <el-col :span="14" >
-        <div>
-        <el-steps
-          :space="space"
-          :active="active"
-          finish-status="success"
-          :direction="direction"
-          :size="size"  
-        >
-          <el-step
-            v-for="(s, index) in steps"
-            v-show="getShow(index)"
-            :key="index"
-            :title="getTitle(s, index)"
-            :last-step-width="lastStepWidth"
-            :status="s.status"
-            :class="{ stepErr: s.disabled }"
-            @click.native="!s.disabled && handleStep(s, index)"
-          >
-          </el-step>
-        </el-steps>
-        </div>
-      </el-col>
-      <el-col v-if="hasGoButton" :span="1">
-        <div class="button-col point-style" @click="goNext">
-          <i :class="['el-icon-arrow-right', disableRight ? 'disabled' : '']"></i>
-        </div>
-      </el-col>
-    </el-row>
+  <div :style="{ 'max-width': maxWidth }" class="cute-steps-multi">
+    <div v-if="hasGoButton" class="button-col point-style" @click="goPre">
+      <i :class="['el-icon-arrow-left', disableLeft ? 'disabled' : '']"></i>
+    </div>
+    <!-- <div> -->
+    <el-steps
+      class="cute-steps-multi-main"
+      :space="space"
+      :active="active"
+      finish-status="success"
+      :direction="direction"
+      :size="size"
+      :style="{ 'max-width': `${space * (stepSize + 1) + lastStepWidth}px` }"
+    >
+      <el-step
+        v-for="(s, index) in steps"
+        v-show="getShow(index)"
+        :key="index"
+        :title="getTitle(s, index)"
+        :last-step-width="lastStepWidth"
+        :status="s.status"
+        :class="{ stepErr: s.disabled }"
+        @click.native="!s.disabled && handleStep(s, index)"
+      >
+      </el-step>
+    </el-steps>
+    <!-- </div> -->
+    <div v-if="hasGoButton" class="button-col point-style" @click="goNext">
+      <i :class="['el-icon-arrow-right', disableRight ? 'disabled' : '']"></i>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -44,7 +38,7 @@ import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
   name: 'CuteStepsMulti',
 })
 export default class extends Vue {
-  @Prop({ type: String, default: 'normal' }) size?: string // 步骤条大小，mini
+  @Prop({ type: String, default: 'medium' }) size?: string // 步骤条大小，medium / small
   @Prop({ type: String, default: '100%' }) maxWidth?: string // 步骤条长度
   @Prop({ type: String }) direction?: string // 步骤条方向
   @Prop({ type: Number, default: 0 }) active?: number // 激活
@@ -52,7 +46,7 @@ export default class extends Vue {
   @Prop(Array) readonly steps: any // step数据
   @Prop({ type: Number, default: 1 }) stepSize?: number // 多步骤条时使用，显示几个步骤
   @Prop({ type: Boolean, default: false }) hasGoButton?: boolean // 是否展示前后退按钮
-  @Prop({ type: Number, default: 135}) lastStepWidth?: number
+  @Prop({ type: Number, default: 135 }) lastStepWidth?: number
   width = '0'
   disableLeft = false
   disableRight = false
@@ -77,7 +71,13 @@ export default class extends Vue {
 
   getShow(index: number) {
     if (this.stepSize === 1) {
-      if (index === 0 || index === this.steps.length - 1 || this.active === index || (this.active>=this.steps.length - 1 && index===this.steps.length - 2) ||(this.active===0 && index===1)) {
+      if (
+        index === 0 ||
+        index === this.steps.length - 1 ||
+        this.active === index ||
+        (this.active >= this.steps.length - 1 && index === this.steps.length - 2) ||
+        (this.active === 0 && index === 1)
+      ) {
         return true
       } else {
         return false
@@ -85,13 +85,20 @@ export default class extends Vue {
     } else {
       if (index === 0 || index === this.steps.length - 1) {
         return true
-      }else if(this.active===0 &&index <=  this.stepSize){
+      } else if (this.active === 0 && index <= this.stepSize) {
         return true
-      }else if(this.active>=this.steps.length - 1-this.stepSize &&index>=this.steps.length - 1-this.stepSize){
+      } else if (
+        this.active >= this.steps.length - 1 - this.stepSize &&
+        index >= this.steps.length - 1 - this.stepSize
+      ) {
         return true
-      }else if (this.active<this.steps.length - 1-this.stepSize && index < this.active+ this.stepSize &&index >= this.active) {
+      } else if (
+        this.active < this.steps.length - 1 - this.stepSize &&
+        index < this.active + this.stepSize &&
+        index >= this.active
+      ) {
         return true
-      }else{
+      } else {
         return false
       }
     }
@@ -125,18 +132,35 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.button-col {
-  font-size: 20px;
-}
-.el-icon-arrow-left,
-.el-icon-arrow-right {
-  color: $color-grey-3;
-}
-.disabled {
-  cursor: not-allowed;
-  color: $color-grey-5;
-}
-::v-deep .el-col-1 {
-  width: 30px;
+.cute-steps-multi {
+  display: flex;
+  align-items: center;
+
+  &-main {
+    flex-grow: 1;
+  }
+
+  .button-col {
+    font-size: 20px;
+    width: 30px;
+  }
+  // .stepSuc :hover {
+  //   cursor: pointer;
+  // }
+
+  .stepErr :hover {
+    cursor: not-allowed;
+  }
+
+  .el-icon-arrow-left,
+  .el-icon-arrow-right {
+    cursor: pointer;
+    color: $icon-color;
+  }
+
+  .disabled {
+    cursor: not-allowed;
+    color: $disabled-color;
+  }
 }
 </style>

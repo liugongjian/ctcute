@@ -367,6 +367,15 @@ export interface IScssVariablesRevised {
   collapseHeaderHeight: string
   collapseSeperateHeaderHeight: string
   collapseSeperateHeaderBg: string
+  stepsIconHeightMd: string
+  stepsIconHeightSm: string
+  stepsTitleSizeMd: string
+  stepsTitleSizeSm: string
+  stepsIconInnerStatusSizeMd: string
+  stepsIconInnerStatusSizeSm: string
+  stepsIconInnerTextSizeMd: string
+  stepsIconInnerTextSizeSm: string
+  stepsLineSize: string
 }
 
 export const variablesRevised: IScssVariablesRevised

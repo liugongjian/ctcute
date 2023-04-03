@@ -1,8 +1,9 @@
 import ElementUI from 'element-ui'
+
 const Pagination = ElementUI.Pagination as any
 const Table = ElementUI.Table as any
 Pagination.props.layout = {
-  default: 'sizes,total, prev, pager, next',
+  default: 'total, sizes, prev, pager, next',
 }
 Pagination.props.pageSize = {
   default: 20,

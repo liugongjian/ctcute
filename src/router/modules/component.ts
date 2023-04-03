@@ -500,15 +500,6 @@ const componentRoutes = [
         },
       },
       {
-        path: 'card',
-        name: 'Card',
-        component: () => import('@/views/component/Test/Card.vue'),
-        meta: {
-          title: 'ContentAreaTips',
-          breadcrumb: true,
-        },
-      },
-      {
         path: 'content-area-tips',
         name: 'ContentAreaTips',
         component: () => import('@/views/component/Test/ContentAreaTips.vue'),

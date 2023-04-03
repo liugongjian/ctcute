@@ -11,7 +11,7 @@
       finish-status="success"
       :direction="direction"
       :size="size"
-      :style="{ 'max-width': space * (stepSize + 2) + 'px' }"
+      :style="{ 'max-width': `${space * (stepSize + 1) + lastStepWidth}px` }"
     >
       <el-step
         v-for="(s, index) in steps"

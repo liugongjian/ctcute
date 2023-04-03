@@ -58,7 +58,6 @@ $color-fatal-active: $ruby-9 !default;
 $color-fatal-disabled: $ruby-5 !default;
 $color-fatal-bg: $ruby-1 !default;
 
-
 $color-status-master: $color-master; // deprecated(弃用)
 $color-status-master-1: $color-master; // deprecated(弃用)
 $color-status-danger: $ruby-base; // deprecated(弃用)
@@ -103,7 +102,6 @@ $color-grey-11: $neutral-1; // deprecated(弃用)
 /* 其他 */
 $color-other-1: $color-neutral-8; // deprecated(弃用) 使用在tooltip背景, order页眉背景
 
-
 /* Background
 -------------------------- */
 $color-bg-1: $white !default;
@@ -130,7 +128,8 @@ $disabled-icon-color: $neutral-6; // deprecated(弃用)
 
 /* Typography
 -------------------------- */
-$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif, '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
+$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif,
+  '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
 $font-family-cute-icons: 'cute-icons' !default;
 $text-size: 12px !default; // 标准字体大小
 $text-size-sm: 12px !default; // 字号small
@@ -363,8 +362,8 @@ $transfer-button-radius: 50% !default; // Transfer组件圆形按钮
 $transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
 $transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
 $transfer-item-height: 32px !default; // Transfer组件选项高度
-$transfer-filter-height: $input-sm-height !default;  // Transfer组件搜索框高度
-$transfer-footert-bg: $color-white !default;  // Transfer组件footer背景色
+$transfer-filter-height: $input-sm-height !default; // Transfer组件搜索框高度
+$transfer-footert-bg: $color-white !default; // Transfer组件footer背景色
 $transfer-footer-height: 40px !default; // Transfer组件footer高度
 
 /* Tooltip
@@ -402,7 +401,7 @@ $cascader-panel-shadow: $shadow-2 !default;
 /* Collapse
 -------------------------- */
 $collapse-border-color: $color-neutral-3 !default;
-$collapse-content-background-color: $color-bg-1!default;
+$collapse-content-background-color: $color-bg-1 !default;
 $collapse-header-bg: $color-neutral-1 !default;
 $collapse-header-arrow-color: $neutral-6 !default;
 $collapse-header-height: 36px !default;
@@ -441,8 +440,6 @@ $tree-handler-menu: 30px !default;
 $tree-node-popover-margin: 0.3em !default;
 $tree-button-tooltip-content-padding: 0.8em 1.2em !default;
 $tree-leaf-expand-icon-padding: 2px !default;
-
-
 
 /* Dialog
 -------------------------- */
@@ -507,7 +504,6 @@ $cute-distribution-bar-slider-item-height: 32px !default;
 $cute-distribution-bar-slider-button-width: 16px !default;
 $cute-distribution-bar-slider-button-height: 16px !default;
 
-
 /* Layout
 -------------------------- */
 /* Header */
@@ -523,7 +519,6 @@ $sidebar-width: 240px !default;
 $sidebar-fill: $color-white !default;
 $sidebar-sub-fill: $color-white !default;
 $sidebar-sub-hover: $color-master-bg-light-2 !default;
-
 
 /* CuteButtonGroup */
 $cute-button-group-margin: -1px !default;
@@ -573,36 +568,36 @@ $zindex-image: 1080;
 -------------------------- */
 $screen-lg: 1200px !default;
 
-/* 图表颜色(deprecated(弃用))
--------------------------- */
 // 图表颜色
-$chartColor1: #8bb2f9;
-$chartColor2: #aad85f;
-$chartColor3: #f8d34c;
-$chartColor4: #f19e4b;
-$chartColor5: #9c8ae2;
-$chartColor6: #7ac4fa;
-$chartColor7: #b570e4;
-$chartColor8: #ed732e;
-$chartColor9: #9ca7f9;
-$chartColor10: #7ad3b7;
-$chartColor11: #ed6c68;
-$chartColor12: #f7cc8b;
+$chartColor1: #91c6f5;
+$chartColor2: #8cd4ca;
+$chartColor3: #e8d065;
+$chartColor4: #fdac6f;
+$chartColor5: #a39df7;
+$chartColor6: #8ed8f3;
+$chartColor7: #ffab9a;
+$chartColor8: #78a1da;
+$chartColor9: #fa7175;
+$chartColor10: #93c2bb;
+$chartColor11: #81dbe3;
+$chartColor12: #f48fb4;
 
 // 图表高亮颜色
-$chartColorH1: #7fa8f4;
-$chartColorH2: #9fcd54;
-$chartColorH3: #edc73d;
-$chartColorH4: #ec9035;
-$chartColorH5: #8f7cd7;
-$chartColorH6: #69b7f1;
-$chartColorH7: #a358d6;
-$chartColorH8: #e0641e;
-$chartColorH9: #909bf3;
-$chartColorH10: #6bc9ab;
-$chartColorH11: #e35854;
-$chartColorH12: #f2c179;
+$chartColorH1: #9fd9ff;
+$chartColorH2: #9ae9de;
+$chartColorH3: #ffe46f;
+$chartColorH4: #ffbd7a;
+$chartColorH5: #b3acff;
+$chartColorH6: #9cedff;
+$chartColorH7: #ffbca9;
+$chartColorH8: #84b1ef;
+$chartColorH9: #ff7c80;
+$chartColorH10: #a1d5cd;
+$chartColorH11: #8df0f9;
+$chartColorH12: #ff9dc6;
 
+/* 图表light颜色(deprecated(弃用))
+-------------------------- */
 // 图表light颜色
 $chartColorL1: #f2f7ff;
 $chartColorL2: #f6fbef;

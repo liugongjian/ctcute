@@ -14,7 +14,8 @@
     "icons",
     "lib",
     "style",
-    "images"
+    "images",
+    "fonts"
   ],
   "scripts": {
     "patch": "npm version patch",

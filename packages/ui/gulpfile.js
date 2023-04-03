@@ -96,4 +96,26 @@ function mergeSCSS() {
     .pipe(dest('./lib'));
 }
 
-exports.build = series(extractVariablesScss, compileCutedScss, concatCSS, copyfontElementUI, copyfontLocal, mergeSCSS, cleanup);
+// 编译element-override.scss直接输出css，给非scss项目使用，用于覆盖
+function compileElementOverrideScss() {
+  return src(['./style/variables-cute.scss', './style/_mixins.scss', './style/element-variables.scss', './style/element-override.scss'])
+    .pipe(concat('./cute-element-override.scss'))
+    // element-variables.scss编译需要替换element-ui路径变量，所以需要单独引用
+    .pipe(replace("@import './themes/default/variables.scss';", ""))
+    .pipe(replace("@import './mixins.scss';", ""))
+    .pipe(replace("@import './element-variables.scss';", ""))
+    // 要把element-variables.scss单独抽取出来做两次replace，才能正确编译
+    .pipe(replace('~element-ui/lib/theme-chalk/fonts', 'fonts'))
+    // gulp不认识~，替换为项目根目录下node_modules的element-ui
+    .pipe(replace('~element-ui/packages/theme-chalk/src/index', `${getThemeChalkPath()}/src/index`))
+    .pipe(sass.sync())
+    .pipe(autoprefixer({
+      browsers: ['ie > 9', 'last 2 versions'],
+      cascade: false
+    }))
+    .pipe(cssmin())
+    .pipe(rename('cute-element-override.css'))
+    .pipe(dest('./lib'));
+}
+
+exports.build = series(extractVariablesScss, compileCutedScss, concatCSS, copyfontElementUI, copyfontLocal, mergeSCSS, compileElementOverrideScss, cleanup);

@@ -1,10 +1,16 @@
+/*
+* @Author: 胡一苗
+* @Date: 2023-03-31 14:54:29
+* @LastEditors: 胡一苗
+* @LastEditTime: 2023-03-31 15:01:08
+* @Description: desc
+*/
 <template>
   <cute-table-column-settings :table-data="tableData" :table-columns="tableColumns">
     <template #health="{ scope }">
-      <div>
-        <span class="sub-spot" :class="`sub-spot--${scope.row.health}`"></span>
-        <span>{{ HEALTH[scope.row.health] }}</span>
-      </div>
+      <cute-state :type="HEALTH[scope.row.health].colorType">
+        {{ HEALTH[scope.row.health].text }}
+      </cute-state>
     </template>
 
     <template #operation="{}">
@@ -19,7 +25,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { getTable } from '@/api/cuteTableColumnSettings'
-import { HEALTH } from '@/dics/simpleTable'
+import { HEALTH2 } from '@/dics/simpleTable'
 
 @Component({
   name: 'Demo1',
@@ -76,7 +82,7 @@ export default class extends Vue {
     },
   ]
 
-  private HEALTH = HEALTH
+  private HEALTH = HEALTH2
   private tableData = []
 
   private async initTableData() {
@@ -92,33 +98,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.sub-spot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  margin-right: 10px;
-
-  &--1 {
-    background: $color-status-success;
-  }
-
-  &--2 {
-    background: $color-status-warning;
-  }
-
-  &--3 {
-    background: $color-status-danger;
-  }
-
-  &--4 {
-    background: $color-status-info;
-  }
-
-  &--5 {
-    background: $disabled-color;
-  }
-}
-</style>

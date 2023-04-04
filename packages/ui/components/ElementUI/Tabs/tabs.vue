@@ -15,7 +15,13 @@ export default {
   },
 
   props: {
+    // type新增button风格
     type: String,
+    // 新增size属性 large|medium|small
+    size: {
+      type: String,
+      default: 'medium',
+    },
     activeName: String,
     closable: Boolean,
     addable: Boolean,
@@ -135,6 +141,7 @@ export default {
   render() {
     const {
       type,
+      size,
       handleTabClick,
       handleTabRemove,
       handleTabAdd,
@@ -172,6 +179,8 @@ export default {
       <div
         class={{
           'el-tabs': true,
+          [`el-tabs--${size}`]: true,
+          'el-tabs--button': type === 'button',
           'el-tabs--card': type === 'card',
           [`el-tabs--${tabPosition}`]: true,
           'el-tabs--border-card': type === 'border-card',
@@ -183,3 +192,4 @@ export default {
   },
 }
 </script>
+<style lang="scss"></style>

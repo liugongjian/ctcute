@@ -217,6 +217,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-tabs',
+        name: 'ElTabs',
+        component: () => import('@/views/component/Base/ElTabs/index.vue'),
+        meta: {
+          title: 'ElTabs',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'vxe-table',
         name: 'VxeTable',
         component: () => import('@/views/component/Base/VxeTable/index.vue'),
@@ -541,6 +550,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Tooltip.vue'),
         meta: {
           title: 'Tooltip',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'tabs',
+        name: 'Tabs',
+        component: () => import('@/views/component/Test/Tabs.vue'),
+        meta: {
+          title: 'Tabs',
           breadcrumb: true,
         },
       },

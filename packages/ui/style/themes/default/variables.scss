@@ -366,6 +366,15 @@ $transfer-filter-height: $input-sm-height !default; // Transfer组件搜索框�
 $transfer-footert-bg: $color-white !default; // Transfer组件footer背景色
 $transfer-footer-height: 40px !default; // Transfer组件footer高度
 
+
+/* Tabs
+-------------------------- */
+$tabs-master: $color-master !default; // 主题色标签背景
+$tabs-sm-height: 24px !default;
+$tabs-md-height: 32px !default;
+$tabs-lg-height: 40px !default;
+$tabs-button-radius: 2px !default;
+
 /* Tooltip
 -------------------------- */
 $tooltip-bg: $color-neutral-8 !default;

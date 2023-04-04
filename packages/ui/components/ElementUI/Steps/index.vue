@@ -4,7 +4,7 @@
     :class="[
       !simple && 'el-steps--' + direction,
       simple && 'el-steps--simple',
-      size === 'mini' ? 'el-steps--min' : 'el-steps--normal',
+      size === 'small' ? 'el-steps--small' : 'el-steps--medium',
     ]"
   >
     <slot></slot>
@@ -75,63 +75,93 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-.el-steps--normal {
-  ::v-deep .el-step .el-step__main {
-    position: absolute;
-    left: 24px;
-    top: 0;
-    height: 26px;
-    line-height: 26px;
-    background-color: $color-bg-2;
-    padding: 0 10px 0 16px;
-  }
+<style lang="scss">
+/* $size:大小;
+   $icon-height:步骤标号大小
+   $title-size:标题字体大小
+   $icon-inner-status-size: 步骤标号中状态icon字体大小
+   $icon-inner-text-size：步骤标号中数字字体大小
+*/
+@mixin steps-size($size, $icon-height, $title-size, $icon-inner-status-size, $icon-inner-text-size) {
+  // 垂直方向、simple模式、居中模式不改变title位置
+  // size为重写el-step增加的class
+  .el-steps--#{$size} {
+    .el-step.is-horizontal:not(.is-center):not(.is-simple) {
+      .el-step__title {
+        position: absolute;
+        left: $icon-height;
+        top: 0;
+        background-color: $color-bg-2;
+      }
 
-  ::v-deep .el-step .el-step__title {
-    font-size: 16px;
-    line-height: 32px;
-  }
+      .el-step__description {
+        margin-left: $icon-height;
+        margin-top: 0;
+      }
 
-  ::v-deep .el-step__icon.is-text {
-    width: 32px;
-    height: 32px;
-    background-color: $color-bg-2;
-  }
+      .el-step__title,
+      .el-step__description {
+        @if $size == small {
+          padding: 0 $padding-2x 0 $padding;
+        }
 
-  ::v-deep .el-step.is-horizontal .el-step__line {
-    top: 16px;
+        @else {
+          padding: 0 $padding-2x;
+        }
+      }
+    }
+
+    .el-step.is-vertical {
+      .el-step__line {
+        left: calc(($icon-height - $steps-line-size) / 2);
+      }
+
+      .el-step__head {
+        width: $icon-height;
+      }
+    }
+
+    .el-step.is-horizontal .el-step__line {
+      top: calc(($icon-height - $steps-line-size) / 2);
+    }
+
+    .el-step:not(.is-simple) {
+      .el-step__title {
+        font-size: $title-size;
+        line-height: $icon-height;
+      }
+
+      .el-step__icon .el-step__icon-inner {
+        &:is(.is-text) {
+          font-size: $icon-inner-text-size;
+        }
+
+        &:is(.is-status) {
+          transform: translateY(0);
+          font-size: $icon-inner-status-size;
+        }
+      }
+
+      .el-step__icon.is-text {
+        width: $icon-height;
+        height: $icon-height;
+      }
+    }
   }
 }
 
-.el-steps--min {
-  ::v-deep .el-step .el-step__main {
-    position: absolute;
-    left: 12px;
-    top: 1px;
-    height: 26px;
-    line-height: 26px;
-    background-color: $color-bg-2;
-    padding: 0 10px 0 16px;
-  }
-
-  ::v-deep .el-step .el-step__title {
-    font-size: 12px;
-    line-height: 20px;
-  }
-
-  ::v-deep .el-step__icon.is-text {
-    width: 20px;
-    height: 20px;
-    background-color: $color-bg-2;
-  }
-
-  ::v-deep .el-step.is-horizontal .el-step__line {
-    top: 10px;
-  }
-
-  ::v-deep .el-step__icon-inner.is-status {
-    transform: translateY(0);
-    font-size: 12px;
-  }
-}
+@include steps-size(
+  medium,
+  $steps-icon-height-md,
+  $steps-title-size-md,
+  $steps-icon-inner-status-size-md,
+  $steps-icon-inner-text-size-md
+);
+@include steps-size(
+  small,
+  $steps-icon-height-sm,
+  $steps-title-size-sm,
+  $steps-icon-inner-status-size-sm,
+  $steps-icon-inner-text-size-sm
+);
 </style>

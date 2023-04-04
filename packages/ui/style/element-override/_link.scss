@@ -1,6 +1,6 @@
 /* Link
 -------------------------- */
-.el-link.el-link--default {
+.el-link[class^='el-link'] {
   text-decoration: none;
 }
 // .el-link.el-link--primary {

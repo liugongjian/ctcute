@@ -13,7 +13,7 @@ export default class CtyunLayout extends BaseLayout {
     containerId: 'ctcloud-console', // 容器 id 固定使用这个，修改没有意义
     urlPrefix: '/ctyun', // url 前缀，可按需调整
     jsUrl: '/layout/ctcloud-layout.min.js',
-    cssUrl: '/layout/static/css/app.css',
+    cssUrl: '/layout/ctcloud-layout.css',
   }
 
   // 资源加载
@@ -29,14 +29,11 @@ export default class CtyunLayout extends BaseLayout {
   }
 
   // 初始化
-  init({ consoleInitArgs, useAd }: CtyunLayoutInitOptions = { useAd: true }) {
+  init({ consoleInitArgs }: CtyunLayoutInitOptions = {}) {
     try {
-      const { consoleLayout, fixedSidebarAd } = window.CtcloudLayout
+      const { consoleLayout } = window.CtcloudLayout
 
       consoleLayout.init(consoleInitArgs)
-
-      // 初始化客服入口
-      useAd && fixedSidebarAd.init()
 
       return Promise.resolve(consoleLayout)
     } catch (err) {

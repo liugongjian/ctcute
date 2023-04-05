@@ -30,7 +30,6 @@ export declare class IamLayout extends BaseLayout {
 }
 export interface CtyunLayoutInitOptions {
   consoleInitArgs?: CtcloudLayout.consoleInitArgs
-  useAd?: boolean
 }
 export declare class CtyunLayout extends BaseLayout {
   // 加载资源
@@ -100,13 +99,16 @@ declare namespace CtcloudLayout {
   export interface consoleLayout {
     // 控制台顶部头像下拉框列表(不可嵌套)
     init(args?: CtcloudLayout.consoleInitArgs): MvvmInstance
-    // 侧边栏高亮， domian 使用的是接口 GetTree?domain=console.leftbar 中的 id
+    // 侧边栏高亮， 使用的是接口 GetTree?domain=console.leftbar.v2
+    // key: 对应左侧菜单 menuCode 高亮；domian: 对应顶部菜单 domain 高亮
     match(args: { domain?: string; key?: string }): void
+    // 隐藏侧边栏
+    hideSiderMenu(): void
   }
-  // 右下角客服
-  export interface fixedSidebarAd {
-    init(): MvvmInstance
-  }
+  // // 右下角客服
+  // export interface fixedSidebarAd {
+  //   init(): MvvmInstance
+  // }
   // 获取 Current 接口的用户信息
   export interface getPublicInfo {
     (): {
@@ -114,6 +116,26 @@ declare namespace CtcloudLayout {
     }
   }
   export type authCurrentPromise = Promise<CurrentInfo>
+  // 设置 config （待确认细节）
+  export interface setLayoutConfig {
+    (config: any): void
+  }
+  // 资源池选择（未实现）
+  export interface regionChooser {
+    // 初始化
+    init(args: {
+      baseNode: HTMLElement
+      lign?: string //	组件下来浮层位置 默认'left', 可选 'right'
+      dropdownMethod?: string // Trigger method 默认'hover', 可选 'click'
+      linkClick?: () => void //	节点点击回调函数 选调
+      regionData?: { often: any[]; current: any[]; dec: any[] } //预设资源池
+    }): MvvmInstance
+    // 更新
+    update(options: {
+      visible: boolean // 是否展示
+      regionData?: { often: any[]; current: any[]; dec: any[] }
+    }): void
+  }
 }
 
 declare global {

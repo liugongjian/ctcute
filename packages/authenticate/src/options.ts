@@ -9,7 +9,7 @@ import {
   IamWorkspace,
   CtyunWorkspace,
 } from './layout'
-import { isUndefined, lodashGet } from './utils'
+import { isUndefined } from './utils'
 import { AxiosRequestConfig } from 'axios'
 import { AuthConfigOptions } from '../types'
 
@@ -123,7 +123,7 @@ export default <AuthConfigOptions>{
   })(async function ($auth) {
     try {
       const container = document.querySelector($auth.options.containerId)
-      const { authenticateType, providers, responseDataKey } = $auth.options
+      const { authenticateType, providers } = $auth.options
       const { containerId, bizDomain } = providers[authenticateType].layout
       if (authenticateType === 'iam') {
         if (!window.AlogicLayout) {
@@ -140,39 +140,9 @@ export default <AuthConfigOptions>{
           const layout = new CtyunLayout()
           await layout.load()
           container.id = containerId
-          // 重写登出地址
-          const { logoutUrl } = providers[authenticateType].user
-          const promise = $auth
-            .$http({
-              url: '/gw/v1/portal/menu/GetTree',
-              method: 'get',
-              params: {
-                domain: 'console.dropdown',
-              },
-            })
-            .then(data => {
-              const { list = [] } = lodashGet(data, responseDataKey)
-              return list
-                .filter(item => item.enable === 'true')
-                .map(item =>
-                  item.menuCode === 'logout'
-                    ? {
-                        ...item,
-                        href: logoutUrl,
-                        hrefLocal: logoutUrl,
-                      }
-                    : item
-                )
-            })
-            .catch(() => [])
-          const console = await layout.init({
-            consoleInitArgs: {
-              getDropdownMenuPromise: promise,
-            },
-            useAd: true,
-          })
+          const console = await layout.init()
           // 侧边栏高亮
-          console.match({ domain: bizDomain })
+          console.match({ key: bizDomain })
         }
       }
     } catch (err) {

@@ -105,6 +105,7 @@ import './icons/index'
 /**
  * 组件清单
  */
+import CuteLayout from './components/CuteLayout/index.vue'
 import CuteButtonGroup from './components/CuteCombinationButton/CuteButtonGroup.vue'
 import CuteEditInput from './components/CuteEditInput/index.vue'
 import CuteFormInfo from './components/CuteFormInfo/index.vue'
@@ -124,6 +125,7 @@ import CuteSlider from './components/CuteSlider/index.vue'
 import CuteDistributionBar from './components/CuteDistributionBar/index.vue'
 import CuteCardBox from './components/CuteCardBox/index.vue'
 export {
+  CuteLayout,
   CuteButtonGroup,
   CuteEditInput,
   CuteFormInfo,
@@ -148,6 +150,7 @@ export {
  * 仅注册使用频率高的，轻量级的组件
  */
 const componentsList = [
+  CuteLayout,
   CuteFormInfo,
   CuteEditInput,
   CuteState,

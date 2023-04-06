@@ -543,7 +543,21 @@ $cute-distribution-bar-slider-button-height: 16px !default;
 
 /* Layout
 -------------------------- */
+
+$layout-bg:#f7f8fa !default;
+$layout-header-height: 50px !default;
+$layout-header-fill-1: #272b39 !default;
+$layout-header-border: #585b62 !default;
+$layout-navbar-color-bg: $white !default;
+$layout-color-bg: $white !default;
+$layout-color-master: $blue-base !default;
+$layout-color-grey: $neutral-9 !default;
+$layout-text-color: $neutral-10 !default; 
+$layout-sidebar-width: 240px !default;
+$layout-sidebar-sub-hover: $blue-1 !default;
+
 /* Header */
+
 $header-height: 50px !default;
 $header-fill-1: #272b39 !default;
 $header-fill-2: #353f58 !default;
@@ -552,6 +566,7 @@ $header-text-color: #c2c2c2 !default;
 $header-search-text-color: $text-color-light-2 !default;
 
 /* Sidebar */
+
 $sidebar-width: 240px !default;
 $sidebar-fill: $color-white !default;
 $sidebar-sub-fill: $color-white !default;

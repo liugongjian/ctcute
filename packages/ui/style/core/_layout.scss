@@ -7,20 +7,20 @@
 
 .layout-wrap {
   display: flex;
-  margin-top: $header-height;
-  height: calc(100vh - $header-height);
+  margin-top: $layout-header-height;
+  height: calc(100vh - $layout-header-height);
 }
 
 /* 侧边栏样式 */
 .layout-sidebar {
   transition: width 0.28s;
   font-size: 0;
-  background: $color-bg-2;
+  background: $layout-color-bg;
   z-index: 10;
 
   &__title {
     font-size: 14px;
-    color: $text-color;
+    color: $layout-text-color;
     padding: 25px 0 20px 17px;
     margin: 0 7px 12px 15px;
     font-weight: bold;
@@ -29,7 +29,7 @@
 
   .el-menu {
     border: none;
-    background-color: $color-bg-2;
+    background-color: $layout-color-bg;
 
     a:hover {
       text-decoration: none;
@@ -58,22 +58,23 @@
   }
 
   .el-submenu.is-active > .el-submenu__title {
-    color: $text-color;
+    color: $layout-text-color;
   }
 
   .el-menu-item,
   .el-submenu > .el-submenu__title,
   .el-submenu .el-menu-item {
-    min-width: calc($sidebar-width - 40px);
-    background-color: $color-bg-2;
+    min-width: calc($layout-sidebar-width - 40px);
+    background-color: $layout-color-bg;
     border-right: 2px solid transparent;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: $layout-text-color;
 
     &.is-active,
     &:hover {
-      color: $color-master-1;
+      color: $layout-color-master;
     }
   }
 
@@ -85,21 +86,21 @@
 
     .el-submenu__title {
       &:hover {
-        background-color: $sidebar-sub-hover !important;
-        color: $color-master-1;
+        background-color: $layout-sidebar-sub-hover !important;
+        color: $layout-color-master;
       }
     }
   }
 
   .el-submenu.is-active .el-submenu__title,
   div.first-level > a > li.is-active {
-    color: $color-master-1 !important;
+    color: $layout-color-master !important;
     position: relative;
 
     &:before {
       content: '';
       display: inline-block;
-      background-color: $color-master-1;
+      background-color: $layout-color-master;
       width: 2px;
       height: 12px;
       position: absolute;
@@ -147,7 +148,7 @@
   }
 
   .el-submenu__icon-arrow {
-    color: $color-grey-2;
+    color: $layout-color-grey;
     right: 8px;
   }
 }
@@ -162,6 +163,7 @@
   min-width: 0;
   min-height: 100%;
   transition: margin-left 0.28s;
+  overflow: auto;
 
   .navbar {
     margin-left: -19px;
@@ -170,16 +172,21 @@
     margin-bottom: $padding-5x;
     display: flex;
     align-items: center;
-    background: $color-bg-2;
+    background: $layout-navbar-color-bg;
   }
 
   .app-main-wrap {
     flex: 1;
-    overflow: auto;
+
+    &.fixed-navbar {
+      overflow: auto;
+      padding-right: 19px;
+      margin-right: -19px;
+    }
 
     .app-main {
       /* 最小分辨率 - 侧边栏宽度 - 边距 - 边距 */
-      min-width: calc($screen-lg - $sidebar-width - $padding-5x - $padding-5x);
+      min-width: calc($screen-lg - $layout-sidebar-width - $padding-5x - $padding-5x);
     }
   }
 

@@ -26,6 +26,6 @@
 /*
   设置无下划线链接
 */
-.el-link.el-link--default {
+.el-link[class^='el-link'] {
   text-decoration: none;
 }

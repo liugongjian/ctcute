@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 14:54:51
+ * @LastEditTime: 2023-04-06 15:28:57
  * @Description:
 -->
 <template>
@@ -10,7 +10,7 @@
     <h3>表格</h3>
     <cute-scroller v-model="heightVal">
       <el-table v-loading="loading" :data="tableData" fit border :height="heightVal">
-        <el-table-column prop="name" label="主机别名2">
+        <el-table-column prop="name" label="主机别名">
           <template slot-scope="{ row }">
             <router-link to="/">{{ row.name }}</router-link>
           </template>

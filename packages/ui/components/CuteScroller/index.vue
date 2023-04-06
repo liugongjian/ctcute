@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 14:28:53
+ * @LastEditTime: 2023-04-06 15:21:30
  * @Description:
 -->
 <template>
@@ -29,8 +29,6 @@ export default class extends Vue {
   // 偏移量
   @Prop({ default: 0 }) offset: number
 
-  private isReCalHeight = false
-
   private mounted() {
     this.calHeight()
     window.addEventListener('resize', this.calHeight)
@@ -43,14 +41,14 @@ export default class extends Vue {
   // 重新计算高度
   private reCalHeight() {
     // 表格头部高度
-    const tableHeaderHeight = document.querySelector('.el-table__header-wrapper').clientHeight
+    const tableHeaderHeight = this.$el.querySelector('.el-table__header-wrapper').clientHeight
     // 表格内容高度
-    const tableBodyHeight = document.querySelector('.el-table__body').clientHeight
+    const tableBodyHeight = this.$el.querySelector('.el-table__body').clientHeight
     // 表格border线 - 获取到的可能是小数点，此时需要向上取整
     const tableBorderHeight = Math.ceil(
       parseFloat(
         window
-          .getComputedStyle(document.querySelector('.el-table td.el-table__cell'))
+          .getComputedStyle(this.$el.querySelector('.el-table td.el-table__cell'))
           .getPropertyValue('border-bottom')
           .split(' ')[0]
       )
@@ -67,7 +65,11 @@ export default class extends Vue {
     // 获取padding值
     const layoutContainerPaddingBottom = parseInt(layoutContainerStyle.getPropertyValue('padding-bottom'))
     // 分页器高度
-    const paginationHeight = document.querySelector('.el-pagination').clientHeight
+    let paginationHeight = 0
+    // 先判断是否存在分页器
+    if (this.$el.nextSibling.className === 'el-pagination') {
+      paginationHeight = this.$el.nextSibling.clientHeight
+    }
     this.heightVal = `${
       document.body.clientHeight -
       // 有时候获取到的可能是小数点，此时可以向上取整来得到高度

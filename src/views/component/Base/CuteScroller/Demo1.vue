@@ -2,14 +2,14 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 11:26:22
+ * @LastEditTime: 2023-04-06 14:28:14
  * @Description:
 -->
 <template>
   <div>
     <h3>表格</h3>
     <cute-scroller v-model="heightVal">
-      <el-table ref="tableRef" :data="tableData" fit border :height="heightVal">
+      <el-table v-loading="loading" :data="tableData" fit border :height="heightVal">
         <el-table-column prop="name" label="主机别名2">
           <template slot-scope="{ row }">
             <router-link to="/">{{ row.name }}</router-link>
@@ -57,6 +57,8 @@ export default class extends Vue {
     limit: 20,
     total: 40,
   }
+
+  private loading = false
 
   private mounted() {
     this.getTable()

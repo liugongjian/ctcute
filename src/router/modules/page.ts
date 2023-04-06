@@ -311,15 +311,6 @@ const restPageRoutes = [
           breadcrumb: true,
         },
       },
-      {
-        path: 'pro-table8',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable8.vue'),
-        name: 'ProTable8',
-        meta: {
-          title: 'ProTable8 复杂表格8',
-          breadcrumb: true,
-        },
-      },
     ],
   },
   // 卡片

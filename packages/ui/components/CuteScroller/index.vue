@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 11:25:53
+ * @LastEditTime: 2023-04-06 14:28:53
  * @Description:
 -->
 <template>
@@ -70,7 +70,8 @@ export default class extends Vue {
     const paginationHeight = document.querySelector('.el-pagination').clientHeight
     this.heightVal = `${
       document.body.clientHeight -
-      scrollPosition.top -
+      // 有时候获取到的可能是小数点，此时可以向上取整来得到高度
+      Math.ceil(scrollPosition.top) -
       layoutContainerPaddingBottom -
       paginationHeight -
       this.offset

@@ -31,6 +31,19 @@
 @include tabs-size(small, $tabs-sm-height);
 
 /*
+  默认风格
+*/
+.el-tabs__nav-wrap::after{
+  background-color: $tabs-default-line-color;
+  height: 1px;
+}
+@each $direction in left, right {
+  .el-tabs.el-tabs--#{$direction} .el-tabs__nav-wrap::after{
+     width: 1px;
+  }
+}
+
+/*
   button风格
 */
 .el-tabs.el-tabs--button {

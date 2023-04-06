@@ -1,8 +1,8 @@
 <!--
  * @Author: 胡永凯
  * @Date: 2022-09-01 10:01:49
- * @LastEditors: 胡永凯
- * @LastEditTime: 2022-09-01 10:06:01
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2023-03-31 14:54:29
  * @Description:
 -->
 <template>
@@ -119,10 +119,3 @@ export default class extends Vue {
   ]
 }
 </script>
-<style lang="scss" scoped>
-.component__container {
-  .el-select {
-    width: 300px;
-  }
-}
-</style>

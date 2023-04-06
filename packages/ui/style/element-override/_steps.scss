@@ -1,5 +1,6 @@
 /* Steps
 -------------------------- */
+
 /* $class:类名;
    $bdColor:边框颜色
    $color:字体颜色
@@ -13,121 +14,70 @@
     border-color: $bdColor;
     color: $color;
 
-    .el-step__icon.is-text {
+    .el-step__icon.is-text, .el-step__icon.is-icon {
+      // 用背景色盖住线条
       background-color: $bgColor;
     }
+    .el-step__icon.is-status {
+      background-color: $color;
+    }
+  }
+  .el-step__title.#{$class}{
+    color: $color;
   }
 }
 
 @include steps-page();
-@include steps-page(is-process, $color-master, $color-master, $color-white);
+@include steps-page(is-finish);
+@include steps-page(is-process, $color-master, $color-master, $color-bg-2);
+@include steps-page(is-error, $color-danger, $color-danger, $color-bg-2);
+@include steps-page(is-wait, $border-color, $text-color-light-2, $color-bg-2);
 
-.el-step__icon-inner.is-status {
-  transform: translateY(0px);
-  font-size: $text-size-lg;
-}
-
-.el-step.is-horizontal .el-step__line {
-  height: 0.5px;
-}
 
 .el-step__icon-inner {
   font-weight: normal;
 }
 
-.el-step__line {
-  background-color: $color-grey-6; //rgba(0, 0, 0, 0.15);
+.el-step.is-simple > .el-step__head > .el-step__icon{
+  background-color: transparent;
 }
 
-.el-step__icon.is-text {
-  border: 1px solid;
-}
+.el-step {
+  .el-step__main > .el-step__description {
+    color: $text-color-light-2;
+  }
 
-.el-step__title.is-process {
-  font-weight: 400;
-  color: $color-grey-1; //rgba(51, 51, 51, 0.85)
-}
+  &:not(.is-center).is-horizontal .el-step__line {
+    right: $common-space-2x;
+  }
 
-.el-step__title.is-success {
-  color: $color-grey-2; //rgba(0, 0, 0, 0.65);
-}
+  &:is(.is-horizontal) .el-step__line {
+    height: $steps-line-size;
+  }
 
-.el-step__head.is-process {
-  border-color: $color-master;
-}
+  &:is(.is-vertical) .el-step__line {
+    width: $steps-line-size;
+  }
 
-.el-step__head.is-process .el-step__icon.is-text {
-  color: $color-white;
-  border-color: $color-master;
-  background-color: $color-master;
-}
-
-.el-step__title.is-wait {
-  color: $color-grey-4;
-}
-
-.el-step__title.is-success {
-  color: $text-color-light;
-}
-
-.el-step.is-horizontal .el-step__line {
-  left: 30px; //TODO
-  right: $common-space-10;
-}
-
-.el-step.is-horizontal:last-child {
-  flex-basis: auto !important;
-}
-
-.el-steps.max.el-steps--horizontal {
   .el-step__line {
-    top: 15px; //TODO
-    left: 38px; //TODO
+    background-color: $color-grey-6;
+
+    .el-step__line-inner {
+      border-bottom: 0;
+    }
   }
 
   .el-step__icon.is-text {
-    width: $common-space-8x;
-    height: $common-space-8x;
-    font-size: $text-size-lg;
+    border: 1px solid;
   }
-}
 
-.is-success .el-step__line-inner {
-  display: block;
-  border-width: 1px;
-  border-style: solid;
-  border-color: inherit;
-  transition: 0.15s ease-out;
-  box-sizing: border-box;
-  width: 0;
-  height: 0;
-  background-color: $color-master;
-}
+  .el-step__title.is-process {
+    font-weight: $text-weight;
+  }
 
-.is-error .el-step__line-inner {
-  display: block;
-  border-width: 1px;//TODO
-  border-style: solid;
-  border-color: inherit;
-  transition: 0.15s ease-out;
-  box-sizing: border-box;
-  width: 0;
-  height: 0;
-  background-color: $color-status-danger;
-}
-
-.stepSuc :hover {
-  cursor: pointer;
-}
-
-.stepErr :hover {
-  cursor: not-allowed;
-}
-
-.el-steps {
-  .el-step__head.is-success > .el-step__line > .el-step__line-inner {
-    width: 100% !important;
-    border-width: 1px !important;//TODO
-    border-bottom: 0px !important;//TODO
+  .el-step__head.is-process .el-step__icon.is-text {
+    color: $color-white;
+    border-color: $color-master;
+    background-color: $color-master;
   }
 }

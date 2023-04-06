@@ -1,4 +1,5 @@
 import Layout from '@/layout/index.vue'
+
 const indexPageRoutes = [
   //首页展示
   {
@@ -285,15 +286,6 @@ const restPageRoutes = [
         },
       },
       {
-        path: 'scrolled-to-load-table',
-        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ScrolledToLoadTable.vue'),
-        name: 'ScrolledToLoadTable',
-        meta: {
-          title: 'ScrolledToLoadTable 滚动查询表格',
-          breadcrumb: true,
-        },
-      },
-      {
         path: 'pro-table6',
         component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ProTable6.vue'),
         name: 'ProTable6',
@@ -308,6 +300,15 @@ const restPageRoutes = [
         name: 'ProTable7',
         meta: {
           title: 'ProTable7 复杂表格7',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'scrolled-to-load-table',
+        component: () => import(/* webpackChunkName: "table" */ '@/views/page/Table/ScrolledToLoadTable.vue'),
+        name: 'ScrolledToLoadTable',
+        meta: {
+          title: 'ScrolledToLoadTable 滚动查询表格',
           breadcrumb: true,
         },
       },

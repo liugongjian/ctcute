@@ -150,14 +150,14 @@
     </el-row>
     <el-row :gutter="22">
       <el-col :span="6">
-        <cute-card-box title="流程状态统计" content-height="330px">
+        <cute-card-box title="流程状态统计" content-height="364px">
           <template #content>
             <CuteChart :option="option" :height="'100%'" :width="'100%'" />
           </template>
         </cute-card-box>
       </el-col>
       <el-col :span="18">
-        <cute-card-box title="短链地区访问统计" content-height="330px">
+        <cute-card-box title="短链地区访问统计" content-height="364px">
           <template #extra>
             <div class="map-select">
               <el-select v-model="value" placeholder="请选择" size="small">
@@ -195,7 +195,7 @@
     </el-row>
     <el-row :gutter="22">
       <el-col :span="8">
-        <cute-card-box title="短信渠道用户排行榜" class="mini-padding">
+        <cute-card-box title="短信渠道用户排行榜">
           <template #content>
             <div class="chart-user">
               <CuteChart :option="option4" :width="'100%'" height="100%" />
@@ -212,7 +212,7 @@
               <el-tab-pane label="禁用选项" name="fourth" disabled> </el-tab-pane>
               <el-tab-pane label="悬停项" name="fifth"> </el-tab-pane>
               <div class="sub-table simple-table">
-                <el-table :data="tableComponentData && tableComponentData.tableData" border height="236px">
+                <el-table :data="tableComponentData && tableComponentData.tableData" border height="248px">
                   <el-table-column prop="ip" label="IP地址"> </el-table-column>
                   <el-table-column prop="time" label="时间" sortable> </el-table-column>
                   <el-table-column prop="label" label="标签">
@@ -1737,12 +1737,6 @@ export default class extends Vue {
     vertical-align: middle;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-
-  .mini-padding {
-    ::v-deep .cute-card__content {
-      padding-top: $padding;
-    }
   }
 
   .chart-user {

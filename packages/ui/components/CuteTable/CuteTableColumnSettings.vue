@@ -19,13 +19,11 @@
       <!-- 列设置图标 -->
       <div slot="reference" class="table-column-settings__btns">
         <el-button
-          type="text"
-          plain
+          size="small"
+          icon="setting"
+          square
           :class="['table-column-settings__btn', { 'table-column-settings__btn--active': popoverShow }]"
-        >
-          <svg-icon name="setting" />
-          列设置
-        </el-button>
+        />
       </div>
     </el-popover>
     <!-- 表格 -->
@@ -34,7 +32,6 @@
       v-loading="tableHook.loading"
       :data="tableHook.tableData"
       fit
-      border
       v-bind="$attrs"
     >
       <template v-for="(item, index) in selectedTableColumns">
@@ -182,15 +179,13 @@ export default class extends Vue {
   }
 
   &__btn--active {
-    color: $color-master-3 !important;
-  }
-
-  &-paginationContainer {
-    height: 20px;
+    color: $color-master-3;
+    border-color: $color-master-3;
   }
 
   &__page {
-    float: right;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 </style>
@@ -211,19 +206,19 @@ export default class extends Vue {
 
   label.el-checkbox {
     display: block;
-    margin: 5px 0;
-    height: 30px;
-    line-height: 30px;
+    margin: $margin 0;
+    height: $table-filter-item-height;
+    line-height: $table-filter-item-height;
 
     .el-checkbox__inner {
-      margin-left: 12px;
+      margin-left: $margin-3x;
     }
 
     &:hover:not(.is-disabled) {
-      background-color: $color-master-7;
+      background-color: $color-master-bg-light-2;
 
       .el-checkbox__label {
-        color: $color-master-1;
+        color: $color-master;
       }
     }
   }

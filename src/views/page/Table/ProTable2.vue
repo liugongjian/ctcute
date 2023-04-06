@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-03-09 14:17:45
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2023-03-31 14:16:07
  * @Description: 复杂表格2
 -->
 <template>
@@ -18,7 +18,7 @@
           label-width="130px"
           @submit.native.prevent
         >
-          <div class="table-tools_top">
+          <div class="table-tools__conditions__row">
             <el-form-item prop="name">
               <cute-remind-input
                 v-model="conditions.name"
@@ -28,7 +28,6 @@
               >
               </cute-remind-input>
             </el-form-item>
-
             <el-form-item prop="host">
               <cute-remind-select
                 v-model="conditions.host"
@@ -48,7 +47,7 @@
               />
             </el-form-item>
           </div>
-          <div class="table-tools_bottom">
+          <div class="table-tools__conditions__row">
             <el-form-item prop="cpu">
               <cute-remind-select
                 v-model="conditions.cpu"
@@ -62,68 +61,71 @@
               <!-- 占位 -->
             </el-form-item>
             <el-form-item class="table-tools__conditions__buttons">
-              <div class="buttons">
-                <el-button type="primary" @click="search">查 询</el-button>
-                <el-button @click="resetConditions">重 置</el-button>
-              </div>
+              <el-button type="primary" @click="search">查 询</el-button>
+              <el-button @click="resetConditions">重 置</el-button>
             </el-form-item>
           </div>
         </el-form>
-        <div class="table-button">
-          <div class="table-button_left">
-            <cute-selected-input :checked-list="selectedData" :options="optionData" />
-
-            <el-button type="primary"> + 新增按钮 </el-button>
-            <el-button @click="resetConditions">次按钮</el-button>
-          </div>
-          <div>
-            <el-button type="text" plain><svg-icon name="download" />下载</el-button>
-            <el-button type="text" plain> <svg-icon name="Import" />导出 </el-button>
-          </div>
+      </div>
+      <div class="table-tools__buttons">
+        <div class="table-tools__left">
+          <cute-selected-input :checked-list="selectedData" :options="optionData" />
+          <el-button type="primary"> + 新增按钮</el-button>
+          <el-button @click="resetConditions">次按钮</el-button>
+        </div>
+        <div class="table-tools__right">
+          <el-button type="text" plain>
+            <svg-icon name="download" />
+            下载
+          </el-button>
+          <el-button type="text" plain>
+            <svg-icon name="Import" />
+            导出
+          </el-button>
         </div>
       </div>
     </div>
-
     <!--表格-->
-    <el-table v-loading="loading" :data="tableData" fit border @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="55"> </el-table-column>
+    <el-table v-loading="loading" :data="tableData" fit @selection-change="handleSelectionChange">
+      <el-table-column type="selection" width="55"></el-table-column>
       <el-table-column prop="name" label="主机别名">
         <template slot-scope="{ row }">
           <router-link to="/">{{ row.name }}</router-link>
         </template>
       </el-table-column>
-      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
+      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"></el-table-column>
       <el-table-column prop="ip" label="IP地址" />
       <el-table-column prop="cpu" label="CPU利用率(%)" />
       <el-table-column prop="memory" label="内存利用率(%)" />
       <el-table-column prop="disk" label="磁盘利用率(%)" />
       <el-table-column prop="health" label="健康状态">
-        <template slot-scope="{ row }">
-          <span class="health-state">
-            <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
-          </span>
+        <template slot-scope="scope">
+          <cute-state :type="HEALTH[scope.row.health].colorType">
+            {{ HEALTH[scope.row.health].text }}
+          </cute-state>
         </template>
       </el-table-column>
-      <el-table-column prop="actions" label="操作" fixed="right" class-name="actions" width="190px">
+      <el-table-column prop="actions" label="操作" fixed="right" class-name="actions" width="200px">
         <template slot-scope="scope">
           <el-button
             type="text"
             size="small"
             class="bt-operation"
-            @click="handleClick(scope.$index, scope.row)"
+            @click="gotoMount(scope.row)"
           >
             挂载
           </el-button>
-          <el-button type="text" size="small" class="bt-operation">卸载</el-button>
-          <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+          <el-button type="text" size="small" class="bt-operation" @click="gotoUninstall(scope.row)">卸载</el-button>
+          <el-button type="text" size="small" class="bt-operation" @click="gotoExpansion(scope.row)">扩容</el-button>
           <el-divider direction="vertical"></el-divider>
           <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
-            <span class="el-dropdown-link">
-              更多<i
+            <el-button type="text" size="small" class="bt-operation">
+              更多
+              <i
                 class="el-icon-arrow-down el-icon--right"
                 :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
-              ></i>
-            </span>
+              />
+            </el-button>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>退订</el-dropdown-item>
               <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -149,13 +151,14 @@ import { Component, Vue, Ref } from 'vue-property-decorator'
 import { ElForm } from 'element-ui/types/form'
 import * as ProTable2 from '@/types/ProTable2'
 import { getTable, getHosts } from '@/api/proTable2'
-import { STATUS, HEALTH } from '@/dics/proTable2'
+import { STATUS, HEALTH2 } from '@/dics/proTable2'
+
 @Component({
   name: 'ProTable2',
 })
 export default class extends Vue {
   // 健康状态字典
-  private HEALTH = HEALTH
+  private HEALTH = HEALTH2
 
   // 搜索信息
   private conditions: ProTable2.ComplexConditions = {
@@ -309,19 +312,27 @@ export default class extends Vue {
   }
 
   /**
-   * 查看详情
-   * @param data {SimpleTable.Host} 表格行对象
+   * 挂载
+   * @param data
    */
-  private gotoDetail(data: ProTable2.Host) {
-    this.$message.success(`前往${data.name}详情页面`)
+  private gotoMount(data: ProTable2.Host) {
+    this.$message.success(`前往${data.name}挂载页面`)
   }
 
   /**
-   * 查看监控指标
-   * @param data {SimpleTable.Host} 表格行对象
+   * 卸载
+   * @param data
    */
-  private gotoDashboard(data: ProTable2.Host) {
-    this.$message.info(`前往${data.name}监控指标页面`)
+  private gotoUninstall(data: ProTable2.Host) {
+    this.$message.success(`前往${data.name}卸载页面`)
+  }
+
+  /**
+   * 扩容
+   * @param data
+   */
+  private gotoExpansion(data: ProTable2.Host) {
+    this.$message.success(`前往${data.name}扩容页面`)
   }
 
   /**
@@ -346,48 +357,17 @@ export default class extends Vue {
   private changeFun(key) {
     this.conditions.host = key
   }
+
   private changeFun1(key) {
     this.conditions.environment = key
   }
+
   private changeFun2(key) {
     this.conditions.cpu = key
   }
+
   private cahngeFun3(key) {
     this.conditions.name = key
   }
 }
 </script>
-<style lang="scss" scoped>
-.health-state {
-  display: inline-flex;
-  align-items: center;
-}
-
-.health-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin-right: 8px;
-  border-radius: 100%;
-
-  &--1 {
-    background: $color-status-success;
-  }
-
-  &--2 {
-    background: $color-status-warning;
-  }
-
-  &--3 {
-    background: $color-status-danger;
-  }
-
-  &--4 {
-    background: $color-status-info;
-  }
-
-  &--5 {
-    background: $disabled-color;
-  }
-}
-</style>

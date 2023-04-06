@@ -1,9 +1,24 @@
 /* Notification
 -------------------------- */
-.el-notification__title {
-  margin-bottom: $margin-5x;
+.el-notification {
+  padding: $padding-4x;
+  background: $color-bg-2;
+  border-color: $notification-border-color;
 }
 
-.el-notification__content {
+.el-notification__group {
+  margin-left: $margin-3x;
+  margin-right: $margin-2x;
+}
+
+.el-notification__icon {
+  position: relative;
+  top: 3px; // (lineHeight-1.5 * fontSize-14 - iconHeight-14) / 2
+}
+
+.el-notification__title {
+  font-size: $text-size-md;
   margin-bottom: $margin-4x;
+  font-weight: $text-title-weight;
+  line-height: $line-height;
 }

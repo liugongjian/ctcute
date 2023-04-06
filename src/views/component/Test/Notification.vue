@@ -1,14 +1,13 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2023-03-17 13:45:09
- * @LastEditors: 朱凌浩
- * @LastEditTime: 2023-03-17 14:09:19
- * @Description: Notification
+ * @LastEditors: 李志伟
+ * @LastEditTime: 2023-03-29 17:13:16
+ * @Description: Notification 通知提醒框
 -->
 <template>
   <div>
     <h1>Notification</h1>
-    <NotificationDemo />
     <div class="sub-notification">
       <p>全局展示通知提醒信息</p>
       <h3>普通通知提醒</h3>
@@ -98,13 +97,9 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import NotificationDemo from '@/views/ui/components/Table.vue'
 
 @Component({
   name: 'Notification',
-  components: {
-    NotificationDemo,
-  },
 })
 export default class extends Vue {}
 </script>

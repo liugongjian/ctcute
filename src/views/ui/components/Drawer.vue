@@ -17,6 +17,7 @@
             抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到到原任务。
           </div>
           <div class="sub-foot">
+            <el-button type="primary" @click="drawer = false">确定</el-button>
             <el-button @click="drawer = false">关闭</el-button>
           </div>
         </el-drawer>
@@ -27,13 +28,20 @@
         <!-- 抽屉 -->
         <el-drawer title="小弹窗(提示框)" :visible.sync="drawer1" class="drawer-content">
           <div class="sub-content">
+            <div class="labelposition">
+              <el-radio-group v-model="labelposition" size="mini">
+                <el-radio-button label="left">左对齐</el-radio-button>
+                <el-radio-button label="right">右对齐</el-radio-button>
+                <el-radio-button label="top">顶部对齐</el-radio-button>
+              </el-radio-group>
+            </div>
             <el-form
               ref="ruleForm"
               :rules="rules"
               :model="form"
               label-width="125px"
               class="demo-ruleForm"
-              label-position="top"
+              :label-position="labelposition"
             >
               <el-form-item label="主机别名" prop="name" placeholder="111">
                 <el-input v-model="form.name" value="" placeholder="请输入主机别名"></el-input>
@@ -71,8 +79,8 @@
             </el-form>
           </div>
           <div class="sub-foot">
-            <el-button @click="drawer1 = false">取消</el-button>
             <el-button type="primary" @click="drawer1 = false">确定</el-button>
+            <el-button @click="drawer1 = false">取消</el-button>
           </div>
         </el-drawer>
       </el-col>
@@ -95,7 +103,7 @@ export default class extends Vue {
     version: 'v1.0',
     updateTime: '2022.07.12',
   }
-
+  private labelposition = 'top'
   private drawer = false
   private drawer1 = false
   private rules = {
@@ -126,11 +134,15 @@ export default class extends Vue {
     z-index: 9;
     bottom: 0;
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 24px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: $color-grey-9;
+    background: $color-grey-10;
   }
+}
+
+.labelposition {
+  margin-bottom: 30px;
+  text-align: right;
 }
 </style>

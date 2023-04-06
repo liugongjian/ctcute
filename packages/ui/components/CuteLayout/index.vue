@@ -1,7 +1,12 @@
 <template>
   <div class="app-wrapper">
     <slot name="header">
-      <layout-header v-if="header" v-bind="$attrs">
+      <layout-header
+        v-if="header"
+        :header-logo="headerLogo"
+        :header-sub-logo="headerSubLogo"
+        :header-subtitle="headerSubtitle"
+      >
         <template slot="header-logo">
           <slot name="header-logo"></slot>
         </template>
@@ -12,7 +17,14 @@
     </slot>
     <div class="layout-wrap" :class="{ hideheader: !header }">
       <slot name="sidebar">
-        <layout-sidebar v-if="sidebar" class="layout-sidebar" v-bind="$attrs" />
+        <layout-sidebar
+          v-if="sidebar"
+          :class="['layout-sidebar', sidebarClass]"
+          :sidebar-title="sidebarTitle"
+          :sidebar-routes="sidebarRoutes"
+          :sidebar-filter="sidebarFilter"
+          :sidebar-knob="sidebarKnob"
+        />
       </slot>
 
       <!-- id在sidebar中被使用，勿随意删改 -->
@@ -30,7 +42,7 @@
             </template>
           </navbar>
         </slot>
-        <div :class="{ 'app-main-wrap': true, 'fixed-navbar': theme === 'fixed-navbar' }">
+        <div :class="{ 'app-main-wrap': true, 'fixed-navbar': layout === 'fixed-navbar' }">
           <slot name="appMain"></slot>
         </div>
       </div>
@@ -51,6 +63,18 @@ import Navbar from './Navbar/index.vue'
   },
 })
 export default class extends Vue {
+  @Prop({ type: String, default: '' }) headerSubtitle?: string
+  @Prop({ type: String, default: '' }) headerSubLogo?: string
+  @Prop({ type: String, default: '' }) headerLogo?: string
+  @Prop()
+  public sidebarRoutes
+  @Prop()
+  public sidebarFilter
+  @Prop({ default: '' })
+  public sidebarTitle: string
+
+  @Prop({ default: true })
+  public sidebarKnob: boolean
   @Prop({ default: true })
   public header: boolean
   @Prop({ default: true })
@@ -58,7 +82,9 @@ export default class extends Vue {
   @Prop({ default: true })
   public navbar: boolean
   @Prop({ default: '' })
-  public theme: string
+  public layout: string
+  @Prop({ default: '' })
+  public sidebarClass: string
 }
 </script>
 <style scoped>

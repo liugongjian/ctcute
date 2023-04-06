@@ -23,8 +23,6 @@ import Breadcrumb from '../Breadcrumb/index.vue'
   name: 'Navbar',
   components: {
     Breadcrumb,
-    // Description,
-    // CodeViewer,
   },
 })
 export default class extends Vue {

@@ -13,7 +13,7 @@
     :sidebar-title="sidebarTitle"
     :sidebar-routes="routesList"
     :sidebar-filter="filterFun"
-    :sidebar-knob="false"
+    :sidebar-knob="true"
     :breadcrumb-showlast="true"
     :breadcrumb-customlast="customlast"
   >
@@ -76,7 +76,7 @@ import HeaderNav from './components/LayoutHeader/HeaderNav.vue'
 export default class extends Vue {
   public subLogo = require('../../packages/ui/components/CuteLayout/Header/images/cute-design.svg')
   public logo = require('../../packages/ui/components/CuteLayout/Header/images/cute-portrait.svg')
-  public sidebarTitle = '页面斯柯达'
+  public sidebarTitle = '文档'
   public subTitle = ''
   public customlast = ''
   public type = 'doc'

@@ -5,7 +5,8 @@
  * @LastEditTime: 2023-02-09 08:46:22
  * @Description:
  */
-import Layout from '@/layout/component.vue'
+// import Layout from '@/layout/component.vue'
+import Layout from '@/layout/LayoutComponent.vue'
 
 const componentRoutes = [
   // 基础组件

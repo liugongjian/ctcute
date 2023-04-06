@@ -158,6 +158,10 @@ export default class extends Vue {
 
   .back {
     cursor: pointer;
+
+    .svg-icon {
+      margin-right: 5px;
+    }
   }
 
   &--left {

@@ -386,12 +386,20 @@ $loading-default-border: $color-grey-6 !default;
 
 /* Layout
 -------------------------- */
-$layout-bg:#f7f8fa !default;
 
-/* Header */
+$layout-bg:#f7f8fa !default;
 $layout-header-height: 50px !default;
 $layout-header-fill-1: #272b39 !default;
 $layout-header-border: #585b62 !default;
+$layout-navbar-color-bg: $white !default;
+$layout-color-bg: $white !default;
+$layout-color-master: $blue-base !default;
+$layout-color-grey: $neutral-9 !default;
+$layout-text-color: $neutral-10 !default; 
+$layout-sidebar-width: 240px !default;
+$layout-sidebar-sub-hover: $blue-1 !default;
+
+/* Header */
 
 $header-height: 50px !default;
 $header-fill-1: #272b39 !default;
@@ -401,9 +409,6 @@ $header-text-color: #c2c2c2 !default;
 $header-search-text-color: $text-color-light-2 !default;
 
 /* Sidebar */
-$layout-sidebar-width: 240px !default;
-$layout-sidebar-sub-hover: $color-master-bg-light-2 !default;
-
 
 $sidebar-width: 240px !default;
 $sidebar-fill: $color-white !default;

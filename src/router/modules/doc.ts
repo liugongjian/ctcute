@@ -6,7 +6,7 @@
  * @Description:
  */
 import LayoutBak from '@/layout/doc.vue'
-import Layout from '@/layout/CuteLayout.vue'
+import Layout from '@/layout/LayoutDoc.vue'
 const docRoutes = [
   // 更新日志
   {

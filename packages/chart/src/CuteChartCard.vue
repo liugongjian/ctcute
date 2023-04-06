@@ -3,7 +3,7 @@
  * @Date: 2022-10-19 10:59:22
  * @LastEditors: 孙善鹏
  * @LastEditTime: 2023-01-11 17:49:28
- * @Description: 
+ * @Description:
 -->
 <template>
   <el-card v-loading="loading" class="chart-card" :bordered="false" :shadow="shadow">
@@ -37,11 +37,9 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-// box-shadow: 0 2px 8px 0 $shadow-table-card;
-
 .chart-card {
   display: flex;
-  border-radius: 4px;
+  border-radius: $border-radius;
 
   ::v-deep .el-card__body {
     display: flex;
@@ -74,12 +72,12 @@ export default class extends Vue {
       font-size: 30px;
       line-height: 42px;
       margin: 0;
-      color: $color-grey-1;
+      color: $neutral-10;
     }
 
     p {
-      font-size: 14px;
-      color: $color-grey-2;
+      font-size: $text-size-md;
+      color: $neutral-9;
       line-height: 28px;
       margin: 0;
     }

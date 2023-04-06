@@ -40,60 +40,54 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-// box-shadow: 0 2px 8px 0 $shadow-table-card;
 .chart-card {
   .rise {
     color: #ff5b68;
   }
+
   .decline {
     color: #1fcc9d;
   }
 
   ::v-deep .el-card__body {
-    margin-left: 10px;
+    margin-left: $margin-10;
   }
 
   .chart-card-icon-warp {
     width: 100%;
     height: 40px;
-    // border-radius: 50%;
     display: flex;
     align-items: center;
-    // justify-content: space-between;
-    // margin-right: 29px;
 
     .chart-card-icon {
-      // border-radius: 50%;
-      margin-left: -10px;
-      margin-right: 10px;
+      margin-left: -$margin-10;
+      margin-right: $margin-10;
+
       > img {
         width: 100%;
         height: 100%;
       }
+
       display: flex;
       align-items: center;
-      // justify-content: center;
     }
   }
 
   .chart-card-count-warp {
     width: 100%;
-    // margin-top: 10px;
+
     h3 {
       font-family: Helvetica;
       font-size: 28px;
-      color: #333333;
-      font-weight: 400;
+      color: $neutral-10;
+      font-weight: $text-weight;
       margin: 0;
     }
 
     p {
-      font-size: 14px;
-
-      // color: $color-grey-13;
-      // line-height: 28px;
+      font-size: $text-size-md;
       margin: 0;
-      margin-top: 3px;
+      margin-top: $margin;
     }
   }
 }

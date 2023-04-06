@@ -46,14 +46,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 .cute-area-recent {
-  padding-bottom: 12px;
-  border-bottom: 1px dashed $color-grey-6;
+  padding-bottom: $padding-3x;
+  border-bottom: 1px dashed $cute-area-recent-border-color;
   .cute-area-recent-head {
-    padding: 0 2px;
-    color: $color-grey-1;
-    font-size: $text-size-small;
-    line-height: 20px;
-    font-weight: 400;
+    padding: 0 $cute-area-padding;
+    color: $cute-area-recent-head-color;
+    font-size: $text-size-sm;
+    line-height: $cute-area-head-line-height;
+    font-weight: $text-title-weight;
   }
 
   .cute-area-recent-body {
@@ -64,26 +64,26 @@ export default {
     }
     .cute-area-recent-option {
       float: left;
-      padding: 0 2px;
-      margin-top: 12px;
+      padding: 0 $cute-area-padding;
+      margin-top: $margin-3x;
       text-align: center;
       .cute-area-recent-item {
         position: relative;
-        height: 30px;
-        line-height: 30px;
-        color: $color-grey-2;
-        font-size: $text-size-small;
+        height: $cute-area-item-height;
+        line-height: $cute-area-item-height;
+        color: $cute-area-recent-item-color;
+        font-size: $text-size-sm;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         box-sizing: border-box;
         cursor: pointer;
-        background-color: $color-master-7;
+        background-color: $cute-area-recent-item-background-color;
       }
 
       .cute-area-recent-item:hover {
-        background-color: $color-master-7;
-        color: $color-master-1;
+        background-color: $cute-area-item-hover-background-color;
+        color: $cute-area-item-hover-color;
       }
     }
   }

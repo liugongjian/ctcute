@@ -578,6 +578,21 @@ $cute-remind-select-right: 33px !default;
 /* CuteSelectedInput */
 $cute-selected-input-width: 130px !default;
 
+/* CuteArea */
+$cute-area-recent-border-color: $neutral-5 !default;
+$cute-area-recent-head-color: $neutral-10 !default;
+$cute-area-head-line-height: 20px !default;
+$cute-area-padding: 2px !default;
+$cute-area-item-height: 30px !default;
+$cute-area-recent-item-color: $neutral-9 !default;
+$cute-area-recent-item-background-color: $blue-1 !default;
+$cute-area-item-hover-background-color: $blue-1 !default;
+$cute-area-item-hover-color: $blue-base !default;
+$cute-area-item-seleted-background-color: $blue-base !default;
+$cute-area-head-color: $neutral-9 !default;
+$cute-area-item-color: $neutral-10 !default;
+$cute-area-wrap-margin: 40px !default;
+
 /* Animation
 -------------------------- */
 $transition-time: 200ms !default;

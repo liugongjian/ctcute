@@ -1,41 +1,31 @@
 <template>
   <div>
-    <h3>基础样式</h3>
+    <h3>大尺寸</h3>
     <el-row class="sub-tabs">
-      <el-tabs>
+      <el-tabs type="card" size="large">
         <el-tab-pane label="选项一">选项一</el-tab-pane>
-        <el-tab-pane label="禁用项" disabled>禁用项</el-tab-pane>
         <el-tab-pane label="默认项">默认项</el-tab-pane>
+        <el-tab-pane label="禁用项" disabled>禁用项</el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>带icon样式</h3>
+    <h3>中尺寸(默认)</h3>
     <el-row class="sub-tabs">
-      <el-tabs>
-        <el-tab-pane>
-          <span slot="label"><i class="el-icon-cloudy"></i> 选项一</span>
-          选项一
-        </el-tab-pane>
-        <el-tab-pane disabled>
-          <span slot="label"><i class="el-icon-cloudy"></i> 禁用项</span>
-          禁用项
-        </el-tab-pane>
-        <el-tab-pane>
-          <span slot="label"><i class="el-icon-cloudy"></i> 默认项</span>
-          默认项
-        </el-tab-pane>
+      <el-tabs type="card">
+        <el-tab-pane label="选项一">选项一</el-tab-pane>
+        <el-tab-pane label="默认项">默认项</el-tab-pane>
+        <el-tab-pane label="禁用项" disabled>禁用项</el-tab-pane>
       </el-tabs>
     </el-row>
-
-    <h3>小选项卡</h3>
-    <el-row class="small-tabs">
-      <el-tabs value="third" type="card" size="small">
-        <el-tab-pane label="默认项" name="second">默认项</el-tab-pane>
-        <el-tab-pane label="选中项" name="third">选中项</el-tab-pane>
-        <el-tab-pane label="禁用选项" name="fourth" disabled>禁用选项</el-tab-pane>
+    <h3>小尺寸</h3>
+    <el-row class="sub-tabs">
+      <el-tabs type="card" size="small">
+        <el-tab-pane label="选项一">选项一</el-tab-pane>
+        <el-tab-pane label="默认项">默认项</el-tab-pane>
+        <el-tab-pane label="禁用项" disabled>禁用项</el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>可删除小选项卡</h3>
-    <el-row class="delete-tabs">
+    <h3>可删除</h3>
+    <el-row>
       <el-tabs
         v-model="editableTabsValue"
         type="card"
@@ -60,18 +50,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-@Component({
-  name: 'UiTabs',
-})
+@Component({})
 export default class extends Vue {
   public static title = {
     zh: '选项卡',
     en: 'Tabs',
-  }
-  public static description = {
-    maintainer: '马妍',
-    version: 'v1.0',
-    updateTime: '2022.07.12',
   }
 
   private editableTabs = [
@@ -124,18 +107,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.el-row {
-  margin: $margin-5x 0 $margin-6x;
-}
-
-.sub-tabs,
-.small-tabs {
-  border-bottom: 1px solid $border-color-primary;
-  padding-bottom: $padding-6x;
-}
-
-.delete-tabs {
-  margin-bottom: 0;
-}
-</style>

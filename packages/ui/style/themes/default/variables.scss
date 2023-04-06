@@ -315,10 +315,10 @@ $checkbox-button-hover: $color-master-bg-light !default;
 -------------------------- */
 $table-header-bg: $color-neutral-1 !default;
 $table-cell-bg: $color-neutral-8 !default;
-$table-cell-padding-xs: $margin-6 !default;
-$table-cell-padding-sm: $margin-6 !default;
-$table-cell-padding-md: $margin-10 !default;
-$table-cell-padding-lg: $margin-3x !default;
+$table-cell-padding-xs: $padding-6 !default;
+$table-cell-padding-sm: $padding-6 !default;
+$table-cell-padding-md: $padding-10 !default;
+$table-cell-padding-lg: $padding-3x !default;
 $table-cell-selection-line-height: 20px !default;
 $table-border-color: $color-neutral-3 !default;
 $table-sort-caret-bg: $color-neutral-6 !default;

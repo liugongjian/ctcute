@@ -171,7 +171,7 @@ export default class extends Vue {
     for (let i = 0; i < btn.length; i++) {
       btn[i].style.width = variables.cuteSliderBtnWidth // '17px'
       btn[i].style.height = variables.cuteSliderBtnHeight //'22px'
-      btn[i].innerHTML = '<div class=\'cute-slider-user-button\'><span></span><span></span><span></span> </div>'
+      btn[i].innerHTML = "<div class='cute-slider-user-button'><span></span><span></span><span></span> </div>"
       // '|||'
       // btn[i].style.width = '17px'
       // btn[i].style.height = '22px'
@@ -217,7 +217,7 @@ export default class extends Vue {
       .el-slider__button {
         border: 1px solid $color-master;
         border-radius: $cute-slider-btn-radius;
-        background: linear-gradient(to bottom, $color-white, $color-master-bg-light);
+        background: $cute-slider-btn-bg;
         // line-height: $cute-slider-btn-height - 1px * 2;
         color: $color-master;
         // letter-spacing: 1px;

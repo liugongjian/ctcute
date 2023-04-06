@@ -1,11 +1,11 @@
 /* Popover
 -------------------------- */
 .el-popover {
-  padding: $padding-5x $padding-6x $padding-5x $padding-4x;
+  padding: $padding-4x;
   border: none;
   box-shadow: $shadow-2;
   min-width: $popover-min-width;
-  
+
   p {
     margin: 0;
   }
@@ -21,7 +21,6 @@
 .el-popper {
   background-color: $color-bg-1;
   box-shadow: $shadow-2;
-  // padding: $padding-4x;
 }
 
 .el-popper[x-placement^='top'] .popper__arrow,

@@ -79,33 +79,33 @@ export default {
   float: left;
 
   .cute-area-wrap {
-    margin-bottom: 40px;
+    margin-bottom: $cute-area-wrap-margin;
     text-align: center;
 
     &:last-child {
-      margin-bottom: 12px;
+      margin-bottom: $margin-3x;
     }
 
     .cute-area-head {
-      margin: 12px 2px 0;
-      color: $color-grey-2;
-      font-size: $text-size-small;
-      line-height: 20px;
+      margin: $margin-3x $cute-area-padding 0;
+      color: $cute-area-head-color;
+      font-size: $text-size-sm;
+      line-height: $cute-area-head-line-height;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .cute-area-body {
-      padding: 0 2px;
+      padding: 0 $cute-area-padding;
 
       .cute-area-city {
         position: relative;
-        margin-top: 10px;
-        height: 30px;
-        line-height: 30px;
-        color: $color-grey-1;
-        font-size: $text-size-small;
+        margin-top: $margin-10;
+        height: $cute-area-item-height;
+        line-height: $cute-area-item-height;
+        color: $cute-area-item-color;
+        font-size: $text-size-sm;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -114,14 +114,14 @@ export default {
       }
 
       .cute-area-city:hover {
-        background-color: $color-master-bg-light-2;
+        background-color: $cute-area-item-hover-background-color;
         font-weight: normal;
-        color: $color-master-1;
+        color: $cute-area-item-hover-color;
       }
 
       .cute-area-city.selected,
       .cute-area-city.selected.hover {
-        background: $color-master-1;
+        background: $cute-area-item-seleted-background-color;
         color: $color-white;
       }
     }

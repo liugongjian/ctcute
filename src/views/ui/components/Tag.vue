@@ -21,10 +21,10 @@
 
     <h3>彩色标签</h3>
     <div class="color-tags">
-      <el-tag type="danger">红色</el-tag>
-      <el-tag type="success">绿色</el-tag>
-      <el-tag type>蓝色</el-tag>
-      <el-tag type="warning">黄色</el-tag>
+      <el-tag type="danger" effect="plain">红色</el-tag>
+      <el-tag type="success" effect="plain">绿色</el-tag>
+      <el-tag type effect="plain">蓝色</el-tag>
+      <el-tag type="warning" effect="plain">黄色</el-tag>
     </div>
   </div>
 </template>

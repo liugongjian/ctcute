@@ -315,10 +315,10 @@ $checkbox-button-hover: $color-master-bg-light !default;
 -------------------------- */
 $table-header-bg: $color-neutral-1 !default;
 $table-cell-bg: $color-neutral-8 !default;
-$table-cell-padding-xs: $margin-6 !default;
-$table-cell-padding-sm: $margin-6 !default;
-$table-cell-padding-md: $margin-10 !default;
-$table-cell-padding-lg: $margin-3x !default;
+$table-cell-padding-xs: $padding-6 !default;
+$table-cell-padding-sm: $padding-6 !default;
+$table-cell-padding-md: $padding-10 !default;
+$table-cell-padding-lg: $padding-3x !default;
 $table-cell-selection-line-height: 20px !default;
 $table-border-color: $color-neutral-3 !default;
 $table-sort-caret-bg: $color-neutral-6 !default;
@@ -374,12 +374,25 @@ $tabs-sm-height: 24px !default;
 $tabs-md-height: 32px !default;
 $tabs-lg-height: 40px !default;
 $tabs-button-radius: 2px !default;
+/* Progress
+-------------------------- */
+$progress-text-height-lg: 30px;
+$progress-text-height-sm: 12px;
+$progress-text-size-lg: 20px;
+$progress-text-size-sm: 10px;
+$progress-text-weight: 600;
 
 /* Tooltip
 -------------------------- */
 $tooltip-bg: $color-neutral-8 !default;
+$tooltop-text-color: $color-white !default;
+$tooltip-border-color: $color-neutral-8 !default;
 
 $tooltip-fill: $tooltip-bg; // deprecated(弃用)
+
+/* Notification
+-------------------------- */
+$notification-border-color: $neutral-1;
 
 /* Popover
 -------------------------- */
@@ -433,6 +446,7 @@ $descriptions-item-content-line-height: 22px !default;
 $descriptions-item-label-min-width: 128px !default;
 $descriptions-font-color-label: $color-neutral-9 !default;
 $descriptions-font-color-label-bordered: $color-neutral-10 !default;
+
 /* DropDown
 -------------------------- */
 $dropdown-item-padding-top-bottom: 7px !default;
@@ -459,8 +473,8 @@ $steps-title-size-md: $text-size-lg; // 中号标题：16px
 $steps-title-size-sm: $text-size-sm; // 小号标题：12px
 $steps-icon-inner-status-size-md: $text-size-md; // 中号状态icon size：14px
 $steps-icon-inner-status-size-sm: $text-size-sm; // 小号状态icon size：12px
-$steps-icon-inner-text-size-md: $text-size-md;  // 小号标号size：14px
-$steps-icon-inner-text-size-sm: $text-size-md;  // 中号标号size：14px
+$steps-icon-inner-text-size-md: $text-size-md; // 小号标号size：14px
+$steps-icon-inner-text-size-sm: $text-size-md; // 中号标号size：14px
 $steps-line-size: 1px; // 线条粗细;
 
 /* Dialog
@@ -590,37 +604,66 @@ $zindex-image: 1080;
 -------------------------- */
 $screen-lg: 1200px !default;
 
-/* 图表颜色(deprecated(弃用))
+// 图表默认的颜色
+$chart-color-1: #91c6f5;
+$chart-color-2: #8cd4ca;
+$chart-color-3: #e8d065;
+$chart-color-4: #fdac6f;
+$chart-color-5: #a39df7;
+$chart-color-6: #8ed8f3;
+$chart-color-7: #ffab9a;
+$chart-color-8: #78a1da;
+$chart-color-9: #fa7175;
+$chart-color-10: #93c2bb;
+$chart-color-11: #81dbe3;
+$chart-color-12: #f48fb4;
+
+/* 图表默认颜色(deprecated(弃用))
 -------------------------- */
-// 图表颜色
-$chartColor1: #8bb2f9;
-$chartColor2: #aad85f;
-$chartColor3: #f8d34c;
-$chartColor4: #f19e4b;
-$chartColor5: #9c8ae2;
-$chartColor6: #7ac4fa;
-$chartColor7: #b570e4;
-$chartColor8: #ed732e;
-$chartColor9: #9ca7f9;
-$chartColor10: #7ad3b7;
-$chartColor11: #ed6c68;
-$chartColor12: #f7cc8b;
+$chartColor1: $chart-color-1;
+$chartColor2: $chart-color-2;
+$chartColor3: $chart-color-3;
+$chartColor4: $chart-color-4;
+$chartColor5: $chart-color-5;
+$chartColor6: $chart-color-6;
+$chartColor7: $chart-color-7;
+$chartColor8: $chart-color-8;
+$chartColor9: $chart-color-9;
+$chartColor10: $chart-color-10;
+$chartColor11: $chart-color-11;
+$chartColor12: $chart-color-12;
 
 // 图表高亮颜色
-$chartColorH1: #7fa8f4;
-$chartColorH2: #9fcd54;
-$chartColorH3: #edc73d;
-$chartColorH4: #ec9035;
-$chartColorH5: #8f7cd7;
-$chartColorH6: #69b7f1;
-$chartColorH7: #a358d6;
-$chartColorH8: #e0641e;
-$chartColorH9: #909bf3;
-$chartColorH10: #6bc9ab;
-$chartColorH11: #e35854;
-$chartColorH12: #f2c179;
+$chart-color-h-1: #9fd9ff;
+$chart-color-h-2: #9ae9de;
+$chart-color-h-3: #ffe46f;
+$chart-color-h-4: #ffbd7a;
+$chart-color-h-5: #b3acff;
+$chart-color-h-6: #9cedff;
+$chart-color-h-7: #ffbca9;
+$chart-color-h-8: #84b1ef;
+$chart-color-h-9: #ff7c80;
+$chart-color-h-10: #a1d5cd;
+$chart-color-h-11: #8df0f9;
+$chart-color-h-12: #ff9dc6;
 
-// 图表light颜色
+/* 图表高亮颜色(deprecated(弃用))
+-------------------------- */
+$chartColorH1: $chart-color-h-1;
+$chartColorH2: $chart-color-h-2;
+$chartColorH3: $chart-color-h-3;
+$chartColorH4: $chart-color-h-4;
+$chartColorH5: $chart-color-h-5;
+$chartColorH6: $chart-color-h-6;
+$chartColorH7: $chart-color-h-7;
+$chartColorH8: $chart-color-h-8;
+$chartColorH9: $chart-color-h-9;
+$chartColorH10: $chart-color-h-10;
+$chartColorH11: $chart-color-h-11;
+$chartColorH12: $chart-color-h-12;
+
+/* 图表light颜色(deprecated(弃用))
+-------------------------- */
 $chartColorL1: #f2f7ff;
 $chartColorL2: #f6fbef;
 $chartColorL3: #fefaed;

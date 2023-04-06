@@ -2,7 +2,7 @@
   <div>
     <h3>大尺寸</h3>
     <el-row class="sub-tabs">
-      <el-tabs type="button" size="large">
+      <el-tabs type="card" size="large">
         <el-tab-pane label="选项一">选项一</el-tab-pane>
         <el-tab-pane label="默认项">默认项</el-tab-pane>
         <el-tab-pane label="禁用项" disabled>禁用项</el-tab-pane>
@@ -10,7 +10,7 @@
     </el-row>
     <h3>中尺寸(默认)</h3>
     <el-row class="sub-tabs">
-      <el-tabs type="button">
+      <el-tabs type="card">
         <el-tab-pane label="选项一">选项一</el-tab-pane>
         <el-tab-pane label="默认项">默认项</el-tab-pane>
         <el-tab-pane label="禁用项" disabled>禁用项</el-tab-pane>
@@ -18,7 +18,7 @@
     </el-row>
     <h3>小尺寸</h3>
     <el-row class="sub-tabs">
-      <el-tabs type="button" size="small">
+      <el-tabs type="card" size="small">
         <el-tab-pane label="选项一">选项一</el-tab-pane>
         <el-tab-pane label="默认项">默认项</el-tab-pane>
         <el-tab-pane label="禁用项" disabled>禁用项</el-tab-pane>
@@ -28,7 +28,7 @@
     <el-row>
       <el-tabs
         v-model="editableTabsValue"
-        type="button"
+        type="card"
         closable
         addable
         @tab-remove="removeTab"

@@ -376,6 +376,11 @@ export interface IScssVariablesRevised {
   stepsIconInnerTextSizeMd: string
   stepsIconInnerTextSizeSm: string
   stepsLineSize: string
+  tabsMaster: string
+  tabsSmHeight: string
+  tabsMdHeight: string
+  tabsLgHeight: string
+  tabsButtonRadius: string
 }
 
 export const variablesRevised: IScssVariablesRevised

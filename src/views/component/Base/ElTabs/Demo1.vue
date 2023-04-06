@@ -24,6 +24,27 @@
         <el-tab-pane label="禁用项" disabled>禁用项</el-tab-pane>
       </el-tabs>
     </el-row>
+    <h3>可删除</h3>
+    <el-row>
+      <el-tabs
+        v-model="editableTabsValue"
+        type="card"
+        closable
+        addable
+        @tab-remove="removeTab"
+        @tab-add="addTab"
+      >
+        <el-tab-pane
+          v-for="item in editableTabs"
+          :key="item.name"
+          :label="item.title"
+          :name="item.name"
+          :disabled="item.disabled"
+        >
+          {{ item.content }}
+        </el-tab-pane>
+      </el-tabs>
+    </el-row>
   </div>
 </template>
 <script lang="ts">
@@ -88,4 +109,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped></style>

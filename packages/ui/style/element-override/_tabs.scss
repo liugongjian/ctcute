@@ -7,11 +7,12 @@
 @mixin tabs-size($size: medium, $height: $tabs-md-height){
   /* stylelint-disable-next-line */
   .el-tabs.el-tabs--#{$size} {
-    .el-tabs__item{
+    .el-tabs__item, .el-tabs__nav-prev, .el-tabs__nav-next{
       font-size: $text-size;
       height: $height;
       line-height: $height;
-    }  
+    }
+
     > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav > .el-tabs__item {
       &, &.is-top.is-active {
         @if $size == small {
@@ -29,47 +30,9 @@
 @include tabs-size(large, $tabs-lg-height);
 @include tabs-size(small, $tabs-sm-height);
 
-
-
-.el-tabs.el-tabs--card.el-tabs--top {
-  .el-tabs__item .el-icon-close {
-    margin-left: $margin-2x;
-  }
-
-  .el-tabs__item.is-top:not(.is-closable).is-active {
-    padding-left: $margin-3x;
-  }
-
-  .el-tabs__header .el-tabs__item {
-    border-left: none;
-  }
-
-  .el-tabs__header .el-tabs__nav {
-    border: none;
-  }
-
-  .el-tabs__item.is-top.is-active {
-    border-top: 1px solid $border-color;
-    border-left: 1px solid $border-color;
-    border-right: 1px solid $border-color;
-    transform: translateY(1px);
-    border-bottom-color: $color-bg-2;
-  }
-}
-
-.el-tabs--card > .el-tabs__header {
-  border-bottom: 1px solid $border-color;
-
-  .el-tabs__item.is-active.is-closable {
-    padding: 0 $padding-10 0 $padding-3x;
-  }
-}
-
-.el-tabs.el-tabs--card.is-top:not(.el-tabs--button) .el-tabs__nav-wrap:after {
-  height: 1px;
-  background-color: $border-color;
-}
-
+/*
+  button风格
+*/
 .el-tabs.el-tabs--button {
   .el-tabs__nav-wrap:after {
     display: none;
@@ -92,11 +55,11 @@
 
     &.is-top,
     &.is-bottom {
-      &:first-child{
+      &:first-child {
         border-radius: $tabs-button-radius 0 0 $tabs-button-radius;
       }
 
-      &:last-child{
+      &:last-child {
         border-radius: 0 $tabs-button-radius $tabs-button-radius 0;
       }
 
@@ -112,15 +75,17 @@
         box-shadow: -1px 0 0 0 $tabs-master;
       }
     }
+
     &.is-left,
     &.is-right {
-      &:first-child{
+      &:first-child {
         border-radius: $tabs-button-radius $tabs-button-radius 0 0;
       }
 
-      &:last-child{
+      &:last-child {
         border-radius: 0 0 $tabs-button-radius $tabs-button-radius;
       }
+
       & + .el-tabs__item {
         border-top: none;
       }
@@ -135,3 +100,78 @@
     }
   }
 }
+
+/*
+  card风格
+*/
+
+.el-tabs--card > .el-tabs__header {
+  border: none;
+
+  .el-tabs__item.is-active.is-closable {
+    padding: 0 $padding-10 0 $padding-3x;
+  }
+
+  .el-tabs__item,
+  .el-tabs__nav {
+    border: none;
+  }
+
+  .el-tabs__nav-wrap:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $border-color;
+  }
+}
+
+@each $direction in top, bottom, left, right {
+
+  .el-tabs.el-tabs--card.el-tabs--#{$direction} {
+
+    .el-tabs__nav-wrap::after {
+
+      @if $direction == bottom {
+        top: 0;
+        bottom: auto;
+      }
+
+      @if $direction == left {
+        height: 100%;
+        width: 1px;
+        right: 0;
+        left: auto;
+      }
+
+      @if $direction == right {
+        height: 100%;
+        width: 1px;
+      }
+    }
+
+    .el-tabs__item.is-#{$direction}.is-active {
+      border: 1px solid $border-color;
+
+      @if $direction == bottom {
+        border-top-color: $color-bg-2;
+      }
+
+      @if $direction == top {
+        border-bottom-color: $color-bg-2;
+        transform: translateY(1px);
+      }
+
+      @if $direction == right {
+        border-left-color: $color-bg-2;
+      }
+      
+      @if $direction == left {
+        border-right-color: $color-bg-2;
+      }
+    }
+  }
+}
+

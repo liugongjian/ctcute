@@ -99,7 +99,12 @@
     </el-row>
     <h3>可关闭</h3>
     <el-row class="sub-tabs">
-      <el-tabs v-model="value.button" closable @tab-remove="value => removeTab('button', value)">
+      <el-tabs
+        v-model="value.button"
+        type="button"
+        closable
+        @tab-remove="value => removeTab('button', value)"
+      >
         <el-tab-pane
           v-for="item in editableTabs.button"
           :key="item.name"
@@ -163,7 +168,7 @@
     </el-row>
     <h3>可关闭</h3>
     <el-row class="sub-tabs">
-      <el-tabs v-model="value.card" closable @tab-remove="value => removeTab('card', value)">
+      <el-tabs v-model="value.card" type="card" closable @tab-remove="value => removeTab('card', value)">
         <el-tab-pane
           v-for="item in editableTabs.card"
           :key="item.name"
@@ -227,7 +232,12 @@
     </el-row>
     <h3>可关闭</h3>
     <el-row class="sub-tabs">
-      <el-tabs v-model="value.borderCard" closable @tab-remove="value => removeTab('borderCard', value)">
+      <el-tabs
+        v-model="value.borderCard"
+        type="border-card"
+        closable
+        @tab-remove="value => removeTab('borderCard', value)"
+      >
         <el-tab-pane
           v-for="item in editableTabs.borderCard"
           :key="item.name"
@@ -311,26 +321,25 @@ export default class extends Vue {
     borderCard: [...this.tabs],
   }
   private value = {
-    default: '',
-    button: '',
-    card: '',
-    borderCard: '',
+    default: '1',
+    button: '1',
+    card: '1',
+    borderCard: '1',
   }
 
   private removeTab(type, targetName) {
     let tabs = this.editableTabs[type]
-    let activeName = this.tabs
+    let activeName = this.value[type]
     if (activeName === targetName) {
       tabs.forEach((tab, index) => {
         if (tab.name === targetName) {
           const nextTab = tabs[index + 1] || tabs[index - 1]
           if (nextTab) {
-            tabs = nextTab.name
+            activeName = nextTab.name
           }
         }
       })
     }
-
     this.$set(this.value, type, activeName)
     this.$set(
       this.editableTabs,

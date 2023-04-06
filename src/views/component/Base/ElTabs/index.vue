@@ -9,13 +9,21 @@
   <div>
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
-      <h1>ElTabs / 基础标签页</h1>
+      <h1>ElTabs / 默认风格标签页</h1>
       <component-demo path="@/views/component/Base/ElTabs/Demo1.vue">
         <demo1 />
       </component-demo>
-      <h1>按钮式选项卡</h1>
+      <h1>按钮式风格</h1>
       <component-demo path="@/views/component/Base/ElTabs/Demo2.vue">
         <demo2 />
+      </component-demo>
+      <h1>选项卡式风格</h1>
+      <component-demo path="@/views/component/Base/ElTabs/Demo3.vue">
+        <demo3 />
+      </component-demo>
+      <h1>卡片式风格</h1>
+      <component-demo path="@/views/component/Base/ElTabs/Demo4.vue">
+        <demo4 />
       </component-demo>
       <h2>ElTabs 说明</h2>
       <p>此为直接覆写element-ui的组件，el-tabs原有的属性和事件未变，下面只列出新增/有改动的部分</p>
@@ -35,6 +43,8 @@
 import { Component, Vue } from 'vue-property-decorator'
 import Demo1 from './Demo1.vue'
 import Demo2 from './Demo2.vue'
+import Demo3 from './Demo3.vue'
+import Demo4 from './Demo4.vue'
 import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 
 @Component({
@@ -43,6 +53,8 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
     ComponentDemo,
     Demo1,
     Demo2,
+    Demo3,
+    Demo4,
   },
 })
 export default class extends Vue {

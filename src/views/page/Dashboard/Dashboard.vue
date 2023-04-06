@@ -258,7 +258,6 @@ import * as echarts from 'echarts'
 import china from './json/china.json'
 import { HEALTH } from '@/dics/simpleTable'
 import { formatDatetime } from '@/utils/date'
-import color from '@cutedesign/theme/css/_variables.scss'
 import { getTableComponent } from '@/api/tableComponent'
 import * as TableComponent from '@/types/TableComponent'
 import { CuteChart, CuteChartItem } from '@cutedesign/chart'
@@ -278,9 +277,6 @@ import iconInstall from './Images/icon-install.svg'
   },
 })
 export default class extends Vue {
-  private get variables(): any {
-    return color
-  }
   private iconReach = iconReach
   private iconClick = iconClick
   private iconStartUp = iconStartUp
@@ -725,7 +721,6 @@ export default class extends Vue {
    * 页面Mounted
    */
   mounted() {
-    console.log(this.variables)
     this.tableData = []
     for (let i = 1; i < 22; i++) {
       const item = {
@@ -813,10 +808,8 @@ export default class extends Vue {
             normal: {
               label: {
                 fontSize: 14, // 字体大小
-                // color: this.variables.colorGrey1,
                 show: false,
                 padding: [5, 10],
-                // formatter:  '{b} \n {c} ({d}%)'
                 formatter: '{b}  {c}',
               },
               labelLine: { show: true },
@@ -965,11 +958,6 @@ export default class extends Vue {
     this.option4 = {
       tooltip: {
         trigger: 'item',
-        borderColor: this.variables.colorWhite,
-        backgroundColor: this.variables.colorWhite,
-        textStyle: {
-          color: this.variables.colorGrey1,
-        },
       },
       // 图表位置
       grid: {
@@ -977,10 +965,6 @@ export default class extends Vue {
         right: '10%',
         bottom: '1%',
         top: '1%',
-        // left: '40%',
-        // right: '0',
-        // bottom: 0,
-        // width: '45%'
         containLabel: true,
       },
       // X轴
@@ -1014,7 +998,6 @@ export default class extends Vue {
           ],
           // 升序
           inverse: true,
-          // splitLine: { show: false },
           axisLine: {
             show: false,
           },
@@ -1027,9 +1010,6 @@ export default class extends Vue {
             // y轴文字的配置
             overflow: 'truncate',
             show: true,
-            // margin: 15,
-            // width: '100',
-            // left: '0',
             // 必须使用formatter，配合rich使用
             align: 'left',
             formatter: (value, index) => {
@@ -1069,8 +1049,8 @@ export default class extends Vue {
             },
             rich: {
               a1: {
-                backgroundColor: this.variables.chartColor8,
-                color: this.variables.colorWhite,
+                backgroundColor: '#ED732E',
+                color: '#fff',
                 width: 20,
                 height: 20,
                 align: 'center',
@@ -1078,8 +1058,8 @@ export default class extends Vue {
                 padding: [1, 1, 1, 1],
               },
               a2: {
-                backgroundColor: this.variables.chartColor4,
-                color: this.variables.colorWhite,
+                backgroundColor: '#F19E4B',
+                color: '#fff',
                 width: 20,
                 height: 20,
                 align: 'center',
@@ -1087,8 +1067,8 @@ export default class extends Vue {
                 padding: [1, 1, 1, 1],
               },
               a3: {
-                backgroundColor: this.variables.chartColor3,
-                color: this.variables.colorWhite,
+                backgroundColor: '#F8D34C',
+                color: '#fff',
                 width: 20,
                 height: 20,
                 align: 'center',
@@ -1096,8 +1076,7 @@ export default class extends Vue {
                 padding: [1, 1, 1, 1],
               },
               b: {
-                backgroundColor: this.variables.colorGrey8,
-                color: this.variables.colorGrey0,
+                backgroundColor: '#F3F3F3',
                 width: 20,
                 height: 20,
                 align: 'center',
@@ -1106,7 +1085,6 @@ export default class extends Vue {
               },
             },
             textStyle: {
-              color: this.variables.colorGrey1,
               align: 'left',
               overflow: 'truncate',
             },
@@ -1126,15 +1104,6 @@ export default class extends Vue {
           axisLine: 'none',
           show: true,
           offset: 20,
-          axisLabel: {
-            textStyle: {
-              color: this.variables.colorGrey1,
-            },
-            // formatter: function (v) {
-            //   const res = this.data.find(item => item.value === v)
-            //   return v + res.unit
-            // },
-          },
         },
       ],
       series: [
@@ -1149,9 +1118,6 @@ export default class extends Vue {
           smooth: true,
           valueAnimation: true,
           showBackground: true,
-          label: {
-            // overflow: 'truncate'
-          },
           emphasis: {
             barBorderRadius: 5,
           },
@@ -1171,10 +1137,9 @@ export default class extends Vue {
                 },
                 {
                   offset: 1,
-                  color: this.variables.chartColor1, // 100% 处的颜色
+                  color: '#91c6f5', // 100% 处的颜色
                 },
               ],
-              // globalCoord: false // 缺省为 false
             },
           },
         },
@@ -1183,7 +1148,6 @@ export default class extends Vue {
           barWidth: 12,
           barGap: '-100%',
           itemStyle: {
-            color: this.variables.colorGrey6,
             opacity: 0,
             barBorderRadius: 30,
           },
@@ -1196,10 +1160,6 @@ export default class extends Vue {
         right: '1%',
         bottom: '2%',
         top: '-1%',
-        // left: '40%',
-        // right: '0',
-        // bottom: 0,
-        // width: '45%'
         containLabel: true,
       },
       xAxis: {
@@ -1233,16 +1193,15 @@ export default class extends Vue {
               },
               {
                 offset: 1,
-                color: this.variables.chartColor1, // 100% 处的颜色
+                color: '#91c6f5', // 100% 处的颜色
               },
             ],
-            // globalCoord: false // 缺省为 false
           },
         },
       ],
     }
     this.option6 = {
-      color: [this.variables.chartColor1, 'rgba(58,114,255,0.10)'],
+      color: ['#91c6f5', 'rgba(58,114,255,0.10)'],
       series: [
         {
           type: 'pie',
@@ -1253,28 +1212,24 @@ export default class extends Vue {
 
           label: {
             //  饼图图形上的文本标签
-
             textShadowOffsetX: 20,
             show: true,
             position: 'right',
-            // fontWeight: 'bold',
             formatter: ' {a|{d}%}\n{b|{b}}', // {b}:数据名； {c}：数据值； {d}：百分比，可以自定义显示内容，
             rich: {
               a: {
-                color: this.variables.colorGrey1,
+                color: '#333',
                 padding: [-25, 3, 1, -8],
                 fontSize: 26,
                 fontFamily: 'bahnschrift',
                 fontWeight: 'bold',
               },
               b: {
-                color: this.variables.colorGrey2,
+                color: '#666',
                 fontFamily: 'bahnschrift',
                 fontWeight: 'bold',
                 padding: [4, 0, 0, -4],
                 fontSize: 14,
-                // padding: [0, 10],
-                // fontSize: 20
               },
             },
           },
@@ -1307,7 +1262,7 @@ export default class extends Vue {
       ],
     }
     this.option7 = {
-      color: [this.variables.chartColor10, 'rgba(58,114,255,0.10)'],
+      color: ['#7AD3B7', 'rgba(58,114,255,0.10)'],
       series: [
         {
           type: 'pie',
@@ -1325,18 +1280,16 @@ export default class extends Vue {
             formatter: ' {a|{d}%}\n{b|{b}}', // {b}:数据名； {c}：数据值； {d}：百分比，可以自定义显示内容，
             rich: {
               a: {
-                color: this.variables.colorGrey1,
+                color: '#333',
                 padding: [-25, 3, 1, -8],
                 fontSize: 26,
                 fontFamily: 'bahnschrift',
               },
               b: {
-                color: this.variables.colorGrey1,
+                color: '#999',
                 fontFamily: 'PingFangSC-Regular',
                 padding: [4, 0, 0, -4],
                 fontSize: 14,
-                // padding: [0, 10],
-                // fontSize: 20
               },
             },
           },
@@ -1402,7 +1355,7 @@ export default class extends Vue {
           stack: 'Total',
           type: 'line',
           showSymbol: false,
-          color: this.variables.chartColor4,
+          color: '#fdac6f',
           smooth: true,
           areaStyle: {
             color: {
@@ -1414,14 +1367,13 @@ export default class extends Vue {
               colorStops: [
                 {
                   offset: 0,
-                  color: this.variables.chartColor4, // 0% 处的颜色
+                  color: '#fdac6f', // 0% 处的颜色
                 },
                 {
                   offset: 1,
-                  color: this.variables.colorWhite, // 100% 处的颜色
+                  color: '#fff', // 100% 处的颜色
                 },
               ],
-              // globalCoord: false // 缺省为 false
             },
           },
           data: [150, 232, 201, 154, 190, 330, 410],
@@ -1432,7 +1384,7 @@ export default class extends Vue {
           type: 'line',
           showSymbol: false,
           smooth: true,
-          color: this.variables.chartColor1,
+          color: '#91c6f5',
           areaStyle: {
             color: {
               type: 'linear',
@@ -1443,14 +1395,13 @@ export default class extends Vue {
               colorStops: [
                 {
                   offset: 0,
-                  color: this.variables.chartColor1, // 0% 处的颜色
+                  color: '#91c6f5', // 0% 处的颜色
                 },
                 {
                   offset: 1,
-                  color: this.variables.colorWhite, // 100% 处的颜色
+                  color: '#fff', // 100% 处的颜色
                 },
               ],
-              // globalCoord: false // 缺省为 false
             },
           },
           data: [120, 132, 101, 134, 90, 230, 210],
@@ -1461,7 +1412,7 @@ export default class extends Vue {
           type: 'line',
           showSymbol: false,
           smooth: true,
-          color: this.variables.chartColor10,
+          color: '#93c2bb',
           areaStyle: {
             color: {
               type: 'linear',
@@ -1472,11 +1423,11 @@ export default class extends Vue {
               colorStops: [
                 {
                   offset: 0,
-                  color: this.variables.chartColor10, // 0% 处的颜色
+                  color: '#93c2bb', // 0% 处的颜色
                 },
                 {
                   offset: 1,
-                  color: this.variables.colorWhite, // 100% 处的颜色
+                  color: '#fff', // 100% 处的颜色
                 },
               ],
               // globalCoord: false // 缺省为 false
@@ -1489,7 +1440,7 @@ export default class extends Vue {
           stack: 'Total',
           type: 'line',
           showSymbol: false,
-          color: this.variables.chartColor1,
+          color: '#91c6f5',
           smooth: true,
           areaStyle: {
             color: {
@@ -1501,14 +1452,13 @@ export default class extends Vue {
               colorStops: [
                 {
                   offset: 0,
-                  color: this.variables.chartColor1, // 0% 处的颜色
+                  color: '#91c6f5', // 0% 处的颜色
                 },
                 {
                   offset: 1,
-                  color: this.variables.colorWhite, // 100% 处的颜色
+                  color: '#fff', // 100% 处的颜色
                 },
               ],
-              // globalCoord: false // 缺省为 false
             },
           },
           data: [320, 332, 301, 334, 390, 330, 320],
@@ -1573,7 +1523,7 @@ export default class extends Vue {
             number: 1,
           },
           itemStyle: {
-            color: this.variables.colorMaster,
+            color: '#FA8334',
           },
           label: {
             formatter: '{b}',
@@ -1596,9 +1546,6 @@ export default class extends Vue {
               formatter: '数值为{b}:{c}',
               emphasis: {
                 show: false,
-                // textStyle: {
-                //   color: this.variables.colorGrey0,
-                // },
               },
             },
           },

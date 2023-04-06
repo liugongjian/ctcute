@@ -376,9 +376,15 @@ $transfer-footer-height: 40px; // Transfer组件footer高度
 
 /* Tooltip
 -------------------------- */
-$tooltip-bg: $color-neutral-8;
+$tooltip-bg: $color-bg-2;
+$tooltip-border-color: $neutral-4;
+$tooltop-text-color: $neutral-10;
 
 $tooltip-fill: $tooltip-bg; // deprecated(弃用)
+
+/* Notification
+-------------------------- */
+$notification-border-color: $neutral-4;
 
 /* Upload
 -------------------------- */

@@ -6,7 +6,8 @@
  * @LastEditTime: 2023-03-30 18:27:31
  * @Description:
  */
-import Layout from '@/layout/component.vue'
+// import Layout from '@/layout/component.vue'
+import Layout from '@/layout/LayoutComponent.vue'
 
 const componentRoutes = [
   // 基础组件
@@ -20,6 +21,15 @@ const componentRoutes = [
       breadcrumb: true,
     },
     children: [
+      {
+        path: 'cute-layout',
+        name: 'CuteLayout',
+        component: () => import('@/views/component/Base/CuteLayout/index.vue'),
+        meta: {
+          title: 'CuteLayout',
+          breadcrumb: true,
+        },
+      },
       {
         path: 'cute-remind-select',
         name: 'CuteRemindSelect',

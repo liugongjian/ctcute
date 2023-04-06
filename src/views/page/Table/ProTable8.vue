@@ -1,4 +1,12 @@
 <!--
+ * @Author: yanchengxiang 675036196@qq.com
+ * @Date: 2023-03-30 16:04:30
+ * @LastEditors: yanchengxiang 675036196@qq.com
+ * @LastEditTime: 2023-04-06 10:02:00
+ * @FilePath: \memdb-web-frontc:\code\cute-design-web\src\views\page\Table\ProTable8.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!--
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: yanchengxiang 675036196@qq.com
@@ -34,31 +42,33 @@
       </div>
     </div>
     <!--表格-->
-    <el-table ref="tableRef" v-loading="loading" :data="tableData" fit border :height="tableHeight">
-      <el-table-column prop="name" label="主机别名">
-        <template slot-scope="{ row }">
-          <router-link to="/">{{ row.name }}</router-link>
-        </template>
-      </el-table-column>
-      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
-      <el-table-column prop="ip" label="IP地址" />
-      <el-table-column prop="cpu" label="CPU利用率(%)" />
-      <el-table-column prop="memory" label="内存利用率(%)" />
-      <el-table-column prop="disk" label="磁盘利用率(%)" />
-      <el-table-column prop="health" label="健康状态">
-        <template slot-scope="{ row }">
-          <span class="health-state">
-            <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
-          </span>
-        </template>
-      </el-table-column>
-      <el-table-column prop="actions" label="操作" width="150" fixed="right" class-name="actions">
-        <template slot-scope="{ row }">
-          <el-button type="text" @click="gotoDetail(row)">详情</el-button>
-          <el-button type="text" @click="gotoDashboard(row)">监控指标</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+    <ProTable8Comp ref="ProTable8CompRef" v-model="heightVal">
+      <el-table ref="tableRef" v-loading="loading" :data="tableData" fit border :height="heightVal">
+        <el-table-column prop="name" label="主机别名">
+          <template slot-scope="{ row }">
+            <router-link to="/">{{ row.name }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
+        <el-table-column prop="ip" label="IP地址" />
+        <el-table-column prop="cpu" label="CPU利用率(%)" />
+        <el-table-column prop="memory" label="内存利用率(%)" />
+        <el-table-column prop="disk" label="磁盘利用率(%)" />
+        <el-table-column prop="health" label="健康状态">
+          <template slot-scope="{ row }">
+            <span class="health-state">
+              <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+            </span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="actions" label="操作" width="150" fixed="right" class-name="actions">
+          <template slot-scope="{ row }">
+            <el-button type="text" @click="gotoDetail(row)">详情</el-button>
+            <el-button type="text" @click="gotoDashboard(row)">监控指标</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </ProTable8Comp>
     <!--分页-->
     <el-pagination
       :current-page="pager.page"
@@ -75,13 +85,19 @@ import { ElForm } from 'element-ui/types/form'
 import * as ProTable8 from '@/types/ProTable8'
 import { getTable, getHosts } from '@/api/proTable8'
 import { STATUS, HEALTH } from '@/dics/proTable8'
+import ProTable8Comp from './ProTable8Comp.vue'
 
 @Component({
   name: 'ProTable8',
+  components: {
+    ProTable8Comp,
+  },
 })
 export default class extends Vue {
   @Ref('tableRef')
   public tableRef: ElForm
+  @Ref('ProTable8CompRef')
+  public ProTable8CompRef: ElForm
 
   // 健康状态字典
   private HEALTH = HEALTH
@@ -117,7 +133,8 @@ export default class extends Vue {
   private tableOtherHeight = ''
 
   // 不可以赋值空字符串，不然会报错。可以赋值none
-  private tableHeight = 'none'
+  // private tableHeight = 'none'
+  private heightVal = 'none'
 
   /**
    * 页面Mounted
@@ -125,16 +142,16 @@ export default class extends Vue {
   private mounted() {
     this.getHosts()
     this.getTable()
-    this.initEvt()
+    // this.initEvt()
   }
 
-  private initEvt() {
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
-    const self = this
-    window.onresize = function () {
-      self.renderPagination()
-    }
-  }
+  // private initEvt() {
+  //   // eslint-disable-next-line @typescript-eslint/no-this-alias
+  //   const self = this
+  //   window.onresize = function () {
+  //     self.renderPagination()
+  //   }
+  // }
 
   /**
    * 获取主机列表
@@ -154,17 +171,17 @@ export default class extends Vue {
     }
   }
 
-  private renderPagination() {
-    // 当表格有滚动条的时候，继续改变表格的高度
-    if (this.tableRef.$el.className.indexOf('el-table--scrollable-y') !== -1) {
-      this.tableHeight = `${window.innerHeight - this.tableOtherHeight}px`
-    } else {
-      // 当没有滚动条，但此时表格和其他部分的高度大于可视区域高度，继续改变表格的高度，以便表格从没有滚动条到出现滚动条的效果
-      if (parseInt(this.tableHeight) + this.tableOtherHeight > window.innerHeight) {
-        this.tableHeight = `${window.innerHeight - this.tableOtherHeight}px`
-      }
-    }
-  }
+  // private renderPagination() {
+  //   // 当表格有滚动条的时候，继续改变表格的高度
+  //   if (this.tableRef.$el.className.indexOf('el-table--scrollable-y') !== -1) {
+  //     this.tableHeight = `${window.innerHeight - this.tableOtherHeight}px`
+  //   } else {
+  //     // 当没有滚动条，但此时表格和其他部分的高度大于可视区域高度，继续改变表格的高度，以便表格从没有滚动条到出现滚动条的效果
+  //     if (parseInt(this.tableHeight) + this.tableOtherHeight > window.innerHeight) {
+  //       this.tableHeight = `${window.innerHeight - this.tableOtherHeight}px`
+  //     }
+  //   }
+  // }
 
   /**
    * 获取表格数据
@@ -179,21 +196,12 @@ export default class extends Vue {
         ...this.conditions,
       }
       const res = await getTable(params)
+      console.log(JSON.stringify(res))
       this.pager.total = res.data.total
       this.tableData = res.data.list
-      this.$nextTick(() => {
-        const tableObj = document.querySelector('.el-table')
-        const cardBodyObj = document.querySelector('.el-card__body')
-        this.tableOtherHeight =
-          tableObj.getBoundingClientRect().top +
-          document.querySelector('.el-pagination').clientHeight +
-          // 还要获取外边距和内边距
-          parseInt(window.getComputedStyle(tableObj).marginTop) +
-          parseInt(window.getComputedStyle(tableObj).marginBottom) +
-          parseInt(window.getComputedStyle(cardBodyObj).paddingTop) +
-          parseInt(window.getComputedStyle(cardBodyObj).paddingBottom)
-        this.tableHeight = `${window.innerHeight - this.tableOtherHeight}px`
-      })
+      // this.$nextTick(() => {
+      //   this.ProTable8CompRef.reCalHeight()
+      // })
     } catch (e) {
       console.error(e)
     } finally {

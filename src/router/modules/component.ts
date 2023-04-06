@@ -2,8 +2,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-28 14:12:07
+ * @LastEditors: yanchengxiang 675036196@qq.com
+ * @LastEditTime: 2023-04-06 10:22:53
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -213,6 +213,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/VxeTable/index.vue'),
         meta: {
           title: 'VxeTable',
+        },
+      },
+      {
+        path: 'cute-scroller',
+        name: 'CuteScroller',
+        component: () => import('@/views/component/Base/CuteScroller/index.vue'),
+        meta: {
+          title: 'CuteScroller',
+          breadcrumb: true,
         },
       },
     ],

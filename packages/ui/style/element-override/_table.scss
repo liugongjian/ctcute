@@ -12,7 +12,7 @@
   // 页眉样式
   th.el-table__cell {
     &, &.is-leaf {
-      border-width: 0;
+      border-right: 0;
     }
   }
 
@@ -29,14 +29,12 @@
 
   // 首尾单元格留白
   td.el-table__cell {
-    border-color: $table-border-color;
-
     &:first-child .cell {
-      padding-left: $margin-5x;
+      padding-left: $padding-5x;
     }
 
     &:last-child .cell {
-      padding-right: $margin-5x;
+      padding-right: $padding-5x;
     }
   }
 
@@ -59,58 +57,111 @@
     }
   }
 
-  // 选择器图标
-  & &__column-filter-trigger {
-    line-height: inherit;
-
-    .el-icon-arrow-down:before {
-      content: '\e790';
-    }
-
-    .el-icon-arrow-down::before,
-    .el-icon-arrow-up::before {
-      font-family: $font-family-cute-icons;
-      content: '\ea80';
-      color: $text-color-light-2;
+  // 覆盖selection
+  th,
+  td {
+    &.el-table__cell.el-table-column--selection {
+      .cell {
+        padding-left: $padding-4x;
+        padding-right: $padding-4x;
+        line-height: $table-cell-selection-line-height;
+      }
     }
   }
 
-  // 覆盖了border式样的表格，将边框去掉
-  &--border {
-    border: none;
-
-    .el-table__header tr, .el-table__header th {
-      border-right: 1px solid $color-bg-2;
-      background-color: $table-header-bg;
-    }
-    
-    .el-table__cell {
-      border-right: 0px solid $table-border-color;
-    }
-
-    th.el-table__cell.gutter:last-of-type {
-      border-width: 0;
-    }
+  // 固定列-右上角补丁
+  &__fixed-right-patch {
+    background-color: $table-header-bg;
+    top: 0;
   }
 
-  // 覆盖固定表格样式
+  // 固定列-下方边框
   &__fixed::before,
   &__fixed-right::before {
     background-color: $table-border-color;
   }
 
+  // 选择器图标
+  & &__column-filter-trigger {
+    line-height: inherit;
+
+    .el-icon-arrow-down::before,
+    .el-icon-arrow-up::before {
+      font-family: $font-family-cute-icons;
+    }
+
+    .el-icon-arrow-down::before {
+      content: '\ea80';
+    }
+
+    .el-icon-arrow-up::before {
+      content: '\eb5c';
+    }
+
+    // TODO highlight when hover/expand
+  }
+
+  // 覆盖expand
+  .el-table__cell.el-table__expanded-cell {
+    font-size: $text-size;
+    background-color: $color-bg-3;
+
+    &:hover {
+      background-color: $color-bg-3 !important; // 为了覆盖源码的!important
+    }
+
+    // 嵌套表格样式
+    .el-table th.el-table__cell {
+      background-color: $color-neutral-2;
+    }
+  }
+
+  // 树形表格
+  [class*=el-table__row--level] .el-table__expand-icon {
+    margin-right: 0;
+  }
+
+  .el-table__row.el-table__row--level-0 .el-table__expand-icon {
+    margin-left: -20px;
+  }
+
+  .el-table__row:not(.el-table__row--level-0) .el-table__indent {
+    margin-left: -20px;
+  }
+
+  // 覆盖border表格样式
+  &--border {
+    border: none;
+
+    // 取消表格右侧边线
+    &::after {
+      width: 0;
+    }
+
+    .el-table__cell {
+      border-right: 0px solid $table-border-color;
+    }
+
+    // 页眉样式
+    th.el-table__cell {
+      &,
+      &.is-leaf {
+        border-right: 1px solid $color-bg-2;
+      }
+    }
+  }
+
   // 覆盖组合表格样式
   &--group {
     border-left: 1px solid $table-border-color;
-    border-top: 1px solid $table-border-color;
     border-right: 1px solid $table-border-color;
+    border-top: 1px solid $table-border-color;
     border-bottom-color: $table-border-color;
 
     thead.is-group th.el-table__cell {
       border-color: $table-border-color;
-      background: $table-header-bg;
     }
-  
+
     thead.is-group td.el-table__cell {
       border-color: $table-border-color;
     }
@@ -119,7 +170,7 @@
     th.el-table__cell {
       &,
       &.is-leaf {
-        border-width: 1px;
+        border-right: 1px solid $table-border-color;
       }
     }
 
@@ -139,7 +190,7 @@
 /*
   重置表格大小
 */
-@mixin table-size ($size, $cell-padding) {
+@mixin table-size($size, $cell-padding) {
   $th-cell-padding: $cell-padding + 1;
 
   th.el-table__cell {
@@ -155,11 +206,9 @@
 }
 
 @include table-size(null, $table-cell-padding-md);
+@include table-size(--mini, $table-cell-padding-xs);
 @include table-size(--small, $table-cell-padding-sm);
 @include table-size(--medium, $table-cell-padding-md);
-@include table-size(--medium, $table-cell-padding-lg);
-
-
 
 /*
   重置表格过滤器
@@ -175,13 +224,6 @@
 
   &__checkbox-group {
     padding: 0;
-  }
-
-  &__bottom {
-    padding-top: $margin-3x;
-  }
-
-  &__checkbox-group {
 
     .el-checkbox:first-child,
     .el-checkbox:last-child {
@@ -189,10 +231,9 @@
     }
 
     label.el-checkbox {
-      height: 30px;
-      line-height: 30px;
-      margin: 0;
-      margin-bottom: margin;
+      height: $table-filter-item-height;
+      line-height: $table-filter-item-height;
+      margin: 0 0 $margin 0;
 
       &:hover {
         background-color: $color-master-bg-light-2;
@@ -206,48 +247,5 @@
         margin-left: $margin-3x;
       }
     }
-  }
-}
-
-/*
-  TODO: 以下样式尚未定位到具体位置，待整理
-*/
-.el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed,
-.el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed-right {
-  &::before {
-    background-color: transparent;
-  }
-}
-
-.el-table::before,
-.el-table--group::after,
-.el-table--border::after {
-  content: '';
-  position: absolute;
-  background-color: transparent;
-  z-index: 1;
-}
-
-.el-table__body-wrapper .el-table__row .el-table__expand-icon .el-icon-arrow-right::before {
-  content: '\e791';
-  color: $color-grey-3;
-}
-
-.el-table [class*=el-table__row--level] .el-table__expand-icon {
-  // margin-left: -3px;
-  margin-right: 0;
-}
-
-.el-table__row.expanded.el-table__row--level-0 .el-table__expand-icon {
-  margin-left: -20px;
-}
-
-.el-table__row:not(.el-table__row--level-0) .el-table__indent {
-  margin-left: -20px;
-}
-
-.el-table__fixed-right {
-  &-patch{
-    background-color: $color-grey-8;
   }
 }

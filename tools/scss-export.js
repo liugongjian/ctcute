@@ -14,11 +14,15 @@ fs.readFile(filePath, 'utf-8', (err, data) => {
   if (err) throw err
   const variables = data.split('\n')
   const exports = []
+  const keys = new Set()
   variables.forEach(variable => {
     if (variable.startsWith('$')) {
       const variableStringList = variable.split(':')
       const key = toUpperCamelCase(variableStringList[0].replace('$', ''))
-      exports.push(`  ${key}: ${variableStringList[0]};`)
+      if (!keys.has(key)) {
+        keys.add(key)
+        exports.push(`  ${key}: ${variableStringList[0]};`)
+      }
     }
   })
   const result = `/* stylelint-disable property-case */

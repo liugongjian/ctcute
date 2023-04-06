@@ -1,28 +1,31 @@
 /* Link
 -------------------------- */
-.el-link.el-link--default {
+/*
+  重置链接样式
+  $type: 类名;
+  $color: 文字颜色;
+  $color-hover: 文字悬浮颜色;
+  $color-disabled: 文字禁用颜色;
+*/
+@mixin link-color($type, $color, $color-hover, $color-disabled) {
+  .el-link.el-link--#{$type} {
+    color: $color;
+
+    &:hover {
+      color: $color-hover;
+    }
+
+    &.is-disabled {
+      color: $color-disabled;
+    }
+  }
+}
+
+@include link-color(fatal, $color-fatal, $color-fatal-hover, $color-fatal-disabled);
+
+/*
+  设置无下划线链接
+*/
+.el-link[class^='el-link'] {
   text-decoration: none;
 }
-// .el-link.el-link--primary {
-//   &:hover {
-//     color: $color-master-3;
-//   }
-
-//   &:active {
-//     color: $color-master-3;
-//   }
-// }
-
-// .el-link.el-link--default {
-//   &:hover {
-//     color: $color-master-3;
-//   }
-
-//   &:active {
-//     color: $color-master-3;
-//   }
-// }
-
-// .el-link.is-underline:hover:after {
-//   border-bottom: none;
-// }

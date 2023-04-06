@@ -55,7 +55,7 @@ module.exports = {
       sass: {
         sassOptions: { outputStyle: 'expanded', quietDeps: true },
         additionalData: `@import "node_modules/@cutedesign/ui/style/themes/default/variables.scss";
-                          @import "node_modules/@cutedesign/ui/style/_mixins.scss";`,
+                          @import "node_modules/@cutedesign/ui/style/_mixins.scss";`
       },
     },
   },

@@ -54,36 +54,36 @@
     </el-row>
     <el-row>
       <h3>默认按钮(图标)</h3>
-      <el-button><svg-icon name="plus-circle" /> 默认按钮</el-button>
-      <el-button type="primary"><svg-icon name="plus-circle" /> 主要按钮</el-button>
-      <el-button type="ct"><svg-icon name="plus-circle" /> 天翼云按钮</el-button>
-      <el-button type="success"><svg-icon name="plus-circle" /> 成功按钮</el-button>
-      <el-button type="info"><svg-icon name="plus-circle" /> 信息按钮</el-button>
-      <el-button type="warning"><svg-icon name="plus-circle" /> 警告按钮</el-button>
-      <el-button type="danger"><svg-icon name="plus-circle" /> 危险按钮</el-button>
-      <el-button type="fatal"><svg-icon name="plus-circle" /> 严重危险按钮</el-button>
+      <el-button>默认按钮</el-button>
+      <el-button type="primary" icon="plus-circle">主要按钮</el-button>
+      <el-button type="ct" icon="plus-circle">天翼云按钮</el-button>
+      <el-button type="success" icon="plus-circle">成功按钮</el-button>
+      <el-button type="info" icon="plus-circle">信息按钮</el-button>
+      <el-button type="warning" icon="plus-circle">警告按钮</el-button>
+      <el-button type="danger" icon="plus-circle">危险按钮</el-button>
+      <el-button type="fatal" icon="plus-circle">严重危险按钮</el-button>
     </el-row>
     <el-row>
       <h3>大尺寸按钮(large)(图标)</h3>
-      <el-button size="large"><svg-icon name="plus-circle" /> 大尺寸按钮</el-button>
-      <el-button type="primary" size="large"><svg-icon name="plus-circle" /> 主要按钮</el-button>
-      <el-button type="ct" size="large"><svg-icon name="plus-circle" /> 天翼云按钮</el-button>
-      <el-button type="success" size="large"><svg-icon name="plus-circle" /> 成功按钮</el-button>
-      <el-button type="info" size="large"><svg-icon name="plus-circle" /> 信息按钮</el-button>
-      <el-button type="warning" size="large"><svg-icon name="plus-circle" /> 警告按钮</el-button>
-      <el-button type="danger" size="large"><svg-icon name="plus-circle" /> 危险按钮</el-button>
-      <el-button type="fatal" size="large"><svg-icon name="plus-circle" /> 严重危险按钮</el-button>
+      <el-button size="large" icon="plus-circle">大尺寸按钮</el-button>
+      <el-button type="primary" size="large" icon="plus-circle">主要按钮</el-button>
+      <el-button type="ct" size="large" icon="plus-circle">天翼云按钮</el-button>
+      <el-button type="success" size="large" icon="plus-circle">成功按钮</el-button>
+      <el-button type="info" size="large" icon="plus-circle">信息按钮</el-button>
+      <el-button type="warning" size="large" icon="plus-circle">警告按钮</el-button>
+      <el-button type="danger" size="large" icon="plus-circle">危险按钮</el-button>
+      <el-button type="fatal" size="large" icon="plus-circle">严重危险按钮</el-button>
     </el-row>
     <el-row>
       <h3>小尺寸按钮(small)(图标)</h3>
-      <el-button size="small"><svg-icon name="plus-circle" /> 小尺寸按钮</el-button>
-      <el-button type="primary" size="small"><svg-icon name="plus-circle" /> 主要按钮</el-button>
-      <el-button type="ct" size="small"><svg-icon name="plus-circle" /> 天翼云按钮</el-button>
-      <el-button type="success" size="small"><svg-icon name="plus-circle" /> 成功按钮</el-button>
-      <el-button type="info" size="small"><svg-icon name="plus-circle" /> 信息按钮</el-button>
-      <el-button type="warning" size="small"><svg-icon name="plus-circle" /> 警告按钮</el-button>
-      <el-button type="danger" size="small"><svg-icon name="plus-circle" /> 危险按钮</el-button>
-      <el-button type="fatal" size="small"><svg-icon name="plus-circle" /> 严重危险按钮</el-button>
+      <el-button size="small" icon="plus-circle">小尺寸按钮</el-button>
+      <el-button type="primary" size="small" icon="plus-circle">主要按钮</el-button>
+      <el-button type="ct" size="small" icon="plus-circle">天翼云按钮</el-button>
+      <el-button type="success" size="small" icon="plus-circle">成功按钮</el-button>
+      <el-button type="info" size="small" icon="plus-circle">信息按钮</el-button>
+      <el-button type="warning" size="small" icon="plus-circle">警告按钮</el-button>
+      <el-button type="danger" size="small" icon="plus-circle">危险按钮</el-button>
+      <el-button type="fatal" size="small" icon="plus-circle">严重危险按钮</el-button>
     </el-row>
 
     <el-row>
@@ -132,7 +132,7 @@
     </el-row>
     <el-row>
       <h3>朴素按钮(图标)</h3>
-      <el-button plain><svg-icon name="plus-circle" /> 默认按钮</el-button>
+      <el-button plain>默认按钮</el-button>
       <el-button type="primary" plain icon="el-icon-search">主要按钮</el-button>
       <el-button type="ct" plain icon="el-icon-search">天翼云按钮</el-button>
       <el-button type="success" plain icon="plus-circle">成功按钮</el-button>

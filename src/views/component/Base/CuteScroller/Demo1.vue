@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 14:28:14
+ * @LastEditTime: 2023-04-06 14:54:51
  * @Description:
 -->
 <template>
@@ -103,18 +103,16 @@ export default class extends Vue {
 
   /**
    * 查看详情
-   * @param data {ProTable8.Host} 表格行对象
    */
-  private gotoDetail(data: ProTable8.Host) {
-    this.$message.success(`前往${data.name}详情页面`)
+  private gotoDetail() {
+    this.$message.success('前往详情页面')
   }
 
   /**
    * 查看监控指标
-   * @param data {ProTable8.Host} 表格行对象
    */
-  private gotoDashboard(data: ProTable8.Host) {
-    this.$message.info(`前往${data.name}监控指标页面`)
+  private gotoDashboard() {
+    this.$message.info('前往监控指标页面')
   }
 }
 </script>

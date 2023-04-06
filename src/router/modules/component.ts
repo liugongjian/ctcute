@@ -3,7 +3,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
  * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 10:22:53
+ * @LastEditTime: 2023-04-06 14:51:20
  * @Description:
  */
 import Layout from '@/layout/component.vue'
@@ -204,6 +204,24 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/ElBreadcrumb/index.vue'),
         meta: {
           title: 'ElBreadcrumb',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'el-steps',
+        name: 'ElSteps',
+        component: () => import('@/views/component/Base/ElSteps/index.vue'),
+        meta: {
+          title: 'ElSteps',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'el-tabs',
+        name: 'ElTabs',
+        component: () => import('@/views/component/Base/ElTabs/index.vue'),
+        meta: {
+          title: 'ElTabs',
           breadcrumb: true,
         },
       },
@@ -487,6 +505,105 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Pagination.vue'),
         meta: {
           title: 'Pagination',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'steps',
+        name: 'Steps',
+        component: () => import('@/views/component/Test/Steps.vue'),
+        meta: {
+          title: 'Steps',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'content-area-tips',
+        name: 'ContentAreaTips',
+        component: () => import('@/views/component/Test/ContentAreaTips.vue'),
+        meta: {
+          title: 'ContentAreaTips',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'loading',
+        name: 'Loading',
+        component: () => import('@/views/component/Test/Loading.vue'),
+        meta: {
+          title: 'Loading',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'popover',
+        name: 'Popover',
+        component: () => import('@/views/component/Test/Popover.vue'),
+        meta: {
+          title: 'Popover',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'toast',
+        name: 'Toast',
+        component: () => import('@/views/component/Test/Toast.vue'),
+        meta: {
+          title: 'Toast',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'tooltip',
+        name: 'Tooltip',
+        component: () => import('@/views/component/Test/Tooltip.vue'),
+        meta: {
+          title: 'Tooltip',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'tabs',
+        name: 'Tabs',
+        component: () => import('@/views/component/Test/Tabs.vue'),
+        meta: {
+          title: 'Tabs',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'badge',
+        name: 'Badge',
+        component: () => import('@/views/component/Test/Badge.vue'),
+        meta: {
+          title: 'Badge',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'progress',
+        name: 'Progress',
+        component: () => import('@/views/component/Test/Progress.vue'),
+        meta: {
+          title: 'Progress',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'timeline',
+        name: 'Timeline',
+        component: () => import('@/views/component/Test/Timeline.vue'),
+        meta: {
+          title: 'Timeline',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'card',
+        name: 'Card',
+        component: () => import('@/views/component/Test/Card.vue'),
+        meta: {
+          title: 'Card',
           breadcrumb: true,
         },
       },

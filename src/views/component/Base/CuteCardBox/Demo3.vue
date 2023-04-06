@@ -105,16 +105,10 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .chart-card-tabs {
-  margin-bottom: -1px;
-
   ::v-deep .el-tabs__header {
     margin: 0;
     height: 40px;
     margin-top: 12px;
-  }
-
-  ::v-deep .el-tabs__active-bar {
-    height: 3px;
   }
 
   ::v-deep .el-tabs__nav-wrap:after {

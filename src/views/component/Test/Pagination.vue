@@ -2,7 +2,7 @@
 * @Author: 胡一苗
 * @Date: 2023-03-23 13:46:05
 * @LastEditors: 胡一苗
-* @LastEditTime: 2023-03-24 23:51:31
+* @LastEditTime: 2023-03-30 09:03:58
 * @Description: desc
 */
 <template>
@@ -14,12 +14,12 @@
       <el-pagination
         :total="total"
         :current-page="currentPage1"
-        layout="sizes, total, prev, pager, next, jumper"
+        layout="total, sizes, prev, pager, next, jumper"
       />
       <el-pagination
         :total="total"
         :current-page="currentPage1"
-        layout="sizes, total, prev, pager, next, jumper"
+        layout="total, sizes, prev, pager, next, jumper"
         background
       />
     </div>
@@ -28,13 +28,13 @@
       <el-pagination
         :total="total"
         :current-page="currentPage1"
-        layout="sizes, total, prev, pager, next, jumper"
+        layout="total, sizes, prev, pager, next, jumper"
         small
       />
       <el-pagination
         :total="total"
         :current-page="currentPage1"
-        layout="sizes, total, prev, pager, next, jumper"
+        layout="total, sizes, prev, pager, next, jumper"
         small
         background
       />
@@ -44,27 +44,27 @@
       <el-pagination
         :total="total"
         :current-page="currentPage1"
-        layout="sizes, total, prev, pager, next, jumper"
+        layout="total, sizes, prev, pager, next, jumper"
         disabled
       />
       <el-pagination
         :total="total"
         :current-page="currentPage1"
-        layout="sizes, total, prev, pager, next, jumper"
+        layout="total, sizes, prev, pager, next, jumper"
         disabled
         background
       />
       <el-pagination
         :total="total"
         :current-page="currentPage1"
-        layout="sizes, total, prev, pager, next, jumper"
+        layout="total, sizes, prev, pager, next, jumper"
         disabled
         small
       />
       <el-pagination
         :total="total"
         :current-page="currentPage1"
-        layout="sizes, total, prev, pager, next, jumper"
+        layout="total, sizes, prev, pager, next, jumper"
         disabled
         small
         background

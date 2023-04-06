@@ -60,13 +60,14 @@ export default class extends Vue {
 }
 
 .el-state > span {
-  margin-right: $common-space-2x;
+  margin-right: $margin;
 }
 
 .el-state > span.dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
+  margin-right: $margin-2x;
 }
 
 .icon-wrap {

@@ -16,6 +16,7 @@
       <el-link type="success">成功链接</el-link>
       <el-link type="warning">警告链接</el-link>
       <el-link type="danger">危险链接</el-link>
+      <el-link type="fatal">严重危险链接</el-link>
       <el-link type="info">信息链接</el-link>
     </div>
     <div>
@@ -25,6 +26,7 @@
       <el-link type="success" disabled>成功链接</el-link>
       <el-link type="warning" disabled>警告链接</el-link>
       <el-link type="danger" disabled>危险链接</el-link>
+      <el-link type="fatal" disabled>严重危险链接</el-link>
       <el-link type="info" disabled>信息链接</el-link>
     </div>
     <div>

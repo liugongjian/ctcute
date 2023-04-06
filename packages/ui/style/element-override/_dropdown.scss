@@ -50,4 +50,8 @@
   .svg-icon {
     color: $button-icon-color;
   }
+
+  &__icon.el-icon-arrow-down {
+    line-height: $dropdown-icon-line-height;
+  }
 }

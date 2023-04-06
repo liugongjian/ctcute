@@ -25,6 +25,10 @@
       <component-demo path="@/views/component/Base/ElTabs/Demo4.vue">
         <demo4 />
       </component-demo>
+      <h1>位置</h1>
+      <component-demo path="@/views/component/Base/ElTabs/Demo5.vue">
+        <demo5 />
+      </component-demo>
       <h2>ElTabs 说明</h2>
       <p>此为直接覆写element-ui的组件，el-tabs原有的属性和事件未变，下面只列出新增/有改动的部分</p>
       <h2>ElTabs Attributes</h2>
@@ -45,6 +49,7 @@ import Demo1 from './Demo1.vue'
 import Demo2 from './Demo2.vue'
 import Demo3 from './Demo3.vue'
 import Demo4 from './Demo4.vue'
+import Demo5 from './Demo5.vue'
 import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 
 @Component({
@@ -55,6 +60,7 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
     Demo2,
     Demo3,
     Demo4,
+    Demo5,
   },
 })
 export default class extends Vue {

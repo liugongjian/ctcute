@@ -50,9 +50,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-@Component({
-  name: 'UiTabs',
-})
+@Component({})
 export default class extends Vue {
   public static title = {
     zh: '选项卡',

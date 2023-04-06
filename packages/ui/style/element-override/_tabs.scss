@@ -151,6 +151,12 @@
         width: 1px;
       }
     }
+    .el-tabs__item.is-#{$direction}{
+      border-right: none;
+      border-left: none;
+      border-top: none;
+      border-bottom: none;
+    }
 
     .el-tabs__item.is-#{$direction}.is-active {
       border: 1px solid $border-color;
@@ -170,6 +176,31 @@
       
       @if $direction == left {
         border-right-color: $color-bg-2;
+      }
+    }
+  }
+}
+
+// border-card风格darm模式兼容
+.el-tabs--border-card, .el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active{
+  background-color:$color-bg-2;
+}
+
+
+@each $direction in left, right {
+  .el-tabs--#{$direction}.el-tabs--border-card  {
+    .el-tabs__item.is-#{$direction}.is-active{
+      border-top-color: $border-color;
+      border-bottom-color: $border-color;
+    }
+    
+    .el-tabs__header.is-#{$direction}{
+      @if $direction == right {
+        border-left-color: $border-color;
+      }
+      
+      @if $direction == left {
+        border-right-color: $border-color;
       }
     }
   }

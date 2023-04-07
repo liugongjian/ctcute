@@ -9,7 +9,7 @@
 
     /* 操作按钮 */
     .actions.el-table__cell {
-      .el-button--text+.el-button--text {
+      .el-button--text + .el-button--text {
         margin-left: $button-margin;
       }
     }
@@ -80,7 +80,7 @@
       display: flex;
 
       // 操作已选项
-      .selected-input {
+      .cute-selected-input {
         margin-right: $margin-5x;
       }
     }
@@ -225,7 +225,7 @@
       }
     }
 
-    .el-tree-node.is-expanded>.el-tree-node__content {
+    .el-tree-node.is-expanded > .el-tree-node__content {
       .node-icon {
         .svg-icon {
           display: none;
@@ -318,10 +318,12 @@
 }
 
 /* 复杂表格 6 */
-.pro-table-6 {}
+.pro-table-6 {
+}
 
 /* 复杂表格 7 */
-.pro-table-7 {}
+.pro-table-7 {
+}
 
 /* 暂无数据 */
 .el-table__empty-text {

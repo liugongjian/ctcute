@@ -280,7 +280,7 @@ $button-group-border: rgba($color-black, 0.5);
 
 /* Form
 -------------------------- */
-$form-item-label-line-height: 32px; // label 
+$form-item-label-line-height: 32px; // label
 $form-item-content-line-height: 30px !default; //  content 高度32 有border的时候 line-height 需要 -2
 $form-item-error-padding-top: $padding-6;
 $form-item-margin-bottom: $margin-6x;
@@ -317,11 +317,16 @@ $checkbox-button-hover: $color-master-bg-light;
 -------------------------- */
 $table-header-bg: $color-neutral-1;
 $table-cell-bg: $color-neutral-8;
-$table-sort-caret-bg: $color-neutral-6;
-$table-cell-padding-sm: $margin-2x;
-$table-cell-padding-md: $margin-10;
-$table-cell-padding-lg: $margin-3x;
+$table-cell-padding-xs: $padding-6;
+$table-cell-padding-sm: $padding-6;
+$table-cell-padding-md: $padding-10;
+$table-cell-padding-lg: $padding-3x;
+$table-cell-selection-line-height: 20px;
 $table-border-color: $color-neutral-3;
+$table-sort-caret-bg: $color-neutral-6;
+$table-fixed-box-shadow: 0px 2px 8px rgba(100, 110, 144, 0.2);
+$table-row-hover-background-color: $neutral-2;
+$table-filter-item-height: 32px;
 
 $table-header-fill: $table-header-bg; // deprecated(弃用)
 $table-cell-fill: $table-cell-bg; // deprecated(弃用)
@@ -337,6 +342,7 @@ $pagination-font-size: $text-size;
 $pagination-font-size-sm: $text-size;
 $pagination-height: 24px;
 $pagination-height-sm: 24px;
+$pagination-select-width: 76px; // TODO 如何实现自适应
 $pagination-input-width: 56px; // TODO 如何实现自适应
 $pagination-button-width: 20px;
 $pagination-button-width-sm: 20px;

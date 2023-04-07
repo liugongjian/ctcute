@@ -2,7 +2,7 @@
  * @Author: 王亚振
  * @Date: 2022-10-11 15:06:30
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-07 14:23:44
+ * @LastEditTime: 2023-04-07 15:50:59
  * @Description:
 -->
 <template>
@@ -16,13 +16,13 @@
       :placeholder="t('cute.editInput.placeholder')"
     ></el-input>
     <svg-icon
-      :class="'cute-edit-input-edit-icon__' + size"
+      :class="'cute-edit-input__edit-icon--' + size"
       name="check"
       :color="colorVariables.colorSuccess"
       @click="onOk"
     />
     <svg-icon
-      :class="'cute-edit-input-edit-icon__' + size"
+      :class="'cute-edit-input__edit-icon--' + size"
       name="close"
       :color="colorVariables.colorDanger"
       @click="editing = false"

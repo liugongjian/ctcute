@@ -5,7 +5,7 @@
   border: none;
   box-shadow: $shadow-2;
   min-width: $popover-min-width;
-  
+
   p {
     margin: 0;
   }
@@ -20,7 +20,7 @@
 
 .el-popper {
   background-color: $color-bg-1;
-  box-shadow: $shadow-2;
+  box-shadow: $shadow-3;
 }
 
 .el-popper[x-placement^='top'] .popper__arrow,

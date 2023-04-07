@@ -282,7 +282,8 @@ $button-group-border: rgba($color-white, 0.5) !default;
 
 /* Form
 -------------------------- */
-$form-item-label-line-height: 32px !default;
+$form-item-label-line-height: 32px !default; // label
+$form-item-content-line-height: 30px !default; //  content
 $form-item-error-padding-top: $padding-6 !default;
 $form-item-margin-bottom: $margin-6x;
 
@@ -485,6 +486,8 @@ $steps-icon-inner-text-size-md: $text-size-md !default; // 小号标号size：14
 $steps-icon-inner-text-size-sm: $text-size-md !default; // 中号标号size：14px
 $steps-line-size: 1px !default;// 线条粗细;
 $steps-bg-color: $color-bg-2 !default;// 覆盖色块，与背景同色
+$steps-icon-bg: $blue-1 !default; // 完成步骤背景色
+
 
 /* Dialog
 -------------------------- */
@@ -534,9 +537,10 @@ $alert-weak-bg: $neutral-1 !default;
 $cute-slider-marks-height: 6px !default;
 $cute-slider-bar-height: 10px !default;
 $cute-slider-input-width: 64px !default;
+$cute-slider-line-color: $color-master;
 $cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;
 $cute-slider-btn-radius: 8px !default;
-$cute-slider-btn-width: 16px !default;
+$cute-slider-btn-width: 17px !default;
 $cute-slider-btn-height: 22px !default;
 
 /* CuteDistributionBar

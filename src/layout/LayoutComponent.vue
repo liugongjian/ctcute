@@ -14,7 +14,7 @@
     :sidebar-routes="routesList"
     :sidebar-filter="filterFun"
     :sidebar-knob="true"
-    :breadcrumb-showlast="true"
+    :breadcrumb-showlast="false"
     :breadcrumb-customlast="customlast"
   >
     <template #header></template>
@@ -48,10 +48,10 @@
       </div> -->
     </template>
     <template #navbar-right>
-      <div class="navbar-right">
+      <!-- <div class="navbar-right">
         <el-button type="primary">主要按扭</el-button>
         <el-button>次要按扭</el-button>
-      </div>
+      </div> -->
     </template>
     <template>
       <section class="app-main">
@@ -64,7 +64,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import CuteLayout from '../../packages/ui/components/CuteLayout/index.vue'
+import CuteLayout from '@cutedesign/ui/components/CuteLayout/index.vue'
 import HeaderNav from './components/LayoutHeader/HeaderNav.vue'
 @Component({
   name: 'Demo1',
@@ -74,8 +74,8 @@ import HeaderNav from './components/LayoutHeader/HeaderNav.vue'
   },
 })
 export default class extends Vue {
-  public subLogo = require('../../packages/ui/components/CuteLayout/Header/images/cute-design.svg')
-  public logo = require('../../packages/ui/components/CuteLayout/Header/images/cute-portrait.svg')
+  public subLogo = require('@cutedesign/ui/components/CuteLayout/Header/images/cute-design.svg')
+  public logo = require('@cutedesign/ui/components/CuteLayout/Header/images/cute-portrait.svg')
   public sidebarTitle = '组件'
   public subTitle = ''
   public customlast = ''

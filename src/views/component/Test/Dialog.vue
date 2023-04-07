@@ -29,7 +29,7 @@
 
       <!-- Table1 -->
       <el-dialog title="收货地址" :visible.sync="dialogTableVisible">
-        <el-table :data="gridData" style="margin: 0">
+        <el-table :data="gridData" class="dialog-table">
           <el-table-column property="date" label="日期" width="150"></el-table-column>
           <el-table-column property="name" label="姓名" width="200"></el-table-column>
           <el-table-column property="address" label="地址"></el-table-column>
@@ -42,7 +42,7 @@
 
       <!-- Table2 -->
       <el-dialog title="收货地址" :visible.sync="dialogTableVisible2" custom-class="dialog-fixed-height">
-        <el-table :data="gridData">
+        <el-table :data="gridData" class="dialog-table">
           <el-table-column property="date" label="日期" width="150"></el-table-column>
           <el-table-column property="name" label="姓名" width="200"></el-table-column>
           <el-table-column property="address" label="地址"></el-table-column>
@@ -78,7 +78,7 @@
 
       <!-- Table -->
       <el-dialog title="收货地址" :visible.sync="dialogFullscreenVisible" fullscreen>
-        <el-table :data="gridData">
+        <el-table :data="gridData" class="dialog-table">
           <el-table-column property="date" label="日期" width="150"></el-table-column>
           <el-table-column property="name" label="姓名" width="200"></el-table-column>
           <el-table-column property="address" label="地址"></el-table-column>

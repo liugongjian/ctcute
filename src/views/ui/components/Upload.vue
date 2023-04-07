@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-19 16:32:05
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-03-27 15:17:23
+ * @LastEditTime: 2023-04-06 09:31:50
  * @Description: 
 -->
 <template>
@@ -39,6 +39,21 @@
       </el-upload>
       <div slot="tip" class="el-upload-out__tip">支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
     </div>
+    <div>
+      <h3>图片上传</h3>
+      <el-upload
+        class="picture-uploader"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        list-type="picture-card"
+        :on-remove="handleRemove"
+        :file-list="fileList1"
+      >
+        <i class="el-icon-plus"></i>
+      </el-upload>
+      <el-dialog :visible.sync="dialogVisible">
+        <img :src="dialogImageUrl" alt="" />
+      </el-dialog>
+    </div>
     <h3>文件上传-小</h3>
     <el-upload
       action="https://jsonplaceholder.typicode.com/posts/"
@@ -69,20 +84,6 @@
         </div>
       </el-upload>
     </div>
-
-    <h3>图片上传</h3>
-    <el-upload
-      class="picture-uploader"
-      action="https://jsonplaceholder.typicode.com/posts/"
-      list-type="picture-card"
-      :on-remove="handleRemove"
-      :file-list="fileList1"
-    >
-      <i class="el-icon-plus"></i>
-    </el-upload>
-    <el-dialog :visible.sync="dialogVisible">
-      <img :src="dialogImageUrl" alt="" />
-    </el-dialog>
   </div>
 </template>
 <script lang="ts">

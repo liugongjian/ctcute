@@ -29,10 +29,3 @@ export default class extends Vue {
   @Prop({ type: Boolean, default: true }) navbarBreadcrumb?: boolean
 }
 </script>
-<style lang="scss" scoped>
-.desc-nav {
-  .desc {
-    margin-left: 10px;
-  }
-}
-</style>

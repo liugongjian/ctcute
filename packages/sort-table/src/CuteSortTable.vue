@@ -67,19 +67,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.sort-table {
-  line-height: 1;
-}
-
-.sort-icon {
-  font-size: $text-size-lg;
-  color: $color-neutral-9;
-  cursor: pointer;
-
-  &:hover {
-    color: $color-master;
-  }
-}
-</style>

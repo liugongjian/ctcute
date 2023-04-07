@@ -1,0 +1,60 @@
+.cute-remind-select {
+  width: 100%;
+
+  .el-input.el-input--prefix .el-input__inner {
+    padding-left: $padding-3x;
+  }
+
+  .el-input__prefix {
+    position: absolute;
+    right: $cute-remind-select-right;
+
+    span {
+      color: $color-grey-4;
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+
+.cute-selected-input {
+  .el-input.el-input--medium.el-input--suffix {
+    width: $cute-selected-input-width;
+    padding-right: 0;
+  }
+
+  .el-input__inner {
+    padding-right: 0;
+    color: $color-neutral-10;
+  }
+
+  .select-uncheck {
+    padding-right: 0;
+    color: $color-neutral-10;
+  }
+
+  .select-field {
+    padding-right: 0;
+    color: $color-master;
+  }
+}
+
+.cute-select-tree {
+  .el-tree {
+    color: $text-color;
+    font-weight: $text-weight;
+  }
+
+  .el-select-dropdown__item,
+  .el-select-dropdown__item.hover {
+    background: $color-bg-1;
+    padding: 0;
+  }
+
+  .el-select-dropdown.el-popper.is-multiple {
+    .el-select-dropdown__item.hover {
+      background: $color-bg-1;
+      padding: 0;
+    }
+  }
+}

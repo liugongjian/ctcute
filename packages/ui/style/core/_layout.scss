@@ -8,7 +8,7 @@
 .layout-wrap {
   display: flex;
   margin-top: $layout-header-height;
-  height: calc(100vh - $layout-header-height);
+  height: calc(100vh - #{$layout-header-height});
 }
 
 /* 侧边栏样式 */
@@ -57,14 +57,14 @@
     vertical-align: baseline !important;
   }
 
-  .el-submenu.is-active > .el-submenu__title {
+  .el-submenu.is-active>.el-submenu__title {
     color: $layout-text-color;
   }
 
   .el-menu-item,
-  .el-submenu > .el-submenu__title,
+  .el-submenu>.el-submenu__title,
   .el-submenu .el-menu-item {
-    min-width: calc($layout-sidebar-width - 40px);
+    min-width: calc(#{$layout-sidebar-width} - 40px);
     background-color: $layout-color-bg;
     border-right: 2px solid transparent;
     white-space: nowrap;
@@ -93,7 +93,7 @@
   }
 
   .el-submenu.is-active .el-submenu__title,
-  div.first-level > a > li.is-active {
+  div.first-level>a>li.is-active {
     color: $layout-color-master !important;
     position: relative;
 
@@ -111,20 +111,25 @@
 
   /* 含有图标的菜单项，去除选中时的竖线 */
   .carry-icon {
+
     .el-submenu.is-active .el-submenu__title,
-    &.first-level > a > li.is-active {
+    &.first-level>a>li.is-active {
       &:before {
         display: none;
       }
     }
   }
 
-  .el-menu > div.first-level > a > li.is-active {
+  .el-menu>div.first-level>a>li.is-active {
     &:before {
       top: 16px;
     }
   }
-  .scrollbar-wrapper { height: 100%; overflow-y: auto; }
+
+  .scrollbar-wrapper {
+    height: 100%;
+    overflow-y: auto;
+  }
 
   .vertical-bar {
     margin: 0 0 0 32px;
@@ -186,24 +191,24 @@
 
     .app-main {
       /* 最小分辨率 - 侧边栏宽度 - 边距 - 边距 */
-      min-width: calc($screen-lg - $layout-sidebar-width - $padding-5x - $padding-5x);
+      min-width: calc(#{$screen-lg} - #{$layout-sidebar-width} - #{$padding-5x} - #{$padding-5x});
     }
   }
 
   /* 兼容老项目，无.app-main-wrap */
-  > .app-main {
+  >.app-main {
     flex: 1;
     overflow: auto;
   }
 
-  .app-main > .el-card.is-always-shadow {
+  .app-main>.el-card.is-always-shadow {
     border-radius: $border-radius;
     border: none;
     color: inherit;
   }
 
   /* 组件规范页需要支持滚动 */
-  > .el-card {
+  >.el-card {
     max-height: 100%;
     overflow: auto;
   }

@@ -54,7 +54,7 @@
 import path from 'path'
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { RouteConfig } from 'vue-router'
-import { isExternal } from '@/utils/validate'
+import { isExternal } from '../utils/validate'
 import SidebarItemLink from './SidebarItemLink.vue'
 
 @Component({
@@ -134,23 +134,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.svg-icon {
-  margin-right: 16px;
-}
-
-.simple-mode {
-  .svg-icon {
-    margin-left: 20px;
-  }
-}
-
-.append-icon {
-  display: inline-flex;
-  align-items: center;
-
-  .svg-icon {
-    margin-right: 5px;
-  }
-}
-</style>

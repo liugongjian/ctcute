@@ -87,12 +87,3 @@ export default class extends Vue {
   public sidebarClass: string
 }
 </script>
-<style lang="scss" scoped>
-.layout-container {
-  background: $layout-bg;
-}
-
-.hideheader {
-  margin-top: 0;
-}
-</style>

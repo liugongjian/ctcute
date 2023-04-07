@@ -36,39 +36,3 @@ export default class extends Vue {
   @Prop({ default: '100%', required: false }) private readonly contentHeight: string
 }
 </script>
-<style lang="scss" scoped>
-.cute-card {
-  ::v-deep .el-card__header {
-    padding: 0 $padding-6x;
-  }
-
-  ::v-deep .el-card__body {
-    padding: 0;
-  }
-
-  &__header {
-    clear: both;
-    display: flex;
-    align-items: center;
-    height: 52px;
-
-    &__title {
-      font-size: $text-size-md;
-      color: $text-color;
-      font-weight: $text-title-weight;
-    }
-
-    &__extra {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
-
-  &__content {
-    padding: $padding-4x $padding-6x $padding-5x;
-    box-sizing: border-box;
-  }
-}
-</style>

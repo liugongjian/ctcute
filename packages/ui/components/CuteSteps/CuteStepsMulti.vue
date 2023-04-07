@@ -131,36 +131,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.cute-steps-multi {
-  display: flex;
-  align-items: center;
-
-  &-main {
-    flex-grow: 1;
-  }
-
-  .button-col {
-    font-size: 20px;
-    width: 30px;
-  }
-  // .stepSuc :hover {
-  //   cursor: pointer;
-  // }
-
-  .stepErr :hover {
-    cursor: not-allowed;
-  }
-
-  .el-icon-arrow-left,
-  .el-icon-arrow-right {
-    cursor: pointer;
-    color: $icon-color;
-  }
-
-  .disabled {
-    cursor: not-allowed;
-    color: $disabled-color;
-  }
-}
-</style>

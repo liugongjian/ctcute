@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar">
+  <div class="cute-sidebar">
     <!-- 左侧图标栏 -->
     <div v-if="isShowModule" class="sidebar--left">
       <div
@@ -12,7 +12,7 @@
         <div v-if="index === 0" class="division"></div>
       </div>
     </div>
-    <div v-if="isShowMenu" class="scrollbar-wrapper">
+    <div v-if="isShowMenu" class="cute-scrollbar-wrapper">
       <div v-if="isNewMenu" class="layout-sidebar__title back" @click="onBackMenu">
         <svg-icon name="arrow-left" width="16" height="16" />{{ currentNewMenu.meta.title }}
       </div>
@@ -139,83 +139,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-::v-deep .scrollbar-wrapper {
-  width: $layout-sidebar-width;
-
-  .back-sidebar {
-    font-size: 14px;
-    color: $color-grey-2;
-    padding: 0 0 10px 32px;
-    font-weight: bold;
-  }
-}
-
-.sidebar {
-  display: flex;
-  position: relative;
-
-  .back {
-    cursor: pointer;
-
-    .svg-icon {
-      margin-right: 5px;
-    }
-  }
-
-  &--left {
-    width: 50px;
-    flex: none;
-    font-size: 16px;
-    color: $color-grey-2;
-    border-right: 1px solid $border-color-primary;
-
-    > div {
-      text-align: center;
-      height: 40px;
-      line-height: 40px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: $layout-sidebar-sub-hover;
-      }
-
-      &.is-first {
-        margin-bottom: 1px;
-      }
-
-      &.is-active {
-        background-color: $layout-sidebar-sub-hover;
-        color: $color-master-1;
-      }
-
-      .division {
-        height: 1px;
-        background-color: $border-color-primary;
-        margin: 0 8px;
-      }
-    }
-  }
-
-  &--knob {
-    height: 80px;
-    width: 12px;
-    position: absolute;
-    top: calc(50% - 40px - $layout-header-height / 2); // 40px是自身高度的一半
-    right: -12px;
-    background: $color-bg-2;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    cursor: pointer;
-    font-size: 12px;
-    color: $color-grey-2;
-    display: flex;
-    align-items: center;
-
-    .svg-icon {
-      color: $color-grey-3;
-    }
-  }
-}
-</style>

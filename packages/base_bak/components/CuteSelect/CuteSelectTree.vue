@@ -1,13 +1,13 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 黄靖
- * @LastEditTime: 2023-03-17 16:59:10
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-07 10:57:38
  * @Description: 树选择器
 -->
 <template>
   <el-select ref="selector" :value="treeData" placeholder="请选择" :multiple="multiple ? true : false">
-    <el-option :value="value" :label="label" style="height: auto">
+    <el-option :value="value" :label="label" style="height: auto;">
       <el-tree
         v-if="$scopedSlots.node"
         ref="tree"
@@ -211,6 +211,10 @@ export default class extends Vue {
 .el-select-dropdown__item,
 .el-select-dropdown__item.hover {
   background: $color-bg-1 !important;
+  padding: 0;
+}
+
+::v-deep .el-select-dropdown__item {
   padding: 0;
 }
 

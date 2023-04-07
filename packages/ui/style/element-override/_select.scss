@@ -4,6 +4,8 @@
 /*
   重置Select基本样式
 */
+.el-range-editor--mini.el-input__inner{ height: 24px;}
+.el-range-editor--small.el-input__inner{ height: 24px; }
 .el-select {
   .el-icon-circle-close:before {
     font-family: $font-family-cute-icons;

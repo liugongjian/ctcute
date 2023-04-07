@@ -1,8 +1,8 @@
 <!--
  * @Author: 邱文琦
  * @Date: 2022-10-11 13:30
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-03-13 09:36:43
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-07 13:55:49
  * @Description: 首页
 -->
 <template>
@@ -164,7 +164,7 @@
                 <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
               </el-select>
-              <el-date-picker v-model="shortChainDate" type="daterange" size="small"></el-date-picker>
+              <el-date-picker v-model="shortChainDate" type="daterange" size="mini"></el-date-picker>
             </div>
           </template>
           <template #content>
@@ -1352,7 +1352,7 @@ export default class extends Vue {
       series: [
         {
           name: '安装量',
-          stack: 'Total',
+          // stack: 'Total',
           type: 'line',
           showSymbol: false,
           color: '#fdac6f',
@@ -1380,7 +1380,7 @@ export default class extends Vue {
         },
         {
           name: '启动量',
-          stack: 'Total',
+          // stack: 'Total',
           type: 'line',
           showSymbol: false,
           smooth: true,
@@ -1408,7 +1408,7 @@ export default class extends Vue {
         },
         {
           name: '短链点击量',
-          stack: 'Total',
+          // stack: 'Total',
           type: 'line',
           showSymbol: false,
           smooth: true,
@@ -1437,7 +1437,7 @@ export default class extends Vue {
         },
         {
           name: '短链触达量',
-          stack: 'Total',
+          // stack: 'Total',
           type: 'line',
           showSymbol: false,
           color: '#91c6f5',

@@ -1,4 +1,5 @@
-import Layout from '@/layout/index.vue'
+// import Layout from '@/layout/index.vue'
+import Layout from '@/layout/LayoutPage'
 
 const indexPageRoutes = [
   //首页展示

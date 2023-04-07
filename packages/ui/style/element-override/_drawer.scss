@@ -3,10 +3,14 @@
 .el-drawer {
   .el-form {
     .el-form-item--medium .el-form-item__label {
-      line-height: 30px; //TODO
+      line-height: 32px; //TODO
       font-weight: 400;
       color: $text-color;
       font-size: $text-size;
+    }
+    .el-form-item--medium .el-form-item__content{
+      line-height: 30px; 
+
     }
   }
 }
@@ -33,6 +37,7 @@
 
 .el-drawer__close-btn {
   color: $color-grey-3;
+  font-size: 18px;
 }
 
 .el-drawer {

@@ -14,14 +14,26 @@ fs.readFile(filePath, 'utf-8', (err, data) => {
   if (err) throw err
   const variables = data.split('\n')
   const exports = []
+  const keys = new Set()
   variables.forEach(variable => {
     if (variable.startsWith('$')) {
       const variableStringList = variable.split(':')
       const key = toUpperCamelCase(variableStringList[0].replace('$', ''))
-      exports.push(`  ${key}: string;`)
+      if (!keys.has(key)) {
+        keys.add(key)
+        exports.push(`  ${key}: string;`)
+      }
     }
   })
-  const result = `${exports.join('\n')}`
+  let result = `${exports.join('\n')}`
+  result = `
+export interface IScssVariablesRevised {
+${result}
+}
+
+export const variablesRevised: IScssVariablesRevised
+export default variablesRevised
+`
   // 将文本写入文件
   const path = process.argv[1].substring(0, process.argv[1].lastIndexOf('/')) + '/scss-ts-export.txt'
   fs.writeFile(path, result, function (err) {

@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-02-09 08:44:19
+ * @LastEditors: yanchengxiang 675036196@qq.com
+ * @LastEditTime: 2023-04-06 10:47:36
  * @Description:
  */
 import ElementUI, {
@@ -97,14 +97,14 @@ import ElementUIOverride, {
   MessageBox,
 } from './components/ElementUI'
 import './components/ElementUI/settings'
-import './style/index.scss'
-import './fonts/iconfont.css'
-import './fonts/bahnschrift.css'
+// svgIcon
 import './icons/index'
+import SvgIcon from './icons/index.vue'
 
 /**
  * 组件清单
  */
+import CuteLayout from './components/CuteLayout/index.vue'
 import CuteButtonGroup from './components/CuteCombinationButton/CuteButtonGroup.vue'
 import CuteEditInput from './components/CuteEditInput/index.vue'
 import CuteFormInfo from './components/CuteFormInfo/index.vue'
@@ -123,7 +123,9 @@ import CuteArea from './components/CuteArea/index.vue'
 import CuteSlider from './components/CuteSlider/index.vue'
 import CuteDistributionBar from './components/CuteDistributionBar/index.vue'
 import CuteCardBox from './components/CuteCardBox/index.vue'
+import CuteScroller from './components/CuteScroller/index.vue'
 export {
+  CuteLayout,
   CuteButtonGroup,
   CuteEditInput,
   CuteFormInfo,
@@ -142,12 +144,14 @@ export {
   CuteSlider,
   CuteDistributionBar,
   CuteCardBox,
+  CuteScroller,
 }
 
 /**
  * 仅注册使用频率高的，轻量级的组件
  */
 const componentsList = [
+  CuteLayout,
   CuteFormInfo,
   CuteEditInput,
   CuteState,
@@ -161,12 +165,14 @@ const componentsList = [
   CuteSlider,
   CuteStepsMulti,
   CuteCardBox,
+  CuteScroller,
 ]
 
 export default {
-  install(Vue) {
-    Vue.use(ElementUI, { size: 'medium' })
+  install(Vue, opts = { size: 'medium' }) {
+    Vue.use(ElementUI, opts)
     Vue.use(ElementUIOverride)
+    Vue.component('SvgIcon', SvgIcon)
 
     componentsList.map((component: any) => {
       Vue.component(component.options ? component.options.name : component.name, component)
@@ -263,3 +269,5 @@ export {
   Collapse,
   Rate,
 }
+
+export { default as createI18n } from './i18n'

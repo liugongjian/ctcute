@@ -1,4 +1,4 @@
-import { VueInstance } from 'vue'
+import Vue, { VueInstance, PluginFunction } from 'vue'
 import { AxiosInstance } from 'axios'
 import Router, { RouteConfig, Route } from 'vue-router'
 
@@ -11,6 +11,12 @@ declare module 'vue-router/types/router' {
     breadcrumb?: boolean // 是否不需要用于生成面包屑
     withoutLogin?: boolean // 对于不需要登录的页面，需要设置
     perms?: string[] // 参数为一组路由，设置时会校验该路由对应页面的权限
+  }
+}
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $auth: AuthInstance
   }
 }
 
@@ -113,6 +119,11 @@ export interface AuthInstance {
   getToken: () => string | undefined
   removeToken: () => void
   getPermInfo: (refresh: boolean) => Promise<any>
+
+  getRoutes: () => BizAuthConfigOptions.routes
+
+  login: (RequestParams) => Promise<any>
+  logout: (RequestParams) => Promise<any>
 }
 
 export interface BizAuthConfigOptions extends AuthConfigOptions {
@@ -120,3 +131,7 @@ export interface BizAuthConfigOptions extends AuthConfigOptions {
   router: Router
   routes?: RouteConfig[]
 }
+
+declare const install: PluginFunction<BizAuthConfigOptions>
+
+export default install

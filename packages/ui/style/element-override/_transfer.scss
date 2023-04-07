@@ -4,6 +4,14 @@
   .el-transfer-panel {
     background-color: $color-bg-1;
 
+    &__list {
+      height: 100%;
+
+      &.is-filterable {
+        height: calc(100% - $transfer-filter-height);
+      }
+    }
+
     .el-transfer-panel__footer {
       background: $transfer-footert-bg;
     }
@@ -32,7 +40,6 @@
       &:not(.is-with-texts) {
         height: $transfer-button-hegiht;
         width: $transfer-button-width;
-        line-height: $transfer-button-hegiht;
         border-radius: $transfer-button-radius;
         padding: 0;
       }
@@ -71,10 +78,12 @@
   }
 
   .el-transfer-panel__filter {
-    margin: $margin-2x $margin-3x;
+    margin: $transfer-filter-input-margin;
 
-    .el-input__inner {
+    &.el-input.el-input--small .el-input__inner {
       border-radius: $border-radius;
+      height: $transfer-filter-input-height;
+      line-height: $transfer-filter-input-height;
     }
   }
 

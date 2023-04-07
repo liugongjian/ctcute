@@ -1,0 +1,25 @@
+.form-item__info {
+  color: $icon-color;
+  width: $common-space-4x;
+  height: $common-space-4x;
+}
+
+.form-item__info {
+  &--dark {
+    background: $tooltip-bg;
+    color: $color-white;
+
+    .el-popover__title {
+      color: $color-white;
+    }
+
+    &.el-popper[x-placement^='top'] .popper__arrow {
+      box-shadow: none;
+
+      &:after {
+        border-top-color: $tooltip-bg !important;
+        box-shadow: none;
+      }
+    }
+  }
+}

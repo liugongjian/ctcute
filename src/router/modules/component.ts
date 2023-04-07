@@ -2,11 +2,12 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 李志伟
- * @LastEditTime: 2023-03-30 18:27:31
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-07 13:24:00
  * @Description:
  */
-import Layout from '@/layout/component.vue'
+// import Layout from '@/layout/component.vue'
+import Layout from '@/layout/LayoutComponent.vue'
 
 const componentRoutes = [
   // 基础组件
@@ -15,11 +16,20 @@ const componentRoutes = [
     component: Layout,
     redirect: '/component/base/cute-remind-select',
     meta: {
-      title: '基础组件',
+      title: 'component.base.title',
       alwaysShow: true,
       breadcrumb: true,
     },
     children: [
+      {
+        path: 'cute-layout',
+        name: 'CuteLayout',
+        component: () => import('@/views/component/Base/CuteLayout/index.vue'),
+        meta: {
+          title: 'CuteLayout',
+          breadcrumb: true,
+        },
+      },
       {
         path: 'cute-remind-select',
         name: 'CuteRemindSelect',
@@ -217,11 +227,29 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-tabs',
+        name: 'ElTabs',
+        component: () => import('@/views/component/Base/ElTabs/index.vue'),
+        meta: {
+          title: 'ElTabs',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'vxe-table',
         name: 'VxeTable',
         component: () => import('@/views/component/Base/VxeTable/index.vue'),
         meta: {
           title: 'VxeTable',
+        },
+      },
+      {
+        path: 'cute-scroller',
+        name: 'CuteScroller',
+        component: () => import('@/views/component/Base/CuteScroller/index.vue'),
+        meta: {
+          title: 'CuteScroller',
+          breadcrumb: true,
         },
       },
     ],
@@ -231,7 +259,7 @@ const componentRoutes = [
     component: Layout,
     redirect: '/component/biz/vss-video-player',
     meta: {
-      title: '业务组件',
+      title: 'component.biz.title',
       alwaysShow: true,
       breadcrumb: true,
     },
@@ -541,6 +569,51 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Tooltip.vue'),
         meta: {
           title: 'Tooltip',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'tabs',
+        name: 'Tabs',
+        component: () => import('@/views/component/Test/Tabs.vue'),
+        meta: {
+          title: 'Tabs',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'badge',
+        name: 'Badge',
+        component: () => import('@/views/component/Test/Badge.vue'),
+        meta: {
+          title: 'Badge',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'progress',
+        name: 'Progress',
+        component: () => import('@/views/component/Test/Progress.vue'),
+        meta: {
+          title: 'Progress',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'timeline',
+        name: 'Timeline',
+        component: () => import('@/views/component/Test/Timeline.vue'),
+        meta: {
+          title: 'Timeline',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'card',
+        name: 'Card',
+        component: () => import('@/views/component/Test/Card.vue'),
+        meta: {
+          title: 'Card',
           breadcrumb: true,
         },
       },

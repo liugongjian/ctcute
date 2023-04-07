@@ -98,7 +98,7 @@ export default class extends Vue {}
 }
 
 .el-row {
-  margin-bottom: 22px;
+  margin-bottom: $margin-5x;
 
   &:last-child {
     margin-bottom: 0;

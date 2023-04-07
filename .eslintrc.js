@@ -41,21 +41,39 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'vue/html-self-closing': 'off',
     'keyword-spacing': 'off',
-    '@typescript-eslint/keyword-spacing': ['error', { before: true, after: true }],
+    '@typescript-eslint/keyword-spacing': ['error', {
+      before: true,
+      after: true
+    }],
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/type-annotation-spacing': [
       'error',
-      { before: false, after: true, overrides: { arrow: { before: true, after: true } } },
+      {
+        before: false,
+        after: true,
+        overrides: {
+          arrow: {
+            before: true,
+            after: true
+          }
+        }
+      },
     ],
     'space-infix-ops': 'off',
-    '@typescript-eslint/space-infix-ops': ['error', { int32Hint: false }],
+    '@typescript-eslint/space-infix-ops': ['error', {
+      int32Hint: false
+    }],
     'comma-spacing': 'off',
-    '@typescript-eslint/comma-spacing': ['error', { before: false, after: true }],
+    '@typescript-eslint/comma-spacing': ['error', {
+      before: false,
+      after: true
+    }],
     'object-curly-spacing': ['error', 'always'],
     '@typescript-eslint/object-curly-spacing': ['error', 'always'],
     semi: 'off',
     '@typescript-eslint/semi': ['error', 'never'],
     'no-undef': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off'
   },
 }

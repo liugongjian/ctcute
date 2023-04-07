@@ -64,7 +64,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import CuteLayout from '../../packages/ui/components/CuteLayout/index.vue'
+import CuteLayout from '@cutedesign/ui/components/CuteLayout/index.vue'
 import HeaderNav from './components/LayoutHeader/HeaderNav.vue'
 @Component({
   name: 'Demo1',
@@ -74,8 +74,8 @@ import HeaderNav from './components/LayoutHeader/HeaderNav.vue'
   },
 })
 export default class extends Vue {
-  public subLogo = require('../../packages/ui/components/CuteLayout/Header/images/cute-design.svg')
-  public logo = null //require('../../packages/ui/components/CuteLayout/Header/images/cute-portrait.svg')
+  public subLogo = require('@cutedesign/ui/components/CuteLayout/Header/images/cute-design.svg')
+  public logo = null //require('@cutedesign/ui/components/CuteLayout/Header/images/cute-portrait.svg')
   public sidebarTitle = '页面'
   public subTitle = ''
   public customlast = ''

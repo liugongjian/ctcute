@@ -6,16 +6,16 @@
   </el-breadcrumb>
   <el-breadcrumb v-else-if="breadcrumbShowlast">
     <el-breadcrumb-item>
-      <span>{{ lastcrumbs.meta.title }}</span>
+      <span>{{ t(lastcrumbs.meta.title) }}</span>
     </el-breadcrumb-item>
   </el-breadcrumb>
   <el-breadcrumb v-else class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
-        <span v-if="item.redirect === 'noredirect' || index === breadcrumbs.length - 1" class="no-redirect">{{
-          item.meta.title
-        }}</span>
-        <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
+        <span v-if="item.redirect === 'noredirect' || index === breadcrumbs.length - 1" class="no-redirect">
+          {{ t(item.meta.title) }}
+        </span>
+        <a v-else @click.prevent="handleLink(item)">{{ t(item.meta.title) }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -23,13 +23,15 @@
 
 <script lang="ts">
 import { compile } from 'path-to-regexp'
-import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
+import { Component, Prop, Watch } from 'vue-property-decorator'
+import { mixins } from 'vue-class-component'
 import { RouteRecord, Route } from 'vue-router'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
   name: 'Breadcrumb',
 })
-export default class extends Vue {
+export default class extends mixins(Locale) {
   @Prop({ default: '' })
   public breadcrumbCustomlast: string
 

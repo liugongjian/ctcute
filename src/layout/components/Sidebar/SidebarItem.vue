@@ -19,7 +19,7 @@
             <span v-if="theOnlyOneChild.meta && theOnlyOneChild.meta.icon" class="append-icon">
               <svg-icon :name="theOnlyOneChild.meta.icon" :width="14" :height="14" />
             </span>
-            <span v-if="theOnlyOneChild.meta.title" slot="title">{{ theOnlyOneChild.meta.title }}</span>
+            <span v-if="theOnlyOneChild.meta.title" slot="title">{{ $t(theOnlyOneChild.meta.title) }}</span>
           </template>
         </el-menu-item>
       </sidebar-item-link>
@@ -30,7 +30,7 @@
         <span v-if="item.meta && item.meta.icon" class="append-icon">
           <svg-icon :name="item.meta.icon" :width="14" :height="14" />
         </span>
-        <span v-if="item.meta && item.meta.title" slot="title">{{ item.meta.title }}</span>
+        <span v-if="item.meta && item.meta.title" slot="title">{{ $t(item.meta.title) }}</span>
       </template>
       <div
         v-if="item.children"

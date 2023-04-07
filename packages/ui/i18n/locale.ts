@@ -42,7 +42,7 @@ function format(string, ...args) {
 export const t = function (path, options) {
   // 尝试用 $t 去解析
   let value = i18nHandler.apply(this, arguments)
-  console.log(path, options, value)
+
   // 解析成功直接返回
   if (value !== null && value !== undefined) return value
 
@@ -57,7 +57,7 @@ export const t = function (path, options) {
     // 最后一层执行解析
     if (i === j - 1) return format(value, options)
     // 查无数据，则直接终止解析
-    if (!value) return ''
+    if (!value) return path
     // 继续向下一层
     current = value
   }

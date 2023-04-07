@@ -1,12 +1,13 @@
-@mixin card1-page {
+.page-card-list.card1-page,
+.page-card-list.card-small {
   .el-tabs__header {
-    margin-bottom: 16px;
+    margin-bottom: $margin-4x;
   }
 
   .card-tools__right {
     margin-left: auto;
-    .el-form--inline .el-form-item { margin: 0 0 16px; }
-    .card1-input { width: 300px; }
+    .el-form--inline .el-form-item { margin: 0 0 $margin-4x; }
+    .card1-input { width: $page-card-input-width; }
   }
 
   .card-tools {
@@ -20,30 +21,30 @@
   }
 
   .el-col {
-    margin-bottom: 20px;
+    margin-bottom: $margin-5x;
   }
 
   .el-card {
-    border-color: $border-color-primary;
+    border-color: $border-color;
 
     .el-card__body {
-      padding: 16px;
+      padding: $padding-4x;
       background-color: $color-bg-2;
     }
   }
 
   .card-box {
     .card-box--title svg {
-      color: $color-status-success;
+      color: $color-success;
     }
 
     .card-box--title {
       display: flex;
       align-items: center;
-      margin-bottom: 14px;
+      margin-bottom: $margin-4x;
 
       &-text {
-        width: 260px;
+        max-width: $page-card-title-text-max-width;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
@@ -51,7 +52,7 @@
 
       svg {
         color: $disabled-color;
-        margin-right: 8px;
+        margin-right: $margin-2x;
       }
     }
 
@@ -60,29 +61,30 @@
     }
 
     .card-box--info {
-      margin-top: 8px;
+      line-height: $page-card-box-info-line-height;
+      margin-top: $margin;
       word-break: break-all;
       text-overflow: ellipsis;
       display: flex;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       overflow: hidden;
-      min-height: 30px;
+      min-height: $page-card-box-info-min-height;
     }
 
     .card-box--btns {
       display: flex;
       justify-content: space-between;
-      padding: 12px 0;
-      background-color: $color-grey-11;
-      margin: -16px;
-      margin-top: 16px;
-      border-top: 1px solid $border-color-primary;
+      padding: $padding-3x 0;
+      background-color: $color-neutral-1;
+      margin: -$margin-4x;
+      margin-top: $margin-4x;
+      border-top: 1px solid $border-color;
 
       & > div {
         flex: 1;
         text-align: center;
-        border-right: 1px solid $border-color-primary;
+        border-right: 1px solid $border-color;
 
         &:last-child {
           border: none;
@@ -91,9 +93,9 @@
 
       svg {
         cursor: pointer;
-        font-size: 16px;
-        color: $color-grey-4;
-        &:hover { color: $color-status-master-1; }
+        font-size: $text-size-lg;
+        color: $text-color-feature;
+        &:hover { color: $color-master; }
       }
     }
 
@@ -103,8 +105,8 @@
 
       span {
         font-size: $text-size-lg;
-        margin-left: 12px;
-        font-weight: 500;
+        margin-left: $margin-3x;
+        font-weight: $page-card-font-weight-bold;
         color: $text-color-primary;
       }
     }
@@ -112,22 +114,17 @@
     &.active {
       .card-box--title svg {
         color: $color-status-success;
-        font-weight: 500;
+        font-weight: $page-card-font-weight-bold;
       }
     }
   }
 }
 
-/* 小卡片 */
-.card1-page {
-  @include card1-page();
-}
-
 /* 大卡片 -- Card3 */
 
-.card-big {
+.page-card-list.card-big {
   .el-card {
-    border: 1px solid $color-grey-6;
+    border: 1px solid $border-color;
   }
 
   .el-card.is-hover-shadow:hover {
@@ -135,12 +132,12 @@
   }
 
   .card-btn {
-    margin-bottom: 16px;
+    margin-bottom: $margin-4x;
   }
 
   .card-box {
     .el-col {
-      margin-bottom: 20px;
+      margin-bottom: $margin-5x;
 
       .el-card.is-hover-shadow:hover {
         box-shadow: $shadow-card;
@@ -148,8 +145,8 @@
     }
 
     &__info {
-      padding: 4px;
-      height: 167px;
+      padding: $padding;
+      height: $page-card3-box-info-height;
 
       &__header {
         display: flex;
@@ -159,79 +156,77 @@
       &__avatar {
         display: inline-block;
         vertical-align: middle;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        color: $color-grey-4;
+        width: $page-card-title-icon-size;
+        height: $page-card-title-icon-size;
+        color: $text-color-feature;
       }
 
       &__name {
         display: inline-block;
         vertical-align: middle;
-        font-size: 16px;
+        font-size: $text-size-lg;
         color: $color-grey-1;
-        font-weight: 500;
-        margin-left: 12px;
+        font-weight: $page-card-font-weight-bold;
+        margin-left: $margin-3x;
       }
 
       &__version {
         display: inline-block;
         vertical-align: middle;
-        margin-left: 16px;
-        font-size: 12px;
+        margin-left: $margin-4x;
+        font-size: $text-size;
         color: $color-grey-2;
-        line-height: 20px;
-        font-weight: 400;
+        line-height: $page-card-box-text-line-height;
+        font-weight: $text-weight;
 
         &__num {
           color: $color-master-1;
-          padding-left: 3px;
+          padding-left: $padding;
         }
       }
 
       &__handle {
         margin-left: auto;
-        font-size: 18px;
-        color: $color-grey-3;
+        font-size: $text-size-xl;
+        color: $text-color-light;
         cursor: pointer;
 
-        & > * {
-          margin: 0 10px;
+        & > *:not(:first-of-type){
+          margin-left: $margin-5x;
         }
       }
 
       &__con {
-        margin-top: 16px;
+        margin-top: $margin-4x;
         display: flex;
       }
 
       &__text {
-        font-size: 12px;
+        font-size: $text-size;
         color: $color-grey-1;
-        line-height: 20px;
-        font-weight: 500;
+        line-height: $page-card-box-text-line-height;
+        font-weight: $page-card-font-weight-bold;
         display: inline-block;
-        margin-right: 12px;
+        margin-right: $margin-3x;
         white-space: nowrap;
       }
 
       &__tag {
         display: flex;
         flex-flow: wrap;
-        margin-bottom: -4px;
+        margin-bottom: -$margin;
 
         & > * {
-          margin-bottom: 4px;
-          border-radius: 2px;
-          padding: 1px 8px;
-          margin-right: 6px;
+          margin-bottom: $margin;
+          border-radius: $page-card-tag-border-radius;
+          margin-right: $margin-2x;
           white-space: nowrap;
           cursor: pointer;
         }
       }
 
       &__describe {
-        width: calc(100% - 40px);
+        // width: calc(100% - 40px);
         display: inline-block;
         overflow: hidden;
 
@@ -239,7 +234,7 @@
           display: inline-block;
           overflow-y: scroll;
           height: 100%;
-          line-height: 20px;
+          line-height: $page-card-box-text-line-height;
         }
       }
     }
@@ -247,16 +242,14 @@
     &.active {
       .card-box__info__avatar svg {
         color: $color-status-success;
-        font-weight: 500;
+        font-weight: $page-card-font-weight-bold;
       }
     }
   }
 }
 
-// 小卡片较少
-.card-small {
-  @include card1-page();
-
+/* 小卡片 */
+.page-card-list.card-small {
   .card-box-less {
     .el-card__body {
       padding: 0;
@@ -266,9 +259,13 @@
       display: flex;
 
       .card-box--info {
-        display: flex;
-        line-height: 34px;
-        margin-top: 3px;
+        // display: flex;
+        // line-height: $page-card-box-info-line-height;
+        // margin-top: $margin;
+
+        .card-box--input {
+          flex: 1;
+        }
 
         .input-box {
           width: 100%;
@@ -276,7 +273,7 @@
         }
 
         .card-box--input-text {
-          width: 260px;
+          width: $page-card-input-text-max-width;
           text-overflow: ellipsis;
           overflow: hidden;
           white-space: nowrap;
@@ -285,35 +282,34 @@
 
       .card-cont {
         width: 100%;
-        padding: 16px 16px 12px;
+        padding: $padding-4x $padding-4x $padding-3x;
 
         .card-box--bar--text {
           width: 50%;
         }
 
         .card-box--title {
-          line-height: 24px;
-          font-weight: 500;
+          line-height: $page-card-box-title-line-height;
+          font-weight: $page-card-font-weight-bold;
 
           .card-box--title-icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
+            width: $page-card-title-icon-size;
+            height: $page-card-title-icon-size;
             background-color: $color-tag-success-1;
-            padding: 5px;
-            margin-right: 16px;
+            padding: $padding;
+            margin-right: $margin-4x;
 
             .svg-icon {
               display: block;
-              &:hover { color: $color-status-master-1; }
+              &:hover { color: $color-master; }
             }
           }
         }
       }
 
       .card-box--btns-less {
-        width: 40px;
-        border-left: 1px solid $border-color-primary;
+        width: $page-card2-btns-width;
+        border-left: 1px solid $border-color;
         justify-content: space-between;
         margin-left: auto;
         display: flex;
@@ -325,8 +321,8 @@
           justify-content: center;
           align-items: center;
           text-align: center;
-          border-bottom: 1px solid $border-color-primary;
-          background-color: $color-grey-11;
+          border-bottom: 1px solid $border-color;
+          background-color: $color-neutral-1;
 
           &:last-child {
             border: none;
@@ -339,22 +335,29 @@
         }
 
         svg {
-          font-size: 16px;
-          color: $color-grey-4;
-          &:hover { color: $color-status-master-1; }
+          font-size: $text-size-lg;
+          color: $text-color-feature;
+          &:hover { color: $color-master; }
         }
       }
     }
   }
 }
 
-.card-box__info__handle {
-  svg {
-    color: $color-grey-4;
-    &:hover { color: $color-status-master-1; }
+.page-card-list {
+  .card-box .card-box--title--icon {
+    width: $page-card-title-icon-size;
+    height: $page-card-title-icon-size;
   }
+
+  .card-box__info__handle {
+    svg {
+      color: $text-color-feature;
+      &:hover { color: $color-master; }
+    }
+  }
+  .card-disabled svg { color: $disabled-border !important; }
+  .card-disabled svg:hover { cursor: not-allowed !important; }
+  .card-big .card-box__info__describe__text { width: 100%; overflow-y: auto; }
+  .card-big .card-box__info__describe__text .card-box--input { height: 100%; }
 }
-.card-disabled svg { color: $color-grey-6 !important; }
-.card-disabled svg:hover { cursor: not-allowed !important; }
-.card-big .card-box__info__describe__text { width: 100%; overflow-y: auto; }
-.card-big .card-box__info__describe__text .card-box--input { height: 100%; }

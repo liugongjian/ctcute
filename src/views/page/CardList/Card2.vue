@@ -1,12 +1,12 @@
 <!--
  * @Author: 孙善鹏
  * @Date: 2022-07-11 16:23:57
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-03-14 13:55:22
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-04-06 18:20:19
  * @Description: 卡片2
 -->
 <template>
-  <el-card class="card-small">
+  <el-card class="page-card-list card-small">
     <div class="card-tools">
       <div class="card-tools__left">
         <el-button type="primary">+ 新增质检方案</el-button>
@@ -34,7 +34,7 @@
             <div class="card-box">
               <div class="card-cont">
                 <div class="card-box--title">
-                  <svg-icon name="question-circle-fill" width="24px" height="24px" />
+                  <svg-icon class="card-box--title--icon" name="question-circle-fill" />
                   <div class="card-box--title-text">
                     {{ card.title }}
                   </div>
@@ -97,6 +97,7 @@ import { CuteEditInput } from '@cutedesign/ui'
 import { Component, Vue } from 'vue-property-decorator'
 import { getCardList } from '@/api/card2'
 import type { CardListItem } from '@/types/Card2'
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 
 @Component({
   name: 'Card1',
@@ -105,6 +106,7 @@ import type { CardListItem } from '@/types/Card2'
   },
 })
 export default class extends Vue {
+  private variables = variables
   /**
    * 页面Mounted
    */

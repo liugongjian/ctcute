@@ -280,7 +280,8 @@ $button-group-border: rgba($color-black, 0.5) !default;
 
 /* Form
 -------------------------- */
-$form-item-label-line-height: 32px !default;
+$form-item-label-line-height: 32px !default; // label
+$form-item-content-line-height: 30px !default; //  content
 $form-item-error-padding-top: $padding-6 !default;
 $form-item-margin-bottom: $margin-6x !default;
 

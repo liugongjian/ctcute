@@ -282,7 +282,8 @@ $button-group-border: rgba($color-white, 0.5) !default;
 
 /* Form
 -------------------------- */
-$form-item-label-line-height: 32px !default;
+$form-item-label-line-height: 32px !default; // label
+$form-item-content-line-height: 30px !default; //  content
 $form-item-error-padding-top: $padding-6 !default;
 $form-item-margin-bottom: $margin-6x;
 
@@ -481,6 +482,8 @@ $steps-icon-inner-status-size-sm: $text-size-sm !default; // 小号状态icon si
 $steps-icon-inner-text-size-md: $text-size-md !default; // 小号标号size：14px
 $steps-icon-inner-text-size-sm: $text-size-md !default; // 中号标号size：14px
 $steps-line-size: 1px; // 线条粗细;
+$steps-icon-bg: $blue-1 !default; // 完成步骤背景色
+
 
 /* Dialog
 -------------------------- */

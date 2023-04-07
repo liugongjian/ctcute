@@ -147,7 +147,7 @@
 
     .el-input__inner {
       height: $height;
-      line-height: $height;
+      line-height: $height - 2;
     }
 
     .el-input__icon {

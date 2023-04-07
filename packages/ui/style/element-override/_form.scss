@@ -24,7 +24,9 @@
 }
 
 .el-form-item--medium .el-form-item__content {
-  line-height: $form-item-label-line-height;
+  line-height: $form-item-content-line-height;
+  // margin-top: -1px;
+  
 }
 
 .el-form-item__error {

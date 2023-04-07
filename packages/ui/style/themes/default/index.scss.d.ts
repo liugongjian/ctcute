@@ -500,6 +500,7 @@ export interface IScssVariablesRevised {
   tabsMdHeight: string
   tabsLgHeight: string
   tabsButtonRadius: string
+  tabsDefaultLineColor: string
 }
 
 export const variablesRevised: IScssVariablesRevised

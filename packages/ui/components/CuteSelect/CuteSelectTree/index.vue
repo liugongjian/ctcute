@@ -201,23 +201,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.el-tree {
-  color: $text-color;
-  font-weight: $text-weight;
-}
-
-.el-select-dropdown__item,
-.el-select-dropdown__item.hover {
-  background: $color-bg-1;
-  padding: 0;
-}
-
-.el-select-dropdown.el-popper.is-multiple {
-  .el-select-dropdown__item.hover {
-    background: $color-bg-1;
-    padding: 0;
-  }
-}
-</style>

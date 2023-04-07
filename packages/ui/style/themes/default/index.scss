@@ -1,4 +1,5 @@
 /* stylelint-disable property-case */
+@import './variables.scss';
 
 :export {
   colorMaster: $color-master;
@@ -465,4 +466,5 @@
   tabsMdHeight: $tabs-md-height;
   tabsLgHeight: $tabs-lg-height;
   tabsButtonRadius: $tabs-button-radius;
+  tabsDefaultLineColor: $tabs-default-line-color;
 }

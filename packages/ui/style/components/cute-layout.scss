@@ -1,0 +1,161 @@
+.layout-container {
+  background: $layout-bg;
+}
+
+.hideheader {
+  margin-top: 0;
+}
+
+.app-breadcrumb.el-breadcrumb {
+  display: inline-block;
+}
+
+.layout-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1999;
+  height: $layout-header-height;
+  display: flex;
+  justify-content: space-between;
+  background: $layout-header-fill-1;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    padding-left: 28px;
+
+    &--ct {
+      height: 22px;
+    }
+
+    &--project {
+      display: flex;
+      align-items: center;
+      margin-left: 15px;
+      padding-left: 15px;
+      border-left: 1px solid $layout-header-border;
+      color: $color-white;
+
+      .logo-normal,
+      .svg-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 6px;
+      }
+
+      .logo-art {
+        height: 15px;
+        margin-top: 3px; // 因包含字母g，向下偏移3个像素，让视觉水平居中
+      }
+    }
+  }
+
+  &__logo:hover {
+    cursor: pointer;
+  }
+}
+
+.desc-nav {
+  .desc {
+    margin-left: 10px;
+  }
+}
+
+.cute-scrollbar-wrapper {
+  width: $layout-sidebar-width;
+
+  .back-sidebar {
+    font-size: 14px;
+    color: $color-grey-2;
+    padding: 0 0 10px 32px;
+    font-weight: bold;
+  }
+}
+
+.cute-sidebar {
+  display: flex;
+  position: relative;
+
+  .back {
+    cursor: pointer;
+
+    .svg-icon {
+      margin-right: 5px;
+    }
+  }
+
+  &--left {
+    width: 50px;
+    flex: none;
+    font-size: 16px;
+    color: $color-grey-2;
+    border-right: 1px solid $border-color-primary;
+
+    >div {
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $layout-sidebar-sub-hover;
+      }
+
+      &.is-first {
+        margin-bottom: 1px;
+      }
+
+      &.is-active {
+        background-color: $layout-sidebar-sub-hover;
+        color: $color-master-1;
+      }
+
+      .division {
+        height: 1px;
+        background-color: $border-color-primary;
+        margin: 0 8px;
+      }
+    }
+  }
+
+  &--knob {
+    height: 80px;
+    width: 12px;
+    position: absolute;
+    top: calc(50% - 40px - $layout-header-height / 2); // 40px是自身高度的一半
+    right: -12px;
+    background: $color-bg-2;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    color: $color-grey-2;
+    display: flex;
+    align-items: center;
+
+    .svg-icon {
+      color: $color-grey-3;
+    }
+  }
+
+  .svg-icon {
+    margin-right: 16px;
+  }
+
+  .simple-mode {
+    .svg-icon {
+      margin-left: 20px;
+    }
+  }
+
+  .append-icon {
+    display: inline-flex;
+    align-items: center;
+
+    .svg-icon {
+      margin-right: 5px;
+    }
+  }
+}

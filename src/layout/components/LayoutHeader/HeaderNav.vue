@@ -43,7 +43,7 @@ import Search from '../Search/index.vue'
 })
 export default class extends Vue {
   private keyword = ''
-  private isLogin = this.$auth.isLogin || ''
+  private isLogin = this.$auth.isLogin || false
   private flag = false
   private username = this.$auth.userInfo?.name || ''
   private get currentPath() {

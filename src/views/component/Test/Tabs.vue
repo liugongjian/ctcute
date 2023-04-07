@@ -35,7 +35,13 @@
     </el-row>
     <h3>可关闭</h3>
     <el-row class="sub-tabs">
-      <el-tabs v-model="value.default" closable @tab-remove="value => removeTab('default', value)">
+      <el-tabs
+        v-model="value.default"
+        closable
+        addable
+        @tab-add="value => addTab('default', value)"
+        @tab-remove="value => removeTab('default', value)"
+      >
         <el-tab-pane
           v-for="item in editableTabs.default"
           :key="item.name"
@@ -103,6 +109,8 @@
         v-model="value.button"
         type="button"
         closable
+        addable
+        @tab-add="value => addTab('button', value)"
         @tab-remove="value => removeTab('button', value)"
       >
         <el-tab-pane
@@ -168,7 +176,14 @@
     </el-row>
     <h3>可关闭</h3>
     <el-row class="sub-tabs">
-      <el-tabs v-model="value.card" type="card" closable @tab-remove="value => removeTab('card', value)">
+      <el-tabs
+        v-model="value.card"
+        type="card"
+        closable
+        addable
+        @tab-add="value => addTab('card', value)"
+        @tab-remove="value => removeTab('card', value)"
+      >
         <el-tab-pane
           v-for="item in editableTabs.card"
           :key="item.name"
@@ -236,6 +251,8 @@
         v-model="value.borderCard"
         type="border-card"
         closable
+        addable
+        @tab-add="value => addTab('borderCard', value)"
         @tab-remove="value => removeTab('borderCard', value)"
       >
         <el-tab-pane
@@ -347,10 +364,22 @@ export default class extends Vue {
       tabs.filter(tab => tab.name !== targetName)
     )
   }
+
+  private addTab(type) {
+    const newTabName = this.editableTabs[type].length + 1 + ''
+    const tabs = [...this.editableTabs[type]]
+    tabs.push({
+      title: 'New Tab',
+      name: newTabName,
+      content: 'New Tab content',
+    })
+    this.$set(this.editableTabs, type, tabs)
+    this.$set(this.value, type, newTabName)
+  }
 }
 </script>
 <style lang="scss" scoped>
 .sub-tabs {
-  max-width: 500px;
+  max-width: 800px;
 }
 </style>

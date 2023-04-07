@@ -365,7 +365,9 @@ $transfer-button-radius: 50% !default; // Transfer组件圆形按钮
 $transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
 $transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
 $transfer-item-height: 32px !default; // Transfer组件选项高度
-$transfer-filter-height: $input-sm-height !default; // Transfer组件搜索框高度
+$transfer-filter-input-height: 28px !default; // Transfer组件搜索框高度
+$transfer-filter-input-margin: $margin-10 !default; // Transfer组件搜索框高度
+$transfer-filter-height: calc($transfer-filter-input-height + $transfer-filter-input-margin) !default; // Transfer组件filter区域高度
 $transfer-footert-bg: $color-white !default; // Transfer组件footer背景色
 $transfer-footer-height: 40px !default; // Transfer组件footer高度
 
@@ -612,6 +614,7 @@ $cute-area-head-color: $neutral-9 !default;
 $cute-area-item-color: $neutral-10 !default;
 $cute-area-wrap-margin: 40px !default;
 
+
 /* Animation
 -------------------------- */
 $transition-time: 200ms !default;
@@ -711,3 +714,22 @@ $chartColorL9: #f5f6fe !default;
 $chartColorL10: #effaf7 !default;
 $chartColorL11: #fdf0ef !default;
 $chartColorL12: #fef9f3 !default;
+
+
+/* Page
+-------------------------- */
+
+/* Page-CardList
+-------------------------- */
+$page-card-input-width: 300px !default;
+$page-card-title-text-max-width: 260px !default;
+$page-card-input-text-max-width: 260px !default;
+$page-card-box-info-line-height: 34px !default;
+$page-card-box-title-line-height: 24px !default;
+$page-card-box-text-line-height: 20px !default;
+$page-card-box-info-min-height: 30px !default;
+$page-card-title-icon-size: 24px !default;
+$page-card-font-weight-bold: 500 !default;
+$page-card-tag-border-radius: 2px !default;
+$page-card2-btns-width: 40px !default;
+$page-card3-box-info-height: 167px !default;

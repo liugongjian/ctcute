@@ -475,9 +475,10 @@ $alert-weak-bg: $neutral-1;
 $cute-slider-marks-height: 6px;
 $cute-slider-bar-height: 10px;
 $cute-slider-input-width: 64px;
-$cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light);
+$cute-slider-line-color: $color-white;
+$cute-slider-btn-bg: linear-gradient(to bottom, $color-master, $color-master-bg-light);
 $cute-slider-btn-radius: 8px;
-$cute-slider-btn-width: 16px;
+$cute-slider-btn-width: 17px;
 $cute-slider-btn-height: 22px;
 
 /* Layout

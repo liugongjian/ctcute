@@ -220,6 +220,7 @@
         <div>
           <el-input
             v-model="formData.password"
+            class="input-forgot"
             :size="inputSize"
             placeholder="请输入密码"
             type="text"

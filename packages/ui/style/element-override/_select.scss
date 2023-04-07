@@ -38,7 +38,7 @@
   }
 }
 
-/*
+/* 
   重置Select Tag样式
 */
 .el-select {
@@ -142,14 +142,5 @@
     .el-tree {
       background-color: $color-bg-1;
     }
-  }
-}
-.el-select-dropdown__item{
-  .el-tree{ margin-top: 0;
-    // .el-tree-node__content{
-    //   &:hover {
-    //     background-color: $color-neutral-1;
-    //   }
-    // }
   }
 }

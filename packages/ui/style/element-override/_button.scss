@@ -149,6 +149,10 @@
     &.is-square {
       padding: $top-padding $top-padding;
     }
+
+    &.is-round {
+      padding: $padding;
+    }
   }
 }
 @include button-size(mini, $text-size, $button-padding-mini, -0.17em);

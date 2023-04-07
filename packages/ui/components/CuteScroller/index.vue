@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 15:21:30
+ * @LastEditTime: 2023-04-07 09:18:52
  * @Description:
 -->
 <template>
@@ -64,11 +64,12 @@ export default class extends Vue {
     const layoutContainerStyle = window.getComputedStyle(layoutContainer)
     // 获取padding值
     const layoutContainerPaddingBottom = parseInt(layoutContainerStyle.getPropertyValue('padding-bottom'))
+    const nextSibling: any = this.$el.nextSibling
     // 分页器高度
     let paginationHeight = 0
     // 先判断是否存在分页器
-    if ((this.$el.nextSibling as any).className === 'el-pagination') {
-      paginationHeight = (this.$el.nextSibling as any).clientHeight
+    if (nextSibling.className === 'el-pagination') {
+      paginationHeight = nextSibling.clientHeight
     }
     this.heightVal = `${
       document.body.clientHeight -

@@ -1,4 +1,4 @@
-import Vue, { VueInstance, PluginFunction } from 'vue'
+import { VueInstance, PluginFunction } from 'vue'
 import { AxiosInstance } from 'axios'
 import Router, { RouteConfig, Route } from 'vue-router'
 
@@ -115,6 +115,8 @@ export interface AuthInstance {
   tokenName: string
   userInfo: UserInfo
   isLogin: boolean
+
+  isAuthorized: (permissions: string[]) => boolean
 
   getToken: () => string | undefined
   removeToken: () => void

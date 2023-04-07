@@ -142,7 +142,7 @@ export default <AuthConfigOptions>{
           container.id = containerId
           const console = await layout.init()
           // 侧边栏高亮
-          console.match({ key: bizDomain })
+          console.matchConsoleMenuCode({ menuCode: bizDomain })
         }
       }
     } catch (err) {

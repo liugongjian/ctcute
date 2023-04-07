@@ -100,8 +100,7 @@ declare namespace CtcloudLayout {
     // 控制台顶部头像下拉框列表(不可嵌套)
     init(args?: CtcloudLayout.consoleInitArgs): MvvmInstance
     // 侧边栏高亮， 使用的是接口 GetTree?domain=console.leftbar.v2
-    // key: 对应左侧菜单 menuCode 高亮；domian: 对应顶部菜单 domain 高亮
-    match(args: { domain?: string; key?: string }): void
+    matchConsoleMenuCode(args: { menuCode: string; fontColor?: string }): void
     // 隐藏侧边栏
     hideSiderMenu(): void
   }
@@ -120,7 +119,7 @@ declare namespace CtcloudLayout {
   export interface setLayoutConfig {
     (config: any): void
   }
-  // 资源池选择（未实现）
+  // 资源池选择
   export interface regionChooser {
     // 初始化
     init(args: {

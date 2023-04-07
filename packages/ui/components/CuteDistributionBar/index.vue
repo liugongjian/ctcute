@@ -66,16 +66,16 @@ export default class extends Vue {
   @Prop({
     type: Array,
     default: () => [
-      variables.chartColorH12,
-      variables.chartColor3,
-      variables.chartColor4,
-      variables.chartColor11,
-      variables.chartColor8,
-      variables.chartColor9,
-      variables.chartColor5,
       variables.chartColor1,
+      variables.chartColor2,
       variables.chartColor6,
+      variables.chartColor8,
       variables.chartColor10,
+      variables.chartColor11,
+      variables.chartColor5,
+      variables.chartColor4,
+      variables.chartColor7,
+      variables.chartColor9,
     ],
   })
   colors: []

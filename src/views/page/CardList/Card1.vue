@@ -129,14 +129,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-// .card1-page .card-box .card-box--info {
-//   line-height: $-box-info-line-height;
-//   display: flex;
-// }
-
-// .card-box--title--icon {
-//   width: $-title-icon-size;
-//   height: $-title-icon-size;
-// }
-</style>

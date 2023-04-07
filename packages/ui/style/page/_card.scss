@@ -7,7 +7,7 @@
   .card-tools__right {
     margin-left: auto;
     .el-form--inline .el-form-item { margin: 0 0 $margin-4x; }
-    .card1-input { width: $page-card-input-width; }
+    .card1-input { width: 300px; }
   }
 
   .card-tools {
@@ -44,7 +44,7 @@
       margin-bottom: $margin-4x;
 
       &-text {
-        max-width: $page-card-title-text-max-width;
+        max-width: 260px;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
@@ -61,15 +61,14 @@
     }
 
     .card-box--info {
-      line-height: $page-card-box-info-line-height;
-      margin-top: $margin;
+      margin: $margin-10 0;
       word-break: break-all;
       text-overflow: ellipsis;
       display: flex;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       overflow: hidden;
-      min-height: $page-card-box-info-min-height;
+      min-height: 30px;
     }
 
     .card-box--btns {
@@ -106,7 +105,7 @@
       span {
         font-size: $text-size-lg;
         margin-left: $margin-3x;
-        font-weight: $page-card-font-weight-bold;
+        
         color: $text-color-primary;
       }
     }
@@ -114,7 +113,7 @@
     &.active {
       .card-box--title svg {
         color: $color-status-success;
-        font-weight: $page-card-font-weight-bold;
+        
       }
     }
   }
@@ -146,7 +145,7 @@
 
     &__info {
       padding: $padding;
-      height: $page-card3-box-info-height;
+      height: 167px;
 
       &__header {
         display: flex;
@@ -156,8 +155,8 @@
       &__avatar {
         display: inline-block;
         vertical-align: middle;
-        width: $page-card-title-icon-size;
-        height: $page-card-title-icon-size;
+        width: 24px;
+        height: 24px;
         color: $text-color-feature;
       }
 
@@ -165,8 +164,7 @@
         display: inline-block;
         vertical-align: middle;
         font-size: $text-size-lg;
-        color: $color-grey-1;
-        font-weight: $page-card-font-weight-bold;
+        color: $text-color;
         margin-left: $margin-3x;
       }
 
@@ -175,9 +173,9 @@
         vertical-align: middle;
         margin-left: $margin-4x;
         font-size: $text-size;
-        color: $color-grey-2;
-        line-height: $page-card-box-text-line-height;
-        font-weight: $text-weight;
+        color: $text-color-light;
+        line-height: $line-height;
+        
 
         &__num {
           color: $color-master-1;
@@ -203,9 +201,8 @@
 
       &__text {
         font-size: $text-size;
-        color: $color-grey-1;
-        line-height: $page-card-box-text-line-height;
-        font-weight: $page-card-font-weight-bold;
+        color: $text-color;
+        line-height: $line-height;
         display: inline-block;
         margin-right: $margin-3x;
         white-space: nowrap;
@@ -218,7 +215,7 @@
 
         & > * {
           margin-bottom: $margin;
-          border-radius: $page-card-tag-border-radius;
+          border-radius: $border-radius;
           margin-right: $margin-2x;
           white-space: nowrap;
           cursor: pointer;
@@ -234,7 +231,7 @@
           display: inline-block;
           overflow-y: scroll;
           height: 100%;
-          line-height: $page-card-box-text-line-height;
+          line-height: $line-height;
         }
       }
     }
@@ -242,7 +239,7 @@
     &.active {
       .card-box__info__avatar svg {
         color: $color-status-success;
-        font-weight: $page-card-font-weight-bold;
+        
       }
     }
   }
@@ -259,9 +256,6 @@
       display: flex;
 
       .card-box--info {
-        // display: flex;
-        // line-height: $page-card-box-info-line-height;
-        // margin-top: $margin;
 
         .card-box--input {
           flex: 1;
@@ -273,7 +267,7 @@
         }
 
         .card-box--input-text {
-          width: $page-card-input-text-max-width;
+          width: 260px;
           text-overflow: ellipsis;
           overflow: hidden;
           white-space: nowrap;
@@ -289,12 +283,11 @@
         }
 
         .card-box--title {
-          line-height: $page-card-box-title-line-height;
-          font-weight: $page-card-font-weight-bold;
+          margin: $margin 0;
 
           .card-box--title-icon {
-            width: $page-card-title-icon-size;
-            height: $page-card-title-icon-size;
+            width: 24px;
+            height: 24px;
             background-color: $color-tag-success-1;
             padding: $padding;
             margin-right: $margin-4x;
@@ -308,7 +301,7 @@
       }
 
       .card-box--btns-less {
-        width: $page-card2-btns-width;
+        width: 40px;
         border-left: 1px solid $border-color;
         justify-content: space-between;
         margin-left: auto;
@@ -346,8 +339,8 @@
 
 .page-card-list {
   .card-box .card-box--title--icon {
-    width: $page-card-title-icon-size;
-    height: $page-card-title-icon-size;
+    width: 24px;
+    height: 24px;
   }
 
   .card-box__info__handle {

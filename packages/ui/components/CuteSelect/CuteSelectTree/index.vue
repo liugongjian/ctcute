@@ -1,12 +1,18 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-07 11:00:09
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-04-07 16:47:09
  * @Description: 树选择器
 -->
 <template>
-  <el-select ref="selector" :value="treeData" placeholder="请选择" :multiple="multiple ? true : false">
+  <el-select
+    ref="selector"
+    :value="treeData"
+    placeholder="请选择"
+    :multiple="multiple ? true : false"
+    popper-class="cute-select-tree"
+  >
     <el-option :value="value" :label="label" style="height: auto;">
       <el-tree
         v-if="$scopedSlots.node"
@@ -201,23 +207,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.el-tree {
-  color: $text-color;
-  font-weight: $text-weight;
-}
-
-.el-select-dropdown__item,
-.el-select-dropdown__item.hover {
-  background: $color-bg-1;
-  padding: 0;
-}
-
-.el-select-dropdown.el-popper.is-multiple {
-  .el-select-dropdown__item.hover {
-    background: $color-bg-1;
-    padding: 0;
-  }
-}
-</style>

@@ -51,7 +51,7 @@
     padding: 0;
   }
 
-  .el-select-dropdown.el-popper.is-multiple {
+  &.el-select-dropdown.el-popper.is-multiple {
     .el-select-dropdown__item.hover {
       background: $color-bg-1;
       padding: 0;

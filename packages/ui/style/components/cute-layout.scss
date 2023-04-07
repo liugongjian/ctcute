@@ -61,7 +61,7 @@
 
 .cute-scrollbar-wrapper {
   width: $layout-sidebar-width;
-
+  overflow-y: auto;
   .back-sidebar {
     font-size: 14px;
     color: $color-grey-2;

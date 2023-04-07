@@ -1,8 +1,8 @@
 /*
  * @Author: 马妍
  * @Date: 2022-07-29 10:25:03
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-02-02 12:06:17
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-07 13:05:03
  * @Description:
  */
 import Vue from 'vue'
@@ -73,7 +73,7 @@ const base = [
     name: 'Home',
     component: () => import('@/views/home/index.vue'),
     meta: {
-      title: '首页',
+      title: 'home.title',
       breadcrumb: false,
     },
   },

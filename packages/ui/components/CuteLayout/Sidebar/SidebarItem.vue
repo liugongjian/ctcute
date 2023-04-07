@@ -19,7 +19,7 @@
             <span v-if="theOnlyOneChild.meta && theOnlyOneChild.meta.icon" class="append-icon">
               <svg-icon :name="theOnlyOneChild.meta.icon" :width="14" :height="14" />
             </span>
-            <span v-if="theOnlyOneChild.meta.title" slot="title">{{ theOnlyOneChild.meta.title }}</span>
+            <span v-if="theOnlyOneChild.meta.title" slot="title">{{ t(theOnlyOneChild.meta.title) }}</span>
           </template>
         </el-menu-item>
       </sidebar-item-link>
@@ -30,7 +30,7 @@
         <span v-if="item.meta && item.meta.icon" class="append-icon">
           <svg-icon :name="item.meta.icon" :width="14" :height="14" />
         </span>
-        <span v-if="item.meta && item.meta.title" slot="title">{{ item.meta.title }}</span>
+        <span v-if="item.meta && item.meta.title" slot="title">{{ t(item.meta.title) }}</span>
       </template>
       <div
         v-if="item.children"
@@ -52,8 +52,10 @@
 
 <script lang="ts">
 import path from 'path'
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop } from 'vue-property-decorator'
+import { mixins } from 'vue-class-component'
 import { RouteConfig } from 'vue-router'
+import Locale from '@cutedesign/ui/mixins/locale'
 import { isExternal } from '../utils/validate'
 import SidebarItemLink from './SidebarItemLink.vue'
 
@@ -65,7 +67,7 @@ import SidebarItemLink from './SidebarItemLink.vue'
     SidebarItemLink,
   },
 })
-export default class extends Vue {
+export default class extends mixins(Locale) {
   @Prop({ required: true }) public item!: RouteConfig
   @Prop({ default: false }) public isCollapse!: boolean
   @Prop({ default: true }) public isFirstLevel!: boolean

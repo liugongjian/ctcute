@@ -57,6 +57,10 @@ location /ctyun/layout {
   proxy_set_header Host www.ctyun.cn;
   proxy_pass https://www.ctyun.cn/console/layout;
 }
+location /ctyun {
+  proxy_set_header Host www.ctyun.cn;
+  proxy_pass https://www.ctyun.cn;
+}
 ```
 
 ## 二、user

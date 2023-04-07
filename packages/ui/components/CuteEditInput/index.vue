@@ -15,8 +15,18 @@
       :type="textarea ? 'textarea' : 'text'"
       :placeholder="t('cute.editInput.placeholder')"
     ></el-input>
-    <svg-icon :class="size" name="check" :color="colorVariables.colorSuccess" @click="onOk" />
-    <svg-icon :class="size" name="close" :color="colorVariables.colorDanger" @click="editing = false" />
+    <svg-icon
+      :class="'cute-edit-input-edit-icon__' + size"
+      name="check"
+      :color="colorVariables.colorSuccess"
+      @click="onOk"
+    />
+    <svg-icon
+      :class="'cute-edit-input-edit-icon__' + size"
+      name="close"
+      :color="colorVariables.colorDanger"
+      @click="editing = false"
+    />
   </span>
 </template>
 
@@ -48,20 +58,3 @@ export default class extends mixins(Locale) {
   }
 }
 </script>
-<style lang="scss" scoped>
-.small,
-.mini {
-  width: 12px;
-  height: 12px;
-}
-
-.large {
-  width: 20px;
-  height: 20px;
-}
-
-.medium {
-  width: 16px;
-  height: 16px;
-}
-</style>

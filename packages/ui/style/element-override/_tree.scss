@@ -96,6 +96,7 @@
   &.is-current {
     & > .el-tree-node__content {
       color: $color-master;
+      font-weight: 500;
       background: none;
 
       .el-checkbox__inner {

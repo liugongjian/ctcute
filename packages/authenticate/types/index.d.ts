@@ -96,7 +96,7 @@ export interface AuthConfigOptions {
   bindResponseInterceptor?: ($auth: AuthInstance) => void
   beforeEachStartHook?: (to: Route, $auth: AuthInstance) => Promise<Route | undefined>
   beforeEachErrorHook?: (to: Route, $auth: AuthInstance) => Promise<Route | undefined>
-  loadLayout?: ($auth: AuthInstance) => Promise<void>
+  loadLayout?: ($auth?: AuthInstance) => Promise<void>
   providers?: AuthProviders
 }
 

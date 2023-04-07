@@ -3,10 +3,10 @@
  * @Date: 2022-10-19 10:59:22
  * @LastEditors: 孙善鹏
  * @LastEditTime: 2023-01-11 17:49:28
- * @Description: 
+ * @Description:
 -->
 <template>
-  <el-card v-loading="loading" class="chart-card" :bordered="false" :shadow="shadow">
+  <el-card v-loading="loading" class="cute-chart-card" :bordered="false" :shadow="shadow">
     <div class="chart-card-icon-warp" :style="'background-color:rgb(' + background + ',0.2)'">
       <div class="chart-card-icon" :style="'background-color:rgb(' + background + ')'">
         <svg-icon :name="icon" :color="svgColor" width="28" height="28" />
@@ -35,54 +35,3 @@ export default class extends Vue {
   @Prop({ type: String, default: 'never' }) shadow?: 'never' // 卡片是否有阴影
 }
 </script>
-
-<style lang="scss" scoped>
-// box-shadow: 0 2px 8px 0 $shadow-table-card;
-
-.chart-card {
-  display: flex;
-  border-radius: 4px;
-
-  ::v-deep .el-card__body {
-    display: flex;
-  }
-
-  .chart-card-icon-warp {
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 29px;
-
-    .chart-card-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  .chart-card-cont-warp {
-    width: 240px;
-
-    h3 {
-      font-family: bahnschrift;
-      font-size: 30px;
-      line-height: 42px;
-      margin: 0;
-      color: $color-grey-1;
-    }
-
-    p {
-      font-size: 14px;
-      color: $color-grey-2;
-      line-height: 28px;
-      margin: 0;
-    }
-  }
-}
-</style>

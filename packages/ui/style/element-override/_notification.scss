@@ -2,6 +2,8 @@
 -------------------------- */
 .el-notification {
   padding: $padding-4x;
+  background: $color-bg-2;
+  border-color: $notification-border-color;
 }
 
 .el-notification__group {

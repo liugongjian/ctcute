@@ -131,6 +131,13 @@
     font-size: $font-size;
     padding: $padding;
 
+    .svg-icon,
+    [class*=el-icon-] {
+      font-size: $font-size - 1; // 文字字体大小减1后再通过scale缩放，避免按钮被撑高的问题
+      line-height: 1;
+      transform: scale(1.28);
+    }
+
     .svg-icon {
       vertical-align: $icon-vertical-align !important;
     }
@@ -142,11 +149,15 @@
     &.is-square {
       padding: $top-padding $top-padding;
     }
+
+    &.is-round {
+      padding: $padding;
+    }
   }
 }
-@include button-size(mini, $text-size, $button-padding-mini, -0.21em);
-@include button-size(small, $text-size, $button-padding-small, -0.21em);
-@include button-size(medium, $text-size, $button-padding-medium, -0.19em);
+@include button-size(mini, $text-size, $button-padding-mini, -0.17em);
+@include button-size(small, $text-size, $button-padding-small, -0.17em);
+@include button-size(medium, $text-size, $button-padding-medium, -0.16em);
 @include button-size(large, $text-size-md, $button-padding-large, -0.15em);
 
 /*
@@ -156,12 +167,6 @@
   /*
     重置按钮图标样式
   */
-  .svg-icon,
-  [class*=el-icon-] {
-    font-size: $text-size-md;
-    line-height: 1;
-  }
-
   [class*=el-icon-]+span,
   .svg-icon+span {
     margin-left: $margin;
@@ -171,7 +176,7 @@
     无边框按钮
   */
   &.no-border {
-    border-width: 0;
+    border-color: transparent;
   }
 
   /*

@@ -9,13 +9,7 @@
   <el-card>
     <div class="step-form">
       <el-steps :active="active" class="steps" finish-status="success" space="30%">
-        <el-step
-          v-for="(s, index) in steps"
-          :key="index"
-          :title="getTitle(index)"
-          :status="s.status"
-          :class="{ stepErr: s.disabled }"
-        ></el-step>
+        <el-step v-for="(s, index) in steps" :key="index" :title="getTitle(index)"></el-step>
       </el-steps>
 
       <div class="form-content">
@@ -220,7 +214,7 @@
         </div>
 
         <div v-show="active > 2">
-          <el-result icon="success" sub-title="恭喜你提交成功" style="width: 350px"> </el-result>
+          <el-result icon="success" sub-title="恭喜你提交成功" style="width: 350px;"> </el-result>
           <div class="footer--center">
             <el-button class="btn-style" type="primary" @click="resetForm"> 再来一次 </el-button>
             <el-button @click="handleClick">查看结构表</el-button>
@@ -396,13 +390,15 @@ export default class extends Vue {
   .form-content {
     display: flex;
     justify-content: center;
+
     .footer--center {
       display: flex;
       justify-content: center;
       margin-top: -14px;
     }
+
     .footer {
-      margin-top: 24px;
+      margin-top: $margin-6x;
     }
   }
 }

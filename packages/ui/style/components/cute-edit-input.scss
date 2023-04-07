@@ -1,0 +1,42 @@
+.edit-input-icon {
+  font-size: $text-size-lg;
+  margin-left: $margin-10;
+  color: $color-neutral-8;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-master;
+  }
+
+  &.svg-icon {
+    vertical-align: sub;
+  }
+}
+
+.cute-edit-input-wrap {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+
+  .el-input,
+  .el-textarea {
+    width: $cute-edit-input-width;
+    height: 100%;
+    margin-right: $margin-10;
+  }
+
+  .el-textarea~svg {
+    margin-bottom: $margin;
+  }
+
+  svg {
+    cursor: pointer;
+    font-size: $text-size-lg;
+    margin-right: $margin;
+    vertical-align: sub;
+  }
+
+  textarea {
+    height: 100%;
+  }
+}

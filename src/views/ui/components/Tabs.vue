@@ -126,13 +126,13 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .el-row {
-  margin: 20px 0 24px;
+  margin: $margin-5x 0 $margin-6x;
 }
 
 .sub-tabs,
 .small-tabs {
   border-bottom: 1px solid $border-color-primary;
-  padding-bottom: 24px;
+  padding-bottom: $padding-6x;
 }
 
 .delete-tabs {

@@ -1,5 +1,5 @@
 <template>
-  <div class="sliders">
+  <div class="cute-sliders">
     <el-slider
       v-model="values"
       class="cute-slider"

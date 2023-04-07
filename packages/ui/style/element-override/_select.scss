@@ -94,9 +94,7 @@
     &:not(.el-select-dropdown__item.selected):not(.el-select-dropdown__item.is-disabled):hover {
       
       // background-color:unset;
-      span {
-        color: $color-master;
-      }
+      color: $color-master;
     }
 
     &.selected {

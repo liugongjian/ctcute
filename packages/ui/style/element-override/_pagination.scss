@@ -8,7 +8,7 @@
     margin-right: $margin-6x;
 
     .el-select .el-input {
-      width: $pagination-input-width;
+      width: $pagination-select-width;
       margin: 0;
 
       .el-input__inner {
@@ -168,6 +168,15 @@
     .el-pager li {
       &.active {
         color: $pagination-active-color;
+      }
+
+      &.btn-quickprev,
+      &.btn-quicknext {
+        color: $pagination-button-color;
+
+        &.disabled {
+          color: $disabled-color;
+        }
       }
     }
 

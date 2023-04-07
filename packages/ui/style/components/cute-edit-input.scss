@@ -25,7 +25,7 @@
     margin-right: $margin-10;
   }
 
-  .el-textarea~svg {
+  .el-textarea ~ svg {
     margin-bottom: $margin;
   }
 
@@ -38,5 +38,21 @@
 
   textarea {
     height: 100%;
+  }
+
+  .cute-edit-input__edit-icon--small,
+  .cute-edit-input__edit-icon--mini {
+    width: $common-space-3x;
+    height: $common-space-3x;
+  }
+
+  .cute-edit-input__edit-icon--large {
+    width: $common-space-5x;
+    height: $common-space-5x;
+  }
+
+  .cute-edit-input__edit-icon--medium {
+    width: $common-space-4x;
+    height: $common-space-4x;
   }
 }

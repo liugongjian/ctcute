@@ -9,13 +9,13 @@
           :index="resolvePath(theOnlyOneChild.path)"
           :class="{ 'submenu-title-noDropdown': isFirstLevel }"
         >
-          <span v-if="theOnlyOneChild.meta.title" slot="title">{{ theOnlyOneChild.meta.title }}</span>
+          <span v-if="theOnlyOneChild.meta.title" slot="title">{{ $t(theOnlyOneChild.meta.title) }}</span>
         </el-menu-item>
       </sidebar-item-link>
     </template>
     <el-submenu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template slot="title">
-        <span v-if="item.meta && item.meta.title" slot="title">{{ item.meta.title }}</span>
+        <span v-if="item.meta && item.meta.title" slot="title">{{ $t(item.meta.title) }}</span>
       </template>
       <template v-if="item.children">
         <sidebar-item

@@ -14,7 +14,7 @@
     </div>
     <div v-if="isShowMenu" class="cute-scrollbar-wrapper">
       <div v-if="isNewMenu" class="layout-sidebar__title back" @click="onBackMenu">
-        <svg-icon name="arrow-left" width="16" height="16" />{{ currentNewMenu.meta.title }}
+        <svg-icon name="arrow-left" width="16" height="16" />{{ t(currentNewMenu.meta.title) }}
       </div>
       <div v-else-if="sidebarTitle" class="layout-sidebar__title">{{ sidebarTitle }}</div>
 
@@ -37,7 +37,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
+import { Component, Prop, Watch } from 'vue-property-decorator'
+import { mixins } from 'vue-class-component'
+import Locale from '@cutedesign/ui/mixins/locale'
 import SidebarItem from './SidebarItem.vue'
 
 @Component({
@@ -46,7 +48,7 @@ import SidebarItem from './SidebarItem.vue'
     SidebarItem,
   },
 })
-export default class extends Vue {
+export default class extends mixins(Locale) {
   $auth: any
   @Prop()
   private sidebarRoutes

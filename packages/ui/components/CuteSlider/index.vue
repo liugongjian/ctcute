@@ -1,5 +1,5 @@
 <template>
-  <div class="sliders">
+  <div class="cute-sliders">
     <el-slider
       v-model="values"
       class="cute-slider"
@@ -171,7 +171,7 @@ export default class extends Vue {
     for (let i = 0; i < btn.length; i++) {
       btn[i].style.width = variables.cuteSliderBtnWidth // '17px'
       btn[i].style.height = variables.cuteSliderBtnHeight //'22px'
-      btn[i].innerHTML = '<div class=\'cute-slider-user-button\'><span></span><span></span><span></span> </div>'
+      btn[i].innerHTML = "<div class='cute-slider-user-button'><span></span><span></span><span></span> </div>"
       // '|||'
       // btn[i].style.width = '17px'
       // btn[i].style.height = '22px'

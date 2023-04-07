@@ -1,9 +1,5 @@
-.sliders {
+.cute-sliders {
   display: flex;
-
-  .disabled {
-    background: $disabled-border !important;
-  }
 
   .el-slider__stop {
     border: 1px solid $color-bg-2;
@@ -34,7 +30,6 @@
         // letter-spacing: 1px;
       }
     }
-
     //禁用
     .el-slider__runway.disabled {
       .el-slider__bar {
@@ -99,51 +94,39 @@
   .el-input {
     width: $cute-slider-input-width;
   }
-}
 
-
-.cute-slider-user-button {
-  // border: 1px solid $color-master-1;
-  // border-radius: 8px;
-  // background: linear-gradient(to bottom, $color-white, $color-master-5);
-  display: inline-flex;
-  box-sizing: content-box;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  // height: 20px;
-  // width: 15px;
-
-  span {
-    display: block;
-    background-color: $color-master;
-    width: 1px;
-    height: 8px;
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:nth-child(2) {
-      height: 10px;
-      margin: 0 2px;
+  .disabled {
+    background: $disabled-border;
+    .cute-slider-user-button {
+      span {
+        background-color: $color-master-4;
+      }
     }
   }
-}
-
-.disabled {
-  // .el-slider__button {
-  //   border: none !important;
-  //   background: none;
-  // }
 
   .cute-slider-user-button {
-    // border: 1px solid $color-master-4;
+    display: inline-flex;
+    box-sizing: content-box;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    // height: 20px;
     // width: 15px;
-    // background: linear-gradient(to bottom, $color-white, $color-master-5);
 
     span {
-      background-color: $color-master-4;
+      display: block;
+      background-color: $color-master;
+      width: 1px;
+      height: 8px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:nth-child(2) {
+        height: 10px;
+        margin: 0 2px;
+      }
     }
   }
 }

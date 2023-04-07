@@ -1,3 +1,105 @@
 .newAdd {
   color: $color-master-1;
 }
+
+
+/* $size:大小;
+   $height: 高度;
+*/
+@mixin tabs-size($size: medium, $height: $tabs-md-height){
+  /* stylelint-disable-next-line */
+  .el-tabs.el-tabs--#{$size} {
+    .el-tabs__item, .el-tabs__nav-prev, .el-tabs__nav-next{
+      font-size: $text-size;
+      height: $height;
+      line-height: $height;
+    }
+
+    > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav > .el-tabs__item {
+      &, &.is-top.is-active {
+        @if $size == small {
+          padding: 0 $padding-4x;
+        }
+  
+        @else {
+          padding: 0 $padding-6x;
+        }
+      }
+    } 
+  }
+}
+@include tabs-size();
+@include tabs-size(large, $tabs-lg-height);
+@include tabs-size(small, $tabs-sm-height);
+
+
+/*
+  button风格
+*/
+.el-tabs.el-tabs--button {
+  .el-tabs__nav-wrap:after {
+    display: none;
+  }
+
+  .el-tabs__item {
+    border: 1px solid $border-color;
+    box-sizing: border-box;
+
+    &:not(.is-disabled):not(.is-active):hover {
+      border-color: $tabs-master;
+      color: $tabs-master;
+    }
+
+    &.is-active {
+      background-color: $tabs-master;
+      border-color: $tabs-master;
+      color: $color-white;
+    }
+
+    &.is-top,
+    &.is-bottom {
+      &:first-child {
+        border-radius: $tabs-button-radius 0 0 $tabs-button-radius;
+      }
+
+      &:last-child {
+        border-radius: 0 $tabs-button-radius $tabs-button-radius 0;
+      }
+
+      & + .el-tabs__item {
+        border-left: none;
+      }
+
+      & + .el-tabs__item:not(.is-disabled):not(.is-active):hover {
+        box-shadow: -1px 0 0 0 $tabs-master;
+      }
+
+      & + .el-tabs__item.is-active {
+        box-shadow: -1px 0 0 0 $tabs-master;
+      }
+    }
+
+    &.is-left,
+    &.is-right {
+      &:first-child {
+        border-radius: $tabs-button-radius $tabs-button-radius 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 $tabs-button-radius $tabs-button-radius;
+      }
+
+      & + .el-tabs__item {
+        border-top: none;
+      }
+
+      & + .el-tabs__item:not(.is-disabled):not(.is-active):hover {
+        box-shadow: 0 -1px 0 0 $tabs-master;
+      }
+
+      & + .el-tabs__item.is-active {
+        box-shadow: 0 -1px 0 0 $tabs-master;
+      }
+    }
+  }
+}

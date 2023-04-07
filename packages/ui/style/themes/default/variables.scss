@@ -380,6 +380,7 @@ $tabs-md-height: 32px !default;
 $tabs-lg-height: 40px !default;
 $tabs-button-radius: 2px !default;
 $tabs-default-line-color: $color-neutral-3 !default; // 默认风格的线条颜色
+$tabs-bg-color:  $color-bg-2 !default; // 覆盖色块，与背景同色
 
 /* Progress
 -------------------------- */
@@ -482,7 +483,8 @@ $steps-icon-inner-status-size-md: $text-size-md !default; // 中号状态icon si
 $steps-icon-inner-status-size-sm: $text-size-sm !default; // 小号状态icon size：12px
 $steps-icon-inner-text-size-md: $text-size-md !default; // 小号标号size：14px
 $steps-icon-inner-text-size-sm: $text-size-md !default; // 中号标号size：14px
-$steps-line-size: 1px; // 线条粗细;
+$steps-line-size: 1px !default;// 线条粗细;
+$steps-bg-color: $color-bg-2 !default;// 覆盖色块，与背景同色
 
 /* Dialog
 -------------------------- */

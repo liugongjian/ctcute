@@ -7,7 +7,7 @@
       :min="min"
       :max="max"
       :marks="marks"
-      :show-tooltip="false"
+      :show-tooltip="true"
       :step="step"
       :disabled="disabled"
       :style="{ '--width-slider': width + 'px' }"
@@ -51,6 +51,7 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue, VModel, Watch } from 'vue-property-decorator'
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 @Component({
   name: 'CuteSlider',
 })
@@ -168,9 +169,19 @@ export default class extends Vue {
   private mounted() {
     const btn = document.querySelectorAll('.el-slider.cute-slider .el-tooltip.el-slider__button') as any
     for (let i = 0; i < btn.length; i++) {
-      btn[i].style.width = '20px'
-      btn[i].style.height = '28px'
-      btn[i].innerHTML = '|||'
+      btn[i].style.width = variables.cuteSliderBtnWidth // '17px'
+      btn[i].style.height = variables.cuteSliderBtnHeight //'22px'
+      btn[i].innerHTML = '<div class=\'cute-slider-user-button\'><span></span><span></span><span></span> </div>'
+      // '|||'
+      // btn[i].style.width = '17px'
+      // btn[i].style.height = '22px'
+      // btn[i].innerHTML = `
+      //   <div class='cute-slider-user-button'>
+      //     <span></span>
+      //     <span></span>
+      //     <span></span>
+      //   </div>
+      // `
     }
   }
 }

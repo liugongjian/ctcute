@@ -208,14 +208,22 @@ export interface IScssVariablesRevised {
   colorTagWarning2: string
   colorTagDanger1: string
   colorTagDanger2: string
+  buttonDefaultTextColor: string
+  buttonDefaultTextColorDisabled: string
+  buttonDefaultColorBg: string
+  buttonDefaultColorBgDisabled: string
+  buttonDefaultColorBorder: string
+  buttonDefaultColorBorderDisabled: string
   buttonIconColor: string
   buttonMargin: string
   buttonPaddingMini: string
   buttonPaddingSmall: string
   buttonPaddingMedium: string
   buttonPaddingLarge: string
+  buttonGroupBorder: string
   formItemLabelLineHeight: string
   formItemErrorPaddingTop: string
+  formItemMarginBottom: string
   inputBg: string
   inputDisabledBg: string
   inputHoverBorder: string
@@ -236,18 +244,58 @@ export interface IScssVariablesRevised {
   checkboxButtonHover: string
   tableHeaderBg: string
   tableCellBg: string
-  tableSortCaretBg: string
+  tableCellPaddingXs: string
   tableCellPaddingSm: string
   tableCellPaddingMd: string
   tableCellPaddingLg: string
+  tableCellSelectionLineHeight: string
   tableBorderColor: string
+  tableSortCaretBg: string
+  tableFixedBoxShadow: string
+  tableRowHoverBackgroundColor: string
+  tableFilterItemHeight: string
   tableHeaderFill: string
   tableCellFill: string
   tableSortCaretFill: string
   paginationBg: string
   paginationFill: string
+  paginationFontSize: string
+  paginationFontSizeSm: string
+  paginationHeight: string
+  paginationHeightSm: string
+  paginationInputWidth: string
+  paginationButtonWidth: string
+  paginationButtonWidthSm: string
+  paginationButtonMargin: string
+  paginationButtonMarginSm: string
+  paginationButtonColor: string
+  paginationHoverColor: string
+  paginationHoverBg: string
+  paginationActiveColor: string
+  paginationActiveBg: string
+  paginationActiveBgDisabled: string
+  transferHeaderHeight: string
+  transferHeaderBg: string
+  transferButtonHegiht: string
+  transferButtonWidth: string
+  transferButtonRadius: string
+  transferItemActiveBg: string
+  transferItemHoverBg: string
+  transferItemHeight: string
+  transferFilterHeight: string
+  transferFootertBg: string
+  transferFooterHeight: string
+  progressTextHeightLg: string
+  progressTextHeightSm: string
+  progressTextSizeLg: string
+  progressTextSizeSm: string
+  progressTextWeight: string
   tooltipBg: string
+  tooltopTextColor: string
+  tooltipBorderColor: string
   tooltipFill: string
+  notificationBorderColor: string
+  popoverMinWidth: string
   uploadBg: string
   uploadFill: string
   cardBg: string
@@ -259,8 +307,13 @@ export interface IScssVariablesRevised {
   cascaderNodeHover: string
   cascaderPanelBg: string
   cascaderPanelShadow: string
+  collapseBorderColor: string
+  collapseContentBackgroundColor: string
   collapseHeaderBg: string
+  collapseHeaderArrowColor: string
   collapseHeaderHeight: string
+  collapseSeperateHeaderHeight: string
+  collapseSeperateHeaderBg: string
   collapseItemHeaderHeight: string
   collapseHeaderFill: string
   datepickerShadow: string
@@ -268,12 +321,69 @@ export interface IScssVariablesRevised {
   descriptionsItemHeight: string
   descriptionsItemContentWidth: string
   descriptionsItemContentLineHeight: string
+  descriptionsItemLabelMinWidth: string
+  descriptionsFontColorLabel: string
+  descriptionsFontColorLabelBordered: string
+  dropdownItemPaddingTopBottom: string
+  dropdownMinWidth: string
+  dropdownIconLineHeight: string
+  treeCheckboxSize: string
+  treeNodeIconPadding: string
+  treeCheckboxTransform: string
+  treeCheckboxScale: string
+  treeCheckboxTickTop: string
+  treeHandlerMenu: string
+  treeNodePopoverMargin: string
+  treeButtonTooltipContentPadding: string
+  treeLeafExpandIconPadding: string
+  stepsIconHeightMd: string
+  stepsIconHeightSm: string
+  stepsTitleSizeMd: string
+  stepsTitleSizeSm: string
+  stepsIconInnerStatusSizeMd: string
+  stepsIconInnerStatusSizeSm: string
+  stepsIconInnerTextSizeMd: string
+  stepsIconInnerTextSizeSm: string
+  stepsLineSize: string
+  dialogHeaderPadding: string
+  dialogHeaderBorder: string
+  dialogBodyPadding: string
+  dialogFooterBg: string
+  dialogFooterPadding: string
   dialogFooterMarginTop: string
+  dialogFullscreenMargin: string
+  messageboxPaddingBottom: string
+  messageboxHeaderPadding: string
+  messageboxHeaderPaddingBottom: string
+  messageboxContentPadding: string
+  messageboxBtnsPadding: string
+  toastWidth: string
+  toastHeight: string
   iconColor: string
   loadingPrimaryColor: string
   loadingPrimaryBorder: string
   loadingDefaultColor: string
   loadingDefaultBorder: string
+  alertTextColor: string
+  alertInfoBg: string
+  alertSuccessBg: string
+  alertWarningBg: string
+  alertDangerBg: string
+  alertWeakBg: string
+  cuteSliderMarksHeight: string
+  cuteSliderBarHeight: string
+  cuteSliderInputWidth: string
+  cuteSliderBtnBg: string
+  cuteSliderBtnRadius: string
+  cuteSliderBtnWidth: string
+  cuteSliderBtnHeight: string
+  cuteDistributionBarInputWidth: string
+  cuteDistributionBarSliderWidth: string
+  cuteDistributionBarSliderHeight: string
+  cuteDistributionBarSliderItemWidth: string
+  cuteDistributionBarSliderItemHeight: string
+  cuteDistributionBarSliderButtonWidth: string
+  cuteDistributionBarSliderButtonHeight: string
   headerHeight: string
   headerFill1: string
   headerFill2: string
@@ -284,6 +394,15 @@ export interface IScssVariablesRevised {
   sidebarFill: string
   sidebarSubFill: string
   sidebarSubHover: string
+  cuteButtonGroupMargin: string
+  cuteButtonGroupZindex: string
+  cuteButtonGroupBorder: string
+  cuteEditInputWidth: string
+  cuteRemindInputWidth: string
+  cuteSpecialRadioPadding: string
+  cuteSpecialRadioSize: string
+  cuteRemindSelectRight: string
+  cuteSelectedInputWidth: string
   transitionTime: string
   zindexBadge: string
   zindexTableFixed: string
@@ -338,8 +457,51 @@ export interface IScssVariablesRevised {
   chartColorL10: string
   chartColorL11: string
   chartColorL12: string
+  alertTextColor: string
+  alertInfoBg: string
+  alertSuccessBg: string
+  alertWarningBg: string
+  alertDangerBg: string
+  alertWeakBg: string
+  transferHeaderHeight: string
+  transferHeaderBg: string
+  transferButtonHegiht: string
+  transferButtonWidth: string
+  transferButtonRadius: string
+  transferItemActiveBg: string
+  transferItemHoverBg: string
+  transferItemHeight: string
+  transferFilterHeigh: string
+  cuteSliderMarksHeight: string
+  cuteSliderBarHeight: string
+  cuteSliderInputWidth: string
+  cuteSliderBtnBg: string
+  cuteSliderBtnRadius: string
+  cuteSliderBtnWidth: string
+  cuteSliderBtnHeight: string
+  collapseBorderColor: string
+  collapseContentBackgroundColor: string
+  collapseHeaderBg: string
+  collapseHeaderArrowColor: string
+  collapseHeaderHeight: string
+  collapseSeperateHeaderHeight: string
+  collapseSeperateHeaderBg: string
+  stepsIconHeightMd: string
+  stepsIconHeightSm: string
+  stepsTitleSizeMd: string
+  stepsTitleSizeSm: string
+  stepsIconInnerStatusSizeMd: string
+  stepsIconInnerStatusSizeSm: string
+  stepsIconInnerTextSizeMd: string
+  stepsIconInnerTextSizeSm: string
+  stepsLineSize: string
+  tabsMaster: string
+  tabsSmHeight: string
+  tabsMdHeight: string
+  tabsLgHeight: string
+  tabsButtonRadius: string
+  tabsDefaultLineColor: string
 }
 
 export const variablesRevised: IScssVariablesRevised
-
 export default variablesRevised

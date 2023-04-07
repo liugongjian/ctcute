@@ -1,3 +1,10 @@
+/*
+* @Author: 胡一苗
+* @Date: 2023-03-31 14:54:29
+* @LastEditors: 胡一苗
+* @LastEditTime: 2023-03-31 15:09:10
+* @Description: desc
+*/
 <template>
   <div>
     <cute-sort-table
@@ -14,10 +21,9 @@
         <span>{{ statusFormatter(scope.row) }}</span>
       </template>
       <template #healthy="{ scope }">
-        <div>
-          <span class="sub-spot" :class="`sub-spot--${scope.row.health}`"></span>
-          <span>{{ HEALTH[scope.row.health] }}</span>
-        </div>
+        <cute-state :type="HEALTH[scope.row.health].colorType">
+          {{ HEALTH[scope.row.health].text }}
+        </cute-state>
       </template>
       <template #operation="{ scope }">
         <el-button
@@ -32,12 +38,13 @@
         <el-button type="text" size="small" class="bt-operation">扩容</el-button>
         <el-divider direction="vertical"></el-divider>
         <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
-          <span class="el-dropdown-link">
-            更多<i
+          <el-button type="text" size="small" class="bt-operation">
+            更多
+            <i
               class="el-icon-arrow-down el-icon--right"
               :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
-            ></i>
-          </span>
+            />
+          </el-button>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>退订</el-dropdown-item>
             <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -58,7 +65,7 @@
   </div>
 </template>
 <script lang="ts">
-import { STATUS, HEALTH } from '@/dics/simpleTable'
+import { STATUS, HEALTH2 } from '@/dics/simpleTable'
 import { Vue, Component, Ref } from 'vue-property-decorator'
 import { ElTable } from 'element-ui/types/table'
 import TableHookClass from '@cutedesign/ui/hook/TableHook'
@@ -67,7 +74,7 @@ import { getTable } from '@/api/cuteSortTable'
 import * as SimpleTable from '@/types/SimpleTable'
 
 @Component({
-  name: 'Demo3',
+  name: 'Demo1',
   components: {
     CuteSortTable,
   },
@@ -86,9 +93,9 @@ export default class extends Vue {
     { prop: 'memory', label: '内存利用率(%)' },
     { prop: 'disk', label: '磁盘利用率(%)' },
     { prop: 'healthy', label: '健康状态', slot: 'healthy' },
-    { prop: 'operation', label: '操作', slot: 'operation', props: { align: 'left', width: 190 } },
+    { prop: 'operation', label: '操作', slot: 'operation', props: { align: 'left', width: 200 } },
   ]
-  private HEALTH = HEALTH
+  private HEALTH = HEALTH2
 
   /**
    * 页面Mounted
@@ -133,6 +140,7 @@ export default class extends Vue {
   private openDropdown(index) {
     this.tableHook.tableData[index].flag = !this.tableHook.tableData[index].flag
   }
+
   private handleClick(index, row) {
     console.log(index, row)
   }
@@ -140,9 +148,6 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .el-table {
-  // width: 65%;
-  margin: 24px 0;
-
   .text-ellipsis {
     display: inline-block;
     overflow: hidden;
@@ -153,112 +158,11 @@ export default class extends Vue {
   }
 
   .name-primary {
-    color: $color-master-1;
-  }
-
-  .cell {
-    span {
-      font-size: 12px;
-    }
-
-    .el-button--text:last-child:before {
-      content: '|';
-      color: $border-color-primary;
-      margin-right: 10px;
-    }
-  }
-
-  .el-dropdown-link {
-    cursor: pointer;
-    color: $color-master-1;
-  }
-
-  .el-icon-arrow-down {
-    font-size: 12px;
-  }
-
-  .el-table__fixed {
-    height: 1000px;
+    color: $color-master;
   }
 }
 
 .pagination {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.sub-table:not(:last-child) {
-  border-bottom: 1px solid $color-grey-7;
-  padding-bottom: 24px;
-}
-
-.bt-operation {
-  color: $color-master-1;
-}
-
-.sub-spot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  margin-right: 10px;
-
-  &--1 {
-    background: $color-status-success;
-  }
-
-  &--2 {
-    background: $color-status-warning;
-  }
-
-  &--3 {
-    background: $color-status-danger;
-  }
-
-  &--4 {
-    background: $color-status-info;
-  }
-
-  &--5 {
-    background: $disabled-color;
-  }
-}
-
-.sub-small-spot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  margin-right: 10px;
-
-  &--6 {
-    background: $color-status-success;
-  }
-
-  &--7 {
-    background: $color-status-danger;
-  }
-
-  &--8 {
-    background: $color-status-warning;
-  }
-
-  &--9 {
-    background: $disabled-color;
-  }
-}
-
-.top-fill {
-  transform: rotate(180deg);
-}
-
-.sort-icon {
-  cursor: pointer;
-  color: $color-grey-3;
-
-  &:hover {
-    color: $color-master-1;
-  }
+  text-align: right;
 }
 </style>

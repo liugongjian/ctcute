@@ -1,11 +1,10 @@
 <template>
   <div class="table-filter">
-    <el-tag v-for="(v, i) in data" :key="i" type="info" size="large" closable @close="handleClose(v, i)">{{
-      v.content
-    }}</el-tag>
-
+    <el-tag v-for="(v, i) in data" :key="i" type="info" size="large" closable @close="handleClose(v, i)">
+      {{ v.content }}
+    </el-tag>
     <div class="table-filter-dropdown">
-      <el-tag type="newtag" size="large" @click="visible = true"> + 新增过滤 </el-tag>
+      <el-tag type="newtag" size="large" @click="visible = true"> + 新增过滤</el-tag>
       <div v-if="visible" class="table-filter_content">
         <div class="table-filter_top">
           <el-form>
@@ -18,13 +17,11 @@
                   :value="item.value"
                 />
               </el-select>
-
               <el-input v-model="formInput[i]" placeholder="请输入" />
               <span>{{ v.unit }}</span>
             </el-form-item>
           </el-form>
         </div>
-
         <div class="table-filter_foot">
           <el-button @click="visible = false">取 消</el-button>
           <el-button type="primary" @click="openDropdown">确 定</el-button>
@@ -35,6 +32,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
+
 @Component({
   name: 'CuteTableFilter',
 })
@@ -44,6 +42,7 @@ export default class extends Vue {
   private formSelect = {}
   private data = []
   private visible = false
+
   //添加条件标签
   private openDropdown() {
     const data = []

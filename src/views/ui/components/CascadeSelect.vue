@@ -389,6 +389,7 @@ export default class extends Vue {
 
 .sub-down {
   border-bottom: 1px solid $border-color-light-1;
+
   > h3 {
     margin: 24px 0;
     font-family: PingFangSC-Medium;

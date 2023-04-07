@@ -41,6 +41,7 @@
 </template>
 
 <script>
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import SvPanel from './SvPanel'
 import HueSlider from './HueSlider'
 import AlphaSlider from './AlphaSlider'

@@ -1,35 +1,51 @@
 .special-radio {
+  .el-radio-button {
+    &:last-child .el-radio-button__inner {
+      border-radius: 3px;
+    }
+  }
+
+  .el-radio-group .el-radio-button .el-radio-button__inner {
+    padding: 13px 20px;
+  }
+
+  .el-radio-group .el-radio-button--large .el-radio-button__inner {
+    padding: 13px 20px;
+  }
+
   .el-radio-group .el-radio-button--medium .el-radio-button__inner {
-    padding: 8px 20px;
+    padding: $padding-2x $padding-5x;
   }
 
   .el-radio-group .el-radio-button--small .el-radio-button__inner {
-    padding: 6px 9px;
+    padding: $padding-6 $cute-special-radio-padding;
   }
 
   .el-radio-group .el-radio-button {
-    margin-left: 2px;
+    margin-left: $cute-special-radio-size;
 
     .el-radio-button__inner {
-      border: none;
+      border: 1px solid $color-neutral-5;
     }
   }
 
   .el-radio-group .el-radio-button:not(.is-active):not(.is-disabled) .el-radio-button__inner {
-    background: $color-master-6;
+    background: unset;
     color: $color-grey-1;
+    border-radius: 3px;
 
     &:hover {
-      background: $color-master-5;
+      background: unset;
       color: $color-grey-1;
+      margin: 0;
     }
   }
 
   .el-radio-group .el-radio-button.is-active .el-radio-button__inner,
   .el-radio-group .el-radio-button.is-active .el-radio-button__inner :hover {
     background: $color-master-1;
-    border-radius: 2px 0 0 2px;
-    color: $color-white !important;
+    border-radius: $cute-special-radio-size 0 0 $cute-special-radio-size;
+    color: $color-white;
   }
 
   .el-radio-button__orig-radio:checked+.el-radio-button__inner {

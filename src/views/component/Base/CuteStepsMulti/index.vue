@@ -69,8 +69,8 @@ export default class extends Vue {
       name: 'size',
       desc: '步骤条大小',
       type: 'String',
-      options: 'normal/mini',
-      default: 'normal',
+      options: 'medium / small',
+      default: 'medium',
     },
     {
       name: 'space',

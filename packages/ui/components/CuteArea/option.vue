@@ -35,7 +35,7 @@ export default {
     },
     valueKey: {
       type: String,
-      default: 'value'
+      default: 'value',
     },
     format: {
       type: Function,

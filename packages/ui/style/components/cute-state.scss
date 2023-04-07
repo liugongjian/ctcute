@@ -3,7 +3,7 @@
   align-items: center;
 
   .icon-wrap {
-    font-size: $text-size-large;
+    font-size: $text-size-lg;
   }
 
   @keyframes rotating {
@@ -22,12 +22,12 @@
 }
 
 .el-state>span {
-  margin-right: 8px;
+  margin-right: $margin;
 }
 
 .el-state>span.dot {
   width: 6px;
   height: 6px;
-  display: inline-block;
   border-radius: 50%;
+  margin-right: $margin-2x;
 }

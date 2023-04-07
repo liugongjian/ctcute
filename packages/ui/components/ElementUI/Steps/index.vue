@@ -4,7 +4,7 @@
     :class="[
       !simple && 'el-steps--' + direction,
       simple && 'el-steps--simple',
-      size === 'mini' ? 'el-steps--min' : 'el-steps--normal',
+      size === 'small' ? 'el-steps--small' : 'el-steps--medium',
     ]"
   >
     <slot></slot>

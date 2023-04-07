@@ -2,12 +2,17 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:14:48
  * @LastEditors: 胡一苗
- * @LastEditTime: 2022-12-13 16:27:39
+ * @LastEditTime: 2023-03-31 12:48:24
  * @Description:
 -->
 <template>
   <div>
     <el-table ref="table" v-loading="loading" :data="tableData" v-bind="$attrs" v-on="$listeners">
+      <el-table-column label="" width="48">
+        <div class="sort-table">
+          <svg-icon name="menu" class="sort-icon" />
+        </div>
+      </el-table-column>
       <template v-for="(item, index) in tableColumns">
         <el-table-column
           v-if="!item.props || item.props.type !== 'selection'"
@@ -22,11 +27,6 @@
           </template>
         </el-table-column>
       </template>
-      <el-table-column label="优先级" width="100">
-        <div class="sort-table">
-          <svg-icon name="menu" class="sort-icon" />
-        </div>
-      </el-table-column>
     </el-table>
   </div>
 </template>

@@ -8,13 +8,13 @@
 
 <template>
   <el-card class="cute-card">
-    <div slot="header" class="cute-card__header">
+    <div v-if="title" slot="header" class="cute-card__header">
       <span class="cute-card__header__title">{{ title }}</span>
       <div v-if="$slots.extra" class="cute-card__header__extra">
         <slot name="extra"></slot>
       </div>
     </div>
-    <div class="cute-card__content">
+    <div class="cute-card__content" :style="'height:' + contentHeight">
       <slot name="content"></slot>
     </div>
   </el-card>
@@ -29,6 +29,10 @@ export default class extends Vue {
   /**
    * 标题
    */
-  @Prop({ default: '', required: true }) private readonly title: string
+  @Prop({ default: '', required: false }) private readonly title: string
+  /**
+   * 内容高度
+   */
+  @Prop({ default: '100%', required: false }) private readonly contentHeight: string
 }
 </script>

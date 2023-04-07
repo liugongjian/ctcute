@@ -1,19 +1,32 @@
-.cute-steps {
+.cute-steps-multi {
+  display: flex;
+  align-items: center;
+
+  &-main {
+    flex-grow: 1;
+  }
+
   .button-col {
     font-size: 20px;
+    width: 30px;
+  }
+
+  // .stepSuc :hover {
+  //   cursor: pointer;
+  // }
+
+  .stepErr :hover {
+    cursor: not-allowed;
   }
 
   .el-icon-arrow-left,
   .el-icon-arrow-right {
-    color: $color-grey-3;
+    cursor: pointer;
+    color: $icon-color;
   }
 
   .disabled {
     cursor: not-allowed;
-    color: $color-grey-5;
-  }
-
-  .el-col-1 {
-    width: 30px;
+    color: $disabled-color;
   }
 }

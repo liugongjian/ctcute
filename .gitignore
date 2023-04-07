@@ -32,3 +32,4 @@ yarn.lock
 
 # packages ui/lib
 lib
+settings.json

@@ -3,37 +3,48 @@
 .el-breadcrumb {
   font-size: $text-size;
 
-  .el-breadcrumb__inner:hover {
-    color: $color-master;
-    cursor: pointer;
+  &--small {
+    font-size: $text-size-sm;
   }
-}
 
-.el-breadcrumb__inner.is-link,
-.el-breadcrumb__inner a,
-.el-breadcrumb__inner {
-  color: $text-color-light;
-  font-weight: normal;
+  &--medium {
+    font-size: $text-size-md;
+  }
 
-  &:hover {
+  &__separator {
+    margin: 0 $margin-2x;
+    font-weight: $text-weight;
     color: $text-color-light;
   }
-}
 
-.el-breadcrumb__inner a:hover {
-  color: $color-master;
-}
+  &__inner {
+    color: $text-color-light-2;
 
-.el-breadcrumb__item:last-child {
-  .el-breadcrumb__inner,
-  .el-breadcrumb__inner:hover {
-    color: $text-color;
-    font-weight: bold;
-    cursor: pointer;
+    &.is-link,
+    & a {
+      font-weight: $text-weight;
+      color: $text-color-light;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
-}
 
-.el-breadcrumb__item:last-child .el-breadcrumb__inner {
-  font-weight: 500;
-  color: $text-color;
+  &__item {
+    &:last-child {
+      .el-breadcrumb__inner {
+        cursor: text;
+
+        &.is-link,
+        & a {
+          cursor: pointer;
+
+          &:hover {
+            font-weight: $text-title-weight;
+          }
+        }
+      }
+    }
+  }
 }

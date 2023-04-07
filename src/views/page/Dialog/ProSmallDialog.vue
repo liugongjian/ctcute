@@ -1,8 +1,8 @@
 <!--
  * @Author: 吴博聪
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 胡一苗
- * @LastEditTime: 2022-12-20 14:08:20
+ * @LastEditors: zhulh
+ * @LastEditTime: 2023-03-24 14:50:27
  * @Description: 复杂小弹窗
 -->
 <template>
@@ -12,21 +12,9 @@
       <p>查看信息，宽度480px</p>
       <el-button type="primary" @click="handleClick">特殊弹窗-小</el-button>
     </div>
-    <el-dialog
-      class="info-dialog"
-      :title="title"
-      :visible="visible"
-      :close-on-click-modal="false"
-      @close="close"
-    >
-      <el-scrollbar class="info-dialog--content" :wrap-style="[{ maxHeight: '483px' }]">
-        <slot name="content">
-          <pre class="info-dialog--pre">
-            <span>{{ log }}</span>
-          </pre>
-        </slot>
-      </el-scrollbar>
-      <div class="info-dialog--footer">
+    <el-dialog width="480px" :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
+      <pre class="pro-dialog__pre">{{ log }}</pre>
+      <div slot="footer">
         <el-button @click="close">{{ cancelButtonText }}</el-button>
         <el-button type="primary">{{ confirmButtonText }}</el-button>
       </div>
@@ -43,23 +31,9 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ default: '取消' }) readonly cancelButtonText: string
   @Prop({ default: '确定' }) readonly confirmButtonText: string
-  @Prop({
-    default: `
-    name-group_001(20)
-    name-group_001(20)
-    name-group_001(20)
-    name-group_001(20)
-    name-group_001(20)
-    name-group_001(20)
-    name-group_001(20)
-    name-group_001(20)
-    name-group_001(20)
-    name-group_001(20)
-    name-group_001(20)
-    name-group_001(20)
-    name-group_001(20)`,
-  })
-  readonly log: string
+
+  private log =
+    'name-group_001(20)\nname-group_001(20)\nname-group_001(20)\nname-group_001(20)\nname-group_001(20)\nname-group_001(20)\nname-group_001(20)\nname-group_001(20)\nname-group_001(20)\nname-group_001(20)\nname-group_001(20)\nname-group_001(20)\nname-group_001(20)'
 
   private title = '小弹窗 (信息确认)'
   private visible = false
@@ -76,3 +50,12 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.pro-dialog__pre {
+  width: 100%;
+  margin: 0;
+  padding: $padding-3x $padding-6x;
+  line-height: $common-space-8x;
+  background: $color-neutral-1;
+}
+</style>

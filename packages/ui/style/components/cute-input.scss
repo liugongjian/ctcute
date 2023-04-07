@@ -1,9 +1,9 @@
 .el-autocomplete.inline-input {
-  width: 300px;
-  height: 32px;
+  width: $cute-remind-input-width;
+  height: $common-space-8x;
 
   .prompt-title {
-    line-height: 32px;
-    margin-right: 12px;
+    line-height: $common-space-8x;
+    margin-right: $margin-3x;
   }
 }

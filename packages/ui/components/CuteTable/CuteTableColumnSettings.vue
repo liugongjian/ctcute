@@ -19,13 +19,11 @@
       <!-- 列设置图标 -->
       <div slot="reference" class="table-column-settings__btns">
         <el-button
-          type="text"
-          plain
+          size="small"
+          icon="setting"
+          square
           :class="['table-column-settings__btn', { 'table-column-settings__btn--active': popoverShow }]"
-        >
-          <svg-icon name="setting" />
-          列设置
-        </el-button>
+        />
       </div>
     </el-popover>
     <!-- 表格 -->
@@ -34,7 +32,6 @@
       v-loading="tableHook.loading"
       :data="tableHook.tableData"
       fit
-      border
       v-bind="$attrs"
     >
       <template v-for="(item, index) in selectedTableColumns">

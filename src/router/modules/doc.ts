@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-11-19 07:41:39
  * @Description:
  */
-import Layout from '@/layout/doc.vue'
-
+import LayoutBak from '@/layout/doc.vue'
+import Layout from '@/layout/LayoutDoc.vue'
 const docRoutes = [
   // 更新日志
   {
@@ -167,6 +167,24 @@ const docRoutes = [
         component: () => import('@/views/doc/Guides/Resource.vue'),
         meta: {
           title: '资源',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/docs/variables',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'Variables',
+        component: () => import('@/views/doc/Guides/Variables.vue'),
+        meta: {
+          title: 'SASS变量',
           breadcrumb: true,
         },
       },

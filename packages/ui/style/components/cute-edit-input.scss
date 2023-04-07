@@ -1,11 +1,11 @@
 .edit-input-icon {
-  font-size: $text-size-large;
-  margin-left: 10px;
-  color: $color-grey-3;
+  font-size: $text-size-lg;
+  margin-left: $margin-10;
+  color: $color-neutral-8;
   cursor: pointer;
 
   &:hover {
-    color: $color-master-1;
+    color: $color-master;
   }
 
   &.svg-icon {
@@ -20,19 +20,19 @@
 
   .el-input,
   .el-textarea {
-    width: calc(100% - 84px);
+    width: $cute-edit-input-width;
     height: 100%;
-    margin-right: 10px;
+    margin-right: $margin-10;
   }
 
   .el-textarea~svg {
-    margin-bottom: 4px;
+    margin-bottom: $margin;
   }
 
   svg {
     cursor: pointer;
-    font-size: $text-size-large;
-    margin-right: 4px;
+    font-size: $text-size-lg;
+    margin-right: $margin;
     vertical-align: sub;
   }
 

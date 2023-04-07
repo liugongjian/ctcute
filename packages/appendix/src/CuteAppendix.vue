@@ -2,7 +2,7 @@
   <div>
     <div v-if="!append" class="cute-appendix">
       <svg-icon class="appendix-link-icon" name="attachment" :width="16" :height="16" />
-      <el-link type="primary" class="appendix-link" @click="handleDownload"> {{ value }} </el-link>
+      <el-link type="primary" class="appendix-link" :underline="false" @click="handleDownload"> {{ value }} </el-link>
       <svg-icon
         v-if="showEye"
         class="appendix-eye-icon"

@@ -1,3 +1,10 @@
+<!--
+ * @Author: liugongjian
+ * @Date: 2023-03-21 14:03:10
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-03-28 16:26:41
+ * @Description:
+-->
 <template>
   <div class="combination-button">
     <el-button v-for="(v, i) in newData" :key="i">{{ v }} </el-button>

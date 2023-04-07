@@ -1,29 +1,26 @@
 /* Popover
 -------------------------- */
-.el-popover__reference-wrapper {
-  .el-button--medium {
-    padding: 0;
-  }
-}
-
 .el-popover {
-  padding: $padding-5x $padding-6x $padding-5x $padding-4x;
+  padding: $padding-4x;
   border: none;
   box-shadow: $shadow-2;
+  min-width: $popover-min-width;
   
   p {
     margin: 0;
   }
 
   .el-popover__title {
-    font-size: $text-size;
-    margin-bottom: 15px; // TODO
+    font-size: $text-size-md;
+    margin-bottom: $margin-4x;
+    font-weight: $text-title-weight;
+    line-height: $line-height;
   }
 }
 
 .el-popper {
   background-color: $color-bg-1;
-  box-shadow: $shadow-2
+  box-shadow: $shadow-2;
 }
 
 .el-popper[x-placement^='top'] .popper__arrow,

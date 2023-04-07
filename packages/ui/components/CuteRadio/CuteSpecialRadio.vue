@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-15 10:12:49
- * @LastEditors: 马妍
- * @LastEditTime: 2022-12-15 21:08:45
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-03-28 17:01:08
  * @Description:
 -->
 <template>
@@ -27,7 +27,7 @@ export default class extends Vue {
   @Prop({ type: String, default: '' }) size?: ''
   @Model('change', { type: String, default: '' }) value: string
   @Emit('change')
-  myChange(key) {
+  private myChange(key) {
     return key
   }
 }

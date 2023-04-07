@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2023-03-17 13:45:09
- * @LastEditors: 朱凌浩
- * @LastEditTime: 2023-03-17 14:09:19
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-03-21 15:35:58
  * @Description: Link
 -->
 <template>
@@ -16,6 +16,7 @@
       <el-link type="success">成功链接</el-link>
       <el-link type="warning">警告链接</el-link>
       <el-link type="danger">危险链接</el-link>
+      <el-link type="fatal">严重危险链接</el-link>
       <el-link type="info">信息链接</el-link>
     </div>
     <div>
@@ -25,6 +26,7 @@
       <el-link type="success" disabled>成功链接</el-link>
       <el-link type="warning" disabled>警告链接</el-link>
       <el-link type="danger" disabled>危险链接</el-link>
+      <el-link type="fatal" disabled>严重危险链接</el-link>
       <el-link type="info" disabled>信息链接</el-link>
     </div>
     <div>
@@ -51,3 +53,8 @@ import LinkDemo from '@/views/ui/components/Link.vue'
 })
 export default class extends Vue {}
 </script>
+<style lang="scss" scoped>
+.el-link {
+  margin-right: 20px;
+}
+</style>

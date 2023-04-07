@@ -1,25 +1,24 @@
 .block {
-  margin-bottom: 24px;
+  margin-bottom: $margin-6x;
 
   &__title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 16px;
+    margin-bottom: $margin-4x;
 
     &__text {
-      color: $text-color-primary;
-      font-weight: 500;
-      line-height: 20px;
+      color: $text-color;
+      font-weight: $text-title-weight;
       display: flex;
       align-items: center;
-      font-size: 14px;
+      font-size: $text-size-md;
 
       &:before {
         width: 4px;
-        height: 14px;
-        background-color: $color-master-1;
-        margin-right: 12px;
+        height: $text-size-md;
+        background-color: $color-master;
+        margin-right: $margin-3x;
         content: ' ';
         display: inline-block;
       }

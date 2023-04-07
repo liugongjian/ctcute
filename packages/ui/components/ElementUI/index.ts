@@ -5,6 +5,13 @@ import Collapse from './Collapse/index.vue'
 import Rate from './Rate/index.vue'
 import ColorPicker from './ColorPicker/index.vue'
 import Tabs from './Tabs/tabs.vue'
+import Breadcrumb from './Breadcrumb/Breadcrumb.vue'
+import BreadcrumbItem from './Breadcrumb/BreadcrumbItem.vue'
+import Button from './Button/index.vue'
+import MessageBox from './MessageBox/index.js'
+import Popover from './Popover/index.vue'
+import directive from './Popover/directive.js'
+
 export default {
   install(Vue) {
     Vue.component(Steps.name, Steps)
@@ -14,6 +21,15 @@ export default {
     Vue.component(Rate.name, Rate)
     Vue.component(ColorPicker.name, ColorPicker)
     Vue.component(Tabs.name, Tabs)
+    Vue.component(Breadcrumb.name, Breadcrumb)
+    Vue.component(BreadcrumbItem.name, BreadcrumbItem)
+    Vue.component(Button.name, Button)
+    Vue.directive('popover', directive)
+    Vue.component(Popover.name, Popover)
+    Vue.prototype.$msgbox = MessageBox
+    Vue.prototype.$alert = MessageBox.alert
+    Vue.prototype.$confirm = MessageBox.confirm
+    Vue.prototype.$prompt = MessageBox.prompt
   },
 }
-export { Steps, Step, Alert, Collapse, Rate, ColorPicker }
+export { Steps, Step, Alert, Collapse, Rate, ColorPicker, Button, Popover, MessageBox }

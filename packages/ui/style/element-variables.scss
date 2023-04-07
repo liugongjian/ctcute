@@ -8,6 +8,7 @@ $--color-success: $color-success;
 $--color-warning: $color-warning;
 $--color-danger: $color-danger;
 $--color-info: $color-info;
+$--color-white: $color-white;
 
 $--color-text-primary: $text-color;
 $--color-text-regular: $text-color;
@@ -18,6 +19,7 @@ $--border-color-light: $border-color-light;
 $--border-color-lighter: $border-color-light;
 $--border-color-extra-light: $border-color-light;
 $--background-color-base: $color-bg-3;
+
 
 /* Box-shadow
 -------------------------- */
@@ -84,14 +86,14 @@ $--datepicker-icon-color: $text-color-light;
 
 /* Table
 -------------------------- */
-$--table-border-color: $--border-color-lighter;
-$--table-border: 1px solid $border-color;
+$--table-border-color: $table-border-color;
+$--table-border: 1px solid $table-border-color;
 // $--table-font-color: $--color-text-regular;
 // $--table-header-font-color: $--color-text-secondary;
-// $--table-row-hover-background-color: $--background-color-base;
+$--table-row-hover-background-color: $table-row-hover-background-color;
 // $--table-current-row-background-color: $--color-primary-light-9;
 $--table-header-background-color: $color-neutral-1;
-$--table-fixed-box-shadow: $shadow-1;
+$--table-fixed-box-shadow: $table-fixed-box-shadow;
 
 /* Tree
 -------------------------- */
@@ -102,9 +104,32 @@ $--tree-expand-icon-color: $text-color-light;
 -------------------------- */
 $--rate-icon-color: $text-color-light;
 
+/* Transfer
+-------------------------- */
+$--transfer-border-color: $border-color;
+$--transfer-border-radius: $border-radius;
+$--transfer-panel-header-height: $transfer-header-height;
+$--transfer-panel-header-background-color: $transfer-header-bg;
+$--transfer-item-height: $transfer-item-height;
+$--transfer-filter-height: $transfer-filter-height;
+$--transfer-panel-footer-height: $transfer-footer-height;
+
+/* Collapse
+-------------------------- */
+
+$--collapse-header-height: $collapse-header-height;
+$--collapse-header-background-color: $collapse-header-bg;
+$--collapse-header-font-color: $--color-text-primary;
+$--collapse-header-font-size: $text-size;
+$--collapse-content-background-color: $collapse-content-background-color;
+$--collapse-content-font-size: $text-size;
+$--collapse-content-font-color: $text-color-light;
+
 /* MessageBox
 -------------------------- */
 $--msgbox-border-radius: $border-radius;
+$--messagebox-font-size: $text-size-lg;
+$--msgbox-padding-primary: $messagebox-header-padding;
 
 /* Message
 -------------------------- */
@@ -122,9 +147,24 @@ $--notification-danger-icon-color: $color-danger;
 $--notification-info-icon-color: $color-master;
 $--notification-warning-icon-color: $color-warning;
 
+/* Dialog
+-------------------------- */
+$--dialog-background-color: $color-bg-1;
+$--dialog-box-shadow: $shadow-3;
+$--dialog-title-font-size: $text-size-lg;
+$--dialog-font-line-height: $line-height;
+$--dialog-content-font-size: $text-size;
+
 /* Timeline
 -------------------------- */
 $--timeline-node-color: $color-neutral-3;
+
+/* Pagination
+-------------------------- */
+$--pagination-font-size: $pagination-font-size;
+$--pagination-button-height: $pagination-height;
+$--pagination-button-width: $pagination-button-width;
+$--pagination-button-color: $pagination-button-color;
 
 /* Icon
 -------------------------- */

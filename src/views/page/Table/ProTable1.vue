@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-03-09 15:39:46
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2023-03-31 10:49:54
  * @Description: 复杂表格1
 -->
 <template>
@@ -37,46 +37,46 @@
       <div class="table-filter_text">指标条件</div>
       <cute-table-filter :form-data="formData" />
     </div>
-
     <!--表格-->
-    <el-table v-loading="loading" :data="tableData" fit border>
+    <el-table v-loading="loading" :data="tableData" fit>
       <el-table-column prop="name" label="主机别名">
         <template slot-scope="{ row }">
           <router-link to="/">{{ row.name }}</router-link>
         </template>
       </el-table-column>
-      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
+      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"></el-table-column>
       <el-table-column prop="ip" label="IP地址" />
       <el-table-column prop="cpu" label="CPU利用率(%)" />
       <el-table-column prop="memory" label="内存利用率(%)" />
       <el-table-column prop="disk" label="磁盘利用率(%)" />
       <el-table-column prop="health" label="健康状态">
-        <template slot-scope="{ row }">
-          <span class="health-state">
-            <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
-          </span>
+        <template slot-scope="scope">
+          <cute-state :type="HEALTH[scope.row.health].colorType">
+            {{ HEALTH[scope.row.health].text }}
+          </cute-state>
         </template>
       </el-table-column>
-      <el-table-column prop="actions" label="操作" fixed="right" class-name="actions" width="190px">
+      <el-table-column prop="actions" label="操作" fixed="right" class-name="actions" width="200px">
         <template slot-scope="scope">
           <el-button
             type="text"
             size="small"
             class="bt-operation"
-            @click="handleClick(scope.$index, scope.row)"
+            @click="gotoMount(scope.row)"
           >
             挂载
           </el-button>
-          <el-button type="text" size="small" class="bt-operation">卸载</el-button>
-          <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+          <el-button type="text" size="small" class="bt-operation" @click="gotoUninstall(scope.row)">卸载</el-button>
+          <el-button type="text" size="small" class="bt-operation" @click="gotoExpansion(scope.row)">扩容</el-button>
           <el-divider direction="vertical"></el-divider>
           <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
-            <span class="el-dropdown-link">
-              更多<i
+            <el-button type="text" size="small" class="bt-operation">
+              更多
+              <i
                 class="el-icon-arrow-down el-icon--right"
                 :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
-              ></i>
-            </span>
+              />
+            </el-button>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>退订</el-dropdown-item>
               <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -101,7 +101,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import * as ProTable1 from '@/types/ProTable1'
 import { getTable, getHosts } from '@/api/proTable1'
-import { STATUS, HEALTH } from '@/dics/proTable1'
+import { STATUS, HEALTH2 } from '@/dics/proTable1'
 import { CuteTableFilter } from '@cutedesign/ui'
 
 @Component({
@@ -110,7 +110,7 @@ import { CuteTableFilter } from '@cutedesign/ui'
 })
 export default class extends Vue {
   // 健康状态字典
-  private HEALTH = HEALTH
+  private HEALTH = HEALTH2
 
   // 搜索信息
   private conditions: ProTable1.Conditions = {
@@ -219,19 +219,27 @@ export default class extends Vue {
   }
 
   /**
-   * 查看详情
-   * @param data {SimpleTable.Host} 表格行对象
+   * 挂载
+   * @param data
    */
-  private gotoDetail(data: ProTable1.Host) {
-    this.$message.success(`前往${data.name}详情页面`)
+  private gotoMount(data: ProTable1.Host) {
+    this.$message.success(`前往${data.name}挂载页面`)
   }
 
   /**
-   * 查看监控指标
-   * @param data {SimpleTable.Host} 表格行对象
+   * 卸载
+   * @param data
    */
-  private gotoDashboard(data: ProTable1.Host) {
-    this.$message.info(`前往${data.name}监控指标页面`)
+  private gotoUninstall(data: ProTable1.Host) {
+    this.$message.success(`前往${data.name}卸载页面`)
+  }
+
+  /**
+   * 扩容
+   * @param data
+   */
+  private gotoExpansion(data: ProTable1.Host) {
+    this.$message.success(`前往${data.name}扩容页面`)
   }
 
   /**
@@ -246,6 +254,7 @@ export default class extends Vue {
   private openDropdown(index) {
     this.tableData[index].flag = !this.tableData[index].flag
   }
+
   /** * 新增过滤表单对象 */
   private formData = [
     {
@@ -308,37 +317,3 @@ export default class extends Vue {
   ]
 }
 </script>
-<style lang="scss" scoped>
-.health-state {
-  display: inline-flex;
-  align-items: center;
-}
-
-.health-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin-right: 8px;
-  border-radius: 100%;
-
-  &--1 {
-    background: $color-status-success;
-  }
-
-  &--2 {
-    background: $color-status-warning;
-  }
-
-  &--3 {
-    background: $color-status-danger;
-  }
-
-  &--4 {
-    background: $color-status-info;
-  }
-
-  &--5 {
-    background: $disabled-color;
-  }
-}
-</style>

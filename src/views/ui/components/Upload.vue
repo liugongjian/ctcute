@@ -1,12 +1,44 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-19 16:32:05
- * @LastEditors: 马妍
- * @LastEditTime: 2022-11-22 09:26:38
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-03-27 15:17:23
  * @Description: 
 -->
 <template>
   <div>
+    <h3>文件上传-基础按钮</h3>
+    <el-upload
+      action="https://jsonplaceholder.typicode.com/posts/"
+      :on-preview="handlePreview"
+      :on-remove="handleRemove"
+      :on-success="handleSuccess"
+    >
+      <el-button><svg-icon name="upload" /> 上传文件</el-button>
+      <div slot="tip" class="el-upload__tip">支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
+    </el-upload>
+
+    <div>
+      <h3>拖拽上传</h3>
+      <p>如果有上传限制，只能上传一个的情况，请删除重新上传</p>
+      <el-upload
+        class="drag-uploader"
+        drag
+        :file-list="fileList2"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        multiple
+        :on-preview="handlePictureCardPreview"
+        :limit="1"
+        :on-exceed="handleExceed"
+      >
+        <!-- <svg-icon name="container" class="el-icon-upload" /> -->
+        <div class="el-upload__text">
+          <b>点击或将文件拖拽到<span>这里上传</span></b>
+          <!-- <div>支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div> -->
+        </div>
+      </el-upload>
+      <div slot="tip" class="el-upload-out__tip">支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
+    </div>
     <h3>文件上传-小</h3>
     <el-upload
       action="https://jsonplaceholder.typicode.com/posts/"
@@ -51,26 +83,6 @@
     <el-dialog :visible.sync="dialogVisible">
       <img :src="dialogImageUrl" alt="" />
     </el-dialog>
-    <div>
-      <h3>拖拽上传</h3>
-      <p>如果有上传限制，只能上传一个的情况，请删除重新上传</p>
-      <el-upload
-        class="drag-uploader"
-        drag
-        :file-list="fileList2"
-        action="https://jsonplaceholder.typicode.com/posts/"
-        multiple
-        :on-preview="handlePictureCardPreview"
-        :limit="1"
-        :on-exceed="handleExceed"
-      >
-        <svg-icon name="container" class="el-icon-upload" />
-        <div class="el-upload__text">
-          <b>点击或将文件拖拽到这里上传</b>
-          <div>支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
-        </div>
-      </el-upload>
-    </div>
   </div>
 </template>
 <script lang="ts">
@@ -97,10 +109,10 @@ export default class extends Vue {
     },
   ]
   private fileList2 = [
-    {
-      name: '组件123.jpeg',
-      url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-    },
+    // {
+    //   name: '组件123.jpeg',
+    //   url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
+    // },
   ]
 
   //默认展示文件

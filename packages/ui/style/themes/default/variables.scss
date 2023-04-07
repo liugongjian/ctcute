@@ -1,5 +1,8 @@
 @import 'palette';
 
+/* images path - 图片路径变量，定制主题scss使用 */
+$images-path: '~@cutedesign/ui/images' !default;
+
 /* Color
 -------------------------- */
 
@@ -10,7 +13,8 @@ $color-master-active: $blue-7 !default; // 触发
 $color-master-disabled: $blue-4 !default; // 禁用
 $color-master-bg: $blue-3 !default; // 背景
 $color-master-bg-light: $blue-2 !default; // 背景浅色
-$color-master-bg-light-2: $blue-1 !default; // 背景浅色2
+// $color-master-bg-light-2: $blue-1 !default; // 背景浅色2
+$color-master-bg-light-2: $neutral-1 !default; // 背景浅色2
 
 $color-master-1: $blue-base !default; // deprecated(弃用)
 $color-master-2: $blue-5 !default; // deprecated(弃用)
@@ -57,7 +61,6 @@ $color-fatal-active: $ruby-9 !default;
 $color-fatal-disabled: $ruby-5 !default;
 $color-fatal-bg: $ruby-1 !default;
 
-
 $color-status-master: $color-master !default; // deprecated(弃用)
 $color-status-master-1: $color-master !default; // deprecated(弃用)
 $color-status-danger: $ruby-base !default; // deprecated(弃用)
@@ -102,7 +105,6 @@ $color-grey-11: $neutral-1 !default; // deprecated(弃用)
 /* 其他 */
 $color-other-1: $color-neutral-8 !default; // deprecated(弃用) 使用在tooltip背景, order页眉背景
 
-
 /* Background
 -------------------------- */
 $color-bg-1: $white !default;
@@ -129,7 +131,8 @@ $disabled-icon-color: $neutral-6 !default; // deprecated(弃用)
 
 /* Typography
 -------------------------- */
-$font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif !default; // 标准字体
+$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif,
+  '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
 $font-family-cute-icons: 'cute-icons' !default;
 $text-size: 12px !default; // 标准字体大小
 $text-size-sm: 12px !default; // 字号small
@@ -263,17 +266,25 @@ $color-tag-danger-2: $tag-danger !default; // deprecated(弃用)
 
 /* Button
 -------------------------- */
+$button-default-text-color: $text-color !default;
+$button-default-text-color-disabled: $text-color-light-2 !default;
+$button-default-color-bg: $color-bg-1 !default;
+$button-default-color-bg-disabled: $color-neutral-1 !default;
+$button-default-color-border: $color-neutral-5 !default;
+$button-default-color-border-disabled: $color-neutral-5 !default;
 $button-icon-color: $text-color-light-2 !default;
 $button-margin: $margin-3x !default;
 $button-padding-mini: $padding $padding-2x !default;
 $button-padding-small: $padding $padding-2x !default;
 $button-padding-medium: 9px $padding-4x !default;
 $button-padding-large: $margin-3x $padding-6x !default;
+$button-group-border: rgba($color-white, 0.5) !default;
 
 /* Form
 -------------------------- */
 $form-item-label-line-height: 32px !default;
 $form-item-error-padding-top: $padding-6 !default;
+$form-item-margin-bottom: $margin-6x;
 
 /* Input
 -------------------------- */
@@ -281,8 +292,8 @@ $input-bg: $color-bg-1 !default;
 $input-disabled-bg: $disabled-bg !default;
 $input-hover-border: $border-color-hover !default;
 $input-active-border: $color-master !default;
-$input-xs-height: 28px !default;
-$input-sm-height: 28px !default;
+$input-xs-height: 24px !default;
+$input-sm-height: 24px !default;
 $input-md-height: 32px !default;
 $input-lg-height: 40px !default;
 $input-height: $input-md-height !default;
@@ -307,11 +318,16 @@ $checkbox-button-hover: $color-master-bg-light !default;
 -------------------------- */
 $table-header-bg: $color-neutral-1 !default;
 $table-cell-bg: $color-neutral-8 !default;
-$table-sort-caret-bg: $color-neutral-6 !default;
-$table-cell-padding-sm: $margin-2x !default;
-$table-cell-padding-md: $margin-10 !default;
-$table-cell-padding-lg: $margin-3x !default;
+$table-cell-padding-xs: $padding-6 !default;
+$table-cell-padding-sm: $padding-6 !default;
+$table-cell-padding-md: $padding-10 !default;
+$table-cell-padding-lg: $padding-3x !default;
+$table-cell-selection-line-height: 20px !default;
 $table-border-color: $color-neutral-3 !default;
+$table-sort-caret-bg: $color-neutral-6 !default;
+$table-fixed-box-shadow: 0px 2px 8px rgba(100, 110, 144, 0.2) !default;
+$table-row-hover-background-color: $neutral-2 !default;
+$table-filter-item-height: 32px !default;
 
 $table-header-fill: $table-header-bg !default; // deprecated(弃用)
 $table-cell-fill: $table-cell-bg !default; // deprecated(弃用)
@@ -319,19 +335,77 @@ $table-sort-caret-fill: $table-sort-caret-bg !default; // deprecated(弃用)
 
 /* Pagination
 -------------------------- */
-$pagination-bg: $color-white !default;
+$pagination-bg: $neutral-1 !default;
+//$pagination-bg: $color-white !default;
 
-$pagination-fill: $color-white !default; // deprecated(弃用)
+$pagination-fill: $color-white; // deprecated(弃用)
+$pagination-font-size: $text-size !default;
+$pagination-font-size-sm: $text-size !default;
+$pagination-height: 24px !default;
+$pagination-height-sm: 24px !default;
+$pagination-input-width: 56px !default; // TODO 如何实现自适应
+$pagination-button-width: 20px !default;
+$pagination-button-width-sm: 20px !default;
+$pagination-button-margin: $margin-2x !default;
+$pagination-button-margin-sm: $margin !default;
+$pagination-button-color: $text-color-light !default;
+$pagination-hover-color: $color-master !default;
+$pagination-hover-bg: $color-bg-3 !default;
+$pagination-active-color: $color-white !default;
+$pagination-active-bg: $color-master !default;
+$pagination-active-bg-disabled: $color-master-disabled !default;
+
+/* Transfer
+-------------------------- */
+$transfer-header-height: 40px !default; // Transfer组件header高度
+$transfer-header-bg: $color-neutral-1 !default;
+$transfer-button-hegiht: 38px !default; // Transfer组件圆形按钮
+$transfer-button-width: 38px !default; // Transfer组件圆形按钮
+$transfer-button-radius: 50% !default; // Transfer组件圆形按钮
+$transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
+$transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
+$transfer-item-height: 32px !default; // Transfer组件选项高度
+$transfer-filter-height: $input-sm-height !default; // Transfer组件搜索框高度
+$transfer-footert-bg: $color-white !default; // Transfer组件footer背景色
+$transfer-footer-height: 40px !default; // Transfer组件footer高度
+
+
+/* Tabs
+-------------------------- */
+$tabs-master: $color-master !default; // 主题色标签背景
+$tabs-sm-height: 24px !default;
+$tabs-md-height: 32px !default;
+$tabs-lg-height: 40px !default;
+$tabs-button-radius: 2px !default;
+$tabs-default-line-color: $color-neutral-3 !default; // 默认风格的线条颜色
+
+/* Progress
+-------------------------- */
+$progress-text-height-lg: 30px !default;
+$progress-text-height-sm: 12px !default;
+$progress-text-size-lg: 20px !default;
+$progress-text-size-sm: 10px !default;
+$progress-text-weight: 600 !default;
 
 /* Tooltip
 -------------------------- */
 $tooltip-bg: $color-neutral-8 !default;
+$tooltop-text-color: $color-white !default;
+$tooltip-border-color: $color-neutral-8 !default;
 
 $tooltip-fill: $tooltip-bg !default; // deprecated(弃用)
 
+/* Notification
+-------------------------- */
+$notification-border-color: $neutral-1 !default;
+
+/* Popover
+-------------------------- */
+$popover-min-width: 160px !default;
+
 /* Upload
 -------------------------- */
-$upload-bg: $color-neutral-1 !default;
+$upload-bg: $color-white !default;
 
 $upload-fill: $upload-bg !default; // deprecated(弃用)
 
@@ -346,17 +420,23 @@ $cascader-tag-bg: $neutral-1 !default;
 $cascader-tag-border: $neutral-5 !default;
 $cascader-tag-close-color: $white !default;
 $cascader-tag-close-bg: $neutral-6 !default;
-$cascader-node-hover: $color-master-bg-light-2 !default;
+// $cascader-node-hover: $color-master-bg-light-2 !default;
+$cascader-node-hover: $neutral-1 !default;
 $cascader-panel-bg: $color-bg-1 !default;
 $cascader-panel-shadow: $shadow-2 !default;
 
 /* Collapse
 -------------------------- */
+$collapse-border-color: $color-neutral-3 !default;
+$collapse-content-background-color: $color-bg-1 !default;
 $collapse-header-bg: $color-neutral-1 !default;
+$collapse-header-arrow-color: $neutral-6 !default;
 $collapse-header-height: 36px !default;
-$collapse-item-header-height: 32px !default;
+$collapse-seperate-header-height: 32px !default;
+$collapse-seperate-header-bg: $color-neutral-2 !default;
 
-$collapse-header-fill: $collapse-header-bg !default; // deprecated(弃用)
+$collapse-item-header-height: $collapse-seperate-header-height !default; // deprecated(弃用)
+$collapse-header-fill: $collapse-header-bg; // deprecated(弃用)
 
 /* Datepicker
 -------------------------- */
@@ -364,14 +444,66 @@ $datepicker-shadow: $shadow-2 !default;
 
 /* Descriptions
 -------------------------- */
-$descriptions-label-width: 165px !default;
-$descriptions-item-height: 36px !default;
+$descriptions-label-width: 160px !default;
+$descriptions-item-height: 40px !default;
 $descriptions-item-content-width: 525px !default;
 $descriptions-item-content-line-height: 22px !default;
+$descriptions-item-label-min-width: 128px !default;
+$descriptions-font-color-label: $color-neutral-9 !default;
+$descriptions-font-color-label-bordered: $color-neutral-10 !default;
+
+/* DropDown
+-------------------------- */
+$dropdown-item-padding-top-bottom: 7px !default;
+$dropdown-min-width: 120px !default;
+$dropdown-icon-line-height: 0.5 !default;
+
+/* Tree
+-------------------------- */
+$tree-checkbox-size: 14px !default;
+$tree-node-icon-padding: 11px !default;
+$tree-checkbox-transform: -0.85px !default;
+$tree-checkbox-scale: 0.375 !default;
+$tree-checkbox-tick-top: 1px !default;
+$tree-handler-menu: 30px !default;
+$tree-node-popover-margin: 0.3em !default;
+$tree-button-tooltip-content-padding: 0.8em 1.2em !default;
+$tree-leaf-expand-icon-padding: 2px !default;
+
+/* Steps
+-------------------------- */
+$steps-icon-height-md: 32px !default; // 中号尺寸
+$steps-icon-height-sm: 24px !default; // 小号尺寸
+$steps-title-size-md: $text-size-lg !default; // 中号标题：16px
+$steps-title-size-sm: $text-size-sm !default; // 小号标题：12px
+$steps-icon-inner-status-size-md: $text-size-md !default; // 中号状态icon size：14px
+$steps-icon-inner-status-size-sm: $text-size-sm !default; // 小号状态icon size：12px
+$steps-icon-inner-text-size-md: $text-size-md !default; // 小号标号size：14px
+$steps-icon-inner-text-size-sm: $text-size-md !default; // 中号标号size：14px
+$steps-line-size: 1px; // 线条粗细;
 
 /* Dialog
 -------------------------- */
+$dialog-header-padding: $padding-4x $padding-8x !default;
+$dialog-header-border: $color-neutral-3 !default;
+$dialog-body-padding: $padding-6x $padding-8x !default;
+$dialog-footer-bg: $color-neutral-1 !default;
+$dialog-footer-padding: $padding-3x $padding-8x !default;
 $dialog-footer-margin-top: -30px !default;
+$dialog-fullscreen-margin: $margin-6x !default;
+
+/* MessageBox
+-------------------------- */
+$messagebox-padding-bottom: $padding-3x !default;
+$messagebox-header-padding: $padding-8x !default;
+$messagebox-header-padding-bottom: $padding-3x !default;
+$messagebox-content-padding: $padding-3x $padding-8x !default;
+$messagebox-btns-padding: $padding-3x $padding-8x $padding-5x $padding-8x !default;
+
+/* Message(Toast)
+-------------------------- */
+$toast-width: 400px !default;
+$toast-height: 36px !default;
 
 /* Icon
 -------------------------- */
@@ -384,9 +516,52 @@ $loading-primary-border: $loading-primary-color !default;
 $loading-default-color: $color-grey-10 !default;
 $loading-default-border: $color-grey-6 !default;
 
+/* Alert
+-------------------------- */
+$alert-text-color: $text-color-light !default;
+$alert-info-bg: $blue-2 !default;
+$alert-success-bg: $green-2 !default;
+$alert-warning-bg: $orange-2 !default;
+$alert-danger-bg: $ruby-2 !default;
+$alert-weak-bg: $neutral-1 !default;
+
+/* CuteSlider
+-------------------------- */
+$cute-slider-marks-height: 6px !default;
+$cute-slider-bar-height: 10px !default;
+$cute-slider-input-width: 64px !default;
+$cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;
+$cute-slider-btn-radius: 8px !default;
+$cute-slider-btn-width: 16px !default;
+$cute-slider-btn-height: 22px !default;
+
+/* CuteDistributionBar
+-------------------------- */
+$cute-distribution-bar-input-width: 54px !default;
+$cute-distribution-bar-slider-width: 400px !default;
+$cute-distribution-bar-slider-height: 8px !default;
+$cute-distribution-bar-slider-item-width: 32px !default;
+$cute-distribution-bar-slider-item-height: 32px !default;
+$cute-distribution-bar-slider-button-width: 16px !default;
+$cute-distribution-bar-slider-button-height: 16px !default;
+
 /* Layout
 -------------------------- */
+
+$layout-bg: #f7f8fa !default;
+$layout-header-height: 50px !default;
+$layout-header-fill-1: #272b39 !default;
+$layout-header-border: #585b62 !default;
+$layout-navbar-color-bg: $white !default;
+$layout-color-bg: $white !default;
+$layout-color-master: $blue-base !default;
+$layout-color-grey: $neutral-9 !default;
+$layout-text-color: $neutral-10 !default;
+$layout-sidebar-width: 240px !default;
+$layout-sidebar-sub-hover: $blue-1 !default;
+
 /* Header */
+
 $header-height: 50px !default;
 $header-fill-1: #272b39 !default;
 $header-fill-2: #353f58 !default;
@@ -395,10 +570,47 @@ $header-text-color: #c2c2c2 !default;
 $header-search-text-color: $text-color-light-2 !default;
 
 /* Sidebar */
+
 $sidebar-width: 240px !default;
 $sidebar-fill: $color-white !default;
 $sidebar-sub-fill: $color-white !default;
 $sidebar-sub-hover: $color-master-bg-light-2 !default;
+
+/* CuteButtonGroup */
+$cute-button-group-margin: -1px !default;
+$cute-button-group-zindex: 1 !default;
+$cute-button-group-border: 2px !default;
+
+/* CuteEditInput */
+$cute-edit-input-width: calc(100% - 84px) !default;
+
+/* CuteRemindInput */
+$cute-remind-input-width: 300px !default;
+
+/* CuteSpecialRadio */
+$cute-special-radio-padding: 9px !default;
+$cute-special-radio-size: 2px !default;
+
+/* CuteRemindSelect */
+$cute-remind-select-right: 33px !default;
+
+/* CuteSelectedInput */
+$cute-selected-input-width: 130px !default;
+
+/* CuteArea */
+$cute-area-recent-border-color: $neutral-5 !default;
+$cute-area-recent-head-color: $neutral-10 !default;
+$cute-area-head-line-height: 20px !default;
+$cute-area-padding: 2px !default;
+$cute-area-item-height: 30px !default;
+$cute-area-recent-item-color: $neutral-9 !default;
+$cute-area-recent-item-background-color: $blue-1 !default;
+$cute-area-item-hover-background-color: $blue-1 !default;
+$cute-area-item-hover-color: $blue-base !default;
+$cute-area-item-seleted-background-color: $blue-base !default;
+$cute-area-head-color: $neutral-9 !default;
+$cute-area-item-color: $neutral-10 !default;
+$cute-area-wrap-margin: 40px !default;
 
 /* Animation
 -------------------------- */
@@ -427,37 +639,66 @@ $zindex-image: 1080 !default;
 -------------------------- */
 $screen-lg: 1200px !default;
 
-/* 图表颜色(deprecated(弃用))
+// 图表默认的颜色
+$chart-color-1: #91c6f5 !default;
+$chart-color-2: #8cd4ca !default;
+$chart-color-3: #e8d065 !default;
+$chart-color-4: #fdac6f !default;
+$chart-color-5: #a39df7 !default;
+$chart-color-6: #8ed8f3 !default;
+$chart-color-7: #ffab9a !default;
+$chart-color-8: #78a1da !default;
+$chart-color-9: #fa7175 !default;
+$chart-color-10: #93c2bb !default;
+$chart-color-11: #81dbe3 !default;
+$chart-color-12: #f48fb4 !default;
+
+/* 图表默认颜色(deprecated(弃用))
 -------------------------- */
-// 图表颜色
-$chartColor1: #8bb2f9 !default;
-$chartColor2: #aad85f !default;
-$chartColor3: #f8d34c !default;
-$chartColor4: #f19e4b !default;
-$chartColor5: #9c8ae2 !default;
-$chartColor6: #7ac4fa !default;
-$chartColor7: #b570e4 !default;
-$chartColor8: #ed732e !default;
-$chartColor9: #9ca7f9 !default;
-$chartColor10: #7ad3b7 !default;
-$chartColor11: #ed6c68 !default;
-$chartColor12: #f7cc8b !default;
+$chartColor1: $chart-color-1 !default;
+$chartColor2: $chart-color-2 !default;
+$chartColor3: $chart-color-3 !default;
+$chartColor4: $chart-color-4 !default;
+$chartColor5: $chart-color-5 !default;
+$chartColor6: $chart-color-6 !default;
+$chartColor7: $chart-color-7 !default;
+$chartColor8: $chart-color-8 !default;
+$chartColor9: $chart-color-9 !default;
+$chartColor10: $chart-color-10 !default;
+$chartColor11: $chart-color-11 !default;
+$chartColor12: $chart-color-12 !default;
 
 // 图表高亮颜色
-$chartColorH1: #7fa8f4 !default;
-$chartColorH2: #9fcd54 !default;
-$chartColorH3: #edc73d !default;
-$chartColorH4: #ec9035 !default;
-$chartColorH5: #8f7cd7 !default;
-$chartColorH6: #69b7f1 !default;
-$chartColorH7: #a358d6 !default;
-$chartColorH8: #e0641e !default;
-$chartColorH9: #909bf3 !default;
-$chartColorH10: #6bc9ab !default;
-$chartColorH11: #e35854 !default;
-$chartColorH12: #f2c179 !default;
+$chart-color-h-1: #9fd9ff !default;
+$chart-color-h-2: #9ae9de !default;
+$chart-color-h-3: #ffe46f !default;
+$chart-color-h-4: #ffbd7a !default;
+$chart-color-h-5: #b3acff !default;
+$chart-color-h-6: #9cedff !default;
+$chart-color-h-7: #ffbca9 !default;
+$chart-color-h-8: #84b1ef !default;
+$chart-color-h-9: #ff7c80 !default;
+$chart-color-h-10: #a1d5cd !default;
+$chart-color-h-11: #8df0f9 !default;
+$chart-color-h-12: #ff9dc6 !default;
 
-// 图表light颜色
+/* 图表高亮颜色(deprecated(弃用))
+-------------------------- */
+$chartColorH1: $chart-color-h-1 !default;
+$chartColorH2: $chart-color-h-2 !default;
+$chartColorH3: $chart-color-h-3 !default;
+$chartColorH4: $chart-color-h-4 !default;
+$chartColorH5: $chart-color-h-5 !default;
+$chartColorH6: $chart-color-h-6 !default;
+$chartColorH7: $chart-color-h-7 !default;
+$chartColorH8: $chart-color-h-8 !default;
+$chartColorH9: $chart-color-h-9 !default;
+$chartColorH10: $chart-color-h-10 !default;
+$chartColorH11: $chart-color-h-11 !default;
+$chartColorH12: $chart-color-h-12 !default;
+
+/* 图表light颜色(deprecated(弃用))
+-------------------------- */
 $chartColorL1: #f2f7ff !default;
 $chartColorL2: #f6fbef !default;
 $chartColorL3: #fefaed !default;
@@ -470,6 +711,3 @@ $chartColorL9: #f5f6fe !default;
 $chartColorL10: #effaf7 !default;
 $chartColorL11: #fdf0ef !default;
 $chartColorL12: #fef9f3 !default;
-
-/* images path - 图片路径变量，定制主题scss使用 */
-$images-path: '~@cutedesign/ui/images' !default;

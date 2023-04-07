@@ -4,6 +4,10 @@
       <Search />
     </div>
     <div class="layout-header__nav">
+      <el-select v-model="lang" size="mini" class="lang-select" @change="langChangeHandle">
+        <el-option value="zh" :label="$t('language.zh')" />
+        <el-option value="en" :label="$t('language.en')" />
+      </el-select>
       <router-link to="/docs" :class="{ active: currentPath.startsWith('/docs') }">文档</router-link>
       <router-link to="/ui" :class="{ active: currentPath.startsWith('/ui') }">UI规范</router-link>
       <router-link to="/component" :class="{ active: currentPath.startsWith('/component') }"
@@ -43,9 +47,17 @@ import Search from '../Search/index.vue'
 })
 export default class extends Vue {
   private keyword = ''
-  private isLogin = this.$auth.isLogin || ''
+  private isLogin = this.$auth.isLogin || false
   private flag = false
   private username = this.$auth.userInfo?.name || ''
+
+  private lang = this.$i18n.locale
+
+  private langChangeHandle(value) {
+    this.$i18n.locale = value
+    localStorage.setItem('cute-lang', value)
+  }
+
   private get currentPath() {
     return this.$route.path
   }
@@ -165,5 +177,10 @@ export default class extends Vue {
       color: $color-master-1;
     }
   }
+}
+
+.lang-select {
+  margin-right: 24px;
+  max-width: 85px;
 }
 </style>

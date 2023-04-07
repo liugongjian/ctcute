@@ -52,39 +52,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.el-state {
-  display: inline-flex;
-  align-items: center;
-}
-
-.el-state > span {
-  margin-right: $margin;
-}
-
-.el-state > span.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  margin-right: $margin-2x;
-}
-
-.icon-wrap {
-  font-size: $text-size-lg;
-}
-
-@keyframes rotating {
-  0% {
-    transform: rotate(0);
-  }
-
-  100% {
-    transform: rotate(1turn);
-  }
-}
-
-.loading {
-  animation: rotating 1.5s linear infinite;
-}
-</style>

@@ -129,7 +129,7 @@ export default class extends Vue {
           win.focus() //让原窗口获取焦点
         })
     } catch (e) {
-      this.$message.error(e)
+      (this as any).$message.error(e)
     }
   }
   /**
@@ -151,72 +151,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.cute-appendix {
-  margin-top: $margin-3x;
-}
-
-.appendix-link-icon {
-  margin-right: $margin;
-  color: $icon-color;
-  vertical-align: -$margin;
-}
-
-.appendix-eye-icon {
-  margin-left: $margin-2x;
-  color: $icon-color;
-  vertical-align: -$margin;
-
-  &:hover {
-    color: $color-master;
-    cursor: pointer;
-  }
-}
-
-.appendix-big {
-  display: flex;
-  align-items: center;
-  margin-top: $margin-3x;
-
-  &-item {
-    width: 240px;
-    height: 52px;
-    background-color: $color-neutral-1;
-    display: flex;
-    align-items: center;
-    padding: 0 $padding-2x;
-
-    &:hover {
-      background-color: $color-master-bg-light-2;
-      cursor: pointer;
-    }
-
-    &-title {
-      margin-left: $margin-2x;
-
-      p:nth-child(1) {
-        max-width: 184px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        font-family: $font-family;
-        font-size: $text-size;
-        color: $text-color;
-        line-height: $line-height;
-        font-weight: $text-title-weight;
-        margin: $margin 0;
-      }
-
-      p:nth-child(2) {
-        font-family: $font-family;
-        font-size: $text-size;
-        color: $text-color-light;
-        line-height: $line-height;
-        font-weight: $text-weight;
-        margin: 0;
-      }
-    }
-  }
-}
-</style>

@@ -6,7 +6,7 @@
  * @Description:
 -->
 <template>
-  <el-card v-loading="loading" class="chart-card" :bordered="false" :shadow="shadow">
+  <el-card v-loading="loading" class="cute-chart-card" :bordered="false" :shadow="shadow">
     <div class="chart-card-icon-warp" :style="'background-color:rgb(' + background + ',0.2)'">
       <div class="chart-card-icon" :style="'background-color:rgb(' + background + ')'">
         <svg-icon :name="icon" :color="svgColor" width="28" height="28" />
@@ -35,52 +35,3 @@ export default class extends Vue {
   @Prop({ type: String, default: 'never' }) shadow?: 'never' // 卡片是否有阴影
 }
 </script>
-
-<style lang="scss" scoped>
-.chart-card {
-  display: flex;
-  border-radius: $border-radius;
-
-  ::v-deep .el-card__body {
-    display: flex;
-  }
-
-  .chart-card-icon-warp {
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 29px;
-
-    .chart-card-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  .chart-card-cont-warp {
-    width: 240px;
-
-    h3 {
-      font-family: bahnschrift;
-      font-size: 30px;
-      line-height: 42px;
-      margin: 0;
-      color: $neutral-10;
-    }
-
-    p {
-      font-size: $text-size-md;
-      color: $neutral-9;
-      line-height: 28px;
-      margin: 0;
-    }
-  }
-}
-</style>

@@ -4,12 +4,6 @@ import hasPermissionDirective from './directive'
 import IsAuthorizedComponent from './component.vue'
 import { AuthInstance, BizAuthConfigOptions } from '../types'
 
-declare module 'vue/types/vue' {
-  interface Vue {
-    $auth: any
-  }
-}
-
 const install = function (Vue: any, options: BizAuthConfigOptions) {
   Vue.directive('permission', hasPermissionDirective)
   Vue.component('IsAuthorized', IsAuthorizedComponent)
@@ -26,4 +20,5 @@ function preCheck(options: BizAuthConfigOptions) {
     throw new Error('Request handler instance not found')
   }
 }
+
 export default install

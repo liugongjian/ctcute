@@ -343,8 +343,3 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-.newAdd {
-  color: $color-master-1;
-}
-</style>

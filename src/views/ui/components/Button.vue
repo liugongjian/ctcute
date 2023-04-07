@@ -18,7 +18,7 @@
       <el-button>次按钮</el-button>
       <el-button type="danger" plain>危险</el-button>
       <el-button size="small" icon="plus-circle">带图标按钮</el-button>
-      <el-dropdown @visible-change="openDropdown">
+      <el-dropdown placement="bottom-start" @visible-change="openDropdown">
         <el-button size="small" icon="select">
           按钮2
           <svg-icon name="caret-down" :class="flag ? 'top-fill' : 'svg-icon svg-fill'" />

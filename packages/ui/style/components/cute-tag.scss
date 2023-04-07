@@ -1,0 +1,39 @@
+.cute-tag-add {
+  display: inline-block;
+
+  .el-tag {
+    margin-right: 8px;
+  }
+
+  .el-tag--large {
+    margin-right: 12px;
+  }
+
+  .el-input {
+    margin-right: 10px;
+  }
+
+  .input-new-tag {
+    width: 70px;
+    height: 22px;
+    line-height: 22px;
+
+    .el-input__inner {
+      height: 22px;
+      line-height: 20px;
+      vertical-align: bottom;
+    }
+  }
+
+  .input-large-tag {
+    width: 96px;
+    height: 28px;
+    line-height: 28px;
+
+    .el-input__inner {
+      height: 28px;
+      line-height: 20px;
+      vertical-align: bottom;
+    }
+  }
+}

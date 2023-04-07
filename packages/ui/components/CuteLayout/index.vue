@@ -43,7 +43,7 @@
           </navbar>
         </slot>
         <div :class="{ 'app-main-wrap': true, 'fixed-navbar': layout === 'fixed-navbar' }">
-          <slot name="appMain"></slot>
+          <slot></slot>
         </div>
       </div>
     </div>
@@ -87,12 +87,3 @@ export default class extends Vue {
   public sidebarClass: string
 }
 </script>
-<style scoped>
-.layout-container {
-  background: $layout-bg;
-}
-
-.hideheader {
-  margin-top: 0;
-}
-</style>

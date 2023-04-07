@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 黄靖
- * @LastEditTime: 2023-03-27 18:11:10
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-07 11:00:09
  * @Description: 树选择器
 -->
 <template>
@@ -201,3 +201,23 @@ export default class extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.el-tree {
+  color: $text-color;
+  font-weight: $text-weight;
+}
+
+.el-select-dropdown__item,
+.el-select-dropdown__item.hover {
+  background: $color-bg-1;
+  padding: 0;
+}
+
+.el-select-dropdown.el-popper.is-multiple {
+  .el-select-dropdown__item.hover {
+    background: $color-bg-1;
+    padding: 0;
+  }
+}
+</style>

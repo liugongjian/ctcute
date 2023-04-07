@@ -117,33 +117,19 @@
 
     <div class="sub-down">
       <h3>时间点选择</h3>
-      <div class="date">
-        <div class="sub-date">
-          <div class="sub-date_left">
-            <el-time-select
-              v-model="text"
-              :picker-options="{
-                start: '08:30',
-                step: '00:15',
-                end: '18:30',
-              }"
-              placeholder="选择时间"
-            >
-            </el-time-select>
-          </div>
-          <div class="sub-date_right">
-            <el-date-picker v-model="value6" type="datetime" placeholder="选择时间"> </el-date-picker>
-          </div>
-        </div>
+      <div class="time-size-box">
+        <el-radio-group v-model="timeSize" size="small">
+          <el-radio-button value="medium" label="medium">默认</el-radio-button>
+          <el-radio-button value="small" label="small">小</el-radio-button>
+          <el-radio-button value="large" label="large">大</el-radio-button>
+        </el-radio-group>
       </div>
-
-      <h3>时间点选择-小</h3>
       <div class="date">
         <div class="sub-date">
           <div class="sub-date_left">
             <el-time-select
               v-model="text"
-              size="mini"
+              :size="timeSize"
               :picker-options="{
                 start: '08:30',
                 step: '00:15',
@@ -154,12 +140,8 @@
             </el-time-select>
           </div>
           <div class="sub-date_right">
-            <el-date-picker
-              v-model="value6"
-              type="datetime"
-              placeholder="选择时间"
-              size="mini"
-            ></el-date-picker>
+            <el-date-picker v-model="value6" :size="timeSize" type="datetime" placeholder="选择时间">
+            </el-date-picker>
           </div>
         </div>
       </div>
@@ -167,34 +149,20 @@
       <h3>日期点选择</h3>
       <div class="date">
         <div class="sub-date">
-          <el-date-picker v-model="date" type="date" placeholder="选择日期"> </el-date-picker>
-        </div>
-      </div>
-
-      <h3>日期点选择-小</h3>
-      <div class="date">
-        <div class="sub-date">
-          <el-date-picker v-model="date1" size="mini" type="date" placeholder="选择日期"> </el-date-picker>
+          <el-date-picker v-model="date" :size="timeSize" type="date" placeholder="选择日期">
+          </el-date-picker>
         </div>
       </div>
 
       <h3>日期点选择-带快捷键</h3>
       <div class="date">
         <div class="sub-date">
-          <el-date-picker v-model="date4" type="date" placeholder="选择日期" :picker-options="pickerOptions">
-          </el-date-picker>
-        </div>
-      </div>
-
-      <h3>日期点选择-小-带快捷键</h3>
-      <div class="date">
-        <div class="sub-date">
           <el-date-picker
-            v-model="date5"
+            v-model="date4"
+            :size="timeSize"
             type="date"
             placeholder="选择日期"
             :picker-options="pickerOptions"
-            size="mini"
           >
           </el-date-picker>
         </div>
@@ -206,24 +174,10 @@
           <el-date-picker
             v-model="value4"
             type="daterange"
+            :size="timeSize"
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
-          >
-          </el-date-picker>
-        </div>
-      </div>
-
-      <h3>日期区间选择-小</h3>
-      <div class="date">
-        <div class="sub-date">
-          <el-date-picker
-            v-model="value7"
-            type="daterange"
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期"
-            size="mini"
           >
           </el-date-picker>
         </div>
@@ -235,28 +189,12 @@
           <el-date-picker
             v-model="date6"
             type="daterange"
+            :size="timeSize"
             unlink-panels
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
             :picker-options="pickerOptions1"
-          >
-          </el-date-picker>
-        </div>
-      </div>
-
-      <h3>日期区间选择-小-带快捷键</h3>
-      <div class="date">
-        <div class="sub-date">
-          <el-date-picker
-            v-model="date7"
-            type="daterange"
-            unlink-panels
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期"
-            :picker-options="pickerOptions1"
-            size="mini"
           >
           </el-date-picker>
         </div>
@@ -267,6 +205,7 @@
         <div class="sub-date">
           <el-date-picker
             v-model="value5"
+            :size="timeSize"
             type="datetimerange"
             range-separator="至"
             start-placeholder="开始日期和时间"
@@ -276,45 +215,17 @@
         </div>
       </div>
 
-      <h3>日期时间区间选择-小</h3>
-      <div class="date">
-        <div class="sub-date">
-          <el-date-picker
-            v-model="value8"
-            type="datetimerange"
-            range-separator="至"
-            start-placeholder="开始日期和时间"
-            end-placeholder="结束日期和时间"
-            size="mini"
-          >
-          </el-date-picker>
-        </div>
-      </div>
       <h3>日期时间区间选择-带快捷键</h3>
       <div class="date">
         <div class="sub-date">
           <el-date-picker
             v-model="date8"
+            :size="timeSize"
             type="datetimerange"
             :picker-options="pickerOptions1"
             range-separator="至"
             start-placeholder="开始日期和时间"
             end-placeholder="结束日期和时间"
-          >
-          </el-date-picker>
-        </div>
-      </div>
-      <h3>日期时间区间选择-小-带快捷键</h3>
-      <div class="date">
-        <div class="sub-date">
-          <el-date-picker
-            v-model="date8"
-            type="datetimerange"
-            :picker-options="pickerOptions1"
-            range-separator="至"
-            start-placeholder="开始日期和时间"
-            end-placeholder="结束日期和时间"
-            size="mini"
           >
           </el-date-picker>
         </div>
@@ -384,7 +295,7 @@ export default class extends Vue {
     version: 'v1.0',
     updateTime: '2022.07.12',
   }
-
+  private timeSize = 'small'
   private checkedList = ['已选中项']
   private name = '数据资源名称'
   private selectValue = []
@@ -729,5 +640,9 @@ export default class extends Vue {
 .option__msg {
   float: right;
   color: $text-color-light-1;
+}
+
+.time-size-box {
+  margin-bottom: 20px;
 }
 </style>

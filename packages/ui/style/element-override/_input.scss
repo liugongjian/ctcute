@@ -6,7 +6,6 @@
 .el-input {
   .el-input__inner {
     padding: 0 $margin-3x;
-
     &:active,
     &:focus {
       box-shadow: $shadow-form-item;
@@ -138,13 +137,17 @@
   .ip-dot{ height: 18px; width: 18px; margin: 0 8px; text-align: center; font-size: 18px; line-height: 16px; color: $text-color;}
 }
 
+.el-input.input-forgot.el-input--suffix .el-input__inner { padding-right: 110px;}
+.el-input.el-input--suffix .el-input__inner { padding-right: 40px;}
+.el-select .el-input.el-input--suffix .el-input__inner { padding-right: 30px;}
+
 @mixin input-size($size, $height, $text-size) {
   .el-input.el-input--#{$size} {
     font-size: $text-size;
 
     .el-input__inner {
       height: $height;
-      line-height: $height;
+      line-height: $height - 2;
     }
 
     .el-input__icon {

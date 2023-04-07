@@ -280,7 +280,8 @@ $button-group-border: rgba($color-black, 0.5);
 
 /* Form
 -------------------------- */
-$form-item-label-line-height: 32px;
+$form-item-label-line-height: 32px; // label 
+$form-item-content-line-height: 30px !default; //  content 高度32 有border的时候 line-height 需要 -2
 $form-item-error-padding-top: $padding-6;
 $form-item-margin-bottom: $margin-6x;
 
@@ -477,7 +478,7 @@ $cute-slider-bar-height: 10px;
 $cute-slider-input-width: 64px;
 $cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light);
 $cute-slider-btn-radius: 8px;
-$cute-slider-btn-width: 16px;
+$cute-slider-btn-width: 17px; // 左右缝隙不同 加1px
 $cute-slider-btn-height: 22px;
 
 /* Layout

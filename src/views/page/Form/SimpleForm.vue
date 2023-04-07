@@ -1,13 +1,25 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-07-12 14:03:28
- * @LastEditors: 朱凌浩
- * @LastEditTime: 2022-07-18 13:40:15
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-07 14:46:39
  * @Description: 基础表单
 -->
 <template>
   <el-card class="simple-form">
-    <el-form ref="simpleForm" :model="form" :rules="rules" label-width="90px" class="simple-form">
+    <!-- <el-radio-group v-model="labelPosition" size="small">
+      <el-radio-button label="left">左对齐</el-radio-button>
+      <el-radio-button label="right">右对齐</el-radio-button>
+      <el-radio-button label="top">顶部对齐</el-radio-button>
+    </el-radio-group> -->
+    <el-form
+      ref="simpleForm"
+      :label-position="labelPosition"
+      :model="form"
+      :rules="rules"
+      label-width="90px"
+      class="simple-form"
+    >
       <el-form-item label="输入查询" prop="name">
         <el-input v-model="form.name" placeholder="请输入策略名称" />
         <div class="form-item__tip">策略格式为XXXXXXXXXXXXXXXXX</div>
@@ -80,7 +92,7 @@ export default class extends Vue {
   // 表单Ref对象
   @Ref('simpleForm')
   private simpleFormRef
-
+  private labelPosition = 'right'
   // 表单对象
   private form: SimpleForm.Form = {
     name: null,

@@ -269,3 +269,5 @@ export {
   Collapse,
   Rate,
 }
+
+export { default as createI18n } from './i18n'

@@ -1,21 +1,20 @@
+<!--
+ * @Author: 马妍
+ * @Date: 2022-10-19 10:59:22
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-01-11 17:49:28
+ * @Description:
+-->
 <template>
-  <el-card v-loading="loading" class="cute-chart-item" :bordered="false" :shadow="shadow">
-    <div class="chart-card-icon-warp">
-      <div class="chart-card-icon">
-        <img :src="icon" alt="" />
+  <el-card v-loading="loading" class="cute-chart-card" :bordered="false" :shadow="shadow">
+    <div class="chart-card-icon-warp" :style="'background-color:rgb(' + background + ',0.2)'">
+      <div class="chart-card-icon" :style="'background-color:rgb(' + background + ')'">
+        <svg-icon :name="icon" :color="svgColor" width="28" height="28" />
       </div>
-      <p :class="lift ? 'rise' : 'decline'">
-        <svg-icon
-          :name="lift ? 'arrow-up' : 'arrow-down'"
-          :color="lift ? '#FF5B68' : '#1FCC9D'"
-          width="14"
-          height="14"
-        />{{ percentage }}
-      </p>
     </div>
-    <div class="chart-card-count-warp">
+    <div class="chart-card-cont-warp">
       <h3>{{ total }}</h3>
-      <p>{{ title }} <svg-icon name="question-circle-fill" color="#999" width="14" height="14" /></p>
+      <p>{{ title }}</p>
     </div>
   </el-card>
 </template>
@@ -24,11 +23,9 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'CuteChartItem',
+  name: 'ChartCard',
 })
 export default class extends Vue {
-  @Prop({ type: String, default: '' }) percentage?: ''
-  @Prop({ type: Boolean, default: true }) lift?: true
   @Prop({ type: String, default: '--' }) title?: '--' // 标题
   @Prop({ type: String, default: 'sever' }) icon?: 'sever' // 图标
   @Prop({ type: [Number, String], default: '--' }) total?: '--' // 数量

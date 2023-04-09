@@ -1,8 +1,8 @@
 <!--
  * @Author: 邱文琦
  * @Date: 2022-10-11 13:30
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-07 13:55:49
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-04-10 06:48:54
  * @Description: 首页
 -->
 <template>
@@ -14,7 +14,7 @@
     <!-- 统计数据 -->
     <el-row :gutter="22" class="header">
       <el-col :span="6">
-        <cute-chart-item
+        <chart-item
           :loading="loading"
           :icon="iconReach"
           title="短链触达量"
@@ -23,10 +23,10 @@
           percentage="2.5%"
           :lift="false"
         >
-        </cute-chart-item>
+        </chart-item>
       </el-col>
       <el-col :span="6">
-        <cute-chart-item
+        <chart-item
           :loading="loading"
           :icon="iconClick"
           title="短链点击量"
@@ -35,10 +35,10 @@
           percentage="2.5%"
           :lift="true"
         >
-        </cute-chart-item>
+        </chart-item>
       </el-col>
       <el-col :span="6">
-        <cute-chart-item
+        <chart-item
           :loading="loading"
           :icon="iconStartUp"
           title="短链启动量"
@@ -47,10 +47,10 @@
           percentage="2.5%"
           :lift="false"
         >
-        </cute-chart-item>
+        </chart-item>
       </el-col>
       <el-col :span="6">
-        <cute-chart-item
+        <chart-item
           :loading="loading"
           :icon="iconInstall"
           title="短链安装量"
@@ -59,7 +59,7 @@
           percentage="2.5%"
           :lift="false"
         >
-        </cute-chart-item>
+        </chart-item>
       </el-col>
     </el-row>
     <el-row :gutter="22">
@@ -260,7 +260,8 @@ import { HEALTH } from '@/dics/simpleTable'
 import { formatDatetime } from '@/utils/date'
 import { getTableComponent } from '@/api/tableComponent'
 import * as TableComponent from '@/types/TableComponent'
-import { CuteChart, CuteChartItem } from '@cutedesign/chart'
+import { CuteChart } from '@cutedesign/chart'
+import ChartItem from './ChartItem.vue'
 import { CuteCardBox } from '@cutedesign/ui'
 import { Component, Vue } from 'vue-property-decorator'
 import iconReach from './Images/icon-reach.svg'
@@ -272,7 +273,7 @@ import iconInstall from './Images/icon-install.svg'
   name: 'SimpleChart',
   components: {
     CuteChart,
-    CuteChartItem,
+    ChartItem,
     CuteCardBox,
   },
 })

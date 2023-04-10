@@ -365,11 +365,11 @@ export default class extends Vue {
     )
   }
 
-  private addTab(type) {
+  private addTab(type: string, tabName: string) {
     const newTabName = this.editableTabs[type].length + 1 + ''
     const tabs = [...this.editableTabs[type]]
     tabs.push({
-      title: 'New Tab',
+      title: tabName,
       name: newTabName,
       content: 'New Tab content',
     })

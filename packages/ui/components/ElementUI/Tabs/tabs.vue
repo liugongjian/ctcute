@@ -107,9 +107,9 @@ export default {
       this.$emit('edit', pane.name, 'remove')
       this.$emit('tab-remove', pane.name)
     },
-    handleTabAdd() {
+    handleTabAdd(tabName) {
       this.$emit('edit', null, 'add')
-      this.$emit('tab-add')
+      this.$emit('tab-add', tabName)
     },
     setCurrentName(value) {
       const changeCurrentName = () => {
@@ -164,6 +164,7 @@ export default {
         stretch,
         addable,
         handleTabAdd,
+        size,
       },
       ref: 'nav',
     }

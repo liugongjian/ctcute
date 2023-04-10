@@ -401,9 +401,6 @@ export interface IScssVariablesRevised {
   zindexBadge: string
   zindexTableFixed: string
   zindexAffix: string
-  zindexBackTop: string
-  zindexPickerPanel: string
-  zindexPopupClose: string
   zindexModal: string
   zindexModalMask: string
   zindexMessage: string
@@ -414,6 +411,10 @@ export interface IScssVariablesRevised {
   zindexPopoconfirm: string
   zindexTooltip: string
   zindexImage: string
+  zindexNormal: string
+  zindexLayoutSidebar: string
+  zindexLayoutHeader: string
+  zindexLoadingMask: string
   screenLg: string
   chartColor1: string
   chartColor2: string

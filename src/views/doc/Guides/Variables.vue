@@ -3,7 +3,7 @@
  * @Date: 2023-03-20 17:53:38
  * @LastEditors: 黄靖
  * @LastEditTime: 2023-03-20 17:53:38
- * @Description: scss变量, 当前描述的variables.scss版本为提交id=d14932ef
+ * @Description: scss变量, 当前描述的variables.scss版本为提交id=fbc685b8
 -->
 
 <template>
@@ -551,9 +551,9 @@ export default class extends Vue {
         { name: '$tree-checkbox-scale', scene: 'Tree组件-checkbox选中状态icon偏移值' },
         { name: '$tree-checkbox-tick-top', scene: 'Tree组件-checkbox选中状态icon偏移值' },
         { name: '$tree-handler-menu', scene: 'Tree组件-操作按钮高度' },
-        { name: '$tree-node-popover-margin', scene: '' },
-        { name: '$tree-button-tooltip-content-padding', scene: '' },
-        { name: '$tree-leaf-expand-icon-padding', scene: '' },
+        { name: '$tree-node-popover-margin', scene: 'Tree组件-popover菜单margin' },
+        { name: '$tree-button-tooltip-content-padding', scene: 'Tree组件-popover菜单按钮padding' },
+        { name: '$tree-leaf-expand-icon-padding', scene: 'Tree组件-叶子节点展开按钮padding值，用于占位' },
 
         /* Steps
 -------------------------- */
@@ -629,8 +629,11 @@ export default class extends Vue {
         { name: '$cute-distribution-bar-input-width', scene: 'CuteDistributionBar组件-input框宽度' },
         { name: '$cute-distribution-bar-slider-width', scene: 'CuteDistributionBar组件-slider宽度' },
         { name: '$cute-distribution-bar-slider-height', scene: 'CuteDistributionBar组件-slider高度' },
-        { name: '$cute-distribution-bar-slider-item-width', scene: '' },
-        { name: '$cute-distribution-bar-slider-item-height', scene: '' },
+        { name: '$cute-distribution-bar-slider-item-width', scene: 'CuteDistributionBar组件-slider项目宽度' },
+        {
+          name: '$cute-distribution-bar-slider-item-height',
+          scene: 'CuteDistributionBar组件-slider项目高度',
+        },
         {
           name: '$cute-distribution-bar-slider-button-width',
           scene: 'CuteDistributionBar组件-slider滑动按钮宽度',
@@ -641,9 +644,9 @@ export default class extends Vue {
         },
 
         /* CuteButtonGroup */
-        { name: '$cute-button-group-margin', scene: '' },
-        { name: '$cute-button-group-zindex', scene: '' },
-        { name: '$cute-button-group-border', scene: '' },
+        { name: '$cute-button-group-margin', scene: 'CuteButtonGroupz组件-margin' },
+        { name: '$cute-button-group-zindex', scene: 'CuteButtonGroupz组件-z-index' },
+        { name: '$cute-button-group-border', scene: 'CuteButtonGroupz组件-边框' },
 
         /* CuteEditInput */
         { name: '$cute-edit-input-width', scene: 'CuteEditInput组件-input框宽度' },
@@ -715,10 +718,7 @@ export default class extends Vue {
 -------------------------- */
         { name: '$zindex-badge', type: 'string', scene: 'badge的z-index值' },
         { name: '$zindex-table-fixed', type: 'string', scene: 'Table固定行列的z-index值' },
-        { name: '$zindex-affix', type: 'string', scene: '' },
-        { name: '$zindex-back-top', type: 'string', scene: '' },
-        { name: '$zindex-picker-panel', type: 'string', scene: '' },
-        { name: '$zindex-popup-close', type: 'string', scene: '' },
+        { name: '$zindex-affix', type: 'string', scene: '页面尾部吸附内容的z-index值' },
         { name: '$zindex-modal', type: 'string', scene: 'modal的z-index值' },
         { name: '$zindex-modal-mask', type: 'string', scene: 'modal遮罩的z-index值' },
         { name: '$zindex-message', type: 'string', scene: 'message的z-index值' },
@@ -729,6 +729,10 @@ export default class extends Vue {
         { name: '$zindex-popoconfirm', type: 'string', scene: 'popoconfirm的z-index值' },
         { name: '$zindex-tooltip', type: 'string', scene: 'tooltip的z-index值' },
         { name: '$zindex-image', type: 'string', scene: 'image的z-index值' },
+        { name: '$zindex-normal', type: 'string', scene: '常规z-index值' },
+        { name: '$zindex-layout-sidebar', type: 'string', scene: 'Layout侧边栏的z-index值' },
+        { name: '$zindex-layout-header', type: 'string', scene: 'Layout头部的z-index值' },
+        { name: '$zindex-loading-mask', type: 'string', scene: 'Layout loading状态遮罩的z-index值' },
 
         /* 响应式断点
 -------------------------- */
@@ -801,7 +805,7 @@ export default class extends Vue {
         throw new Error()
       }
     } catch (err) {
-      // 帮助补充themes/default/index.scss文件
+      // // 帮助补充themes/default/index.scss文件
       // const camelCaseKey = name
       //   .slice(1)
       //   .replaceAll(/\-[a-z0-9]/g, (value: string) => value.toUpperCase().slice(1))

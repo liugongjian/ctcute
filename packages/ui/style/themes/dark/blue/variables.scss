@@ -510,11 +510,13 @@ $transition-time: 200ms;
 /* Z-Index
 -------------------------- */
 $zindex-badge: auto;
+$zindex-normal: 1;
 $zindex-table-fixed: 2;
 $zindex-affix: 10;
 $zindex-back-top: 10;
 $zindex-picker-panel: 10;
 $zindex-popup-close: 10;
+$zindex-layout-sidebar: 10;
 $zindex-modal: 1000;
 $zindex-modal-mask: 1000;
 $zindex-message: 1010;
@@ -525,6 +527,8 @@ $zindex-picker: 1050;
 $zindex-popoconfirm: 1060;
 $zindex-tooltip: 1070;
 $zindex-image: 1080;
+$zindex-layout-header: 1999;
+$zindex-loading-mask: 2000;
 
 /* 响应式断点
 -------------------------- */

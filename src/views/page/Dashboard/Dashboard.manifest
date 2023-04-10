@@ -5,6 +5,10 @@
       "path": "@/views/page/Dashboard/Dashboard.vue"
     },
     {
+      "name": "ChartItem.vue",
+      "path": "@/views/page/Dashboard/ChartItem.vue"
+    },
+    {
       "name": "dics/SimpleTable.ts",
       "path": "@/dics/simpleTable.ts"
     },
@@ -20,6 +24,34 @@
       "name": "TableComponent.ts",
       "path": "@/types/TableComponent.ts"
     }
+    {
+      "name": "icon-click.svg",
+      "path": "@/views/page/Dashboard/Images/icon-click.svg"
+    },
+    {
+      "name": "icon-deal.svg",
+      "path": "@/views/page/Dashboard/Images/icon-deal.svg"
+    },
+    {
+      "name": "icon-hit.svg",
+      "path": "@/views/page/Dashboard/Images/icon-hit.svg"
+    },
+    {
+      "name": "icon-install.svg",
+      "path": "@/views/page/Dashboard/Images/icon-install.svg"
+    },
+    {
+      "name": "icon-reach.svg",
+      "path": "@/views/page/Dashboard/Images/icon-reach.svg"
+    },
+    {
+      "name": "icon-startUp.svg",
+      "path": "@/views/page/Dashboard/Images/icon-startUp.svg"
+    },
+    {
+      "name": "china.json",
+      "path": "@/views/page/Dashboard/json/china.json"
+    },
   ],
   "package": {
     "dependencies": {

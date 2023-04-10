@@ -3,6 +3,10 @@
     {
       "name": "SimpleChart.vue",
       "path": "@/views/page/Chart/SimpleChart.vue"
+    },
+    {
+      "name": "ChartCard.vue",
+      "path": "@/views/page/Chart/ChartCard.vue"
     }
   ],
   "package": {

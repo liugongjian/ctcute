@@ -73,7 +73,7 @@
   .pop-tooltip {
     display: none;
     position: absolute;
-    z-index: 2019; //TODO
+    z-index: $zindex-tooltip;
     top: $common-space-6x;
     right: 0;
     background: $color-bg-1;

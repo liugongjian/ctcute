@@ -67,7 +67,7 @@
       min-width: 335px;
       background: $color-bg-1;
       box-shadow: $shadow-2;
-      z-index: $zindex-dropdown; // TODO hide by .el-loading-mask
+      z-index: $zindex-dropdown;
 
       .table-filter_top {
         padding: $padding-4x;
@@ -106,7 +106,7 @@
         align-items: center;
         height: 50px;
 
-        .el-button+.el-button {
+        .el-button + .el-button {
           margin-left: $margin-4x;
         }
       }

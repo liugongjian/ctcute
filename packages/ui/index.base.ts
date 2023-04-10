@@ -101,17 +101,6 @@ import './components/ElementUI/settings'
 import './icons/index'
 import SvgIcon from './icons/index.vue'
 
-// 整合appendix，chart等
-import CuteAppendix from './packages/appendix/CuteAppendix.vue'
-import CuteChart from './packages/chart/CuteChart.vue'
-import VXETable from './packages/vxe-table/index'
-
-export {
-  CuteAppendix,
-  CuteChart,
-  VXETable, // VXETable使用时要vue.use全局注册，因为他会自动注册其他几个相关组件
-}
-
 /**
  * 组件清单
  */

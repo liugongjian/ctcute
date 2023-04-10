@@ -3,11 +3,11 @@
  * @Date: 2023-03-20 17:53:38
  * @LastEditors: 黄靖
  * @LastEditTime: 2023-03-20 17:53:38
- * @Description: scss变量, 当前描述的variables.scss版本为提交id=fc0672e
+ * @Description: scss变量, 当前描述的variables.scss版本为提交id=d14932ef
 -->
 
 <template>
-  <div>
+  <div class="doc-scss-wrapper">
     <h1>SASS变量</h1>
     <el-divider></el-divider>
     <div v-for="(v, idx) in variables" :key="idx">
@@ -21,7 +21,7 @@
         <el-table-column prop="value" label="值">
           <template slot-scope="{ row }">
             <span
-              v-if="row.type === 'color'"
+              v-if="isColor(row)"
               class="coloratlas"
               :style="{ backgroundColor: getValue(row.name) }"
             ></span>
@@ -337,21 +337,42 @@ export default class extends Vue {
 
         /* Button
 -------------------------- */
+        { name: '$button-default-text-color', type: 'color', scene: 'Button组件-默认类型文字颜色' },
+        {
+          name: '$button-default-text-color-disabled',
+          type: 'color',
+          scene: 'Button组件-默认类型禁用状态文字颜色',
+        },
+        { name: '$button-default-color-bg', type: 'color', scene: 'Button组件-默认类型背景色' },
+        {
+          name: '$button-default-color-bg-disabled',
+          type: 'color',
+          scene: 'Button组件-默认类型禁用状态背景色',
+        },
+        { name: '$button-default-color-border', type: 'color', scene: 'Button组件-默认类型边框色' },
+        {
+          name: '$button-default-color-border-disabled',
+          type: 'color',
+          scene: 'Button组件-默认类型禁用状态边框色',
+        },
         { name: '$button-icon-color', type: 'color', scene: 'Button组件-按钮icon颜色' },
         { name: '$button-margin', type: 'string', scene: 'Button组件-按钮margin' },
         { name: '$button-padding-mini', type: 'string', scene: 'Button组件-mini尺寸按钮padding' },
         { name: '$button-padding-small', type: 'string', scene: 'Button组件-small尺寸按钮padding' },
         { name: '$button-padding-medium', type: 'string', scene: 'Button组件-medium尺寸按钮padding' },
         { name: '$button-padding-large', type: 'string', scene: 'Button组件-large尺寸按钮padding' },
+        { name: '$button-group-border', type: 'color', scene: 'Button组件-按钮组的边框色' },
 
         /* Form
 -------------------------- */
         { name: '$form-item-label-line-height', type: 'string', scene: 'Form组件-表单项label行高' },
+        { name: '$form-item-content-line-height', type: 'string', scene: 'Form组件-表单项content行高' },
         {
           name: '$form-item-error-padding-top',
           type: 'string',
           scene: 'Form组件-表单项校验错误信息padding-top',
         },
+        { name: '$form-item-margin-bottom', type: 'string', scene: 'Form组件-表单项margin-bottom' },
 
         /* Input
 -------------------------- */
@@ -385,11 +406,16 @@ export default class extends Vue {
 -------------------------- */
         { name: '$table-header-bg', type: 'color', scene: 'Table组件-header的背景色' },
         { name: '$table-cell-bg', type: 'color', scene: 'Table组件-cell的背景色' },
-        { name: '$table-sort-caret-bg', type: 'color', scene: 'Table组件-表头排序箭头的背景色' },
-        { name: '$table-cell-padding-sm', type: 'string', scene: 'Table组件-mini尺寸cell的padding值' },
+        { name: '$table-cell-padding-xs', scene: 'Table组件-mini尺寸cell的padding值' },
+        { name: '$table-cell-padding-sm', type: 'string', scene: 'Table组件-small尺寸cell的padding值' },
         { name: '$table-cell-padding-md', type: 'string', scene: 'Table组件-medium尺寸cell的padding值' },
         { name: '$table-cell-padding-lg', type: 'string', scene: 'Table组件-large尺寸cell的padding值' },
+        { name: '$table-cell-selection-line-height', scene: 'Table组件-选择项行高' },
         { name: '$table-border-color', type: 'color', scene: 'Table组件-边框颜色' },
+        { name: '$table-sort-caret-bg', type: 'color', scene: 'Table组件-表头排序箭头的背景色' },
+        { name: '$table-fixed-box-shadow', scene: 'Table组件-固定列阴影' },
+        { name: '$table-row-hover-background-color', type: 'color', scene: 'Table组件-行hover背景色' },
+        { name: '$table-filter-item-height', scene: 'Table组件-筛选项高度' },
 
         //     { name: '$table-header-fill', type: 'string', scene: 'deprecated(弃用)' },
         //     { name: '$table-cell-fill', type: 'string', scene: 'deprecated(弃用)' },
@@ -399,7 +425,55 @@ export default class extends Vue {
 -------------------------- */
         { name: '$pagination-bg', type: 'color', scene: 'Pagination组件-背景色' },
 
+        { name: '$pagination-font-size', scene: 'Pagination组件-字体大小' },
+        { name: '$pagination-font-size-sm', scene: 'Pagination组件-small字体大小' },
+        { name: '$pagination-height', scene: 'Pagination组件-高度' },
+        { name: '$pagination-height-sm', scene: 'Pagination组件-small高度' },
+        { name: '$pagination-select-width', scene: 'Pagination组件-select宽度' },
+        { name: '$pagination-input-width', scene: 'Pagination组件-input宽度' },
+        { name: '$pagination-button-width', scene: 'Pagination组件-按钮宽度' },
+        { name: '$pagination-button-width-sm', scene: 'Pagination组件-small按钮宽度' },
+        { name: '$pagination-button-margin', scene: 'Pagination组件-按钮margin' },
+        { name: '$pagination-button-margin-sm', scene: 'Pagination组件-small按钮margin' },
+        { name: '$pagination-button-color', scene: 'Pagination组件-按钮颜色' },
+        { name: '$pagination-hover-color', scene: 'Pagination组件-hover颜色' },
+        { name: '$pagination-hover-bg', scene: 'Pagination组件-hover背景色' },
+        { name: '$pagination-active-color', scene: 'Pagination组件-触发项颜色' },
+        { name: '$pagination-active-bg', scene: 'Pagination组件-触发项背景色' },
+        { name: '$pagination-active-bg-disabled', scene: 'Pagination组件-disabled触发项背景色' },
         //     // { name: '$pagination-fill', type: 'string', scene: 'deprecated(弃用)' },
+
+        /* Transfer
+-------------------------- */
+        { name: '$transfer-header-height', scene: 'Transfer组件-header高度' },
+        { name: '$transfer-header-bg', scene: 'Transfer组件-header背景色' },
+        { name: '$transfer-button-hegiht', scene: 'Transfer组件-圆形按钮' },
+        { name: '$transfer-button-width', scene: 'Transfer组件-圆形按钮' },
+        { name: '$transfer-button-radius', scene: 'Transfer组件-圆形按钮' },
+        { name: '$transfer-item-active-bg', scene: 'Transfer组件-选中项背景色' },
+        { name: '$transfer-item-hover-bg', scene: 'Transfer组件-选中项悬停色' },
+        { name: '$transfer-item-height', scene: 'Transfer组件-选项高度' },
+        { name: '$transfer-filter-input-height', scene: 'Transfer组件-搜索框高度' },
+        { name: '$transfer-filter-input-margin', scene: 'Transfer组件-搜索框高度' },
+        { name: '$transfer-filter-height', scene: 'Transfer组件-filter区域高度' },
+        { name: '$transfer-footert-bg', scene: 'Transfer组件-footer背景色' },
+        { name: '$transfer-footer-height', scene: 'Transfer组件-footer高度' },
+
+        /* Tabs
+-------------------------- */
+        { name: '$tabs-master', scene: 'Tabs组件-主题色标签背景' },
+        { name: '$tabs-sm-height', scene: 'Tabs组件-small尺寸高度' },
+        { name: '$tabs-md-height', scene: 'Tabs组件-medium尺寸高度' },
+        { name: '$tabs-lg-height', scene: 'Tabs组件-large尺寸高度' },
+        { name: '$tabs-button-radius', scene: 'Tabs组件-按钮风格下按钮圆角' },
+        { name: '$tabs-default-line-color', scene: 'Tabs组件-默认风格下线条颜色' },
+        { name: '$tabs-bg-color', scene: 'Tabs组件-覆盖色块，与背景同色' },
+
+        /* Progress
+-------------------------- */
+        { name: '$progress-text-height-lg', scene: 'Progress组件-仪表盘、环形进度条文字高度' },
+        { name: '$progress-text-height-sm', scene: 'Progress组件-进度条高度' },
+        { name: '$progress-text-size-lg', scene: 'Progress组件-仪表盘、环形进度条文字尺寸' },
 
         /* Tooltip
 -------------------------- */
@@ -430,9 +504,16 @@ export default class extends Vue {
 
         /* Collapse
 -------------------------- */
-        { name: '$collapse-header-bg', type: 'color', scene: 'Collapse-header的背景色' },
-        { name: '$collapse-header-height', type: 'string', scene: 'Collapse-header的高度' },
-        { name: '$collapse-item-header-height', type: 'string', scene: 'Collapse-item的header高度' },
+        { name: '$collapse-header-bg', type: 'color', scene: 'Collapse组件-header的背景色' },
+        { name: '$collapse-header-height', type: 'string', scene: 'Collapse组件-header的高度' },
+        { name: '$collapse-border-color', scene: 'Collapse组件-边框色' },
+        { name: '$collapse-content-background-color', scene: 'Collapse组件-content背景色' },
+        { name: '$collapse-header-bg', scene: 'Collapse组件-header背景色' },
+        { name: '$collapse-header-arrow-color', scene: 'Collapse组件-header箭头色' },
+        { name: '$collapse-header-height', scene: 'Collapse组件-header高度' },
+        { name: '$collapse-seperate-header-height', scene: 'Collapse组件-seperate模式下header高度' },
+        { name: '$collapse-seperate-header-bg', scene: 'Collapse组件-seperate模式下header背景色' },
+        // { name: '$collapse-item-header-height', type: 'string', scene: 'Collapse-item的header高度' },
 
         //     { name: '$collapse-header-fill', type: 'string', scene: 'deprecated(弃用)' },
 
@@ -451,27 +532,149 @@ export default class extends Vue {
           scene: 'Descriptions组件-item内容行高',
         },
 
+        { name: '$descriptions-item-label-min-width', scene: 'Descriptions组件-item的label最小宽度' },
+
+        /* DropDown
+-------------------------- */
+        {
+          name: '$dropdown-item-padding-top-bottom',
+          scene: 'Dropdown组件-item的padding-top和padding-bottom值',
+        },
+        { name: '$dropdown-min-width', scene: 'Dropdown组件-el-dropdown-menu的最小宽度' },
+        { name: '$dropdown-icon-line-height', scene: 'Dropdown组件-图标行高' },
+
+        /* Tree
+-------------------------- */
+        { name: '$tree-checkbox-size', scene: 'Tree组件-checkbox宽高' },
+        { name: '$tree-node-icon-padding', scene: 'Tree组件-展开icon的padding值' },
+        { name: '$tree-checkbox-transform', scene: 'Tree组件-checkbox半选状态icon偏移值' },
+        { name: '$tree-checkbox-scale', scene: 'Tree组件-checkbox选中状态icon偏移值' },
+        { name: '$tree-checkbox-tick-top', scene: 'Tree组件-checkbox选中状态icon偏移值' },
+        { name: '$tree-handler-menu', scene: 'Tree组件-操作按钮高度' },
+        { name: '$tree-node-popover-margin', scene: '' },
+        { name: '$tree-button-tooltip-content-padding', scene: '' },
+        { name: '$tree-leaf-expand-icon-padding', scene: '' },
+
+        /* Steps
+-------------------------- */
+        { name: '$steps-icon-height-md', scene: 'Steps组件-中号尺寸' },
+        { name: '$steps-icon-height-sm', scene: 'Steps组件-小号尺寸' },
+        { name: '$steps-title-size-md', scene: 'Steps组件-中号标题：16px' },
+        { name: '$steps-title-size-sm', scene: 'Steps组件-小号标题：12px' },
+        { name: '$steps-icon-inner-status-size-md', scene: 'Steps组件-中号状态icon size：14px' },
+        { name: '$steps-icon-inner-status-size-sm', scene: 'Steps组件-小号状态icon size：12px' },
+        { name: '$steps-icon-inner-text-size-md', scene: 'Steps组件-小号标号size：14px' },
+        { name: '$steps-icon-inner-text-size-sm', scene: 'Steps组件-中号标号size：14px' },
+        { name: '$steps-line-size', scene: 'Steps组件-线条粗细' },
+        { name: '$steps-bg-color', scene: 'Steps组件-覆盖色块，与背景同色' },
+
         /* Dialog
 -------------------------- */
+
+        { name: '$dialog-header-padding', scene: 'Dialog组件-header的padding值' },
+        { name: '$dialog-header-border', scene: 'Dialog组件-header的边框色' },
+        { name: '$dialog-body-padding', scene: 'Dialog组件-body的padding值' },
+        { name: '$dialog-footer-bg', scene: 'Dialog组件-footer的背景色' },
+        { name: '$dialog-footer-padding', scene: 'Dialog组件-footer的padding值' },
         { name: '$dialog-footer-margin-top', type: 'string', scene: 'Dialog组件-footer的margin-top值' },
+        { name: '$dialog-fullscreen-margin', scene: 'Dialog组件-全屏模式的margin值' },
+        /* MessageBox
+-------------------------- */
+        { name: '$messagebox-padding-bottom', scene: 'MessageBox组件-padding-bottom值' },
+        { name: '$messagebox-header-padding', scene: 'MessageBox组件-header的padding值' },
+        { name: '$messagebox-header-padding-bottom', scene: 'MessageBox组件-header的padding-bottom值' },
+        { name: '$messagebox-content-padding', scene: 'MessageBox组件-cotent的padding值' },
+        { name: '$messagebox-btns-padding', scene: 'MessageBox组件-按钮组的padding值' },
+
+        /* Message(Toast)
+-------------------------- */
+        { name: '$toast-width', scene: 'Message(Toast)-最小宽度' },
+        { name: '$toast-height', scene: 'Message(Toast)-高度' },
 
         /* Icon
 -------------------------- */
         { name: '$icon-color', type: 'color', scene: 'icon颜色' },
-        /* LoadingButton
+
+        /* Loading
 -------------------------- */
-        { name: '$loading-primary-color', type: 'color', scene: 'Button组件-primary类型loading状态的字体色' },
-        {
-          name: '$loading-primary-border',
-          type: 'color',
-          scene: 'Button组件-primary类型loading状态的边框色',
-        },
         { name: '$loading-default-color', type: 'color', scene: 'Button组件-default类型loading状态的字体色' },
         {
           name: '$loading-default-border',
           type: 'color',
           scene: 'Button组件-default类型loading状态的边框色',
         },
+
+        /* Alert
+-------------------------- */
+        { name: '$alert-text-color', scene: 'Alert组件-字体色' },
+        { name: '$alert-info-bg', scene: 'Alert组件-info类型背景色' },
+        { name: '$alert-success-bg', scene: 'Alert组件-success类型背景色' },
+        { name: '$alert-warning-bg', scene: 'Alert组件-warning类型背景色' },
+        { name: '$alert-danger-bg', scene: 'Alert组件-danger类型背景色' },
+        { name: '$alert-weak-bg', scene: 'Alert组件-weak类型背景色' },
+
+        /* CuteSlider
+-------------------------- */
+        { name: '$cute-slider-marks-height', scene: 'CuteSlider组件-坐标线高度' },
+        { name: '$cute-slider-bar-height', scene: 'CuteSlider组件-滑动输入条高度' },
+        { name: '$cute-slider-input-width', scene: 'CuteSlider组件-输入框宽度' },
+        { name: '$cute-slider-line-color', scene: 'CuteSlider组件-坐标线颜色' },
+        { name: '$cute-slider-btn-bg', scene: 'CuteSlider组件-滑动按钮背景色' },
+        { name: '$cute-slider-btn-radius', scene: 'CuteSlider组件-滑动按钮圆角' },
+        { name: '$cute-slider-btn-width', scene: 'CuteSlider组件-滑动按钮宽度' },
+        { name: '$cute-slider-btn-height', scene: 'CuteSlider组件-滑动按钮高度' },
+
+        /* CuteDistributionBar
+-------------------------- */
+        { name: '$cute-distribution-bar-input-width', scene: 'CuteDistributionBar组件-input框宽度' },
+        { name: '$cute-distribution-bar-slider-width', scene: 'CuteDistributionBar组件-slider宽度' },
+        { name: '$cute-distribution-bar-slider-height', scene: 'CuteDistributionBar组件-slider高度' },
+        { name: '$cute-distribution-bar-slider-item-width', scene: '' },
+        { name: '$cute-distribution-bar-slider-item-height', scene: '' },
+        {
+          name: '$cute-distribution-bar-slider-button-width',
+          scene: 'CuteDistributionBar组件-slider滑动按钮宽度',
+        },
+        {
+          name: '$cute-distribution-bar-slider-button-height',
+          scene: 'CuteDistributionBar组件-slider滑动按钮高度',
+        },
+
+        /* CuteButtonGroup */
+        { name: '$cute-button-group-margin', scene: '' },
+        { name: '$cute-button-group-zindex', scene: '' },
+        { name: '$cute-button-group-border', scene: '' },
+
+        /* CuteEditInput */
+        { name: '$cute-edit-input-width', scene: 'CuteEditInput组件-input框宽度' },
+
+        /* CuteRemindInput */
+        { name: '$cute-remind-input-width', scene: 'CuteRemindInput组件-input框宽度' },
+
+        /* CuteSpecialRadio */
+        { name: '$cute-special-radio-padding', scene: 'CuteSpecialRadio组件-padding值' },
+        { name: '$cute-special-radio-size', scene: 'CuteSpecialRadio组件-radio大小' },
+
+        /* CuteRemindSelect */
+        { name: '$cute-remind-select-right', scene: 'CuteRemindSelect组件-right值' },
+
+        /* CuteSelectedInput */
+        { name: '$cute-selected-input-width', scene: 'CuteSelectedInput组件-宽度' },
+
+        /* CuteArea */
+        { name: '$cute-area-recent-border-color', scene: 'CuteArea组件-“最近访问”的边框颜色' },
+        { name: '$cute-area-recent-head-color', scene: 'CuteArea组件-“最近访问”的标题颜色' },
+        { name: '$cute-area-head-line-height', scene: 'CuteArea组件-标题行高' },
+        { name: '$cute-area-padding', scene: 'CuteArea组件-选项padding' },
+        { name: '$cute-area-item-height', scene: 'CuteArea组件-选项高度' },
+        { name: '$cute-area-recent-item-color', scene: 'CuteArea组件-“最近访问”的项目标题色' },
+        { name: '$cute-area-recent-item-background-color', scene: 'CuteArea组件-“最近访问”的项目背景色' },
+        { name: '$cute-area-item-hover-background-color', scene: 'CuteArea组件-选项hover背景色' },
+        { name: '$cute-area-item-hover-color', scene: 'CuteArea组件-选项hover字体色' },
+        { name: '$cute-area-item-seleted-background-color', scene: 'CuteArea组件-选中项背景色' },
+        { name: '$cute-area-head-color', scene: 'CuteArea组件-标题字体色' },
+        { name: '$cute-area-item-color', scene: 'CuteArea组件-选项字体色' },
+        { name: '$cute-area-wrap-margin', scene: 'CuteArea组件-容器margin' },
       ],
     },
     {
@@ -479,6 +682,17 @@ export default class extends Vue {
       list: [
         /* Layout
 -------------------------- */
+        { name: '$layout-bg', scene: '' },
+        { name: '$layout-header-height', scene: 'CuteLayout-header高度' },
+        { name: '$layout-header-fill-1', scene: 'CuteLayout-header背景色' },
+        { name: '$layout-header-border', scene: 'CuteLayout-header边框色' },
+        { name: '$layout-navbar-color-bg', scene: 'CuteLayout-导航栏背景色' },
+        { name: '$layout-color-bg', scene: 'CuteLayout-背景色，用于侧边栏、SubMenu等' },
+        { name: '$layout-color-master', scene: 'CuteLayout-主题色，用于悬停、' },
+        { name: '$layout-color-grey', scene: 'CuteLayout-灰色' },
+        { name: '$layout-text-color', scene: 'CuteLayout-文字色' },
+        { name: '$layout-sidebar-width', scene: 'CuteLayout-侧边栏宽度' },
+        { name: '$layout-sidebar-sub-hover', scene: 'CuteLayout-侧边栏悬停色' },
         /* Header */
         { name: '$header-height', type: 'string', scene: '顶部导航栏高度' },
         { name: '$header-fill-1', type: 'color', scene: '顶部导航栏背景色' },
@@ -521,50 +735,40 @@ export default class extends Vue {
         { name: '$screen-lg', type: 'string', scene: '屏幕最小分辨率，用于布局主容器宽度计算' },
       ],
     },
-
-    /* 图表颜色(deprecated(弃用))
+    /* 图表颜色
 -------------------------- */
-    // // 图表颜色
-    // { name: '$chartColor1', type: 'color', scene: '' },
-    // { name: '$chartColor2', type: 'color', scene: '' },
-    // { name: '$chartColor3', type: 'color', scene: '' },
-    // { name: '$chartColor4', type: 'color', scene: '' },
-    // { name: '$chartColor5', type: 'color', scene: '' },
-    // { name: '$chartColor6', type: 'color', scene: '' },
-    // { name: '$chartColor7', type: 'color', scene: '' },
-    // { name: '$chartColor8', type: 'color', scene: '' },
-    // { name: '$chartColor9', type: 'color', scene: '' },
-    // { name: '$chartColor10', type: 'color', scene: '' },
-    // { name: '$chartColor11', type: 'color', scene: '' },
-    // { name: '$chartColor12', type: 'color', scene: '' },
+    {
+      title: '图表颜色',
+      list: [
+        // 图表默认的颜色
+        { name: '$chart-color-1', type: 'color', scene: '图表默认颜色' },
+        { name: '$chart-color-2', type: 'color', scene: '' },
+        { name: '$chart-color-3', type: 'color', scene: '' },
+        { name: '$chart-color-4', type: 'color', scene: '' },
+        { name: '$chart-color-5', type: 'color', scene: '' },
+        { name: '$chart-color-6', type: 'color', scene: '' },
+        { name: '$chart-color-7', type: 'color', scene: '' },
+        { name: '$chart-color-8', type: 'color', scene: '' },
+        { name: '$chart-color-9', type: 'color', scene: '' },
+        { name: '$chart-color-10', type: 'color', scene: '' },
+        { name: '$chart-color-11', type: 'color', scene: '' },
+        { name: '$chart-color-12', type: 'color', scene: '' },
 
-    // // 图表高亮颜色
-    // { name: '$chartColorH1', type: 'color', scene: '' },
-    // { name: '$chartColorH2', type: 'color', scene: '' },
-    // { name: '$chartColorH3', type: 'color', scene: '' },
-    // { name: '$chartColorH4', type: 'color', scene: '' },
-    // { name: '$chartColorH5', type: 'color', scene: '' },
-    // { name: '$chartColorH6', type: 'color', scene: '' },
-    // { name: '$chartColorH7', type: 'color', scene: '' },
-    // { name: '$chartColorH8', type: 'color', scene: '' },
-    // { name: '$chartColorH9', type: 'color', scene: '' },
-    // { name: '$chartColorH10', type: 'color', scene: '' },
-    // { name: '$chartColorH11', type: 'color', scene: '' },
-    // { name: '$chartColorH12', type: 'color', scene: '' },
-
-    // // 图表light颜色
-    // { name: '$chartColorL1', type: 'color', scene: '' },
-    // { name: '$chartColorL2', type: 'color', scene: '' },
-    // { name: '$chartColorL3', type: 'color', scene: '' },
-    // { name: '$chartColorL4', type: 'color', scene: '' },
-    // { name: '$chartColorL5', type: 'color', scene: '' },
-    // { name: '$chartColorL6', type: 'color', scene: '' },
-    // { name: '$chartColorL7', type: 'color', scene: '' },
-    // { name: '$chartColorL8', type: 'color', scene: '' },
-    // { name: '$chartColorL9', type: 'color', scene: '' },
-    // { name: '$chartColorL10', type: 'color', scene: '' },
-    // { name: '$chartColorL11', type: 'color', scene: '' },
-    // { name: '$chartColorL12', type: 'color', scene: '' },
+        // 图表高亮颜色
+        { name: '$chart-color-h-1', type: 'color', scene: '图表高亮颜色' },
+        { name: '$chart-color-h-2', type: 'color', scene: '' },
+        { name: '$chart-color-h-3', type: 'color', scene: '' },
+        { name: '$chart-color-h-4', type: 'color', scene: '' },
+        { name: '$chart-color-h-5', type: 'color', scene: '' },
+        { name: '$chart-color-h-6', type: 'color', scene: '' },
+        { name: '$chart-color-h-7', type: 'color', scene: '' },
+        { name: '$chart-color-h-8', type: 'color', scene: '' },
+        { name: '$chart-color-h-9', type: 'color', scene: '' },
+        { name: '$chart-color-h-10', type: 'color', scene: '' },
+        { name: '$chart-color-h-11', type: 'color', scene: '' },
+        { name: '$chart-color-h-12', type: 'color', scene: '' },
+      ],
+    },
   ]
 
   /**
@@ -574,6 +778,16 @@ export default class extends Vue {
     copy(content)
     this.$message.success(`已复制变量名${content}`)
   }
+
+  private isColor(row) {
+    if (row.type) {
+      return row.type === 'color'
+    } else {
+      const value = this.getValue(row.name)
+      return /^#[0-9A-Fa-f]{3,6}$/.test(value)
+    }
+  }
+  // varilog = {}
 
   private getValue(name: string) {
     try {
@@ -587,6 +801,17 @@ export default class extends Vue {
         throw new Error()
       }
     } catch (err) {
+      // 帮助补充themes/default/index.scss文件
+      // const camelCaseKey = name
+      //   .slice(1)
+      //   .replaceAll(/\-[a-z0-9]/g, (value: string) => value.toUpperCase().slice(1))
+      // this.varilog[camelCaseKey] = name
+      // console.log('---------------------')
+      // console.log(
+      //   Object.keys(this.varilog)
+      //     .map(key => `${key}:${this.varilog[key]}`)
+      //     .join(';')
+      // )
       console.log(`未找到变量${name}的值`)
       return ''
     }
@@ -594,16 +819,26 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.doc-scss-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: $padding-2x $padding-6x $padding-4x $padding-6x;
+  background-color: $color-bg-2;
+}
+
 .variables-name {
   cursor: pointer;
+
   &:hover {
     color: $color-master;
   }
 }
+
 .variables-value,
 .coloratlas {
   vertical-align: middle;
 }
+
 .coloratlas {
   display: inline-block;
   margin-right: $padding;

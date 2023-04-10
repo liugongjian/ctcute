@@ -381,15 +381,13 @@ $tabs-md-height: 32px !default;
 $tabs-lg-height: 40px !default;
 $tabs-button-radius: 2px !default;
 $tabs-default-line-color: $color-neutral-3 !default; // 默认风格的线条颜色
-$tabs-bg-color:  $color-bg-2 !default; // 覆盖色块，与背景同色
+$tabs-bg-color:  $color-bg-2 !default; // 覆盖色块，与背景同色 TODO
 
 /* Progress
 -------------------------- */
 $progress-text-height-lg: 30px !default;
 $progress-text-height-sm: 12px !default;
 $progress-text-size-lg: 20px !default;
-$progress-text-size-sm: 10px !default;
-$progress-text-weight: 600 !default;
 
 /* Tooltip
 -------------------------- */
@@ -453,8 +451,6 @@ $descriptions-item-height: 40px !default;
 $descriptions-item-content-width: 525px !default;
 $descriptions-item-content-line-height: 22px !default;
 $descriptions-item-label-min-width: 128px !default;
-$descriptions-font-color-label: $color-neutral-9 !default;
-$descriptions-font-color-label-bordered: $color-neutral-10 !default;
 
 /* DropDown
 -------------------------- */
@@ -485,9 +481,7 @@ $steps-icon-inner-status-size-sm: $text-size-sm !default; // 小号状态icon si
 $steps-icon-inner-text-size-md: $text-size-md !default; // 小号标号size：14px
 $steps-icon-inner-text-size-sm: $text-size-md !default; // 中号标号size：14px
 $steps-line-size: 1px !default;// 线条粗细;
-$steps-bg-color: $color-bg-2 !default;// 覆盖色块，与背景同色
-$steps-icon-bg: $blue-1 !default; // 完成步骤背景色
-
+$steps-bg-color: $color-bg-2 !default;// 覆盖色块，与背景同色 TODO
 
 /* Dialog
 -------------------------- */
@@ -518,8 +512,8 @@ $icon-color: $color-grey-3 !default;
 
 /* Loading
 -------------------------- */
-$loading-primary-color: mix($color-white, $color-master, 50%) !default;
-$loading-primary-border: $loading-primary-color !default;
+$loading-primary-color: mix($color-white, $color-master, 50%) !default; // deprecated(弃用)
+$loading-primary-border: $loading-primary-color !default; // deprecated(弃用)
 $loading-default-color: $color-grey-10 !default;
 $loading-default-border: $color-grey-6 !default;
 

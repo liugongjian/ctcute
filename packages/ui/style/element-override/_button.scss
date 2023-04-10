@@ -131,18 +131,18 @@
     font-size: $font-size;
     padding: $padding;
 
-    .svg-icon,
-    [class*=el-icon-] {
+    > .svg-icon,
+    > [class*=el-icon-] {
       font-size: $font-size - 1; // 文字字体大小减1后再通过scale缩放，避免按钮被撑高的问题
       line-height: 1;
       transform: scale(1.28);
     }
 
-    .svg-icon {
+    > .svg-icon {
       vertical-align: $icon-vertical-align !important;
     }
 
-    [class*=el-icon-] {
+    > [class*=el-icon-] {
       vertical-align: $icon-vertical-align + 0.11em !important;
     }
 

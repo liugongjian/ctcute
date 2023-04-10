@@ -1,6 +1,8 @@
-import Vue, { VueInstance, PluginFunction } from 'vue'
+import { VueInstance, PluginFunction } from 'vue'
 import { AxiosInstance } from 'axios'
 import Router, { RouteConfig, Route } from 'vue-router'
+
+export * from './layout'
 
 declare module 'vue-router/types/router' {
   interface RouteMeta {
@@ -22,12 +24,12 @@ export interface RequestOptions {
   url?: string
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
   withCredentials?: boolean
-  params?: object
-  data?: object
+  params?: any
+  data?: any
 }
 
 export interface RequestParams {
-  user?: object
+  user?: any
   requestOptions?: RequestOptions
   successCb?: (response: any) => any
   errorCb?: (response: any) => any
@@ -94,7 +96,7 @@ export interface AuthConfigOptions {
   bindResponseInterceptor?: ($auth: AuthInstance) => void
   beforeEachStartHook?: (to: Route, $auth: AuthInstance) => Promise<Route | undefined>
   beforeEachErrorHook?: (to: Route, $auth: AuthInstance) => Promise<Route | undefined>
-  loadLayout?: ($auth: AuthInstance) => void
+  loadLayout?: ($auth?: AuthInstance) => Promise<void>
   providers?: AuthProviders
 }
 
@@ -113,6 +115,8 @@ export interface AuthInstance {
   tokenName: string
   userInfo: UserInfo
   isLogin: boolean
+
+  isAuthorized: (permissions: string[]) => boolean
 
   getToken: () => string | undefined
   removeToken: () => void

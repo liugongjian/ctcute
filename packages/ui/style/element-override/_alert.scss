@@ -28,6 +28,10 @@
 
 .el-alert {
   padding: $padding-2x $padding-8x $padding-2x $padding-4x;
+  align-items: flex-start;
+  .el-alert__icon {
+    line-height: calc($line-height * $text-size);
+  }
 }
 
 .el-alert.is-light .el-alert__description{

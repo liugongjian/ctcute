@@ -566,7 +566,6 @@ export default class extends Vue {
         { name: '$steps-icon-inner-text-size-md', scene: 'Steps组件-小号标号size：14px' },
         { name: '$steps-icon-inner-text-size-sm', scene: 'Steps组件-中号标号size：14px' },
         { name: '$steps-line-size', scene: 'Steps组件-线条粗细' },
-        { name: '$steps-bg-color', scene: 'Steps组件-覆盖色块，与背景同色' },
 
         /* Dialog
 -------------------------- */

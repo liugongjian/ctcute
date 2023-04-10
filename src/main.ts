@@ -34,7 +34,7 @@ Vue.use(CuteAuthenticate, {
 })
 
 Vue.use(CuteComponent)
-// Vue.use(VXETable)
+Vue.use(VXETable)
 Vue.use(SvgTopology)
 
 Vue.config.productionTip = false

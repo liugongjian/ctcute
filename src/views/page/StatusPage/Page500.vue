@@ -15,6 +15,7 @@
       <div class="box-text">
         <div class="box-text-title">500</div>
         <div class="box-text-tips">服务器出错了</div>
+        <el-button class="box-button" type="primary" @click="toHome">返回首页</el-button>
       </div>
     </div>
   </div>
@@ -22,11 +23,14 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 // import Img from './Image/page-500.svg'
-import Img from './Image/page-error.svg'
+import Img from './Status/500.svg'
 @Component({
   name: 'Page500',
 })
 export default class extends Vue {
   private Img = Img
+  private toHome() {
+    this.$router.push('/')
+  }
 }
 </script>

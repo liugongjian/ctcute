@@ -15,6 +15,7 @@
       <div class="box-text">
         <div class="box-text-title">404</div>
         <div class="box-text-tips">抱歉，您访问的页面不存在</div>
+        <el-button class="box-button" type="primary" @click="toHome">返回首页</el-button>
       </div>
     </div>
   </div>
@@ -22,11 +23,14 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 // import Img from './Image/page-404.svg'
-import Img from './Image/page-error.svg'
+import Img from './Status/404.svg'
 @Component({
   name: 'Page404',
 })
 export default class extends Vue {
   private Img = Img
+  private toHome() {
+    this.$router.push('/')
+  }
 }
 </script>

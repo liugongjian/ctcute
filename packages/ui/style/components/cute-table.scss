@@ -102,9 +102,10 @@
       .table-filter_foot {
         background: $color-neutral-2;
         display: flex;
-        justify-content: center;
+        justify-content: right;
         align-items: center;
         height: 50px;
+        padding: 0 $padding-4x;
 
         .el-button + .el-button {
           margin-left: $margin-4x;

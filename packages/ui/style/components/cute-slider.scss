@@ -88,7 +88,7 @@
   }
 
   .el-slider__bar {
-    z-index: 1;
+    z-index: $zindex-normal;
   }
 
   .el-input {

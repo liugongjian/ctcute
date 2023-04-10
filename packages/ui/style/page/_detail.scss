@@ -285,7 +285,7 @@
       .pop-tooltip {
         display: none;
         position: absolute;
-        z-index: 2019;
+        z-index: $zindex-tooltip;
         top: 24px;
         right: 0;
         background: $color-bg-1;

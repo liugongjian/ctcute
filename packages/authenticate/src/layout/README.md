@@ -55,7 +55,11 @@ layoutInstance.init(option?: CtyunLayoutInitOptions).then((console: CtcloudLayou
 ```nginx
 location /ctyun/layout {
   proxy_set_header Host www.ctyun.cn;
-  proxy_pass https://www.ctyun.cn/layout;
+  proxy_pass https://www.ctyun.cn/console/layout;
+}
+location /ctyun {
+  proxy_set_header Host www.ctyun.cn;
+  proxy_pass https://www.ctyun.cn;
 }
 ```
 
@@ -78,6 +82,11 @@ location /iam/gw {
 location ^/gw {
   proxy_set_header Host www.ctyun.cn;
   proxy_pass https://www.ctyun.cn/gw;
+}
+# layout 中的业务接口，由于 v1 可能跟业务规则冲突，因此多指定了一层
+location ^/v1/bcc {
+  proxy_set_header Host www.ctyun.cn;
+  proxy_pass https://www.ctyun.cn/v1/bcc;
 }
 ```
 

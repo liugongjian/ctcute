@@ -487,6 +487,16 @@ $cute-slider-btn-radius: 8px;
 $cute-slider-btn-width: 17px; // 左右缝隙不同 加1px
 $cute-slider-btn-height: 22px;
 
+
+/* Tabs
+-------------------------- */
+$tabs-master: $color-master; // 主题色标签背景
+$tabs-sm-height: 24px;
+$tabs-md-height: 32px;
+$tabs-lg-height: 40px;
+$tabs-button-radius: 2px;
+$tabs-default-line-color: $color-neutral-3 ; // 默认风格的线条颜色
+
 /* Layout
 -------------------------- */
 /* Header */

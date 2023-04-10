@@ -11,25 +11,27 @@
     <h1>SASS变量</h1>
     <el-divider></el-divider>
     <div v-for="(v, idx) in variables" :key="idx">
-      <h3>{{ v.title }}</h3>
-      <el-table :data="v.list" fit border>
-        <el-table-column prop="name" label="变量名">
-          <template slot-scope="{ row }">
-            <span class="variables-name" @click="copyCode(row.name)">{{ row.name }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column prop="value" label="值">
-          <template slot-scope="{ row }">
-            <span
-              v-if="isColor(row)"
-              class="coloratlas"
-              :style="{ backgroundColor: getValue(row.name) }"
-            ></span>
-            <span class="variables-value">{{ getValue(row.name) }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column prop="scene" label="使用场景"></el-table-column>
-      </el-table>
+      <template v-if="!v.hidden">
+        <h3>{{ v.title }}</h3>
+        <el-table :data="v.list" fit border>
+          <el-table-column prop="name" label="变量名">
+            <template slot-scope="{ row }">
+              <span class="variables-name" @click="copyCode(row.name)">{{ row.name }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column prop="value" label="值">
+            <template slot-scope="{ row }">
+              <span
+                v-if="isColor(row)"
+                class="coloratlas"
+                :style="{ backgroundColor: getValue(row.name) }"
+              ></span>
+              <span class="variables-value">{{ getValue(row.name) }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column prop="scene" label="使用场景"></el-table-column>
+        </el-table>
+      </template>
     </div>
   </div>
 </template>
@@ -304,6 +306,7 @@ export default class extends Vue {
     },
     {
       title: '组件',
+      hidden: true,
       list: [
         /* 标签(Tag)
 -------------------------- */
@@ -467,7 +470,6 @@ export default class extends Vue {
         { name: '$tabs-lg-height', scene: 'Tabs组件-large尺寸高度' },
         { name: '$tabs-button-radius', scene: 'Tabs组件-按钮风格下按钮圆角' },
         { name: '$tabs-default-line-color', scene: 'Tabs组件-默认风格下线条颜色' },
-        { name: '$tabs-bg-color', scene: 'Tabs组件-覆盖色块，与背景同色' },
 
         /* Progress
 -------------------------- */

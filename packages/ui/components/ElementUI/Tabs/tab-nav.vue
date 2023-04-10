@@ -54,6 +54,9 @@ export default {
         transform: `translate${dir}(-${this.navOffset}px)`,
       }
     },
+    navWidth() {
+      return this.$refs.nav?.offsetWidth || '0px'
+    },
     sizeName() {
       return ['top', 'bottom'].indexOf(this.rootTabs.tabPosition) !== -1 ? 'width' : 'height'
     },
@@ -235,6 +238,7 @@ export default {
       removeFocus,
       addable,
       handleTabAdd,
+      navWidth,
     } = this
     const scrollBtn = scrollable
       ? [
@@ -306,6 +310,7 @@ export default {
     return (
       <div
         class={['el-tabs__nav-wrap', scrollable ? 'is-scrollable' : '', `is-${this.rootTabs.tabPosition}`]}
+        attr-offset={navWidth}
       >
         {scrollBtn}
         <div class={['el-tabs__nav-scroll']} ref="navScroll">
@@ -324,7 +329,7 @@ export default {
             {tabs}
             {editable || addable ? (
               <b
-                class="el-tabs__item newAdd"
+                class={['el-tabs__item', `is-${this.rootTabs.tabPosition}`, 'el-tabs__add']}
                 on-click={handleTabAdd}
                 tabindex="0"
                 on-keydown={ev => {

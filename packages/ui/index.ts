@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 10:47:36
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-04-10 14:52:04
  * @Description:
  */
 import ElementUI, {
@@ -165,6 +165,7 @@ const componentsList = [
   CuteLayout,
   CuteFormInfo,
   CuteEditInput,
+  CuteButtonGroup,
   CuteState,
   CuteTag,
   CuteRemindInput,

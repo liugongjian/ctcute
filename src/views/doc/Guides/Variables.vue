@@ -450,7 +450,7 @@ export default class extends Vue {
 -------------------------- */
         { name: '$transfer-header-height', scene: 'Transfer组件-header高度' },
         { name: '$transfer-header-bg', scene: 'Transfer组件-header背景色' },
-        { name: '$transfer-button-hegiht', scene: 'Transfer组件-圆形按钮' },
+        { name: '$transfer-button-height', scene: 'Transfer组件-圆形按钮' },
         { name: '$transfer-button-width', scene: 'Transfer组件-圆形按钮' },
         { name: '$transfer-button-radius', scene: 'Transfer组件-圆形按钮' },
         { name: '$transfer-item-active-bg', scene: 'Transfer组件-选中项背景色' },

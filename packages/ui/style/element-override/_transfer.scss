@@ -38,7 +38,7 @@
       }
 
       &:not(.is-with-texts) {
-        height: $transfer-button-hegiht;
+        height: $transfer-button-height;
         width: $transfer-button-width;
         border-radius: $transfer-button-radius;
         padding: 0;
@@ -80,10 +80,17 @@
   .el-transfer-panel__filter {
     margin: $transfer-filter-input-margin;
 
+    &.el-input.el-input--prefix .el-input__prefix {
+      left: auto;
+      right: $common-space-4x;
+    }
+
     &.el-input.el-input--small .el-input__inner {
       border-radius: $border-radius;
       height: $transfer-filter-input-height;
       line-height: $transfer-filter-input-height;
+      padding-left: $padding-4x;
+      padding-right: $padding-10x;
     }
   }
 

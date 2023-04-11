@@ -68,6 +68,7 @@
   .el-tabs__item {
     border: 1px solid $border-color;
     box-sizing: border-box;
+    background-color: $color-bg-2;
 
     &:not(.is-disabled):not(.is-active):hover {
       border-color: $tabs-master;

@@ -22,8 +22,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-// import Img from './Image/page-404.svg'
-import Img from './Status/404.svg'
+import Img from './Image/page-404.svg'
 @Component({
   name: 'Page404',
 })

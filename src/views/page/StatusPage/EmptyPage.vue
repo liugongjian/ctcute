@@ -6,32 +6,8 @@
  * @Description: 空页面
 -->
 <template>
-  <!-- <div class="empty-page">
-    <el-tabs value="one" type="card" size="small">
-      <el-tab-pane label="默认项" name="one">
-        <div class="box">
-          <img src="./Image/empty-page.svg" />
-          <div class="text">暂无数据</div>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="选中项" name="second">
-        <div class="box">
-          <img src="./Image/empty-page.svg" />
-          <div class="text">暂无数据</div>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="禁用选项" name="third" disabled>禁用选项</el-tab-pane>
-      <el-tab-pane label="悬停项" name="fourth">
-        <div class="box">
-            <img src="./Image/empty-page.svg" />
-          <el-empty :image="Img" :image-size="300" description="暂无数据"></el-empty>
-        </div>
-      </el-tab-pane>
-    </el-tabs>
-  </div> -->
   <div class="page-status">
     <div class="box-new">
-      <!-- <el-empty :image="Img" :image-size="400" description="抱歉，您没有访问权限"></el-empty> -->
       <div class="box-image">
         <el-image :src="Img" fit="cover"></el-image>
       </div>

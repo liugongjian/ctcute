@@ -8,7 +8,6 @@
 <template>
   <div class="page-status">
     <div class="box-new">
-      <!-- <el-empty :image="Img" :image-size="400" description="抱歉，您没有访问权限"></el-empty> -->
       <div class="box-image">
         <el-image :src="Img" fit="cover"></el-image>
       </div>

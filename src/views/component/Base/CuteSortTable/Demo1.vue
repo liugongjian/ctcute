@@ -2,51 +2,66 @@
 * @Description: desc */
 <template>
   <div>
-    <cute-sort-table
-      ref="tableRef"
-      :loading="tableHook.loading"
-      :table-data="tableHook.tableData"
-      :table-columns="tableColumns"
-    >
-      <template #name="{ scope }">
-        <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
-      </template>
-      <template #status="{ scope }">
-        <span>{{ statusFormatter(scope.row) }}</span>
-      </template>
-      <template #healthy="{ scope }">
-        <cute-state :type="HEALTH[scope.row.health].colorType">
-          {{ HEALTH[scope.row.health].text }}
-        </cute-state>
-      </template>
-      <template #operation="{ scope }">
-        <el-button
-          type="text"
-          size="small"
-          class="bt-operation"
-          @click="handleClick(scope.$index, scope.row)"
-        >
-          挂载
-        </el-button>
-        <el-button type="text" size="small" class="bt-operation">卸载</el-button>
-        <el-button type="text" size="small" class="bt-operation">扩容</el-button>
-        <el-divider direction="vertical"></el-divider>
-        <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
-          <el-button type="text" size="small" class="bt-operation">
-            更多
-            <i
-              class="el-icon-arrow-down el-icon--right"
-              :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
-            />
-          </el-button>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>退订</el-dropdown-item>
-            <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
-            <el-dropdown-item>创建</el-dropdown-item>
-            <el-dropdown-item disabled>Disabled</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </template>
+    <cute-sort-table handle=".handle">
+      <el-table ref="tableRef" v-loading="tableHook.loading" :data="tableHook.tableData">
+        <el-table-column label="" width="48">
+          <div class="handle">
+            <svg-icon name="sortTable" class="sort-icon" />
+          </div>
+        </el-table-column>
+        <el-table-column prop="name" label="主机别名" width="150px">
+          <template slot-scope="scope">
+            <div>
+              <span class="text-ellipsis name-primary" :title="scope.row.name">{{ scope.row.name }}</span>
+            </div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="status" label="实例状态">
+          <template slot-scope="scope">
+            <span>{{ statusFormatter(scope.row) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="ip" label="IP地址"></el-table-column>
+        <el-table-column prop="cpu" label="CPU利用率(%)"></el-table-column>
+        <el-table-column prop="memory" label="磁盘利用率(%)"></el-table-column>
+        <el-table-column prop="healthy" label="健康状态">
+          <template slot-scope="scope">
+            <cute-state :type="HEALTH[scope.row.health].colorType">
+              {{ HEALTH[scope.row.health].text }}
+            </cute-state>
+          </template>
+        </el-table-column>
+        <el-table-column label="操作" width="200px">
+          <template slot-scope="scope">
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
+              挂载
+            </el-button>
+            <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+            <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+            <el-divider direction="vertical"></el-divider>
+            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
+              <el-button type="text" size="small" class="bt-operation">
+                更多
+                <i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                />
+              </el-button>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>退订</el-dropdown-item>
+                <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
+                <el-dropdown-item>创建</el-dropdown-item>
+                <el-dropdown-item disabled>Disabled</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </template>
+        </el-table-column>
+      </el-table>
     </cute-sort-table>
     <el-pagination
       class="pagination"
@@ -79,16 +94,6 @@ export default class extends Vue {
 
   public tableHook = new TableHookClass()
 
-  private tableColumns = [
-    { prop: 'name', label: '主机别名', slot: 'name' },
-    { prop: 'status', label: '实例状态', slot: 'status' },
-    { prop: 'ip', label: 'IP地址' },
-    { prop: 'cpu', label: 'CPU利用率(%)' },
-    { prop: 'memory', label: '内存利用率(%)' },
-    { prop: 'disk', label: '磁盘利用率(%)' },
-    { prop: 'healthy', label: '健康状态', slot: 'healthy' },
-    { prop: 'operation', label: '操作', slot: 'operation', props: { align: 'left', width: 200 } },
-  ]
   private HEALTH = HEALTH2
 
   /**

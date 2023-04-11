@@ -45,7 +45,6 @@
     "crypto-js": "^4.1.1",
     "date-fns": "^2.28.0",
     "element-ui": "^2.15.6",
-    "element-ui-el-table-draggable": "^1.2.10",
     "js-cookie": "^3.0.1",
     "mavon-editor": "^2.10.4",
     "svg-topology": "1.0.21",

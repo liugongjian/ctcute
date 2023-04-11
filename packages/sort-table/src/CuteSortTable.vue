@@ -1,54 +1,77 @@
 <!--
- * @Author: huanglulu
- * @Date: 2022-07-21 10:14:48
+ * @Author: 黄璐璐
+ * @Date: 2023-04-11 15:11:02
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-04-11 14:08:56
- * @Description:
+ * @LastEditTime: 2023-04-11 16:08:06
+ * @Description: 
 -->
 <template>
-  <div>
-    <el-table-draggable handle=".handle">
-      <el-table ref="table" v-loading="loading" :data="tableData" v-bind="$attrs" v-on="$listeners">
-        <el-table-column label="" width="48">
-          <div class="handle">
-            <svg-icon name="sortTable" class="sort-icon" />
-          </div>
-        </el-table-column>
-        <template v-for="(item, index) in tableColumns">
-          <el-table-column
-            v-if="!item.props || item.props.type !== 'selection'"
-            :key="index + item.prop"
-            :prop="item.prop"
-            :label="item.label"
-            v-bind="item.props"
-          >
-            <template slot-scope="scope">
-              <slot v-if="item.slot" :name="item.slot" :scope="scope" />
-              <span v-else>{{ scope.row[item.prop] }}</span>
-            </template>
-          </el-table-column>
-        </template>
-      </el-table>
-    </el-table-draggable>
+  <div ref="wrapper">
+    <div :key="tableKey">
+      <slot></slot>
+    </div>
   </div>
 </template>
-<script lang="ts">
-import { Vue, Component, Prop, Ref } from 'vue-property-decorator'
-import { ElTable } from 'element-ui/types/table'
-import ElTableDraggable from 'element-ui-el-table-draggable'
 
-@Component({
+<script>
+import sortable from 'sortablejs'
+
+export default {
   name: 'CuteSortTable',
-  components: {
-    ElTableDraggable,
+  props: {
+    handle: {
+      type: String,
+      default: '',
+    },
+    animate: {
+      type: Number,
+      default: 100,
+    },
   },
-})
-export default class extends Vue {
-  @Prop({ type: Boolean, default: false }) loading?: false // 表头数据
-  @Prop({ type: Array, default: [] }) tableData?: [] // 表格数据
-  @Prop({ type: Array, default: [] }) tableColumns?: [] // 表头数据
-
-  @Ref('table')
-  private table: ElTable
+  data() {
+    return {
+      tableKey: 0,
+    }
+  },
+  watch: {
+    tableKey() {
+      this.$nextTick(() => {
+        this.makeTableSortAble()
+        this.keepWrapperHeight(false)
+      })
+    },
+  },
+  mounted() {
+    this.makeTableSortAble()
+  },
+  methods: {
+    makeTableSortAble() {
+      const table = this.$children[0].$el.querySelector('.el-table__body-wrapper tbody')
+      sortable.create(table, {
+        handle: this.handle,
+        animation: this.animate,
+        onStart: () => {
+          this.$emit('drag')
+        },
+        onEnd: ({ newIndex, oldIndex }) => {
+          this.keepWrapperHeight(true)
+          this.tableKey = Math.random()
+          const arr = this.$children[0].data
+          const targetRow = arr.splice(oldIndex, 1)[0]
+          arr.splice(newIndex, 0, targetRow)
+          this.$emit('drop', { targetObject: targetRow, list: arr })
+        },
+      })
+    },
+    keepWrapperHeight(keep) {
+      // eslint-disable-next-line prefer-destructuring
+      const wrapper = this.$refs.wrapper
+      if (keep) {
+        wrapper.style.minHeight = `${wrapper.clientHeight}px`
+      } else {
+        wrapper.style.minHeight = 'auto'
+      }
+    },
+  },
 }
 </script>

@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:30
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-04-11 10:58:28
+ * @LastEditTime: 2023-04-11 15:57:14
  * @Description: 
 -->
 <template>
@@ -22,19 +22,13 @@
         <el-table-column prop="options" label="可选值" />
         <el-table-column prop="default" label="默认值" />
       </el-table>
-      <!-- <h2>CuteSortTable Events</h2>
-      <el-table :data="event" fit border>
-        <el-table-column prop="name" label="事件名" />
-        <el-table-column prop="desc" label="说明" />
-        <el-table-column prop="callback" label="参数" />
-      </el-table> -->
-      <h2>说明:</h2>
+      <!-- <h2>说明:</h2>
       <h3>Table Attributes以及Table Events的使用: 直接透传</h3>
       <h3>Table-column Attributes的使用: 通过tableColumns的props属性进行透传</h3>
       <h3>
         Table Methods的使用: 先获取table的实例,然后调用table方法 如const e = this.tableRef.$refs.table as
         ElTable; e.clearSelection()
-      </h3>
+      </h3> -->
     </div>
   </div>
 </template>
@@ -53,35 +47,20 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 export default class extends Vue {
   private prop = [
     {
-      name: 'tableData',
-      desc: '显示的数据',
-      type: 'array',
+      name: 'handle',
+      desc: '可拖动的部分, 只能拖动指定的类',
+      type: 'string',
       options: null,
       default: null,
     },
     {
-      name: 'loading',
-      desc: '是否加载中',
-      type: 'boolean',
+      name: 'animate',
+      desc: '指定动画速度(ms)',
+      type: 'number',
       options: null,
-      default: null,
-    },
-    {
-      name: 'tableColumns',
-      desc: '数据列',
-      type: 'Object',
-      options: null,
-      default: null,
+      default: 100,
     },
   ]
-
-  // private event = [
-  //   {
-  //     name: 'sort',
-  //     desc: '当用户拖拽数据行时触发的排序事件	',
-  //     callback: '{newIndex, oldIndex}',
-  //   },
-  // ]
 }
 </script>
 <style lang="scss" scoped></style>

@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex" :class="[contentAreaTip ? 'is-content-area-tip' : 'is-alert-tip']">
+  <div style="display: flex;" :class="[contentAreaTip ? 'is-content-area-tip' : 'is-alert-tip']">
     <transition name="el-alert-fade">
       <div
         v-show="visible"
@@ -8,7 +8,8 @@
         role="alert"
       >
         <slot name="icon-custom">
-          <i v-if="showIcon" class="el-alert__icon" :class="[iconClass, isBigIcon]"></i>
+          <!-- <i v-if="showIcon" class="el-alert__icon" :class="[iconClass, isBigIcon]"></i> -->
+          <i v-if="showIcon" class="el-alert__icon" :class="[iconClass]"></i>
         </slot>
         <div class="el-alert__content">
           <span v-if="title || $slots.title" class="el-alert__title" :class="[isBoldTitle]">
@@ -99,9 +100,9 @@ export default {
       return TYPE_CLASSES_MAP[this.type] || 'cute-icon-info-circle-fill'
     },
 
-    isBigIcon() {
-      return this.description || this.$slots.default ? 'is-big' : ''
-    },
+    // isBigIcon() {
+    //   return this.description || this.$slots.default ? 'is-big' : ''
+    // },
 
     isBoldTitle() {
       return this.description || this.$slots.default ? 'is-bold' : ''

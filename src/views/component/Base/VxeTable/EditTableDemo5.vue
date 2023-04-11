@@ -60,7 +60,6 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import '@cutedesign/vxe-table'
 import { getTableData2 } from './mock'
 import { TableType2 } from './types'
 import { SEX } from './dict'

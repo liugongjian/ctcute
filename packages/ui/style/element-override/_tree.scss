@@ -99,6 +99,10 @@
       font-weight: 500;
       background: none;
 
+      .node-content {
+        color: $color-master;
+      }
+
       .el-checkbox__inner {
         &::before {
           background: $color-white;

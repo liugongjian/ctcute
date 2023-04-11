@@ -377,7 +377,7 @@ $pagination-active-bg-disabled: $color-master-disabled !default;
 -------------------------- */
 $transfer-header-height: 40px !default; // Transfer组件header高度
 $transfer-header-bg: $color-neutral-1 !default;
-$transfer-button-hegiht: 38px !default; // Transfer组件圆形按钮
+$transfer-button-height: 38px !default; // Transfer组件圆形按钮
 $transfer-button-width: 38px !default; // Transfer组件圆形按钮
 $transfer-button-radius: 50% !default; // Transfer组件圆形按钮
 $transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
@@ -385,7 +385,9 @@ $transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项�
 $transfer-item-height: 32px !default; // Transfer组件选项高度
 $transfer-filter-input-height: 28px !default; // Transfer组件搜索框高度
 $transfer-filter-input-margin: $margin-10 !default; // Transfer组件搜索框高度
-$transfer-filter-height: calc($transfer-filter-input-height + $transfer-filter-input-margin) !default; // Transfer组件filter区域高度
+$transfer-filter-height: calc(
+  $transfer-filter-input-height + $transfer-filter-input-margin
+) !default; // Transfer组件filter区域高度
 $transfer-footert-bg: $color-white !default; // Transfer组件footer背景色
 $transfer-footer-height: 40px !default; // Transfer组件footer高度
 
@@ -496,7 +498,9 @@ $steps-icon-inner-status-size-md: $text-size-md !default; // 中号状态icon si
 $steps-icon-inner-status-size-sm: $text-size-sm !default; // 小号状态icon size：12px
 $steps-icon-inner-text-size-md: $text-size-md !default; // 小号标号size：14px
 $steps-icon-inner-text-size-sm: $text-size-md !default; // 中号标号size：14px
-$steps-line-size: 1px !default;// 线条粗细;
+$steps-line-size: 1px !default; // 线条粗细;
+$steps-bg-color: $color-bg-2 !default; // 覆盖色块，与背景同色
+$steps-icon-bg: $blue-1 !default; // 完成步骤背景色
 
 /* Dialog
 -------------------------- */
@@ -629,7 +633,6 @@ $cute-area-head-color: $neutral-9 !default;
 $cute-area-item-color: $neutral-10 !default;
 $cute-area-wrap-margin: 40px !default;
 
-
 /* Animation
 -------------------------- */
 $transition-time: 200ms !default;
@@ -639,7 +642,7 @@ $transition-time: 200ms !default;
 $zindex-badge: auto !default;
 $zindex-normal: 1 !default;
 $zindex-table-fixed: 2 !default;
-$zindex-affix: 10 !default; 
+$zindex-affix: 10 !default;
 $zindex-layout-sidebar: 10 !default;
 $zindex-modal: 1000 !default;
 $zindex-modal-mask: 1000 !default;

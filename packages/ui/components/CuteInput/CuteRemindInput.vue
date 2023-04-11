@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-23 15:49:13
+ * @LastEditTime: 2023-04-10 17:10:02
  * @Description:
 -->
 <template>
@@ -13,6 +13,7 @@
     :trigger-on-focus="false"
     :value="value"
     :size="size"
+    type="text"
     @input="myChange($event)"
   >
     <span ref="suffix" slot="suffix" class="prompt-title"
@@ -33,10 +34,13 @@ export default class extends Vue {
   @Model('change', { type: String }) value: string
   @Emit('change')
   myChange(key) {
+    setTimeout(() => this.getPosition(), 0)
+    return key
+  }
+  private getPosition() {
     ;(this.$refs.input as any).$refs.input.style.padding = `0px ${
       (this.$refs.suffix as any).getBoundingClientRect().width + 15
     }px 0px 12px`
-    return key
   }
 }
 </script>

@@ -183,7 +183,6 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import '@cutedesign/vxe-table'
 import { getTableData } from './mock'
 import { STATUS, HEALTH } from './dict'
 import { TableType } from './types'

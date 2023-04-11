@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-10 14:52:04
+ * @LastEditors: yanchengxiang 675036196@qq.com
+ * @LastEditTime: 2023-04-06 10:47:36
  * @Description:
  */
 import ElementUI, {
@@ -101,17 +101,6 @@ import './components/ElementUI/settings'
 import './icons/index'
 import SvgIcon from './icons/index.vue'
 
-// 整合appendix，chart等
-import CuteAppendix from './packages/appendix/CuteAppendix.vue'
-import CuteChart from './packages/chart/CuteChart.vue'
-import VXETable from './packages/vxe-table/index'
-
-export {
-  CuteAppendix,
-  CuteChart,
-  VXETable, // VXETable使用时要vue.use全局注册，因为他会自动注册其他几个相关组件
-}
-
 /**
  * 组件清单
  */
@@ -165,7 +154,6 @@ const componentsList = [
   CuteLayout,
   CuteFormInfo,
   CuteEditInput,
-  CuteButtonGroup,
   CuteState,
   CuteTag,
   CuteRemindInput,

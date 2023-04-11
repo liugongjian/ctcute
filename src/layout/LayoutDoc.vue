@@ -270,6 +270,23 @@ export default class extends Vue {
         },
       ],
     },
+    {
+      path: '/docs/variables',
+      meta: {
+        breadcrumb: false,
+        type: 'doc',
+      },
+      children: [
+        {
+          path: '',
+          name: 'Variables',
+          meta: {
+            title: 'SASS变量',
+            breadcrumb: true,
+          },
+        },
+      ],
+    },
   ]
 }
 </script>

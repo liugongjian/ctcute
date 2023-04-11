@@ -1,8 +1,15 @@
-.newAdd {
+.el-tabs__item.el-tabs__add {
   color: $color-master-1;
+  width: $tabs-add-item-width;
+  > .el-tabs__add__input{
+    > .el-input__inner{
+      background-color: $color-master-bg;
+      border: none;
+      border-radius: 0px;
+      font-size: $text-size;
+    }
+  }
 }
-
-
 /* $size:大小;
    $height: 高度;
 */
@@ -14,6 +21,23 @@
       height: $height;
       line-height: $height;
     }
+
+    .el-tabs__item.el-tabs__add {
+      > .el-tabs__add__input{
+        transform: translateY(-1px); // 边框偏移
+        width: 100%;
+        // @if $size == small {
+        //    width: calc(120px - $margin-4x * 2);
+        // }
+  
+        // @else {
+        //   width: calc(120px - $margin-6x * 2);
+        // }
+        > .el-input__inner{
+          height: calc($height - 2px - $margin-2x);
+        }
+      }
+    } 
 
     > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav > .el-tabs__item {
       &, &.is-top.is-active {

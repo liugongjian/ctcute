@@ -46,7 +46,6 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import '@cutedesign/vxe-table'
 import { getTableData3 } from './mock'
 
 @Component({

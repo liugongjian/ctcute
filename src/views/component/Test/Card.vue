@@ -111,6 +111,6 @@ export default class extends Vue {
 }
 
 .mb-12 {
-  margin-bottom: 12px;
+  margin-bottom: $common-space-3x;
 }
 </style>

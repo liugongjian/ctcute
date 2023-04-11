@@ -3,17 +3,8 @@
 .el-card {
   background-color: $card-bg;
   border-radius: $border-radius;
-  box-shadow: $shadow-1;
 }
 
 .el-card.is-always-shadow {
   box-shadow: $shadow-1;
-}
-
-.el-card.is-never-shadow {
-  box-shadow: none;
-}
-
-.el-card.is-hover-shadow {
-  box-shadow: none;
 }

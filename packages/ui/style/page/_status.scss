@@ -30,10 +30,11 @@
     justify-content: center;
 
     .box-image {
-      margin-right: 48px;
+      margin-right: $margin-6x;
     }
 
     .box-text {
+      margin-left: $margin-6x;
       line-height: $line-height;
       font-family: $font-family;
 
@@ -44,7 +45,7 @@
       }
 
       .box-text-tips {
-        font-size: 14px;
+        font-size: $text-size-md;
         color: $text-color-light;
         font-weight: $text-weight;
         padding-top: $padding-2x;

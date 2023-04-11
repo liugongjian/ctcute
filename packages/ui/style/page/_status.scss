@@ -1,7 +1,7 @@
 /* 状态页 */
 @mixin status {
   min-height: 100vh;
-  background-color: $color-white;
+  background-color: $color-content-bg;
 }
 
 .page-status {
@@ -30,25 +30,29 @@
     justify-content: center;
 
     .box-image {
-      padding: 18px;
+      margin-right: $margin-6x;
     }
 
     .box-text {
-      margin-left: 46px;
+      margin-left: $margin-6x;
       line-height: $line-height;
       font-family: $font-family;
 
       .box-text-title {
-        font-size: 36px;
+        font-size: $text-size-xl + 2px;
         color: $text-color;
         font-weight: $text-title-weight;
       }
 
       .box-text-tips {
-        font-size: 20px;
+        font-size: $text-size-md;
         color: $text-color-light;
         font-weight: $text-weight;
-        padding-top: $padding-6x;
+        padding-top: $padding-2x;
+      }
+
+      .box-button {
+        margin-top: $margin-6x;
       }
     }
   }

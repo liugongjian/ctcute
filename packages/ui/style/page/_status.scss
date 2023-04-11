@@ -39,7 +39,7 @@
       font-family: $font-family;
 
       .box-text-title {
-        font-size: 20px;
+        font-size: $text-size-xl + 2px;
         color: $text-color;
         font-weight: $text-title-weight;
       }

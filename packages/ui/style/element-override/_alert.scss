@@ -31,6 +31,7 @@
   align-items: flex-start;
   .el-alert__icon {
     line-height: calc($line-height * $text-size);
+    height: calc($line-height * $text-size);
   }
 }
 

@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-21 10:08:30
  * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-11-08 10:19:58
+ * @LastEditTime: 2023-04-11 10:58:28
  * @Description: 
 -->
 <template>
@@ -22,12 +22,12 @@
         <el-table-column prop="options" label="可选值" />
         <el-table-column prop="default" label="默认值" />
       </el-table>
-      <h2>CuteSortTable Events</h2>
+      <!-- <h2>CuteSortTable Events</h2>
       <el-table :data="event" fit border>
         <el-table-column prop="name" label="事件名" />
         <el-table-column prop="desc" label="说明" />
         <el-table-column prop="callback" label="参数" />
-      </el-table>
+      </el-table> -->
       <h2>说明:</h2>
       <h3>Table Attributes以及Table Events的使用: 直接透传</h3>
       <h3>Table-column Attributes的使用: 通过tableColumns的props属性进行透传</h3>
@@ -75,13 +75,13 @@ export default class extends Vue {
     },
   ]
 
-  private event = [
-    {
-      name: 'sort',
-      desc: '当用户拖拽数据行时触发的排序事件	',
-      callback: '{newIndex, oldIndex}',
-    },
-  ]
+  // private event = [
+  //   {
+  //     name: 'sort',
+  //     desc: '当用户拖拽数据行时触发的排序事件	',
+  //     callback: '{newIndex, oldIndex}',
+  //   },
+  // ]
 }
 </script>
 <style lang="scss" scoped></style>

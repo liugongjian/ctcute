@@ -514,7 +514,6 @@
         :loading="tableHook.loading"
         :table-data="tableHook.tableData"
         :table-columns="tableColumns"
-        @sort="handleSort"
       >
         <template #name="{ scope }">
           <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
@@ -584,13 +583,13 @@
           width="150"
           sortable
           :filters="[
-          { text: '2022-08-14', value: '1' },
-          { text: '2022-08-15', value: '2' },
-          { text: '2022-08-16', value: '3' },
-          { text: '2022-08-17', value: '4' },
-          { text: '2022-08-18', value: '5' },
-          { text: '2022-08-19', value: '6' },
-        ]"
+            { text: '2022-08-14', value: '1' },
+            { text: '2022-08-15', value: '2' },
+            { text: '2022-08-16', value: '3' },
+            { text: '2022-08-17', value: '4' },
+            { text: '2022-08-18', value: '5' },
+            { text: '2022-08-19', value: '6' },
+          ]"
           filter-placement="bottom-start"
         >
         </el-table-column>
@@ -718,7 +717,9 @@
                 </el-col>
                 <el-col :span="8">
                   <div class="expand-form-item-content">
-                    <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+                    <el-tag type="info" size="small" style="margin-right: 8px">{{
+                      scope.row.label[0]
+                    }}</el-tag>
                     <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
                   </div>
                 </el-col>
@@ -816,7 +817,12 @@
       <el-table v-loading="nestedTableLoading" :data="nestedTableData" fit>
         <el-table-column type="expand" width="40">
           <template slot-scope="scope">
-            <el-table ref="multipleTable" tooltip-effect="dark" :data="scope.row.projectSpaces" class="expand-table">
+            <el-table
+              ref="multipleTable"
+              tooltip-effect="dark"
+              :data="scope.row.projectSpaces"
+              class="expand-table"
+            >
               <el-table-column width="20"></el-table-column>
               <el-table-column prop="projectSpace" label="名称">
                 <template slot-scope="{ row }">
@@ -963,7 +969,9 @@
       <el-table :data="tableComponentData && tableComponentData.smallTable" size="small">
         <el-table-column label="排行">
           <template slot-scope="scope">
-            <span :class="scope.$index < 3 ? 'sub-index sub-index-top3' : 'sub-index'">{{ scope.$index + 1 }}</span>
+            <span :class="scope.$index < 3 ? 'sub-index sub-index-top3' : 'sub-index'">{{
+              scope.$index + 1
+            }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="name" label="工作流名称">
@@ -1404,10 +1412,7 @@ import * as SimpleTable from '@/types/SimpleTable'
 import { getTableComponent } from '@/api/tableComponent'
 import { getTable as getExpandTable } from '@/api/proTable6'
 import { getTable as getNestedTable } from '@/api/proTable7'
-import {
-  TYPE as NESTED_TABLE_TYPE,
-  STATUS2 as NESTED_TABLE_STATUS2,
-} from '@/dics/proTable6'
+import { TYPE as NESTED_TABLE_TYPE, STATUS2 as NESTED_TABLE_STATUS2 } from '@/dics/proTable6'
 import { formatDatetime } from '@/utils/date'
 import * as TableComponent from '@/types/TableComponent'
 
@@ -1649,16 +1654,6 @@ export default class extends Vue {
    */
   private statusFormatter(data: SimpleTable.Host) {
     return STATUS[data.status]
-  }
-
-  private handleSort(val) {
-    const currRow = this.tableHook.tableData.splice(val.oldIndex, 1)[0]
-    this.tableHook.tableData.splice(val.newIndex, 0, currRow)
-    const newArray = this.tableHook.tableData.slice(0)
-    this.tableHook.tableData = []
-    this.$nextTick(function () {
-      this.tableHook.tableData = newArray
-    })
   }
 
   /** * 下拉展开旋转小三角 */

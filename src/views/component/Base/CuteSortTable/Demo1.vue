@@ -1,10 +1,5 @@
-/*
-* @Author: 胡一苗
-* @Date: 2023-03-31 14:54:29
-* @LastEditors: 胡一苗
-* @LastEditTime: 2023-03-31 15:09:10
-* @Description: desc
-*/
+/* * @Author: 胡一苗 * @Date: 2023-03-31 14:54:29 * @LastEditors: 胡一苗 * @LastEditTime: 2023-03-31 15:09:10
+* @Description: desc */
 <template>
   <div>
     <cute-sort-table
@@ -12,7 +7,6 @@
       :loading="tableHook.loading"
       :table-data="tableHook.tableData"
       :table-columns="tableColumns"
-      @sort="handleSort"
     >
       <template #name="{ scope }">
         <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
@@ -125,16 +119,6 @@ export default class extends Vue {
    */
   private statusFormatter(data: SimpleTable.Host) {
     return STATUS[data.status]
-  }
-
-  private handleSort(val) {
-    const currRow = this.tableHook.tableData.splice(val.oldIndex, 1)[0]
-    this.tableHook.tableData.splice(val.newIndex, 0, currRow)
-    const newArray = this.tableHook.tableData.slice(0)
-    this.tableHook.tableData = []
-    this.$nextTick(function () {
-      this.tableHook.tableData = newArray
-    })
   }
 
   private openDropdown(index) {

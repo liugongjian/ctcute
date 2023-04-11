@@ -1,42 +1,47 @@
 <!--
  * @Author: huanglulu
  * @Date: 2022-07-21 10:14:48
- * @LastEditors: 胡一苗
- * @LastEditTime: 2023-03-31 12:48:24
+ * @LastEditors: 黄璐璐
+ * @LastEditTime: 2023-04-11 14:08:56
  * @Description:
 -->
 <template>
   <div>
-    <el-table ref="table" v-loading="loading" :data="tableData" v-bind="$attrs" v-on="$listeners">
-      <el-table-column label="" width="48">
-        <div class="sort-table">
-          <svg-icon name="menu" class="sort-icon" />
-        </div>
-      </el-table-column>
-      <template v-for="(item, index) in tableColumns">
-        <el-table-column
-          v-if="!item.props || item.props.type !== 'selection'"
-          :key="index + item.prop"
-          :prop="item.prop"
-          :label="item.label"
-          v-bind="item.props"
-        >
-          <template slot-scope="scope">
-            <slot v-if="item.slot" :name="item.slot" :scope="scope" />
-            <span v-else>{{ scope.row[item.prop] }}</span>
-          </template>
+    <el-table-draggable handle=".handle">
+      <el-table ref="table" v-loading="loading" :data="tableData" v-bind="$attrs" v-on="$listeners">
+        <el-table-column label="" width="48">
+          <div class="handle">
+            <svg-icon name="sortTable" class="sort-icon" />
+          </div>
         </el-table-column>
-      </template>
-    </el-table>
+        <template v-for="(item, index) in tableColumns">
+          <el-table-column
+            v-if="!item.props || item.props.type !== 'selection'"
+            :key="index + item.prop"
+            :prop="item.prop"
+            :label="item.label"
+            v-bind="item.props"
+          >
+            <template slot-scope="scope">
+              <slot v-if="item.slot" :name="item.slot" :scope="scope" />
+              <span v-else>{{ scope.row[item.prop] }}</span>
+            </template>
+          </el-table-column>
+        </template>
+      </el-table>
+    </el-table-draggable>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Ref } from 'vue-property-decorator'
 import { ElTable } from 'element-ui/types/table'
-import Sortable from 'sortablejs'
+import ElTableDraggable from 'element-ui-el-table-draggable'
 
 @Component({
   name: 'CuteSortTable',
+  components: {
+    ElTableDraggable,
+  },
 })
 export default class extends Vue {
   @Prop({ type: Boolean, default: false }) loading?: false // 表头数据
@@ -45,25 +50,5 @@ export default class extends Vue {
 
   @Ref('table')
   private table: ElTable
-
-  sortable: any
-
-  /**
-   * 页面Mounted
-   */
-  private mounted() {
-    this.rowDrop()
-  }
-
-  // 行拖拽排序, .sort-table 可拖拽元素
-  private rowDrop() {
-    const tbody = this.table.$el.querySelectorAll('tbody')
-    this.sortable = Sortable.create(tbody[0], {
-      handle: '.sort-table',
-      onEnd: ({ newIndex, oldIndex }) => {
-        this.$emit('sort', { newIndex, oldIndex })
-      },
-    })
-  }
 }
 </script>

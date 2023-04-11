@@ -7,6 +7,9 @@
       border: none;
       border-radius: 0px;
       font-size: $text-size;
+      &:focus{
+        box-shadow: none;
+      }
     }
   }
 }
@@ -34,7 +37,7 @@
         //   width: calc(120px - $margin-6x * 2);
         // }
         > .el-input__inner{
-          height: calc($height - 2px - $margin-2x);
+          height: $text-size;
         }
       }
     } 

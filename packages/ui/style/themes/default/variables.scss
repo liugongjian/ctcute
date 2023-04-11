@@ -280,6 +280,22 @@ $button-padding-medium: 9px $padding-4x !default;
 $button-padding-large: $margin-3x $padding-6x !default;
 $button-group-border: rgba($color-white, 0.5) !default;
 
+/* Radio
+-------------------------- */
+
+$radio-checked-bg: $color-white !default; // 普通radio背景色
+$radio-group-color: $color-white !default; 
+$radio-group-bg: $color-master !default;
+$radio-group-disabled-bg: $disabled-bg !default;
+$radio-group-border-color: $disabled-border !default;
+$radio-group-border-disabled-color: $disabled-border !default;
+$radio-group-border-disabled-bg: $color-master-disabled !default;
+$radio-width: 14px !default; // 普通按钮外部宽高
+$radio-label-width: $common-space-2x !default; // 普通按钮 中间按钮宽高:
+$radio-padding-small: $padding $padding-4x !default;
+$radio-padding-medium: 9px $padding-4x !default;
+$radio-padding-large: $margin-3x $padding-6x !default;
+
 /* Form
 -------------------------- */
 $form-item-label-line-height: 32px !default; // label
@@ -590,7 +606,7 @@ $cute-remind-input-width: 300px !default;
 
 /* CuteSpecialRadio */
 $cute-special-radio-padding: 9px !default;
-$cute-special-radio-size: 2px !default;
+$cute-special-radio-size: 3px !default;
 
 /* CuteRemindSelect */
 $cute-remind-select-right: 33px !default;

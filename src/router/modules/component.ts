@@ -2,8 +2,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-10 14:44:22
+ * @LastEditors: error: git config user.name & please set dead value or install git
+ * @LastEditTime: 2023-04-11 16:48:48
  * @Description:
  */
 // import Layout from '@/layout/component.vue'
@@ -365,6 +365,33 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'radio',
+        name: 'Radio',
+        component: () => import('@/views/component/Test/Radio.vue'),
+        meta: {
+          title: 'Radio',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'checkbox',
+        name: 'Checkbox',
+        component: () => import('@/views/component/Test/Checkbox.vue'),
+        meta: {
+          title: 'Checkbox',
+          breadcrumb: true,
+        },
+      },
+      // {
+      //   path: 'selectedButton',
+      //   name: 'SelectedButton',
+      //   component: () => import('@/views/component/Test/SelectedButton.vue'),
+      //   meta: {
+      //     title: 'SelectedButton',
+      //     breadcrumb: true,
+      //   },
+      // },
       {
         path: 'color-picker',
         name: 'ColorPicker',

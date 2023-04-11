@@ -1,6 +1,18 @@
 <template>
   <div class="ui-select">
     <p>将动作或菜单折叠到下拉菜单中</p>
+
+    <div class="page-content">
+      <el-radio-group v-model="timeSize" size="small">
+        <el-radio-button value="medium" label="medium">默认</el-radio-button>
+        <el-radio-button value="small" label="small">小</el-radio-button>
+        <el-radio-button value="large" label="large">大</el-radio-button>
+      </el-radio-group>
+      <el-radio-group v-model="itemDisabled" size="small">
+        <el-radio-button :value="true" :label="true">禁用</el-radio-button>
+        <el-radio-button :value="false" :label="false">启用</el-radio-button>
+      </el-radio-group>
+    </div>
     <div class="sub-down">
       <h3>常规用法</h3>
       <div class="line">
@@ -296,6 +308,7 @@ export default class extends Vue {
     updateTime: '2022.07.12',
   }
   private timeSize = 'small'
+  private itemDisabled = false
   private checkedList = ['已选中项']
   private name = '数据资源名称'
   private selectValue = []
@@ -644,5 +657,15 @@ export default class extends Vue {
 
 .time-size-box {
   margin-bottom: 20px;
+}
+
+.page-content {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  .el-input {
+    width: 250px;
+  }
 }
 </style>

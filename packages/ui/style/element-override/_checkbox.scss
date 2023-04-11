@@ -4,14 +4,6 @@
   .el-checkbox-button {
     margin-right: $margin-2x;
 
-    // &:first-child .el-checkbox-button__inner {
-    //   border: 1px solid transparent;
-    // } 
-
-    // &.is-focus .el-checkbox-button__inner {
-    //   border: 1px solid transparent;
-    // }
-
     &.is-checked .el-checkbox-button__inner {
       color: $text-color;
       background-color: $checkbox-bg;

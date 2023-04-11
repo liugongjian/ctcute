@@ -278,6 +278,17 @@ $button-padding-medium: 9px $padding-4x;
 $button-padding-large: $margin-3x $padding-6x;
 $button-group-border: rgba($color-black, 0.5);
 
+/* Radio
+-------------------------- */
+
+$radio-checked-bg: $color-white !default; // 普通radio背景色
+$radio-group-color: $color-white !default; 
+$radio-group-bg: $color-master !default;
+$radio-group-disabled-bg: $disabled-bg !default;
+$radio-group-border-color: $disabled-border !default;
+$radio-group-border-disabled-color: $disabled-border !default;
+$radio-group-border-disabled-bg: $color-master-disabled !default;
+
 /* Form
 -------------------------- */
 $form-item-label-line-height: 32px; // label

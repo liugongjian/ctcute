@@ -22,7 +22,7 @@
   }
 
   .el-radio-group .el-radio-button {
-    margin-left: $cute-special-radio-size;
+    margin-left: $cute-special-radio-margin;
 
     .el-radio-button__inner {
       border: 1px solid $color-neutral-5;
@@ -48,7 +48,7 @@
     color: $color-white;
   }
 
-  .el-radio-button__orig-radio:checked+.el-radio-button__inner {
+  .el-radio-button__orig-radio:checked + .el-radio-button__inner {
     box-shadow: none;
   }
 }

@@ -42,7 +42,6 @@
         }
       }
     }
-
     &:hover {
       background: none;
 
@@ -78,6 +77,13 @@
     right: 0;
     background: $color-bg-1;
   }
+  &:focus > &__content > &__label {
+    color: $color-master;
+    font-weight: 500;
+  }
+  &:focus > &__content {
+    background: none;
+  }
 }
 
 .el-tree-node.is-focusable {
@@ -94,11 +100,8 @@
   }
 
   &.is-current {
+    background: none;
     & > .el-tree-node__content {
-      color: $color-master;
-      font-weight: 500;
-      background: none;
-
       .node-content {
         color: $color-master;
       }

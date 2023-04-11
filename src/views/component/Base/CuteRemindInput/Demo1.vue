@@ -3,10 +3,10 @@
  * @Date: 2022-07-19 22:03:32
  * @LastEditors: 马妍
  * @LastEditTime: 2022-07-25 14:22:10
- * @Description: 
+ * @Description:
 -->
 <template>
-  <cute-remind-input v-model="value" placeholder="数据资源名称" title="数据资源名称" @change="changeFun" />
+  <cute-remind-input v-model="value" placeholder="数据资源名称1" title="数据资源名称2" @change="changeFun" />
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'

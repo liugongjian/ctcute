@@ -1,24 +1,18 @@
 <template>
   <div
     v-if="!item.meta || !item.meta.hidden"
-    :class="[
-      'menu-wrapper',
-      isCollapse ? 'simple-mode' : 'full-mode',
-      { 'first-level': isFirstLevel },
-      { 'carry-icon': item.meta && item.meta.icon },
-    ]"
+    :class="['menu-wrapper', { 'menu-has-icon': item.meta && item.meta.icon }, `level-${level}`]"
   >
-    <template v-if="theOnlyOneChild && !theOnlyOneChild.children">
+    <template v-if="theOnlyOneChild && (!theOnlyOneChild.children || theOnlyOneChild.meta.drillDown)">
       <sidebar-item-link v-if="theOnlyOneChild.meta" :to="resolvePath(theOnlyOneChild.path)">
-        <el-menu-item
-          :index="resolvePath(theOnlyOneChild.path)"
-          :class="{ 'submenu-title-noDropdown': isFirstLevel }"
-        >
+        <el-menu-item :index="resolvePath(theOnlyOneChild.path)">
           <template slot="title">
             <!-- 图标 -->
-            <span v-if="theOnlyOneChild.meta && theOnlyOneChild.meta.icon" class="append-icon">
-              <svg-icon :name="theOnlyOneChild.meta.icon" :width="14" :height="14" />
-            </span>
+            <svg-icon
+              v-if="theOnlyOneChild.meta && theOnlyOneChild.meta.icon"
+              :name="theOnlyOneChild.meta.icon"
+              class="menu-item-icon"
+            />
             <span v-if="theOnlyOneChild.meta.title" slot="title">{{ t(theOnlyOneChild.meta.title) }}</span>
           </template>
         </el-menu-item>
@@ -27,23 +21,17 @@
     <el-submenu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template slot="title">
         <!-- 图标 -->
-        <span v-if="item.meta && item.meta.icon" class="append-icon">
-          <svg-icon :name="item.meta.icon" :width="14" :height="14" />
-        </span>
+        <svg-icon v-if="item.meta && item.meta.icon" :name="item.meta.icon" class="menu-item-icon" />
         <span v-if="item.meta && item.meta.title" slot="title">{{ t(item.meta.title) }}</span>
       </template>
-      <div
-        v-if="item.children"
-        :class="['vertical-bar', { 'vertical-bar__one': isOneDisplayChildren(item.children) }]"
-      >
+      <div class="menu-items-wrap">
         <sidebar-item
           v-for="child in item.children"
           :key="child.path"
           :item="child"
-          :is-collapse="isCollapse"
-          :is-first-level="false"
+          :level="level + 1"
           :base-path="resolvePath(child.path)"
-          class="nest-menu"
+          class="menu-nest"
         />
       </div>
     </el-submenu>
@@ -69,8 +57,7 @@ import SidebarItemLink from './SidebarItemLink.vue'
 })
 export default class extends mixins(Locale) {
   @Prop({ required: true }) public item!: RouteConfig
-  @Prop({ default: false }) public isCollapse!: boolean
-  @Prop({ default: true }) public isFirstLevel!: boolean
+  @Prop({ default: 1 }) public level!: number
   @Prop({ default: '' }) private basePath!: string
 
   get showingChildNumber(): any {
@@ -88,6 +75,9 @@ export default class extends mixins(Locale) {
   }
 
   get theOnlyOneChild(): any {
+    if (this.item.meta && this.item.meta.drillDown) {
+      return this.item
+    }
     if (this.showingChildNumber > 1 || (this.item.meta && this.item.meta.alwaysShow)) {
       return null
     }

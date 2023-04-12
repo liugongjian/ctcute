@@ -1,0 +1,163 @@
+<template>
+  <transition name="fade-transform" mode="out-in">
+    <cute-layout
+      :header="header"
+      :header-logo="headerLogo"
+      :header-sub-logo="headerSubLogo"
+      :header-sub-title="headerSubTitle"
+      :sidebar="sidebar"
+      :sidebar-title="sidebarTitle"
+      :sidebar-knob="sidebarKnob"
+      :sidebar-filter="filterRoutes"
+      :navbar="navbar"
+      :breadcrumb-custom-title="breadcrumbCustomTitle"
+      :breadcrumb-show-last="breadcrumbShowLast"
+      :layout="layout"
+      :transition="transition"
+    >
+      <template #header-right>
+        <header-nav />
+      </template>
+      <template v-if="navbarRight" #navbar-right>
+        <el-button type="primary">主要按钮</el-button>
+        <el-button>次要按钮</el-button>
+      </template>
+      <template v-if="navbarBottom" #navbar-bottom>
+        <el-tabs v-model="tabName">
+          <el-tab-pane label="用户管理" name="first"></el-tab-pane>
+          <el-tab-pane label="配置管理" name="second"></el-tab-pane>
+          <el-tab-pane label="角色管理" name="third"></el-tab-pane>
+          <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane>
+        </el-tabs>
+      </template>
+      <div class="layout-test">
+        <router-view />
+        <el-card class="simple-form">
+          <h3>Layout</h3>
+          <el-form :label-width="labelWidth">
+            <el-form-item label="布局方式">
+              <el-select v-model="layout">
+                <el-option value="" label="Navbar随页面滚动"></el-option>
+                <el-option value="fixed-navbar" label="Navbar固定"></el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="页面切换动画">
+              <el-select v-model="transition">
+                <el-option value="fade-transform"></el-option>
+                <el-option value="fade"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-form>
+        </el-card>
+        <el-card class="simple-form">
+          <h3>Header</h3>
+          <el-form :label-width="labelWidth">
+            <el-form-item label="Logo">
+              <el-input v-model="headerLogo" />
+            </el-form-item>
+            <el-form-item label="Sub Logo">
+              <el-input v-model="headerSubLogo" />
+            </el-form-item>
+            <el-form-item label="Sub Title">
+              <el-input v-model="headerSubTitle" />
+            </el-form-item>
+            <el-form-item label="是否显示Header">
+              <el-checkbox v-model="header" />
+            </el-form-item>
+          </el-form>
+        </el-card>
+        <el-card class="simple-form">
+          <h3>Sidebar</h3>
+          <el-form :label-width="labelWidth">
+            <el-form-item label="Sidebar Title">
+              <el-input v-model="sidebarTitle" />
+            </el-form-item>
+            <el-form-item label="是否显示收缩开关">
+              <el-checkbox v-model="sidebarKnob" />
+            </el-form-item>
+            <el-form-item label="是否显示Sidebar">
+              <el-checkbox v-model="sidebar" />
+            </el-form-item>
+          </el-form>
+        </el-card>
+        <el-card class="simple-form">
+          <h3>Navbar</h3>
+          <el-form :label-width="labelWidth">
+            <el-form-item label="是否显示Navbar Right">
+              <el-checkbox v-model="navbarRight" />
+            </el-form-item>
+            <el-form-item label="是否显示Navbar Bottom">
+              <el-checkbox v-model="navbarBottom" />
+            </el-form-item>
+            <el-form-item label="是否显示Navbar">
+              <el-checkbox v-model="navbar" />
+            </el-form-item>
+          </el-form>
+        </el-card>
+        <el-card class="simple-form">
+          <h3>Breadcrumb</h3>
+          <el-form :label-width="labelWidth">
+            <el-form-item label="自定义面包屑名称">
+              <el-input v-model="breadcrumbCustomTitle" />
+            </el-form-item>
+            <el-form-item label="仅显示最后一级">
+              <el-checkbox v-model="breadcrumbShowLast" />
+            </el-form-item>
+          </el-form>
+        </el-card>
+      </div>
+    </cute-layout>
+  </transition>
+</template>
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+import CuteLayout from '@cutedesign/ui/components/CuteLayout/index.vue'
+import HeaderNav from '@/layout/components/LayoutHeaderNav/index.vue'
+
+@Component({
+  name: 'CuteLayoutDemo1',
+  components: {
+    CuteLayout,
+    HeaderNav,
+  },
+})
+export default class extends Vue {
+  private labelWidth = '160px'
+  private tabName = 'first'
+
+  private layout = ''
+  private transition = 'fade-transform'
+
+  private header = true
+  private headerLogo = ''
+  private headerSubLogo = ''
+  private headerSubTitle = ''
+
+  private sidebar = true
+  private sidebarTitle = '布局框架'
+  private sidebarKnob = true
+
+  private navbar = true
+  private navbarRight = false
+  private navbarBottom = false
+
+  private breadcrumbCustomTitle = ''
+  private breadcrumbShowLast = false
+
+  private filterRoutes(routes: Array<any>): Array<any> {
+    return routes.filter(route => route.meta.type === 'layoutTest')
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.layout-test {
+  .el-card {
+    margin-bottom: $margin-4x;
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+}
+</style>

@@ -484,13 +484,8 @@ $steps-icon-bg: $blue-1 !default; // 完成步骤背景色
 
 /* Dialog
 -------------------------- */
-$dialog-header-padding: $padding-4x $padding-8x !default;
 $dialog-header-border: $color-neutral-3 !default;
-$dialog-body-padding: $padding-6x $padding-8x !default;
 $dialog-footer-bg: $color-neutral-1 !default;
-$dialog-footer-padding: $padding-3x $padding-8x !default;
-$dialog-footer-margin-top: -30px !default;
-$dialog-fullscreen-margin: $margin-6x !default;
 
 /* MessageBox
 -------------------------- */
@@ -548,34 +543,43 @@ $cute-distribution-bar-slider-button-height: 16px !default;
 
 /* Layout
 -------------------------- */
+$cute-layout-header-height: 50px !default;
+$cute-layout-header-logo-height: 22px !default;
+$cute-layout-header-sub-logo-height: 15px !default;
+$cute-layout-header-text-color: $color-white !default;
+$cute-layout-header-bg: #272b39 !default;
+$cute-layout-header-border: #585b62 !default;
 
-$layout-bg: #f7f8fa !default;
-$layout-header-height: 50px !default;
-$layout-header-fill-1: #272b39 !default;
-$layout-header-border: #585b62 !default;
-$layout-navbar-color-bg: $white !default;
-$layout-color-bg: $white !default;
-$layout-color-master: $blue-base !default;
-$layout-color-grey: $neutral-9 !default;
-$layout-text-color: $neutral-10 !default;
-$layout-sidebar-width: 240px !default;
-$layout-sidebar-sub-hover: $blue-1 !default;
+$cute-layout-sidebar-width: 240px;
+$cute-layout-sidebar-bg: $color-white;
+$cute-layout-sidebar-border: $color-neutral-3;
+$cute-layout-sidebar-item-bg-hover: $blue-1;
+$cute-layout-sidebar-color-master: $color-master;
+$cute-layout-sidebar-text-color: $text-color;
+$cute-layout-sidebar-arrow-color: $text-color-light;
+
+$layout-bg: #f7f8fa !default; // deprecated(弃用)
+$layout-navbar-color-bg: $white !default; // deprecated(弃用)
+$layout-color-bg: $white !default; // deprecated(弃用)
+$layout-color-master: $blue-base !default; // deprecated(弃用)
+$layout-color-grey: $neutral-9 !default; // deprecated(弃用)
+$layout-text-color: $neutral-10 !default; // deprecated(弃用)
 
 /* Header */
-
-$header-height: 50px !default;
-$header-fill-1: #272b39 !default;
-$header-fill-2: #353f58 !default;
-$header-border: #585b62 !default;
+$header-input-bg: #353f58 !default;
 $header-text-color: #c2c2c2 !default;
 $header-search-text-color: $text-color-light-2 !default;
 
-/* Sidebar */
+$header-height: $cute-layout-header-height !default; // deprecated(弃用)
+$header-fill-1: $cute-layout-header-bg !default; // deprecated(弃用)
+$header-fill-2: $header-input-bg !default; // deprecated(弃用)
+$header-border: $cute-layout-header-border !default; // deprecated(弃用)
 
-$sidebar-width: 240px !default;
-$sidebar-fill: $color-white !default;
-$sidebar-sub-fill: $color-white !default;
-$sidebar-sub-hover: $color-master-bg-light-2 !default;
+/* Sidebar */
+$sidebar-width: 240px !default; // deprecated(弃用)
+$sidebar-fill: $color-white !default; // deprecated(弃用)
+$sidebar-sub-fill: $color-white !default; // deprecated(弃用)
+$sidebar-sub-hover: $color-master-bg-light-2 !default; // deprecated(弃用)
 
 /* CuteButtonGroup */
 $cute-button-group-margin: -1px !default;

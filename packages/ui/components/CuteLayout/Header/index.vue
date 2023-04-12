@@ -1,22 +1,22 @@
 <template>
-  <header class="layout-header">
-    <div class="layout-header__logo" @click="toHome">
+  <header class="cute-layout-header">
+    <div class="cute-layout-header__logo" @click="toHome">
       <slot name="header-logo">
         <!-- 天翼云LOGO -->
-        <img class="layout-header__logo--ct" :src="logoImgNew" />
+        <img class="cute-layout-header__logo__main" :src="logo" />
         <!-- 项目LOGO -->
-        <div class="layout-header__logo--project">
-          <template v-if="headerSubtitle">
-            <svg-icon v-if="isSvgName" :name="logoIconNew" />
-            <img v-else :src="logoIconNew" class="logo-normal" />
-            {{ headerSubtitle }}
+        <div class="cute-layout-header__logo__sub">
+          <template v-if="headerSubTitle">
+            {{ headerSubTitle }}
           </template>
-          <img v-else :src="logoIconNew" class="logo-art" />
+          <template v-else>
+            <img :src="subLogo" class="cute-layout-header__logo__sub__img" />
+          </template>
         </div>
       </slot>
     </div>
-    <div class="layout-header__right">
-      <slot name="header-right"></slot>
+    <div class="cute-layout-header__right">
+      <slot name="header-right" />
     </div>
   </header>
 </template>
@@ -25,28 +25,28 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({
-  name: 'LayoutHeader',
-  components: {
-    // HeaderNav,
-  },
+  name: 'CuteLayoutHeader',
 })
 export default class extends Vue {
-  @Prop({ type: String, default: '' }) headerSubtitle?: string
-  @Prop({ type: String, default: '' }) headerSubLogo?: string
-  @Prop({ type: String, default: '' }) headerLogo?: string
+  @Prop({ type: String, default: '' })
+  private headerLogo?: string
+
+  @Prop({ type: String, default: '' })
+  private headerSubLogo?: string
+
+  @Prop({ type: String, default: '' })
+  private headerSubTitle?: string
 
   private toHome() {
     this.$router.push('/')
   }
 
-  private get isSvgName() {
-    return this.headerSubLogo?.includes('/')
-  }
-  private get logoIconNew() {
-    return this.headerSubLogo || require('./images/cute-design.svg')
-  }
-  private get logoImgNew() {
+  private get logo() {
     return this.headerLogo || require('./images/ct-logo.svg')
+  }
+
+  private get subLogo() {
+    return this.headerSubLogo || require('./images/cute-design.svg')
   }
 }
 </script>

@@ -1,25 +1,34 @@
 <template>
-  <el-scrollbar ref="wrapper" wrap-class="scrollbar-wrapper">
-    <div class="layout-sidebar__title">UI 规范</div>
-    <el-menu :default-active="currentId" :unique-opened="false" :collapse-transition="false" mode="vertical">
-      <el-menu-item
-        v-for="component in componentList"
-        :id="`menu-${component.name}`"
-        :key="component.name"
-        :index="component.name"
-        @click="changeHash(component.name)"
+  <div class="cute-layout-sidebar">
+    <div ref="wrapper" class="cute-layout-sidebar__wrapper">
+      <div class="cute-layout-sidebar__title">UI 规范</div>
+      <el-menu
+        :default-active="currentId"
+        :unique-opened="false"
+        :collapse-transition="false"
+        mode="vertical"
       >
-        {{ component.title.en }} {{ component.title.zh }}
-      </el-menu-item>
-    </el-menu>
-  </el-scrollbar>
+        <div class="level-1">
+          <el-menu-item
+            v-for="component in componentList"
+            :id="`menu-${component.name}`"
+            :key="component.name"
+            :index="component.name"
+            @click="changeHash(component.name)"
+          >
+            {{ component.title.en }} {{ component.title.zh }}
+          </el-menu-item>
+        </div>
+      </el-menu>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop, Watch, Ref } from 'vue-property-decorator'
 
 @Component({
-  name: 'SideBar',
+  name: 'UiSidebar',
 })
 export default class extends Vue {
   @Prop()
@@ -36,15 +45,14 @@ export default class extends Vue {
    */
   @Watch('currentId')
   private onCurrentIdChange() {
-    const currentMenu = this.wrapper.$el.querySelector(`#menu-${this.currentId}`)
-    const wrapper = this.wrapper.$el.querySelector('.scrollbar-wrapper')
+    const currentMenu = this.wrapper.querySelector(`#menu-${this.currentId}`)
     if (currentMenu) {
       const currentMenuTop = currentMenu.offsetTop
       if (
-        currentMenuTop < wrapper.scrollTop ||
-        currentMenuTop + currentMenu.clientHeight > wrapper.scrollTop + wrapper.clientHeight
+        currentMenuTop < this.wrapper.scrollTop ||
+        currentMenuTop + currentMenu.clientHeight > this.wrapper.scrollTop + this.wrapper.clientHeight
       ) {
-        wrapper.scrollTop = currentMenuTop
+        this.wrapper.scrollTop = currentMenuTop
       }
     }
   }
@@ -75,9 +83,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.el-scrollbar {
-  height: auto;
-}
-</style>

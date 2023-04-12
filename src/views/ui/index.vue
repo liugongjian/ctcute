@@ -1,17 +1,14 @@
 <template>
-  <div class="ui">
-    <sidebar class="layout-sidebar" :component-list="componentList" :current-id="currentId" />
-    <div ref="uiContainer" class="ui__container">
-      <div v-for="component in componentList" :key="component.name" class="ui__component">
-        <h1 :id="component.name">{{ component.title.en }} / {{ component.title.zh }}</h1>
-        <h4 :id="component.name">
-          版本：{{ component.description && component.description.version }} | 更新时间：{{
-            component.description && component.description.updateTime
-          }}
-          | 维护人: {{ component.description && component.description.maintainer }}
-        </h4>
-        <component :is="component.name" class="ui__component__body" />
-      </div>
+  <div id="ui-container" class="ui__container">
+    <div v-for="component in componentList" :key="component.name" class="ui__component">
+      <h1 :id="component.name">{{ component.title.en }} / {{ component.title.zh }}</h1>
+      <h4 :id="component.name">
+        版本：{{ component.description && component.description.version }} | 更新时间：{{
+          component.description && component.description.updateTime
+        }}
+        | 维护人: {{ component.description && component.description.maintainer }}
+      </h4>
+      <component :is="component.name" class="ui__component__body" />
     </div>
   </div>
 </template>
@@ -21,7 +18,7 @@ import { components, list } from './components/index'
 import Sidebar from './Sidebar.vue'
 
 @Component({
-  name: 'Ui',
+  name: 'UiComponent',
   components: {
     Sidebar,
     ...components,
@@ -29,94 +26,47 @@ import Sidebar from './Sidebar.vue'
 })
 export default class extends Vue {
   private componentList = list
-  private titles = null
-  private currentId = null
-
-  private mounted() {
-    const uiContainer = this.$refs.uiContainer as HTMLDivElement
-    this.titles = uiContainer.querySelectorAll('h1')
-    document.addEventListener('scroll', this.findCurrentTitle)
-    this.findCurrentTitle()
-  }
-
-  private beforeDestroy() {
-    document.removeEventListener('scroll', this.findCurrentTitle)
-  }
-
-  /**
-   * 滚动页面时找到对应的标题，并更新url hash
-   */
-  private findCurrentTitle() {
-    const scrollY = window.scrollY
-    let currentTitle = null
-    for (let i = 0; i < this.titles.length; i++) {
-      const title = this.titles[i]
-      if (scrollY < title.offsetTop + 50) {
-        currentTitle = title
-        break
-      }
-    }
-    history.pushState(null, null, `#${currentTitle.id}`)
-    this.currentId = currentTitle.id
-  }
 }
 </script>
 <style lang="scss" scoped>
-// TODO 由于 ui 组件页的布局模式和规范页不统一，因此使用布局样式时，会有差异，待优化
-.layout-sidebar {
-  height: calc(100% - $header-height);
-  position: fixed;
-  top: $header-height;
-  bottom: 0;
-  left: 0;
-}
-
-.ui__container {
-  margin-left: 230px;
-  margin-top: $header-height;
-  padding: 1px 24px 24px;
-  border-left: 1px solid $border-color-light-1;
-}
-
 .ui__component {
-  border-bottom: 1px solid $border-color-light-1;
-  padding: 14px 0 24px;
+  border-bottom: 1px solid $border-color-light;
+  padding: $padding-4x 0 $padding-6x;
 
   h1 {
-    margin: 10px 0;
+    margin: $margin-3x 0;
     color: $text-color;
-    font-size: $text-size-large;
+    font-size: $text-size-lg;
   }
 
   ::v-deep {
     p {
       color: $text-color;
-      font-size: 12px;
-      line-height: 20px;
-      font-weight: 400;
+      font-size: $text-size;
+      line-height: $line-height;
     }
 
     h2 {
-      font-size: $text-size-medium;
-      line-height: 20px;
-      font-weight: 500;
+      font-size: $text-size-md;
+      line-height: $line-height;
+      font-weight: $text-title-weight;
       color: $text-color;
     }
 
     h3 {
-      font-size: 14px;
-      margin-top: 24px;
+      font-size: $text-size-md;
+      margin-top: $margin-6x;
       color: $text-color;
     }
 
     h4 {
-      color: $color-grey-1;
+      color: $text-color;
     }
 
     .sub-sample {
-      margin: 24px 0;
-      padding-bottom: 24px;
-      border-bottom: 1px solid $border-color-light-1;
+      margin: $margin-6x 0;
+      padding-bottom: $padding-6x;
+      border-bottom: 1px solid $border-color-light;
 
       &:last-child {
         padding: 0;
@@ -126,9 +76,9 @@ export default class extends Vue {
     }
 
     .sub-steps {
-      margin: 24px 0;
-      padding-bottom: 24px;
-      border-bottom: 1px solid $color-grey-7;
+      margin: $margin-6x 0;
+      padding-bottom: $padding-6x;
+      border-bottom: 1px solid $border-color-light;
     }
   }
 }

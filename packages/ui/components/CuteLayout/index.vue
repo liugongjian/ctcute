@@ -1,11 +1,11 @@
 <template>
-  <div class="app-wrapper">
+  <div class="cute-layout" :class="customClass">
     <slot name="header">
       <layout-header
         v-if="header"
         :header-logo="headerLogo"
         :header-sub-logo="headerSubLogo"
-        :header-subtitle="headerSubtitle"
+        :header-sub-title="headerSubTitle"
       >
         <template slot="header-logo">
           <slot name="header-logo"></slot>
@@ -15,35 +15,44 @@
         </template>
       </layout-header>
     </slot>
-    <div class="layout-wrap" :class="{ hideheader: !header }">
+    <div class="cute-layout__body" :class="{ 'cute-layout--hide-header': !header }">
       <slot name="sidebar">
         <layout-sidebar
           v-if="sidebar"
-          :class="['layout-sidebar', sidebarClass]"
-          :sidebar-title="sidebarTitle"
+          :class="[sidebarCustomClass]"
           :sidebar-routes="sidebarRoutes"
           :sidebar-filter="sidebarFilter"
+          :sidebar-title="sidebarTitle"
           :sidebar-knob="sidebarKnob"
         />
       </slot>
 
       <!-- id在sidebar中被使用，勿随意删改 -->
-      <div id="layout-container" class="layout-container">
+      <div id="layout-container" class="cute-layout__container">
         <slot name="navbar">
-          <navbar v-if="navbar" v-bind="$attrs">
+          <navbar
+            v-if="navbar"
+            :navbar-breadcrumb="navbarBreadcrumb"
+            :breadcrumb-custom-title="breadcrumbCustomTitle"
+            :breadcrumb-show-last="breadcrumbShowLast"
+          >
             <template slot="navbar-breadcrumb">
-              <slot name="navbar-breadcrumb"></slot>
+              <slot name="navbar-breadcrumb" />
             </template>
             <template slot="navbar-bottom">
-              <slot name="navbar-bottom"></slot>
+              <slot name="navbar-bottom" />
             </template>
             <template slot="navbar-right">
-              <slot name="navbar-right"></slot>
+              <slot name="navbar-right" />
             </template>
           </navbar>
         </slot>
-        <div :class="{ 'app-main-wrap': true, 'fixed-navbar': layout === 'fixed-navbar' }">
-          <slot></slot>
+        <div class="cute-layout__main__wrap" :class="[layout]">
+          <section class="cute-layout__main app-main">
+            <transition :name="transition" mode="out-in">
+              <slot />
+            </transition>
+          </section>
         </div>
       </div>
     </div>
@@ -63,27 +72,55 @@ import Navbar from './Navbar/index.vue'
   },
 })
 export default class extends Vue {
-  @Prop({ type: String, default: '' }) headerSubtitle?: string
-  @Prop({ type: String, default: '' }) headerSubLogo?: string
-  @Prop({ type: String, default: '' }) headerLogo?: string
-  @Prop()
-  public sidebarRoutes
-  @Prop()
-  public sidebarFilter
-  @Prop({ default: '' })
-  public sidebarTitle: string
+  @Prop({ default: true })
+  private header?: boolean
 
   @Prop({ default: true })
-  public sidebarKnob: boolean
+  private sidebar?: boolean
+
   @Prop({ default: true })
-  public header: boolean
-  @Prop({ default: true })
-  public sidebar: boolean
-  @Prop({ default: true })
-  public navbar: boolean
+  private navbar?: boolean
+
   @Prop({ default: '' })
-  public layout: string
+  private layout?: string
+
+  @Prop({ default: 'fade-transform' })
+  private transition?: string
+
   @Prop({ default: '' })
-  public sidebarClass: string
+  private customClass?: string
+
+  @Prop({ type: String, default: '' })
+  private headerLogo?: string
+
+  @Prop({ type: String, default: '' })
+  private headerSubLogo?: string
+
+  @Prop({ type: String, default: '' })
+  private headerSubTitle?: string
+
+  @Prop()
+  private sidebarRoutes
+
+  @Prop()
+  private sidebarFilter
+
+  @Prop({ default: '' })
+  private sidebarTitle: string
+
+  @Prop({ default: true })
+  private sidebarKnob: boolean
+
+  @Prop({ default: '' })
+  public sidebarCustomClass: string
+
+  @Prop({ default: true })
+  private navbarBreadcrumb?: boolean
+
+  @Prop({ default: '' })
+  public breadcrumbCustomTitle: string
+
+  @Prop({ default: false })
+  public breadcrumbShowLast: boolean
 }
 </script>

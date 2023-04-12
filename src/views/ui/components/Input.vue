@@ -423,7 +423,7 @@ export default class extends Vue {
 }
 
 .sub-input {
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
   padding-bottom: 24px;
 }
 

@@ -348,6 +348,15 @@ const componentRoutes = [
     },
     children: [
       {
+        path: 'cute-layout',
+        name: 'CuteLayout',
+        component: () => import('@/views/component/Test/CuteLayout/index.vue'),
+        meta: {
+          title: 'CuteLayout',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'button',
         name: 'Button',
         component: () => import('@/views/component/Test/Button.vue'),

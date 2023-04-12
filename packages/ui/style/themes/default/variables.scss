@@ -519,11 +519,12 @@ $loading-default-border: $color-grey-6 !default;
 /* Alert
 -------------------------- */
 $alert-text-color: $text-color-light !default;
-$alert-info-bg: $blue-2 !default;
-$alert-success-bg: $green-2 !default;
-$alert-warning-bg: $orange-2 !default;
-$alert-danger-bg: $ruby-2 !default;
+$alert-info-bg: $blue-1 !default;
+$alert-success-bg: $green-1 !default;
+$alert-warning-bg: $orange-1 !default;
+$alert-danger-bg: $ruby-1 !default;
 $alert-weak-bg: $neutral-1 !default;
+$alert-single-height: 36px !default;
 
 /* CuteSlider
 -------------------------- */

@@ -21,7 +21,7 @@ $button-padding-large: $margin-3x $padding-6x;
   $color-border-disabled: $color-bg-disabled;
 
   // 针对default特殊处理
-  @if $type == default {
+  @if $type == --default or $type == null {
     $color-text: $button-default-text-color;
     $color-text-hover: $color-bg-hover;
     $color-text-active: $color-bg-active;
@@ -34,7 +34,7 @@ $button-padding-large: $margin-3x $padding-6x;
     $color-bg-active: $button-default-color-bg;
   }
 
-  .el-button--#{$type} {
+  .el-button#{$type} {
     color: $color-text;
     background: $color-bg;
     border-color: $color-border;
@@ -64,14 +64,15 @@ $button-padding-large: $margin-3x $padding-6x;
     }
   }
 }
-@include button-color(default, $button-default-color-border, $color-master, $color-master-active, $button-default-color-bg-disabled);
-@include button-color(primary, $color-master, $color-master-hover, $color-master-active, $color-master-disabled);
-@include button-color(info, $color-info, $color-info-hover, $color-info-active, $color-info-disabled);
-@include button-color(success, $color-success, $color-success-hover, $color-success-active, $color-success-disabled);
-@include button-color(warning, $color-warning, $color-warning-hover, $color-warning-active, $color-warning-disabled);
-@include button-color(danger, $color-danger, $color-danger-hover, $color-danger-active, $color-danger-disabled);
-@include button-color(fatal, $color-fatal, $color-fatal-hover, $color-fatal-active, $color-fatal-disabled);
-@include button-color(ct, $color-ct, $color-ct-hover, $color-ct-active, $color-ct-disabled);
+@include button-color(null, $button-default-color-border, $color-master, $color-master-active, $button-default-color-bg-disabled);
+@include button-color(--default, $button-default-color-border, $color-master, $color-master-active, $button-default-color-bg-disabled);
+@include button-color(--primary, $color-master, $color-master-hover, $color-master-active, $color-master-disabled);
+@include button-color(--info, $color-info, $color-info-hover, $color-info-active, $color-info-disabled);
+@include button-color(--success, $color-success, $color-success-hover, $color-success-active, $color-success-disabled);
+@include button-color(--warning, $color-warning, $color-warning-hover, $color-warning-active, $color-warning-disabled);
+@include button-color(--danger, $color-danger, $color-danger-hover, $color-danger-active, $color-danger-disabled);
+@include button-color(--fatal, $color-fatal, $color-fatal-hover, $color-fatal-active, $color-fatal-disabled);
+@include button-color(--ct, $color-ct, $color-ct-hover, $color-ct-active, $color-ct-disabled);
 
 /*
   重置朴素(plain)按钮样式

@@ -1,8 +1,6 @@
 /* stylelint-disable property-case */
 @import './variables.scss';
 
-/* stylelint-disable property-case */
-
 :export {
   imagesPath: $images-path;
   colorMaster: $color-master;
@@ -221,12 +219,8 @@
   buttonDefaultColorBorder: $button-default-color-border;
   buttonDefaultColorBorderDisabled: $button-default-color-border-disabled;
   buttonIconColor: $button-icon-color;
-  buttonMargin: $button-margin;
-  buttonPaddingMini: $button-padding-mini;
-  buttonPaddingSmall: $button-padding-small;
-  buttonPaddingMedium: $button-padding-medium;
-  buttonPaddingLarge: $button-padding-large;
   buttonGroupBorder: $button-group-border;
+  buttonMargin: $button-margin;
   formItemLabelLineHeight: $form-item-label-line-height;
   formItemContentLineHeight: $form-item-content-line-height;
   formItemErrorPaddingTop: $form-item-error-padding-top;
@@ -284,7 +278,7 @@
   paginationActiveBgDisabled: $pagination-active-bg-disabled;
   transferHeaderHeight: $transfer-header-height;
   transferHeaderBg: $transfer-header-bg;
-  transferButtonHegiht: $transfer-button-hegiht;
+  transferButtonHeight: $transfer-button-height;
   transferButtonWidth: $transfer-button-width;
   transferButtonRadius: $transfer-button-radius;
   transferItemActiveBg: $transfer-item-active-bg;
@@ -301,12 +295,10 @@
   tabsLgHeight: $tabs-lg-height;
   tabsButtonRadius: $tabs-button-radius;
   tabsDefaultLineColor: $tabs-default-line-color;
-  tabsBgColor: $tabs-bg-color;
+  tabsAddItemWidth: $tabs-add-item-width;
   progressTextHeightLg: $progress-text-height-lg;
   progressTextHeightSm: $progress-text-height-sm;
   progressTextSizeLg: $progress-text-size-lg;
-  progressTextSizeSm: $progress-text-size-sm;
-  progressTextWeight: $progress-text-weight;
   tooltipBg: $tooltip-bg;
   tooltopTextColor: $tooltop-text-color;
   tooltipBorderColor: $tooltip-border-color;
@@ -339,8 +331,6 @@
   descriptionsItemContentWidth: $descriptions-item-content-width;
   descriptionsItemContentLineHeight: $descriptions-item-content-line-height;
   descriptionsItemLabelMinWidth: $descriptions-item-label-min-width;
-  descriptionsFontColorLabel: $descriptions-font-color-label;
-  descriptionsFontColorLabelBordered: $descriptions-font-color-label-bordered;
   dropdownItemPaddingTopBottom: $dropdown-item-padding-top-bottom;
   dropdownMinWidth: $dropdown-min-width;
   dropdownIconLineHeight: $dropdown-icon-line-height;
@@ -456,9 +446,6 @@
   zindexNormal: $zindex-normal;
   zindexTableFixed: $zindex-table-fixed;
   zindexAffix: $zindex-affix;
-  zindexBackTop: $zindex-back-top;
-  zindexPickerPanel: $zindex-picker-panel;
-  zindexPopupClose: $zindex-popup-close;
   zindexLayoutSidebar: $zindex-layout-sidebar;
   zindexModal: $zindex-modal;
   zindexModalMask: $zindex-modal-mask;

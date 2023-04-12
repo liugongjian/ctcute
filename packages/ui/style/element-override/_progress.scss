@@ -23,7 +23,7 @@
 }
 
 .el-progress-bar__outer {
-  border-radius: $border-radius 0 0 $border-radius;
+  border-radius: $border-radius;
 }
 
 .el-progress-bar__inner {
@@ -36,7 +36,7 @@
   top: -4px;
   font-size: $progress-text-size-lg;
   color: $color-white !important;
-  transform: scale(0.5);
+  transform: translateX(100%) scale(0.5);
 }
 
 .el-progress__text {

@@ -8,25 +8,27 @@
 <template>
   <div class="page-status">
     <div class="box-new">
-      <!-- <el-empty :image="Img" :image-size="400" description="抱歉，您没有访问权限"></el-empty> -->
       <div class="box-image">
         <el-image :src="Img" fit="cover"></el-image>
       </div>
       <div class="box-text">
         <div class="box-text-title">403</div>
         <div class="box-text-tips">你无权访问该页面</div>
+        <el-button class="box-button" type="primary" @click="toHome">返回首页</el-button>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-// import Img from './Image/page-403.svg'
-import Img from './Image/page-error.svg'
+import Img from './Image/page-403.svg'
 @Component({
   name: 'Page403',
 })
 export default class extends Vue {
   private Img = Img
+  private toHome() {
+    this.$router.push('/')
+  }
 }
 </script>

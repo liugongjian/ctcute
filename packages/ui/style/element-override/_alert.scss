@@ -2,21 +2,25 @@
 -------------------------- */
 /*
   $class:类名;
-  $icon-color:icon颜色;
+  $master-color:icon颜色\effect=dark下背景色
   $bg-color:背景颜色;
 */
-@mixin global-tips($class, $icon-color, $bg-color) {
+@mixin global-tips($class, $master-color, $bg-color) {
   .is-alert-tip {
     .el-alert--#{$class}.is-light {
       color: $alert-text-color;
       background-color: $bg-color;
       .el-alert__closebtn{
-        color: $icon-color; // 关闭按钮默认颜色
+        color: $master-color; // 关闭按钮默认颜色
       }
 
       .el-alert__icon {
-        color: $icon-color;
+        color: $master-color;
       }
+    }
+    .el-alert--#{$class}.is-dark {
+      background-color: $master-color;
+      color: $color-white;
     }
   }
 }
@@ -28,6 +32,11 @@
 
 .el-alert {
   padding: $padding-2x $padding-8x $padding-2x $padding-4x;
+  align-items: flex-start;
+  .el-alert__icon {
+    line-height: calc($line-height * $text-size);
+    height: calc($line-height * $text-size);
+  }
 }
 
 .el-alert.is-light .el-alert__description{

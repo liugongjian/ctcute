@@ -11,7 +11,10 @@
   >
     <!-- icon & line -->
     <div :class="`is-${currentStatus}`" class="el-step__head">
-      <div class="el-step__line" :style="isLast ? '' : { marginRight: $parent.stepOffset + 'px' }">
+      <div class="el-step__line" :style="{ 
+          marginRight: isLast ? $parent.stepOffset + 'px': undefined,
+          marginLeft: !isSimple && !isCenter && !isVertical && $refs.title ? $refs.title.offsetLeft + $refs.title.offsetWidth + 'px' : undefined 
+        }">
         <i class="el-step__line-inner" :style="lineStyle"></i>
       </div>
 
@@ -107,6 +110,16 @@ export default {
     stepsCount() {
       return this.$parent.steps.length
     },
+
+    // lineMarginLeft() {
+    //   const offsetLeft = 0
+    //   // if(this.$refs.title){
+    //     const title = this.$refs
+    //     console.log(title)
+    //     // variables.stepsTitleSizeMd
+    //   // }
+    //   return offsetLeft + 'px'
+    // },
 
     space() {
       const {

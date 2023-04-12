@@ -84,7 +84,7 @@
           <template #content>
             <el-form-item label="模板类型" prop="templateType" style="margin: 0 20px 0 40px">
               <el-table border style="width: 100%" :data="form.tableData">
-                <el-table-column min-width="153" label="监控指标">
+                <el-table-column min-width="180" label="监控指标">
                   <template slot-scope="scope">
                     <el-form-item
                       :prop="'tableData.' + scope.$index + '.monitorIndicators'"
@@ -105,7 +105,7 @@
                     </el-form-item>
                   </template>
                 </el-table-column>
-                <el-table-column min-width="153" label="时间区间">
+                <el-table-column min-width="170" label="时间区间">
                   <template slot-scope="scope">
                     <el-form-item
                       :prop="'tableData.' + scope.$index + '.timeSection'"
@@ -122,7 +122,7 @@
                     </el-form-item>
                   </template>
                 </el-table-column>
-                <el-table-column min-width="291" label="计算方法">
+                <el-table-column min-width="345" label="计算方法">
                   <template slot-scope="scope">
                     <el-form-item
                       style="display: inline-block"
@@ -175,7 +175,7 @@
                     %
                   </template>
                 </el-table-column>
-                <el-table-column prop="templateType" label="出现次数" min-width="153">
+                <el-table-column prop="templateType" label="出现次数" min-width="170">
                   <template slot-scope="scope">
                     <el-form-item
                       :prop="'tableData.' + scope.$index + '.occurrences'"

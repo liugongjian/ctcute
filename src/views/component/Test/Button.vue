@@ -61,9 +61,6 @@
         <el-form-item label="是否禁用">
           <el-checkbox v-model="isDisabed"></el-checkbox>
         </el-form-item>
-        <el-form-item label="是否圆角">
-          <el-checkbox v-model="isRound"></el-checkbox>
-        </el-form-item>
         <el-form-item label="是否圆形">
           <el-checkbox v-model="isCircle"></el-checkbox>
         </el-form-item>

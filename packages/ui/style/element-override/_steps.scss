@@ -8,16 +8,10 @@
 */
 @mixin steps-page($class: is-success,
   $bdColor: $color-master,
-  $color: $color-master,
-  $bgColor: $steps-bg-color) {
+  $color: $color-master) {
   .el-step__head.#{$class} {
     border-color: $bdColor;
     color: $color;
-
-    .el-step__icon.is-text, .el-step__icon.is-icon {
-      // 用背景色盖住线条
-      background-color: $bgColor;
-    }
     .el-step__icon.is-status {
       background-color: $color;
     }
@@ -29,20 +23,19 @@
 
 @include steps-page();
 @include steps-page(is-finish);
-@include steps-page(is-process, $color-master, $color-master,);
+@include steps-page(is-process, $color-master, $color-master);
 @include steps-page(is-error, $color-danger, $color-danger);
 @include steps-page(is-wait, $border-color, $text-color-light-2);
 
-
-.el-step__icon-inner {
-  font-weight: normal;
-}
-
-.el-step.is-simple > .el-step__head > .el-step__icon{
-  background-color: transparent;
-}
-
 .el-step {
+  .el-step__icon-inner {
+    font-weight: normal;
+  }
+
+  & > .el-step__head > .el-step__icon{
+    background-color: transparent;
+  }
+
   .el-step__main > .el-step__description {
     color: $text-color-light-2;
   }
@@ -69,6 +62,7 @@
 
   .el-step__icon.is-text {
     border: 1px solid;
+    background-color: $color-bg-2;// 普通序号背景色
   }
 
   .el-step__title.is-process {

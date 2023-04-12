@@ -3,8 +3,13 @@
 .el-card {
   background-color: $card-bg;
   border-radius: $border-radius;
+  border: 1px solid $color-neutral-3;
 }
 
 .el-card.is-always-shadow {
   box-shadow: $shadow-1;
+}
+
+.el-card__header {
+  border-bottom: 1px solid $color-neutral-3;
 }

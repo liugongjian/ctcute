@@ -5,6 +5,11 @@
   $color-bg-hover: 背景悬浮颜色;
   $color-bg-active: 背景激活颜色;
 */
+$button-padding-mini: 5px $padding-2x;
+$button-padding-small: 5px $padding-2x;
+$button-padding-medium: 9px $padding-4x;
+$button-padding-large: $margin-3x $padding-6x;
+
 @mixin button-color($type, $color-bg, $color-bg-hover, $color-bg-active, $color-bg-disabled) {
   $color-text: $color-white;
   $color-text-hover: $color-text;

@@ -79,7 +79,7 @@
   }
   &:focus > &__content > &__label {
     color: $color-master;
-    font-weight: 500;
+    font-weight: $tree-font-weight;
   }
   &:focus > &__content {
     background: none;

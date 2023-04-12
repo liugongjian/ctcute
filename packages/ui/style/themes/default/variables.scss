@@ -319,6 +319,17 @@ $input-fill: $color-white !default; // deprecated(弃用)
 -------------------------- */
 $select-border-color-hover: $border-color-hover !default;
 $select-disabled-border: $disabled-border !default;
+$select-color: $color-master  !default; 
+$select-color: $color-master  !default; 
+$select-dropdown-bg: $color-bg-1 !default; 
+$select-xs-height: 24px !default;
+$select-sm-height: 24px !default;
+$select-md-height: 32px !default;
+$select-lg-height: 40px !default;
+$range-editor-disabled-bg: $color-master-bg-light-2 !default;
+$range-editor-multiple-bg: $color-master-bg-light-2 !default;
+$range-editor-height: 24px !default;
+$range-editor-tags-size: 16px !default;
 
 /* Checkbox
 -------------------------- */

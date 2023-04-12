@@ -383,15 +383,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
-      // {
-      //   path: 'selectedButton',
-      //   name: 'SelectedButton',
-      //   component: () => import('@/views/component/Test/SelectedButton.vue'),
-      //   meta: {
-      //     title: 'SelectedButton',
-      //     breadcrumb: true,
-      //   },
-      // },
+      {
+        path: 'cascadeSelect',
+        name: 'CascadeSelect',
+        component: () => import('@/views/component/Test/CascadeSelect.vue'),
+        meta: {
+          title: 'CascadeSelect',
+          breadcrumb: true,
+        },
+      },
       {
         path: 'color-picker',
         name: 'ColorPicker',

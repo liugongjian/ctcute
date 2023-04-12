@@ -355,6 +355,7 @@ export default {
                       on-blur={() => {
                         this.newTabEditing = false
                       }}
+                      on-focus={e => e.currentTarget.select()}
                       nativeOnKeyup={e => {
                         e.stopPropagation()
                         e.preventDefault()

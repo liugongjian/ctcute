@@ -11,7 +11,7 @@ import router, { routes } from './router'
 import store from './store'
 // import '@cutedesign/ui/lib/index.css'
 // 本地开发为方便实时调试引用源码样式，不使用构建样式
-import '@cutedesign/ui/index.style.js'
+import '@cutedesign/ui/index.scss'
 import CuteComponent, { VXETable } from '@cutedesign/ui'
 import i18n from '@/i18n'
 import '@/assets/icons'

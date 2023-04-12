@@ -276,7 +276,7 @@ export interface IScssVariablesRevised {
   paginationActiveBgDisabled: string
   transferHeaderHeight: string
   transferHeaderBg: string
-  transferButtonHegiht: string
+  transferButtonHeight: string
   transferButtonWidth: string
   transferButtonRadius: string
   transferItemActiveBg: string
@@ -460,7 +460,7 @@ export interface IScssVariablesRevised {
   alertWeakBg: string
   transferHeaderHeight: string
   transferHeaderBg: string
-  transferButtonHegiht: string
+  transferButtonHeight: string
   transferButtonWidth: string
   transferButtonRadius: string
   transferItemActiveBg: string

@@ -3,7 +3,7 @@
     <p>将动作或菜单折叠到下拉菜单中</p>
 
     <div class="page-content">
-      <el-radio-group v-model="timeSize" size="small">
+      <el-radio-group v-model="itemSize" size="small">
         <el-radio-button value="medium" label="medium">默认</el-radio-button>
         <el-radio-button value="small" label="small">小</el-radio-button>
         <el-radio-button value="large" label="large">大</el-radio-button>
@@ -17,7 +17,7 @@
       <h3>常规用法</h3>
       <div class="line">
         <div class="line__left">
-          <el-select v-model="value" filterable>
+          <el-select v-model="value" :size="itemSize" :disabled="itemDisabled" filterable>
             <el-option label="默认选项" value="默认选项"> </el-option>
             <el-option label="已选择项" value="已选择项"> </el-option>
             <el-option label="不可用" value="不可用" disabled> </el-option>
@@ -25,18 +25,15 @@
           </el-select>
         </div>
         <div class="line__right">
-          <el-select value="" filterable loading placeholder="加载中">
+          <el-select
+            value=""
+            :size="itemSize"
+            :disabled="itemDisabled"
+            filterable
+            loading
+            placeholder="加载中"
+          >
             <option value=""></option>
-          </el-select>
-        </div>
-      </div>
-    </div>
-    <div class="sub-down">
-      <h3>禁用状态</h3>
-      <div class="line">
-        <div class="line__left">
-          <el-select v-model="value2" disabled placeholder="请选择">
-            <el-option label="选项一" value="选项一"> </el-option>
           </el-select>
         </div>
       </div>
@@ -45,13 +42,27 @@
       <h3>多选</h3>
       <div class="line">
         <div class="line__left">
-          <el-select v-model="selectValue" multiple placeholder="请选择">
+          <el-select
+            v-model="selectValue"
+            :size="itemSize"
+            :disabled="itemDisabled"
+            multiple
+            placeholder="请选择"
+          >
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
             </el-option>
           </el-select>
         </div>
         <div class="line__right">
-          <el-select v-model="value1" multiple placeholder="请选择" disabled class="disabled-select">
+          <el-select
+            v-model="value1"
+            :size="itemSize"
+            :disabled="itemDisabled"
+            multiple
+            placeholder="请选择"
+            disabled
+            class="disabled-select"
+          >
             <el-option value=""> <svg-icon name="save"> </svg-icon></el-option>
           </el-select>
         </div>
@@ -130,7 +141,7 @@
     <div class="sub-down">
       <h3>时间点选择</h3>
       <div class="time-size-box">
-        <el-radio-group v-model="timeSize" size="small">
+        <el-radio-group v-model="itemSize" size="small">
           <el-radio-button value="medium" label="medium">默认</el-radio-button>
           <el-radio-button value="small" label="small">小</el-radio-button>
           <el-radio-button value="large" label="large">大</el-radio-button>
@@ -141,7 +152,7 @@
           <div class="sub-date_left">
             <el-time-select
               v-model="text"
-              :size="timeSize"
+              :size="itemSize"
               :picker-options="{
                 start: '08:30',
                 step: '00:15',
@@ -152,7 +163,7 @@
             </el-time-select>
           </div>
           <div class="sub-date_right">
-            <el-date-picker v-model="value6" :size="timeSize" type="datetime" placeholder="选择时间">
+            <el-date-picker v-model="value6" :size="itemSize" type="datetime" placeholder="选择时间">
             </el-date-picker>
           </div>
         </div>
@@ -161,7 +172,7 @@
       <h3>日期点选择</h3>
       <div class="date">
         <div class="sub-date">
-          <el-date-picker v-model="date" :size="timeSize" type="date" placeholder="选择日期">
+          <el-date-picker v-model="date" :size="itemSize" type="date" placeholder="选择日期">
           </el-date-picker>
         </div>
       </div>
@@ -171,7 +182,7 @@
         <div class="sub-date">
           <el-date-picker
             v-model="date4"
-            :size="timeSize"
+            :size="itemSize"
             type="date"
             placeholder="选择日期"
             :picker-options="pickerOptions"
@@ -186,7 +197,7 @@
           <el-date-picker
             v-model="value4"
             type="daterange"
-            :size="timeSize"
+            :size="itemSize"
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
@@ -201,7 +212,7 @@
           <el-date-picker
             v-model="date6"
             type="daterange"
-            :size="timeSize"
+            :size="itemSize"
             unlink-panels
             range-separator="至"
             start-placeholder="开始日期"
@@ -217,7 +228,7 @@
         <div class="sub-date">
           <el-date-picker
             v-model="value5"
-            :size="timeSize"
+            :size="itemSize"
             type="datetimerange"
             range-separator="至"
             start-placeholder="开始日期和时间"
@@ -232,7 +243,7 @@
         <div class="sub-date">
           <el-date-picker
             v-model="date8"
-            :size="timeSize"
+            :size="itemSize"
             type="datetimerange"
             :picker-options="pickerOptions1"
             range-separator="至"
@@ -307,7 +318,7 @@ export default class extends Vue {
     version: 'v1.0',
     updateTime: '2022.07.12',
   }
-  private timeSize = 'small'
+  private itemSize = 'small'
   private itemDisabled = false
   private checkedList = ['已选中项']
   private name = '数据资源名称'

@@ -39,7 +39,10 @@
     .el-tag{
       display: flex;
       justify-content: center;
-      &.el-tag--small{ line-height: 20px; height: 20px;}
+      &.el-tag--small{ 
+        line-height: 20px; 
+        height: 20px;
+      }
     }
     .el-tag > span {
       background: $cascader-tag-bg;

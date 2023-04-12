@@ -139,9 +139,9 @@ $button-padding-large: $margin-3x $padding-6x;
 
     .svg-icon,
     [class*=el-icon-] {
-      font-size: $font-size - 1; // 文字字体大小减1后再通过scale缩放，避免按钮被撑高的问题
+      font-size: $font-size - 0.2; // 文字字体大小减0.2后再通过scale缩放，避免按钮被撑高的问题
       line-height: 1;
-      transform: scale(1.28);
+      transform: scale(1.24);
     }
 
     .svg-icon {

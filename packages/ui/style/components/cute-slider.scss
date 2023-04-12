@@ -24,7 +24,7 @@
       .el-slider__button {
         border: 1px solid $color-master;
         border-radius: $cute-slider-btn-radius;
-        background: linear-gradient(to bottom, $color-white, $color-master-bg-light);
+        background: $cute-slider-btn-bg;
         // line-height: $cute-slider-btn-height - 1px * 2;
         color: $color-master;
         // letter-spacing: 1px;

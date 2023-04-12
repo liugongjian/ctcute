@@ -357,7 +357,7 @@ $pagination-active-bg-disabled: $color-master-disabled !default;
 -------------------------- */
 $transfer-header-height: 40px !default; // Transfer组件header高度
 $transfer-header-bg: $color-neutral-1 !default;
-$transfer-button-hegiht: 38px !default; // Transfer组件圆形按钮
+$transfer-button-height: 38px !default; // Transfer组件圆形按钮
 $transfer-button-width: 38px !default; // Transfer组件圆形按钮
 $transfer-button-radius: 50% !default; // Transfer组件圆形按钮
 $transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
@@ -365,7 +365,9 @@ $transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项�
 $transfer-item-height: 32px !default; // Transfer组件选项高度
 $transfer-filter-input-height: 28px !default; // Transfer组件搜索框高度
 $transfer-filter-input-margin: $margin-10 !default; // Transfer组件搜索框高度
-$transfer-filter-height: calc($transfer-filter-input-height + $transfer-filter-input-margin) !default; // Transfer组件filter区域高度
+$transfer-filter-height: calc(
+  $transfer-filter-input-height + $transfer-filter-input-margin
+) !default; // Transfer组件filter区域高度
 $transfer-footert-bg: $color-white !default; // Transfer组件footer背景色
 $transfer-footer-height: 40px !default; // Transfer组件footer高度
 
@@ -377,15 +379,13 @@ $tabs-md-height: 32px !default;
 $tabs-lg-height: 40px !default;
 $tabs-button-radius: 2px !default;
 $tabs-default-line-color: $color-neutral-3 !default; // 默认风格的线条颜色
-$tabs-bg-color:  $color-bg-2 !default; // 覆盖色块，与背景同色
+$tabs-add-item-width: 120px;
 
 /* Progress
 -------------------------- */
 $progress-text-height-lg: 30px !default;
 $progress-text-height-sm: 12px !default;
 $progress-text-size-lg: 20px !default;
-$progress-text-size-sm: 10px !default;
-$progress-text-weight: 600 !default;
 
 /* Tooltip
 -------------------------- */
@@ -449,8 +449,6 @@ $descriptions-item-height: 40px !default;
 $descriptions-item-content-width: 525px !default;
 $descriptions-item-content-line-height: 22px !default;
 $descriptions-item-label-min-width: 128px !default;
-$descriptions-font-color-label: $color-neutral-9 !default;
-$descriptions-font-color-label-bordered: $color-neutral-10 !default;
 
 /* DropDown
 -------------------------- */
@@ -480,10 +478,9 @@ $steps-icon-inner-status-size-md: $text-size-md !default; // 中号状态icon si
 $steps-icon-inner-status-size-sm: $text-size-sm !default; // 小号状态icon size：12px
 $steps-icon-inner-text-size-md: $text-size-md !default; // 小号标号size：14px
 $steps-icon-inner-text-size-sm: $text-size-md !default; // 中号标号size：14px
-$steps-line-size: 1px !default;// 线条粗细;
-$steps-bg-color: $color-bg-2 !default;// 覆盖色块，与背景同色
+$steps-line-size: 1px !default; // 线条粗细;
+$steps-bg-color: $color-bg-2 !default; // 覆盖色块，与背景同色
 $steps-icon-bg: $blue-1 !default; // 完成步骤背景色
-
 
 /* Dialog
 -------------------------- */
@@ -514,8 +511,8 @@ $icon-color: $color-grey-3 !default;
 
 /* Loading
 -------------------------- */
-$loading-primary-color: mix($color-white, $color-master, 50%) !default;
-$loading-primary-border: $loading-primary-color !default;
+$loading-primary-color: mix($color-white, $color-master, 50%) !default; // deprecated(弃用)
+$loading-primary-border: $loading-primary-color !default; // deprecated(弃用)
 $loading-default-color: $color-grey-10 !default;
 $loading-default-border: $color-grey-6 !default;
 
@@ -593,7 +590,7 @@ $cute-remind-input-width: 300px !default;
 
 /* CuteSpecialRadio */
 $cute-special-radio-padding: 9px !default;
-$cute-special-radio-size: 2px !default;
+$cute-special-radio-size: 3px !default;
 
 /* CuteRemindSelect */
 $cute-remind-select-right: 33px !default;
@@ -616,7 +613,6 @@ $cute-area-head-color: $neutral-9 !default;
 $cute-area-item-color: $neutral-10 !default;
 $cute-area-wrap-margin: 40px !default;
 
-
 /* Animation
 -------------------------- */
 $transition-time: 200ms !default;
@@ -627,9 +623,6 @@ $zindex-badge: auto !default;
 $zindex-normal: 1 !default;
 $zindex-table-fixed: 2 !default;
 $zindex-affix: 10 !default;
-$zindex-back-top: 10 !default;
-$zindex-picker-panel: 10 !default;
-$zindex-popup-close: 10 !default;
 $zindex-layout-sidebar: 10 !default;
 $zindex-modal: 1000 !default;
 $zindex-modal-mask: 1000 !default;

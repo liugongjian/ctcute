@@ -276,7 +276,7 @@ export interface IScssVariablesRevised {
   paginationActiveBgDisabled: string
   transferHeaderHeight: string
   transferHeaderBg: string
-  transferButtonHegiht: string
+  transferButtonHeight: string
   transferButtonWidth: string
   transferButtonRadius: string
   transferItemActiveBg: string
@@ -288,8 +288,6 @@ export interface IScssVariablesRevised {
   progressTextHeightLg: string
   progressTextHeightSm: string
   progressTextSizeLg: string
-  progressTextSizeSm: string
-  progressTextWeight: string
   tooltipBg: string
   tooltopTextColor: string
   tooltipBorderColor: string
@@ -322,8 +320,6 @@ export interface IScssVariablesRevised {
   descriptionsItemContentWidth: string
   descriptionsItemContentLineHeight: string
   descriptionsItemLabelMinWidth: string
-  descriptionsFontColorLabel: string
-  descriptionsFontColorLabelBordered: string
   dropdownItemPaddingTopBottom: string
   dropdownMinWidth: string
   dropdownIconLineHeight: string
@@ -360,8 +356,6 @@ export interface IScssVariablesRevised {
   toastWidth: string
   toastHeight: string
   iconColor: string
-  loadingPrimaryColor: string
-  loadingPrimaryBorder: string
   loadingDefaultColor: string
   loadingDefaultBorder: string
   alertTextColor: string
@@ -407,9 +401,6 @@ export interface IScssVariablesRevised {
   zindexBadge: string
   zindexTableFixed: string
   zindexAffix: string
-  zindexBackTop: string
-  zindexPickerPanel: string
-  zindexPopupClose: string
   zindexModal: string
   zindexModalMask: string
   zindexMessage: string
@@ -420,6 +411,10 @@ export interface IScssVariablesRevised {
   zindexPopoconfirm: string
   zindexTooltip: string
   zindexImage: string
+  zindexNormal: string
+  zindexLayoutSidebar: string
+  zindexLayoutHeader: string
+  zindexLoadingMask: string
   screenLg: string
   chartColor1: string
   chartColor2: string
@@ -465,7 +460,7 @@ export interface IScssVariablesRevised {
   alertWeakBg: string
   transferHeaderHeight: string
   transferHeaderBg: string
-  transferButtonHegiht: string
+  transferButtonHeight: string
   transferButtonWidth: string
   transferButtonRadius: string
   transferItemActiveBg: string
@@ -501,6 +496,37 @@ export interface IScssVariablesRevised {
   tabsLgHeight: string
   tabsButtonRadius: string
   tabsDefaultLineColor: string
+  formItemContentLineHeight: string
+  paginationSelectWidth: string
+  transferFilterInputHeight: string
+  transferFilterInputMargin: string
+  tabsBgColor: string
+  stepsBgColor: string
+  cuteSliderLineColor: string
+  cuteAreaRecentBorderColor: string
+  cuteAreaRecentHeadColor: string
+  cuteAreaHeadLineHeight: string
+  cuteAreaPadding: string
+  cuteAreaItemHeight: string
+  cuteAreaRecentItemColor: string
+  cuteAreaRecentItemBackgroundColor: string
+  cuteAreaItemHoverBackgroundColor: string
+  cuteAreaItemHoverColor: string
+  cuteAreaItemSeletedBackgroundColor: string
+  cuteAreaHeadColor: string
+  cuteAreaItemColor: string
+  cuteAreaWrapMargin: string
+  layoutBg: string
+  layoutHeaderHeight: string
+  layoutHeaderFill1: string
+  layoutHeaderBorder: string
+  layoutNavbarColorBg: string
+  layoutColorBg: string
+  layoutColorMaster: string
+  layoutColorGrey: string
+  layoutTextColor: string
+  layoutSidebarWidth: string
+  layoutSidebarSubHover: string
 }
 
 export const variablesRevised: IScssVariablesRevised

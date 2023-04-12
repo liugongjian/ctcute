@@ -40,6 +40,12 @@
         <el-table-column prop="options" label="可选值" />
         <el-table-column prop="default" label="默认值" />
       </el-table>
+      <h2>ElTabs Events</h2>
+      <el-table :data="event" fit border>
+        <el-table-column prop="name" label="参数" />
+        <el-table-column prop="desc" label="说明" />
+        <el-table-column prop="callback" label="回调参数" />
+      </el-table>
     </div>
   </div>
 </template>
@@ -80,6 +86,14 @@ export default class extends Vue {
       required: '选填',
       options: 'large/medium/small',
       default: 'medium',
+    },
+  ]
+
+  private event = [
+    {
+      name: 'tab-add',
+      desc: '点击 tabs 的新增按钮后触发',
+      callback: '新增的tab标题',
     },
   ]
 }

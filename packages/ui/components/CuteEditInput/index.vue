@@ -2,7 +2,7 @@
  * @Author: 王亚振
  * @Date: 2022-10-11 15:06:30
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-07 15:50:59
+ * @LastEditTime: 2023-04-10 14:34:48
  * @Description:
 -->
 <template>
@@ -58,3 +58,4 @@ export default class extends mixins(Locale) {
   }
 }
 </script>
+<style lang="scss" scoped></style>

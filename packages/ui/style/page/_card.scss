@@ -61,7 +61,9 @@
     }
 
     .card-box--info {
-      margin: $margin-10 0;
+      margin: $margin 0;
+      // height: $input-md-height;
+      line-height: $input-md-height;
       word-break: break-all;
       text-overflow: ellipsis;
       display: flex;
@@ -256,9 +258,13 @@
       display: flex;
 
       .card-box--info {
-
+     
+        &--label{
+          width: 40px;
+        }
         .card-box--input {
-          flex: 1;
+          width: calc(100% - 40px);
+          flex:1;
         }
 
         .input-box {
@@ -267,7 +273,7 @@
         }
 
         .card-box--input-text {
-          width: 260px;
+          width: 100%;
           text-overflow: ellipsis;
           overflow: hidden;
           white-space: nowrap;

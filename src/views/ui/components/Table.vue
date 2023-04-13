@@ -514,7 +514,7 @@
         <el-table ref="tableRef" v-loading="tableHook.loading" :data="tableHook.tableData">
           <el-table-column label="" width="48">
             <div class="handle">
-              <svg-icon name="sortTable" class="sort-icon" />
+              <svg-icon name="sort-table" class="sort-icon" />
             </div>
           </el-table-column>
           <el-table-column prop="name" label="主机别名" width="150px">

@@ -2,7 +2,7 @@
  * @Author: 王亚振
  * @Date: 2023-03-21 14:03:10
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-10 15:05:22
+ * @LastEditTime: 2023-04-13 10:03:45
  * @Description:
 -->
 <template>
@@ -16,7 +16,7 @@
         }}</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
-    <el-button type="primary">主操作</el-button>
+    <el-button v-if="main" type="primary" @click="() => btnClicked(main)">{{ main.label }}</el-button>
   </div>
 </template>
 <script lang="ts">
@@ -27,6 +27,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) data?: []
   @Prop({ type: Number, default: 0 }) max?: number
+  @Prop({ type: Object, default: null }) main?
   private newData = []
   private created() {
     this.newData = this.data.length > this.max ? this.data.slice(0, this.max) : this.data

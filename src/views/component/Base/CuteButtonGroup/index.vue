@@ -1,8 +1,8 @@
 <!--
  * @Author: 王亚振
  * @Date: 2022-07-21 10:56:09
- * @LastEditors: 王亚振
- * @LastEditTime: 2022-07-21 11:10:10
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-04-13 10:41:46
  * @Description:
 -->
 <template>
@@ -50,8 +50,16 @@ export default class extends Vue {
       desc: '按钮名称数组',
       type: 'Array<String>',
       required: '选填',
-      options: null,
+      options: '[{ label: "操作一", name: "op1"}]',
       default: null,
+    },
+    {
+      name: 'main',
+      desc: '主操作按钮',
+      type: 'Object',
+      required: '选填',
+      options: '{ label: "主操作", name: "op-main"}',
+      default: 'null',
     },
     {
       name: 'max',

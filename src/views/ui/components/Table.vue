@@ -510,51 +510,70 @@
       组件
     </h3>
     <div class="sub-table">
-      <cute-sort-table
-        :loading="tableHook.loading"
-        :table-data="tableHook.tableData"
-        :table-columns="tableColumns"
-        @sort="handleSort"
-      >
-        <template #name="{ scope }">
-          <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
-        </template>
-        <template #status="{ scope }">
-          <span>{{ statusFormatter(scope.row) }}</span>
-        </template>
-        <template #healthy="{ scope }">
-          <cute-state :type="HEALTH[scope.row.health].colorType">
-            {{ HEALTH[scope.row.health].text }}
-          </cute-state>
-        </template>
-        <template #operation="{ scope }">
-          <el-button
-            type="text"
-            size="small"
-            class="bt-operation"
-            @click="handleClick(scope.$index, scope.row)"
-          >
-            挂载
-          </el-button>
-          <el-button type="text" size="small" class="bt-operation">卸载</el-button>
-          <el-button type="text" size="small" class="bt-operation">扩容</el-button>
-          <el-divider direction="vertical"></el-divider>
-          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
-            <el-button type="text" size="small" class="bt-operation">
-              更多
-              <i
-                class="el-icon-arrow-down el-icon--right"
-                :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
-              />
-            </el-button>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>退订</el-dropdown-item>
-              <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
-              <el-dropdown-item>创建</el-dropdown-item>
-              <el-dropdown-item disabled>Disabled</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </template>
+      <cute-sort-table handle=".handle">
+        <el-table ref="tableRef" v-loading="tableHook.loading" :data="tableHook.tableData">
+          <el-table-column label="" width="48">
+            <div class="handle">
+              <svg-icon name="sort-table" class="sort-icon" />
+            </div>
+          </el-table-column>
+          <el-table-column prop="name" label="主机别名" width="150px">
+            <template slot-scope="scope">
+              <div>
+                <span class="text-ellipsis name-primary" :title="scope.row.name">{{ scope.row.name }}</span>
+              </div>
+            </template>
+          </el-table-column>
+          <el-table-column prop="status" label="实例状态">
+            <template slot-scope="scope">
+              <span>{{ statusFormatter(scope.row) }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column prop="ip" label="IP地址"></el-table-column>
+          <el-table-column prop="cpu" label="CPU利用率(%)"></el-table-column>
+          <el-table-column prop="memory" label="磁盘利用率(%)"></el-table-column>
+          <el-table-column prop="healthy" label="健康状态">
+            <template slot-scope="scope">
+              <cute-state :type="HEALTH[scope.row.health].colorType">
+                {{ HEALTH[scope.row.health].text }}
+              </cute-state>
+            </template>
+          </el-table-column>
+          <el-table-column label="操作" width="200px">
+            <template slot-scope="scope">
+              <el-button
+                type="text"
+                size="small"
+                class="bt-operation"
+                @click="handleClick(scope.$index, scope.row)"
+              >
+                挂载
+              </el-button>
+              <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+              <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+              <el-divider direction="vertical"></el-divider>
+              <el-dropdown
+                trigger="click"
+                :append-to-body="false"
+                @visible-change="openDropdown(scope.$index)"
+              >
+                <el-button type="text" size="small" class="bt-operation">
+                  更多
+                  <i
+                    class="el-icon-arrow-down el-icon--right"
+                    :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                  />
+                </el-button>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item>退订</el-dropdown-item>
+                  <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
+                  <el-dropdown-item>创建</el-dropdown-item>
+                  <el-dropdown-item disabled>Disabled</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+            </template>
+          </el-table-column>
+        </el-table>
       </cute-sort-table>
       <el-pagination
         class="pagination"
@@ -584,13 +603,13 @@
           width="150"
           sortable
           :filters="[
-          { text: '2022-08-14', value: '1' },
-          { text: '2022-08-15', value: '2' },
-          { text: '2022-08-16', value: '3' },
-          { text: '2022-08-17', value: '4' },
-          { text: '2022-08-18', value: '5' },
-          { text: '2022-08-19', value: '6' },
-        ]"
+            { text: '2022-08-14', value: '1' },
+            { text: '2022-08-15', value: '2' },
+            { text: '2022-08-16', value: '3' },
+            { text: '2022-08-17', value: '4' },
+            { text: '2022-08-18', value: '5' },
+            { text: '2022-08-19', value: '6' },
+          ]"
           filter-placement="bottom-start"
         >
         </el-table-column>
@@ -718,7 +737,9 @@
                 </el-col>
                 <el-col :span="8">
                   <div class="expand-form-item-content">
-                    <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+                    <el-tag type="info" size="small" style="margin-right: 8px">{{
+                      scope.row.label[0]
+                    }}</el-tag>
                     <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
                   </div>
                 </el-col>
@@ -816,7 +837,12 @@
       <el-table v-loading="nestedTableLoading" :data="nestedTableData" fit>
         <el-table-column type="expand" width="40">
           <template slot-scope="scope">
-            <el-table ref="multipleTable" tooltip-effect="dark" :data="scope.row.projectSpaces" class="expand-table">
+            <el-table
+              ref="multipleTable"
+              tooltip-effect="dark"
+              :data="scope.row.projectSpaces"
+              class="expand-table"
+            >
               <el-table-column width="20"></el-table-column>
               <el-table-column prop="projectSpace" label="名称">
                 <template slot-scope="{ row }">
@@ -963,7 +989,9 @@
       <el-table :data="tableComponentData && tableComponentData.smallTable" size="small">
         <el-table-column label="排行">
           <template slot-scope="scope">
-            <span :class="scope.$index < 3 ? 'sub-index sub-index-top3' : 'sub-index'">{{ scope.$index + 1 }}</span>
+            <span :class="scope.$index < 3 ? 'sub-index sub-index-top3' : 'sub-index'">{{
+              scope.$index + 1
+            }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="name" label="工作流名称">
@@ -1404,10 +1432,7 @@ import * as SimpleTable from '@/types/SimpleTable'
 import { getTableComponent } from '@/api/tableComponent'
 import { getTable as getExpandTable } from '@/api/proTable6'
 import { getTable as getNestedTable } from '@/api/proTable7'
-import {
-  TYPE as NESTED_TABLE_TYPE,
-  STATUS2 as NESTED_TABLE_STATUS2,
-} from '@/dics/proTable6'
+import { TYPE as NESTED_TABLE_TYPE, STATUS2 as NESTED_TABLE_STATUS2 } from '@/dics/proTable6'
 import { formatDatetime } from '@/utils/date'
 import * as TableComponent from '@/types/TableComponent'
 
@@ -1649,16 +1674,6 @@ export default class extends Vue {
    */
   private statusFormatter(data: SimpleTable.Host) {
     return STATUS[data.status]
-  }
-
-  private handleSort(val) {
-    const currRow = this.tableHook.tableData.splice(val.oldIndex, 1)[0]
-    this.tableHook.tableData.splice(val.newIndex, 0, currRow)
-    const newArray = this.tableHook.tableData.slice(0)
-    this.tableHook.tableData = []
-    this.$nextTick(function () {
-      this.tableHook.tableData = newArray
-    })
   }
 
   /** * 下拉展开旋转小三角 */

@@ -1,5 +1,11 @@
 /* Dialog
 -------------------------- */
+$dialog-header-padding: $padding-4x $padding-8x;
+$dialog-body-padding: $padding-6x $padding-8x;
+$dialog-footer-padding: $padding-3x $padding-8x;
+$dialog-footer-margin-top: -30px;
+$dialog-fullscreen-margin: $margin-6x;
+
 .el-dialog {
   display: flex;
   flex-direction: column;
@@ -47,8 +53,8 @@
   */
   &.is-fullscreen {
     margin: $dialog-fullscreen-margin;
-    width: calc(100% - $dialog-fullscreen-margin * 2);
-    height: calc(100% - $dialog-fullscreen-margin * 2);
+    width: calc(100% - #{$dialog-fullscreen-margin} * 2);
+    height: calc(100% - #{$dialog-fullscreen-margin} * 2);
     overflow: visible;
   }
 }

@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-25 15:58:42
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-08-16 14:09:47
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-04-13 14:01:23
  * @Description:
 -->
 <template>
@@ -92,7 +92,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { CuteAppendix } from '@cutedesign/appendix'
+import { CuteAppendix } from '@cutedesign/ui'
 import { createImg, createPdf, createExcel } from '@/api/appendix'
 
 @Component({

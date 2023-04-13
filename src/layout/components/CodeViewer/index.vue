@@ -244,8 +244,8 @@ $width: 640px;
   position: fixed;
   z-index: 100;
   right: 0;
-  top: $header-height;
-  height: calc(100% - $header-height);
+  top: $cute-layout-header-height;
+  height: calc(100% - $cute-layout-header-height);
   transition: transform 200ms ease-out;
   transform: translateX(640px);
   font-size: 12px; // TODO REMOVE

@@ -8,7 +8,7 @@
       height: 100%;
 
       &.is-filterable {
-        height: calc(100% - $transfer-filter-height);
+        height: calc(100% - #{$transfer-filter-height});
       }
     }
 

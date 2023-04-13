@@ -2,8 +2,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: error: git config user.name & please set dead value or install git
- * @LastEditTime: 2023-04-11 16:48:48
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-13 14:57:44
  * @Description:
  */
 // import Layout from '@/layout/component.vue'
@@ -461,6 +461,34 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Select.vue'),
         meta: {
           title: 'Select',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'switch',
+        name: 'Switch',
+        component: () => import('@/views/component/Test/Switch.vue'),
+        meta: {
+          title: 'Switch',
+          breadcrumb: true,
+        },
+      },
+      
+      {
+        path: 'upload',
+        name: 'Upload',
+        component: () => import('@/views/component/Test/Upload.vue'),
+        meta: {
+          title: 'Upload',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'slider',
+        name: 'Slider',
+        component: () => import('@/views/component/Test/Slider.vue'),
+        meta: {
+          title: 'Slider',
           breadcrumb: true,
         },
       },

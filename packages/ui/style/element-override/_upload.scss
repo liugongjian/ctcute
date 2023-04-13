@@ -3,14 +3,14 @@
 
 @mixin uploader-success { 
   .el-upload-list__item .el-upload-list__item-name {
-    color: $color-grey-1;
-    font-size: $text-size-sm;
+    color: $upload-font-active-color;
+    font-size: $upload-font-size;
     align-items: center;
 
     &:hover,
     &:focus,
     &:active {
-      color: $color-grey-1;
+      color: $upload-font-active-color;
     }
   }
 
@@ -22,7 +22,7 @@
   }
 
   .el-upload-list__item:hover {
-    background: $color-grey-9;
+    background: $upload-bg-hover;
   }
 
   .el-icon-close:before {
@@ -33,8 +33,8 @@
   }
 
   .el-upload__tip {
-    color: $color-neutral-7;
-    font-size: $text-size-sm;
+    color: $upload-tips-font-color;
+    font-size: $upload-font-size;
     margin: $margin-2x 0 $margin-10;
   }
 
@@ -58,7 +58,7 @@
 .small-uploader {
   width: 316px; // TODO
   padding: $padding-5x;
-  border: 1px solid $border-color;
+  border: 1px solid $upload-border-color;
   border-radius: $border-radius;
 
   @include uploader-success();
@@ -70,17 +70,17 @@
   margin-bottom: $margin-10;
 
   .el-upload--picture-card {
-    width: 100px;// TODO
-    height: 100px;// TODO
-    border-color: $border-color;
+    width: $upload-picture-card-size;// TODO
+    height: $upload-picture-card-size;// TODO
+    border-color: $upload-border-color;
     border-radius: $border-radius;
     display: flex;
     align-items: center;
     justify-content: center;
     background: $color-grey-11;
     .el-upload-list__item{
-      width: 100px;
-      height: 100px;
+      width: $upload-picture-card-size;
+      height: $upload-picture-card-size;
       border-radius: $border-radius;
     }
     .el-icon-plus {
@@ -89,13 +89,13 @@
     }
 
     &:hover {
-      border-color: $color-master;
+      border-color: $upload-color;
     }
   }
 
   .el-upload-list__item.is-uploading {
-    width: 100px;
-    height: 100px;
+    width: $upload-picture-card-size;
+    height: $upload-picture-card-size;
     background-color: none;
     border-radius: $border-radius;
     border: 1px dashed $loading-default-border;
@@ -108,27 +108,27 @@
   }
 
   .el-upload-list.el-upload-list--picture-card .el-progress {
-    width: 50px;// TODO
+    width: $upload-picture-card-progress-circle-size;
   }
 
   .el-upload-list--picture-card .el-upload-list__item {
-    width: 100px;// TODO
-    height: 100px;// TODO
+    width: $upload-picture-card-size;
+    height: $upload-picture-card-size;
     display: flex;
-    border-color: $border-color;
+    border-color: $upload-border-color;
     align-items: center;
     border-radius: $border-radius;
     justify-content: center;
-    background-color: $color-bg-1;
+    background-color: $upload-bg;
 
     .el-upload-list__item-status-label {
       display: none;
     }
   }
 
-  .el-upload-list.el-upload-list--picture-card .is-uploading .el-progress.el-progress-circle {
-    width: 50px !important;// TODO
-    height: 50px !important;// TODO
+  .el-progress-circle {
+    width: $upload-picture-card-progress-circle-size !important;
+    height: $upload-picture-card-progress-circle-size !important;
   }
 
   .el-upload-list--picture-card {
@@ -147,25 +147,25 @@
   }
 
   .el-progress-circle svg path:nth-child(2) {
-    stroke: $color-master;
+    stroke: $upload-color;
   }
 }
 
 //文件上传
 .file-uploader {
-  width: 320px;// TODO
+  width: $upload-file-uploader-width;// TODO
 
   @include uploader-success();
 
   .file-uploader_content {
-    width: 320px;// TODO
-    height: 100px;// TODO
-    border: 1px solid $border-color;// TODO
+    width: $upload-file-uploader-width;// TODO
+    height: $upload-picture-card-size;// TODO
+    border: 1px solid $upload-border-color;// TODO
     border-radius: $border-radius;
-    background-color: $color-bg-1;
+    background-color: $upload-bg;
 
     &:hover {
-      border-color: $color-master;
+      border-color: $upload-color;
     }
   }
 
@@ -173,43 +173,37 @@
     margin-top: 29px;// TODO
 
     svg {
-      color: $color-master;
+      color: $upload-color;
       margin-right: $margin-10;
     }
 
     span {
       font-size: $text-size;
-      color: $color-master;
+      color: $upload-color;
     }
   }
 }
 
 //拖拽上传
 .drag-uploader {
-  width: 320px;
+  width: $upload-file-uploader-width;
   
   .el-upload-dragger {
+    border: 1px dashed $upload-border-color;
     border-radius: 0;
     background-color: $upload-bg;
-    height: 100px;
-    width: 320px;
-    // .el-icon-upload {
-    //   width: 33px !important;
-    //   height: 42px !important;
-    //   margin-top: 38px;
-    //   color: $color-master-1;
-    // }
+    height: $upload-picture-card-size;
+    width: $upload-file-uploader-width;
     .el-upload__text {
       line-height: 30px;
       color: $text-color;
       vertical-align: middle;
       padding-top: 34px;
       span {
-        color: $color-master
+        color: $upload-color
       }
     }
   }
-
   @include uploader-success();
 }
 
@@ -229,19 +223,11 @@
   }
 }
 
-.el-upload__tip{
-  color: $color-neutral-7;
-  margin-top: $margin-2x;
-}
 .el-upload {
   .el-button--medium{ padding: $padding-2x $padding-3x ;}
-}
-
-.el-upload-dragger {
-  border: 1px dashed $border-color;// TODO
-}
+} 
 .el-upload-out__tip {
   font-size: $text-size;
-  color: $color-neutral-7;
+  color: $upload-tips-font-color;
   margin-top: $margin-2x;
 }

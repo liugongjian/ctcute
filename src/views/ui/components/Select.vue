@@ -1,7 +1,6 @@
 <template>
   <div class="ui-select">
-    <p>将动作或菜单折叠到下拉菜单中</p>
-
+    <!-- <p>将动作或菜单折叠到下拉菜单中</p> -->
     <div class="page-content">
       <el-radio-group v-model="itemSize" size="small">
         <el-radio-button value="medium" label="medium">默认</el-radio-button>

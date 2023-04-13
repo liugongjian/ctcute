@@ -312,7 +312,6 @@ $input-lg-height: 40px !default;
 $input-height: $input-md-height !default;
 $input-prefix-padding: $padding-9x !default;
 $input-suffix-padding: $padding-9x !default;
-
 $input-fill: $color-white !default; // deprecated(弃用)
 
 /* Select
@@ -414,6 +413,12 @@ $progress-text-height-lg: 30px !default;
 $progress-text-height-sm: 12px !default;
 $progress-text-size-lg: 20px !default;
 
+/* Switch
+-------------------------- */
+$Switch-core-color: $neutral-6 !default;
+$Switch-small-height: $common-space-4x !default;
+$Switch-small-core-size: $common-space-3x !default;
+
 /* Tooltip
 -------------------------- */
 $tooltip-bg: $color-neutral-8 !default;
@@ -432,10 +437,17 @@ $popover-min-width: 160px !default;
 
 /* Upload
 -------------------------- */
+$upload-color:$color-master !default;
+$upload-border-color: $border-color !default;
 $upload-bg: $color-white !default;
-
+$upload-bg-hover: $color-grey-9 !default;
 $upload-fill: $upload-bg !default; // deprecated(弃用)
-
+$upload-font-size: $text-size-sm !default;
+$upload-tips-font-color: $color-neutral-7 !default;
+$upload-font-active-color: $color-grey-1 !default;
+$upload-picture-card-size: 100px !default;
+$upload-picture-card-progress-circle-size: 70px !default;
+$upload-file-uploader-width: 320px !default;
 /* Card
 -------------------------- */
 $card-bg: $color-bg-2 !default;

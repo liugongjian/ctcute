@@ -2,13 +2,15 @@
  * @Author: 朱凌浩
  * @Date: 2023-03-17 13:45:09
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-12 17:30:12
+ * @LastEditTime: 2023-04-13 15:05:23
  * @Description: Select
 -->
 <template>
   <div>
     <h1>Select</h1>
-    <SelectDemo />
+    <el-card>
+      <SelectDemo />
+    </el-card>
     <!-- <el-select v-model="selectVal" size="large" placeholder="请选择">
       <el-option label="餐厅名" value="1"></el-option>
       <el-option label="订单号" value="2"></el-option>

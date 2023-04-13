@@ -111,10 +111,7 @@
   },
   "workspaces": [
     "packages/ui",
-    "packages/chart",
-    "packages/appendix",
     "packages/sort-table",
-    "packages/authenticate",
-    "packages/vxe-table"
+    "packages/authenticate"
   ]
 }

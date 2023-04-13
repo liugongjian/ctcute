@@ -16,7 +16,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { CuteCardBox } from '@cutedesign/ui'
-import { CuteChart } from '@cutedesign/chart'
+import { CuteChart } from '@cutedesign/ui'
 @Component({
   name: 'CuteCardBoxDemo1',
   components: {

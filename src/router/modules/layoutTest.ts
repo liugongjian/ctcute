@@ -14,7 +14,7 @@ const layoutTestRoutes = [
     redirect: '/component/test/layout/page1-1/page1-1-1',
     component: Layout,
     meta: {
-      title: '布局框架测试1(下钻)',
+      title: '布局-1(下钻)',
       alwaysShow: true,
       breadcrumb: true,
       drillDown: true,
@@ -69,7 +69,7 @@ const layoutTestRoutes = [
     path: '/component/test/layout2',
     component: Layout,
     meta: {
-      title: '布局框架测试2',
+      title: '布局-2',
       breadcrumb: false,
     },
     children: [

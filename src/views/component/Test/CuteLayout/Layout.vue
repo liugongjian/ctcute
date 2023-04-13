@@ -19,8 +19,13 @@
         <header-nav />
       </template>
       <template v-if="navbarRight" #navbar-right>
-        <el-button type="primary">主要按钮</el-button>
-        <el-button>次要按钮</el-button>
+        <div v-if="navbarRight === 1">
+          <el-button type="primary">主要按钮</el-button>
+          <el-button>次要按钮</el-button>
+        </div>
+        <el-select v-if="navbarRight === 2" placeholder="请选择项目">
+          <el-option>项目1</el-option>
+        </el-select>
       </template>
       <template v-if="navbarBottom" #navbar-bottom>
         <el-tabs v-model="tabName">
@@ -84,7 +89,11 @@
           <h3>Navbar</h3>
           <el-form :label-width="labelWidth">
             <el-form-item label="是否显示Navbar Right">
-              <el-checkbox v-model="navbarRight" />
+              <el-radio-group v-model="navbarRight">
+                <el-radio :label="0">不显示</el-radio>
+                <el-radio :label="1">按钮</el-radio>
+                <el-radio :label="2">下拉框</el-radio>
+              </el-radio-group>
             </el-form-item>
             <el-form-item label="是否显示Navbar Bottom">
               <el-checkbox v-model="navbarBottom" />
@@ -138,7 +147,7 @@ export default class extends Vue {
   private sidebarKnob = true
 
   private navbar = true
-  private navbarRight = false
+  private navbarRight = 0
   private navbarBottom = false
 
   private breadcrumbCustomTitle = ''

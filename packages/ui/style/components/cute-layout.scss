@@ -132,7 +132,6 @@
   position: relative;
   background: $cute-layout-sidebar-bg;
   z-index: $zindex-layout-sidebar;
-  transition: width 0.28s;
 
   &__wrapper {
     width: $cute-layout-sidebar-width;
@@ -149,6 +148,7 @@
   
     .el-menu-item,
     .el-submenu__title {
+      min-width: $cute-layout-sidebar-width;
       height: $common-space-10x;
       line-height: $common-space-10x;
       background-color: transparent;
@@ -158,7 +158,6 @@
       text-overflow: ellipsis;
       color: $cute-layout-sidebar-text-color;
   
-      &.is-active,
       &:hover {
         color: $cute-layout-sidebar-color-master;
       }
@@ -172,28 +171,20 @@
       }
     }
 
-    // .el-submenu__title {
-    //   display: flex;
-    //   align-items: center;
-    // }
+    .el-menu-item.is-active {
+      position: relative;
+      color: $cute-layout-sidebar-color-master !important;
 
-    .is-active {
-      > &.el-menu-item,
-      > .el-submenu__title {
-        position: relative;
-        color: $cute-layout-sidebar-color-master !important;
-
-        /* 选中状态前面的小竖线 */
-        &:before {
-          content: '';
-          display: inline-block;
-          background-color: $cute-layout-sidebar-color-master;
-          width: 2px;
-          height: $text-size;
-          position: absolute;
-          top: calc((#{$common-space-10x} - #{$text-size}) / 2);
-          z-index: 1;
-        }
+      /* 选中状态前面的小竖线 */
+      &:before {
+        content: '';
+        display: inline-block;
+        background-color: $cute-layout-sidebar-color-master;
+        width: 2px;
+        height: $text-size;
+        position: absolute;
+        top: calc((#{$common-space-10x} - #{$text-size}) / 2);
+        z-index: 1;
       }
     }
 
@@ -254,14 +245,27 @@
     font-weight: $text-title-weight;
     border-bottom: 1px solid $cute-layout-sidebar-border;
 
-    &--back {
+    &__back {
       cursor: pointer;
       display: flex;
       align-items: center;
+      margin: -$margin $margin-4x $margin-2x $margin-4x;
 
-      .svg-icon {
-        margin-right: $margin-2x;
-        font-size: $text-size-lg;
+      &__icon {
+        padding: $padding;
+        display: flex;
+        align-items: center;
+        transition: background-color $transition-time;
+
+        .svg-icon {
+          font-size: $text-size-lg;
+        }
+      }
+
+      &:hover {
+        .cute-layout-sidebar__title__back__icon {
+          background: $cute-layout-sidebar-item-bg-hover;
+        }
       }
     }
   }

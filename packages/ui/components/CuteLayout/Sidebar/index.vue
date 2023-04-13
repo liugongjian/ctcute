@@ -1,12 +1,16 @@
 <template>
   <div class="cute-layout-sidebar">
-    <div v-if="isShowMenu" class="cute-layout-sidebar__wrapper">
+    <div
+      class="cute-layout-sidebar__wrapper"
+      :class="{ 'cute-layout-sidebar__wrapper--hidden': !isShowMenu }"
+    >
       <div
         v-if="drillDownRoute"
-        class="cute-layout-sidebar__title cute-layout-sidebar__title--back"
+        class="cute-layout-sidebar__title cute-layout-sidebar__title__back"
         @click="back"
       >
-        <svg-icon name="left" />{{ t(drillDownRoute.meta.title) }}
+        <div class="cute-layout-sidebar__title__back__icon"><svg-icon name="left" /></div>
+        {{ t(drillDownRoute.meta.title) }}
       </div>
       <div v-else-if="sidebarTitle" class="cute-layout-sidebar__title">{{ sidebarTitle }}</div>
 
@@ -123,7 +127,7 @@ export default class extends mixins(Locale) {
   }
 
   private setSidbarWidth() {
-    ;(this.$el as HTMLElement).style.width = this.isShowMenu ? `${variables.sidebarWidth}` : '0px'
+    ;(this.$el as HTMLElement).style.width = this.isShowMenu ? `${variables.cuteLayoutSidebarWidth}` : '0px'
   }
 
   public toggleSideBar() {

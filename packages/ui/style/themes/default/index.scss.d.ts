@@ -1,4 +1,5 @@
 export interface IScssVariablesRevised {
+  imagesPath: string
   colorMaster: string
   colorMasterHover: string
   colorMasterActive: string
@@ -215,13 +216,10 @@ export interface IScssVariablesRevised {
   buttonDefaultColorBorder: string
   buttonDefaultColorBorderDisabled: string
   buttonIconColor: string
-  buttonMargin: string
-  buttonPaddingMini: string
-  buttonPaddingSmall: string
-  buttonPaddingMedium: string
-  buttonPaddingLarge: string
   buttonGroupBorder: string
+  buttonMargin: string
   formItemLabelLineHeight: string
+  formItemContentLineHeight: string
   formItemErrorPaddingTop: string
   formItemMarginBottom: string
   inputBg: string
@@ -263,6 +261,7 @@ export interface IScssVariablesRevised {
   paginationFontSizeSm: string
   paginationHeight: string
   paginationHeightSm: string
+  paginationSelectWidth: string
   paginationInputWidth: string
   paginationButtonWidth: string
   paginationButtonWidthSm: string
@@ -282,9 +281,18 @@ export interface IScssVariablesRevised {
   transferItemActiveBg: string
   transferItemHoverBg: string
   transferItemHeight: string
+  transferFilterInputHeight: string
+  transferFilterInputMargin: string
   transferFilterHeight: string
   transferFootertBg: string
   transferFooterHeight: string
+  tabsMaster: string
+  tabsSmHeight: string
+  tabsMdHeight: string
+  tabsLgHeight: string
+  tabsButtonRadius: string
+  tabsDefaultLineColor: string
+  tabsAddItemWidth: string
   progressTextHeightLg: string
   progressTextHeightSm: string
   progressTextSizeLg: string
@@ -341,13 +349,10 @@ export interface IScssVariablesRevised {
   stepsIconInnerTextSizeMd: string
   stepsIconInnerTextSizeSm: string
   stepsLineSize: string
-  dialogHeaderPadding: string
+  stepsBgColor: string
+  stepsIconBg: string
   dialogHeaderBorder: string
-  dialogBodyPadding: string
   dialogFooterBg: string
-  dialogFooterPadding: string
-  dialogFooterMarginTop: string
-  dialogFullscreenMargin: string
   messageboxPaddingBottom: string
   messageboxHeaderPadding: string
   messageboxHeaderPaddingBottom: string
@@ -356,6 +361,8 @@ export interface IScssVariablesRevised {
   toastWidth: string
   toastHeight: string
   iconColor: string
+  loadingPrimaryColor: string
+  loadingPrimaryBorder: string
   loadingDefaultColor: string
   loadingDefaultBorder: string
   alertTextColor: string
@@ -367,6 +374,7 @@ export interface IScssVariablesRevised {
   cuteSliderMarksHeight: string
   cuteSliderBarHeight: string
   cuteSliderInputWidth: string
+  cuteSliderLineColor: string
   cuteSliderBtnBg: string
   cuteSliderBtnRadius: string
   cuteSliderBtnWidth: string
@@ -378,12 +386,26 @@ export interface IScssVariablesRevised {
   cuteDistributionBarSliderItemHeight: string
   cuteDistributionBarSliderButtonWidth: string
   cuteDistributionBarSliderButtonHeight: string
+  cuteLayoutHeaderHeight: string
+  cuteLayoutHeaderLogoHeight: string
+  cuteLayoutHeaderSubLogoHeight: string
+  cuteLayoutHeaderTextColor: string
+  cuteLayoutHeaderBg: string
+  cuteLayoutHeaderBorder: string
+  cuteLayoutSidebarWidth: string
+  cuteLayoutSidebarBg: string
+  cuteLayoutSidebarBorder: string
+  cuteLayoutSidebarItemBgHover: string
+  cuteLayoutSidebarColorMaster: string
+  cuteLayoutSidebarTextColor: string
+  cuteLayoutSidebarArrowColor: string
+  headerInputBg: string
+  headerTextColor: string
+  headerSearchTextColor: string
   headerHeight: string
   headerFill1: string
   headerFill2: string
   headerBorder: string
-  headerTextColor: string
-  headerSearchTextColor: string
   sidebarWidth: string
   sidebarFill: string
   sidebarSubFill: string
@@ -397,10 +419,25 @@ export interface IScssVariablesRevised {
   cuteSpecialRadioSize: string
   cuteRemindSelectRight: string
   cuteSelectedInputWidth: string
+  cuteAreaRecentBorderColor: string
+  cuteAreaRecentHeadColor: string
+  cuteAreaHeadLineHeight: string
+  cuteAreaPadding: string
+  cuteAreaItemHeight: string
+  cuteAreaRecentItemColor: string
+  cuteAreaRecentItemBackgroundColor: string
+  cuteAreaItemHoverBackgroundColor: string
+  cuteAreaItemHoverColor: string
+  cuteAreaItemSeletedBackgroundColor: string
+  cuteAreaHeadColor: string
+  cuteAreaItemColor: string
+  cuteAreaWrapMargin: string
   transitionTime: string
   zindexBadge: string
+  zindexNormal: string
   zindexTableFixed: string
   zindexAffix: string
+  zindexLayoutSidebar: string
   zindexModal: string
   zindexModalMask: string
   zindexMessage: string
@@ -411,8 +448,6 @@ export interface IScssVariablesRevised {
   zindexPopoconfirm: string
   zindexTooltip: string
   zindexImage: string
-  zindexNormal: string
-  zindexLayoutSidebar: string
   zindexLayoutHeader: string
   zindexLoadingMask: string
   screenLg: string
@@ -452,81 +487,6 @@ export interface IScssVariablesRevised {
   chartColorL10: string
   chartColorL11: string
   chartColorL12: string
-  alertTextColor: string
-  alertInfoBg: string
-  alertSuccessBg: string
-  alertWarningBg: string
-  alertDangerBg: string
-  alertWeakBg: string
-  transferHeaderHeight: string
-  transferHeaderBg: string
-  transferButtonHeight: string
-  transferButtonWidth: string
-  transferButtonRadius: string
-  transferItemActiveBg: string
-  transferItemHoverBg: string
-  transferItemHeight: string
-  transferFilterHeigh: string
-  cuteSliderMarksHeight: string
-  cuteSliderBarHeight: string
-  cuteSliderInputWidth: string
-  cuteSliderBtnBg: string
-  cuteSliderBtnRadius: string
-  cuteSliderBtnWidth: string
-  cuteSliderBtnHeight: string
-  collapseBorderColor: string
-  collapseContentBackgroundColor: string
-  collapseHeaderBg: string
-  collapseHeaderArrowColor: string
-  collapseHeaderHeight: string
-  collapseSeperateHeaderHeight: string
-  collapseSeperateHeaderBg: string
-  stepsIconHeightMd: string
-  stepsIconHeightSm: string
-  stepsTitleSizeMd: string
-  stepsTitleSizeSm: string
-  stepsIconInnerStatusSizeMd: string
-  stepsIconInnerStatusSizeSm: string
-  stepsIconInnerTextSizeMd: string
-  stepsIconInnerTextSizeSm: string
-  stepsLineSize: string
-  tabsMaster: string
-  tabsSmHeight: string
-  tabsMdHeight: string
-  tabsLgHeight: string
-  tabsButtonRadius: string
-  tabsDefaultLineColor: string
-  formItemContentLineHeight: string
-  paginationSelectWidth: string
-  transferFilterInputHeight: string
-  transferFilterInputMargin: string
-  tabsBgColor: string
-  stepsBgColor: string
-  cuteSliderLineColor: string
-  cuteAreaRecentBorderColor: string
-  cuteAreaRecentHeadColor: string
-  cuteAreaHeadLineHeight: string
-  cuteAreaPadding: string
-  cuteAreaItemHeight: string
-  cuteAreaRecentItemColor: string
-  cuteAreaRecentItemBackgroundColor: string
-  cuteAreaItemHoverBackgroundColor: string
-  cuteAreaItemHoverColor: string
-  cuteAreaItemSeletedBackgroundColor: string
-  cuteAreaHeadColor: string
-  cuteAreaItemColor: string
-  cuteAreaWrapMargin: string
-  layoutBg: string
-  layoutHeaderHeight: string
-  layoutHeaderFill1: string
-  layoutHeaderBorder: string
-  layoutNavbarColorBg: string
-  layoutColorBg: string
-  layoutColorMaster: string
-  layoutColorGrey: string
-  layoutTextColor: string
-  layoutSidebarWidth: string
-  layoutSidebarSubHover: string
 }
 
 export const variablesRevised: IScssVariablesRevised

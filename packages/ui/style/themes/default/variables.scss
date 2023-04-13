@@ -340,7 +340,7 @@ $pagination-font-size: $text-size !default;
 $pagination-font-size-sm: $text-size !default;
 $pagination-height: 24px !default;
 $pagination-height-sm: 24px !default;
-$pagination-select-width: 84px !default; // TODO 如何实现自适应
+$pagination-select-width: 56px !default; // TODO 如何实现自适应
 $pagination-input-width: 56px !default; // TODO 如何实现自适应
 $pagination-button-width: 20px !default;
 $pagination-button-width-sm: 20px !default;
@@ -514,11 +514,12 @@ $loading-default-border: $color-grey-6 !default;
 /* Alert
 -------------------------- */
 $alert-text-color: $text-color-light !default;
-$alert-info-bg: $blue-2 !default;
-$alert-success-bg: $green-2 !default;
-$alert-warning-bg: $orange-2 !default;
-$alert-danger-bg: $ruby-2 !default;
+$alert-info-bg: $blue-1 !default;
+$alert-success-bg: $green-1 !default;
+$alert-warning-bg: $orange-1 !default;
+$alert-danger-bg: $ruby-1 !default;
 $alert-weak-bg: $neutral-1 !default;
+$alert-single-height: 36px !default;
 
 /* CuteSlider
 -------------------------- */

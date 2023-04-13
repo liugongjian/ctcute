@@ -91,8 +91,8 @@ export default class extends Vue {
 }
 
 .time {
-  font-size: 13px;
-  color: #999;
+  font-size: 12px;
+  color: $color-neutral-7;
 }
 
 .bottom {

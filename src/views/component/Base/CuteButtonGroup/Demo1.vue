@@ -6,7 +6,7 @@
  * @Description:
 -->
 <template>
-  <cute-button-group :data="buttonData" :main="mainButtonData" :max="2" @change="btnGroupChange" />
+  <cute-button-group :data="buttonData" :max="2" @change="btnGroupChange" />
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
@@ -19,15 +19,11 @@ export default class extends Vue {
     { label: '操作一', name: 'op1' },
     { label: '操作二', name: 'op2' },
     { label: '操作三', name: 'op3' },
+    { label: '主操作', name: 'op--main' },
   ]
 
   private btnGroupChange(name) {
     console.log(name)
-  }
-
-  private mainButtonData = {
-    label: '主操作',
-    name: 'op-main',
   }
 }
 </script>

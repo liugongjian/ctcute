@@ -2,7 +2,7 @@
  * @Author: 王亚振
  * @Date: 2022-07-21 10:56:09
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-13 10:41:46
+ * @LastEditTime: 2023-04-13 15:17:00
  * @Description:
 -->
 <template>
@@ -52,14 +52,6 @@ export default class extends Vue {
       required: '选填',
       options: '[{ label: "操作一", name: "op1"}]',
       default: null,
-    },
-    {
-      name: 'main',
-      desc: '主操作按钮',
-      type: 'Object',
-      required: '选填',
-      options: '{ label: "主操作", name: "op-main"}',
-      default: 'null',
     },
     {
       name: 'max',

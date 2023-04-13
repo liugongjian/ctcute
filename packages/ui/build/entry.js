@@ -1,4 +1,4 @@
-// components.json维护对外暴露的组件，key为路径，value为export的组件名数组 或 需要直接export default的name
+// components.json维护对外暴露的组件，key为路径(目录名)，value为export的组件名数组 或 需要直接export default的name
 var Components = require('./components.json');
 var fs = require('fs');
 var path = require('path');

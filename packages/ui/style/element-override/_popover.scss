@@ -1,5 +1,7 @@
 /* Popover
 -------------------------- */
+$popover-min-width: 160px !default;
+
 .el-popover {
   padding: $padding-4x;
   border: none;

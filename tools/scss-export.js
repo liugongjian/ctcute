@@ -26,6 +26,7 @@ fs.readFile(filePath, 'utf-8', (err, data) => {
     }
   })
   const result = `/* stylelint-disable property-case */
+@import './variables.scss';
 
 :export {
 ${exports.join('\n')}

@@ -1,5 +1,9 @@
 /* Transfer
 -------------------------- */
+$transfer-button-height: 38px !default; // Transfer组件圆形按钮
+$transfer-button-width: 38px !default; // Transfer组件圆形按钮
+$transfer-button-radius: 50% !default; // Transfer组件圆形按钮
+
 .el-transfer {
   .el-transfer-panel {
     background-color: $color-bg-1;

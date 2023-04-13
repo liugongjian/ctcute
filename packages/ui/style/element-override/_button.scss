@@ -278,13 +278,17 @@ $button-padding-large: $margin-3x $padding-6x;
     }
 
     &.is-plain {
-
       &:hover,
       &:focus,
       &:active {
         border-color: transparent;
         background: transparent;
       }
+    }
+
+    &.is-disabled, &.is-loading {
+      border-color: transparent;
+      background: transparent;
     }
   }
 }

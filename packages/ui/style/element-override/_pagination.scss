@@ -1,5 +1,10 @@
 /* Pagination
 -------------------------- */
+$pagination-select-width: 56px !default; // TODO 如何实现自适应
+$pagination-input-width: 56px !default; // TODO 如何实现自适应
+$pagination-button-margin: $margin-2x !default;
+$pagination-button-margin-sm: $margin !default;
+
 .el-pagination {
   padding: 0;
   font-weight: $text-weight;

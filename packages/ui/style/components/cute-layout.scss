@@ -148,7 +148,7 @@
   
     .el-menu-item,
     .el-submenu__title {
-      min-width: $cute-layout-sidebar-width;
+      min-width: auto;
       height: $common-space-10x;
       line-height: $common-space-10x;
       background-color: transparent;
@@ -168,6 +168,10 @@
 
       .menu-item-icon {
         margin-right: $margin;
+      }
+
+      span {
+        vertical-align: inherit;
       }
     }
 

@@ -10,7 +10,7 @@ $images-path: '~@cutedesign/ui/images' !default;
 $color-master: $blue-base !default; // 默认
 $color-master-hover: $blue-5 !default; // 悬停
 $color-master-active: $blue-7 !default; // 触发
-$color-master-disabled: $blue-4 !default; // 禁用
+$color-master-disabled: $blue-3 !default; // 禁用
 $color-master-bg: $blue-3 !default; // 背景
 $color-master-bg-light: $blue-2 !default; // 背景浅色
 // $color-master-bg-light-2: $blue-1 !default; // 背景浅色2
@@ -28,7 +28,7 @@ $color-master-7: $blue-1 !default; // deprecated(弃用)
 $color-ct: $red-base !default; // 默认
 $color-ct-hover: $red-5 !default; // 悬停
 $color-ct-active: $red-7 !default; // 触发
-$color-ct-disabled: $red-4 !default; // 禁用
+$color-ct-disabled: $red-3 !default; // 禁用
 
 $color-sp-1: $red-base !default; // deprecated(弃用)
 $color-sp-2: $red-5 !default; // deprecated(弃用)
@@ -43,17 +43,17 @@ $color-info-bg: $neutral-1 !default;
 $color-success: $green-base !default; // 成功
 $color-success-hover: $green-5 !default;
 $color-success-active: $green-7 !default;
-$color-success-disabled: $green-4 !default;
+$color-success-disabled: $green-3 !default;
 $color-success-bg: $green-1 !default;
 $color-warning: $orange-base !default; // 警告
 $color-warning-hover: $orange-5 !default;
 $color-warning-active: $orange-7 !default;
-$color-warning-disabled: $orange-4 !default;
+$color-warning-disabled: $orange-3 !default;
 $color-warning-bg: $orange-1 !default;
 $color-danger: $ruby-base !default; // 危险
 $color-danger-hover: $ruby-5 !default;
 $color-danger-active: $ruby-7 !default;
-$color-danger-disabled: $ruby-4 !default;
+$color-danger-disabled: $ruby-3 !default;
 $color-danger-bg: $ruby-1 !default;
 $color-fatal: $ruby-8 !default; // 严重危险
 $color-fatal-hover: $ruby-7 !default;

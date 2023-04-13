@@ -35,7 +35,7 @@
   .el-upload__tip {
     color: $upload-tips-font-color;
     font-size: $upload-font-size;
-    margin: $margin-2x 0 $margin-10;
+    margin: $margin-3x 0 $margin-10;
   }
 
   .el-icon-circle-check:before {
@@ -190,13 +190,13 @@
   
   .el-upload-dragger {
     border: 1px dashed $upload-border-color;
-    border-radius: 0;
+    border-radius: $upload-dragger-border-radius;
     background-color: $upload-bg;
     height: $upload-picture-card-size;
     width: $upload-file-uploader-width;
     .el-upload__text {
-      line-height: 30px;
-      color: $text-color;
+      line-height: $form-item-content-line-height;
+      color: $upload-dragger-text-color;
       vertical-align: middle;
       padding-top: 34px;
       span {
@@ -223,9 +223,9 @@
   }
 }
 
-.el-upload {
-  .el-button--medium{ padding: $padding-2x $padding-3x ;}
-} 
+// .el-upload {
+//   .el-button--medium{ padding: $padding-2x $padding-3x ;}
+// } 
 .el-upload-out__tip {
   font-size: $text-size;
   color: $upload-tips-font-color;

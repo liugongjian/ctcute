@@ -3,7 +3,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-13 14:57:44
+ * @LastEditTime: 2023-04-13 14:01:46
  * @Description:
  */
 // import Layout from '@/layout/component.vue'
@@ -473,7 +473,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
-      
+      {
+        path: 'drawer',
+        name: 'Drawer',
+        component: () => import('@/views/component/Test/Drawer.vue'),
+        meta: {
+          title: 'Drawer',
+          breadcrumb: true,
+        },
+      },
       {
         path: 'upload',
         name: 'Upload',

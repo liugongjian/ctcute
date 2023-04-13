@@ -1,14 +1,18 @@
+$cute-button-group-margin: -1px !default;
+$cute-button-group-zindex: 1 !default;
+$cute-button-group-border: 2px !default;
+
 .combination-button {
-  .el-button+.el-button {
+  .el-button + .el-button {
     margin-left: $cute-button-group-margin;
     z-index: $cute-button-group-zindex;
   }
 
-  .el-button+.el-dropdown {
+  .el-button + .el-dropdown {
     margin: 0;
   }
 
-  .el-dropdown+.el-button {
+  .el-dropdown + .el-button {
     margin: 0;
   }
 
@@ -29,7 +33,7 @@
     border-radius: 0 $cute-button-group-border $cute-button-group-border 0;
   }
 
-  .el-button+.el-dropdown {
+  .el-button + .el-dropdown {
     margin-left: $cute-button-group-margin;
 
     .el-button--medium {

@@ -7,26 +7,44 @@
 
 .el-form-item {
   margin-bottom: $form-item-margin-bottom;
+  .el-checkbox-group{ height: 24px;}
 }
 
 .el-form-item__error {
-  padding-top: $form-item-error-padding-top;
+  padding: $form-item-error-padding-top 0;
 }
 
-.el-form-item--medium {
+.el-form-item--mini{
   .el-form-item__label {
-    line-height: $form-item-label-line-height;
+    line-height: $input-sm-height;
+  }
+  .el-form-item__content {
+    line-height: $input-sm-height;
+  }
+  &.el-form-item{
+    margin-bottom: $form-item-margin-bottom;
   }
 }
-
-.el-form--inline .el-form-item {
-  margin-right: $margin-5x;
+.el-form-item--small{
+  .el-form-item__label {
+    line-height: $input-sm-height;
+  }
+  .el-form-item__content {
+    line-height: $input-sm-height;
+  }
+  &.el-form-item{
+    margin-bottom: $form-item-margin-bottom;
+  }
 }
+.el-form-item--medium {
+  line-height: $input-md-height;
+  .el-form-item__label {
+    line-height: $input-md-height;
+  }
+  .el-form-item__content {
+    line-height: $input-md-height;
+  }
 
-.el-form-item--medium .el-form-item__content {
-  line-height: $form-item-content-line-height;
-  // margin-top: -1px;
-  
 }
 
 .el-form-item__error {
@@ -42,8 +60,13 @@
     margin-right: $margin;
   }
 }
-
 .el-form-item.is-error .el-input__inner {
   border: 1px solid $color-danger;
   background: $color-danger-bg;
 }
+.el-form--inline .el-form-item {
+  margin-right: $margin-5x;
+}
+
+ 
+

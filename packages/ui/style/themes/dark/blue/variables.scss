@@ -281,57 +281,57 @@ $button-group-border: rgba($color-black, 0.5);
 /* Radio
 -------------------------- */
 
-$radio-checked-bg: $color-white !default; // 普通radio背景色
-$radio-group-color: $color-white !default; 
-$radio-group-bg: $color-master !default;
-$radio-group-disabled-bg: $disabled-bg !default;
-$radio-group-border-color: $disabled-border !default;
-$radio-group-border-disabled-color: $disabled-border !default;
-$radio-group-border-disabled-bg: $color-master-disabled !default;
-$radio-width: 14px !default; // 普通按钮外部宽高
-$radio-label-width: $common-space-2x !default; // 普通按钮 中间按钮宽高:
-$radio-padding-small: $padding $padding-4x !default;
-$radio-padding-medium: 9px $padding-4x !default;
-$radio-padding-large: $margin-3x $padding-6x !default;
+$radio-checked-bg: $color-white ; // 普通radio背景色
+$radio-group-color: $color-white ; 
+$radio-group-bg: $color-master ;
+$radio-group-disabled-bg: $disabled-bg ;
+$radio-group-border-color: $disabled-border ;
+$radio-group-border-disabled-color: $disabled-border ;
+$radio-group-border-disabled-bg: $color-master-disabled ;
+$radio-width: 14px ; // 普通按钮外部宽高
+$radio-label-width: $common-space-2x ; // 普通按钮 中间按钮宽高:
+$radio-padding-small: $padding $padding-4x ;
+$radio-padding-medium: 9px $padding-4x ;
+$radio-padding-large: $margin-3x $padding-6x ;
 
 /* Form
 -------------------------- */
 $form-item-label-line-height: 32px; // label
-$form-item-content-line-height: 30px !default; //  content 高度32 有border的时候 line-height 需要 -2
+$form-item-content-line-height: 30px ; //  content 高度32 有border的时候 line-height 需要 -2
 $form-item-error-padding-top: $padding-6;
 $form-item-margin-bottom: $margin-6x;
 
 /* Input
 -------------------------- */
-$input-bg: $color-bg-1 !default;
-$input-disabled-bg: $disabled-bg !default;
-$input-hover-border: $border-color-hover !default;
-$input-active-border: $color-master !default;
-$input-xs-height: 24px !default;
-$input-sm-height: 24px !default;
-$input-md-height: 32px !default;
-$input-lg-height: 40px !default;
-$input-height: $input-md-height !default;
-$input-prefix-padding: $padding-9x !default;
-$input-suffix-padding: $padding-9x !default;
-$input-fill: $color-white !default; // deprecated(弃用)
+$input-bg: $color-bg-1 ;
+$input-disabled-bg: $disabled-bg ;
+$input-hover-border: $border-color-hover ;
+$input-active-border: $color-master ;
+$input-xs-height: 24px ;
+$input-sm-height: 24px ;
+$input-md-height: 32px ;
+$input-lg-height: 40px ;
+$input-height: $input-md-height ;
+$input-prefix-padding: $padding-9x ;
+$input-suffix-padding: $padding-9x ;
+$input-fill: $color-white ; // deprecated(弃用)
 
 
 /* Select
 -------------------------- */
-$select-border-color-hover: $border-color-hover !default;
-$select-disabled-border: $disabled-border !default;
-$select-color: $color-master  !default; 
-$select-color: $color-master  !default; 
-$select-dropdown-bg: $color-bg-1 !default; 
-$select-xs-height: 24px !default;
-$select-sm-height: 24px !default;
-$select-md-height: 32px !default;
-$select-lg-height: 40px !default;
-$range-editor-disabled-bg: $color-master-bg-light-2 !default;
-$range-editor-multiple-bg: $color-master-bg-light-2 !default;
-$range-editor-height: 24px !default;
-$range-editor-tags-size: 16px !default;
+$select-border-color-hover: $border-color-hover ;
+$select-disabled-border: $disabled-border ;
+$select-color: $color-master  ; 
+$select-color: $color-master  ; 
+$select-dropdown-bg: $color-bg-1 ; 
+$select-xs-height: 24px ;
+$select-sm-height: 24px ;
+$select-md-height: 32px ;
+$select-lg-height: 40px ;
+$range-editor-disabled-bg: $color-master-bg-light-2 ;
+$range-editor-multiple-bg: $color-master-bg-light-2 ;
+$range-editor-height: 24px ;
+$range-editor-tags-size: 16px ;
 
 
 /* Checkbox
@@ -414,19 +414,19 @@ $notification-border-color: $neutral-4;
 
 /* Upload
 -------------------------- */
-$upload-color:$color-master !default;
-$upload-border-color: $border-color !default;
-$upload-bg: $color-white !default;
-$upload-bg-hover: $color-grey-9 !default;
-$upload-fill: $upload-bg !default; // deprecated(弃用)
-$upload-font-size: $text-size-sm !default;
-$upload-tips-font-color: $color-neutral-7 !default;
-$upload-font-active-color: $color-grey-1 !default;
-$upload-picture-card-size: 100px !default;
-$upload-picture-card-progress-circle-size: 70px !default;
-$upload-file-uploader-width: 320px !default;
-$upload-dragger-border-radius: $border-radius !default;
-$upload-dragger-text-color: $text-color !default;
+$upload-color:$color-master ;
+$upload-border-color: $border-color ;
+$upload-bg: $color-master-7;
+$upload-bg-hover: $color-grey-9 ;
+$upload-fill: $upload-bg ; // deprecated(弃用)
+$upload-font-size: $text-size-sm ;
+$upload-tips-font-color: $color-neutral-7 ;
+$upload-font-active-color: $color-grey-1 ;
+$upload-picture-card-size: 100px ;
+$upload-picture-card-progress-circle-size: 70px ;
+$upload-file-uploader-width: 320px ;
+$upload-dragger-border-radius: $border-radius ;
+$upload-dragger-text-color: $text-color ;
 
 /* Card
 -------------------------- */
@@ -505,18 +505,19 @@ $alert-success-bg: $green-1;
 $alert-warning-bg: $orange-1;
 $alert-danger-bg: $ruby-1;
 $alert-weak-bg: $neutral-1;
-$alert-single-height: 36px !default;
+$alert-single-height: 36px ;
 
 /* CuteSlider
 -------------------------- */
 $cute-slider-marks-height: 6px;
 $cute-slider-bar-height: 10px;
 $cute-slider-input-width: 64px;
-$cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light);
+$cute-slider-btn-bg: linear-gradient(to bottom, $blue-base, $color-master-bg-light);
 $cute-slider-btn-radius: 8px;
 $cute-slider-btn-width: 17px; // 左右缝隙不同 加1px
 $cute-slider-btn-height: 22px;
-
+$cute-slider-btn-color:  $color-white;
+$cute-slider-btn-color-disabled: $blue-base;
 
 /* Tabs
 -------------------------- */

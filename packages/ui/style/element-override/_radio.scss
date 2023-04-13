@@ -52,9 +52,11 @@
     }
   }
   .el-radio-button{
-    &.is-disabled .el-radio-button__inner{
-      border-color: $radio-group-border-disabled-color;
-      background-color: $radio-group-disabled-bg;
+    &.is-disabled {
+      .el-radio-button__inner{
+        border-color: $radio-group-border-disabled-color;
+        background-color: $radio-group-disabled-bg;
+      }
     }
     &:not(.is-disabled):not(.is-active) {
       .el-radio-button__inner:hover {

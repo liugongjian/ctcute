@@ -92,15 +92,6 @@
     width: $cute-slider-input-width;
   }
 
-  .disabled {
-    background: $disabled-border;
-    .cute-slider-user-button {
-      span {
-        background-color: $color-master-4;
-      }
-    }
-  }
-
   .cute-slider-user-button {
     display: inline-flex;
     box-sizing: content-box;
@@ -109,7 +100,7 @@
     height: 100%;
     span {
       display: block;
-      background-color: $color-master;
+      background-color: $cute-slider-btn-color;
       width: 1px;
       height: 8px;
 
@@ -123,4 +114,13 @@
       }
     }
   }
+  .disabled {
+    background: $disabled-border;
+    .cute-slider-user-button {
+      span {
+        background-color: $cute-slider-btn-color-disabled;
+      }
+    }
+  }
+
 }

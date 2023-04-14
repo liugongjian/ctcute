@@ -31,26 +31,6 @@
     transition: none;
     background-color: $button-default-color-bg;
   }
-  .el-radio-button--large{
-    .el-radio-button__inner{
-      padding: $radio-padding-large;
-    }
-  }
-  .el-radio-button--medium{
-    .el-radio-button__inner{
-      padding: $radio-padding-medium;
-    }
-  }
-  .el-radio-button--mini{
-    .el-radio-button__inner{
-      padding: $radio-padding-small;
-    }
-  }
-  .el-radio-button--small{
-    .el-radio-button__inner{
-      padding: $radio-padding-small;
-    }
-  }
   .el-radio-button{
     &.is-disabled {
       .el-radio-button__inner{
@@ -80,3 +60,17 @@
     }
   }
 }
+
+@mixin radio-size($size, $padding) {
+  .el-radio-group {
+    .el-radio-button--#{$size}{
+      .el-radio-button__inner{
+        padding: $padding;
+      }
+    }
+  }
+}
+@include radio-size(large, $radio-padding-large);
+@include radio-size(medium, $radio-padding-medium);
+@include radio-size(small, $radio-padding-small);
+@include radio-size(mini, $radio-padding-small);

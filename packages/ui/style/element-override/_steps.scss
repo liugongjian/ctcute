@@ -1,14 +1,14 @@
 /* Steps
 -------------------------- */
-$steps-icon-height-md: 32px !default; // 中号尺寸
-$steps-icon-height-sm: 24px !default; // 小号尺寸
-$steps-title-size-md: $text-size-lg !default; // 中号标题：16px
-$steps-title-size-sm: $text-size-sm !default; // 小号标题：12px
-$steps-icon-inner-status-size-md: $text-size-md !default; // 中号状态icon size：14px
-$steps-icon-inner-status-size-sm: $text-size-sm !default; // 小号状态icon size：12px
-$steps-icon-inner-text-size-md: $text-size-md !default; // 小号标号size：14px
-$steps-icon-inner-text-size-sm: $text-size-md !default; // 中号标号size：14px
-$steps-line-size: 1px !default; // 线条粗细;
+$steps-icon-height-md: 32px; // 中号尺寸
+$steps-icon-height-sm: 24px; // 小号尺寸
+$steps-title-size-md: $text-size-lg; // 中号标题：16px
+$steps-title-size-sm: $text-size-sm; // 小号标题：12px
+$steps-icon-inner-status-size-md: $text-size-md; // 中号状态icon size：14px
+$steps-icon-inner-status-size-sm: $text-size-sm; // 小号状态icon size：12px
+$steps-icon-inner-text-size-md: $text-size-md; // 小号标号size：14px
+$steps-icon-inner-text-size-sm: $text-size-md; // 中号标号size：14px
+$steps-line-size: 1px; // 线条粗细;
 
 /* $class:类名;
    $bdColor:边框颜色

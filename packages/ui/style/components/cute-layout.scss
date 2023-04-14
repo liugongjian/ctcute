@@ -218,7 +218,7 @@
         display: inline-block;
         background-color: $cute-layout-sidebar-border;
         width: 2px;
-        height: calc(100% - ($common-space-10x - $text-size));
+        height: calc(100% - (#{$common-space-10x} - #{$text-size}));
         left: $padding-10x;
         top: calc((#{$common-space-10x} - #{$text-size}) / 2);
       }
@@ -279,7 +279,7 @@
     height: $common-space-10x * 2;
     width: $common-space-3x;
     position: absolute;
-    top: calc(50% - $common-space-10x - $cute-layout-header-height / 2); // $common-space-10x是自身高度的一半
+    top: calc(50% - #{$common-space-10x} - #{$cute-layout-header-height} / 2); // $common-space-10x是自身高度的一半
     right: -$common-space-3x;
     background: $cute-layout-sidebar-bg;
     border-top-right-radius: 10px;

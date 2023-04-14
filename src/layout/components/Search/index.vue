@@ -78,7 +78,7 @@ export default class extends Vue {
       parentPath &&
         items.push({
           path: path,
-          value: route.meta.title,
+          value: this.$t(route.meta.title),
           type: 'page',
         })
     })

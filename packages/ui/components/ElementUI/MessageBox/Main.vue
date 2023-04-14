@@ -86,7 +86,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable vue/require-prop-types */
 import Popup from 'element-ui/src/utils/popup'
-import Locale from 'element-ui/src/mixins/locale'
+import Locale from 'element-ui/lib/mixins/locale'
 import ElInput from 'element-ui/packages/input'
 import ElButton from 'element-ui/packages/button'
 import { addClass, removeClass } from 'element-ui/src/utils/dom'

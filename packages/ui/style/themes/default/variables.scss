@@ -10,7 +10,7 @@ $images-path: '~@cutedesign/ui/images' !default;
 $color-master: $blue-base !default; // 默认
 $color-master-hover: $blue-5 !default; // 悬停
 $color-master-active: $blue-7 !default; // 触发
-$color-master-disabled: $blue-4 !default; // 禁用
+$color-master-disabled: $blue-3 !default; // 禁用
 $color-master-bg: $blue-3 !default; // 背景
 $color-master-bg-light: $blue-2 !default; // 背景浅色
 // $color-master-bg-light-2: $blue-1 !default; // 背景浅色2
@@ -28,7 +28,7 @@ $color-master-7: $blue-1 !default; // deprecated(弃用)
 $color-ct: $red-base !default; // 默认
 $color-ct-hover: $red-5 !default; // 悬停
 $color-ct-active: $red-7 !default; // 触发
-$color-ct-disabled: $red-4 !default; // 禁用
+$color-ct-disabled: $red-3 !default; // 禁用
 
 $color-sp-1: $red-base !default; // deprecated(弃用)
 $color-sp-2: $red-5 !default; // deprecated(弃用)
@@ -43,22 +43,22 @@ $color-info-bg: $neutral-1 !default;
 $color-success: $green-base !default; // 成功
 $color-success-hover: $green-5 !default;
 $color-success-active: $green-7 !default;
-$color-success-disabled: $green-4 !default;
+$color-success-disabled: $green-3 !default;
 $color-success-bg: $green-1 !default;
 $color-warning: $orange-base !default; // 警告
 $color-warning-hover: $orange-5 !default;
 $color-warning-active: $orange-7 !default;
-$color-warning-disabled: $orange-4 !default;
+$color-warning-disabled: $orange-3 !default;
 $color-warning-bg: $orange-1 !default;
 $color-danger: $ruby-base !default; // 危险
 $color-danger-hover: $ruby-5 !default;
 $color-danger-active: $ruby-7 !default;
-$color-danger-disabled: $ruby-4 !default;
+$color-danger-disabled: $ruby-3 !default;
 $color-danger-bg: $ruby-1 !default;
-$color-fatal: $ruby-8 !default; // 严重危险
-$color-fatal-hover: $ruby-7 !default;
-$color-fatal-active: $ruby-9 !default;
-$color-fatal-disabled: $ruby-5 !default;
+$color-fatal: $ruby-9 !default; // 严重危险
+$color-fatal-hover: $ruby-8 !default;
+$color-fatal-active: $ruby-10 !default;
+$color-fatal-disabled: $ruby-6 !default;
 $color-fatal-bg: $ruby-1 !default;
 
 $color-status-master: $color-master !default; // deprecated(弃用)
@@ -163,12 +163,13 @@ $border-color: $neutral-5 !default;
 $border-color-hover: $neutral-9 !default;
 $border-color-light: $neutral-1 !default;
 $border-color-dark: $neutral-6 !default;
-$border-radius: 3px !default; // 悬浮状态
-$border-radius-medium: 5px !default; // Card圆角
+$border-radius: 3px !default;
+$border-radius-md: 5px !default;
 
 $border-color-primary: $border-color !default; // deprecated(弃用)
 $border-color-light-1: $border-color-light !default; // deprecated(弃用)
 $border-color-dark-1: $border-color-dark !default; // deprecated(弃用)
+$border-radius-medium: 5px !default; // deprecated(弃用)
 
 /* 间距: Padding & Margin
 -------------------------- */
@@ -234,6 +235,34 @@ $shadow-dialog: 0 6px 16px -8px rgba(0, 0, 0, 8%), 0 9px 28px 0 rgba(0, 0, 0, 5%
   0 12px 48px 16px rgba(0, 0, 0, 3%) !default; // deprecated(弃用)
 $shadow-table-card: rgba(200, 201, 204, 50%) !default; // deprecated(弃用)
 
+/* Layout
+-------------------------- */
+$cute-layout-header-height: 50px !default;
+$cute-layout-header-logo-height: 22px !default;
+$cute-layout-header-sub-logo-height: 15px !default;
+$cute-layout-header-text-color: $color-white !default;
+$cute-layout-header-bg: #272b39 !default;
+$cute-layout-header-border: #585b62 !default;
+$cute-layout-sidebar-width: 190px;
+$cute-layout-sidebar-bg: $color-white;
+$cute-layout-sidebar-border: $color-neutral-3;
+$cute-layout-sidebar-item-bg-hover: $color-neutral-1;
+$cute-layout-sidebar-color-master: $color-master;
+$cute-layout-sidebar-text-color: $text-color;
+$cute-layout-sidebar-arrow-color: $text-color-light;
+
+$header-input-bg: #353f58 !default; // deprecated(弃用)
+$header-text-color: #c2c2c2 !default; // deprecated(弃用)
+$header-search-text-color: $text-color-light-2 !default; // deprecated(弃用)
+$header-height: $cute-layout-header-height !default; // deprecated(弃用)
+$header-fill-1: $cute-layout-header-bg !default; // deprecated(弃用)
+$header-fill-2: $header-input-bg !default; // deprecated(弃用)
+$header-border: $cute-layout-header-border !default; // deprecated(弃用)
+$sidebar-width: $cute-layout-sidebar-width !default; // deprecated(弃用)
+$sidebar-fill: $color-white !default; // deprecated(弃用)
+$sidebar-sub-fill: $color-white !default; // deprecated(弃用)
+$sidebar-sub-hover: $color-master-bg-light-2 !default; // deprecated(弃用)
+
 /* 标签(Tag)
 -------------------------- */
 $tag-master: $blue-1 !default; // 主题色标签背景
@@ -291,7 +320,7 @@ $radio-label-width: $common-space-2x !default; // 普通按钮 中间按钮宽�
 $radio-padding-small: $padding $padding-4x !default;
 $radio-padding-medium: 9px $padding-4x !default;
 $radio-padding-large: $margin-3x $padding-6x !default;
-
+$cute-special-radio-size:3px  !default;
 /* Form
 -------------------------- */
 $form-item-label-line-height: 32px !default; // label
@@ -359,59 +388,42 @@ $table-sort-caret-fill: $table-sort-caret-bg !default; // deprecated(弃用)
 /* Pagination
 -------------------------- */
 $pagination-bg: $neutral-1 !default;
-//$pagination-bg: $color-white !default;
-
-$pagination-fill: $color-white; // deprecated(弃用)
-$pagination-font-size: $text-size !default;
-$pagination-font-size-sm: $text-size !default;
-$pagination-height: 24px !default;
-$pagination-height-sm: 24px !default;
-$pagination-select-width: 56px !default; // TODO 如何实现自适应
-$pagination-input-width: 56px !default; // TODO 如何实现自适应
-$pagination-button-width: 20px !default;
-$pagination-button-width-sm: 20px !default;
-$pagination-button-margin: $margin-2x !default;
-$pagination-button-margin-sm: $margin !default;
 $pagination-button-color: $text-color-light !default;
 $pagination-hover-color: $color-master !default;
 $pagination-hover-bg: $color-bg-3 !default;
 $pagination-active-color: $color-white !default;
 $pagination-active-bg: $color-master !default;
 $pagination-active-bg-disabled: $color-master-disabled !default;
+$pagination-font-size: $text-size !default;
+$pagination-font-size-sm: $text-size !default;
+$pagination-height: 24px !default;
+$pagination-height-sm: 24px !default;
+$pagination-button-width: 20px !default;
+$pagination-button-width-sm: 20px !default;
+
+$pagination-fill: $color-white; // deprecated(弃用)
 
 /* Transfer
 -------------------------- */
-$transfer-header-height: 40px !default; // Transfer组件header高度
 $transfer-header-bg: $color-neutral-1 !default;
-$transfer-button-height: 38px !default; // Transfer组件圆形按钮
-$transfer-button-width: 38px !default; // Transfer组件圆形按钮
-$transfer-button-radius: 50% !default; // Transfer组件圆形按钮
 $transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
 $transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
+$transfer-footert-bg: $color-white !default; // Transfer组件footer背景色
 $transfer-item-height: 32px !default; // Transfer组件选项高度
+$transfer-header-height: 40px !default; // Transfer组件header高度
+$transfer-footer-height: 40px !default; // Transfer组件footer高度
 $transfer-filter-input-height: 28px !default; // Transfer组件搜索框高度
 $transfer-filter-input-margin: $margin-10 !default; // Transfer组件搜索框高度
-$transfer-filter-height: calc(
-  $transfer-filter-input-height + $transfer-filter-input-margin
-) !default; // Transfer组件filter区域高度
-$transfer-footert-bg: $color-white !default; // Transfer组件footer背景色
-$transfer-footer-height: 40px !default; // Transfer组件footer高度
+$transfer-filter-height: calc($transfer-filter-input-height + $transfer-filter-input-margin) !default; // Transfer组件filter区域高度
 
 /* Tabs
 -------------------------- */
 $tabs-master: $color-master !default; // 主题色标签背景
-$tabs-sm-height: 24px !default;
-$tabs-md-height: 32px !default;
-$tabs-lg-height: 40px !default;
-$tabs-button-radius: 2px !default;
 $tabs-default-line-color: $color-neutral-3 !default; // 默认风格的线条颜色
-$tabs-add-item-width: 120px;
+
 
 /* Progress
 -------------------------- */
-$progress-text-height-lg: 30px !default;
-$progress-text-height-sm: 12px !default;
-$progress-text-size-lg: 20px !default;
 
 /* Switch
 -------------------------- */
@@ -431,10 +443,6 @@ $tooltip-fill: $tooltip-bg !default; // deprecated(弃用)
 /* Notification
 -------------------------- */
 $notification-border-color: $neutral-1 !default;
-
-/* Popover
--------------------------- */
-$popover-min-width: 160px !default;
 
 /* Upload
 -------------------------- */
@@ -466,10 +474,8 @@ $cascader-tag-bg: $neutral-1 !default;
 $cascader-tag-border: $neutral-5 !default;
 $cascader-tag-close-color: $white !default;
 $cascader-tag-close-bg: $neutral-6 !default;
-// $cascader-node-hover: $color-master-bg-light-2 !default;
 $cascader-node-hover: $neutral-1 !default;
 $cascader-panel-bg: $color-bg-1 !default;
-$cascader-panel-shadow: $shadow-2 !default;
 
 /* Collapse
 -------------------------- */
@@ -477,54 +483,14 @@ $collapse-border-color: $color-neutral-3 !default;
 $collapse-content-background-color: $color-bg-1 !default;
 $collapse-header-bg: $color-neutral-1 !default;
 $collapse-header-arrow-color: $neutral-6 !default;
-$collapse-header-height: 36px !default;
-$collapse-seperate-header-height: 32px !default;
 $collapse-seperate-header-bg: $color-neutral-2 !default;
+$collapse-header-height: 36px !default;
 
-$collapse-item-header-height: $collapse-seperate-header-height !default; // deprecated(弃用)
+$collapse-item-header-height: 32px !default; // deprecated(弃用)
 $collapse-header-fill: $collapse-header-bg; // deprecated(弃用)
-
-/* Datepicker
--------------------------- */
-$datepicker-shadow: $shadow-2 !default;
-
-/* Descriptions
--------------------------- */
-$descriptions-label-width: 160px !default;
-$descriptions-item-height: 40px !default;
-$descriptions-item-content-width: 525px !default;
-$descriptions-item-content-line-height: 22px !default;
-$descriptions-item-label-min-width: 128px !default;
-
-/* DropDown
--------------------------- */
-$dropdown-item-padding-top-bottom: 7px !default;
-$dropdown-min-width: 120px !default;
-$dropdown-icon-line-height: 0.5 !default;
-
-/* Tree
--------------------------- */
-$tree-checkbox-size: 14px !default;
-$tree-node-icon-padding: 11px !default;
-$tree-checkbox-transform: -0.85px !default;
-$tree-checkbox-scale: 0.375 !default;
-$tree-checkbox-tick-top: 1px !default;
-$tree-handler-menu: 30px !default;
-$tree-node-popover-margin: 0.3em !default;
-$tree-button-tooltip-content-padding: 0.8em 1.2em !default;
-$tree-leaf-expand-icon-padding: 2px !default;
 
 /* Steps
 -------------------------- */
-$steps-icon-height-md: 32px !default; // 中号尺寸
-$steps-icon-height-sm: 24px !default; // 小号尺寸
-$steps-title-size-md: $text-size-lg !default; // 中号标题：16px
-$steps-title-size-sm: $text-size-sm !default; // 小号标题：12px
-$steps-icon-inner-status-size-md: $text-size-md !default; // 中号状态icon size：14px
-$steps-icon-inner-status-size-sm: $text-size-sm !default; // 小号状态icon size：12px
-$steps-icon-inner-text-size-md: $text-size-md !default; // 小号标号size：14px
-$steps-icon-inner-text-size-sm: $text-size-md !default; // 中号标号size：14px
-$steps-line-size: 1px !default; // 线条粗细;
 $steps-bg-color: $color-bg-2 !default; // 覆盖色块，与背景同色
 $steps-icon-bg: $blue-1 !default; // 完成步骤背景色
 
@@ -532,19 +498,6 @@ $steps-icon-bg: $blue-1 !default; // 完成步骤背景色
 -------------------------- */
 $dialog-header-border: $color-neutral-3 !default;
 $dialog-footer-bg: $color-neutral-1 !default;
-
-/* MessageBox
--------------------------- */
-$messagebox-padding-bottom: $padding-3x !default;
-$messagebox-header-padding: $padding-8x !default;
-$messagebox-header-padding-bottom: $padding-3x !default;
-$messagebox-content-padding: $padding-3x $padding-8x !default;
-$messagebox-btns-padding: $padding-3x $padding-8x $padding-5x $padding-8x !default;
-
-/* Message(Toast)
--------------------------- */
-$toast-width: 400px !default;
-$toast-height: 36px !default;
 
 /* Icon
 -------------------------- */
@@ -565,86 +518,20 @@ $alert-success-bg: $green-1 !default;
 $alert-warning-bg: $orange-1 !default;
 $alert-danger-bg: $ruby-1 !default;
 $alert-weak-bg: $neutral-1 !default;
-$alert-single-height: 36px !default;
 
 /* CuteSlider
 -------------------------- */
-$cute-slider-marks-height: 6px !default;
-$cute-slider-bar-height: 10px !default;
-$cute-slider-input-width: 64px !default;
 $cute-slider-line-color: $color-master;
 $cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;
-$cute-slider-btn-radius: 8px !default;
 $cute-slider-btn-width: 17px !default;
 $cute-slider-btn-height: 22px !default;
 $cute-slider-btn-color: $color-master-4 !default;
 $cute-slider-btn-color-disabled: $color-master-4 !default;
 
-/* CuteDistributionBar
+/* CuteArea
 -------------------------- */
-$cute-distribution-bar-input-width: 54px !default;
-$cute-distribution-bar-slider-width: 400px !default;
-$cute-distribution-bar-slider-height: 8px !default;
-$cute-distribution-bar-slider-item-width: 32px !default;
-$cute-distribution-bar-slider-item-height: 32px !default;
-$cute-distribution-bar-slider-button-width: 16px !default;
-$cute-distribution-bar-slider-button-height: 16px !default;
-
-/* Layout
--------------------------- */
-$cute-layout-header-height: 50px !default;
-$cute-layout-header-logo-height: 22px !default;
-$cute-layout-header-sub-logo-height: 15px !default;
-$cute-layout-header-text-color: $color-white !default;
-$cute-layout-header-bg: #272b39 !default;
-$cute-layout-header-border: #585b62 !default;
-$cute-layout-sidebar-width: 190px;
-$cute-layout-sidebar-bg: $color-white;
-$cute-layout-sidebar-border: $color-neutral-3;
-$cute-layout-sidebar-item-bg-hover: $color-neutral-1;
-$cute-layout-sidebar-color-master: $color-master;
-$cute-layout-sidebar-text-color: $text-color;
-$cute-layout-sidebar-arrow-color: $text-color-light;
-
-$header-input-bg: #353f58 !default; // deprecated(弃用)
-$header-text-color: #c2c2c2 !default; // deprecated(弃用)
-$header-search-text-color: $text-color-light-2 !default; // deprecated(弃用)
-$header-height: $cute-layout-header-height !default; // deprecated(弃用)
-$header-fill-1: $cute-layout-header-bg !default; // deprecated(弃用)
-$header-fill-2: $header-input-bg !default; // deprecated(弃用)
-$header-border: $cute-layout-header-border !default; // deprecated(弃用)
-$sidebar-width: $cute-layout-sidebar-width !default; // deprecated(弃用)
-$sidebar-fill: $color-white !default; // deprecated(弃用)
-$sidebar-sub-fill: $color-white !default; // deprecated(弃用)
-$sidebar-sub-hover: $color-master-bg-light-2 !default; // deprecated(弃用)
-
-/* CuteButtonGroup */
-$cute-button-group-margin: -1px !default;
-$cute-button-group-zindex: 1 !default;
-$cute-button-group-border: 2px !default;
-
-/* CuteEditInput */
-$cute-edit-input-width: calc(100% - 84px) !default;
-
-/* CuteRemindInput */
-$cute-remind-input-width: 300px !default;
-
-/* CuteSpecialRadio */
-$cute-special-radio-padding: 9px !default;
-$cute-special-radio-size: 3px !default;
-
-/* CuteRemindSelect */
-$cute-remind-select-right: 33px !default;
-
-/* CuteSelectedInput */
-$cute-selected-input-width: 130px !default;
-
-/* CuteArea */
 $cute-area-recent-border-color: $neutral-5 !default;
 $cute-area-recent-head-color: $neutral-10 !default;
-$cute-area-head-line-height: 20px !default;
-$cute-area-padding: 2px !default;
-$cute-area-item-height: 30px !default;
 $cute-area-recent-item-color: $neutral-9 !default;
 $cute-area-recent-item-background-color: $blue-1 !default;
 $cute-area-item-hover-background-color: $blue-1 !default;
@@ -652,7 +539,6 @@ $cute-area-item-hover-color: $blue-base !default;
 $cute-area-item-seleted-background-color: $blue-base !default;
 $cute-area-head-color: $neutral-9 !default;
 $cute-area-item-color: $neutral-10 !default;
-$cute-area-wrap-margin: 40px !default;
 
 /* Animation
 -------------------------- */

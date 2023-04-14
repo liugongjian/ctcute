@@ -105,11 +105,13 @@ import SvgIcon from './icons/index.vue'
 import CuteAppendix from './packages/appendix/CuteAppendix.vue'
 import CuteChart from './packages/chart/CuteChart.vue'
 import VXETable from './packages/vxe-table/index'
+import CuteSortTable from './packages/sort-table/CuteSortTable.vue'
 
 export {
   CuteAppendix,
   CuteChart,
   VXETable, // VXETable使用时要vue.use全局注册，因为他会自动注册其他几个相关组件
+  CuteSortTable,
 }
 
 /**

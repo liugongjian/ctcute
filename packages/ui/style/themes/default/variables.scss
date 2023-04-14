@@ -389,13 +389,14 @@ $transfer-header-height: 40px !default; // Transfer组件header高度
 $transfer-footer-height: 40px !default; // Transfer组件footer高度
 $transfer-filter-input-height: 28px !default; // Transfer组件搜索框高度
 $transfer-filter-input-margin: $margin-10 !default; // Transfer组件搜索框高度
-$transfer-filter-height: calc($transfer-filter-input-height + $transfer-filter-input-margin) !default; // Transfer组件filter区域高度
+$transfer-filter-height: calc(
+  $transfer-filter-input-height + $transfer-filter-input-margin
+) !default; // Transfer组件filter区域高度
 
 /* Tabs
 -------------------------- */
 $tabs-master: $color-master !default; // 主题色标签背景
 $tabs-default-line-color: $color-neutral-3 !default; // 默认风格的线条颜色
-
 
 /* Progress
 -------------------------- */

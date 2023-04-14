@@ -175,7 +175,12 @@ export default class extends Vue {
   // 动态标签
   private dynamicTags = ['标签1', '标签2', '标签3']
   // 按钮组名称
-  private buttonData = ['操作一', '操作二', '操作三']
+  private buttonData = [
+    { label: '操作一', name: 'op1' },
+    { label: '操作二', name: 'op2' },
+    { label: '操作三', name: 'op3' },
+    { label: '主操作', name: 'op--main' },
+  ]
 
   private activeName = 'a'
 

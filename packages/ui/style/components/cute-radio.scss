@@ -1,5 +1,6 @@
-$cute-special-radio-padding: 9px;
-$cute-special-radio-size: 3px;
+$cute-special-radio-padding: 9px !default;
+$cute-special-radio-size: 3px !default;
+$cute-special-radio-margin: 2px !default;
 
 .special-radio {
   .el-radio-button {
@@ -25,7 +26,7 @@ $cute-special-radio-size: 3px;
   }
 
   .el-radio-group .el-radio-button {
-    margin-left: $cute-special-radio-size;
+    margin-left: $cute-special-radio-margin;
 
     .el-radio-button__inner {
       border: 1px solid $color-neutral-5;

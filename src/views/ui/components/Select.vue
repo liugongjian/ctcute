@@ -38,45 +38,6 @@
       </div>
     </div>
     <div class="sub-down">
-      <h3>多选</h3>
-      <div class="line">
-        <div class="line__left">
-          <el-select
-            v-model="selectValue"
-            :size="itemSize"
-            :disabled="itemDisabled"
-            multiple
-            placeholder="请选择"
-          >
-            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-            </el-option>
-          </el-select>
-        </div>
-      </div>
-    </div>
-    <div class="sub-down">
-      <h3>多选-折叠展示tag</h3>
-      <div class="line">
-        <div class="line__left">
-          <el-select
-            v-model="collapsedValue"
-            :size="itemSize"
-            :disabled="itemDisabled"
-            multiple
-            placeholder="请选择"
-            collapse-tags
-            clearable
-            filterable
-          >
-            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-              <span>{{ item.label }}</span>
-              <span class="option__msg">{{ item.value }}</span>
-            </el-option>
-          </el-select>
-        </div>
-      </div>
-    </div>
-    <div class="sub-down">
       <h3>
         带提示-使用了
         <a href="/component/base/cute-remind-select" target="_blank">CuteRemindSelect</a>
@@ -93,6 +54,104 @@
             :placeholder="name"
             @change="changeFun"
           />
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-down">
+      <h3>多选 - 大： 中： 小</h3>
+      <div class="line">
+        <div class="line__left">
+          <el-select
+            v-model="selectValue"
+            size="large"
+            :disabled="itemDisabled"
+            multiple
+            placeholder="请选择"
+          >
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+            </el-option>
+          </el-select>
+        </div>
+        <div class="line__left">
+          <el-select
+            v-model="selectValue"
+            size="medium"
+            :disabled="itemDisabled"
+            multiple
+            placeholder="请选择"
+          >
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+            </el-option>
+          </el-select>
+        </div>
+        <div class="line__left">
+          <el-select
+            v-model="selectValue"
+            size="small"
+            :disabled="itemDisabled"
+            multiple
+            placeholder="请选择"
+          >
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+            </el-option>
+          </el-select>
+        </div>
+      </div>
+    </div>
+    <div class="sub-down">
+      <h3>多选-折叠展示tag - 大： 中： 小</h3>
+      <div class="line">
+        <div class="line__left">
+          <el-select
+            v-model="collapsedValue"
+            size="large"
+            :disabled="itemDisabled"
+            multiple
+            placeholder="请选择"
+            collapse-tags
+            clearable
+            filterable
+          >
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+              <span>{{ item.label }}</span>
+              <span class="option__msg">{{ item.value }}</span>
+            </el-option>
+          </el-select>
+        </div>
+        <div class="line__left">
+          <el-select
+            v-model="collapsedValue"
+            size="medium"
+            :disabled="itemDisabled"
+            multiple
+            placeholder="请选择"
+            collapse-tags
+            clearable
+            filterable
+          >
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+              <span>{{ item.label }}</span>
+              <span class="option__msg">{{ item.value }}</span>
+            </el-option>
+          </el-select>
+        </div>
+        <div class="line__left">
+          <el-select
+            v-model="collapsedValue"
+            size="small"
+            :disabled="itemDisabled"
+            multiple
+            placeholder="请选择"
+            collapse-tags
+            clearable
+            filterable
+          >
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+              <span>{{ item.label }}</span>
+              <span class="option__msg">{{ item.value }}</span>
+            </el-option>
+          </el-select>
         </div>
       </div>
     </div>

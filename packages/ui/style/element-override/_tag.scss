@@ -11,22 +11,24 @@
   重置Tag颜色
   $type: 类名;
   $color-light: 浅色;
-  $color-dark: 深色;
-  $color-dark-hover: 深色悬浮;
+  $color-light-border: 浅色边框;
+  $color-light-text: 浅色字体;
+  $color-icon: 图标色，Dark模式复用该颜色;
+  $color-icon-hover: 图标悬浮色;
 */
-@mixin tag-color($type, $color-light, $color-dark, $color-dark-hover) {
+@mixin tag-color($type, $color-light, $color-light-border, $color-light-text, $color-icon, $color-icon-hover) {
   .el-tag {
     // light
     &.el-tag--light.el-tag#{$type} {
-      border-color: $color-light;
-      color: $color-dark;
+      border-color: $color-light-border;
+      color: $color-light-text;
       background-color: $color-light;
 
       .el-tag__close {
-        color: $color-dark;
+        color: $color-icon;
 
         &:hover {
-          color: $color-dark-hover;
+          color: $color-icon-hover;
           background: none;
         }
       }
@@ -34,9 +36,9 @@
 
     // dark
     &.el-tag--dark.el-tag#{$type} {
-      border-color: $color-dark;
+      border-color: $color-icon;
       color: $color-white;
-      background-color: $color-dark;
+      background-color: $color-icon;
 
       .el-tag__close {
         color: $color-white;
@@ -50,26 +52,26 @@
 
     // plain
     &.el-tag--plain.el-tag#{$type} {
-      border-color: $color-dark;
-      color: $color-dark;
-      background-color: $color-light;
+      border-color: $color-light-border;
+      color: $color-light-text;
+      background-color: transparent;
 
       .el-tag__close {
-        color: $color-dark;
+        color: $color-icon;
 
         &:hover {
-          color: $color-dark-hover;
+          color: $color-icon-hover;
           background: none;
         }
       }
     }
   }
 }
-@include tag-color(null, $tag-master, $tag-master-border, $color-master-hover);
-@include tag-color(--info, $tag-info, $tag-info-border, $color-info-hover);
-@include tag-color(--success, $tag-success, $tag-success-border, $color-success-hover);
-@include tag-color(--danger, $tag-danger, $tag-danger-border, $color-danger-hover);
-@include tag-color(--warning, $tag-warning, $tag-warning-border, $color-warning-hover);
+@include tag-color(null, $tag-master, $tag-master-border, $tag-master-border, $tag-master-border, $color-master-hover);
+@include tag-color(--info, $tag-info, $tag-info-border, $tag-info-text, $tag-info-dark, $color-info-hover);
+@include tag-color(--success, $tag-success, $tag-success-border, $tag-success-border, $tag-success-border, $color-success-hover);
+@include tag-color(--danger, $tag-danger, $tag-danger-border, $tag-danger-border, $tag-danger-border, $color-danger-hover);
+@include tag-color(--warning, $tag-warning, $tag-warning-border, $tag-warning-border, $tag-warning-border, $color-warning-hover);
 
 
 /*

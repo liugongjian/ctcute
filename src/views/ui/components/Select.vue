@@ -177,13 +177,37 @@
       <h3>
         树形选择/多选-使用了
         <a href="/component/base/cute-select-tree" target="_blank">CuteSelectTree</a>
-        组件
+        组件 - 大： 中： 小
       </h3>
       <div class="line">
         <div class="line__left">
           <cute-select-tree
             v-model="multiTreeData"
-            :size="itemSize"
+            size="large"
+            :disabled="itemDisabled"
+            :value="multiTsreeDataValue"
+            :options="treeOptions"
+            multiple
+            @remove-tag="handelRemove"
+            @change="changeTree"
+          />
+        </div>
+        <div class="line__left">
+          <cute-select-tree
+            v-model="multiTreeData"
+            size="medium"
+            :disabled="itemDisabled"
+            :value="multiTsreeDataValue"
+            :options="treeOptions"
+            multiple
+            @remove-tag="handelRemove"
+            @change="changeTree"
+          />
+        </div>
+        <div class="line__left">
+          <cute-select-tree
+            v-model="multiTreeData"
+            size="small"
             :disabled="itemDisabled"
             :value="multiTsreeDataValue"
             :options="treeOptions"

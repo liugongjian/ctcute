@@ -2,7 +2,7 @@
  * @Author: error: 孙善鹏
  * @Date: 2023-04-11 13:49:34
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-14 10:27:20
+ * @LastEditTime: 2023-04-14 17:43:23
  * @Description: 
 -->
 <template>
@@ -23,11 +23,10 @@
       </div>
 
       <div class="page-items">
-        显示全部层级
-        <el-checkbox v-model="privateshowalllevels" @change="itemChecked = []"></el-checkbox>
+        <el-checkbox v-model="privateshowalllevels" @change="itemChecked = []">显示全部层级</el-checkbox>
         <el-divider direction="vertical"></el-divider>
-        任选一级
-        <el-checkbox v-model="checkStrictly" @change="itemChecked = []"></el-checkbox>
+
+        <el-checkbox v-model="checkStrictly" @change="itemChecked = []">任选一级</el-checkbox>
       </div>
       <div>
         <el-cascader
@@ -44,11 +43,10 @@
     <el-card>
       <h3>多选</h3>
       <div class="page-items">
-        显示所有tag
-        <el-checkbox v-model="collapsetags" @change="itemChecked = []"></el-checkbox>
+        <el-checkbox v-model="collapsetags" @change="itemChecked = []">显示所有tag</el-checkbox>
         <el-divider direction="vertical"></el-divider>
-        任选一级
-        <el-checkbox v-model="checkStrictly" @change="itemChecked = []"></el-checkbox>
+
+        <el-checkbox v-model="checkStrictly" @change="itemChecked = []">任选一级</el-checkbox>
       </div>
       <div>
         <div class="page-items">

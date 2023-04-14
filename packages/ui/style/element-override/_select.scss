@@ -45,7 +45,7 @@ $tags-left-lg: $padding-4x - 6;
 /* 
   重置Select Tag样式
 */
-.el-select__tags{ margin-top: 1px;}
+// .el-select__tags{ margin-top: 1px;}
 .el-select__input{ height: 20px;}
 .el-select {
   .el-tag {
@@ -148,6 +148,9 @@ $tags-left-lg: $padding-4x - 6;
       line-height: $height;
       .el-input--suffix{ 
         line-height: $height - 2;
+        .el-input__inner{
+          line-height: $height - 2;
+        }
       }
       .el-select__tags{ 
         left: $left

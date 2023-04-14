@@ -2,7 +2,7 @@
  * @Author: 何晋升
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-07 15:20:15
+ * @LastEditTime: 2023-04-14 09:56:55
  * @Description: 分步表单
 -->
 <template>
@@ -218,7 +218,7 @@
         </div>
 
         <div v-show="active > 2">
-          <el-result icon="success" sub-title="恭喜你提交成功" style="width: 350px;"> </el-result>
+          <el-result icon="success" sub-title="恭喜你提交成功" style="width: 350px"> </el-result>
           <div class="footer--center">
             <el-button class="btn-style" type="primary" @click="resetForm"> 再来一次 </el-button>
             <el-button @click="handleClick">查看结构表</el-button>

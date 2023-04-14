@@ -247,6 +247,7 @@
         <cute-remind-input
           v-model="state1"
           :placeholder="placeholder"
+          :size="inputSize"
           title="数据资源名称"
           @change="changeFun"
         />
@@ -476,5 +477,29 @@ export default class extends Vue {
 
 .input-small {
   margin-bottom: 24px;
+}
+
+.input-ip {
+  display: flex;
+  align-items: center;
+
+  ::v-deep.el-input-number {
+    width: 48px;
+    text-align: center;
+  }
+  // .el-input.el-input--medium .el-input__inner {text-align: center;}
+  ::v-deep.el-input-number.is-without-controls .el-input__inner {
+    padding: 0 5px;
+  }
+
+  .ip-dot {
+    height: 18px;
+    width: 18px;
+    margin: 0 8px;
+    text-align: center;
+    font-size: $text-size-xl;
+    line-height: 16px;
+    color: $text-color;
+  }
 }
 </style>

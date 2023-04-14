@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-10 17:10:02
+ * @LastEditors: 马妍
+ * @LastEditTime: 2023-04-14 15:44:04
  * @Description:
 -->
 <template>
@@ -13,6 +13,7 @@
     :trigger-on-focus="false"
     :value="value"
     :size="size"
+    :disabled="disabled"
     type="text"
     @input="myChange($event)"
   >
@@ -31,6 +32,7 @@ export default class extends Vue {
   @Prop({ type: String, default: '' }) placeholder?: '' //placeholder
   @Prop({ type: String, default: '' }) title?: '' //label
   @Prop({ type: String, default: '' }) size?: '' //size
+  @Prop({ type: Boolean, default: false }) disabled?: false //disabled
   @Model('change', { type: String }) value: string
   @Emit('change')
   myChange(key) {

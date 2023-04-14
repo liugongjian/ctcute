@@ -11,6 +11,7 @@ $datepicker-shadow: $shadow-2;
 }
 
 .el-picker-panel {
+  border: none;
   .el-picker-panel__sidebar {
     width: 100px;
   }

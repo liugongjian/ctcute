@@ -2,11 +2,10 @@
 -------------------------- */
 $cascader-panel-shadow: $shadow-2;
 
-.el-cascader {
-  // .el-input.el-input--small {
-  //   height: auto !important;
-  // }
 
+
+.el-cascader {
+  .el-input__suffix-inner{ height: 100%;}
   .el-cascader__caret.el-input__icon.el-icon-arrow-down {
     transform: rotate(360deg);
     color: $text-color-light-2;
@@ -30,26 +29,20 @@ $cascader-panel-shadow: $shadow-2;
     line-height: $input-height;
   }
 
-  .el-input__suffix {
-    height: $input-height + 5;
-    line-height: $input-height;
-    right: 2px;
-  }
-
   .el-cascader__tags {
     .el-tag{
       display: flex;
       justify-content: center;
-      &.el-tag--small{ line-height: 20px; height: 20px;}
+      &.el-tag--small{ 
+        line-height: 20px; 
+        height: 20px;
+      }
     }
     .el-tag > span {
       background: $cascader-tag-bg;
       color: $color-grey-1;
-    
     }
-
     .el-tag:not(.is-hit) {
-      // border-color: $cascader-tag-border;
       border: 0;
     }
      .el-icon-close{
@@ -58,8 +51,6 @@ $cascader-panel-shadow: $shadow-2;
      }
     .el-icon-close:before {
       color: $cascader-tag-close-bg;
-      // background-color: $cascader-tag-close-bg;
-      // border-radius: 50%;
       line-height: 20px;
     }
   }
@@ -87,12 +78,18 @@ $cascader-panel-shadow: $shadow-2;
     padding-right: $padding-2x;
   }
 
-
-  // .el-icon-arrow-right::before {
-  //   content: '\e791';
-  // }
-
   .el-cascader-panel {
     background-color: $cascader-panel-bg;
   }
 }
+
+@mixin input-size($size, $height, $text-size) {
+  .el-cascader.el-cascader--#{$size} {
+     line-height: $height;
+  }
+}
+// 组件自己 计算出来的高度比设置高度多1px 需要减掉 
+@include input-size(large, $input-lg-height - 1, $text-size);
+@include input-size(medium, $input-md-height - 1, $text-size);
+@include input-size(small, $input-sm-height - 1, $text-size);
+@include input-size(mini, $input-xs-height - 1, $text-size);

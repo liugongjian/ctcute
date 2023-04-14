@@ -1,28 +1,30 @@
 /* Select
 -------------------------- */
-
+$tags-left-xs: $padding-2x - 6;
+$tags-left-sm: $padding-2x - 6;
+$tags-left-md: $padding-3x - 6;
+$tags-left-lg: $padding-4x - 6;
 /*
   重置Select基本样式
 */
-.el-range-editor--mini.el-input__inner{ height: 24px;}
-.el-range-editor--small.el-input__inner{ height: 24px; }
+.el-range-editor--mini.el-input__inner{ height: $range-editor-height;}
+.el-range-editor--small.el-input__inner{ height: $range-editor-height; }
 .el-select {
   .el-icon-circle-close:before {
     font-family: $font-family-cute-icons;
     content: '\ea4f';
   }
-
+  .el-input--suffix{ height: 100%;}
   &.disabled-select {
     .el-select__tags-text:after {
       @include iconfont;
-
       content: '\ea3c';
       color: $disabled-icon-color;
       text-align: center;
       line-height: 17px;
       display: inline-block;
-      width: 16px;
-      height: 16px;
+      width: $range-editor-tags-size;
+      height: $range-editor-tags-size;
       background: unset;
       font-size: $text-size-primary;
       border-radius: 50%;
@@ -43,6 +45,8 @@
 /* 
   重置Select Tag样式
 */
+// .el-select__tags{ margin-top: 1px;}
+.el-select__input{ height: 20px;}
 .el-select {
   .el-tag {
     background: $cascader-tag-bg;
@@ -50,21 +54,16 @@
     border-radius: $border-radius;
   }
 
-  .el-select__tags-text:hover {
-    color: $color-master;
-    cursor: pointer;
-  }
   .el-tag.el-tag--light.el-tag--info{
     color: $text-color;
   }
   .el-tag.el-tag--info .el-tag__close {
-    // background: $text-color-light-2;
     background-color: unset;
     color: $text-color;
 
     &:hover {
-      background: $color-master;
-      color: $color-white;
+      background: $select-color;
+      color: $select-dropdown-bg;
     }
   }
 }
@@ -74,8 +73,11 @@
 /*
   重置Select Dropdown样式
 */
+
+.el-range-editor.el-input__inner.is-disabled{ background-color: $range-editor-disabled-bg;}
 .el-select-dropdown {
-  background: $color-bg-1;
+  
+  background: $select-dropdown-bg;
   box-shadow: $shadow-2;
   border: none;
 
@@ -86,36 +88,32 @@
     &:hover {
       background-color: $color-neutral-1;
     }
-    height: 34px;
-    line-height: 34px;
     font-size: $text-size;
-    background-color: $color-bg-1;
+    background-color: $select-dropdown-bg;
     
     &:not(.el-select-dropdown__item.selected):not(.el-select-dropdown__item.is-disabled):hover {
       
       // background-color:unset;
-      color: $color-master;
+      color: $select-color;
     }
 
     &.selected {
-      //  background-color: $color-master-bg-light-2;
-      // background: $color-master;
-      color: $color-master;
+      color: $select-color;
       font-weight: normal;
     }
 
     &.is-disabled:hover {
       color: $color-grey-4;
-      background-color: $color-bg-1;
+      background-color: $select-dropdown-bg;
     }
   }
 
   &.is-multiple &__item.selected {
     // background: $color-bg-3;
-    color: $color-master;
+    color: $select-color;
 
     &:hover {
-      background: $color-master-bg-light-2;
+      background: $range-editor-multiple-bg;
     }
   }
 
@@ -140,7 +138,27 @@
 
   &.el-popper {
     .el-tree {
-      background-color: $color-bg-1;
+      background-color: $select-dropdown-bg;
     }
   }
 }
+@mixin select-size($size, $height, $left) {
+  .el-select {
+    &.el-select--#{$size}{
+      line-height: $height;
+      .el-input--suffix{ 
+        line-height: $height - 2;
+        .el-input__inner{
+          line-height: $height - 2;
+        }
+      }
+      .el-select__tags{ 
+        left: $left
+      }
+    }
+  }
+}
+@include select-size(large, $select-lg-height, $tags-left-lg);
+@include select-size(medium, $select-md-height, $tags-left-md);
+@include select-size(small, $select-sm-height, $tags-left-sm);
+@include select-size(mini, $select-xs-height, $tags-left-xs);

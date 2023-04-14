@@ -1,17 +1,19 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2023-02-28 16:53:20
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-12 19:58:35
  * @Description: 带提示的选择器
 -->
 <template>
   <el-select
-    class="cute-remind-select"
     ref="select"
+    class="cute-remind-select"
     filterable
     :multiple="multiple ? true : false"
     :placeholder="placeholder"
+    :size="size"
+    :disabled="disabled"
     clearable
     :collapse-tags="collapseTags ? true : false"
     :value="value"
@@ -35,6 +37,8 @@ export default class extends Vue {
   @Prop({ type: String, default: '' }) title?: '' // 提示文案
   @Prop({ type: Boolean, default: false }) collapseTags?: false
   @Model('change', { default: '' }) value: Array<any> | string
+  @Prop({ type: String, default: 'medium' }) size?: 'medium' //option 值
+  @Prop({ type: Boolean, default: false }) disabled!: boolean //禁用状态
   @Emit('change')
   myChange(key) {
     this.multiple &&

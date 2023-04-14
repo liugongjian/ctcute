@@ -40,6 +40,11 @@ $cute-selected-input-width: 130px;
     padding-right: 0;
     color: $color-master;
   }
+  .is-disabled {
+    .el-input__prefix{ cursor: not-allowed;
+      .select-field{ color: $button-default-text-color-disabled; }
+    }
+  } 
 }
 
 .cute-select-tree {

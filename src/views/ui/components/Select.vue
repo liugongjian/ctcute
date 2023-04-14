@@ -378,7 +378,7 @@
           @change="change"
         />
       </el-row>
-      <el-checkbox-group v-model="checkedList">
+      <el-checkbox-group v-model="checkedList" :size="itemSize" :disabled="itemDisabled">
         <el-row>
           <el-checkbox label="未选中项"></el-checkbox>
         </el-row>

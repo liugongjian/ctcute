@@ -38,6 +38,8 @@
 
   &__main__wrap {
     flex: 1;
+    /* 最小分辨率 - 侧边栏宽度 - 边距 - 边距 */
+    min-width: calc(#{$screen-lg} - #{$cute-layout-sidebar-width} - #{$padding-5x} - #{$padding-5x});
 
     &.fixed-navbar {
       overflow: auto;
@@ -49,8 +51,6 @@
 
   &__main {
     flex: 1;
-    /* 最小分辨率 - 侧边栏宽度 - 边距 - 边距 */
-    min-width: calc(#{$screen-lg} - #{$cute-layout-sidebar-width} - #{$padding-5x} - #{$padding-5x});
   }
 }
 

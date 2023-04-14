@@ -46,10 +46,10 @@
     }
 
     &-svg {
-      margin-left: $margin-3x;
       height: $input-md-height;
 
       svg {
+        margin-left: $margin-3x;
         height: $input-md-height;
       }
     }

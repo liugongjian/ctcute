@@ -2,7 +2,7 @@
  * @Author: 刘功坚
  * @Date: 2023-03-17 13:45:09
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-11 09:41:22
+ * @LastEditTime: 2023-04-14 09:52:56
  * @Description: DropDown
 -->
 <template>
@@ -77,7 +77,7 @@
     </div>
     <div>
       <h3>不同尺寸</h3>
-      <el-dropdown split-button type="primary" placement="bottom-start">
+      <el-dropdown split-button type="primary">
         默认尺寸
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>黄金糕</el-dropdown-item>
@@ -88,7 +88,7 @@
         </el-dropdown-menu>
       </el-dropdown>
 
-      <el-dropdown size="medium" split-button type="primary" placement="bottom-start">
+      <el-dropdown size="medium" split-button type="primary">
         中等尺寸
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>黄金糕</el-dropdown-item>

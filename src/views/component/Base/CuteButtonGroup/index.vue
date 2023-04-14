@@ -1,8 +1,8 @@
 <!--
  * @Author: 王亚振
  * @Date: 2022-07-21 10:56:09
- * @LastEditors: 王亚振
- * @LastEditTime: 2022-07-21 11:10:10
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-04-13 16:05:10
  * @Description:
 -->
 <template>
@@ -48,9 +48,9 @@ export default class extends Vue {
     {
       name: 'data',
       desc: '按钮名称数组',
-      type: 'Array<String>',
+      type: 'Array<Object>',
       required: '选填',
-      options: null,
+      options: '[{ label: "操作一", name: "op1"}]',
       default: null,
     },
     {
@@ -60,6 +60,14 @@ export default class extends Vue {
       required: '选填',
       options: null,
       default: null,
+    },
+    {
+      name: 'size',
+      desc: '按钮尺寸',
+      type: 'string',
+      required: '选填',
+      options: 'large/medium/small/mini',
+      default: 'medium',
     },
   ]
   private event = [{ name: 'change', desc: '点击操作时触发', callback: '选中项' }]

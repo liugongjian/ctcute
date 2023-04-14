@@ -3,7 +3,7 @@
  * @Date: 2022-07-25 11:02:16
  * @LastEditors: 马妍
  * @LastEditTime: 2022-07-25 17:31:03
- * @Description: 
+ * @Description:
 -->
 <template>
   <div>
@@ -49,7 +49,7 @@ export default class extends Vue {
       name: 'options',
       desc: '选项列表',
       type: 'Array',
-      options: null,
+      options: '{ label: "Disabled", disabled: true }',
       default: null,
     },
     {

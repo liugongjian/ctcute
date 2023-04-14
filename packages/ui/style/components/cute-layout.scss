@@ -36,7 +36,7 @@
     overflow: auto;
   }
 
-  &__main__wrap {
+  &__main {
     flex: 1;
     /* 最小分辨率 - 侧边栏宽度 - 边距 - 边距 */
     min-width: calc(#{$screen-lg} - #{$cute-layout-sidebar-width} - #{$padding-5x} - #{$padding-5x});
@@ -47,10 +47,6 @@
       margin-right: -$margin-5x;
       margin-bottom: -$margin-5x;
     }
-  }
-
-  &__main {
-    flex: 1;
   }
 }
 

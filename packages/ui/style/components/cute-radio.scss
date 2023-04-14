@@ -1,3 +1,7 @@
+$cute-special-radio-padding: 9px !default;
+$cute-special-radio-size: 3px !default;
+$cute-special-radio-margin: 2px !default;
+
 .special-radio {
   .el-radio-button {
     &:last-child .el-radio-button__inner {
@@ -22,7 +26,7 @@
   }
 
   .el-radio-group .el-radio-button {
-    margin-left: $cute-special-radio-size;
+    margin-left: $cute-special-radio-margin;
 
     .el-radio-button__inner {
       border: 1px solid $color-neutral-5;
@@ -48,7 +52,7 @@
     color: $color-white;
   }
 
-  .el-radio-button__orig-radio:checked+.el-radio-button__inner {
+  .el-radio-button__orig-radio:checked + .el-radio-button__inner {
     box-shadow: none;
   }
 }

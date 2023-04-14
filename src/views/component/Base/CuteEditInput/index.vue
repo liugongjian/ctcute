@@ -55,6 +55,14 @@ export default class extends Vue {
       options: null,
       default: null,
     },
+    {
+      name: 'size',
+      desc: '同el-input的size参数',
+      type: 'String',
+      required: '选填',
+      options: 'large/medium/small/mini',
+      default: 'medium',
+    },
   ]
 }
 </script>

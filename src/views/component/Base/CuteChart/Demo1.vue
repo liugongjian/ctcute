@@ -11,7 +11,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { CuteChart } from '@cutedesign/chart'
+import { CuteChart } from '@cutedesign/ui'
 @Component({
   name: 'CuteChartDemo1',
   components: {

@@ -13,7 +13,7 @@ $--color-white: $color-white;
 $--color-text-primary: $text-color;
 $--color-text-regular: $text-color;
 $--color-text-secondary: $text-color-light;
-$--color-text-placeholder: $text-color-light-2;
+$--color-text-placeholder: $text-color-placeholder;
 $--border-color-base: $border-color;
 $--border-color-light: $border-color-light;
 $--border-color-lighter: $border-color-light;
@@ -129,7 +129,7 @@ $--collapse-content-font-color: $text-color-light;
 -------------------------- */
 $--msgbox-border-radius: $border-radius;
 $--messagebox-font-size: $text-size-lg;
-$--msgbox-padding-primary: $messagebox-header-padding;
+$--msgbox-padding-primary: $padding-8x;
 
 /* Message
 -------------------------- */

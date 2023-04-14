@@ -1,3 +1,11 @@
+$cute-distribution-bar-input-width: 54px;
+$cute-distribution-bar-slider-width: 400px;
+$cute-distribution-bar-slider-height: 8px;
+$cute-distribution-bar-slider-item-width: 32px;
+$cute-distribution-bar-slider-item-height: 32px;
+$cute-distribution-bar-slider-button-width: 16px;
+$cute-distribution-bar-slider-button-height: 16px;
+
 .distribution-bar {
   &__split {
     margin-top: $margin-5x;
@@ -16,7 +24,7 @@
         padding-left: $padding-2x;
       }
 
-      .el-checkbox__input.is-checked+.el-checkbox__label {
+      .el-checkbox__input.is-checked + .el-checkbox__label {
         color: $color-grey-1;
       }
 
@@ -60,7 +68,7 @@
     width: $cute-distribution-bar-slider-width;
     height: $cute-distribution-bar-slider-height;
     background-color: $color-grey-8;
-    border-radius: $border-radius-medium;
+    border-radius: $border-radius-md;
     position: relative;
     cursor: pointer;
     vertical-align: middle;
@@ -69,7 +77,7 @@
       position: absolute;
       left: 0;
       height: $cute-distribution-bar-slider-height;
-      border-radius: $border-radius-medium;
+      border-radius: $border-radius-md;
     }
 
     .sp-slider__wrap {

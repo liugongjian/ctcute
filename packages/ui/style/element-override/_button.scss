@@ -1,3 +1,8 @@
+$button-padding-mini: 5px $padding-2x;
+$button-padding-small: 5px $padding-2x;
+$button-padding-medium: 9px $padding-4x;
+$button-padding-large: $margin-3x $padding-6x;
+
 /*
   重置按钮样式
   $type: 类名;
@@ -16,7 +21,7 @@
   $color-border-disabled: $color-bg-disabled;
 
   // 针对default特殊处理
-  @if $type == default {
+  @if $type ==--default or $type ==null {
     $color-text: $button-default-text-color;
     $color-text-hover: $color-bg-hover;
     $color-text-active: $color-bg-active;
@@ -29,7 +34,7 @@
     $color-bg-active: $button-default-color-bg;
   }
 
-  .el-button--#{$type} {
+  .el-button#{$type} {
     color: $color-text;
     background: $color-bg;
     border-color: $color-border;
@@ -39,7 +44,7 @@
       background: $color-bg-hover;
       border-color: $color-border-hover;
     }
-    
+
     &:active,
     &:focus {
       color: $color-text-active;
@@ -47,8 +52,14 @@
       border-color: $color-border-active;
     }
 
-    &.is-disabled, &.is-disabled:hover, &.is-disabled:active, &.is-disabled:focus,
-    &.is-loading, &.is-loading:hover, &.is-loading:active, &.is-loading:focus {
+    &.is-disabled,
+    &.is-disabled:hover,
+    &.is-disabled:active,
+    &.is-disabled:focus,
+    &.is-loading,
+    &.is-loading:hover,
+    &.is-loading:active,
+    &.is-loading:focus {
       color: $color-text-disabled;
       background: $color-bg-disabled;
       border-color: $color-border-disabled;
@@ -59,14 +70,16 @@
     }
   }
 }
-@include button-color(default, $button-default-color-border, $color-master, $color-master-active, $button-default-color-bg-disabled);
-@include button-color(primary, $color-master, $color-master-hover, $color-master-active, $color-master-disabled);
-@include button-color(info, $color-info, $color-info-hover, $color-info-active, $color-info-disabled);
-@include button-color(success, $color-success, $color-success-hover, $color-success-active, $color-success-disabled);
-@include button-color(warning, $color-warning, $color-warning-hover, $color-warning-active, $color-warning-disabled);
-@include button-color(danger, $color-danger, $color-danger-hover, $color-danger-active, $color-danger-disabled);
-@include button-color(fatal, $color-fatal, $color-fatal-hover, $color-fatal-active, $color-fatal-disabled);
-@include button-color(ct, $color-ct, $color-ct-hover, $color-ct-active, $color-ct-disabled);
+
+@include button-color(null, $button-default-color-border, $color-master, $color-master-active, $button-default-color-bg-disabled);
+@include button-color(--default, $button-default-color-border, $color-master, $color-master-active, $button-default-color-bg-disabled);
+@include button-color(--primary, $color-master, $color-master-hover, $color-master-active, $color-master-disabled);
+@include button-color(--info, $color-info, $color-info-hover, $color-info-active, $color-info-disabled);
+@include button-color(--success, $color-success, $color-success-hover, $color-success-active, $color-success-disabled);
+@include button-color(--warning, $color-warning, $color-warning-hover, $color-warning-active, $color-warning-disabled);
+@include button-color(--danger, $color-danger, $color-danger-hover, $color-danger-active, $color-danger-disabled);
+@include button-color(--fatal, $color-fatal, $color-fatal-hover, $color-fatal-active, $color-fatal-disabled);
+@include button-color(--ct, $color-ct, $color-ct-hover, $color-ct-active, $color-ct-disabled);
 
 /*
   重置朴素(plain)按钮样式
@@ -80,7 +93,7 @@
   $color-bg: $color-bg-1;
 
   // 针对default特殊处理
-  @if $type == default {
+  @if $type ==default {
     $color-text: $text-color-light;
   }
 
@@ -101,15 +114,22 @@
       border-color: $color-border-active;
       background: $color-bg-hover;
     }
-    
-    &.is-disabled, &.is-disabled:hover, &.is-disabled:active, &.is-disabled:focus,
-    &.is-loading, &.is-loading:hover, &.is-loading:active, &.is-loading:focus {
+
+    &.is-disabled,
+    &.is-disabled:hover,
+    &.is-disabled:active,
+    &.is-disabled:focus,
+    &.is-loading,
+    &.is-loading:hover,
+    &.is-loading:active,
+    &.is-loading:focus {
       color: $color-bg-disabled;
       background: $color-bg;
       border-color: $color-bg-disabled;
     }
   }
 }
+
 @include button-plain(default, $color-grey-6, $color-master-hover, $color-master-active, $tag-master, $color-info-disabled);
 @include button-plain(primary, $color-master, $color-master-hover, $color-master-active, $tag-master, $color-master-disabled);
 @include button-plain(info, $color-info, $color-info-hover, $color-info-active, $tag-info, $color-info-disabled);
@@ -131,18 +151,18 @@
     font-size: $font-size;
     padding: $padding;
 
-    > .svg-icon,
-    > [class*=el-icon-] {
-      font-size: $font-size - 1; // 文字字体大小减1后再通过scale缩放，避免按钮被撑高的问题
+    .svg-icon,
+    [class*=el-icon-] {
+      font-size: $font-size - 0.2; // 文字字体大小减0.2后再通过scale缩放，避免按钮被撑高的问题
       line-height: 1;
-      transform: scale(1.28);
+      transform: scale(1.24);
     }
 
-    > .svg-icon {
+    .svg-icon {
       vertical-align: $icon-vertical-align !important;
     }
 
-    > [class*=el-icon-] {
+    [class*=el-icon-] {
       vertical-align: $icon-vertical-align + 0.11em !important;
     }
 
@@ -155,6 +175,7 @@
     }
   }
 }
+
 @include button-size(mini, $text-size, $button-padding-mini, -0.17em);
 @include button-size(small, $text-size, $button-padding-small, -0.17em);
 @include button-size(medium, $text-size, $button-padding-medium, -0.16em);
@@ -164,6 +185,7 @@
   重置按钮其他样式
 */
 .el-button {
+
   /*
     重置按钮图标样式
   */
@@ -187,47 +209,47 @@
     margin-right: $margin-4x;
   }
 
-.el-radio-group {
-  .el-radio-button.el-radio-button--small{ 
-    .el-radio-button__inner{
-      padding: 5px 15px;
+  .el-radio-group {
+    .el-radio-button.el-radio-button--small {
+      .el-radio-button__inner {
+        padding: 5px 15px;
+      }
+    }
+
+    .el-radio-button.el-radio-button--mini {
+      .el-radio-button__inner {
+        padding: 5px 15px;
+      }
+    }
+
+    .el-radio-button.el-radio-button--medium {
+      .el-radio-button__inner {
+        padding: 9px 20px;
+      }
+    }
+
+    .el-radio-button.el-radio-button--large {
+      .el-radio-button__inner {
+        padding: 13px 20px;
+      }
     }
   }
 
-  .el-radio-button.el-radio-button--mini{
-    .el-radio-button__inner{
-      padding: 5px 15px;
-    }
-  }
+  // .el-button.el-button--primary.el-button--medium.is-loading {
+  //   background: $color-master;
+  //   border-color: $color-master;
+  //   opacity: 0.6;
+  // }
 
-  .el-radio-button.el-radio-button--medium{
-    .el-radio-button__inner{
-      padding: 9px 20px;
-    }
-  }
+  // .el-button.el-button--default.el-button--medium.is-loading {
+  //   background: $loading-default-color;
+  //   border-color: $loading-default-border;
+  // }
 
-  .el-radio-button.el-radio-button--large{
-    .el-radio-button__inner{
-      padding: 13px 20px;
-    }
-  }
-}
-
-// .el-button.el-button--primary.el-button--medium.is-loading {
-//   background: $color-master;
-//   border-color: $color-master;
-//   opacity: 0.6;
-// }
-
-// .el-button.el-button--default.el-button--medium.is-loading {
-//   background: $loading-default-color;
-//   border-color: $loading-default-border;
-// }
-
-// .el-button + .el-dropdown {
-//   margin-left: $margin-4x;
-//   margin-right: $margin-4x;
-// }
+  // .el-button + .el-dropdown {
+  //   margin-left: $margin-4x;
+  //   margin-right: $margin-4x;
+  // }
 
   /*
     重置按钮与按钮的间距
@@ -242,9 +264,13 @@
   &--text {
     color: $color-master;
     padding: 0;
+    background: transparent;
+    border-color: transparent;
 
     &:hover {
       color: $color-master-hover;
+      background: transparent;
+      border-color: transparent;
     }
 
     &.light:not(.is-disabled) {
@@ -258,6 +284,11 @@
         border-color: transparent;
         background: transparent;
       }
+    }
+
+    &.is-disabled, &.is-loading {
+      border-color: transparent;
+      background: transparent;
     }
   }
 }

@@ -1,12 +1,10 @@
 @mixin table {
-
   /* 分页 */
   .el-pagination {
     text-align: right;
   }
 
   .el-table {
-
     /* 操作按钮 */
     .actions.el-table__cell {
       .el-button--text + .el-button--text {
@@ -18,7 +16,6 @@
 
 /* 筛选表单 1 */
 @mixin tableToolsConditionForm1 {
-
   .el-form {
     display: flex;
   }
@@ -40,7 +37,6 @@
 
 /* 筛选表单 2 */
 @mixin tableToolsConditionForm2 {
-
   &__row {
     display: flex;
 
@@ -89,7 +85,6 @@
 
 /* 简单表格 */
 .simple-table {
-
   /* 表格工具栏 */
   .table-tools {
     display: flex;
@@ -109,10 +104,8 @@
 
 /* 简单表格 2 */
 .simple-table2 {
-
   /* 表格工具栏 */
   .table-tools {
-
     /* 筛选表单 */
     &__conditions {
       @include tableToolsConditionForm1();
@@ -124,7 +117,6 @@
 
 /* 复杂表格 1 */
 .pro-table-1 {
-
   /* 表格工具栏 */
   .table-tools {
     display: flex;
@@ -155,13 +147,12 @@
 }
 
 /* 复杂表格 2 */
+
 /* 复杂表格 3 */
 .pro-table-2,
 .pro-table-3 {
-
   /* 表格工具栏 */
   .table-tools {
-
     /* 筛选表单 */
     &__conditions {
       margin-bottom: $margin-4x;
@@ -278,7 +269,6 @@
 
   /* 表格 */
   .table-wrap {
-
     /* 表格工具栏 */
     .table-tools {
       display: flex;
@@ -299,10 +289,8 @@
 
 /* 复杂表格 5 */
 .pro-table-5 {
-
   /* 表格工具栏 */
   .table-tools {
-
     /* 筛选表单 */
     &__conditions {
       margin-bottom: $margin-4x;
@@ -342,8 +330,8 @@
 }
 
 /* 下拉展开旋转小三角 */
-.top-fill {
-  transform: rotate(180deg);
+.el-table .el-button .top-fill {
+  transform: scale(1.28) rotate(180deg);
 }
 
 // TODO 这是ProForm页面样式

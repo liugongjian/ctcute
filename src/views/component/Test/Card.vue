@@ -41,7 +41,7 @@
         </el-col>
       </el-row>
     </div>
-    <div>
+    <div class="mb-12">
       <h3>卡片阴影</h3>
       <el-row :gutter="12">
         <el-col :span="8">
@@ -91,8 +91,8 @@ export default class extends Vue {
 }
 
 .time {
-  font-size: 13px;
-  color: #999;
+  font-size: 12px;
+  color: $color-neutral-7;
 }
 
 .bottom {
@@ -108,5 +108,9 @@ export default class extends Vue {
 .image {
   width: 100%;
   display: block;
+}
+
+.mb-12 {
+  margin-bottom: $common-space-3x;
 }
 </style>

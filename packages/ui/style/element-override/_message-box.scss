@@ -1,5 +1,10 @@
 /* MessageBox
 -------------------------- */
+$messagebox-padding-bottom: $padding-3x;
+$messagebox-header-padding-bottom: $padding-3x;
+$messagebox-content-padding: $padding-3x $padding-8x;
+$messagebox-btns-padding: $padding-3x $padding-8x $padding-5x $padding-8x;
+
 .el-message-box {
   background-color: $color-bg-2;
   border: none;

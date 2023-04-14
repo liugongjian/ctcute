@@ -1,5 +1,10 @@
 /* Descriptions
 -------------------------- */
+$descriptions-label-width: 160px;
+$descriptions-item-height: 40px;
+$descriptions-item-content-width: 525px;
+$descriptions-item-content-line-height: 22px;
+$descriptions-item-label-min-width: 128px;
 
 .el-descriptions {
   &__header {
@@ -31,7 +36,6 @@
         // text-align: right;
         // color: $descriptions-font-color-label-bordered;
         color: $text-color;
-        font-weight: 400;
         padding-right: $padding-6x;
         width: $descriptions-label-width;
       }

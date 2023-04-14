@@ -2,7 +2,7 @@
  * @Author: 刘功坚
  * @Date: 2023-03-17 13:45:09
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-27 15:10:01
+ * @LastEditTime: 2023-04-14 09:52:56
  * @Description: DropDown
 -->
 <template>
@@ -10,7 +10,7 @@
     <h1>DropDown</h1>
     <div>
       <h3>基础用法</h3>
-      <el-dropdown>
+      <el-dropdown placement="bottom-start">
         <span class="el-dropdown-link"> 下拉菜单<i class="el-icon-arrow-down el-icon--right"></i> </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>黄金糕</el-dropdown-item>
@@ -23,7 +23,7 @@
     </div>
     <div>
       <h3>触发对象</h3>
-      <el-dropdown>
+      <el-dropdown placement="bottom-start">
         <el-button type="primary"> 更多菜单<i class="el-icon-arrow-down el-icon--right"></i> </el-button>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>黄金糕</el-dropdown-item>
@@ -33,7 +33,7 @@
           <el-dropdown-item>蚵仔煎</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-      <el-dropdown split-button type="primary" @click="handleClick">
+      <el-dropdown split-button type="primary" placement="bottom-start" @click="handleClick">
         更多菜单
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>黄金糕</el-dropdown-item>
@@ -49,7 +49,7 @@
       <el-row class="block-col-2">
         <el-col :span="12">
           <span class="demonstration">hover 激活</span>
-          <el-dropdown>
+          <el-dropdown placement="bottom-start">
             <span class="el-dropdown-link"> 下拉菜单<i class="el-icon-arrow-down el-icon--right"></i> </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item icon="el-icon-plus">黄金糕</el-dropdown-item>
@@ -62,7 +62,7 @@
         </el-col>
         <el-col :span="12">
           <span class="demonstration">click 激活</span>
-          <el-dropdown trigger="click">
+          <el-dropdown trigger="click" placement="bottom-start">
             <span class="el-dropdown-link"> 下拉菜单<i class="el-icon-arrow-down el-icon--right"></i> </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item icon="el-icon-plus">黄金糕</el-dropdown-item>

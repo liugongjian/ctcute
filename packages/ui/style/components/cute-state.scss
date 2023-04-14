@@ -1,6 +1,7 @@
 .el-state {
   display: inline-flex;
   align-items: center;
+  line-height: $line-height;
 
   .icon-wrap {
     font-size: $text-size-lg;
@@ -21,11 +22,11 @@
   }
 }
 
-.el-state>span {
+.el-state > span {
   margin-right: $margin;
 }
 
-.el-state>span.dot {
+.el-state > span.dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;

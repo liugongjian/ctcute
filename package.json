@@ -13,11 +13,7 @@
     "clean:all": "sh ./build/clean-all.sh",
     "compile:all": "sh ./build/build-all.sh",
     "compile:ui": "yarn workspace @cutedesign/ui run build",
-    "compile:appendix": "yarn workspace @cutedesign/appendix run build",
-    "compile:authenticate": "yarn workspace @cutedesign/authenticate run build",
-    "compile:chart": "yarn workspace @cutedesign/chart run build",
-    "compile:sort-table": "yarn workspace @cutedesign/sort-table run build",
-    "compile:vxe-table": "yarn workspace @cutedesign/vxe-table run build"
+    "compile:authenticate": "yarn workspace @cutedesign/authenticate run build"
   },
   "lint-staged": {
     "*.{ts,js,vue}": [
@@ -111,10 +107,6 @@
   },
   "workspaces": [
     "packages/ui",
-    "packages/chart",
-    "packages/appendix",
-    "packages/sort-table",
-    "packages/authenticate",
-    "packages/vxe-table"
+    "packages/authenticate"
   ]
 }

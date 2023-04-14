@@ -1,5 +1,10 @@
 /* Tabs
 -------------------------- */
+$tabs-add-item-width: 120px;
+$tabs-button-radius: $border-radius;
+$tabs-sm-height: $input-sm-height;
+$tabs-md-height: $input-md-height;
+$tabs-lg-height: $input-lg-height;
 
 /*
   默认风格
@@ -30,10 +35,14 @@
     border: none;
   }
 
-  .el-tabs__nav-wrap:after {
-    content: '';
+  .el-tabs__nav-wrap::after {
+    display: none;
+  }
+
+  .el-tabs__nav::after {
+    content: "";
     position: absolute;
-    left: 0;
+    left: 100%;
     bottom: 0;
     width: 100%;
     height: 1px;
@@ -45,7 +54,7 @@
 
   .el-tabs.el-tabs--card.el-tabs--#{$direction} {
 
-    .el-tabs__nav-wrap::after {
+    .el-tabs__nav::after {
 
       @if $direction == bottom {
         top: 0;
@@ -56,39 +65,56 @@
         height: 100%;
         width: 1px;
         right: 0;
+        top: 100%;
         left: auto;
       }
 
       @if $direction == right {
+        top: 100%;
+        left: 0;
+        right: auto;
         height: 100%;
         width: 1px;
       }
     }
     .el-tabs__item.is-#{$direction}{
-      border-right: none;
-      border-left: none;
-      border-top: none;
-      border-bottom: none;
+      border:none;
+
+      @if $direction == bottom {
+        border-top: 1px solid $border-color;
+      }
+
+      @if $direction == top {
+        border-bottom: 1px solid $border-color;
+      }
+
+      @if $direction == right {
+        border-left: 1px solid $border-color;
+      }
+      
+      @if $direction == left {
+        border-right: 1px solid $border-color;
+      }
     }
 
     .el-tabs__item.is-#{$direction}.is-active {
       border: 1px solid $border-color;
 
       @if $direction == bottom {
-        border-top-color: $tabs-bg-color;
+        border-top: none;
       }
 
       @if $direction == top {
-        border-bottom-color: $tabs-bg-color;
+        border-bottom: none;
         transform: translateY(1px);
       }
 
       @if $direction == right {
-        border-left-color: $tabs-bg-color;
+        border-left: none;
       }
       
       @if $direction == left {
-        border-right-color: $tabs-bg-color;
+        border-right: none;
       }
     }
   }

@@ -2,8 +2,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-10 07:01:51
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-04-10 14:44:22
  * @Description:
  */
 // import Layout from '@/layout/component.vue'
@@ -90,6 +90,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteEditInput/index.vue'),
         meta: {
           title: 'CuteEditInput',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-button-group',
+        name: 'CuteButtonGroup',
+        component: () => import('@/views/component/Base/CuteButtonGroup/index.vue'),
+        meta: {
+          title: 'CuteButtonGroup',
           breadcrumb: true,
         },
       },
@@ -347,6 +356,15 @@ const componentRoutes = [
       breadcrumb: true,
     },
     children: [
+      {
+        path: 'cute-layout',
+        name: 'CuteLayout',
+        component: () => import('@/views/component/Test/CuteLayout/index.vue'),
+        meta: {
+          title: 'CuteLayout',
+          breadcrumb: true,
+        },
+      },
       {
         path: 'button',
         name: 'Button',

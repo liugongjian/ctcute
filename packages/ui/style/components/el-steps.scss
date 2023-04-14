@@ -13,7 +13,6 @@
         position: absolute;
         left: $icon-height;
         top: 0;
-        background-color: $steps-bg-color;
       }
 
       .el-step__description {
@@ -35,7 +34,7 @@
 
     .el-step.is-vertical {
       .el-step__line {
-        left: calc(($icon-height - $steps-line-size) / 2);
+        left: calc((#{$icon-height} - #{$steps-line-size}) / 2);
       }
 
       .el-step__head {
@@ -44,7 +43,7 @@
     }
 
     .el-step.is-horizontal .el-step__line {
-      top: calc(($icon-height - $steps-line-size) / 2);
+      top: calc((#{$icon-height} - #{$steps-line-size}) / 2);
     }
 
     .el-step:not(.is-simple) {

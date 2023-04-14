@@ -1,5 +1,7 @@
 /* DatePicker
 -------------------------- */
+$datepicker-shadow: $shadow-2;
+
 .el-date-picker:not(.el-picker-panel.el-date-picker.el-popper.has-sidebar) {
   width: 270px;
 

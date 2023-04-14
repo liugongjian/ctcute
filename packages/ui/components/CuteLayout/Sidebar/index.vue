@@ -1,22 +1,18 @@
 <template>
-  <div class="cute-sidebar">
-    <!-- 左侧图标栏 -->
-    <div v-if="isShowModule" class="sidebar--left">
+  <div class="cute-layout-sidebar">
+    <div
+      class="cute-layout-sidebar__wrapper"
+      :class="{ 'cute-layout-sidebar__wrapper--hidden': !isShowMenu }"
+    >
       <div
-        v-for="(item, index) in moduleList"
-        :key="index"
-        :class="{ 'is-first': index === 0, 'is-active': isActiveModule === item.name }"
-        @click="clickModule(item)"
+        v-if="drillDownRoute"
+        class="cute-layout-sidebar__title cute-layout-sidebar__title__back"
+        @click="back"
       >
-        <svg-icon :name="item.icon" />
-        <div v-if="index === 0" class="division"></div>
+        <div class="cute-layout-sidebar__title__back__icon"><svg-icon name="left" /></div>
+        {{ t(drillDownRoute.meta.title) }}
       </div>
-    </div>
-    <div v-if="isShowMenu" class="cute-scrollbar-wrapper">
-      <div v-if="isNewMenu" class="layout-sidebar__title back" @click="onBackMenu">
-        <svg-icon name="arrow-left" width="16" height="16" />{{ t(currentNewMenu.meta.title) }}
-      </div>
-      <div v-else-if="sidebarTitle" class="layout-sidebar__title">{{ sidebarTitle }}</div>
+      <div v-else-if="sidebarTitle" class="cute-layout-sidebar__title">{{ sidebarTitle }}</div>
 
       <el-menu
         :default-active="activeMenu"
@@ -24,13 +20,12 @@
         :collapse-transition="false"
         mode="vertical"
         class="layout-sidebar__menu"
-        @select="handleSelect"
       >
         <sidebar-item v-for="route in routesList" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
     </div>
     <!-- 展开与收缩按钮 -->
-    <div v-if="sidebarKnob" class="sidebar--knob" @click="toggleSideBar">
+    <div v-if="sidebarKnob" class="cute-layout-sidebar__knob" @click="toggleSideBar">
       <svg-icon :name="`${isShowMenu ? 'caret-left' : 'caret-right'}`" />
     </div>
   </div>
@@ -41,49 +36,39 @@ import { Component, Prop, Watch } from 'vue-property-decorator'
 import { mixins } from 'vue-class-component'
 import Locale from '@cutedesign/ui/mixins/locale'
 import SidebarItem from './SidebarItem.vue'
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 
 @Component({
-  name: 'SideBar',
+  name: 'CuteLayoutSidebar',
   components: {
     SidebarItem,
   },
 })
 export default class extends mixins(Locale) {
   $auth: any
+
   @Prop()
   private sidebarRoutes
 
   @Prop()
-  public sidebarFilter
+  private sidebarFilter
 
   @Prop({ default: '' })
-  public sidebarTitle: string
+  private sidebarTitle: string
 
   @Prop({ default: true })
-  public sidebarKnob: boolean
+  private sidebarKnob: boolean
 
-  @Prop()
-  private type
+  private isShowMenu = true
 
-  mounted() {
-    this.setSidbarWidth()
-  }
+  /* 下钻路由 */
+  private drillDownRoute = null
 
-  public isShowMenu = true
+  private routesList = []
 
-  public isNewMenu = false
+  private key = null
 
-  public currentNewMenu = {}
-
-  public isActiveModule = 'home'
-
-  public moduleList = []
-  public routesList = []
-  public get isShowModule(): boolean {
-    return this.moduleList && this.moduleList.length > 0
-  }
-
-  public get activeMenu(): string {
+  private get activeMenu(): string {
     const route = this.$route
     const { meta, path } = route
     // if set path, the sidebar will highlight the path you set
@@ -93,51 +78,61 @@ export default class extends mixins(Locale) {
     return path
   }
 
-  public get currentRoutes(): any {
-    const routes = this.sidebarRoutes || (this.$auth && this.$auth.getRoutes())
-    console.log(routes)
-    return this.sidebarFilter ? this.sidebarFilter(routes) : routes
+  private get routes() {
+    return this.sidebarRoutes || (this.$auth && this.$auth.getRoutes())
   }
 
   @Watch('sidebarRoutes', { immediate: true })
-  onChangeRoutes() {
-    const routes = this.sidebarRoutes || (this.$auth && this.$auth.getRoutes())
-    console.log(routes)
-    this.routesList = this.sidebarFilter ? this.sidebarFilter(routes) : routes
+  @Watch('$route.path')
+  private onChangeRoutes() {
+    const filteredRoutes = this.sidebarFilter ? this.sidebarFilter(this.routes) : this.routes
+    this.drillDownRoute = this.getDrillDownRoute()
+    this.routesList = this.drillDownRoute ? this.drillDownRoute.children : filteredRoutes
+    this.$nextTick(() => {
+      this.key = new Date().getTime()
+    })
   }
-  handleSelect(key, keyPath) {
-    const item = this.currentRoutes.filter(route => route.path === key)[0]
-    if (item && item.expandMenus && item.expandMenus.length > 0) {
-      const expandMenus = JSON.parse(JSON.stringify(item.expandMenus))
-      expandMenus.map(menu => {
-        menu.path = keyPath + '/' + menu.path
-        return menu
-      })
-      this.routesList = expandMenus
-      this.isNewMenu = true
-      this.currentNewMenu = item
+
+  private mounted() {
+    this.setSidbarWidth()
+  }
+
+  /**
+   * 根据当前页面的路由查找父级为开启下钻的路由
+   */
+  private getDrillDownRoute() {
+    const matchedRoutes = this.$route.matched
+    const matchedDrillDownRoute = matchedRoutes.find(route => !!route.meta.drillDown)
+    if (matchedDrillDownRoute) {
+      const drillDownRoute = this.routes.find(route => route.path === matchedDrillDownRoute.path)
+      if (drillDownRoute) {
+        return {
+          ...drillDownRoute,
+          children: drillDownRoute.children.map(route => {
+            return {
+              ...route,
+              path: `${drillDownRoute.path}/${route.path}`,
+            }
+          }),
+        }
+      } else {
+        return null
+      }
     }
   }
-  private onBackMenu() {
-    this.routesList = this.currentRoutes
-    this.isNewMenu = false
+
+  private back() {
+    const path = this.drillDownRoute.meta.drillDownBackPath || ''
+    this.$router.push(path)
   }
 
   private setSidbarWidth() {
-    const moduleWidth = this.isShowModule ? 50 : 0 // 左侧图片栏宽度
-
-    ;(this.$el as HTMLElement).style.width = this.isShowMenu
-      ? `${moduleWidth + 240}px`
-      : `${moduleWidth + 0}px`
+    ;(this.$el as HTMLElement).style.width = this.isShowMenu ? `${variables.cuteLayoutSidebarWidth}` : '0px'
   }
 
   public toggleSideBar() {
     this.isShowMenu = !this.isShowMenu
     this.setSidbarWidth()
-  }
-
-  public clickModule(item) {
-    this.isActiveModule = item.name
   }
 }
 </script>

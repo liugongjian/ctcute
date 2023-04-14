@@ -1,6 +1,6 @@
 /* Upload
 -------------------------- */
-$borderRadius: 2px;
+$borderRadius: $border-radius;
 @mixin uploader-success { 
   .el-upload-list__item .el-upload-list__item-name {
     color: $color-grey-1;

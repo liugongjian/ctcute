@@ -1,9 +1,9 @@
 /* Pagination
 -------------------------- */
-$pagination-select-width: 56px !default; // TODO 如何实现自适应
-$pagination-input-width: 56px !default; // TODO 如何实现自适应
-$pagination-button-margin: $margin-2x !default;
-$pagination-button-margin-sm: $margin !default;
+$pagination-select-width: 56px; // TODO 如何实现自适应
+$pagination-input-width: 56px; // TODO 如何实现自适应
+$pagination-button-margin: $margin-2x;
+$pagination-button-margin-sm: $margin;
 
 .el-pagination {
   padding: 0;

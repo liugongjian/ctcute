@@ -1,8 +1,8 @@
 /* Dropdown
 -------------------------- */
-$dropdown-item-padding-top-bottom: 7px !default;
-$dropdown-min-width: 120px !default;
-$dropdown-icon-line-height: 0.5 !default;
+$dropdown-item-padding-top-bottom: 7px;
+$dropdown-min-width: 120px;
+$dropdown-icon-line-height: 0.5;
 
 .el-dropdown-menu {
   min-width: $dropdown-min-width;

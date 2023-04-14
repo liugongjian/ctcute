@@ -1,8 +1,8 @@
 /* Progress
 -------------------------- */
-$progress-text-height-lg: 30px !default;
-$progress-text-height-sm: 12px !default;
-$progress-text-size-lg: 20px !default;
+$progress-text-height-lg: 30px;
+$progress-text-height-sm: 12px;
+$progress-text-size-lg: 20px;
 
 .el-progress.is-success .el-progress-bar__inner {
   background-color: $color-success;

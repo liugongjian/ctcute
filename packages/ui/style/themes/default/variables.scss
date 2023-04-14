@@ -143,6 +143,7 @@ $text-color: $neutral-10 !default; // 强调/正文标题
 $text-color-light: $neutral-9 !default; // 次强调/正文标题
 $text-color-light-2: $neutral-6 !default; // 置灰信息
 $text-color-feature: $neutral-7 !default; // 说明文字
+$text-color-placeholder: $neutral-7 !default; // 组件占位文本
 $text-weight: normal; // 标准字体粗细
 $text-title-weight: bold; // 标题的字体粗细
 
@@ -268,7 +269,9 @@ $sidebar-sub-hover: $color-master-bg-light-2 !default; // deprecated(弃用)
 $tag-master: $blue-1 !default; // 主题色标签背景
 $tag-master-border: $blue-base !default; // 主题色标签边框
 $tag-info: $neutral-1 !default; // 信息色标签背景
-$tag-info-border: $neutral-6 !default; // 信息色标签边框
+$tag-info-dark: $neutral-6 !default; // 信息色标签Dark类型背景
+$tag-info-border: $neutral-3 !default; // 信息色标签边框
+$tag-info-text: $text-color !default; // 信息色标签字体颜色
 $tag-success: $green-1 !default; // 成功色标签背景
 $tag-success-border: $green-base !default; // 成功色标签边框
 $tag-warning: $orange-1 !default; // 警告色标签背景

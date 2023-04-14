@@ -2,7 +2,7 @@
  * @Author: error: 孙善鹏
  * @Date: 2023-04-11 13:49:34
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-12 17:27:25
+ * @LastEditTime: 2023-04-14 10:27:20
  * @Description: 
 -->
 <template>
@@ -51,15 +51,50 @@
         <el-checkbox v-model="checkStrictly" @change="itemChecked = []"></el-checkbox>
       </div>
       <div>
-        <el-cascader
-          v-model="itemChecked"
-          :size="itemSize"
-          :disabled="itemDisabled"
-          :props="{ multiple: true, checkStrictly: checkStrictly }"
-          :collapse-tags="collapsetags"
-          :show-all-levels="privateshowalllevels"
-          :options="options"
-        ></el-cascader>
+        <div class="page-items">
+          <el-cascader
+            v-model="itemChecked"
+            size="large"
+            :disabled="itemDisabled"
+            :props="{ multiple: true, checkStrictly: checkStrictly }"
+            :collapse-tags="collapsetags"
+            :show-all-levels="privateshowalllevels"
+            :options="options"
+          ></el-cascader>
+        </div>
+        <div class="page-items">
+          <el-cascader
+            v-model="itemChecked"
+            size="medium"
+            :disabled="itemDisabled"
+            :props="{ multiple: true, checkStrictly: checkStrictly }"
+            :collapse-tags="collapsetags"
+            :show-all-levels="privateshowalllevels"
+            :options="options"
+          ></el-cascader>
+        </div>
+        <div class="page-items">
+          <el-cascader
+            v-model="itemChecked"
+            size="small"
+            :disabled="itemDisabled"
+            :props="{ multiple: true, checkStrictly: checkStrictly }"
+            :collapse-tags="collapsetags"
+            :show-all-levels="privateshowalllevels"
+            :options="options"
+          ></el-cascader>
+        </div>
+        <div class="page-items">
+          <el-cascader
+            v-model="itemChecked"
+            size="mini"
+            :disabled="itemDisabled"
+            :props="{ multiple: true, checkStrictly: checkStrictly }"
+            :collapse-tags="collapsetags"
+            :show-all-levels="privateshowalllevels"
+            :options="options"
+          ></el-cascader>
+        </div>
       </div>
     </el-card>
   </div>

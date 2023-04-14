@@ -1,13 +1,20 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-24 14:41:47
+ * @LastEditors: 马妍
+ * @LastEditTime: 2023-04-14 15:35:40
  * @Description: 操作已选项
 -->
 <template>
   <div class="cute-selected-input">
-    <el-select ref="select" :value="''" placeholder="" @change="handelSelectChange">
+    <el-select
+      ref="select"
+      :value="''"
+      placeholder=""
+      :size="size"
+      :disabled="disabled"
+      @change="handelSelectChange"
+    >
       <span slot="prefix" :class="flag ? 'select-field' : 'select-uncheck'">{{ sele }}</span>
       <el-option
         v-for="(v, i) in options"
@@ -30,6 +37,9 @@ import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) checkedList?: [] //已选中数据
   @Prop({ type: Array, default: [] }) options?: [] //下拉数据
+  @Prop({ type: String, default: '' }) size?: '' //size
+  @Prop({ type: Boolean, default: false }) disabled?: false //disabled
+
   private sele = ''
   private flag = false
   private created() {

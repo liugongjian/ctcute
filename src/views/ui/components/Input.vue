@@ -247,6 +247,7 @@
         <cute-remind-input
           v-model="state1"
           :placeholder="placeholder"
+          :size="inputSize"
           title="数据资源名称"
           @change="changeFun"
         />

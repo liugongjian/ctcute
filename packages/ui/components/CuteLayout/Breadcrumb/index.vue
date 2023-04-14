@@ -1,15 +1,15 @@
 <template>
-  <el-breadcrumb v-if="breadcrumbCustomlast">
+  <el-breadcrumb v-if="breadcrumbCustomTitle">
     <el-breadcrumb-item>
-      <span>{{ breadcrumbCustomlast }}</span>
+      <span>{{ breadcrumbCustomTitle }}</span>
     </el-breadcrumb-item>
   </el-breadcrumb>
-  <el-breadcrumb v-else-if="breadcrumbShowlast">
+  <el-breadcrumb v-else-if="breadcrumbShowLast">
     <el-breadcrumb-item>
-      <span>{{ t(lastcrumbs.meta.title) }}</span>
+      <span>{{ t(lastCrumb.meta.title) }}</span>
     </el-breadcrumb-item>
   </el-breadcrumb>
-  <el-breadcrumb v-else class="app-breadcrumb" separator="/">
+  <el-breadcrumb v-else separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
         <span v-if="item.redirect === 'noredirect' || index === breadcrumbs.length - 1" class="no-redirect">
@@ -29,18 +29,18 @@ import { RouteRecord, Route } from 'vue-router'
 import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
-  name: 'Breadcrumb',
+  name: 'CuteLayoutBreadcrumb',
 })
 export default class extends mixins(Locale) {
   @Prop({ default: '' })
-  public breadcrumbCustomlast: string
+  public breadcrumbCustomTitle: string
 
-  @Prop({ default: true })
-  public breadcrumbShowlast: boolean
+  @Prop({ default: false })
+  public breadcrumbShowLast: boolean
 
   private breadcrumbs: RouteRecord[] = []
 
-  private get lastcrumbs() {
+  private get lastCrumb() {
     return this.breadcrumbs[this.breadcrumbs.length - 1]
   }
 
@@ -76,7 +76,6 @@ export default class extends mixins(Locale) {
   private pathCompile(path: string) {
     // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
     const { params } = this.$route
-    console.log(compile)
     const toPath = compile(path)
     return toPath(params)
   }

@@ -342,7 +342,7 @@ $pagination-font-size: $text-size;
 $pagination-font-size-sm: $text-size;
 $pagination-height: 24px;
 $pagination-height-sm: 24px;
-$pagination-select-width: 84px; // TODO 如何实现自适应
+$pagination-select-width: 56px; // TODO 如何实现自适应
 $pagination-input-width: 56px; // TODO 如何实现自适应
 $pagination-button-width: 20px;
 $pagination-button-width-sm: 20px;
@@ -376,6 +376,7 @@ $transfer-footer-height: 40px; // Transfer组件footer高度
 $tooltip-bg: $color-bg-2;
 $tooltip-border-color: $neutral-4;
 $tooltop-text-color: $neutral-10;
+$tooltop-light-text-color: $neutral-1;
 
 $tooltip-fill: $tooltip-bg; // deprecated(弃用)
 
@@ -461,11 +462,12 @@ $loading-default-border: $color-grey-6;
 /* Alert
 -------------------------- */
 $alert-text-color: $text-color-light;
-$alert-info-bg: $blue-2;
-$alert-success-bg: $green-2;
-$alert-warning-bg: $orange-2;
-$alert-danger-bg: $ruby-2;
+$alert-info-bg: $blue-1;
+$alert-success-bg: $green-1;
+$alert-warning-bg: $orange-1;
+$alert-danger-bg: $ruby-1;
 $alert-weak-bg: $neutral-1;
+$alert-single-height: 36px !default;
 
 /* CuteSlider
 -------------------------- */

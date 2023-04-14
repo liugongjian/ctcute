@@ -3,9 +3,10 @@
     "CuteAppendix"
   ],
   "chart": [
-    "CuteChart",
-    "CuteChartCard",
-    "CuteChartItem"
+    "CuteChart"
+  ],
+  "sorttable": [
+    "CuteSortTable"
   ],
   "base": [
     "CuteLayout",

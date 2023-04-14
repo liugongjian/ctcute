@@ -28,9 +28,6 @@
         <el-form-item label="是否显示图标">
           <el-checkbox v-model="hasIcon"></el-checkbox>
         </el-form-item>
-        <el-form-item label="是否圆角">
-          <el-checkbox v-model="isRound"></el-checkbox>
-        </el-form-item>
       </el-form>
       <el-button
         v-for="button in buttonList"
@@ -40,7 +37,6 @@
         :disabled="isDisabed"
         :loading="isLoading"
         :plain="isPlain"
-        :round="isRound"
         :icon="getIcon()"
       >
         {{ button.label }}
@@ -82,7 +78,7 @@
       ></el-button>
     </el-card>
 
-    <el-card>
+    <el-card v-if="false">
       <h3>按钮组</h3>
       <el-form inline>
         <el-form-item label="按钮尺寸">
@@ -149,7 +145,6 @@
         文本按钮
       </el-button>
     </el-card>
-    <el-card><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></el-card>
   </div>
 </template>
 <script lang="ts">
@@ -177,20 +172,12 @@ export default class extends Vue {
       label: '成功按钮',
     },
     {
-      type: 'info',
-      label: '信息按钮',
-    },
-    {
       type: 'warning',
       label: '警告按钮',
     },
     {
       type: 'danger',
       label: '危险按钮',
-    },
-    {
-      type: 'fatal',
-      label: '严重危险按钮',
     },
   ]
   private sizeList = ['large', 'medium', 'small', 'mini']

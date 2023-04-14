@@ -8,13 +8,14 @@
 import Vue from 'vue'
 import Router, { RouteConfig, Route } from 'vue-router'
 import { indexPageRoutes, restPageRoutes } from '@/router/modules/page'
+import LayoutPage from '@/layout/LayoutPage.vue'
+import settings from '@/settings'
 import componentRoutes from '@/router/modules/component'
 import uiRoutes from '@/router/modules/ui'
 import loginRouter from '@/router/modules/login'
 import docRouter from '@/router/modules/doc'
-import Layout from '@/layout/index.vue'
-import settings from '@/settings'
 import consoleRoutes from '@/router/modules/console'
+import layoutTestRoutes from '@/router/modules/layoutTest'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ const _componentRoutes = componentRoutes.map((route: any) => {
 
 const _consoleRoutes = consoleRoutes.map((route: any) => {
   route.meta.type = 'page'
+  return route
+})
+
+const _layoutTestRoutes = layoutTestRoutes.map((route: any) => {
+  route.meta.type = 'layoutTest'
   return route
 })
 
@@ -92,7 +98,7 @@ export const asyncRoutes: RouteConfig[] = [
   //权限
   {
     path: '/page/permission',
-    component: Layout,
+    component: LayoutPage,
     name: 'Permission',
     meta: {
       title: 'Permission 权限',
@@ -151,6 +157,7 @@ export const originConstantRoutes: RouteConfig[] = [
   ...loginRouter,
   ..._statusRoutes,
   ..._consoleRoutes,
+  ..._layoutTestRoutes,
 ]
 // 非通用，只是cute-design的场景，遍历所有constantRoutes，给每一条路由的meta加上withoutLogin为true的属性，跳过asyncRoutes
 const addRouteMetaProp = (origin: RouteConfig[], props: any): RouteConfig[] => {

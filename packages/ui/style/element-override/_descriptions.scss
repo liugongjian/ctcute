@@ -1,5 +1,10 @@
 /* Descriptions
 -------------------------- */
+$descriptions-label-width: 160px !default;
+$descriptions-item-height: 40px !default;
+$descriptions-item-content-width: 525px !default;
+$descriptions-item-content-line-height: 22px !default;
+$descriptions-item-label-min-width: 128px !default;
 
 .el-descriptions {
   &__header {

@@ -127,7 +127,7 @@
   </div>
 </template>
 <script lang="ts">
-import { CuteChart } from '@cutedesign/chart'
+import { CuteChart } from '@cutedesign/ui'
 import { CuteCardBox } from '@cutedesign/ui'
 import { Component, Vue } from 'vue-property-decorator'
 import ChartCard from './ChartCard.vue'

@@ -2,7 +2,7 @@
  * @Author: 王亚振
  * @Date: 2022-07-21 10:53:32
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-13 16:12:56
+ * @LastEditTime: 2023-04-14 10:18:26
  * @Description:
 -->
 <template>
@@ -19,7 +19,14 @@ export default class extends Vue {
     { label: '操作一', name: 'op1' },
     { label: '操作二', name: 'op2' },
     { label: '操作三', name: 'op3' },
-    { label: '主操作', name: 'op--main' },
+    { label: '操作四', name: 'op4' },
+    { label: '操作五', name: 'op5' },
+    { label: '操作六', name: 'op6' },
+    { label: '操作七', name: 'op7' },
+    { label: '操作八', name: 'op8' },
+    { label: '操作九', name: 'op9' },
+    { label: '操作十', name: 'op10' },
+    { label: '主操作', name: 'op-main' },
   ]
 
   private size = 'medium'

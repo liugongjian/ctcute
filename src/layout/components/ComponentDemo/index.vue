@@ -12,7 +12,7 @@
     </div>
     <div class="component-demo__code">
       <div v-if="isOpen" class="component-demo__code__body">
-        <vue-code-mirror v-if="code" :code="code" mode="text/x-vue" />
+        <vue-code-mirror v-if="code" :code="code" :mode="mode" />
       </div>
       <div class="component-demo__code__trigger" @click="toggleCode">
         <svg-icon name="caret-down" />
@@ -32,7 +32,13 @@ import { getCode } from '@/api/code'
   },
 })
 export default class extends Vue {
-  @Prop() private path: string
+  @Prop()
+  private path: string
+
+  @Prop({
+    default: 'text/x-vue',
+  })
+  private mode: string
 
   private code: string = null
 

@@ -3,6 +3,12 @@ import enLocale from 'element-ui/lib/locale/lang/en'
 const en: { [key: string]: any } = {
   el: {
     ...enLocale.el,
+    pagination: {
+      goto: 'Go to',
+      pagesize: '',
+      total: 'Total {total}',
+      pageClassifier: '',
+    },
   },
 }
 

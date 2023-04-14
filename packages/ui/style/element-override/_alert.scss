@@ -1,5 +1,7 @@
 /* Alert
 -------------------------- */
+$alert-single-height: 36px !default;
+
 /*
   $class:类名;
   $master-color:icon颜色\effect=dark下背景色
@@ -31,11 +33,12 @@
 @include global-tips(weak, $color-info, $alert-weak-bg);
 
 .el-alert {
-  padding: $padding-2x $padding-8x $padding-2x $padding-4x;
+  $paddingTopBottom: calc((#{$alert-single-height} - #{$line-height} * #{$text-size})/2);
+  padding: $paddingTopBottom $padding-8x $paddingTopBottom $padding-4x;
   align-items: flex-start;
   .el-alert__icon {
-    line-height: calc($line-height * $text-size);
-    height: calc($line-height * $text-size);
+    line-height: calc(#{$line-height} * #{$text-size});
+    height: calc(#{$line-height} * #{$text-size});
   }
 }
 

@@ -34,7 +34,7 @@ export default class extends Vue {
     window.addEventListener('resize', this.calHeight)
   }
 
-  private destroy() {
+  private beforeDestroy() {
     window.removeEventListener('resize', this.calHeight)
   }
 

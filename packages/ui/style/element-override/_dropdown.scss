@@ -1,5 +1,8 @@
 /* Dropdown
 -------------------------- */
+$dropdown-item-padding-top-bottom: 7px !default;
+$dropdown-min-width: 120px !default;
+$dropdown-icon-line-height: 0.5 !default;
 
 // @mixin dropdown-button-size($size, $font-size, $padding, $icon-vertical-align) {
 //   $top-padding: str-slice(

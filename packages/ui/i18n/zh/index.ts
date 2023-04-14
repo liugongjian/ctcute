@@ -3,6 +3,12 @@ import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
 const zh: { [key: string]: any } = {
   el: {
     ...zhLocale.el,
+    pagination: {
+      goto: '前往',
+      pagesize: '',
+      total: '共{total}条',
+      pageClassifier: '页',
+    },
   },
 }
 

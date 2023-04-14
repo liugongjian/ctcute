@@ -1,8 +1,8 @@
 <!--
  * @Author: 邱文琦
  * @Date: 2022-10-11 13:30
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-10 06:48:54
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-14 16:34:17
  * @Description: 首页
 -->
 <template>
@@ -64,7 +64,7 @@
     </el-row>
     <el-row :gutter="22">
       <el-col :span="18">
-        <cute-card-box title="今日数据概况" content-height="410px">
+        <cute-card-box title="今日数据概况" content-height="413px">
           <template #extra>
             <div class="header-time-line">
               <el-select v-model="value" placeholder="请选择" size="small">
@@ -164,7 +164,7 @@
                 <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
               </el-select>
-              <el-date-picker v-model="shortChainDate" type="daterange" size="mini"></el-date-picker>
+              <el-date-picker v-model="shortChainDate" type="daterange" size="small"></el-date-picker>
             </div>
           </template>
           <template #content>
@@ -204,7 +204,7 @@
         </cute-card-box>
       </el-col>
       <el-col :span="16">
-        <cute-card-box title="数据列表" class="table">
+        <cute-card-box title="数据列表" class="table" content-height="364px">
           <template #content>
             <el-tabs value="third" type="card" size="small">
               <el-tab-pane label="默认项" name="second"> </el-tab-pane>
@@ -1650,6 +1650,7 @@ export default class extends Vue {
   }
 
   .map-select {
+    display: flex;
     ::v-deep .el-select {
       width: 107px;
       margin-right: $margin-4x;

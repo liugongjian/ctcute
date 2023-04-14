@@ -147,7 +147,7 @@ $tags-left-lg: $padding-4x - 6;
     &.el-select--#{$size}{
       line-height: $height;
       .el-input--suffix{ 
-        line-height: $height;
+        line-height: $height - 2;
       }
       .el-select__tags{ 
         left: $left

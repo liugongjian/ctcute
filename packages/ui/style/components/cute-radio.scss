@@ -4,27 +4,7 @@
       border-radius: $cute-special-radio-size;
     }
   }
-
-  .el-radio-group .el-radio-button .el-radio-button__inner {
-    padding: $radio-padding-large;
-  }
-
-  .el-radio-group .el-radio-button--large .el-radio-button__inner {
-    padding: $radio-padding-large;
-  }
-
-  .el-radio-group .el-radio-button--medium .el-radio-button__inner {
-    padding: $radio-padding-medium;
-  }
-
-  .el-radio-group .el-radio-button--small .el-radio-button__inner {
-    padding: $radio-padding-small;
-  }
-
-  .el-radio-group .el-radio-button--mini .el-radio-button__inner {
-    padding: $radio-padding-small;
-  }
-
+  
   .el-radio-group .el-radio-button {
     margin-left: $cute-special-radio-size;
     &:first-child{

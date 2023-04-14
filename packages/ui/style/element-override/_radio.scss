@@ -61,16 +61,17 @@
   }
 }
 
-@mixin radio-size($size, $padding) {
+@mixin radio-size($size, $height, $padding) {
   .el-radio-group {
     .el-radio-button--#{$size}{
       .el-radio-button__inner{
         padding: $padding;
+        line-height: $height - 2;
       }
     }
   }
 }
-@include radio-size(large, $radio-padding-large);
-@include radio-size(medium, $radio-padding-medium);
-@include radio-size(small, $radio-padding-small);
-@include radio-size(mini, $radio-padding-small);
+@include radio-size(large, $input-lg-height, $input-lg-padding);
+@include radio-size(medium, $input-md-height, $input-md-padding);
+@include radio-size(small, $input-sm-height, $input-sm-padding);
+@include radio-size(mini, $input-xs-height, $input-xs-padding);

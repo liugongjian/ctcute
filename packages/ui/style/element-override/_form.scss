@@ -14,37 +14,10 @@
   padding: $form-item-error-padding-top 0;
 }
 
-.el-form-item--mini{
-  .el-form-item__label {
-    line-height: $input-sm-height;
-  }
-  .el-form-item__content {
-    line-height: $input-sm-height;
-  }
+.el-form-item--mini,.el-form-item--small{
   &.el-form-item{
     margin-bottom: $form-item-margin-bottom;
   }
-}
-.el-form-item--small{
-  .el-form-item__label {
-    line-height: $input-sm-height;
-  }
-  .el-form-item__content {
-    line-height: $input-sm-height;
-  }
-  &.el-form-item{
-    margin-bottom: $form-item-margin-bottom;
-  }
-}
-.el-form-item--medium {
-  line-height: $input-md-height;
-  .el-form-item__label {
-    line-height: $input-md-height;
-  }
-  .el-form-item__content {
-    line-height: $input-md-height;
-  }
-
 }
 
 .el-form-item__error {
@@ -68,5 +41,21 @@
   margin-right: $margin-5x;
 }
 
- 
-
+@mixin form-size($size, $height, $padding) {
+  .el-form-item{
+    &.el-form-item--#{$size}{
+      line-height: $height - 2;
+      
+      .el-form-item__label {
+        line-height:  $height - 2;
+      }
+      .el-form-item__content {
+        line-height:  $height - 2;
+      }
+    }
+  }
+}
+@include form-size(large, $input-lg-height, $input-lg-padding);
+@include form-size(medium, $input-md-height, $input-md-padding);
+@include form-size(small, $input-sm-height, $input-sm-padding);
+@include form-size(mini, $input-xs-height, $input-xs-padding);

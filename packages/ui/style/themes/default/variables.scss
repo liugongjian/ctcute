@@ -320,9 +320,11 @@ $radio-group-border-disabled-color: $disabled-border !default;
 $radio-group-border-disabled-bg: $color-master-disabled !default;
 $radio-width: 14px !default; // 普通按钮外部宽高
 $radio-label-width: $common-space-2x !default; // 普通按钮 中间按钮宽高:
-$radio-padding-small: $padding $padding-4x !default;
-$radio-padding-medium: 9px $padding-4x !default;
-$radio-padding-large: $margin-3x $padding-6x !default;
+
+$input-lg-padding: 0 $padding-6x  !default;
+$input-md-padding: 0 $padding-4x !default;
+$input-sm-padding: 0 $padding-3x  !default;
+$input-xs-padding: 0 $padding-3x !default;
 $cute-special-radio-size:3px  !default;
 /* Form
 -------------------------- */

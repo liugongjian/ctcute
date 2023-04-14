@@ -268,7 +268,9 @@ $sidebar-sub-hover: $color-master-bg-light-2 !default; // deprecated(弃用)
 $tag-master: $blue-1 !default; // 主题色标签背景
 $tag-master-border: $blue-base !default; // 主题色标签边框
 $tag-info: $neutral-1 !default; // 信息色标签背景
-$tag-info-border: $neutral-6 !default; // 信息色标签边框
+$tag-info-dark: $neutral-6 !default; // 信息色标签Dark类型背景
+$tag-info-border: $neutral-3 !default; // 信息色标签边框
+$tag-info-text: $text-color !default; // 信息色标签字体颜色
 $tag-success: $green-1 !default; // 成功色标签背景
 $tag-success-border: $green-base !default; // 成功色标签边框
 $tag-warning: $orange-1 !default; // 警告色标签背景

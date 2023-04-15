@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-02-06 17:50:52
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-15 23:29:22
  * @Description: 基础表格
 -->
 <template>
@@ -10,9 +10,9 @@
     <!--表格工具栏-->
     <div class="table-tools">
       <div class="table-tools__left">
-        <el-button v-permission="['/permission/user/:add']" type="primary" @click="addUser"
-          >+ 添加用户</el-button
-        >
+        <el-button v-permission="['/permission/user/:add']" type="primary" @click="addUser">
+          + 添加用户
+        </el-button>
       </div>
       <div class="table-tools__right table-tools__conditions">
         <el-form ref="conditions" :model="conditions" inline @submit.native.prevent>
@@ -63,39 +63,64 @@
           </div>
         </template>
       </el-table-column>
-      <el-table-column prop="actions" label="操作" width="300" fixed="right" class-name="actions">
-        <template slot-scope="{ row }">
-          <el-button v-permission="['/permission/user/:edit']" type="text" @click="editUser(row)"
-            >编辑</el-button
-          >
-          <el-button v-permission="['/permission/user/:setrole']" type="text" @click="setRoles(row)"
-            >设置角色</el-button
-          >
-          <el-button v-permission="['/permission/user/:reset']" type="text" @click="resetPassword(row)"
-            >重置密码</el-button
-          >
-          <el-button
-            v-if="row.status === 0"
-            v-permission="['/permission/user/:freeze']"
-            type="text"
-            @click="freeze(row)"
-            >冻结</el-button
-          >
-          <el-button
-            v-if="row.status === -2"
-            v-permission="['/permission/user/:unfreeze']"
-            type="text"
-            @click="unfreeze(row)"
-            >解冻</el-button
-          >
-          <el-button v-permission="['/permission/user/:del']" type="text" @click="del(row)">删除</el-button>
+      <el-table-column prop="actions" label="操作" width="120" fixed="right" class-name="actions">
+        <template slot-scope="{ row, $index }">
+          <el-button v-permission="['/permission/user/:edit']" type="text" @click="editUser(row)">
+            编辑
+          </el-button>
+          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown($index)">
+            <el-button type="text" size="small" class="bt-operation">
+              更多
+              <i
+                class="el-icon-arrow-down el-icon--right"
+                :class="row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+              />
+            </el-button>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>
+                <el-button v-permission="['/permission/user/:setrole']" type="text" @click="setRoles(row)">
+                  设置角色
+                </el-button>
+              </el-dropdown-item>
+              <el-dropdown-item>
+                <el-button v-permission="['/permission/user/:reset']" type="text" @click="resetPassword(row)">
+                  重置密码
+                </el-button>
+              </el-dropdown-item>
+              <el-dropdown-item v-if="row.status === 0">
+                <el-button v-permission="['/permission/user/:freeze']" type="text" @click="freeze(row)">
+                  冻结
+                </el-button>
+              </el-dropdown-item>
+              <el-dropdown-item v-if="row.status === -2">
+                <el-button v-permission="['/permission/user/:unfreeze']" type="text" @click="unfreeze(row)">
+                  解冻
+                </el-button>
+              </el-dropdown-item>
+              <el-dropdown-item>
+                <el-button v-permission="['/permission/user/:del']" type="text" @click="del(row)">
+                  删除
+                </el-button>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
         </template>
       </el-table-column>
     </el-table>
+    <!--分页-->
+    <el-pagination
+      class="pagination"
+      :current-page.sync="tableHook.pager.page"
+      :page-size.sync="tableHook.pager.limit"
+      :total="tableHook.total"
+      @size-change="() => tableHook.handleSizeChange(tableHook.pager.limit)"
+      @current-change="() => tableHook.handleCurrentChange(tableHook.pager.page)"
+    />
 
     <!--设置角色弹窗-->
     <el-dialog
       class="medium-dialog"
+      width="600px"
       title="设置角色"
       :visible="roleVisible"
       :close-on-click-modal="false"
@@ -113,9 +138,9 @@
             </el-form-item>
             <el-form-item label="角色" prop="roleCheckList">
               <el-checkbox-group v-model="roleCheckList">
-                <el-checkbox v-for="role in roles" :key="role._id" :label="role._id">{{
-                  role.name
-                }}</el-checkbox>
+                <el-checkbox v-for="role in roles" :key="role._id" :label="role._id">
+                  {{ role.name }}
+                </el-checkbox>
               </el-checkbox-group>
             </el-form-item>
           </el-form>
@@ -126,6 +151,7 @@
         <el-button type="primary" :loading="setRoleLoading" @click="handleSetRole">确 定</el-button>
       </div>
     </el-dialog>
+
     <!-- 编辑、添加用户 弹窗 -->
     <add-or-edit-user-dialog
       v-if="userDialogVisible"
@@ -134,76 +160,6 @@
       :visible.sync="userDialogVisible"
       :user-dialog-status="userDialogStatus"
       @confirm="handleAddOrEidt"
-    />
-    <!-- 冻结 弹窗 -->
-    <warn-dialog
-      v-if="freezeVisible"
-      :id="freezeId"
-      type=""
-      :visible.sync="freezeVisible"
-      title="确定冻结用户吗? "
-      message="冻结后会导致该用户不能登录, 是否继续？"
-      cancel-button-text="取消"
-      confirm-button-text="确定"
-      @confirm="handleFreeze"
-    />
-    <!-- 解冻 弹窗 -->
-    <warn-dialog
-      v-if="unfreezeVisible"
-      :id="unfreezeId"
-      type=""
-      :visible.sync="unfreezeVisible"
-      title="确定解冻用户吗? "
-      message="解冻后该用户即可正常登录, 是否继续？"
-      cancel-button-text="取消"
-      confirm-button-text="确定"
-      @confirm="handleunFreeze"
-    />
-    <!-- 重置密码 弹窗 -->
-    <warn-dialog
-      v-if="resetPWDVisible"
-      :id="resetPWDId"
-      type=""
-      :visible.sync="resetPWDVisible"
-      title="确认要重置密码吗? "
-      message="重置后会导致原密码不可用, 是否继续？"
-      cancel-button-text="取消"
-      confirm-button-text="确定"
-      @confirm="handleResetPWD"
-    />
-    <!-- 复制用户名密码 弹窗 -->
-    <warn-dialog
-      v-if="copyPWDVisible"
-      id=""
-      type="pwd"
-      :visible.sync="copyPWDVisible"
-      :title="resetPWDId ? '重置密码成功' : '添加用户成功'"
-      :message="resetPWDMessage"
-      cancel-button-text="取消"
-      confirm-button-text="复制密码"
-      @confirm="handleCopyPWD"
-      @pwdCancel="tableHook.query()"
-    />
-    <!-- 解冻 弹窗 -->
-    <warn-dialog
-      v-if="delVisible"
-      :id="delId"
-      type=""
-      :visible.sync="delVisible"
-      title="确定删除用户吗? "
-      message="此操作将永久删除用户, 是否继续？"
-      cancel-button-text="取消"
-      confirm-button-text="确定"
-      @confirm="handleDel"
-    />
-    <!--分页-->
-    <el-pagination
-      class="pagination"
-      :current-page.sync="tableHook.pager.page"
-      :page-size.sync="tableHook.pager.limit"
-      :total="tableHook.total"
-      @size-change="() => tableHook.handleSizeChange(tableHook.pager.limit)"
-      @current-change="() => tableHook.handleCurrentChange(tableHook.pager.page)"
     />
   </el-card>
 </template>
@@ -223,14 +179,21 @@ import {
 } from '@/api/simpleUser'
 import { formatDatetime } from '@/utils/date'
 import copy from 'copy-to-clipboard'
-import WarnDialog from './components/WarnDialog.vue'
 import AddOrEditUserDialog from './components/AddOrEditUserDialog.vue'
 import TableHookClass from '@cutedesign/ui/hook/TableHook'
 import { getRoles } from '@/api/simpleRole'
 
+const defaultItem = {
+  _id: '',
+  name: '',
+  phone: '',
+  email: '',
+  remark: '',
+}
+
 @Component({
   name: 'SimpleTable',
-  components: { WarnDialog, AddOrEditUserDialog },
+  components: { AddOrEditUserDialog },
 })
 export default class extends Vue {
   @Ref('tableRef')
@@ -255,33 +218,7 @@ export default class extends Vue {
   //添加用户、编辑用户弹窗
   private userDialogStatus = 'create'
   private userDialogVisible = false
-  private editRow = {
-    _id: '',
-    name: '',
-    phone: '',
-    email: '',
-    remark: '',
-  }
-
-  //冻结弹窗
-  private freezeVisible = false
-  private freezeId = ''
-
-  //冻结弹窗
-  private unfreezeVisible = false
-  private unfreezeId = ''
-
-  //删除弹窗
-  private delVisible = false
-  private delId = ''
-
-  //重置密码弹窗
-  private resetPWDVisible = false
-  private resetPWDId = ''
-
-  //复制用户名密码弹窗
-  private copyPWDVisible = false
-  private resetPWDMessage = ''
+  private editRow = { ...defaultItem }
 
   // 搜索信息
   private conditions: SimpleUser.Conditions = {
@@ -293,42 +230,33 @@ export default class extends Vue {
 
   // 状态下拉框选项
   private statusOptions = [
-    {
-      value: '',
-      label: '全部',
-    },
-    {
-      value: 0,
-      label: '正常',
-    },
-    {
-      value: -2,
-      label: '冻结',
-    },
+    { value: '', label: '全部' },
+    { value: 0, label: '正常' },
+    { value: -2, label: '冻结' },
   ]
 
-  /**
-   * 页面mounted
-   */
   private mounted() {
     this.tableHook = new TableHookClass(this.conditions, this.getTable, this.tableRef, false)
     this.tableHook.query()
   }
-  /**
-   * 重置搜索表单
-   */
+
+  // 重置搜索表单
   private resetConditions() {
     this.conditionsForm.resetFields()
+    this.conditions.status = ''
+    this.conditions.searchkey = ''
     this.tableHook.query()
   }
-  /**
-   * 获取表格数据
-   */
+
+  // 获取表格数据
   private async getTable(param) {
     try {
       const res = await getUsers(param)
-      if ((res as any).code === 200) {
-        this.tableHook.setResult(res.data.result, res.data.pageInfo.totalItems)
+      if (res.code === 200) {
+        this.tableHook.setResult(
+          res.data.result.map(item => ({ ...item, flag: false })),
+          res.data.pageInfo.totalItems
+        )
       }
     } catch (e) {
       console.error(e)
@@ -336,43 +264,45 @@ export default class extends Vue {
     }
   }
 
-  /**
-   *新增用户
-   */
+  // 下拉展开旋转小三角
+  private openDropdown(index) {
+    this.tableHook.tableData[index].flag = !this.tableHook.tableData[index].flag
+  }
+
+  // 新增
   private addUser() {
     this.userDialogStatus = 'create'
     this.userDialogVisible = true
-    this.editRow = {
-      _id: '',
-      name: '',
-      phone: '',
-      email: '',
-      remark: '',
-    }
+    this.editRow = { ...defaultItem }
   }
 
-  /**
-   *编辑用户
-   */
+  // 编辑用户
   private editUser(row) {
     this.userDialogStatus = 'update'
     this.userDialogVisible = true
     this.editRow = { ...row }
   }
-  private handleAddOrEidt(data) {
-    if (data) {
-      // 创建 跳出复制密码弹窗
-      this.copyPWDVisible = data.copyPWDVisible
-      this.resetPWDMessage = data.resetPWDMessage
-    } else {
-      // edit 重新获取数据
-      this.tableHook.query()
+
+  // 新增/编辑回调
+  private async handleAddOrEidt(msg) {
+    this.tableHook.query()
+
+    if (msg) {
+      try {
+        await this.$confirm(msg, '重置密码成功', {
+          type: 'success',
+          confirmButtonText: '复制密码',
+        })
+
+        copy(msg)
+        this.$message.success('密码已复制! ')
+      } catch (e) {
+        //
+      }
     }
   }
 
-  /**
-   *设置角色
-   */
+  // 设置角色
   private setRoles(row) {
     this.roleVisible = true
     this.roleRow = row
@@ -381,9 +311,8 @@ export default class extends Vue {
     //获取用户的所有角色
     this.getUserRoles(this.roleRow)
   }
-  /**
-   *获取角色
-   */
+
+  // 获取用户角色
   private async getUserRoles(row) {
     try {
       const res = await getUserRoles({ _id: row._id })
@@ -395,9 +324,7 @@ export default class extends Vue {
     } finally {
     }
   }
-  /**
-   *获取角色
-   */
+  // 获取所有角色
   private async getRoles() {
     try {
       const res = await getRoles({ isPaging: 0 })
@@ -409,9 +336,8 @@ export default class extends Vue {
     } finally {
     }
   }
-  /**
-   * 角色确认事件
-   */
+
+  // 角色确认事件
   private async handleSetRole() {
     this.setRoleLoading = true
     const data = {
@@ -433,120 +359,94 @@ export default class extends Vue {
     } finally {
     }
   }
-  /**
-   *点击冻结按钮
-   */
-  private freeze(row) {
-    this.freezeVisible = true
-    this.freezeId = row._id
+
+  // 重置密码
+  private async resetPassword(row) {
+    try {
+      await this.$confirm('重置后会导致原密码不可用, 是否继续？', '确认要重置密码吗？', {
+        type: 'warning',
+      })
+
+      const res = await resetPWDUsers(row._id)
+      if (res.code === 200) {
+        const msg = `密码: ${res.data.password}`
+
+        await this.$confirm(msg, '重置密码成功', {
+          type: 'success',
+          confirmButtonText: '复制密码',
+        })
+
+        copy(msg)
+        this.$message.success('密码已复制! ')
+      }
+
+      this.tableHook.query()
+    } catch (err) {
+      if (err !== 'cancel') {
+        console.log(err.msg || err)
+      }
+    }
   }
 
-  /**
-   *冻结事件
-   */
-  private async handleFreeze(id) {
+  // 点击冻结按钮
+  private async freeze(row) {
     try {
-      const res = await freezeUsers(id)
-      if ((res as any).code === 200) {
-        this.freezeVisible = false
+      await this.$confirm('冻结后会导致该用户不能登录, 是否继续？', '确定冻结用户吗？', {
+        type: 'warning',
+      })
+
+      const res = await freezeUsers(row._id)
+      if (res.code === 200) {
         this.$message.success('冻结成功! ')
-        this.freezeId = ''
-        // this.getTable()
         this.tableHook.query()
       }
-    } catch (e) {
-      console.error(e)
-    } finally {
+    } catch (err) {
+      if (err !== 'cancel') {
+        console.log(err.msg || err)
+      }
     }
   }
 
-  /**
-   *点击解冻按钮
-   */
-  private unfreeze(row) {
-    this.unfreezeVisible = true
-    this.unfreezeId = row._id
-  }
-
-  /**
-   *解冻事件
-   */
-  private async handleunFreeze(id) {
+  // 点击解冻按钮
+  private async unfreeze(row) {
     try {
-      const res = await unfreezeUsers(id)
-      if ((res as any).code === 200) {
-        this.unfreezeVisible = false
+      await this.$confirm('解冻后该用户即可正常登录, 是否继续？', '确定解冻用户吗？', {
+        type: 'warning',
+      })
+
+      const res = await unfreezeUsers(row._id)
+      if (res.code === 200) {
         this.$message.success('解冻成功! ')
-        this.unfreezeId = ''
         this.tableHook.query()
       }
-    } catch (e) {
-      console.error(e)
-    } finally {
+    } catch (err) {
+      if (err !== 'cancel') {
+        console.log(err.msg || err)
+      }
     }
   }
-  /**
-   *点击删除按钮
-   */
-  private del(row) {
-    this.delVisible = true
-    this.delId = row._id
-  }
 
-  /**
-   *删除事件
-   */
-  private async handleDel(id) {
+  // 点击删除按钮
+  private async del(row) {
     try {
+      await this.$confirm('此操作将永久删除用户, 是否继续？', '确定删除用户吗？', {
+        type: 'warning',
+      })
+
       const data = {
-        ids: [id],
+        ids: [row._id],
       }
       const res = await delUsers(data)
-      if ((res as any).code === 200) {
-        this.delVisible = false
+      if (res.code === 200) {
         this.$message.success('删除成功! ')
-        this.delId = ''
         this.tableHook.query()
       }
-    } catch (e) {
-      console.error(e)
-    } finally {
-    }
-  }
-
-  /**
-   * 重置密码
-   */
-  private resetPassword(row) {
-    this.resetPWDVisible = true
-    this.resetPWDId = row._id
-  }
-
-  /**
-   *重置密码事件
-   */
-  private async handleResetPWD(id) {
-    try {
-      const res = await resetPWDUsers(id)
-      if ((res as any).code === 200) {
-        this.resetPWDVisible = false
-        this.copyPWDVisible = true
-        this.resetPWDMessage = `密码: ${(res as any).data.password}`
+    } catch (err) {
+      console.log(err)
+      if (err !== 'cancel') {
+        console.log(err.msg || err)
       }
-    } catch (e) {
-      console.error(e)
-    } finally {
     }
-  }
-  /**
-   *复制密码事件
-   */
-  private handleCopyPWD() {
-    this.copyPWDVisible = false
-    const str = this.resetPWDMessage
-    copy(str)
-    this.$message.success('密码已复制! ')
-    this.tableHook.query()
   }
 }
 </script>

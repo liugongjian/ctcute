@@ -1,28 +1,6 @@
-@mixin table {
-  /* 分页 */
-  .el-pagination {
-    text-align: right;
-  }
-
-  .el-table {
-    /* 操作按钮 */
-    .actions.el-table__cell {
-      .el-button--text + .el-button--text {
-        margin-left: 16px;
-
-        &:before {
-          content: ' ';
-          position: relative;
-          left: -8px;
-          border-left: 1px solid $border-color-primary;
-        }
-      }
-    }
-  }
-}
-
 /* 简单表格 */
 .simple-user {
+
   /* 表格工具栏 */
   .table-tools {
     display: flex;
@@ -44,29 +22,34 @@
       }
 
       &__buttons {
-        margin-left: 10px;
         margin-right: 0;
-
-        .el-button + .el-button {
-          margin-left: $button-margin;
-        }
       }
     }
+  }
+
+  .el-button+.el-button {
+    margin-left: $button-margin;
+  }
+
+  .el-button+.el-dropdown {
+    margin-right: 0;
   }
 
   .medium-dialog .el-dialog {
-    width: 780px;
+    // width: 780px;
 
     .el-checkbox-group {
-      border: 1px solid $border-color-primary;
-      padding: 5px 10px;
-      width: 673px;
+      border: 1px solid $border-color;
+      padding: $padding $padding-2x;
 
       .el-checkbox {
-        margin-right: 15px;
+        margin-right: $margin-4x;
       }
     }
   }
 
-  @include table();
+  /* 分页 */
+  .el-pagination {
+    text-align: right;
+  }
 }

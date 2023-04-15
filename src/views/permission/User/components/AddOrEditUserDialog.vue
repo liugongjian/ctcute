@@ -1,14 +1,15 @@
 <!--
  * @Author: 黄璐璐
  * @Date: 2022-07-13 13:41:05
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-01-30 10:26:08
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-15 21:37:20
  * @Description: 添加用户
 -->
 <template>
   <el-card>
     <el-dialog
       class="medium-dialog"
+      width="600px"
       :title="textMap[userDialogStatus]"
       :visible.sync="visibleDia"
       :close-on-click-modal="false"
@@ -37,7 +38,7 @@
                 placeholder="请输入备注"
                 type="textarea"
                 maxlength="200"
-              ></el-input>
+              />
             </el-form-item>
           </el-form>
         </div>
@@ -138,47 +139,39 @@ export default class extends Vue {
     })
   }
   private async handleAddOrEidt() {
-    this.loading = true
-    if (this.form._id) {
-      //编辑
-      try {
+    try {
+      this.loading = true
+      if (this.form._id) {
+        //编辑
         const data = {
           name: this.form.name,
           remark: this.form.remark,
         }
         const res = await editUsers(this.form._id, data)
-        this.loading = false
-        if ((res as any).code === 200) {
+        if (res.code === 200) {
           this.visibleDia = false
           this.$message.success('编辑成功! ')
-          // this.tableHook.query()
           this.$emit('confirm')
         } else {
-          this.$message.error((res as any).msg)
+          this.$message.error(res.msg)
         }
-      } catch (e) {
-        console.error(e)
-      } finally {
-      }
-    } else {
-      //新增
-      try {
+      } else {
+        //新增
         const res = await addUsers(this.form)
-        this.loading = false
-        if ((res as any).code === 200) {
+        if (res.code === 200) {
+          this.$emit('confirm', `密码: ${res.data.password}`)
+          this.$message.success('新增成功! ')
           this.visibleDia = false
-          this.$emit('confirm', {
-            copyPWDVisible: true,
-            resetPWDMessage: `密码: ${(res as any).data.password}`,
-          })
         } else {
-          this.visibleDia = false
-          this.$message.error((res as any).msg)
+          this.$message.error(res.msg)
         }
-      } catch (e) {
-        console.error(e)
-      } finally {
       }
+    } catch (e) {
+      if (e !== 'cancel') {
+        this.$message.error(e.msg || e)
+      }
+    } finally {
+      this.loading = false
     }
   }
 }

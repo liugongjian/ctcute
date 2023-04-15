@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-01-11 17:21:00
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-16 00:52:14
  * @Description: 基础表格
 -->
 <template>
@@ -88,8 +88,9 @@
           type="primary"
           :loading="addEditLoading"
           @click="title === '添加菜单' ? createData() : updateData()"
-          >确 定</el-button
         >
+          确 定
+        </el-button>
       </div>
     </el-dialog>
 
@@ -119,27 +120,13 @@
 
       <el-table-column prop="actions" label="操作" width="250" fixed="right" class-name="actions">
         <template slot-scope="{ row }">
-          <el-button v-permission="['/permission/menu:edit']" type="text" @click="gotoEdit(row)"
-            >编辑</el-button
-          >
-          <el-button v-permission="['/permission/menu:del']" type="text" @click="gotoDetail(row)"
-            >删除</el-button
-          >
+          <el-button v-permission="['/permission/menu:edit']" type="text" @click="gotoEdit(row)">
+            编辑
+          </el-button>
+          <el-button v-permission="['/permission/menu:del']" type="text" @click="del(row)"> 删除 </el-button>
         </template>
       </el-table-column>
     </el-table>
-
-    <!-- 删除菜单 弹窗 -->
-    <warn-dialog
-      v-if="delVisible"
-      :id="delId"
-      :visible.sync="delVisible"
-      title="确定删除数据吗? "
-      message="此操作将永久删除数据, 是否继续？"
-      cancel-button-text="取消"
-      confirm-button-text="确定"
-      @confirm="handleDel"
-    />
   </el-card>
 </template>
 <script lang="ts">
@@ -147,11 +134,9 @@ import { Component, Vue, Ref } from 'vue-property-decorator'
 import { getMenus, delMenus, addMenus, editMenus } from '@/api/simpleMenu'
 import { ElTable } from 'element-ui/types/table'
 import { ElForm } from 'element-ui/types/form'
-import WarnDialog from './components/WarnDialog.vue'
 
 @Component({
   name: 'SimpleTable',
-  components: { WarnDialog },
 })
 export default class extends Vue {
   @Ref('tableRef')
@@ -213,7 +198,7 @@ export default class extends Vue {
       this.loading = true
       const res = await getMenus()
 
-      if ((res as any).code === 200) {
+      if (res.code === 200) {
         const res_menus = res.data.result.map(item => {
           item.label = item.name
           item.id = item._id
@@ -369,25 +354,21 @@ export default class extends Vue {
   /**
    * 删除菜单
    */
-  private gotoDetail(row) {
-    this.delVisible = true
-    this.delId = row._id
-  }
-  /**
-   *  删除菜单事件
-   */
-  private async handleDel(id) {
+  private async del(row) {
     try {
-      const res = await delMenus(id)
-      if ((res as any).code === 200) {
-        this.delVisible = false
-        this.$message.success('删除成功! ')
-        this.delId = ''
-        this.getTable()
+      await this.$confirm('此操作将永久删除数据, 是否继续？', '确定删除数据吗？', {
+        type: 'warning',
+      })
+
+      const res = await delMenus(row._id)
+      if (res.code === 200) {
+        this.$message.success('删除角色成功! ')
+        this.tableHook.query()
       }
-    } catch (e) {
-      console.error(e)
-    } finally {
+    } catch (err) {
+      if (err !== 'cancel') {
+        console.log(err.msg || err)
+      }
     }
   }
   private close() {

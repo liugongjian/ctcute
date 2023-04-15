@@ -1,5 +1,5 @@
 <template>
-  <cute-layout :sidebar-filter="filterRoutes" :sidebar-title="sidebarTitle">
+  <cute-layout :sidebar-filter="filterRoutes" :sidebar-title="sidebarTitle" :sidebar-routes="routes">
     <template #header-right>
       <header-nav />
     </template>
@@ -21,10 +21,11 @@ import HeaderNav from './components/LayoutHeaderNav/index.vue'
   },
 })
 export default class extends Vue {
-  public sidebarTitle = '组件'
-  public type = 'component'
+  private sidebarTitle = '组件'
+  private type = 'component'
+  private routes = this.$auth && this.$auth.getRoutes()
 
-  public filterRoutes(routes: Array<any>): Array<any> {
+  private filterRoutes(routes: Array<any>): Array<any> {
     return routes.filter(route => route.meta.type === this.type)
   }
 }

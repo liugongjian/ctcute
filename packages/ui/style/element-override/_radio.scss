@@ -4,7 +4,7 @@
 .el-radio__inner {
   width: 14px;
   height: 14px;
-  background-color: $color-bg-1;
+  background-color: transparent;
 
   &:after {
     width: $common-space-2x;
@@ -22,7 +22,7 @@
 }
 
 .el-radio__input.is-checked .el-radio__inner {
-  background: $color-bg-1;
+  background: transparent;
 }
 
 /* SelectButton

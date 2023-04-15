@@ -158,16 +158,16 @@ $button-padding-large: $margin-3x $padding-6x;
       display: inline-block;
       width: $font-size;
       height: $font-size;
-    }
 
-    .svg-icon,
-    [class*=el-icon-] {
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-size: $font-size;
-      line-height: 1;
-      transform: scale(1.18);
+      .svg-icon,
+      [class*=el-icon-] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: $font-size;
+        line-height: 1;
+        transform: scale(1.18);
+      }
     }
 
     &.is-square {

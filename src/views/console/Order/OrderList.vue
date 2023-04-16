@@ -1,7 +1,7 @@
 <template>
   <el-card class="real-order">
-    <div class="page-header">
-      <svg-icon class="page-header__icon" name="left" :width="14" :height="14" @click="openPreview" />
+    <div class="page-header" @click="openPreview">
+      <svg-icon class="page-header__icon" name="arrow-left" />
       <span class="page-header__content">云硬盘</span>
     </div>
 
@@ -66,7 +66,6 @@
           unit="个月"
           @moveChange="changes"
           @inputChange="inputChanges"
-          @blur="handleBlur"
         />
       </el-form-item>
     </el-form>
@@ -216,12 +215,6 @@ export default class extends Vue {
     17: '5年',
   }
 
-  /**
-   * 校验slider
-   */
-  private handleBlur(v) {
-    this.ruleFormRef.$emit('el.form.blur', v)
-  }
   private changes(val) {
     console.log(val, 'slider值')
     switch (val) {

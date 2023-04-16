@@ -2,11 +2,11 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-16 00:41:49
+ * @LastEditTime: 2023-04-16 13:34:50
  * @Description: 基础表格
 -->
 <template>
-  <el-card class="simple-user">
+  <el-card class="simple-table">
     <!--表格工具栏-->
     <div class="table-tools">
       <el-button v-permission="['/permission/role:add']" type="primary" @click="addRoles">+ 添 加</el-button>
@@ -33,6 +33,11 @@
             </el-button>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>
+                <el-button v-permission="['/permission/role:setuser']" type="text" @click="gotoSetUser(row)">
+                  设置用户
+                </el-button>
+              </el-dropdown-item>
+              <el-dropdown-item>
                 <el-button v-permission="['/permission/role:copy']" type="text" @click="gotoCopy(row)">
                   复制
                 </el-button>
@@ -40,11 +45,6 @@
               <el-dropdown-item>
                 <el-button v-permission="['/permission/role:del']" type="text" @click="gotoDel(row)">
                   删除
-                </el-button>
-              </el-dropdown-item>
-              <el-dropdown-item>
-                <el-button v-permission="['/permission/role:setuser']" type="text" @click="gotoSetUser(row)">
-                  设置用户
                 </el-button>
               </el-dropdown-item>
             </el-dropdown-menu>
@@ -74,31 +74,22 @@
 
     <!--设置用户弹窗-->
     <el-dialog
-      class="medium-dialog"
       title="设置用户"
       width="600px"
       :visible="setUserVisible"
       :close-on-click-modal="false"
       @close="setUserVisible = false"
     >
-      <el-scrollbar
-        ref="scrollBar"
-        class="medium-dialog--scroll"
-        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '521px' }]"
-      >
-        <div class="medium-dialog--content">
-          <el-transfer
-            ref="myTransfer"
-            v-model="roleValue"
-            v-loading="roleLoading"
-            :titles="['用户', '角色下已有用户']"
-            :data="roleData"
-            filterable
-            filter-placeholder="请输入姓名或手机号"
-            @change="handleChange"
-          />
-        </div>
-      </el-scrollbar>
+      <el-transfer
+        ref="myTransfer"
+        v-model="roleValue"
+        v-loading="roleLoading"
+        :titles="['用户', '角色下已有用户']"
+        :data="roleData"
+        filterable
+        filter-placeholder="请输入姓名或手机号"
+        @change="handleChange"
+      />
     </el-dialog>
   </el-card>
 </template>
@@ -120,8 +111,6 @@ export default class extends Vue {
   public tableHook = new TableHookClass()
   @Ref('myTransfer')
   private myTransfer: ElTransfer
-
-  private isFullscreen = false
 
   //添加角色、编辑角色弹窗
   private roleDialogStatus = 'create'

@@ -2,11 +2,11 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-15 23:29:22
+ * @LastEditTime: 2023-04-16 12:35:17
  * @Description: 基础表格
 -->
 <template>
-  <el-card class="simple-user">
+  <el-card class="simple-table">
     <!--表格工具栏-->
     <div class="table-tools">
       <div class="table-tools__left">
@@ -17,21 +17,23 @@
       <div class="table-tools__right table-tools__conditions">
         <el-form ref="conditions" :model="conditions" inline @submit.native.prevent>
           <el-form-item prop="host">
-            <el-select v-model="conditions.status" placeholder="请选择状态">
-              <el-option
-                v-for="item in statusOptions"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
+            <cute-remind-select
+              v-model="conditions.status"
+              :options="statusOptions"
+              title="状态"
+              placeholder="请选择状态"
+            />
           </el-form-item>
           <el-form-item prop="searchkey">
-            <el-input v-model="conditions.searchkey" placeholder="请输入用户名/手机号" />
+            <cute-remind-input
+              v-model="conditions.searchkey"
+              placeholder="请输入用户名/手机号"
+              title="用户名/手机号"
+            />
           </el-form-item>
           <el-form-item class="table-tools__conditions__buttons">
-            <el-button type="primary" @click="tableHook.query()">查询</el-button>
-            <el-button @click="resetConditions">重置</el-button>
+            <el-button type="primary" @click="tableHook.query()">查 询</el-button>
+            <el-button @click="resetConditions">重 置</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -119,34 +121,25 @@
 
     <!--设置角色弹窗-->
     <el-dialog
-      class="medium-dialog"
       width="600px"
       title="设置角色"
       :visible="roleVisible"
       :close-on-click-modal="false"
       @close="roleVisible = false"
     >
-      <el-scrollbar
-        ref="scrollBar"
-        class="medium-dialog--scroll"
-        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '461px' }]"
-      >
-        <div class="medium-dialog--content">
-          <el-form :model="roleDataForm" label-width="80px">
-            <el-form-item label="用户名" prop="roleRow.name">
-              <el-input v-model="roleRow.name" placeholder="请输用户名" :disabled="true" />
-            </el-form-item>
-            <el-form-item label="角色" prop="roleCheckList">
-              <el-checkbox-group v-model="roleCheckList">
-                <el-checkbox v-for="role in roles" :key="role._id" :label="role._id">
-                  {{ role.name }}
-                </el-checkbox>
-              </el-checkbox-group>
-            </el-form-item>
-          </el-form>
-        </div>
-      </el-scrollbar>
-      <div class="medium-dialog--footer">
+      <el-form :model="roleDataForm" label-width="80px">
+        <el-form-item label="用户名" prop="roleRow.name">
+          <el-input v-model="roleRow.name" placeholder="请输用户名" :disabled="true" />
+        </el-form-item>
+        <el-form-item label="角色" prop="roleCheckList">
+          <el-checkbox-group v-model="roleCheckList">
+            <el-checkbox v-for="role in roles" :key="role._id" :label="role._id">
+              {{ role.name }}
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+      </el-form>
+      <div slot="footer">
         <el-button @click="roleVisible = false">取 消</el-button>
         <el-button type="primary" :loading="setRoleLoading" @click="handleSetRole">确 定</el-button>
       </div>
@@ -211,7 +204,6 @@ export default class extends Vue {
   private roleVisible = false
   private roleRow = { _id: '' }
   private roleCheckList = []
-  private isFullscreen = false
   private roles = []
   private setRoleLoading = false
 
@@ -450,4 +442,16 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.el-checkbox-group {
+  padding: $padding-2x $padding-3x;
+  min-height: 100px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid $border-color;
+
+  .el-checkbox {
+    margin-right: $margin-4x;
+  }
+}
+</style>

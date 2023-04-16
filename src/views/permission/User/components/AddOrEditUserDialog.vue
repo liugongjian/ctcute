@@ -2,53 +2,36 @@
  * @Author: 黄璐璐
  * @Date: 2022-07-13 13:41:05
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-15 21:37:20
+ * @LastEditTime: 2023-04-16 13:33:10
  * @Description: 添加用户
 -->
 <template>
-  <el-card>
-    <el-dialog
-      class="medium-dialog"
-      width="600px"
-      :title="textMap[userDialogStatus]"
-      :visible.sync="visibleDia"
-      :close-on-click-modal="false"
-      @close="close"
-    >
-      <el-scrollbar
-        ref="scrollBar"
-        class="medium-dialog--scroll"
-        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '521px' }]"
-      >
-        <div class="medium-dialog--content">
-          <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">
-            <el-form-item label="用户名" prop="name">
-              <el-input v-model="form.name" value="" placeholder="请输入姓名"></el-input>
-            </el-form-item>
-            <el-form-item v-if="userDialogStatus === 'create'" label="手机号" prop="phone">
-              <el-input v-model="form.phone" value="" placeholder="请输入手机号"></el-input>
-            </el-form-item>
-            <el-form-item v-if="userDialogStatus === 'create'" label="邮箱" prop="email">
-              <el-input v-model="form.email" value="" placeholder="请输入邮箱"></el-input>
-            </el-form-item>
-            <el-form-item label="备注" prop="remark">
-              <el-input
-                v-model="form.remark"
-                value=""
-                placeholder="请输入备注"
-                type="textarea"
-                maxlength="200"
-              />
-            </el-form-item>
-          </el-form>
-        </div>
-      </el-scrollbar>
-      <div class="medium-dialog--footer">
-        <el-button @click="close">{{ cancelButtonText }}</el-button>
-        <el-button type="primary" :loading="loading" @click="confirm">{{ confirmButtonText }}</el-button>
-      </div>
-    </el-dialog>
-  </el-card>
+  <el-dialog
+    width="600px"
+    :title="textMap[userDialogStatus]"
+    :visible.sync="visibleDia"
+    :close-on-click-modal="false"
+    @close="close"
+  >
+    <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">
+      <el-form-item label="用户名" prop="name">
+        <el-input v-model="form.name" value="" placeholder="请输入姓名"></el-input>
+      </el-form-item>
+      <el-form-item v-if="userDialogStatus === 'create'" label="手机号" prop="phone">
+        <el-input v-model="form.phone" value="" placeholder="请输入手机号"></el-input>
+      </el-form-item>
+      <el-form-item v-if="userDialogStatus === 'create'" label="邮箱" prop="email">
+        <el-input v-model="form.email" value="" placeholder="请输入邮箱"></el-input>
+      </el-form-item>
+      <el-form-item label="备注" prop="remark">
+        <el-input v-model="form.remark" value="" placeholder="请输入备注" type="textarea" maxlength="200" />
+      </el-form-item>
+    </el-form>
+    <div slot="footer">
+      <el-button @click="close">{{ cancelButtonText }}</el-button>
+      <el-button type="primary" :loading="loading" @click="confirm">{{ confirmButtonText }}</el-button>
+    </div>
+  </el-dialog>
 </template>
 <script lang="ts">
 import { validPhone, validateEmail } from '@/utils/validate'
@@ -85,7 +68,6 @@ export default class extends Vue {
   set visibleDia(val) {
     this.$emit('update:visible', val)
   }
-  private isFullscreen = false
   private loading = false
 
   //校验规则

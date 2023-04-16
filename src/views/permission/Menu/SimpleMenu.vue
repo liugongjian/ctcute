@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-16 00:52:14
+ * @LastEditTime: 2023-04-16 10:54:04
  * @Description: 基础表格
 -->
 <template>
@@ -13,76 +13,58 @@
     </div>
 
     <!--弹窗-->
-    <el-dialog
-      class="medium-dialog"
-      :title="title"
-      :visible="visible"
-      :close-on-click-modal="false"
-      @close="close"
-    >
-      <el-scrollbar
-        ref="scrollBar"
-        class="medium-dialog--scroll"
-        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '521px' }]"
-      >
-        <div class="medium-dialog--content">
-          <el-form ref="menusRef" label-width="90px" :rules="rules" :model="menusForm">
-            <el-form-item v-if="title === '添加菜单'" label="类型" prop="type">
-              <el-radio-group v-model="menusForm.menuType" @change="typeChange">
-                <el-radio-button :label="1">菜单</el-radio-button>
-                <el-radio-button :label="2">权限</el-radio-button>
-              </el-radio-group>
-            </el-form-item>
-            <el-form-item v-else label="类型" prop="type">
-              <el-radio-group
-                v-if="menusForm.menuType === 1"
-                v-model="menusForm.menuType"
-                @change="typeChange"
-              >
-                <el-radio-button :label="1">菜单</el-radio-button>
-                <el-radio-button :label="2" disabled>权限</el-radio-button>
-              </el-radio-group>
-              <el-radio-group v-else v-model="menusForm.menuType" @change="typeChange">
-                <el-radio-button :label="1" disabled>菜单</el-radio-button>
-                <el-radio-button :label="2">权限</el-radio-button>
-              </el-radio-group>
-            </el-form-item>
-            <el-form-item label="名称" prop="name">
-              <el-input v-model="menusForm.name" placeholder="请输入名称" />
-            </el-form-item>
-            <el-form-item label="上级菜单" prop="parents">
-              <cute-select-tree v-model="menusForm.parents" :options="dataOptions" @change="handleTree" />
-            </el-form-item>
+    <el-dialog :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
+      <el-form ref="menusRef" label-width="90px" :rules="rules" :model="menusForm">
+        <el-form-item v-if="title === '添加菜单'" label="类型" prop="type">
+          <el-radio-group v-model="menusForm.menuType" @change="typeChange">
+            <el-radio-button :label="1">菜单</el-radio-button>
+            <el-radio-button :label="2">权限</el-radio-button>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item v-else label="类型" prop="type">
+          <el-radio-group v-if="menusForm.menuType === 1" v-model="menusForm.menuType" @change="typeChange">
+            <el-radio-button :label="1">菜单</el-radio-button>
+            <el-radio-button :label="2" disabled>权限</el-radio-button>
+          </el-radio-group>
+          <el-radio-group v-else v-model="menusForm.menuType" @change="typeChange">
+            <el-radio-button :label="1" disabled>菜单</el-radio-button>
+            <el-radio-button :label="2">权限</el-radio-button>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="名称" prop="name">
+          <el-input v-model="menusForm.name" placeholder="请输入名称" />
+        </el-form-item>
+        <el-form-item label="上级菜单" prop="parents">
+          <cute-select-tree v-model="menusForm.parents" :options="dataOptions" @change="handleTree" />
+        </el-form-item>
 
-            <el-form-item label="排序" prop="orderNum">
-              <el-input v-model="menusForm.orderNum" placeholder="请输入" />
-            </el-form-item>
-            <el-form-item label="路由" prop="url">
-              <el-input v-model="menusForm.url" placeholder="请输入" />
-            </el-form-item>
-            <div v-if="menusForm.menuType === 2">
-              <hr class="segmentation" />
-              <el-form-item>
-                <el-alert :closable="false" title="权限标识与别名说明" type="info" class="el-alert-primary">
-                  <p class="el-alert__description">
-                    标识，别名属同一个权限，主要用于前后分离,前后权限标识不一致,且前后两端皆需判定权限的项目。一般情况别名置空即可,如有多个别名可逗号分隔。
-                  </p>
-                </el-alert>
-              </el-form-item>
+        <el-form-item label="排序" prop="orderNum">
+          <el-input v-model="menusForm.orderNum" placeholder="请输入" />
+        </el-form-item>
+        <el-form-item label="路由" prop="url">
+          <el-input v-model="menusForm.url" placeholder="请输入" />
+        </el-form-item>
+        <div v-if="menusForm.menuType === 2">
+          <el-divider />
+          <el-alert
+            :closable="false"
+            type="info"
+            show-icon
+            title="权限标识与别名说明"
+            description="标识，别名属同一个权限，主要用于前后分离,前后权限标识不一致,且前后两端皆需判定权限的项目。一般情况别名置空即可,如有多个别名可逗号分隔。"
+          />
 
-              <el-form-item label="标识" prop="perms">
-                <el-input v-model="menusForm.perms" placeholder="请输入" :disabled="title === '编辑菜单'" />
-              </el-form-item>
+          <el-form-item label="标识" prop="perms">
+            <el-input v-model="menusForm.perms" placeholder="请输入" :disabled="title === '编辑菜单'" />
+          </el-form-item>
 
-              <el-form-item label="别名" prop="alias">
-                <el-input v-model="menusForm.alias" placeholder="请输入" />
-              </el-form-item>
-            </div>
-          </el-form>
+          <el-form-item label="别名" prop="alias">
+            <el-input v-model="menusForm.alias" placeholder="请输入" />
+          </el-form-item>
         </div>
-      </el-scrollbar>
+      </el-form>
 
-      <div class="medium-dialog--footer">
+      <div slot="footer">
         <el-button @click="visible = false">取 消</el-button>
         <el-button
           type="primary"
@@ -118,7 +100,7 @@
       <el-table-column prop="perms" label="标识"> </el-table-column>
       <el-table-column prop="alias" label="别名"> </el-table-column>
 
-      <el-table-column prop="actions" label="操作" width="250" fixed="right" class-name="actions">
+      <el-table-column prop="actions" label="操作" width="100" fixed="right" class-name="actions">
         <template slot-scope="{ row }">
           <el-button v-permission="['/permission/menu:edit']" type="text" @click="gotoEdit(row)">
             编辑
@@ -159,7 +141,6 @@ export default class extends Vue {
     parentId: '',
   }
   private dataOptions = []
-  private isFullscreen = false
 
   private tableData = []
   private tableDataTemp = []
@@ -376,4 +357,8 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+::v-deep .el-alert {
+  margin-bottom: $form-item-margin-bottom;
+}
+</style>

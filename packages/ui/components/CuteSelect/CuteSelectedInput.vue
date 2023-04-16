@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-24 14:41:47
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-04-17 07:04:02
  * @Description: 操作已选项
 -->
 <template>
@@ -22,12 +22,13 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
+import { Component, Prop, Watch, Mixins } from 'vue-property-decorator'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
   name: 'CuteSelectedInput',
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   @Prop({ type: Array, default: [] }) checkedList?: [] //已选中数据
   @Prop({ type: Array, default: [] }) options?: [] //下拉数据
   private sele = ''
@@ -35,20 +36,20 @@ export default class extends Vue {
   private created() {
     if (this.checkedList.length > 0) {
       this.flag = true
-      this.sele = `操作已选项(${this.checkedList.length})`
+      this.sele = `${this.t('cute.selectedInput.action')}(${this.checkedList.length})`
     } else {
       this.flag = false
-      this.sele = '操作已选项'
+      this.sele = this.t('cute.selectedInput.action')
     }
   }
   @Watch('checkedList')
   private change() {
     if (this.checkedList.length > 0) {
       this.flag = true
-      this.sele = `操作已选项(${this.checkedList.length})`
+      this.sele = `${this.t('cute.selectedInput.action')}(${this.checkedList.length})`
     } else {
       this.flag = false
-      this.sele = '操作已选项'
+      this.sele = this.t('cute.selectedInput.action')
     }
   }
 

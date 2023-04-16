@@ -1,6 +1,13 @@
+<!--
+ * @Author: 胡佳婷
+ * @Date: 2023-04-07 13:57:38
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-04-16 06:41:45
+ * @Description:
+-->
 <template>
   <div class="cute-area-recent">
-    <div class="cute-area-recent-head">最近访问</div>
+    <div class="cute-area-recent-head">{{ t('cute.area.recent') }}</div>
     <div class="cute-area-recent-body">
       <div
         v-for="item in data"
@@ -14,11 +21,12 @@
   </div>
 </template>
 <script type="text/babel">
+import Locale from '@cutedesign/ui/mixins/locale'
 export default {
   name: 'CuteAreaRecent',
 
   componentName: 'CuteAreaRecent',
-
+  mixins: [Locale],
   props: {
     data: {
       type: Array,

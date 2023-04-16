@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-16 10:54:04
+ * @LastEditTime: 2023-04-16 19:07:35
  * @Description: 基础表格
 -->
 <template>
@@ -344,7 +344,7 @@ export default class extends Vue {
       const res = await delMenus(row._id)
       if (res.code === 200) {
         this.$message.success('删除角色成功! ')
-        this.tableHook.query()
+        this.getTable()
       }
     } catch (err) {
       if (err !== 'cancel') {

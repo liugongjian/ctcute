@@ -1,5 +1,5 @@
 <template>
-  <cute-layout :sidebar-filter="filterRoutes" :sidebar-title="sidebarTitle">
+  <cute-layout :sidebar-filter="filterRoutes" :sidebar-title="sidebarTitle" layout="fixed-navbar">
     <template #header-right>
       <header-nav />
     </template>

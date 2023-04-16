@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-08-09 13:41:43
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-16 00:37:27
+ * @LastEditTime: 2023-04-16 18:02:32
  * @Description:
  */
 import request from '@/utils/request'
@@ -73,7 +73,7 @@ export const getRoleUser = (
     method: 'get',
   })
 
-export const setRole = (data): Promise<CommonRes> =>
+export const setRole = (data): Promise<CommonRes & { data: string }> =>
   request({
     url: `/v1/auth/roles/${data.roleId}/users`,
     method: 'put',

@@ -18,9 +18,62 @@ i18n
     └── ... // 各 locale 文件
 ```
 
+### 1.1 组件 ts 开发
+
+```vue
+<template>
+  <div>{{ t('cute.editInput.placeholder') }}</div>
+</template>
+<script lang="ts">
+import { Component, Mixins } from 'vue-property-decorator'
+import Locale from '@cutedesign/ui/mixins/locale'
+
+@Component({
+  name: 'CuteEditInput',
+})
+export default class extends Mixins(Locale) {
+  test() {
+    console.log(this.t('cute.editInput.placeholder'))
+  }
+}
+</script>
+```
+
+#### 1.2 组件 js 开发
+
+引用另一个 locale 文件。
+
+```vue
+<script>
+import Locale from '@cutedesign/ui/mixins/localeJs'
+
+export default {
+  mixins: [Locale],
+}
+</script>
+```
+
+### 1.3 组件 prop 默认值
+
+如果是设置 `prop` 的默认值，为了支持实时切换语言，建议不使用 default 设置，而是在逻辑中赋值。
+
+### 1.4 重写 element-ui 组件
+
+如果是重写 element-ui 组件，需要注意 local 引用 `lib` 目录下，src 目录会产生实例隔离：
+
+```vue
+<script type="text/babel">
+import Locale from 'element-ui/lib/mixins/locale'
+
+export default {
+  mixins: [Locale],
+}
+</script>
+```
+
 ## 2、项目内使用
 
-1. 安装所需的依赖：
+### 2.1 安装依赖
 
 需求 vue-i18n 8+ 版本。
 
@@ -28,7 +81,9 @@ i18n
 npm i -S vue-i18n@^8.0.0
 ```
 
-2. `src/i18n/index.ts`，在这里初始化 i18n 实例，并合并项目内的 locale 配置：
+### 2.2 初始化 i18n
+
+`src/i18n/index.ts`，在这里初始化 i18n 实例，并合并项目内的 locale 配置：
 
 ```js
 import { createI18n } from '@cutedesign/ui'
@@ -45,10 +100,16 @@ i18n.mergeLocaleMessage('en', en)
 export default i18n
 ```
 
-3. `src/main.ts` 用法照旧：
+### 2.3 初始化 Vue
+
+`src/main.ts` 用法照旧：
 
 ```js
 import i18n from '@/i18n'
 
 new Vue({ i18n })
 ```
+
+## 3、英文翻译规范
+
+（待补充）

@@ -1,8 +1,8 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2023-04-07 13:57:38
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-16 06:41:45
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-17 23:09:38
  * @Description:
 -->
 <template>
@@ -21,7 +21,7 @@
   </div>
 </template>
 <script type="text/babel">
-import Locale from '@cutedesign/ui/mixins/locale'
+import Locale from '@cutedesign/ui/mixins/localeJs'
 export default {
   name: 'CuteAreaRecent',
 

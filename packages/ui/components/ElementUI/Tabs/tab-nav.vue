@@ -1,13 +1,12 @@
 <script>
 import TabBar from './tab-bar'
 import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 function noop() {}
 const firstUpperCase = str => {
   return str.toLowerCase().replace(/( |^)[a-z]/g, L => L.toUpperCase())
 }
-
-const defaultTabName = "新选项卡"
 
 export default {
   name: 'TabNav',
@@ -16,12 +15,15 @@ export default {
     TabBar,
   },
 
+  mixins: [Locale],
+
   inject: ['rootTabs'],
 
   props: {
     panes: Array,
     currentName: String,
     editable: Boolean,
+    
     onTabClick: {
       type: Function,
       default: noop,
@@ -47,7 +49,7 @@ export default {
       isFocus: false,
       focusable: true,
       newTabEditing: false,
-      newTabName: defaultTabName,
+      newTabName: this.defaultTabName,
     }
   },
 
@@ -61,6 +63,9 @@ export default {
     sizeName() {
       return ['top', 'bottom'].indexOf(this.rootTabs.tabPosition) !== -1 ? 'width' : 'height'
     },
+    defaultTabName() {
+      return this.t('cute.tabs.new')
+    }
   },
 
   updated() {
@@ -87,7 +92,7 @@ export default {
   methods: {
     showTabAdd(){
       this.newTabEditing = true
-      this.newTabName = defaultTabName
+      this.newTabName = this.defaultTabName
       this.$nextTick(() => {
         this.$refs.tabAddInput?.focus()
       })
@@ -365,7 +370,7 @@ export default {
                         }
                       }}
                     ></el-input>
-                    : "+ 新选项卡"
+                    : `+ ${this.defaultTabName}`
                 }
               </div>
             ) : null}

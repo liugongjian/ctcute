@@ -149,7 +149,7 @@ $tags-left-lg: $padding-4x - 6;
       .el-input--suffix{ 
         line-height: $height - 2;
         .el-input__inner{
-          line-height: $height - 2;
+          line-height: $height;
         }
       }
       .el-select__tags{ 

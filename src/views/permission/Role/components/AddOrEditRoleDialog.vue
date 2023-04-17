@@ -1,64 +1,45 @@
 <!--
  * @Author: 黄璐璐
  * @Date: 2022-07-13 13:41:05
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-01-30 10:26:01
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-16 13:25:45
  * @Description: 添加用户
 -->
 <template>
-  <el-card>
-    <el-dialog
-      class="medium-dialog"
-      :title="textMap[roleDialogStatus]"
-      :visible.sync="visibleDia"
-      :close-on-click-modal="false"
-      @close="close"
-    >
-      <el-scrollbar
-        ref="scrollBar"
-        class="medium-dialog--scroll"
-        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '521px' }]"
-      >
-        <div class="medium-dialog--content">
-          <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">
-            <el-form-item label="角色名" prop="name">
-              <el-input v-model="form.name" value="" placeholder="请输入姓名"></el-input>
-            </el-form-item>
-            <el-form-item label="角色标识" prop="code">
-              <el-input v-model="form.code" value="" placeholder="请输入角色标识英文字母"></el-input>
-            </el-form-item>
-            <el-form-item label="备注" prop="remark">
-              <el-input
-                v-model="form.remark"
-                value=""
-                placeholder="请输入备注"
-                type="textarea"
-                maxlength="200"
-              ></el-input>
-            </el-form-item>
-            <el-form-item label="角色权限" prop="menus">
-              <div v-loading="treeLoding" class="line">
-                <el-tree
-                  ref="treeRef"
-                  show-checkbox
-                  :data="treeData"
-                  :props="treeProps"
-                  node-key="_id"
-                  :default-expand-all="false"
-                  :default-checked-keys="checkedKeys"
-                >
-                </el-tree>
-              </div>
-            </el-form-item>
-          </el-form>
-        </div>
-      </el-scrollbar>
-      <div class="medium-dialog--footer">
-        <el-button @click="close">{{ cancelButtonText }}</el-button>
-        <el-button type="primary" :loading="loading" @click="confirm">{{ confirmButtonText }}</el-button>
-      </div>
-    </el-dialog>
-  </el-card>
+  <el-dialog
+    :title="textMap[roleDialogStatus]"
+    :visible.sync="visibleDia"
+    :close-on-click-modal="false"
+    @close="close"
+  >
+    <el-form ref="ruleForm" :rules="rules" :model="form" label-width="124px">
+      <el-form-item label="角色名" prop="name">
+        <el-input v-model="form.name" value="" placeholder="请输入姓名"></el-input>
+      </el-form-item>
+      <el-form-item label="角色标识" prop="code">
+        <el-input v-model="form.code" value="" placeholder="请输入角色标识英文字母"></el-input>
+      </el-form-item>
+      <el-form-item label="备注" prop="remark">
+        <el-input v-model="form.remark" value="" placeholder="请输入备注" type="textarea" maxlength="200" />
+      </el-form-item>
+      <el-form-item label="角色权限" prop="menus">
+        <el-tree
+          ref="treeRef"
+          v-loading="treeLoding"
+          show-checkbox
+          :data="treeData"
+          :props="treeProps"
+          node-key="_id"
+          :default-expand-all="false"
+          :default-checked-keys="checkedKeys"
+        />
+      </el-form-item>
+    </el-form>
+    <div slot="footer">
+      <el-button @click="close">{{ cancelButtonText }}</el-button>
+      <el-button type="primary" :loading="loading" @click="confirm">{{ confirmButtonText }}</el-button>
+    </div>
+  </el-dialog>
 </template>
 <script lang="ts">
 import { Component, Vue, Prop, Ref } from 'vue-property-decorator'
@@ -86,7 +67,6 @@ export default class extends Vue {
     remark: ''
     menus: []
   }
-  private isFullscreen = false
   private treeProps = {
     children: 'children',
     label: 'name',
@@ -149,7 +129,7 @@ export default class extends Vue {
       const res = await getMenus()
       this.treeLoding = false
 
-      if ((res as any).code === 200) {
+      if (res.code === 200) {
         if (res.data && res.data.result.length > 0) {
           const res_menus = res.data.result
 
@@ -196,47 +176,48 @@ export default class extends Vue {
       }
     })
   }
+
   private async handleAddOrEidt() {
-    this.loading = true
-    if (this.form._id) {
-      //编辑
-      try {
+    try {
+      this.loading = true
+      if (this.form._id) {
+        //编辑
         const res = await editRoles(this.form._id, this.form)
-        this.loading = false
-        if ((res as any).code === 200) {
+        if (res.code === 200) {
           this.visibleDia = false
           this.$message.success('编辑成功! ')
-          // this.tableHook.query()
           this.$emit('confirm')
         } else {
-          this.$message.error((res as any).msg)
+          this.$message.error(res.msg)
         }
-      } catch (e) {
-        console.error(e)
-      } finally {
-      }
-    } else {
-      //新增
-      try {
+      } else {
+        //新增
         const res = await addRoles(this.form)
-        this.loading = false
-        if ((res as any).code === 200) {
+        if (res.code === 200) {
           this.visibleDia = false
           this.$message.success('添加成功! ')
           this.$emit('confirm')
-          // this.tableHook.query()
+        } else {
+          this.$message.error(res.msg)
         }
-      } catch (e) {
-        console.error(e)
-      } finally {
       }
+    } catch (e) {
+      if (e !== 'cancel') {
+        this.$message.error(e.msg || e)
+      }
+    } finally {
+      this.loading = false
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-.line {
-  border: 1px solid $border-color-primary;
-  padding: 0 10px;
+.el-tree {
+  margin: 0;
+  padding: $padding-2x $padding-3x;
+  min-height: 100px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid $border-color;
 }
 </style>

@@ -10,6 +10,11 @@
       .el-button--text + .el-button--text {
         margin-left: $button-margin;
       }
+
+      .el-button+.el-dropdown {
+        margin-left: $button-margin;
+        margin-right: 0;
+      }
     }
   }
 }

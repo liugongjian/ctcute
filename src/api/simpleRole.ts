@@ -1,12 +1,14 @@
 /*
  * @Author: 马妍
  * @Date: 2022-08-09 13:41:43
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-10-18 14:41:22
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-16 18:02:32
  * @Description:
  */
 import request from '@/utils/request'
 import { AxiosPromise } from 'axios'
+
+type CommonRes = { code: number | string; msg: string }
 
 /**
  * 获取表格数据
@@ -22,7 +24,7 @@ export const getRoles = (params): AxiosPromise<any> =>
 /**
  * 复制角色
  */
-export const copyRoles = (id): AxiosPromise<any> =>
+export const copyRoles = (id): Promise<CommonRes> =>
   request({
     url: `/v1/auth/roles/${id}/copy`,
     method: 'post',
@@ -31,7 +33,7 @@ export const copyRoles = (id): AxiosPromise<any> =>
 /**
  * 删除角色
  */
-export const delRoles = (id): AxiosPromise<any> =>
+export const delRoles = (id): Promise<CommonRes> =>
   request({
     url: `/v1/auth/roles/${id}`,
     method: 'delete',
@@ -40,7 +42,7 @@ export const delRoles = (id): AxiosPromise<any> =>
 /**
  * 编辑角色
  */
-export const editRoles = (roleId, data): AxiosPromise<any> =>
+export const editRoles = (roleId, data): Promise<CommonRes> =>
   request({
     url: `/v1/auth/roles/${roleId}`,
     method: 'put',
@@ -50,7 +52,7 @@ export const editRoles = (roleId, data): AxiosPromise<any> =>
 /**
  * 添加角色
  */
-export const addRoles = (data): AxiosPromise<any> =>
+export const addRoles = (data): Promise<CommonRes> =>
   request({
     url: '/v1/auth/roles',
     method: 'post',
@@ -59,13 +61,19 @@ export const addRoles = (data): AxiosPromise<any> =>
 /**
  * 获取某一角色下的所有用户
  */
-export const getRoleUser = (data): AxiosPromise<any> =>
+export const getRoleUser = (
+  data
+): Promise<
+  CommonRes & {
+    data: any[]
+  }
+> =>
   request({
     url: `/v1/auth/roles/${data._id}/users`,
     method: 'get',
   })
 
-export const setRole = (data): AxiosPromise<any> =>
+export const setRole = (data): Promise<CommonRes & { data: string }> =>
   request({
     url: `/v1/auth/roles/${data.roleId}/users`,
     method: 'put',

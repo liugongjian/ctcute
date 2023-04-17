@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
- * @LastEditors: 马妍
- * @LastEditTime: 2023-04-14 15:44:04
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-17 16:08:41
  * @Description:
 -->
 <template>
@@ -41,7 +41,7 @@ export default class extends Vue {
   }
   private getPosition() {
     ;(this.$refs.input as any).$refs.input.style.padding = `0px ${
-      (this.$refs.suffix as any).getBoundingClientRect().width + 15
+      (this.$refs.suffix as any).getBoundingClientRect().width + 22
     }px 0px 12px`
   }
 }

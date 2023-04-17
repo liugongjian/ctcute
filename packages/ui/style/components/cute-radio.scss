@@ -15,16 +15,23 @@
     }
   }
 
-  .el-radio-group .el-radio-button:not(.is-active):not(.is-disabled) .el-radio-button__inner {
-    background: unset;
-    color: $color-grey-1;
-    border-radius: $cute-special-radio-size;
-
-    &:hover {
-      background: unset;
-      color: $color-grey-1;
-      margin: 0;
+        
+  .el-radio-group {
+    .el-radio-button.is-disabled .el-radio-button__inner{
+      border-radius: $border-radius;
     }
+    .el-radio-button:not(.is-active):not(.is-disabled) .el-radio-button__inner {
+        background: unset;
+        color: $color-grey-1;
+        border-radius: $cute-special-radio-size;
+
+        &:hover {
+          background: unset;
+          color: $color-grey-1;
+          margin: 0;
+        }
+      }
+
   }
 
   .el-radio-group .el-radio-button.is-active 

@@ -5,7 +5,6 @@ $cascader-panel-shadow: $shadow-2;
 
 
 .el-cascader {
-  .el-input__suffix-inner{ height: 100%;}
   .el-cascader__caret.el-input__icon.el-icon-arrow-down {
     transform: rotate(360deg);
     color: $text-color-light-2;
@@ -17,7 +16,7 @@ $cascader-panel-shadow: $shadow-2;
   }
 
   .el-icon-arrow-down:before {
-    content: '\e790';
+    content: '\e6df';
   }
 
   .el-icon-circle-close:before {
@@ -25,9 +24,9 @@ $cascader-panel-shadow: $shadow-2;
     content: '\ea4f';
   }
 
-  .el-input--medium .el-input__icon {
-    line-height: $input-height;
-  }
+  // .el-input--medium .el-input__icon {
+  //   line-height: $input-height;
+  // }
 
   .el-cascader__tags {
     .el-tag{
@@ -63,6 +62,11 @@ $cascader-panel-shadow: $shadow-2;
     }
 
   }
+  // &:not(.is-disabled):hover{
+  //   .el-input__inner{
+  //     border: 1px solid $color-master;
+  //   }
+  // } 
 }
 
 .el-popper.el-cascader__dropdown {
@@ -84,7 +88,7 @@ $cascader-panel-shadow: $shadow-2;
 
   .el-radio,
   .el-checkbox {
-    padding-right: $padding-2x;
+    padding-right: 0;
   }
 
   .el-cascader-panel {
@@ -95,6 +99,9 @@ $cascader-panel-shadow: $shadow-2;
 @mixin input-size($size, $height, $text-size) {
   .el-cascader.el-cascader--#{$size} {
      line-height: $height;
+     .el-input.el-input--large .el-input__icon{
+        line-height: unset
+     }
   }
 }
 // 组件自己 计算出来的高度比设置高度多1px 需要减掉 

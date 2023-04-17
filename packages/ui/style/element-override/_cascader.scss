@@ -54,6 +54,15 @@ $cascader-panel-shadow: $shadow-2;
       line-height: 20px;
     }
   }
+  &.is-disabled {
+    .el-cascader__tags{
+      cursor: not-allowed;
+    }
+    .el-input{
+      cursor: not-allowed;
+    }
+
+  }
 }
 
 .el-popper.el-cascader__dropdown {
@@ -89,7 +98,7 @@ $cascader-panel-shadow: $shadow-2;
   }
 }
 // 组件自己 计算出来的高度比设置高度多1px 需要减掉 
-@include input-size(large, $input-lg-height - 1, $text-size);
-@include input-size(medium, $input-md-height - 1, $text-size);
-@include input-size(small, $input-sm-height - 1, $text-size);
-@include input-size(mini, $input-xs-height - 1, $text-size);
+@include input-size(large, $input-lg-height - 2, $text-size);
+@include input-size(medium, $input-md-height - 2, $text-size);
+@include input-size(small, $input-sm-height - 2, $text-size);
+@include input-size(mini, $input-xs-height - 2, $text-size);

@@ -5,6 +5,7 @@
   "cuteMain": "index.ts",
   "module": "dist/index.js",
   "main": "dist/index.js",
+  "types": "types/types.d.ts",
   "sideEffects": [
     "*.css",
     "*.scss",

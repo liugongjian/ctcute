@@ -29,6 +29,10 @@ $pagination-button-margin-sm: $margin;
     }
   }
 
+  span.el-pagination__sizes {
+    line-height: $select-xs-height - 2;
+  }
+
   &__total {
     margin-right: $margin-6x;
   }
@@ -80,7 +84,8 @@ $pagination-button-margin-sm: $margin;
 
       &.btn-quickprev,
       &.btn-quicknext {
-        line-height: $pagination-height - 2;
+        line-height: $pagination-height;
+
         &::before {
           line-height: 0;
         }
@@ -95,6 +100,8 @@ $pagination-button-margin-sm: $margin;
   &__editor {
     &.el-input {
       width: $pagination-input-width;
+      height: $input-xs-height;
+      line-height: $input-xs-height - 2;
 
       .el-input__inner {
         height: $input-xs-height;
@@ -116,7 +123,7 @@ $pagination-button-margin-sm: $margin;
       font-size: $pagination-font-size-sm;
       min-width: $pagination-button-width-sm;
       height: $pagination-height-sm;
-      line-height: $pagination-height-sm - 2;
+      line-height: $pagination-height-sm;
     }
 
     .btn-next {
@@ -132,6 +139,7 @@ $pagination-button-margin-sm: $margin;
     .el-pagination__editor {
       &.el-input {
         height: $input-xs-height;
+        line-height: $input-xs-height - 2;
 
         .el-input__inner {
           height: $input-xs-height;
@@ -197,5 +205,4 @@ $pagination-button-margin-sm: $margin;
       }
     }
   }
-  span.el-pagination__sizes{ line-height: $input-xs-height - 2; }
 }

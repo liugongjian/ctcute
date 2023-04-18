@@ -254,10 +254,18 @@ $button-padding-large: $margin-3x $padding-6x;
     background: transparent;
     border-color: transparent;
 
-    &:hover {
-      color: $color-master-hover;
+    &:hover, &:active, &:focus {
       background: transparent;
       border-color: transparent;
+    }
+      
+    &:hover {
+      color: $color-master-hover;
+    }
+
+    &:active,
+    &:focus {
+      color: $color-master-active;
     }
 
     &.light:not(.is-disabled) {

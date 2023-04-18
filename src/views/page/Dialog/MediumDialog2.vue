@@ -12,11 +12,11 @@
     <div>
       <p>
         弹窗头部跟底部跟天翼云弹窗样式统一，在中尺寸弹窗中，宽度为
-        560px，弹窗底部按钮水平居中展示，最大高度为570px。
+        600px，弹窗底部按钮水平居中展示，最大高度为窗口高度70%。
       </p>
       <el-button type="primary" @click="handleClick">中弹窗2</el-button>
     </div>
-    <el-dialog width="570px" :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
+    <el-dialog width="600px" :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
       <el-form ref="ruleForm" :rules="rules" :model="form" label-width="104px">
         <el-form-item label="类型" prop="type">
           <el-radio-group v-model="form.type">

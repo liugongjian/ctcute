@@ -17,7 +17,7 @@ module.exports = {
   },
   rules: {
     'comma-dangle': 'off',
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     indent: 'off',
     // 函数圆括号之前有一个空格，关闭 eslint 规则，交由 prettier 自行处理

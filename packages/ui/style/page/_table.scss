@@ -11,7 +11,7 @@
         margin-left: $button-margin;
       }
 
-      .el-button+.el-dropdown {
+      .el-button + .el-dropdown {
         margin-left: $button-margin;
         margin-right: 0;
       }
@@ -186,6 +186,7 @@
 
   .table4-right {
     flex: 1;
+    overflow-x: hidden; // 解决el-table在flex下不会缩小
   }
 
   /* 树 */

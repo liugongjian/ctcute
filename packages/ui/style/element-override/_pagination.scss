@@ -80,8 +80,7 @@ $pagination-button-margin-sm: $margin;
 
       &.btn-quickprev,
       &.btn-quicknext {
-        line-height: $pagination-height;
-
+        line-height: $pagination-height - 2;
         &::before {
           line-height: 0;
         }
@@ -99,7 +98,7 @@ $pagination-button-margin-sm: $margin;
 
       .el-input__inner {
         height: $input-xs-height;
-        line-height: $input-xs-height;
+        line-height: $input-xs-height - 2;
         padding: 0 $padding;
       }
     }
@@ -117,7 +116,7 @@ $pagination-button-margin-sm: $margin;
       font-size: $pagination-font-size-sm;
       min-width: $pagination-button-width-sm;
       height: $pagination-height-sm;
-      line-height: $pagination-height-sm;
+      line-height: $pagination-height-sm - 2;
     }
 
     .btn-next {
@@ -136,7 +135,7 @@ $pagination-button-margin-sm: $margin;
 
         .el-input__inner {
           height: $input-xs-height;
-          line-height: $input-xs-height;
+          line-height: $input-xs-height - 2;
         }
       }
     }
@@ -198,4 +197,5 @@ $pagination-button-margin-sm: $margin;
       }
     }
   }
+  span.el-pagination__sizes{ line-height: $input-xs-height - 2; }
 }

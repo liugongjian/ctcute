@@ -95,7 +95,7 @@ $cascader-panel-shadow: $shadow-2;
     background-color: $cascader-panel-bg;
   }
 }
-
+.el-cascader-node.in-active-path, .el-cascader-node.is-selectable.in-checked-path, .el-cascader-node.is-active{ font-weight: normal;}
 @mixin input-size($size, $height, $text-size) {
   .el-cascader.el-cascader--#{$size} {
      line-height: $height;

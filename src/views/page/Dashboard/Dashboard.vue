@@ -742,7 +742,7 @@ export default class extends Vue {
         itemGap: 20,
         textAlign: 'center',
         x: '49%',
-        y: '30%',
+        y: '27%',
         textStyle: {
           fontFamily: 'bahnschrift',
           fontSize: 26,

@@ -1,5 +1,5 @@
 <template>
-  <cute-layout :sidebar-filter="filterRoutes" :sidebar-title="sidebarTitle" layout="fixed-navbar">
+  <cute-layout :sidebar-filter="filterRoutes" :sidebar-title="sidebarTitle" :sidebar-routes="routes">
     <template #header-right>
       <header-nav />
     </template>
@@ -24,10 +24,11 @@ import CodeViewer from './components/CodeViewer/index.vue'
   },
 })
 export default class extends Vue {
-  public sidebarTitle = '页面'
-  public type = 'page'
+  private sidebarTitle = '页面'
+  private type = 'page'
+  private routes = this.$auth && this.$auth.getRoutes()
 
-  public filterRoutes(routes: Array<any>): Array<any> {
+  private filterRoutes(routes: Array<any>): Array<any> {
     return routes.filter(route => route.meta.type === this.type)
   }
 }

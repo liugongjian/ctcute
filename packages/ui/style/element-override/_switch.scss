@@ -2,24 +2,26 @@
 -------------------------- */
 
 .el-switch__core {
-  background-color: $Switch-core-color;
-  border: 1px solid $Switch-core-color;
+  background-color: $switch-core-bg;
+  border: 1px solid $switch-core-bg;
+
+  &:after {
+    background-color: $switch-core-color;
+  }
 }
+
 .small-switch {
-
   .el-switch__core {
-    height: $Switch-small-height;
-    background-color: $Switch-core-color;
-    border: 1px solid $Switch-core-color;
+    height: $switch-small-height;
   }
 
-  .el-switch__core::after {
-    width: $Switch-small-core-size;
-    height: $Switch-small-core-size;
-    margin-top: 0px;
+  .el-switch__core:after {
+    width: $switch-small-core-size;
+    height: $switch-small-core-size;
+    margin-top: 0;
   }
-  
-  .el-switch.is-checked .el-switch__core::after {
+
+  .el-switch.is-checked .el-switch__core:after {
     margin-left: -13px;
   }
 }

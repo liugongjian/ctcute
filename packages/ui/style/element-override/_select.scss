@@ -142,14 +142,20 @@ $tags-left-lg: $padding-4x - 6;
     }
   }
 }
+.el-select--small{
+  .el-tag.el-tag--mini{
+    height:$select-xs-height - 6;
+    line-height: $select-xs-height - 6;
+  }
+}
 @mixin select-size($size, $height, $left) {
   .el-select {
     &.el-select--#{$size}{
-      line-height: $height;
+      line-height: $height - 2;
       .el-input--suffix{ 
         line-height: $height - 2;
         .el-input__inner{
-          line-height: $height;
+          line-height: $height - 2;
         }
       }
       .el-select__tags{ 

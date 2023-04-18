@@ -9,11 +9,11 @@
   <el-card class="pro-dialog">
     <h2>特殊弹窗-中</h2>
     <div>
-      <p>查看日志，宽度560px</p>
+      <p>查看日志，宽度600px</p>
       <el-button type="primary" @click="handleClick">特殊弹窗-中</el-button>
     </div>
     <el-dialog
-      width="560px"
+      width="600px"
       :title="title"
       :visible="visible"
       :close-on-click-modal="false"

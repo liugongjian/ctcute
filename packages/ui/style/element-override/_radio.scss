@@ -4,6 +4,7 @@
 .el-radio__inner {
   width: $radio-width;
   height: $radio-width;
+  background-color: transparent;
 
   &:after {
     width: $radio-label-width;
@@ -12,17 +13,26 @@
   }
 }
 
-.el-radio__input{
+.el-radio__input {
   .is-disabled.is-checked .el-radio__inner:after {
     background: $radio-group-border-color;
   }
   .is-disabled .el-radio__inner {
     background: $radio-group-disabled-bg;
   }
-  &.is-checked .el-radio__inner{
+  &.is-checked .el-radio__inner {
     background-color: $radio-checked-bg;
   }
 }
+<<<<<<< HEAD ======= .el-radio__input.is-disabled .el-radio__inner {
+  background: $disabled-bg;
+}
+
+.el-radio__input.is-checked .el-radio__inner {
+  background: transparent;
+}
+
+>>>>>>> origin/release/v2.0.0
 /* SelectButton
 -------------------------- */
 
@@ -31,9 +41,9 @@
     transition: none;
     background-color: $button-default-color-bg;
   }
-  .el-radio-button{
+  .el-radio-button {
     &.is-disabled {
-      .el-radio-button__inner{
+      .el-radio-button__inner {
         border-color: $radio-group-border-disabled-color;
         background-color: $radio-group-disabled-bg;
       }
@@ -51,20 +61,20 @@
         margin-left: 0;
       }
     }
-    &.is-disabled.is-active{
-       .el-radio-button__inner{
-          border: 1px solid $radio-group-border-disabled-bg;
-          background-color: $radio-group-border-disabled-bg;
-          color: $radio-group-color;
-       }
+    &.is-disabled.is-active {
+      .el-radio-button__inner {
+        border: 1px solid $radio-group-border-disabled-bg;
+        background-color: $radio-group-border-disabled-bg;
+        color: $radio-group-color;
+      }
     }
   }
 }
 
 @mixin radio-size($size, $height, $padding) {
   .el-radio-group {
-    .el-radio-button--#{$size}{
-      .el-radio-button__inner{
+    .el-radio-button--#{$size} {
+      .el-radio-button__inner {
         padding: $padding;
         line-height: $height - 2;
       }

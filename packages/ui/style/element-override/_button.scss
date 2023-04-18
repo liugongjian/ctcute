@@ -281,7 +281,8 @@ $button-padding-large: $margin-3x $padding-6x;
       }
     }
 
-    &.is-disabled, &.is-loading {
+    &.is-disabled, &.is-disabled:hover, &.is-loading {
+      color: $color-master-disabled;
       border-color: transparent;
       background: transparent;
     }

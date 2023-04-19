@@ -5,4 +5,6 @@
  * @LastEditTime: 2023-04-18 20:34:08
  * @Description:
  */
-export declare class CuteRemindSelect { }
+import { CuteComponent } from './component'
+
+export declare class CuteRemindSelect extends CuteComponent { }

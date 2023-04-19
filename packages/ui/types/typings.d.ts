@@ -12,6 +12,8 @@ export * from './cute'
 
 export default ElementUI
 
+export * from 'vxe-table/types/index'
+
 declare module '*.json' {
   const value: any
   export default value

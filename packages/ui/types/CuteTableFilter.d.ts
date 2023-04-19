@@ -5,4 +5,6 @@
  * @LastEditTime: 2023-04-18 20:35:32
  * @Description:
  */
-export declare class CuteTableFilter { }
+import { CuteComponent } from './component'
+
+export declare class CuteTableFilter extends CuteComponent { }

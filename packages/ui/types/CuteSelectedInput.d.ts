@@ -5,4 +5,6 @@
  * @LastEditTime: 2023-04-18 20:34:28
  * @Description:
  */
-export declare class CuteSelectedInput { }
+import { CuteComponent } from './component'
+
+export declare class CuteSelectedInput extends CuteComponent { }

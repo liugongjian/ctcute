@@ -5,4 +5,7 @@
  * @LastEditTime: 2023-04-18 20:37:10
  * @Description:
  */
-export declare class CuteArea { }
+import { CuteComponent } from './component'
+
+export declare class CuteArea extends CuteComponent { }
+

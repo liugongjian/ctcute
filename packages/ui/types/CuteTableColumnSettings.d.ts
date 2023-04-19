@@ -5,4 +5,6 @@
  * @LastEditTime: 2023-04-18 20:36:39
  * @Description:
  */
-export declare class CuteTableColumnSettings { }
+import { CuteComponent } from './component'
+
+export declare class CuteTableColumnSettings extends CuteComponent { }

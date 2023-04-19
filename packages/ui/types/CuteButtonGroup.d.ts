@@ -5,4 +5,7 @@
  * @LastEditTime: 2023-04-18 20:31:59
  * @Description:
  */
-export declare class CuteButtonGroup { }
+import { CuteComponent } from './component'
+
+export declare class CuteButtonGroup extends CuteComponent { }
+

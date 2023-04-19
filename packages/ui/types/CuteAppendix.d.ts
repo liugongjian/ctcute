@@ -5,4 +5,6 @@
  * @LastEditTime: 2023-04-18 20:30:34
  * @Description:
  */
-export declare class CuteAuthenticate { }
+import { CuteComponent } from './component'
+
+export declare class CuteAuthenticate extends CuteComponent { }

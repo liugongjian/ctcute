@@ -5,4 +5,7 @@
  * @LastEditTime: 2023-04-18 20:31:06
  * @Description:
  */
-export declare class CuteChart { }
+import { CuteComponent } from './component'
+
+export declare class CuteChart extends CuteComponent { }
+

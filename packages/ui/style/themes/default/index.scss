@@ -1,3 +1,5 @@
+/* stylelint-disable selector-pseudo-class-no-unknown */
+/* stylelint-disable property-no-unknown */
 /* stylelint-disable property-case */
 @import './variables.scss';
 
@@ -113,7 +115,9 @@
   textColor: $text-color;
   textColorLight: $text-color-light;
   textColorLight2: $text-color-light-2;
+  textColorDisabled: $text-color-disabled;
   textColorFeature: $text-color-feature;
+  textColorPlaceholder: $text-color-placeholder;
   textWeight: $text-weight;
   textTitleWeight: $text-title-weight;
   textSizePrimary: $text-size-primary;
@@ -214,7 +218,9 @@
   tagMaster: $tag-master;
   tagMasterBorder: $tag-master-border;
   tagInfo: $tag-info;
+  tagInfoDark: $tag-info-dark;
   tagInfoBorder: $tag-info-border;
+  tagInfoText: $tag-info-text;
   tagSuccess: $tag-success;
   tagSuccessBorder: $tag-success-border;
   tagWarning: $tag-warning;
@@ -246,6 +252,20 @@
   buttonIconColor: $button-icon-color;
   buttonGroupBorder: $button-group-border;
   buttonMargin: $button-margin;
+  radioCheckedBg: $radio-checked-bg;
+  radioGroupColor: $radio-group-color;
+  radioGroupBg: $radio-group-bg;
+  radioGroupDisabledBg: $radio-group-disabled-bg;
+  radioGroupBorderColor: $radio-group-border-color;
+  radioGroupBorderDisabledColor: $radio-group-border-disabled-color;
+  radioGroupBorderDisabledBg: $radio-group-border-disabled-bg;
+  radioWidth: $radio-width;
+  radioLabelWidth: $radio-label-width;
+  inputLgPadding: $input-lg-padding;
+  inputMdPadding: $input-md-padding;
+  inputSmPadding: $input-sm-padding;
+  inputXsPadding: $input-xs-padding;
+  cuteSpecialRadioSize: $cute-special-radio-size;
   formItemLabelLineHeight: $form-item-label-line-height;
   formItemContentLineHeight: $form-item-content-line-height;
   formItemErrorPaddingTop: $form-item-error-padding-top;
@@ -259,9 +279,21 @@
   inputMdHeight: $input-md-height;
   inputLgHeight: $input-lg-height;
   inputHeight: $input-height;
+  inputPrefixPadding: $input-prefix-padding;
+  inputSuffixPadding: $input-suffix-padding;
   inputFill: $input-fill;
   selectBorderColorHover: $select-border-color-hover;
   selectDisabledBorder: $select-disabled-border;
+  selectColor: $select-color;
+  selectDropdownBg: $select-dropdown-bg;
+  selectXsHeight: $select-xs-height;
+  selectSmHeight: $select-sm-height;
+  selectMdHeight: $select-md-height;
+  selectLgHeight: $select-lg-height;
+  rangeEditorDisabledBg: $range-editor-disabled-bg;
+  rangeEditorMultipleBg: $range-editor-multiple-bg;
+  rangeEditorHeight: $range-editor-height;
+  rangeEditorTagsSize: $range-editor-tags-size;
   checkboxBg: $checkbox-bg;
   checkboxBorder: $checkbox-border;
   checkboxButton: $checkbox-button;
@@ -307,13 +339,29 @@
   transferFilterHeight: $transfer-filter-height;
   tabsMaster: $tabs-master;
   tabsDefaultLineColor: $tabs-default-line-color;
+  switchCoreBg: $switch-core-bg;
+  switchCoreColor: $switch-core-color;
+  switchSmallHeight: $switch-small-height;
+  switchSmallCoreSize: $switch-small-core-size;
   tooltipBg: $tooltip-bg;
   tooltopTextColor: $tooltop-text-color;
+  tooltipLightBg: $tooltip-light-bg;
   tooltopLightTextColor: $tooltop-light-text-color;
   tooltipFill: $tooltip-fill;
   notificationBorderColor: $notification-border-color;
+  uploadColor: $upload-color;
+  uploadBorderColor: $upload-border-color;
   uploadBg: $upload-bg;
+  uploadBgHover: $upload-bg-hover;
   uploadFill: $upload-fill;
+  uploadFontSize: $upload-font-size;
+  uploadTipsFontColor: $upload-tips-font-color;
+  uploadFontActiveColor: $upload-font-active-color;
+  uploadPictureCardSize: $upload-picture-card-size;
+  uploadPictureCardProgressCircleSize: $upload-picture-card-progress-circle-size;
+  uploadFileUploaderWidth: $upload-file-uploader-width;
+  uploadDraggerBorderRadius: $upload-dragger-border-radius;
+  uploadDraggerTextColor: $upload-dragger-text-color;
   cardBg: $card-bg;
   cardShadow: $card-shadow;
   cascaderTagBg: $cascader-tag-bg;
@@ -349,6 +397,8 @@
   cuteSliderBtnBg: $cute-slider-btn-bg;
   cuteSliderBtnWidth: $cute-slider-btn-width;
   cuteSliderBtnHeight: $cute-slider-btn-height;
+  cuteSliderBtnColor: $cute-slider-btn-color;
+  cuteSliderBtnColorDisabled: $cute-slider-btn-color-disabled;
   cuteAreaRecentBorderColor: $cute-area-recent-border-color;
   cuteAreaRecentHeadColor: $cute-area-recent-head-color;
   cuteAreaRecentItemColor: $cute-area-recent-item-color;

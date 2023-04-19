@@ -122,6 +122,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 import CuteLayout from '@cutedesign/ui/components/CuteLayout/index.vue'
 import HeaderNav from '@/layout/components/LayoutHeaderNav/index.vue'
+import settings from '@/settings'
 
 @Component({
   name: 'CuteLayoutDemo1',
@@ -139,8 +140,8 @@ export default class extends Vue {
 
   private header = true
   private headerLogo = ''
-  private headerSubLogo = ''
-  private headerSubTitle = ''
+  private headerSubLogo = settings.logoIcon
+  private headerSubTitle = '子项目'
 
   private sidebar = true
   private sidebarTitle = '布局框架'

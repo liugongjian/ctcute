@@ -38,11 +38,16 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Variables from '@cutedesign/ui/style/themes/default/index.scss'
+import json from '@cutedesign/ui/style/themes/default/variables-doc.js'
 import copy from 'copy-to-clipboard'
+
 @Component({
   name: 'Variables',
 })
 export default class extends Vue {
+  private mounted() {
+    console.log(json)
+  }
   /**
    * ui/style/themes/default/variables.scss
    * 全局替换 (\$[^:]+):[^\n\/\/]*(\/\/\s([^\n]+))? => { name: '$1', type:'color', scene:'$3'},

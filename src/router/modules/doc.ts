@@ -190,6 +190,24 @@ const docRoutes = [
       },
     ],
   },
+  {
+    path: '/docs/upgrade-v2',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'UpgradeV2',
+        component: () => import('@/views/doc/Guides/UpgradeV2.vue'),
+        meta: {
+          title: '升级到V2',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
 ]
 
 export default docRoutes

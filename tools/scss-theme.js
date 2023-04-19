@@ -3,12 +3,10 @@
  * author: zhulh
  * last modified: 2023-02-28
  */
-
+const chalk = require('chalk')
 const fs = require('fs')
 const path = require('path')
-
-// 默认主题路径
-//
+const scssLib = require('./libs/scss')
 
 const themeVariables = parseThemeVariables()
 
@@ -16,13 +14,12 @@ const lines = parseDefaultVariables()
 
 // 将文本写入文件
 const targetPath = process.argv[2].substring(0, process.argv[2].lastIndexOf('/')) + '/variables.scss'
-fs.writeFile(targetPath, lines.join('\n'), function (err) {
-  if (err) {
-    console.error(err)
-  } else {
-    console.log('变量生成成功!')
-  }
-})
+const fileData = lines.join('\n')
+fs.writeFileSync(targetPath, fileData)
+console.log(chalk.green('变量生成成功!'))
+const jsExportFilePath = scssLib.generateJsExport(fileData, targetPath)
+scssLib.generateTsType(fileData, targetPath)
+scssLib.generateDoc(fileData, jsExportFilePath)
 
 // 读取新主题变量
 function parseThemeVariables() {

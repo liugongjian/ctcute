@@ -1,650 +1,651 @@
-@import '../../default/variables.scss';
 @import 'palette';
+
+/* images path - 图片路径变量，定制主题scss使用 */
+$images-path: '~@cutedesign/ui/images' !default;
 
 /* Color
 -------------------------- */
 
 /* 主题色 */
-$color-master: $blue-base; // 默认
-$color-master-hover: $blue-5; // 悬停
-$color-master-active: $blue-7; // 触发
-$color-master-disabled: $blue-4; // 禁用
-$color-master-bg: $blue-3; // 背景
-$color-master-bg-light: $blue-2; // 背景浅色
-// $color-master-bg-light-2: $blue-1; // 背景浅色2
-$color-master-bg-light-2: $neutral-1; // 背景浅色2
+$color-master: $blue-base !default; // 默认
+$color-master-hover: $blue-5 !default; // 悬停
+$color-master-active: $blue-7 !default; // 触发
+$color-master-disabled: $blue-3 !default; // 禁用
+$color-master-bg: $blue-3 !default; // 背景
+$color-master-bg-light: $blue-2 !default; // 背景浅色
+// $color-master-bg-light-2: $blue-1 !default; // 背景浅色2
+$color-master-bg-light-2: $neutral-1 !default; // 背景浅色2
 
-$color-master-1: $blue-base; // deprecated(弃用)
-$color-master-2: $blue-5; // deprecated(弃用)
-$color-master-3: $blue-7; // deprecated(弃用)
-$color-master-4: $blue-3; // deprecated(弃用)
-$color-master-5: $blue-2; // deprecated(弃用)
-$color-master-6: $blue-1; // deprecated(弃用)
-$color-master-7: $blue-1; // deprecated(弃用)
+$color-master-1: $blue-base !default; // deprecated(弃用)
+$color-master-2: $blue-5 !default; // deprecated(弃用)
+$color-master-3: $blue-7 !default; // deprecated(弃用)
+$color-master-4: $blue-3 !default; // deprecated(弃用)
+$color-master-5: $blue-2 !default; // deprecated(弃用)
+$color-master-6: $blue-1 !default; // deprecated(弃用)
+$color-master-7: $blue-1 !default; // deprecated(弃用)
 
 /* CT特殊色, ct意为ctyun缩写 */
-$color-ct: $red-base; // 默认
-$color-ct-hover: $red-5; // 悬停
-$color-ct-active: $red-7; // 触发
-$color-ct-disabled: $red-4; // 禁用
+$color-ct: $red-base !default; // 默认
+$color-ct-hover: $red-5 !default; // 悬停
+$color-ct-active: $red-7 !default; // 触发
+$color-ct-disabled: $red-3 !default; // 禁用
 
-$color-sp-1: $red-base; // deprecated(弃用)
-$color-sp-2: $red-5; // deprecated(弃用)
-$color-sp-3: $red-7; // deprecated(弃用)
+$color-sp-1: $red-base !default; // deprecated(弃用)
+$color-sp-2: $red-5 !default; // deprecated(弃用)
+$color-sp-3: $red-7 !default; // deprecated(弃用)
 
 /* 状态色 */
-$color-info: $neutral-2; // 信息通知
-$color-info-hover: mix($white, $color-info, 15%);
-$color-info-active: mix($black, $color-info, 15%);
-$color-info-disabled: mix($white, $color-info, 20%);
-$color-info-bg: $neutral-1;
-$color-success: $green-base; // 成功
-$color-success-hover: $green-5;
-$color-success-active: $green-7;
-$color-success-disabled: $green-4;
-$color-success-bg: $green-1;
-$color-warning: $orange-base; // 警告
-$color-warning-hover: $orange-5;
-$color-warning-active: $orange-7;
-$color-warning-disabled: $orange-4;
-$color-warning-bg: $orange-1;
-$color-danger: $ruby-base; // 危险
-$color-danger-hover: $ruby-5;
-$color-danger-active: $ruby-7;
-$color-danger-disabled: $ruby-4;
-$color-danger-bg: $ruby-1;
-$color-fatal: $ruby-8; // 严重危险
-$color-fatal-hover: $ruby-7;
-$color-fatal-active: $ruby-9;
-$color-fatal-disabled: $ruby-5;
-$color-fatal-bg: $ruby-1;
+$color-info: $neutral-6 !default; // 信息通知
+$color-info-hover: mix($white, $color-info, 15%) !default;
+$color-info-active: mix($black, $color-info, 15%) !default;
+$color-info-disabled: mix($white, $color-info, 20%) !default;
+$color-info-bg: $neutral-1 !default;
+$color-success: $green-base !default; // 成功
+$color-success-hover: $green-5 !default;
+$color-success-active: $green-7 !default;
+$color-success-disabled: $green-3 !default;
+$color-success-bg: $green-1 !default;
+$color-warning: $orange-base !default; // 警告
+$color-warning-hover: $orange-5 !default;
+$color-warning-active: $orange-7 !default;
+$color-warning-disabled: $orange-3 !default;
+$color-warning-bg: $orange-1 !default;
+$color-danger: $ruby-base !default; // 危险
+$color-danger-hover: $ruby-5 !default;
+$color-danger-active: $ruby-7 !default;
+$color-danger-disabled: $ruby-3 !default;
+$color-danger-bg: $ruby-1 !default;
+$color-fatal: $ruby-9 !default; // 严重危险
+$color-fatal-hover: $ruby-8 !default;
+$color-fatal-active: $ruby-10 !default;
+$color-fatal-disabled: $ruby-6 !default;
+$color-fatal-bg: $ruby-1 !default;
 
-$color-status-master: $color-master; // deprecated(弃用)
-$color-status-master-1: $color-master; // deprecated(弃用)
-$color-status-danger: $ruby-base; // deprecated(弃用)
-$color-status-danger-1: $ruby-base; // deprecated(弃用)
-$color-status-danger-2: $ruby-1; // deprecated(弃用)
-$color-status-danger-3: $ruby-8; // deprecated(弃用)
-$color-status-info: $blue-base; // deprecated(弃用)
-$color-status-info-1: $blue-base; // deprecated(弃用)
-$color-status-success: $green-base; // deprecated(弃用)
-$color-status-success-1: $green-base; // deprecated(弃用)
-$color-status-warning: $orange-base; // deprecated(弃用)
-$color-status-warning-1: $orange-base; // deprecated(弃用)
+$color-status-master: $color-master !default; // deprecated(弃用)
+$color-status-master-1: $color-master !default; // deprecated(弃用)
+$color-status-danger: $ruby-base !default; // deprecated(弃用)
+$color-status-danger-1: $ruby-base !default; // deprecated(弃用)
+$color-status-danger-2: $ruby-1 !default; // deprecated(弃用)
+$color-status-danger-3: $ruby-8 !default; // deprecated(弃用)
+$color-status-info: $blue-base !default; // deprecated(弃用)
+$color-status-info-1: $blue-base !default; // deprecated(弃用)
+$color-status-success: $green-base !default; // deprecated(弃用)
+$color-status-success-1: $green-base !default; // deprecated(弃用)
+$color-status-warning: $orange-base !default; // deprecated(弃用)
+$color-status-warning-1: $orange-base !default; // deprecated(弃用)
 
 /* 中性色 */
-$color-neutral-1: $neutral-1;
-$color-neutral-2: $neutral-2;
-$color-neutral-3: $neutral-3;
-$color-neutral-4: $neutral-4;
-$color-neutral-5: $neutral-5;
-$color-neutral-6: $neutral-6;
-$color-neutral-7: $neutral-7;
-$color-neutral-8: $neutral-8;
-$color-neutral-9: $neutral-9;
-$color-neutral-10: $neutral-10;
-$color-neutral-11: $neutral-10;
-$color-white: $white;
-$color-black: $black;
+$color-neutral-1: $neutral-1 !default;
+$color-neutral-2: $neutral-2 !default;
+$color-neutral-3: $neutral-3 !default;
+$color-neutral-4: $neutral-4 !default;
+$color-neutral-5: $neutral-5 !default;
+$color-neutral-6: $neutral-6 !default;
+$color-neutral-7: $neutral-7 !default;
+$color-neutral-8: $neutral-8 !default;
+$color-neutral-9: $neutral-9 !default;
+$color-neutral-10: $neutral-10 !default;
+$color-neutral-11: $neutral-10 !default;
+$color-white: $white !default;
+$color-black: $black !default;
 
-$color-grey-0: $black; // deprecated(弃用)
-$color-grey-1: $neutral-10; // deprecated(弃用)
-$color-grey-2: $neutral-9; // deprecated(弃用)
-$color-grey-3: $neutral-8; // deprecated(弃用)
-$color-grey-4: $neutral-7; // deprecated(弃用)
-$color-grey-5: $neutral-6; // deprecated(弃用)
-$color-grey-6: $neutral-5; // deprecated(弃用)
-$color-grey-7: $neutral-4; // deprecated(弃用)
-$color-grey-8: $neutral-3; // deprecated(弃用)
-$color-grey-9: $neutral-2; // deprecated(弃用)
-$color-grey-10: $neutral-1; // deprecated(弃用)
-$color-grey-11: $neutral-1; // deprecated(弃用)
+$color-grey-0: $black !default; // deprecated(弃用)
+$color-grey-1: $neutral-10 !default; // deprecated(弃用)
+$color-grey-2: $neutral-9 !default; // deprecated(弃用)
+$color-grey-3: $neutral-8 !default; // deprecated(弃用)
+$color-grey-4: $neutral-7 !default; // deprecated(弃用)
+$color-grey-5: $neutral-6 !default; // deprecated(弃用)
+$color-grey-6: $neutral-5 !default; // deprecated(弃用)
+$color-grey-7: $neutral-4 !default; // deprecated(弃用)
+$color-grey-8: $neutral-3 !default; // deprecated(弃用)
+$color-grey-9: $neutral-2 !default; // deprecated(弃用)
+$color-grey-10: $neutral-1 !default; // deprecated(弃用)
+$color-grey-11: $neutral-1 !default; // deprecated(弃用)
 
 /* 其他 */
-$color-other-1: $color-neutral-8; // deprecated(弃用) 使用在tooltip背景, order页眉背景
+$color-other-1: $color-neutral-8 !default; // deprecated(弃用) 使用在tooltip背景, order页眉背景
 
 /* Background
 -------------------------- */
-$color-bg-1: #2b2e37;
-$color-bg-2: #24262e;
-$color-bg-3: #1b1d24;
-$color-form-component-bg: $color-bg-1;
-$color-content-bg: $color-bg-2;
-$color-body-bg: $color-bg-3;
+$color-bg-1: #242528 !default; // 组件背景色
+$color-bg-2: #212224 !default; // 背景卡片颜色
+$color-bg-3: #1a1c1d !default; // 页面整体背景色
+$color-form-component-bg: $color-bg-1 !default;
+$color-content-bg: $color-bg-2 !default;
+$color-body-bg: $color-bg-3 !default;
 
-$body-fill: $color-bg-3; // deprecated(弃用)
+$body-fill: $color-bg-3 !default; // deprecated(弃用)
 
 /* Disabled Base (由于多个表单组件会用到disabled的状态，因此仍然保留以下变量)
 -------------------------- */
-$disabled-bg: $neutral-1;
-$disabled-border: $neutral-2;
-$disabled-color: $neutral-6;
+$disabled-bg: $neutral-1 !default;
+$disabled-border: $neutral-5 !default;
+$disabled-color: $neutral-6 !default;
 
-$disabled-danger-bg: $color-white; // deprecated(弃用)
-$disabled-danger-color: mix($white, $color-status-danger-1, 50%); // deprecated(弃用)
-$disabled-danger-border: $disabled-danger-color; // deprecated(弃用)
-$disabled-fill: $disabled-bg; // deprecated(弃用)
-$disabled-danger-fill: $color-white; // deprecated(弃用)
-$disabled-icon-color: $neutral-6; // deprecated(弃用)
+$disabled-danger-bg: $color-white !default; // deprecated(弃用)
+$disabled-danger-color: mix($white, $color-status-danger-1, 50%) !default; // deprecated(弃用)
+$disabled-danger-border: $disabled-danger-color !default; // deprecated(弃用)
+$disabled-fill: $disabled-bg !default; // deprecated(弃用)
+$disabled-danger-fill: $color-white !default; // deprecated(弃用)
+$disabled-icon-color: $neutral-6 !default; // deprecated(弃用)
 
 /* Typography
 -------------------------- */
-$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif,
-  '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB'; // 标准字体
-$font-family-cute-icons: 'cute-icons';
-$text-size: 12px; // 标准字体大小
-$text-size-sm: 12px; // 字号small
-$text-size-md: 14px; // 字号medium
-$text-size-lg: 16px; // 字号large
-$text-size-xl: 18px; // 字号extra large
-$text-color: $neutral-10; // 强调/正文标题
-$text-color-light: $neutral-9; // 次强调/正文标题
-$text-color-light-2: $neutral-6; // 置灰信息
-$text-color-feature: $neutral-7; // 说明文字
+$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif, '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
+$font-family-cute-icons: 'cute-icons' !default;
+$text-size: 12px !default; // 标准字体大小
+$text-size-sm: 12px !default; // 字号small
+$text-size-md: 14px !default; // 字号medium
+$text-size-lg: 16px !default; // 字号large
+$text-size-xl: 18px !default; // 字号extra large
+$text-color: $neutral-10 !default; // 强调/正文标题
+$text-color-light: $neutral-9 !default; // 次强调/正文标题
+$text-color-light-2: $neutral-6 !default; // 置灰信息
+$text-color-disabled: $text-color-light-2 !default; // 置灰信息($text-color-light-2别名)
+$text-color-feature: $neutral-7 !default; // 说明文字
+$text-color-placeholder: $neutral-7 !default; // 组件占位文本
 $text-weight: normal; // 标准字体粗细
 $text-title-weight: bold; // 标题的字体粗细
 
-$text-size-primary: $text-size; // deprecated(弃用)
-$text-size-small: $text-size-sm; // deprecated(弃用)
-$text-size-medium: $text-size-md; // deprecated(弃用)
-$text-size-large: $text-size-lg; // deprecated(弃用)
-$text-size-x-large: $text-size-xl; // deprecated(弃用)
-$text-color-primary: $text-color; // deprecated(弃用)
-$text-color-light-1: $text-color-light; // deprecated(弃用)
+$text-size-primary: $text-size !default; // deprecated(弃用)
+$text-size-small: $text-size-sm !default; // deprecated(弃用)
+$text-size-medium: $text-size-md !default; // deprecated(弃用)
+$text-size-large: $text-size-lg !default; // deprecated(弃用)
+$text-size-x-large: $text-size-xl !default; // deprecated(弃用)
+$text-color-primary: $text-color !default; // deprecated(弃用)
+$text-color-light-1: $text-color-light !default; // deprecated(弃用)
 
 /* 行间距 */
-$line-height: 1.5;
+$line-height: 1.5 !default;
 
 /* Border
 -------------------------- */
-$border-color: $neutral-2;
-$border-color-hover: $neutral-4;
-$border-color-light: $neutral-1;
-$border-color-dark: $neutral-5;
-$border-radius: 3px; // 悬浮状态
-$border-radius-medium: 5px; // Card圆角
+$border-color: $neutral-5 !default;
+$border-color-hover: $neutral-9 !default;
+$border-color-light: $neutral-1 !default;
+$border-color-dark: $neutral-6 !default;
+$border-radius: 3px !default;
+$border-radius-md: 5px !default;
 
-$border-color-primary: $border-color; // deprecated(弃用)
-$border-color-light-1: $border-color-light; // deprecated(弃用)
-$border-color-dark-1: $border-color-dark; // deprecated(弃用)
+$border-color-primary: $border-color !default; // deprecated(弃用)
+$border-color-light-1: $border-color-light !default; // deprecated(弃用)
+$border-color-dark-1: $border-color-dark !default; // deprecated(弃用)
+$border-radius-medium: 5px !default; // deprecated(弃用)
 
 /* 间距: Padding & Margin
 -------------------------- */
-$common-space: 4px;
-$common-space-2x: $common-space * 2; // 8px
-$common-space-3x: $common-space * 3; // 12px
-$common-space-4x: $common-space * 4; // 16px
-$common-space-5x: $common-space * 5; // 20px
-$common-space-6x: $common-space * 6; // 24px
-$common-space-7x: $common-space * 7; // 28px
-$common-space-8x: $common-space * 8; // 32px
-$common-space-9x: $common-space * 9; // 36px
-$common-space-10x: $common-space * 10; // 40px
-$common-space-6: 6px; // 特殊场景使用6px
-$common-space-10: 10px; // 特殊场景使用10px
+$common-space: 4px !default;
+$common-space-2x: $common-space * 2 !default; // 8px
+$common-space-3x: $common-space * 3 !default; // 12px
+$common-space-4x: $common-space * 4 !default; // 16px
+$common-space-5x: $common-space * 5 !default; // 20px
+$common-space-6x: $common-space * 6 !default; // 24px
+$common-space-7x: $common-space * 7 !default; // 28px
+$common-space-8x: $common-space * 8 !default; // 32px
+$common-space-9x: $common-space * 9 !default; // 36px
+$common-space-10x: $common-space * 10 !default; // 40px
+$common-space-6: 6px !default; // 特殊场景使用6px
+$common-space-10: 10px !default; // 特殊场景使用10px
 
-$padding: $common-space;
-$padding-2x: $common-space-2x; // 8px
-$padding-3x: $common-space-3x; // 12px
-$padding-4x: $common-space-4x; // 16px
-$padding-5x: $common-space-5x; // 20px
-$padding-6x: $common-space-6x; // 24px
-$padding-7x: $common-space-7x; // 28px
-$padding-8x: $common-space-8x; // 32px
-$padding-9x: $common-space-9x; // 36px
-$padding-10x: $common-space-10x; // 40px
-$padding-6: $common-space-6; // 特殊场景使用6px
-$padding-10: $common-space-10; // 特殊场景使用10px
+$padding: $common-space !default;
+$padding-2x: $common-space-2x !default; // 8px
+$padding-3x: $common-space-3x !default; // 12px
+$padding-4x: $common-space-4x !default; // 16px
+$padding-5x: $common-space-5x !default; // 20px
+$padding-6x: $common-space-6x !default; // 24px
+$padding-7x: $common-space-7x !default; // 28px
+$padding-8x: $common-space-8x !default; // 32px
+$padding-9x: $common-space-9x !default; // 36px
+$padding-10x: $common-space-10x !default; // 40px
+$padding-6: $common-space-6 !default; // 特殊场景使用6px
+$padding-10: $common-space-10 !default; // 特殊场景使用10px
 
-$margin: $common-space;
-$margin-2x: $common-space-2x; // 8px
-$margin-3x: $common-space-3x; // 12px
-$margin-4x: $common-space-4x; // 16px
-$margin-5x: $common-space-5x; // 20px
-$margin-6x: $common-space-6x; // 24px
-$margin-7x: $common-space-7x; // 28px
-$margin-8x: $common-space-8x; // 32px
-$margin-9x: $common-space-9x; // 36px
-$margin-10x: $common-space-10x; // 40px
-$margin-6: $common-space-6; // 特殊场景使用6px
-$margin-10: $common-space-10; // 特殊场景使用10px
+$margin: $common-space !default;
+$margin-2x: $common-space-2x !default; // 8px
+$margin-3x: $common-space-3x !default; // 12px
+$margin-4x: $common-space-4x !default; // 16px
+$margin-5x: $common-space-5x !default; // 20px
+$margin-6x: $common-space-6x !default; // 24px
+$margin-7x: $common-space-7x !default; // 28px
+$margin-8x: $common-space-8x !default; // 32px
+$margin-9x: $common-space-9x !default; // 36px
+$margin-10x: $common-space-10x !default; // 40px
+$margin-6: $common-space-6 !default; // 特殊场景使用6px
+$margin-10: $common-space-10 !default; // 特殊场景使用10px
 
-$padding-primary: 20px; // deprecated(弃用)
-$padding-medium: 16px; // deprecated(弃用)
-$padding-small: 8px; // deprecated(弃用)
-$padding-tiny: 4px; // deprecated(弃用)
-$margin-large: 20px; // deprecated(弃用)
-$margin-medium: 16px; // deprecated(弃用)
-$margin-small: 8px; // deprecated(弃用)
-$margin-tiny: 4px; // deprecated(弃用)
-$margin-primary: $margin-small; // deprecated(弃用)
+$padding-primary: 20px !default; // deprecated(弃用)
+$padding-medium: 16px !default; // deprecated(弃用)
+$padding-small: 8px !default; // deprecated(弃用)
+$padding-tiny: 4px !default; // deprecated(弃用)
+$margin-large: 20px !default; // deprecated(弃用)
+$margin-medium: 16px !default; // deprecated(弃用)
+$margin-small: 8px !default; // deprecated(弃用)
+$margin-tiny: 4px !default; // deprecated(弃用)
+$margin-primary: $margin-small !default; // deprecated(弃用)
 
 /* Shadow
 -------------------------- */
-$shadow-1: 0px 0px 8px rgba(100, 110, 144, 0.1); // 一级阴影: 背景卡片使用
-$shadow-2: 0px 0px 15px rgba(100, 110, 144, 0.2); // 二级阴影: 下拉组件使用，如下拉菜单、下拉选择器、气泡确认框
-$shadow-3: 0px 0px 40px rgba(0, 0, 0, 0.1); // 三级阴影: 最上层投影，对话框、抽屉使用
-$shadow-form-item: 0px 2px 2px rgba(0, 0, 0, 0.1); // 组件Focused状态使用
+$shadow-1: 0 0 8px 0 rgba(0, 0, 0, 10%) !default; // 一级阴影
+$shadow-2: 0 0 15px 0 rgba(0, 0, 0, 20%) !default; // 二级阴影
+$shadow-3: 0 0 40px 0 rgba(0, 0, 0, 30%) !default; // 三级阴影
+$shadow-form-item: 0 2px 2px 0 rgba(0, 0, 0, 20%) !default; // 组件Focused状态使用
 
-$shadow-input: 0 0 4px 0 rgba(250, 131, 52, 20%); // deprecated(弃用)
-$shadow-card: 0 2px 8px 0 rgba(200, 201, 204, 50%); // deprecated(弃用)
+$shadow-input: 0 0 4px 0 rgba(250, 131, 52, 20%) !default; // deprecated(弃用)
+$shadow-card: 0 2px 8px 0 rgba(200, 201, 204, 50%) !default; // deprecated(弃用)
 $shadow-dialog: 0 6px 16px -8px rgba(0, 0, 0, 8%), 0 9px 28px 0 rgba(0, 0, 0, 5%),
-  0 12px 48px 16px rgba(0, 0, 0, 3%); // deprecated(弃用)
-$shadow-table-card: rgba(200, 201, 204, 50%); // deprecated(弃用)
+0 12px 48px 16px rgba(0, 0, 0, 3%) !default; // deprecated(弃用)
+$shadow-table-card: rgba(200, 201, 204, 50%) !default; // deprecated(弃用)
+
+/* Layout
+-------------------------- */
+$cute-layout-header-height: 50px !default;
+$cute-layout-header-logo-height: 22px !default;
+$cute-layout-header-sub-logo-height: 15px !default;
+$cute-layout-header-text-color: $color-white !default;
+$cute-layout-header-bg: $neutral-1 !default;
+$cute-layout-header-border: $neutral-5 !default;
+$cute-layout-sidebar-width: 190px !default;
+$cute-layout-sidebar-bg: $color-bg-1 !default;
+$cute-layout-sidebar-border: $color-neutral-3 !default;
+$cute-layout-sidebar-item-bg-hover: $color-neutral-1 !default;
+$cute-layout-sidebar-color-master: $color-master !default;
+$cute-layout-sidebar-text-color: $text-color !default;
+$cute-layout-sidebar-arrow-color: $text-color-light !default;
+
+$header-input-bg: $neutral-2 !default;
+
+$header-text-color: #c2c2c2 !default; // deprecated(弃用)
+$header-search-text-color: $neutral-7 !default; // deprecated(弃用)
+$header-height: $cute-layout-header-height !default; // deprecated(弃用)
+$header-fill-1: $cute-layout-header-bg !default; // deprecated(弃用)
+$header-fill-2: $header-input-bg !default; // deprecated(弃用)
+$header-border: $cute-layout-header-border !default; // deprecated(弃用)
+$sidebar-width: $cute-layout-sidebar-width !default; // deprecated(弃用)
+$sidebar-fill: $color-white !default; // deprecated(弃用)
+$sidebar-sub-fill: $color-white !default; // deprecated(弃用)
+$sidebar-sub-hover: $color-master-bg-light-2 !default; // deprecated(弃用)
 
 /* 标签(Tag)
 -------------------------- */
-$tag-master: $blue-1; // 主题色标签背景
-$tag-master-border: $blue-base; // 主题色标签边框
-$tag-info: $neutral-1; // 信息色标签背景
-$tag-info-border: $neutral-6; // 信息色标签边框
-$tag-success: $green-1; // 成功色标签背景
-$tag-success-border: $green-base; // 成功色标签边框
-$tag-warning: $orange-1; // 警告色标签背景
-$tag-warning-border: $orange-base; // 警告色标签边框
-$tag-danger: $ruby-1; // 危险色标签背景
-$tag-danger-border: $ruby-base; // 危险色标签边框
-$tag-fatal: $ruby-2; // 危险色标签背景
-$tag-fatal-border: $ruby-8; // 危险色标签边框
-$tag-weak: $neutral-1; // 轻微提示色标签背景
-$tag-weak-border: $neutral-6; // 轻微提示色标签边框
-$tag-ct: $red-1; // CT特殊色标签背景
-$tag-ct-border: $red-base; // CT特殊色标签边框
+$tag-master: $blue-1 !default; // 主题色标签背景
+$tag-master-border: $blue-base !default; // 主题色标签边框
+$tag-info: $neutral-1 !default; // 信息色标签背景
+$tag-info-dark: $neutral-6 !default; // 信息色标签Dark类型背景
+$tag-info-border: $neutral-3 !default; // 信息色标签边框
+$tag-info-text: $text-color !default; // 信息色标签字体颜色
+$tag-success: $green-1 !default; // 成功色标签背景
+$tag-success-border: $green-base !default; // 成功色标签边框
+$tag-warning: $orange-1 !default; // 警告色标签背景
+$tag-warning-border: $orange-base !default; // 警告色标签边框
+$tag-danger: $ruby-1 !default; // 危险色标签背景
+$tag-danger-border: $ruby-base !default; // 危险色标签边框
+$tag-fatal: $ruby-2 !default; // 危险色标签背景
+$tag-fatal-border: $ruby-8 !default; // 危险色标签边框
+$tag-weak: $neutral-1 !default; // 轻微提示色标签背景
+$tag-weak-border: $neutral-6 !default; // 轻微提示色标签边框
+$tag-ct: $red-1 !default; // CT特殊色标签背景
+$tag-ct-border: $red-base !default; // CT特殊色标签边框
 
-$color-tag-master-1: $tag-master-border; // deprecated(弃用)
-$color-tag-master-2: $tag-master; // deprecated(弃用)
-$color-tag-info-1: $tag-info-border; // deprecated(弃用)
-$color-tag-info-2: $tag-info; // deprecated(弃用)
-$color-tag-success-1: $tag-success-border; // deprecated(弃用)
-$color-tag-success-2: $tag-success; // deprecated(弃用)
-$color-tag-warning-1: $tag-warning-border; // deprecated(弃用)
-$color-tag-warning-2: $tag-warning; // deprecated(弃用)
-$color-tag-danger-1: $tag-danger-border; // deprecated(弃用)
-$color-tag-danger-2: $tag-danger; // deprecated(弃用)
+$color-tag-master-1: $tag-master-border !default; // deprecated(弃用)
+$color-tag-master-2: $tag-master !default; // deprecated(弃用)
+$color-tag-info-1: $tag-info-border !default; // deprecated(弃用)
+$color-tag-info-2: $tag-info !default; // deprecated(弃用)
+$color-tag-success-1: $tag-success-border !default; // deprecated(弃用)
+$color-tag-success-2: $tag-success !default; // deprecated(弃用)
+$color-tag-warning-1: $tag-warning-border !default; // deprecated(弃用)
+$color-tag-warning-2: $tag-warning !default; // deprecated(弃用)
+$color-tag-danger-1: $tag-danger-border !default; // deprecated(弃用)
+$color-tag-danger-2: $tag-danger !default; // deprecated(弃用)
 
 /* Button
 -------------------------- */
-$button-default-text-color: $text-color;
-$button-default-text-color-disabled: $text-color-light-2;
-$button-default-color-bg: $color-bg-1;
-$button-default-color-bg-disabled: $color-neutral-1;
-$button-default-color-border: $color-neutral-4;
-$button-default-color-border-disabled: $color-neutral-2;
-$button-icon-color: $text-color-light-2;
-$button-margin: $margin-3x;
-$button-padding-mini: $padding $padding-2x;
-$button-padding-small: $padding $padding-2x;
-$button-padding-medium: 9px $padding-4x;
-$button-padding-large: $margin-3x $padding-6x;
-$button-group-border: rgba($color-black, 0.5);
+$button-default-text-color: $text-color !default;
+$button-default-text-color-disabled: $text-color-light-2 !default;
+$button-default-color-bg: $color-bg-1 !default;
+$button-default-color-bg-disabled: $color-neutral-1 !default;
+$button-default-color-border: $color-neutral-5 !default;
+$button-default-color-border-disabled: $color-neutral-5 !default;
+$button-icon-color: $text-color-light-2 !default;
+$button-group-border: rgba($color-bg-1, 0.5) !default;
+$button-margin: $margin-3x !default;
 
 /* Radio
 -------------------------- */
 
-$radio-checked-bg: $color-white ; // 普通radio背景色
-$radio-group-color: $color-white ; 
-$radio-group-bg: $color-master ;
-$radio-group-disabled-bg: $disabled-bg ;
-$radio-group-border-color: $disabled-border ;
-$radio-group-border-disabled-color: $disabled-border ;
-$radio-group-border-disabled-bg: $color-master-disabled ;
-$radio-width: 14px ; // 普通按钮外部宽高
-$radio-label-width: $common-space-2x ; // 普通按钮 中间按钮宽高:
-$radio-padding-small: $padding $padding-4x ;
-$radio-padding-medium: 9px $padding-4x ;
-$radio-padding-large: $margin-3x $padding-6x ;
+$radio-checked-bg: $color-white !default; // 普通radio背景色
+$radio-group-color: $color-white !default; 
+$radio-group-bg: $color-master !default;
+$radio-group-disabled-bg: $disabled-bg !default;
+$radio-group-border-color: $disabled-border !default;
+$radio-group-border-disabled-color: $disabled-border !default;
+$radio-group-border-disabled-bg: $color-master-disabled !default;
+$radio-width: 14px !default; // 普通按钮外部宽高
+$radio-label-width: $common-space-2x !default; // 普通按钮 中间按钮宽高
 
+$input-lg-padding: 0 $padding-6x  !default;
+$input-md-padding: 0 $padding-4x !default;
+$input-sm-padding: 0 $padding-3x  !default;
+$input-xs-padding: 0 $padding-3x !default;
+$cute-special-radio-size:3px  !default;
 /* Form
 -------------------------- */
-$form-item-label-line-height: 32px; // label
-$form-item-content-line-height: 30px ; //  content 高度32 有border的时候 line-height 需要 -2
-$form-item-error-padding-top: $padding-6;
+$form-item-label-line-height: 32px !default; // label
+$form-item-content-line-height: 30px !default; //  content
+$form-item-error-padding-top: $padding-6 !default;
 $form-item-margin-bottom: $margin-6x;
 
 /* Input
 -------------------------- */
-$input-bg: $color-bg-1 ;
-$input-disabled-bg: $disabled-bg ;
-$input-hover-border: $border-color-hover ;
-$input-active-border: $color-master ;
-$input-xs-height: 24px ;
-$input-sm-height: 24px ;
-$input-md-height: 32px ;
-$input-lg-height: 40px ;
-$input-height: $input-md-height ;
-$input-prefix-padding: $padding-9x ;
-$input-suffix-padding: $padding-9x ;
-$input-fill: $color-white ; // deprecated(弃用)
-
+$input-bg: $color-bg-1 !default;
+$input-disabled-bg: $disabled-bg !default;
+$input-hover-border: $border-color-hover !default;
+$input-active-border: $color-master !default;
+$input-xs-height: 24px !default;
+$input-sm-height: 24px !default;
+$input-md-height: 32px !default;
+$input-lg-height: 40px !default;
+$input-height: $input-md-height !default;
+$input-prefix-padding: $padding-9x !default;
+$input-suffix-padding: $padding-9x !default;
+$input-fill: $color-white !default; // deprecated(弃用)
 
 /* Select
 -------------------------- */
-$select-border-color-hover: $border-color-hover ;
-$select-disabled-border: $disabled-border ;
-$select-color: $color-master  ; 
-$select-color: $color-master  ; 
-$select-dropdown-bg: $color-bg-1 ; 
-$select-xs-height: 24px ;
-$select-sm-height: 24px ;
-$select-md-height: 32px ;
-$select-lg-height: 40px ;
-$range-editor-disabled-bg: $color-master-bg-light-2 ;
-$range-editor-multiple-bg: $color-master-bg-light-2 ;
-$range-editor-height: 24px ;
-$range-editor-tags-size: 16px ;
+$select-border-color-hover: $border-color-hover !default;
+$select-disabled-border: $disabled-border !default;
+$select-color: $color-master  !default; 
+$select-color: $color-master  !default; 
+$select-dropdown-bg: $color-bg-1 !default; 
+$select-xs-height: 24px !default;
+$select-sm-height: 24px !default;
+$select-md-height: 32px !default;
+$select-lg-height: 40px !default;
 
+
+
+$range-editor-disabled-bg: $color-master-bg-light-2 !default;
+$range-editor-multiple-bg: $color-master-bg-light-2 !default;
+$range-editor-height: 24px !default;
+$range-editor-tags-size: 16px !default;
 
 /* Checkbox
 -------------------------- */
-$checkbox-bg: $color-master-bg-light-2;
-$checkbox-border: $color-master;
-$checkbox-button: $color-master-bg-light-2;
-$checkbox-button-hover: $color-master-bg-light;
+$checkbox-bg: $color-master-bg-light-2 !default;
+$checkbox-border: $color-master !default;
+$checkbox-button: $color-master-bg-light-2 !default;
+$checkbox-button-hover: $color-master-bg-light !default;
 
 /* Table
 -------------------------- */
-$table-header-bg: $color-neutral-1;
-$table-cell-bg: $color-neutral-8;
-$table-cell-padding-xs: $padding-6;
-$table-cell-padding-sm: $padding-6;
-$table-cell-padding-md: $padding-10;
-$table-cell-padding-lg: $padding-3x;
-$table-cell-selection-line-height: 20px;
-$table-border-color: $color-neutral-3;
-$table-sort-caret-bg: $color-neutral-6;
-$table-fixed-box-shadow: 0px 2px 8px rgba(100, 110, 144, 0.2);
-$table-row-hover-background-color: $neutral-2;
-$table-filter-item-height: 32px;
+$table-header-bg: $color-neutral-1 !default;
+$table-cell-bg: $color-neutral-8 !default;
+$table-cell-padding-xs: $padding-6 !default;
+$table-cell-padding-sm: $padding-6 !default;
+$table-cell-padding-md: $padding-10 !default;
+$table-cell-padding-lg: $padding-3x !default;
+$table-cell-selection-line-height: 20px !default;
+$table-border-color: $color-neutral-3 !default;
+$table-sort-caret-bg: $color-neutral-6 !default;
+$table-fixed-box-shadow: 0px 2px 8px rgba(100, 110, 144, 0.2) !default;
+$table-row-hover-background-color: $neutral-2 !default;
+$table-filter-item-height: 32px !default;
 
-$table-header-fill: $table-header-bg; // deprecated(弃用)
-$table-cell-fill: $table-cell-bg; // deprecated(弃用)
-$table-sort-caret-fill: $table-sort-caret-bg; // deprecated(弃用)
+$table-header-fill: $table-header-bg !default; // deprecated(弃用)
+$table-cell-fill: $table-cell-bg !default; // deprecated(弃用)
+$table-sort-caret-fill: $table-sort-caret-bg !default; // deprecated(弃用)
 
 /* Pagination
 -------------------------- */
-$pagination-bg: $neutral-1;
-//$pagination-bg: $color-white;
+$pagination-bg: $neutral-1 !default;
+$pagination-button-color: $text-color-light !default;
+$pagination-hover-color: $color-master !default;
+$pagination-hover-bg: $color-bg-3 !default;
+$pagination-active-color: $color-white !default;
+$pagination-active-bg: $color-master !default;
+$pagination-active-bg-disabled: $color-master-disabled !default;
+$pagination-font-size: $text-size !default;
+$pagination-font-size-sm: $text-size !default;
+$pagination-height: 24px !default;
+$pagination-height-sm: 24px !default;
+$pagination-button-width: 20px !default;
+$pagination-button-width-sm: 20px !default;
 
 $pagination-fill: $color-white; // deprecated(弃用)
-$pagination-font-size: $text-size;
-$pagination-font-size-sm: $text-size;
-$pagination-height: 24px;
-$pagination-height-sm: 24px;
-$pagination-select-width: 56px; // TODO 如何实现自适应
-$pagination-input-width: 56px; // TODO 如何实现自适应
-$pagination-button-width: 20px;
-$pagination-button-width-sm: 20px;
-$pagination-button-margin: $margin-2x;
-$pagination-button-margin-sm: $margin;
-$pagination-button-color: $text-color-light;
-$pagination-hover-color: $color-master;
-$pagination-hover-bg: $color-bg-3;
-$pagination-active-color: $color-white;
-$pagination-active-bg: $color-master;
-$pagination-active-bg-disabled: $color-master-disabled;
 
 /* Transfer
 -------------------------- */
-$transfer-header-height: 40px; // Transfer组件header高度
-$transfer-header-bg: $color-neutral-1;
-$transfer-button-height: 38px; // Transfer组件圆形按钮
-$transfer-button-width: 38px; // Transfer组件圆形按钮
-$transfer-button-radius: 50%; // Transfer组件圆形按钮
-$transfer-item-active-bg: $color-neutral-1; // Transfer组件选中项背景色
-$transfer-item-hover-bg: $color-neutral-1; // Transfer组件选中项悬停色
-$transfer-item-height: 32px; // Transfer组件选项高度
-$transfer-filter-input-height: 28px; // Transfer组件搜索框高度
-$transfer-filter-input-margin: $margin-10; // Transfer组件搜索框高度
-$transfer-filter-height: calc($transfer-filter-input-height + $transfer-filter-input-margin); // Transfer组件filter区域高度
-$transfer-footert-bg: $color-neutral-1; // Transfer组件footer背景色
-$transfer-footer-height: 40px; // Transfer组件footer高度
-
-/* Tooltip
--------------------------- */
-$tooltip-bg: $color-bg-2;
-$tooltip-border-color: $neutral-4;
-$tooltop-text-color: $neutral-10;
-$tooltop-light-text-color: $neutral-1;
-
-$tooltip-fill: $tooltip-bg; // deprecated(弃用)
-
-/* Notification
--------------------------- */
-$notification-border-color: $neutral-4;
-
-/* Upload
--------------------------- */
-$upload-color:$color-master ;
-$upload-border-color: $border-color ;
-$upload-bg: $color-master-7;
-$upload-bg-hover: $color-grey-9 ;
-$upload-fill: $upload-bg ; // deprecated(弃用)
-$upload-font-size: $text-size-sm ;
-$upload-tips-font-color: $color-neutral-7 ;
-$upload-font-active-color: $color-grey-1 ;
-$upload-picture-card-size: 100px ;
-$upload-picture-card-progress-circle-size: 70px ;
-$upload-file-uploader-width: 320px ;
-$upload-dragger-border-radius: $border-radius ;
-$upload-dragger-text-color: $text-color ;
-
-/* Card
--------------------------- */
-$card-bg: $color-bg-2;
-$card-shadow: $shadow-1;
-
-/* Cascader
--------------------------- */
-$cascader-tag-bg: $neutral-1;
-$cascader-tag-border: $neutral-5;
-$cascader-tag-close-color: $white;
-$cascader-tag-close-bg: $neutral-6;
-// $cascader-node-hover: $color-master-bg-light-2;
-$cascader-node-hover: $neutral-1;
-$cascader-panel-bg: $color-bg-1;
-$cascader-panel-shadow: $shadow-2;
-
-/* Collapse
--------------------------- */
-$collapse-border-color: $color-neutral-3;
-$collapse-content-background-color: $color-bg-1;
-$collapse-header-bg: $color-neutral-1;
-$collapse-header-arrow-color: $neutral-6;
-$collapse-header-height: 36px;
-$collapse-seperate-header-height: 32px;
-$collapse-seperate-header-bg: $color-neutral-2;
-
-$collapse-item-header-height: $collapse-seperate-header-height; // deprecated(弃用)
-$collapse-header-fill: $collapse-header-bg; // deprecated(弃用)
-
-/* Datepicker
--------------------------- */
-$datepicker-shadow: $shadow-2;
-
-/* Descriptions
--------------------------- */
-$descriptions-label-width: 165px;
-$descriptions-item-height: 36px;
-$descriptions-item-content-width: 525px;
-$descriptions-item-content-line-height: 22px;
-
-/* Dialog
--------------------------- */
-$dialog-header-padding: $padding-4x $padding-8x;
-$dialog-header-border: $color-neutral-3;
-$dialog-body-padding: $padding-6x $padding-8x;
-$dialog-footer-bg: $color-neutral-1;
-$dialog-footer-padding: $padding-3x $padding-8x;
-$dialog-footer-margin-top: -30px;
-$dialog-fullscreen-margin: $margin-6x;
-
-/* MessageBox
--------------------------- */
-$messagebox-padding-bottom: $padding-3x;
-$messagebox-header-padding: $padding-8x;
-$messagebox-header-padding-bottom: $padding-3x;
-$messagebox-content-padding: $padding-3x $padding-8x;
-$messagebox-btns-padding: $padding-3x $padding-8x $padding-5x $padding-8x;
-
-/* Icon
--------------------------- */
-$icon-color: $color-grey-3;
-
-/* Loading
--------------------------- */
-$loading-primary-color: mix($color-white, $color-master, 50%);
-$loading-primary-border: $loading-primary-color;
-$loading-default-color: $color-grey-10;
-$loading-default-border: $color-grey-6;
-
-/* Alert
--------------------------- */
-$alert-text-color: $text-color-light;
-$alert-info-bg: $blue-1;
-$alert-success-bg: $green-1;
-$alert-warning-bg: $orange-1;
-$alert-danger-bg: $ruby-1;
-$alert-weak-bg: $neutral-1;
-$alert-single-height: 36px ;
-
-/* CuteSlider
--------------------------- */
-$cute-slider-marks-height: 6px;
-$cute-slider-bar-height: 10px;
-$cute-slider-input-width: 64px;
-$cute-slider-btn-bg: linear-gradient(to bottom, $blue-base, $color-master-bg-light);
-$cute-slider-btn-radius: 8px;
-$cute-slider-btn-width: 17px; // 左右缝隙不同 加1px
-$cute-slider-btn-height: 22px;
-$cute-slider-btn-color:  $color-white;
-$cute-slider-btn-color-disabled: $blue-base;
+$transfer-header-bg: $color-neutral-1 !default;
+$transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
+$transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
+$transfer-footert-bg: $color-bg-1 !default; // Transfer组件footer背景色
+$transfer-item-height: 32px !default; // Transfer组件选项高度
+$transfer-header-height: 40px !default; // Transfer组件header高度
+$transfer-footer-height: 40px !default; // Transfer组件footer高度
+$transfer-filter-input-height: 28px !default; // Transfer组件搜索框高度
+$transfer-filter-input-margin: $margin-10 !default; // Transfer组件搜索框高度
+$transfer-filter-height: calc($transfer-filter-input-height + $transfer-filter-input-margin) !default; // Transfer组件filter区域高度
 
 /* Tabs
 -------------------------- */
-$tabs-master: $color-master; // 主题色标签背景
-$tabs-sm-height: 24px;
-$tabs-md-height: 32px;
-$tabs-lg-height: 40px;
-$tabs-button-radius: 2px;
-$tabs-default-line-color: $color-neutral-3; // 默认风格的线条颜色
-$tabs-add-item-width: 120px;
+$tabs-master: $color-master !default; // 主题色标签背景
+$tabs-default-line-color: $color-neutral-3 !default; // 默认风格的线条颜色
 
-/* Layout
+/* Progress
 -------------------------- */
-/* Header */
-$header-height: 50px;
-$header-fill-1: #272b39;
-$header-fill-2: #353f58;
-$header-border: #585b62;
-$header-text-color: #c2c2c2;
-$header-search-text-color: $text-color-light-2;
 
-/* Sidebar */
-$sidebar-width: 240px;
-$sidebar-fill: $color-white;
-$sidebar-sub-fill: $color-white;
-$sidebar-sub-hover: $color-master-bg-light-2;
+/* Switch
+-------------------------- */
+$switch-core-bg: $neutral-6 !default;
+$switch-core-color: $color-bg-1 !default;
+$switch-small-height: $common-space-4x !default;
+$switch-small-core-size: $common-space-3x !default;
+
+/* Tooltip
+-------------------------- */
+$tooltip-bg: $color-neutral-8 !default;
+$tooltop-text-color: $neutral-1 !default;
+$tooltip-light-bg: $color-bg-1 !default;
+$tooltop-light-text-color: $neutral-9 !default;
+
+$tooltip-fill: $tooltip-bg !default; // deprecated(弃用)
+
+/* Notification
+-------------------------- */
+$notification-border-color: $neutral-1 !default;
+
+/* Upload
+-------------------------- */
+$upload-color:$color-master !default;
+$upload-border-color: $border-color !default;
+$upload-bg: $color-bg-1 !default;
+$upload-bg-hover: $color-neutral-9 !default;
+$upload-fill: $upload-bg !default; // deprecated(弃用)
+$upload-font-size: $text-size-sm !default;
+$upload-tips-font-color: $color-neutral-7 !default;
+$upload-font-active-color: $color-grey-1 !default;
+$upload-picture-card-size: 100px !default;
+$upload-picture-card-progress-circle-size: 70px !default;
+$upload-file-uploader-width: 320px !default;
+$upload-dragger-border-radius: $border-radius !default;
+$upload-dragger-text-color: $text-color !default;
+
+
+
+
+/* Card
+-------------------------- */
+$card-bg: $color-bg-2 !default;
+$card-shadow: $shadow-1 !default;
+
+/* Cascader
+-------------------------- */
+$cascader-tag-bg: $neutral-1 !default;
+$cascader-tag-border: $neutral-5 !default;
+$cascader-tag-close-color: $white !default;
+$cascader-tag-close-bg: $neutral-6 !default;
+$cascader-node-hover: $neutral-1 !default;
+$cascader-panel-bg: $color-bg-1 !default;
+
+/* Collapse
+-------------------------- */
+$collapse-border-color: $color-neutral-3 !default;
+$collapse-content-background-color: $color-bg-1 !default;
+$collapse-header-bg: $color-neutral-1 !default;
+$collapse-header-arrow-color: $neutral-6 !default;
+$collapse-seperate-header-bg: $color-neutral-2 !default;
+$collapse-header-height: 36px !default;
+
+$collapse-item-header-height: 32px !default; // deprecated(弃用)
+$collapse-header-fill: $collapse-header-bg; // deprecated(弃用)
+
+/* Steps
+-------------------------- */
+$steps-bg-color: $color-bg-2 !default; // 覆盖色块，与背景同色
+$steps-icon-bg: $blue-1 !default; // 完成步骤背景色
+
+/* Dialog
+-------------------------- */
+$dialog-header-border: $color-neutral-3 !default;
+$dialog-footer-bg: $color-neutral-1 !default;
+
+/* Icon
+-------------------------- */
+$icon-color: $color-grey-3 !default;
+
+/* Loading
+-------------------------- */
+$loading-primary-color: mix($color-white, $color-master, 50%) !default; // deprecated(弃用)
+$loading-primary-border: $loading-primary-color !default; // deprecated(弃用)
+$loading-default-color: $color-grey-10 !default;
+$loading-default-border: $color-grey-6 !default;
+
+/* Alert
+-------------------------- */
+$alert-text-color: $text-color-light !default;
+$alert-info-bg: $blue-1 !default;
+$alert-success-bg: $green-1 !default;
+$alert-warning-bg: $orange-1 !default;
+$alert-danger-bg: $ruby-1 !default;
+$alert-weak-bg: $neutral-1 !default;
+
+/* CuteSlider
+-------------------------- */
+$cute-slider-line-color: $color-master;
+$cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;
+$cute-slider-btn-width: 17px !default;
+$cute-slider-btn-height: 22px !default;
+$cute-slider-btn-color: $color-master-2 !default;
+$cute-slider-btn-color-disabled: $color-master-4 !default;
+
+/* CuteArea
+-------------------------- */
+$cute-area-recent-border-color: $neutral-5 !default;
+$cute-area-recent-head-color: $neutral-10 !default;
+$cute-area-recent-item-color: $neutral-9 !default;
+$cute-area-recent-item-background-color: $blue-1 !default;
+$cute-area-item-hover-background-color: $blue-1 !default;
+$cute-area-item-hover-color: $blue-base !default;
+$cute-area-item-seleted-background-color: $blue-base !default;
+$cute-area-head-color: $neutral-9 !default;
+$cute-area-item-color: $neutral-10 !default;
 
 /* Animation
 -------------------------- */
-$transition-time: 200ms;
+$transition-time: 200ms !default;
 
 /* Z-Index
 -------------------------- */
-$zindex-badge: auto;
-$zindex-normal: 1;
-$zindex-table-fixed: 2;
-$zindex-affix: 10;
-$zindex-back-top: 10;
-$zindex-picker-panel: 10;
-$zindex-popup-close: 10;
-$zindex-layout-sidebar: 10;
-$zindex-modal: 1000;
-$zindex-modal-mask: 1000;
-$zindex-message: 1010;
-$zindex-notification: 1010;
-$zindex-popover: 1030;
-$zindex-dropdown: 1050;
-$zindex-picker: 1050;
-$zindex-popoconfirm: 1060;
-$zindex-tooltip: 1070;
-$zindex-image: 1080;
-$zindex-layout-header: 1999;
-$zindex-loading-mask: 2000;
+$zindex-badge: auto !default;
+$zindex-normal: 1 !default;
+$zindex-table-fixed: 2 !default;
+$zindex-affix: 10 !default;
+$zindex-layout-sidebar: 10 !default;
+$zindex-modal: 1000 !default;
+$zindex-modal-mask: 1000 !default;
+$zindex-message: 1010 !default;
+$zindex-notification: 1010 !default;
+$zindex-popover: 1030 !default;
+$zindex-dropdown: 1050 !default;
+$zindex-picker: 1050 !default;
+$zindex-popoconfirm: 1060 !default;
+$zindex-tooltip: 1070 !default;
+$zindex-image: 1080 !default;
+$zindex-layout-header: 1999 !default;
+$zindex-loading-mask: 2000 !default;
 
 /* 响应式断点
 -------------------------- */
-$screen-lg: 1200px;
+$screen-lg: 1200px !default;
 
 // 图表默认的颜色
-$chart-color-1: #91c6f5;
-$chart-color-2: #8cd4ca;
-$chart-color-3: #e8d065;
-$chart-color-4: #fdac6f;
-$chart-color-5: #a39df7;
-$chart-color-6: #8ed8f3;
-$chart-color-7: #ffab9a;
-$chart-color-8: #78a1da;
-$chart-color-9: #fa7175;
-$chart-color-10: #93c2bb;
-$chart-color-11: #81dbe3;
-$chart-color-12: #f48fb4;
+$chart-color-1: #91c6f5 !default;
+$chart-color-2: #8cd4ca !default;
+$chart-color-3: #e8d065 !default;
+$chart-color-4: #fdac6f !default;
+$chart-color-5: #a39df7 !default;
+$chart-color-6: #8ed8f3 !default;
+$chart-color-7: #ffab9a !default;
+$chart-color-8: #78a1da !default;
+$chart-color-9: #fa7175 !default;
+$chart-color-10: #93c2bb !default;
+$chart-color-11: #81dbe3 !default;
+$chart-color-12: #f48fb4 !default;
 
 /* 图表默认颜色(deprecated(弃用))
 -------------------------- */
-$chartColor1: $chart-color-1;
-$chartColor2: $chart-color-2;
-$chartColor3: $chart-color-3;
-$chartColor4: $chart-color-4;
-$chartColor5: $chart-color-5;
-$chartColor6: $chart-color-6;
-$chartColor7: $chart-color-7;
-$chartColor8: $chart-color-8;
-$chartColor9: $chart-color-9;
-$chartColor10: $chart-color-10;
-$chartColor11: $chart-color-11;
-$chartColor12: $chart-color-12;
+$chartColor1: $chart-color-1 !default;
+$chartColor2: $chart-color-2 !default;
+$chartColor3: $chart-color-3 !default;
+$chartColor4: $chart-color-4 !default;
+$chartColor5: $chart-color-5 !default;
+$chartColor6: $chart-color-6 !default;
+$chartColor7: $chart-color-7 !default;
+$chartColor8: $chart-color-8 !default;
+$chartColor9: $chart-color-9 !default;
+$chartColor10: $chart-color-10 !default;
+$chartColor11: $chart-color-11 !default;
+$chartColor12: $chart-color-12 !default;
 
 // 图表高亮颜色
-$chart-color-h-1: #9fd9ff;
-$chart-color-h-2: #9ae9de;
-$chart-color-h-3: #ffe46f;
-$chart-color-h-4: #ffbd7a;
-$chart-color-h-5: #b3acff;
-$chart-color-h-6: #9cedff;
-$chart-color-h-7: #ffbca9;
-$chart-color-h-8: #84b1ef;
-$chart-color-h-9: #ff7c80;
-$chart-color-h-10: #a1d5cd;
-$chart-color-h-11: #8df0f9;
-$chart-color-h-12: #ff9dc6;
+$chart-color-h-1: #9fd9ff !default;
+$chart-color-h-2: #9ae9de !default;
+$chart-color-h-3: #ffe46f !default;
+$chart-color-h-4: #ffbd7a !default;
+$chart-color-h-5: #b3acff !default;
+$chart-color-h-6: #9cedff !default;
+$chart-color-h-7: #ffbca9 !default;
+$chart-color-h-8: #84b1ef !default;
+$chart-color-h-9: #ff7c80 !default;
+$chart-color-h-10: #a1d5cd !default;
+$chart-color-h-11: #8df0f9 !default;
+$chart-color-h-12: #ff9dc6 !default;
 
 /* 图表高亮颜色(deprecated(弃用))
 -------------------------- */
-$chartColorH1: $chart-color-h-1;
-$chartColorH2: $chart-color-h-2;
-$chartColorH3: $chart-color-h-3;
-$chartColorH4: $chart-color-h-4;
-$chartColorH5: $chart-color-h-5;
-$chartColorH6: $chart-color-h-6;
-$chartColorH7: $chart-color-h-7;
-$chartColorH8: $chart-color-h-8;
-$chartColorH9: $chart-color-h-9;
-$chartColorH10: $chart-color-h-10;
-$chartColorH11: $chart-color-h-11;
-$chartColorH12: $chart-color-h-12;
+$chartColorH1: $chart-color-h-1 !default;
+$chartColorH2: $chart-color-h-2 !default;
+$chartColorH3: $chart-color-h-3 !default;
+$chartColorH4: $chart-color-h-4 !default;
+$chartColorH5: $chart-color-h-5 !default;
+$chartColorH6: $chart-color-h-6 !default;
+$chartColorH7: $chart-color-h-7 !default;
+$chartColorH8: $chart-color-h-8 !default;
+$chartColorH9: $chart-color-h-9 !default;
+$chartColorH10: $chart-color-h-10 !default;
+$chartColorH11: $chart-color-h-11 !default;
+$chartColorH12: $chart-color-h-12 !default;
 
 /* 图表light颜色(deprecated(弃用))
 -------------------------- */
-$chartColorL1: #f2f7ff;
-$chartColorL2: #f6fbef;
-$chartColorL3: #fefaed;
-$chartColorL4: #fdf5ed;
-$chartColorL5: #f5f3fc;
-$chartColorL6: #f1f9fe;
-$chartColorL7: #f7f0fc;
-$chartColorL8: #fdf1ea;
-$chartColorL9: #f5f6fe;
-$chartColorL10: #effaf7;
-$chartColorL11: #fdf0ef;
-$chartColorL12: #fef9f3;
+$chartColorL1: #f2f7ff !default;
+$chartColorL2: #f6fbef !default;
+$chartColorL3: #fefaed !default;
+$chartColorL4: #fdf5ed !default;
+$chartColorL5: #f5f3fc !default;
+$chartColorL6: #f1f9fe !default;
+$chartColorL7: #f7f0fc !default;
+$chartColorL8: #fdf1ea !default;
+$chartColorL9: #f5f6fe !default;
+$chartColorL10: #effaf7 !default;
+$chartColorL11: #fdf0ef !default;
+$chartColorL12: #fef9f3 !default;

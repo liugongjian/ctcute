@@ -3,39 +3,52 @@
 
 .el-tooltip__popper.is-dark {
   background: $tooltip-bg;
-  border: 1px solid $tooltip-border-color;
+  border: 1px solid $tooltip-bg;
   color: $tooltop-text-color;
 }
 
 .el-tooltip__popper.is-light {
+  background: $tooltip-light-bg;
+  border: 1px solid $tooltip-light-bg;
   color: $tooltop-light-text-color;
 }
 
-.el-tooltip__popper.is-dark[x-placement^='left'] .popper__arrow {
-  border-left-color: $tooltip-border-color;
-}
-
-.el-tooltip__popper.is-dark[x-placement^='right'] .popper__arrow {
-  border-right-color: $tooltip-border-color;
-}
-
-.el-tooltip__popper.is-dark[x-placement^='top'] .popper__arrow {
-  border-top-color: $tooltip-border-color;
-}
-
-.el-tooltip__popper.is-dark[x-placement^='bottom'] .popper__arrow {
-  border-bottom-color: $tooltip-border-color;
-}
-
+.el-tooltip__popper.is-dark[x-placement^='left'] .popper__arrow,
 .el-tooltip__popper.is-dark[x-placement^='left'] .popper__arrow:after {
   border-left-color: $tooltip-bg;
 }
+
+.el-tooltip__popper.is-dark[x-placement^='right'] .popper__arrow,
 .el-tooltip__popper.is-dark[x-placement^='right'] .popper__arrow:after {
   border-right-color: $tooltip-bg;
 }
+
+.el-tooltip__popper.is-dark[x-placement^='top'] .popper__arrow,
 .el-tooltip__popper.is-dark[x-placement^='top'] .popper__arrow:after {
   border-top-color: $tooltip-bg;
 }
+
+.el-tooltip__popper.is-dark[x-placement^='bottom'] .popper__arrow,
 .el-tooltip__popper.is-dark[x-placement^='bottom'] .popper__arrow:after {
   border-bottom-color: $tooltip-bg;
+}
+
+.el-tooltip__popper.is-light[x-placement^='left'] .popper__arrow,
+.el-tooltip__popper.is-light[x-placement^='left'] .popper__arrow:after {
+  border-left-color: $tooltip-light-bg;
+}
+
+.el-tooltip__popper.is-light[x-placement^='right'] .popper__arrow,
+.el-tooltip__popper.is-light[x-placement^='right'] .popper__arrow:after {
+  border-right-color: $tooltip-light-bg;
+}
+
+.el-tooltip__popper.is-light[x-placement^='top'] .popper__arrow,
+.el-tooltip__popper.is-light[x-placement^='top'] .popper__arrow:after {
+  border-top-color: $tooltip-light-bg;
+}
+
+.el-tooltip__popper.is-light[x-placement^='bottom'] .popper__arrow,
+.el-tooltip__popper.is-light[x-placement^='bottom'] .popper__arrow:after {
+  border-bottom-color: $tooltip-light-bg;
 }

@@ -6,16 +6,16 @@
   </el-breadcrumb>
   <el-breadcrumb v-else-if="breadcrumbShowLast">
     <el-breadcrumb-item>
-      <span>{{ t(lastCrumb.meta.title) }}</span>
+      <span>{{ $t(lastCrumb.meta.title) }}</span>
     </el-breadcrumb-item>
   </el-breadcrumb>
   <el-breadcrumb v-else separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
         <span v-if="item.redirect === 'noredirect' || index === breadcrumbs.length - 1" class="no-redirect">
-          {{ t(item.meta.title) }}
+          {{ $t(item.meta.title) }}
         </span>
-        <a v-else @click.prevent="handleLink(item)">{{ t(item.meta.title) }}</a>
+        <a v-else @click.prevent="handleLink(item)">{{ $t(item.meta.title) }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -61,7 +61,7 @@ export default class extends mixins(Locale) {
     let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
     const first = matched[0]
     if (!this.isDashboard(first)) {
-      matched = [{ path: '/', meta: { title: '首页' } } as unknown as RouteRecord].concat(matched)
+      matched = [{ path: '/', meta: { title: 'home.title' } } as unknown as RouteRecord].concat(matched)
     }
     this.breadcrumbs = matched.filter(item => {
       return item.meta && item.meta.title && item.meta.breadcrumb !== false
@@ -69,8 +69,7 @@ export default class extends mixins(Locale) {
   }
 
   private isDashboard(route: RouteRecord) {
-    const name = route && route.meta && route.meta.title
-    return name === '首页'
+    return route.path === '/'
   }
 
   private pathCompile(path: string) {

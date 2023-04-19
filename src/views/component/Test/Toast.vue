@@ -31,6 +31,8 @@
           type="text"
           @click="
             $message({
+              duration: 0,
+              showClose: true,
               message: '警告提示文案',
               type: 'warning',
               customClass: 'toast-warning',
@@ -45,6 +47,8 @@
           type="text"
           @click="
             $message({
+              duration: 0,
+              showClose: true,
               message: '错误提示文案',
               type: 'error',
               customClass: 'toast-error',
@@ -52,6 +56,21 @@
           "
         >
           <span class="btn-text">错误</span>
+        </el-button>
+      </el-col>
+      <el-col :span="2">
+        <el-button
+          type="text"
+          @click="
+            $message({
+              duration: 0,
+              showClose: true,
+              message: '提示文案',
+              customClass: 'toast-error',
+            })
+          "
+        >
+          <span class="btn-text">信息</span>
         </el-button>
       </el-col>
     </el-row>

@@ -47,7 +47,7 @@ import HueSlider from './HueSlider'
 import AlphaSlider from './AlphaSlider'
 import Predefine from './PredefinePanel'
 import Popper from 'element-ui/src/utils/vue-popper'
-import Locale from 'element-ui/src/mixins/locale'
+import Locale from 'element-ui/lib/mixins/locale'
 import ElInput from 'element-ui/packages/input'
 import ElButton from 'element-ui/packages/button'
 

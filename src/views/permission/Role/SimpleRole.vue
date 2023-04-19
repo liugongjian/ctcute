@@ -1,12 +1,12 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2023-02-06 17:50:27
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-16 13:34:50
  * @Description: 基础表格
 -->
 <template>
-  <el-card class="simple-menu">
+  <el-card class="simple-table">
     <!--表格工具栏-->
     <div class="table-tools">
       <el-button v-permission="['/permission/role:add']" type="primary" @click="addRoles">+ 添 加</el-button>
@@ -18,83 +18,40 @@
       <el-table-column prop="name" label="角色名"> </el-table-column>
       <el-table-column prop="code" label="角色标识" />
       <el-table-column prop="remark" label="备注" />
-      <el-table-column prop="actions" label="操作" width="250" fixed="right" class-name="actions">
-        <template slot-scope="{ row }">
-          <el-button v-permission="['/permission/role:edit']" type="text" @click="gotoEdit(row)"
-            >编辑</el-button
-          >
-          <el-button v-permission="['/permission/role:copy']" type="text" @click="gotoCopy(row)"
-            >复制</el-button
-          >
-          <el-button v-permission="['/permission/role:del']" type="text" @click="gotoDel(row)"
-            >删除</el-button
-          >
-          <el-button v-permission="['/permission/role:setuser']" type="text" @click="gotoSetUser(row)"
-            >设置用户</el-button
-          >
+      <el-table-column prop="actions" label="操作" width="120" fixed="right" class-name="actions">
+        <template slot-scope="{ row, $index }">
+          <el-button v-permission="['/permission/role:edit']" type="text" @click="gotoEdit(row)">
+            编辑
+          </el-button>
+          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown($index)">
+            <el-button type="text" size="small" class="bt-operation">
+              更多
+              <i
+                class="el-icon-arrow-down el-icon--right"
+                :class="row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+              />
+            </el-button>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>
+                <el-button v-permission="['/permission/role:setuser']" type="text" @click="gotoSetUser(row)">
+                  设置用户
+                </el-button>
+              </el-dropdown-item>
+              <el-dropdown-item>
+                <el-button v-permission="['/permission/role:copy']" type="text" @click="gotoCopy(row)">
+                  复制
+                </el-button>
+              </el-dropdown-item>
+              <el-dropdown-item>
+                <el-button v-permission="['/permission/role:del']" type="text" @click="gotoDel(row)">
+                  删除
+                </el-button>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
         </template>
       </el-table-column>
     </el-table>
-    <!--设置用户弹窗-->
-    <el-dialog
-      class="medium-dialog"
-      title="设置用户"
-      :visible="setUserVisible"
-      :close-on-click-modal="false"
-      @close="setUserVisible = false"
-    >
-      <el-scrollbar
-        ref="scrollBar"
-        class="medium-dialog--scroll"
-        :wrap-style="[{ maxHeight: isFullscreen ? '100%' : '521px' }]"
-      >
-        <div class="medium-dialog--content" style="margin-bottom: 24px">
-          <el-transfer
-            ref="myTransfer"
-            v-model="roleValue"
-            v-loading="roleLoading"
-            :titles="['用户', '角色下已有用户']"
-            :data="roleData"
-            filterable
-            filter-placeholder="请输入姓名或手机号"
-            @change="handleChange"
-          ></el-transfer>
-        </div>
-      </el-scrollbar>
-    </el-dialog>
-    <!-- 编辑、添加角色 弹窗 -->
-    <add-or-edit-role-dialog
-      v-if="roleDialogVisible"
-      :id="editRow._id"
-      :edit-row="editRow"
-      :visible.sync="roleDialogVisible"
-      :role-dialog-status="roleDialogStatus"
-      @confirm="handleAddOrEidt"
-    />
-    <!-- 复制角色 弹窗 -->
-    <warn-dialog
-      v-if="copyVisible"
-      :id="copyId"
-      :visible.sync="copyVisible"
-      title="确定拷贝角色吗? "
-      message="拷贝会拷贝角色以及相关权限, 是否继续？"
-      cancel-button-text="取消"
-      confirm-button-text="确定"
-      @confirm="handleCopy"
-    />
-
-    <!-- 删除角色 弹窗 -->
-    <warn-dialog
-      v-if="delVisible"
-      :id="delId"
-      :visible.sync="delVisible"
-      title="确定删除角色吗? "
-      message="删除后，拥有该角色的用户权限将受到影响, 是否继续？"
-      cancel-button-text="取消"
-      confirm-button-text="确定"
-      @confirm="handleDel"
-    />
-
     <!--分页-->
     <el-pagination
       class="pagination"
@@ -104,20 +61,49 @@
       @size-change="() => tableHook.handleSizeChange(tableHook.pager.limit)"
       @current-change="() => tableHook.handleCurrentChange(tableHook.pager.page)"
     />
+
+    <!-- 编辑、添加角色 弹窗 -->
+    <add-or-edit-role-dialog
+      v-if="roleDialogVisible"
+      :id="editRow._id"
+      :edit-row="editRow"
+      :visible.sync="roleDialogVisible"
+      :role-dialog-status="roleDialogStatus"
+      @confirm="handleAddOrEidt"
+    />
+
+    <!--设置用户弹窗-->
+    <el-dialog
+      title="设置用户"
+      width="600px"
+      :visible="setUserVisible"
+      :close-on-click-modal="false"
+      @close="setUserVisible = false"
+    >
+      <el-transfer
+        ref="myTransfer"
+        v-model="roleValue"
+        v-loading="roleLoading"
+        :titles="['用户', '角色下已有用户']"
+        :data="roleData"
+        filterable
+        filter-placeholder="请输入姓名或手机号"
+        @change="handleChange"
+      />
+    </el-dialog>
   </el-card>
 </template>
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import { ElTable } from 'element-ui/types/table'
 import { ElTransfer } from 'element-ui/types/transfer'
-import WarnDialog from './components/WarnDialog.vue'
 import { getRoles, copyRoles, delRoles, getRoleUser, setRole } from '@/api/simpleRole'
 import { getUsers } from '@/api/simpleUser'
 import TableHookClass from '@cutedesign/ui/hook/TableHook'
 import AddOrEditRoleDialog from './components/AddOrEditRoleDialog.vue'
 @Component({
   name: 'SimpleTable',
-  components: { WarnDialog, AddOrEditRoleDialog },
+  components: { AddOrEditRoleDialog },
 })
 export default class extends Vue {
   @Ref('tableRef')
@@ -125,8 +111,6 @@ export default class extends Vue {
   public tableHook = new TableHookClass()
   @Ref('myTransfer')
   private myTransfer: ElTransfer
-
-  private isFullscreen = false
 
   //添加角色、编辑角色弹窗
   private roleDialogStatus = 'create'
@@ -151,13 +135,6 @@ export default class extends Vue {
     searchkey: '',
   }
 
-  //复制角色
-  private copyVisible = false
-  private copyId = ''
-  //删除角色
-  private delVisible = false
-  private delId = ''
-
   /**
    * 页面Mounted
    */
@@ -173,7 +150,10 @@ export default class extends Vue {
     try {
       const res = await getRoles(param)
       if ((res as any).code === 200) {
-        this.tableHook.setResult(res.data.result, res.data.pageInfo.totalItems)
+        this.tableHook.setResult(
+          res.data.result.map(item => ({ ...item, flag: false })),
+          res.data.pageInfo.totalItems
+        )
       }
     } catch (e) {
       console.error(e)
@@ -226,7 +206,7 @@ export default class extends Vue {
         isPaging: 0,
         ...this.roleListQuery,
       })
-      if ((res as any).code === 200) {
+      if (res.code === 200) {
         const data = res.data.result
         this.roleData = []
         data.forEach(item => {
@@ -247,7 +227,7 @@ export default class extends Vue {
     this.roleValue = []
     try {
       const res = await getRoleUser(this.setRoleUserRow)
-      if ((res as any).code === 200) {
+      if (res.code === 200) {
         const arr = res.data
         arr.forEach(item => {
           this.roleValue.push(item._id)
@@ -282,9 +262,7 @@ export default class extends Vue {
       moveId.forEach(item => {
         // 过滤出移动项id与整个数组相同id的数据项
         this.roleData
-          .filter(_item => {
-            return _item.id === item
-          })
+          .filter(_item => _item.id === item)
           .map((str, _index, newArr) => {
             // 右侧数据改变时左侧去重并改变disable
             if (newArr.length > 1) {
@@ -316,50 +294,48 @@ export default class extends Vue {
   /**
    *  复制角色按钮
    */
-  private gotoCopy(row) {
-    this.copyVisible = true
-    this.copyId = row._id
-  }
-  /**
-   *  复制角色事件
-   */
-  private async handleCopy(id) {
+  private async gotoCopy(row) {
     try {
-      const res = await copyRoles(id)
-      if ((res as any).code === 200) {
-        this.copyVisible = false
+      await this.$confirm('拷贝会拷贝角色以及相关权限, 是否继续？', '确定拷贝角色吗？', {
+        type: 'warning',
+      })
+
+      const res = await copyRoles(row._id)
+      if (res.code === 200) {
         this.$message.success('复制角色成功! ')
-        this.copyId = ''
         this.tableHook.query()
       }
-    } catch (e) {
-      console.error(e)
-    } finally {
+    } catch (err) {
+      if (err !== 'cancel') {
+        console.log(err.msg || err)
+      }
     }
   }
+
   /**
    *  删除角色按钮
    */
-  private gotoDel(row) {
-    this.delVisible = true
-    this.delId = row._id
-  }
-  /**
-   *  删除角色事件
-   */
-  private async handleDel(id) {
+  private async gotoDel(row) {
     try {
-      const res = await delRoles(id)
-      if ((res as any).code === 200) {
-        this.delVisible = false
+      await this.$confirm('删除后，拥有该角色的用户权限将受到影响, 是否继续？', '确定删除角色吗？', {
+        type: 'warning',
+      })
+
+      const res = await delRoles(row._id)
+      if (res.code === 200) {
         this.$message.success('删除角色成功! ')
-        this.delId = ''
         this.tableHook.query()
       }
-    } catch (e) {
-      console.error(e)
-    } finally {
+    } catch (err) {
+      if (err !== 'cancel') {
+        console.log(err.msg || err)
+      }
     }
+  }
+
+  // 下拉展开旋转小三角
+  private openDropdown(index) {
+    this.tableHook.tableData[index].flag = !this.tableHook.tableData[index].flag
   }
 }
 </script>

@@ -29,6 +29,10 @@ $pagination-button-margin-sm: $margin;
     }
   }
 
+  span.el-pagination__sizes {
+    line-height: $select-xs-height - 2;
+  }
+
   &__total {
     margin-right: $margin-6x;
   }
@@ -96,10 +100,12 @@ $pagination-button-margin-sm: $margin;
   &__editor {
     &.el-input {
       width: $pagination-input-width;
+      height: $input-xs-height;
+      line-height: $input-xs-height - 2;
 
       .el-input__inner {
         height: $input-xs-height;
-        line-height: $input-xs-height;
+        line-height: $input-xs-height - 2;
         padding: 0 $padding;
       }
     }
@@ -133,10 +139,11 @@ $pagination-button-margin-sm: $margin;
     .el-pagination__editor {
       &.el-input {
         height: $input-xs-height;
+        line-height: $input-xs-height - 2;
 
         .el-input__inner {
           height: $input-xs-height;
-          line-height: $input-xs-height;
+          line-height: $input-xs-height - 2;
         }
       }
     }

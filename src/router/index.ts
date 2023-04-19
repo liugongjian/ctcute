@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-29 10:25:03
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-07 13:05:03
+ * @LastEditTime: 2023-04-14 12:16:49
  * @Description:
  */
 import Vue from 'vue'
@@ -16,6 +16,7 @@ import loginRouter from '@/router/modules/login'
 import docRouter from '@/router/modules/doc'
 import consoleRoutes from '@/router/modules/console'
 import layoutTestRoutes from '@/router/modules/layoutTest'
+import i18n from '@/i18n'
 
 Vue.use(Router)
 
@@ -192,7 +193,7 @@ const getPageTitle = (key: string) => {
 
 router.afterEach((to: Route) => {
   // set page title
-  document.title = getPageTitle(to.meta.title)
+  document.title = getPageTitle(i18n.t(to.meta.title) as string)
 })
 
 export default router

@@ -107,9 +107,9 @@ $color-other-1: $color-neutral-8 !default; // deprecated(弃用) 使用在toolti
 
 /* Background
 -------------------------- */
-$color-bg-1: $white !default;
-$color-bg-2: $white !default;
-$color-bg-3: $neutral-1 !default;
+$color-bg-1: $white !default; // 组件背景色
+$color-bg-2: $white !default; // 背景卡片颜色
+$color-bg-3: $neutral-1 !default; // 页面整体背景色
 $color-form-component-bg: $color-bg-1 !default;
 $color-content-bg: $color-bg-2 !default;
 $color-body-bg: $color-bg-3 !default;
@@ -131,8 +131,7 @@ $disabled-icon-color: $neutral-6 !default; // deprecated(弃用)
 
 /* Typography
 -------------------------- */
-$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif,
-  '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
+$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif, '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
 $font-family-cute-icons: 'cute-icons' !default;
 $text-size: 12px !default; // 标准字体大小
 $text-size-sm: 12px !default; // 字号small
@@ -142,6 +141,7 @@ $text-size-xl: 18px !default; // 字号extra large
 $text-color: $neutral-10 !default; // 强调/正文标题
 $text-color-light: $neutral-9 !default; // 次强调/正文标题
 $text-color-light-2: $neutral-6 !default; // 置灰信息
+$text-color-disabled: $text-color-light-2 !default; // 置灰信息($text-color-light-2别名)
 $text-color-feature: $neutral-7 !default; // 说明文字
 $text-color-placeholder: $neutral-7 !default; // 组件占位文本
 $text-weight: normal; // 标准字体粗细
@@ -233,7 +233,7 @@ $shadow-form-item: 0px 2px 2px rgba(0, 0, 0, 0.1) !default; // 组件Focused状�
 $shadow-input: 0 0 4px 0 rgba(250, 131, 52, 20%) !default; // deprecated(弃用)
 $shadow-card: 0 2px 8px 0 rgba(200, 201, 204, 50%) !default; // deprecated(弃用)
 $shadow-dialog: 0 6px 16px -8px rgba(0, 0, 0, 8%), 0 9px 28px 0 rgba(0, 0, 0, 5%),
-  0 12px 48px 16px rgba(0, 0, 0, 3%) !default; // deprecated(弃用)
+0 12px 48px 16px rgba(0, 0, 0, 3%) !default; // deprecated(弃用)
 $shadow-table-card: rgba(200, 201, 204, 50%) !default; // deprecated(弃用)
 
 /* Layout
@@ -244,15 +244,16 @@ $cute-layout-header-sub-logo-height: 15px !default;
 $cute-layout-header-text-color: $color-white !default;
 $cute-layout-header-bg: #272b39 !default;
 $cute-layout-header-border: #585b62 !default;
-$cute-layout-sidebar-width: 190px;
-$cute-layout-sidebar-bg: $color-white;
-$cute-layout-sidebar-border: $color-neutral-3;
-$cute-layout-sidebar-item-bg-hover: $color-neutral-1;
-$cute-layout-sidebar-color-master: $color-master;
-$cute-layout-sidebar-text-color: $text-color;
-$cute-layout-sidebar-arrow-color: $text-color-light;
+$cute-layout-sidebar-width: 190px !default;
+$cute-layout-sidebar-bg: $color-bg-1 !default;
+$cute-layout-sidebar-border: $color-neutral-3 !default;
+$cute-layout-sidebar-item-bg-hover: $color-neutral-1 !default;
+$cute-layout-sidebar-color-master: $color-master !default;
+$cute-layout-sidebar-text-color: $text-color !default;
+$cute-layout-sidebar-arrow-color: $text-color-light !default;
 
-$header-input-bg: #353f58 !default; // deprecated(弃用)
+$header-input-bg: #353f58 !default;
+
 $header-text-color: #c2c2c2 !default; // deprecated(弃用)
 $header-search-text-color: $text-color-light-2 !default; // deprecated(弃用)
 $header-height: $cute-layout-header-height !default; // deprecated(弃用)
@@ -305,9 +306,27 @@ $button-default-color-bg-disabled: $color-neutral-1 !default;
 $button-default-color-border: $color-neutral-5 !default;
 $button-default-color-border-disabled: $color-neutral-5 !default;
 $button-icon-color: $text-color-light-2 !default;
-$button-group-border: rgba($color-white, 0.5) !default;
+$button-group-border: rgba($color-bg-1, 0.5) !default;
 $button-margin: $margin-3x !default;
 
+/* Radio
+-------------------------- */
+
+$radio-checked-bg: $color-white !default; // 普通radio背景色
+$radio-group-color: $color-white !default; 
+$radio-group-bg: $color-master !default;
+$radio-group-disabled-bg: $disabled-bg !default;
+$radio-group-border-color: $disabled-border !default;
+$radio-group-border-disabled-color: $disabled-border !default;
+$radio-group-border-disabled-bg: $color-master-disabled !default;
+$radio-width: 14px !default; // 普通按钮外部宽高
+$radio-label-width: $common-space-2x !default; // 普通按钮 中间按钮宽高:
+
+$input-lg-padding: 0 $padding-6x  !default;
+$input-md-padding: 0 $padding-4x !default;
+$input-sm-padding: 0 $padding-3x  !default;
+$input-xs-padding: 0 $padding-3x !default;
+$cute-special-radio-size:3px  !default;
 /* Form
 -------------------------- */
 $form-item-label-line-height: 32px !default; // label
@@ -326,13 +345,28 @@ $input-sm-height: 24px !default;
 $input-md-height: 32px !default;
 $input-lg-height: 40px !default;
 $input-height: $input-md-height !default;
-
+$input-prefix-padding: $padding-9x !default;
+$input-suffix-padding: $padding-9x !default;
 $input-fill: $color-white !default; // deprecated(弃用)
 
 /* Select
 -------------------------- */
 $select-border-color-hover: $border-color-hover !default;
 $select-disabled-border: $disabled-border !default;
+$select-color: $color-master  !default; 
+$select-color: $color-master  !default; 
+$select-dropdown-bg: $color-bg-1 !default; 
+$select-xs-height: 24px !default;
+$select-sm-height: 24px !default;
+$select-md-height: 32px !default;
+$select-lg-height: 40px !default;
+
+
+
+$range-editor-disabled-bg: $color-master-bg-light-2 !default;
+$range-editor-multiple-bg: $color-master-bg-light-2 !default;
+$range-editor-height: 24px !default;
+$range-editor-tags-size: 16px !default;
 
 /* Checkbox
 -------------------------- */
@@ -383,15 +417,13 @@ $pagination-fill: $color-white; // deprecated(弃用)
 $transfer-header-bg: $color-neutral-1 !default;
 $transfer-item-active-bg: $color-neutral-1 !default; // Transfer组件选中项背景色
 $transfer-item-hover-bg: $color-neutral-1 !default; // Transfer组件选中项悬停色
-$transfer-footert-bg: $color-white !default; // Transfer组件footer背景色
+$transfer-footert-bg: $color-bg-1 !default; // Transfer组件footer背景色
 $transfer-item-height: 32px !default; // Transfer组件选项高度
 $transfer-header-height: 40px !default; // Transfer组件header高度
 $transfer-footer-height: 40px !default; // Transfer组件footer高度
 $transfer-filter-input-height: 28px !default; // Transfer组件搜索框高度
 $transfer-filter-input-margin: $margin-10 !default; // Transfer组件搜索框高度
-$transfer-filter-height: calc(
-  $transfer-filter-input-height + $transfer-filter-input-margin
-) !default; // Transfer组件filter区域高度
+$transfer-filter-height: calc($transfer-filter-input-height + $transfer-filter-input-margin) !default; // Transfer组件filter区域高度
 
 /* Tabs
 -------------------------- */
@@ -401,12 +433,19 @@ $tabs-default-line-color: $color-neutral-3 !default; // 默认风格的线条颜
 /* Progress
 -------------------------- */
 
+/* Switch
+-------------------------- */
+$switch-core-bg: $neutral-6 !default;
+$switch-core-color: $color-bg-1 !default;
+$switch-small-height: $common-space-4x !default;
+$switch-small-core-size: $common-space-3x !default;
+
 /* Tooltip
 -------------------------- */
 $tooltip-bg: $color-neutral-8 !default;
-$tooltop-text-color: $color-white !default;
-$tooltip-border-color: $color-neutral-8 !default;
-$tooltop-light-text-color: $neutral-10 !default;
+$tooltop-text-color: $neutral-1 !default;
+$tooltip-light-bg: $color-bg-1 !default;
+$tooltop-light-text-color: $neutral-9 !default;
 
 $tooltip-fill: $tooltip-bg !default; // deprecated(弃用)
 
@@ -416,9 +455,22 @@ $notification-border-color: $neutral-1 !default;
 
 /* Upload
 -------------------------- */
-$upload-bg: $color-white !default;
-
+$upload-color:$color-master !default;
+$upload-border-color: $border-color !default;
+$upload-bg: $color-bg-1 !default;
+$upload-bg-hover: $color-neutral-9 !default;
 $upload-fill: $upload-bg !default; // deprecated(弃用)
+$upload-font-size: $text-size-sm !default;
+$upload-tips-font-color: $color-neutral-7 !default;
+$upload-font-active-color: $color-grey-1 !default;
+$upload-picture-card-size: 100px !default;
+$upload-picture-card-progress-circle-size: 70px !default;
+$upload-file-uploader-width: 320px !default;
+$upload-dragger-border-radius: $border-radius !default;
+$upload-dragger-text-color: $text-color !default;
+
+
+
 
 /* Card
 -------------------------- */
@@ -482,6 +534,8 @@ $cute-slider-line-color: $color-master;
 $cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;
 $cute-slider-btn-width: 17px !default;
 $cute-slider-btn-height: 22px !default;
+$cute-slider-btn-color: $color-master-2 !default;
+$cute-slider-btn-color-disabled: $color-master-4 !default;
 
 /* CuteArea
 -------------------------- */

@@ -46,7 +46,6 @@ export default class extends Vue {
    */
   private findCurrentTitle() {
     const scrollY = window.scrollY
-    console.log(scrollY)
     let currentTitle = null
     for (let i = 0; i < this.titles.length; i++) {
       const title = this.titles[i]

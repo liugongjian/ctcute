@@ -1,101 +1,100 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-11-14 16:17:28
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-12-21 14:41:15
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-16 22:02:09
  * @Description:
 -->
 <template>
-  <div class="real-order">
-    <div class="order-header">
-      <svg-icon
-        class="left-icon"
-        name="left"
-        :color="colorVariables.colorWhite"
-        :width="15"
-        :height="15"
-        @click="openPreview"
-      />
-      <p class="order-compute">存储库</p>
+  <el-card class="product-detail">
+    <div class="page-header" @click="openPreview">
+      <svg-icon class="page-header__icon" name="arrow-left" />
+      <span class="page-header__content">存储库</span>
     </div>
-    <div class="order-detail">
-      <el-card>
-        <cute-titled-block title="S1详情">
-          <template #content>
-            <div class="detail-message">
-              <div class="message-img">
-                <img src="./images/console.svg" alt="" />
-              </div>
-              <div class="message-info">
-                <el-descriptions :column="2" :colon="false" :label-style="labelStyle">
-                  <el-descriptions-item label="名称"
-                    ><cute-edit-input v-model="form.name"
-                  /></el-descriptions-item>
-                  <el-descriptions-item label="状态">{{ form.status }}</el-descriptions-item>
-                  <el-descriptions-item label="磁盘ID">{{ form.id }}</el-descriptions-item>
-                  <el-descriptions-item label="磁盘容量">{{ form.capacity }}</el-descriptions-item>
-                  <el-descriptions-item label="磁盘类型">{{ form.type }}</el-descriptions-item>
-                  <el-descriptions-item label="创建时间">{{ form.createTime }}</el-descriptions-item>
-                  <el-descriptions-item label="磁盘属性">{{ form.attribute }}</el-descriptions-item>
-                  <el-descriptions-item label="到期时间">{{ form.endTime }}</el-descriptions-item>
-                  <el-descriptions-item label="共享盘">{{ form.shareDisk }}</el-descriptions-item>
-                  <el-descriptions-item label="企业项目">{{ form.enterProject }}</el-descriptions-item>
-                </el-descriptions>
-              </div>
-            </div>
-          </template>
-        </cute-titled-block>
-      </el-card>
-      <el-card>
-        <el-tabs v-model="activeName">
-          <el-tab-pane name="a" label="备份策略">
-            <div class="tab-header">
-              <el-button>绑定备份策略</el-button>
-              <div class="tab-search">
-                <el-input v-model="searchValue" placeholder="请输入" prefix-icon="el-icon-search"> </el-input>
+
+    <cute-titled-block title="S1详情">
+      <template #content>
+        <div class="detail-message">
+          <div class="message-img">
+            <img src="./images/console.svg" alt="" />
+          </div>
+          <div class="message-info">
+            <el-descriptions :column="2" :colon="false" :label-style="labelStyle">
+              <el-descriptions-item label="名称">
+                <cute-edit-input v-model="form.name" />
+              </el-descriptions-item>
+              <el-descriptions-item label="状态">{{ form.status }}</el-descriptions-item>
+              <el-descriptions-item label="磁盘ID">{{ form.id }}</el-descriptions-item>
+              <el-descriptions-item label="磁盘容量">{{ form.capacity }}</el-descriptions-item>
+              <el-descriptions-item label="磁盘类型">{{ form.type }}</el-descriptions-item>
+              <el-descriptions-item label="创建时间">{{ form.createTime }}</el-descriptions-item>
+              <el-descriptions-item label="磁盘属性">{{ form.attribute }}</el-descriptions-item>
+              <el-descriptions-item label="到期时间">{{ form.endTime }}</el-descriptions-item>
+              <el-descriptions-item label="共享盘">{{ form.shareDisk }}</el-descriptions-item>
+              <el-descriptions-item label="企业项目">{{ form.enterProject }}</el-descriptions-item>
+            </el-descriptions>
+          </div>
+        </div>
+      </template>
+    </cute-titled-block>
+
+    <el-tabs v-model="activeName">
+      <el-tab-pane name="a" label="备份策略" class="simple-table">
+        <!--表格工具栏-->
+        <div class="table-tools">
+          <div class="table-tools__left">
+            <el-button>绑定备份策略</el-button>
+          </div>
+          <div class="table-tools__right table-tools__conditions">
+            <el-form ref="conditions" :model="conditions" inline @submit.native.prevent>
+              <el-form-item prop="name">
+                <cute-remind-input v-model="searchValue" placeholder="请输入主机别名" title="主机别名" />
+              </el-form-item>
+              <el-form-item class="table-tools__conditions__buttons">
                 <el-button class="button" plain>
                   <svg-icon name="reload" />
                 </el-button>
-              </div>
-            </div>
-            <!--表格-->
-            <el-table v-if="activeName === 'a'" v-loading="loading" :data="tableData" fit border>
-              <el-table-column prop="name" label="主机别名">
-                <template slot-scope="{ row }">
-                  <router-link to="/">{{ row.name }}</router-link>
-                </template>
-              </el-table-column>
-              <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
-              <el-table-column prop="ip" label="IP地址" />
-              <el-table-column prop="cpu" label="CPU利用率(%)" />
-              <el-table-column prop="memory" label="内存利用率(%)" />
-              <el-table-column prop="disk" label="磁盘利用率(%)" />
-              <el-table-column prop="health" label="健康状态">
-                <template slot-scope="{ row }">
-                  <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
-                </template>
-              </el-table-column>
-              <el-table-column prop="actions" label="操作" width="150" fixed="right" class-name="actions">
-                <template slot-scope="{ row }">
-                  <el-button type="text" @click="gotoDetail(row)">详情</el-button>
-                  <el-button type="text" @click="gotoDashboard(row)">监控指标</el-button>
-                </template>
-              </el-table-column>
-            </el-table>
-            <!--分页-->
-            <el-pagination
-              :current-page="pager.page"
-              :page-size="pager.limit"
-              :total="pager.total"
-              @size-change="handleSizeChange"
-              @current-change="handleCurrentChange"
-            />
-          </el-tab-pane>
-          <el-tab-pane name="b" label="备份副本"> </el-tab-pane>
-        </el-tabs>
-      </el-card>
-    </div>
-  </div>
+              </el-form-item>
+            </el-form>
+          </div>
+        </div>
+
+        <!--表格-->
+        <el-table v-if="activeName === 'a'" v-loading="loading" :data="tableData" fit border>
+          <el-table-column prop="name" label="主机别名">
+            <template slot-scope="{ row }">
+              <router-link to="/">{{ row.name }}</router-link>
+            </template>
+          </el-table-column>
+          <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"> </el-table-column>
+          <el-table-column prop="ip" label="IP地址" />
+          <el-table-column prop="cpu" label="CPU利用率(%)" />
+          <el-table-column prop="memory" label="内存利用率(%)" />
+          <el-table-column prop="disk" label="磁盘利用率(%)" />
+          <el-table-column prop="health" label="健康状态">
+            <template slot-scope="{ row }">
+              <span class="health-dot" :class="`health-dot--${row.health}`" />{{ HEALTH[row.health] }}
+            </template>
+          </el-table-column>
+          <el-table-column prop="actions" label="操作" width="150" fixed="right" class-name="actions">
+            <template slot-scope="{ row }">
+              <el-button type="text" @click="gotoDetail(row)">详情</el-button>
+              <el-button type="text" @click="gotoDashboard(row)">监控指标</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+        <!--分页-->
+        <el-pagination
+          :current-page="pager.page"
+          :page-size="pager.limit"
+          :total="pager.total"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        />
+      </el-tab-pane>
+      <el-tab-pane name="b" label="备份副本"> </el-tab-pane>
+    </el-tabs>
+  </el-card>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'

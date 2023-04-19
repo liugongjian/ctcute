@@ -7,8 +7,6 @@ import { format } from 'date-fns'
  * @returns 格式化后的日期
  */
 export const formatDatetime = (datetime: Date | number, formatString = 'yyyy-MM-dd HH:mm:ss') => {
-  console.log(datetime)
-
   if (!datetime) return ''
   return format(datetime, formatString)
 }

@@ -14,6 +14,10 @@
     &, &.is-leaf {
       border-right: 0;
     }
+
+    & > .cell {
+      display: block; // 原生为inline-block，有小数问题
+    }
   }
 
   // 行背景
@@ -64,7 +68,10 @@
       .cell {
         padding-left: $padding-4x;
         padding-right: $padding-4x;
-        line-height: $table-cell-selection-line-height;
+
+        .el-checkbox__input {
+          line-height: 1;
+        }
       }
     }
   }

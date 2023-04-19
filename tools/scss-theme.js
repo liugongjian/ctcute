@@ -23,10 +23,8 @@ fs.writeFile(targetPath, lines.join('\n'), function (err) {
     console.log('变量生成成功!')
   }
 })
-// console.log()
 
-// const defaultData = fs.readFileSync(defaultPath, 'utf-8')
-
+// 读取新主题变量
 function parseThemeVariables() {
   // 从命令行参数中获取主题路径
   const filePath = process.argv[2]
@@ -44,6 +42,7 @@ function parseThemeVariables() {
   return variables
 }
 
+// 读取默认主题变量
 function parseDefaultVariables() {
   const filePath = path.join(__dirname, '../packages/ui/style/themes/default/variables.scss')
   const data = fs.readFileSync(filePath, 'utf-8')

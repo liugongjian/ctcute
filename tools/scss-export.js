@@ -1,10 +1,11 @@
 /**
- * description: 读取SCSS的变量文件，并生成:export导出变量
+ * description: 读取SCSS的变量文件，并生成:export导出变量、ts.d文件、DOC文档
  * author: zhulh
  * last modified: 2023-02-28
  */
 
 const fs = require('fs')
+const path = require('path')
 
 // 从命令行参数中获取文件路径
 const filePath = process.argv[2]

@@ -1,8 +1,8 @@
 <!--
  * @Author: error: 孙善鹏
  * @Date: 2023-04-11 13:49:34
- * @LastEditors: error: git config user.name & please set dead value or install git
- * @LastEditTime: 2023-04-11 16:38:56
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-17 10:41:26
  * @Description: 
 -->
 <template>
@@ -12,6 +12,29 @@
       <h3>普通多选</h3>
       <el-form inline>
         <div>
+          <el-checkbox-group
+            v-model="itemChecked"
+            :size="itemSize"
+            :disabled="itemDisabled"
+            @change="handleCheckedCitiesChange"
+          >
+            <el-checkbox v-for="city in cityOptions" :key="city" :label="city">{{ city }}</el-checkbox>
+          </el-checkbox-group>
+        </div>
+      </el-form>
+    </el-card>
+    <el-card>
+      <h3>普通多选 - 组</h3>
+      <el-form inline>
+        <div>
+          <el-checkbox
+            v-model="checkAll"
+            :disabled="itemDisabled"
+            :indeterminate="isIndeterminate"
+            @change="handleCheckAllChange"
+          >
+            全选
+          </el-checkbox>
           <el-checkbox-group
             v-model="itemChecked"
             :size="itemSize"
@@ -70,6 +93,10 @@ export default class extends Vue {
     const checkedCount = value.length
     this.checkAll = checkedCount === this.cityOptions.length
     this.isIndeterminate = checkedCount > 0 && checkedCount < this.cityOptions.length
+  }
+  private handleCheckAllChange(val) {
+    this.itemChecked = val ? this.cityOptions : []
+    this.isIndeterminate = false
   }
 }
 </script>

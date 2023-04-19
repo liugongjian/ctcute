@@ -264,12 +264,11 @@
           v-model="state1"
           :placeholder="placeholder"
           title="数据资源名称"
-          size="small"
+          :size="inputSize"
           @change="changeFun"
         />
       </el-row>
     </div>
-
     <h3>长文本域</h3>
     <div class="text-input">
       <el-row>
@@ -319,10 +318,22 @@
         </el-col>
       </el-row>
     </div>
+
+    <h3>表单报错</h3>
+    <div class="sub-input">
+      <el-form ref="simpleForm" :model="form" :rules="rules" label-width="90px" class="simple-form">
+        <el-form-item label="输入查询" prop="name" :size="inputSize">
+          <el-input v-model="form.name" placeholder="请输入策略名称" />
+        </el-form-item>
+        <el-form-item label="" :size="inputSize">
+          <el-button type="primary" @click="submit">确 定</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Ref } from 'vue-property-decorator'
 import { CuteEditInput } from '@cutedesign/ui'
 @Component({
   name: 'UiInput',
@@ -331,6 +342,32 @@ import { CuteEditInput } from '@cutedesign/ui'
   },
 })
 export default class extends Vue {
+  // 表单校验规则
+  private rules = {
+    name: [{ required: true, message: '请输入名称', trigger: 'blur' }],
+  }
+  // 表单Ref对象
+  @Ref('simpleForm')
+  private simpleFormRef
+
+  // 表单对象
+  private form = {
+    name: '',
+  }
+  /**
+   * 提交表单
+   */
+  private submit() {
+    this.simpleFormRef.validate(valid => {
+      if (valid) {
+        console.log('submit')
+      } else {
+        console.log('error')
+        return false
+      }
+    })
+  }
+
   public static title = {
     zh: '输入框',
     en: 'Input',
@@ -372,13 +409,10 @@ export default class extends Vue {
   private newPassword = ''
   private inputSize = 'medium'
   private inputDisabled = false
-  private rules = {
-    password: [
-      { required: true, message: '密码输入错误', trigger: 'change' },
-      { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'change' },
-    ],
-  }
 
+  private mounted() {
+    this.submit()
+  }
   // . 替换成 *
   private changeValue(value: string, type?: boolean) {
     let val = ''

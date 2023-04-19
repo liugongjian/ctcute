@@ -367,6 +367,7 @@
         <div class="line__left">
           <cute-area
             v-model="areaValue"
+            popper-max-height="220px"
             :size="itemSize"
             :disabled="itemDisabled"
             placeholder="请选择"

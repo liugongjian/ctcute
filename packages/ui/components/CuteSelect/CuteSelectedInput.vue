@@ -1,21 +1,14 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2023-04-14 15:35:40
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-04-20 07:04:08
  * @Description: 操作已选项
 -->
 <template>
   <div class="cute-selected-input">
-    <el-select
-      ref="select"
-      :value="''"
-      placeholder=""
-      :size="size"
-      :disabled="disabled"
-      @change="handelSelectChange"
-    >
-      <span slot="prefix" :class="flag ? 'select-field' : 'select-uncheck'">{{ sele }}</span>
+    <el-select ref="select" :value="''" placeholder="" @change="handelSelectChange">
+      <span slot="prefix" class="text" :class="flag ? 'select-field' : 'select-uncheck'">{{ sele }}</span>
       <el-option
         v-for="(v, i) in options"
         :key="i"
@@ -29,39 +22,24 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
+import { Component, Prop, Mixins } from 'vue-property-decorator'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
   name: 'CuteSelectedInput',
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   @Prop({ type: Array, default: [] }) checkedList?: [] //已选中数据
   @Prop({ type: Array, default: [] }) options?: [] //下拉数据
-  @Prop({ type: String, default: '' }) size?: '' //size
-  @Prop({ type: Boolean, default: false }) disabled?: false //disabled
 
-  private sele = ''
-  private flag = false
-  private created() {
-    if (this.checkedList.length > 0) {
-      this.flag = true
-      this.sele = `操作已选项(${this.checkedList.length})`
-    } else {
-      this.flag = false
-      this.sele = '操作已选项'
-    }
+  private get flag() {
+    return this.checkedList.length > 0
   }
-  @Watch('checkedList')
-  private change() {
-    if (this.checkedList.length > 0) {
-      this.flag = true
-      this.sele = `操作已选项(${this.checkedList.length})`
-    } else {
-      this.flag = false
-      this.sele = '操作已选项'
-    }
+  private get sele() {
+    return this.checkedList.length > 0
+      ? `(${this.checkedList.length})${this.t('cute.selectedInput.action')}`
+      : this.t('cute.selectedInput.action')
   }
-
   private handelSelectChange(e) {
     this.$emit('change', { checkedList: this.checkedList, value: e })
   }

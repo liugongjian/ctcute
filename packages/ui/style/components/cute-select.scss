@@ -1,5 +1,5 @@
 $cute-remind-select-right: 33px;
-$cute-selected-input-width: 130px;
+$cute-selected-input-width: 140px;
 
 .cute-remind-select {
   width: 100%;
@@ -21,6 +21,8 @@ $cute-selected-input-width: 130px;
 }
 
 .cute-selected-input {
+  position: relative;
+
   .el-input.el-input--medium.el-input--suffix {
     width: $cute-selected-input-width;
     padding-right: 0;
@@ -31,20 +33,30 @@ $cute-selected-input-width: 130px;
     color: $color-neutral-10;
   }
 
+  .text {
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100px;
+  }
+
   .select-uncheck {
-    padding-right: 0;
     color: $color-neutral-10;
   }
 
   .select-field {
-    padding-right: 0;
     color: $color-master;
   }
+
   .is-disabled {
-    .el-input__prefix{ cursor: not-allowed;
-      .select-field{ color: $button-default-text-color-disabled; }
+    .el-input__prefix {
+      cursor: not-allowed;
+      .select-field {
+        color: $button-default-text-color-disabled;
+      }
     }
-  } 
+  }
 }
 
 .cute-select-tree {

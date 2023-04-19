@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>地区选择</h3>
+    <h3>{{ $t('demo.area.demo1.title') }}</h3>
     <cute-area
       v-model="value"
       placeholder="请选择"

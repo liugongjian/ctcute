@@ -13,7 +13,7 @@ const i18nHandler = function () {
 
 const RE_NARGS = /(%|)\{([0-9a-zA-Z_]+)\}/g
 // 自定义解析，用 args 参数去替换
-function format(string, ...args) {
+function format(string: string, ...args) {
   let _args: Record<string, any> = {}
   if (args.length === 1 && typeof args[0] === 'object') {
     _args = args[0]
@@ -39,7 +39,7 @@ function format(string, ...args) {
   })
 }
 
-export const t = function (path, options) {
+export const t = function (path: string, options?: any) {
   // 尝试用 $t 去解析
   let value = i18nHandler.apply(this, arguments)
 

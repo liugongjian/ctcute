@@ -31,15 +31,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, VModel } from 'vue-property-decorator'
-import { mixins } from 'vue-class-component'
+import { Component, Prop, VModel, Mixins } from 'vue-property-decorator'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
 import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
   name: 'CuteEditInput',
 })
-export default class extends mixins(Locale) {
+export default class extends Mixins(Locale) {
   @VModel({ type: String }) syncedValue!: string
   @Prop({ default: false }) private textarea!: boolean
   @Prop({ type: String, default: '' }) size?: '' //size

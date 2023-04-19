@@ -23,15 +23,14 @@
 
 <script lang="ts">
 import { compile } from 'path-to-regexp'
-import { Component, Prop, Watch } from 'vue-property-decorator'
-import { mixins } from 'vue-class-component'
+import { Component, Prop, Watch, Mixins } from 'vue-property-decorator'
 import { RouteRecord, Route } from 'vue-router'
 import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
   name: 'CuteLayoutBreadcrumb',
 })
-export default class extends mixins(Locale) {
+export default class extends Mixins(Locale) {
   @Prop({ default: '' })
   public breadcrumbCustomTitle: string
 

@@ -1,11 +1,11 @@
 {
   "name": "@cutedesign/ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "cuteMain": "index.ts",
   "module": "dist/index.js",
   "main": "dist/index.js",
-  "types": "types/types.d.ts",
+  "types": "types/typings.d.ts",
   "sideEffects": [
     "*.css",
     "*.scss",

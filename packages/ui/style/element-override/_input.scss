@@ -35,14 +35,8 @@ $input-suffix-padding: $padding-9x;
       .el-input__icon {
         width: auto;
       }
-      // .el-input__icon.el-icon-search {
-      //   display: flex;
-      //   align-items: center;
-      //   justify-content: center;
-      // }
     }
   }
-  
 
   // 后置元素样式
   .el-input__suffix {
@@ -64,14 +58,9 @@ $input-suffix-padding: $padding-9x;
         font-size: $text-size-lg;
         vertical-align: text-bottom;
       }
-  
-      // .el-icon-view {
-      //   font-size: $text-size-lg;
-      //   vertical-align: text-bottom;
-      // }
-  
+
       // 关闭图标样式
-      .el-icon-close {  
+      .el-icon-close {
         &:hover {
           color: $color-master;
           cursor: pointer;
@@ -86,7 +75,8 @@ $input-suffix-padding: $padding-9x;
     .el-input-group__prepend {
       color: $text-color;
 
-      div.el-select, button.el-button {
+      div.el-select,
+      button.el-button {
         border-color: transparent;
         background-color: transparent;
         color: inherit;
@@ -103,11 +93,10 @@ $input-suffix-padding: $padding-9x;
       }
     }
 
-    
     &.input-with-select {
       .el-input-group__append,
       .el-input-group__prepend {
-        background-color: transparent;  
+        background-color: transparent;
       }
     }
   }
@@ -118,7 +107,8 @@ $input-suffix-padding: $padding-9x;
       background-color: $color-grey-10;
       border: 1px solid $disabled-border;
 
-      &:active, &:focus {
+      &:active,
+      &:focus {
         box-shadow: none;
       }
     }
@@ -127,12 +117,20 @@ $input-suffix-padding: $padding-9x;
 /*
   提示
 */
-.input-right-tips { color: $color-neutral-7; margin-left: $margin-7x; }
+.input-right-tips {
+  color: $color-neutral-7;
+  margin-left: $margin-7x;
+}
 
-
-.el-input.input-forgot.el-input--suffix .el-input__inner { padding-right: 110px;}
-.el-input.el-input--suffix .el-input__inner { padding-right: $padding-10x;}
-.el-select .el-input.el-input--suffix .el-input__inner { padding-right: 30px;}
+.el-input.input-forgot.el-input--suffix .el-input__inner {
+  padding-right: 110px;
+}
+.el-input.el-input--suffix .el-input__inner {
+  padding-right: $padding-10x;
+}
+.el-select .el-input.el-input--suffix .el-input__inner {
+  padding-right: 30px;
+}
 
 @mixin input-size($size, $height, $text-size) {
   .el-input.el-input--#{$size} {
@@ -145,11 +143,11 @@ $input-suffix-padding: $padding-9x;
     }
 
     .el-input__icon {
-      line-height: $height ;
+      line-height: $height;
     }
 
     .el-input__suffix-inner .el-icon-close {
-      line-height: $height ;
+      line-height: $height;
     }
   }
 }

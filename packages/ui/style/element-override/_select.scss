@@ -7,14 +7,20 @@ $tags-left-lg: $padding-4x - 6;
 /*
   重置Select基本样式
 */
-.el-range-editor--mini.el-input__inner{ height: $range-editor-height;}
-.el-range-editor--small.el-input__inner{ height: $range-editor-height; }
+.el-range-editor--mini.el-input__inner {
+  height: $range-editor-height;
+}
+.el-range-editor--small.el-input__inner {
+  height: $range-editor-height;
+}
 .el-select {
   .el-icon-circle-close:before {
     font-family: $font-family-cute-icons;
     content: '\ea4f';
   }
-  .el-input--suffix{ height: 100%;}
+  .el-input--suffix {
+    height: 100%;
+  }
   &.disabled-select {
     .el-select__tags-text:after {
       @include iconfont;
@@ -45,8 +51,9 @@ $tags-left-lg: $padding-4x - 6;
 /* 
   重置Select Tag样式
 */
-// .el-select__tags{ margin-top: 1px;}
-.el-select__input{ height: 20px;}
+.el-select__input {
+  height: 20px;
+}
 .el-select {
   .el-tag {
     background: $cascader-tag-bg;
@@ -54,7 +61,7 @@ $tags-left-lg: $padding-4x - 6;
     border-radius: $border-radius;
   }
 
-  .el-tag.el-tag--light.el-tag--info{
+  .el-tag.el-tag--light.el-tag--info {
     color: $text-color;
   }
   .el-tag.el-tag--info .el-tag__close {
@@ -68,21 +75,24 @@ $tags-left-lg: $padding-4x - 6;
   }
 }
 
-.el-input__suffix .el-input__suffix-inner .suffix-other { margin-right: 16px;}
+.el-input__suffix .el-input__suffix-inner .suffix-other {
+  margin-right: 16px;
+}
 
 /*
   重置Select Dropdown样式
 */
 
-.el-range-editor.el-input__inner.is-disabled{ background-color: $range-editor-disabled-bg;}
+.el-range-editor.el-input__inner.is-disabled {
+  background-color: $range-editor-disabled-bg;
+}
 .el-select-dropdown {
-  
   background: $select-dropdown-bg;
   box-shadow: $shadow-2;
   border: none;
 
   &__item {
-    &.hover{
+    &.hover {
       background-color: unset;
     }
     &:hover {
@@ -90,10 +100,7 @@ $tags-left-lg: $padding-4x - 6;
     }
     font-size: $text-size;
     background-color: $select-dropdown-bg;
-    
     &:not(.el-select-dropdown__item.selected):not(.el-select-dropdown__item.is-disabled):hover {
-      
-      // background-color:unset;
       color: $select-color;
     }
 
@@ -142,24 +149,24 @@ $tags-left-lg: $padding-4x - 6;
     }
   }
 }
-.el-select--small{
-  .el-tag.el-tag--mini{
-    height:$select-xs-height - 6;
+.el-select--small {
+  .el-tag.el-tag--mini {
+    height: $select-xs-height - 6;
     line-height: $select-xs-height - 6;
   }
 }
 @mixin select-size($size, $height, $left) {
   .el-select {
-    &.el-select--#{$size}{
+    &.el-select--#{$size} {
       line-height: $height - 2;
-      .el-input--suffix{ 
+      .el-input--suffix {
         line-height: $height - 2;
-        .el-input__inner{
+        .el-input__inner {
           line-height: $height - 2;
         }
       }
-      .el-select__tags{ 
-        left: $left
+      .el-select__tags {
+        left: $left;
       }
     }
   }

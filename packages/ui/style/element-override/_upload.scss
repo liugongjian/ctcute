@@ -1,6 +1,6 @@
 /* Upload
 -------------------------- */
-@mixin uploader-success { 
+@mixin uploader-success {
   .el-upload-list__item .el-upload-list__item-name {
     color: $upload-font-active-color;
     font-size: $upload-font-size;
@@ -70,15 +70,15 @@
   margin-bottom: $margin-10;
 
   .el-upload--picture-card {
-    width: $upload-picture-card-size;// TODO
-    height: $upload-picture-card-size;// TODO
+    width: $upload-picture-card-size; // TODO
+    height: $upload-picture-card-size; // TODO
     border-color: $upload-border-color;
     border-radius: $border-radius;
     display: flex;
     align-items: center;
     justify-content: center;
     background: $color-grey-11;
-    .el-upload-list__item{
+    .el-upload-list__item {
       width: $upload-picture-card-size;
       height: $upload-picture-card-size;
       border-radius: $border-radius;
@@ -135,8 +135,8 @@
     display: flex;
 
     .el-upload-list__item-thumbnail {
-      width: 68px;// TODO
-      height: 68px;// TODO
+      width: 68px; // TODO
+      height: 68px; // TODO
     }
   }
 
@@ -153,14 +153,14 @@
 
 //文件上传
 .file-uploader {
-  width: $upload-file-uploader-width;// TODO
+  width: $upload-file-uploader-width; // TODO
 
   @include uploader-success();
 
   .file-uploader_content {
-    width: $upload-file-uploader-width;// TODO
-    height: $upload-picture-card-size;// TODO
-    border: 1px solid $upload-border-color;// TODO
+    width: $upload-file-uploader-width; // TODO
+    height: $upload-picture-card-size; // TODO
+    border: 1px solid $upload-border-color; // TODO
     border-radius: $border-radius;
     background-color: $upload-bg;
 
@@ -170,7 +170,7 @@
   }
 
   .sub-svg-text {
-    margin-top: 29px;// TODO
+    margin-top: 29px; // TODO
 
     svg {
       color: $upload-color;
@@ -187,7 +187,7 @@
 //拖拽上传
 .drag-uploader {
   width: $upload-file-uploader-width;
-  
+
   .el-upload-dragger {
     border: 1px dashed $upload-border-color;
     border-radius: $upload-dragger-border-radius;
@@ -200,7 +200,7 @@
       vertical-align: middle;
       padding-top: 34px;
       span {
-        color: $upload-color
+        color: $upload-color;
       }
     }
   }
@@ -218,14 +218,14 @@
   div {
     font-size: $text-size;
     color: $text-color-light-2;
-    margin: $margin-6 0 38px;// TODO
+    margin: $margin-6 0 38px; // TODO
     line-height: $common-space-5x;
   }
 }
 
 // .el-upload {
 //   .el-button--medium{ padding: $padding-2x $padding-3x ;}
-// } 
+// }
 .el-upload-out__tip {
   font-size: $text-size;
   color: $upload-tips-font-color;

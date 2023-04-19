@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-17 20:57:52
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-03-27 14:25:33
+ * @LastEditTime: 2023-04-17 16:18:44
  * @Description:
 -->
 <template>
@@ -20,7 +20,14 @@
     </el-row>
     <el-row>
       <el-col>
-        <el-slider :marks="{ 0: '0', 60: '60' }" :min="0" :max="60" :show-tooltip="false" show-input>
+        <el-slider
+          v-model="age2"
+          :marks="{ 0: '0', 60: '60' }"
+          :min="0"
+          :max="60"
+          :show-tooltip="false"
+          show-input
+        >
         </el-slider>
       </el-col>
     </el-row>
@@ -73,6 +80,7 @@ import { Component, Vue } from 'vue-property-decorator'
   name: 'UiSlider',
 })
 export default class extends Vue {
+  private age2 = 10
   public static title = {
     zh: '滑动输入条',
     en: 'Slider',

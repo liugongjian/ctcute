@@ -2,8 +2,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-10 14:44:22
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-13 14:01:46
  * @Description:
  */
 // import Layout from '@/layout/component.vue'
@@ -375,6 +375,33 @@ const componentRoutes = [
         },
       },
       {
+        path: 'radio',
+        name: 'Radio',
+        component: () => import('@/views/component/Test/Radio.vue'),
+        meta: {
+          title: 'Radio',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'checkbox',
+        name: 'Checkbox',
+        component: () => import('@/views/component/Test/Checkbox.vue'),
+        meta: {
+          title: 'Checkbox',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cascadeSelect',
+        name: 'CascadeSelect',
+        component: () => import('@/views/component/Test/CascadeSelect.vue'),
+        meta: {
+          title: 'CascadeSelect',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'color-picker',
         name: 'ColorPicker',
         component: () => import('@/views/component/Test/ColorPicker.vue'),
@@ -443,6 +470,42 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Select.vue'),
         meta: {
           title: 'Select',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'switch',
+        name: 'Switch',
+        component: () => import('@/views/component/Test/Switch.vue'),
+        meta: {
+          title: 'Switch',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'drawer',
+        name: 'Drawer',
+        component: () => import('@/views/component/Test/Drawer.vue'),
+        meta: {
+          title: 'Drawer',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'upload',
+        name: 'Upload',
+        component: () => import('@/views/component/Test/Upload.vue'),
+        meta: {
+          title: 'Upload',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'slider',
+        name: 'Slider',
+        component: () => import('@/views/component/Test/Slider.vue'),
+        meta: {
+          title: 'Slider',
           breadcrumb: true,
         },
       },

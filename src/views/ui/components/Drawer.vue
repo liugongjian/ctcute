@@ -8,22 +8,7 @@
       -当需要在当前任务流中插入临时任务，创建或预览附加内容。比如展示协议条款，创建子对象。
     </p>
     <el-row>
-      <el-col :span="3">
-        <h3>简单样式</h3>
-        <el-button @click="drawer = true">简单样式 </el-button>
-        <!-- 抽屉 -->
-        <el-drawer title="抽屉" :visible.sync="drawer" class="drawer-content">
-          <div class="sub-content">
-            抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到到原任务。
-          </div>
-          <div class="sub-foot">
-            <el-button type="primary" @click="drawer = false">确定</el-button>
-            <el-button @click="drawer = false">关闭</el-button>
-          </div>
-        </el-drawer>
-      </el-col>
       <el-col :span="2">
-        <h3>复杂样式</h3>
         <el-button @click="drawer1 = true">复杂样式 </el-button>
         <!-- 抽屉 -->
         <el-drawer title="小弹窗(提示框)" :visible.sync="drawer1" class="drawer-content">
@@ -39,7 +24,7 @@
               ref="ruleForm"
               :rules="rules"
               :model="form"
-              label-width="125px"
+              label-width="111px"
               class="demo-ruleForm"
               :label-position="labelposition"
             >
@@ -103,7 +88,7 @@ export default class extends Vue {
     version: 'v1.0',
     updateTime: '2022.07.12',
   }
-  private labelposition = 'top'
+  private labelposition = 'right'
   private drawer = false
   private drawer1 = false
   private rules = {

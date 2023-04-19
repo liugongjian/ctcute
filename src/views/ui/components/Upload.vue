@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-19 16:32:05
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-06 09:31:50
+ * @LastEditTime: 2023-04-13 14:21:10
  * @Description: 
 -->
 <template>
@@ -66,7 +66,7 @@
       :on-success="handleSuccess"
       class="small-uploader"
     >
-      <el-button size="small"><svg-icon name="upload" /> 上传文件</el-button>
+      <el-button><svg-icon name="upload" /> 上传文件</el-button>
       <div slot="tip" class="el-upload__tip">支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
     </el-upload>
     <h3>文件上传</h3>

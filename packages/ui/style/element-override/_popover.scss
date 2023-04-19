@@ -7,6 +7,7 @@ $popover-min-width: 160px;
   border: none;
   box-shadow: $shadow-2;
   min-width: $popover-min-width;
+  color: $text-color-light;
 
   p {
     margin: 0;
@@ -17,6 +18,7 @@ $popover-min-width: 160px;
     margin-bottom: $margin-4x;
     font-weight: $text-title-weight;
     line-height: $line-height;
+    color: $text-color;
   }
 }
 

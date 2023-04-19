@@ -10,12 +10,18 @@ module.exports = {
     },
   },
   chainWebpack: config => {
-    // set svg-sprite-loader
-    config.module
-      .rule('svg')
-      .exclude.add(path.join(__dirname, 'icons'))
+    const svgRule = config.module.rule('svg')
+    svgRule.uses.clear()
+    svgRule.exclude.add(path.join(__dirname, 'icons')).end()
+      // components内所用svg内联
+      .use('url-loader')
+      .loader('url-loader')
+      .options({
+        limit: 8 * 1024
+      })
       .end()
 
+    // set svg-sprite-loader
     config.module
       .rule('icons')
       .test(/\.svg$/)

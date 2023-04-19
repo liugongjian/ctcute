@@ -8,4 +8,7 @@ export default {
   area: {
     recent: 'recently visited',
   },
+  tabs: {
+    new: 'New Tab',
+  },
 }

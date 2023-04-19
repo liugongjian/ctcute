@@ -14,6 +14,10 @@
     &, &.is-leaf {
       border-right: 0;
     }
+
+    & > .cell {
+      display: block; // 原生为inline-block，有小数问题
+    }
   }
 
   // 行背景
@@ -64,7 +68,10 @@
       .cell {
         padding-left: $padding-4x;
         padding-right: $padding-4x;
-        line-height: $table-cell-selection-line-height;
+
+        .el-checkbox__input {
+          line-height: 1;
+        }
       }
     }
   }
@@ -109,11 +116,6 @@
     &:hover {
       background-color: $color-bg-3 !important; // 为了覆盖源码的!important
     }
-
-    // 嵌套表格样式
-    .el-table th.el-table__cell {
-      background-color: $color-neutral-2;
-    }
   }
 
   // 树形表格
@@ -146,7 +148,42 @@
     th.el-table__cell {
       &,
       &.is-leaf {
-        border-right: 1px solid $color-bg-2;
+        border-right: 1px solid transparent;
+      }
+
+      // 最后第一列没有border
+      &:not(:last-child) > .cell {
+        border-right: 1px solid $color-neutral-4;
+      }
+    }
+
+    thead.has-gutter {
+      th.el-table__cell {
+        // 有gutter，最后第二列没有border
+        &:nth-last-child(2) > .cell {
+          border-right: none;
+        }
+      }
+    }
+  }
+
+  &__column-resize-proxy {
+    border-left: 1px solid $color-neutral-4;
+  }
+
+  // 覆盖斑马纹样式
+  &--striped {
+    & .el-table__body {
+      & tr.el-table__row--striped {
+        td.el-table__cell {
+          background: $color-neutral-1;
+        }
+
+        &:hover {
+          td.el-table__cell {
+            background: $table-row-hover-background-color
+          }
+        }
       }
     }
   }
@@ -209,6 +246,16 @@
 @include table-size(--mini, $table-cell-padding-xs);
 @include table-size(--small, $table-cell-padding-sm);
 @include table-size(--medium, $table-cell-padding-md);
+
+// 嵌套表格尺寸
+.el-table {
+  .el-table__cell.el-table__expanded-cell {
+    @include table-size(null, $table-cell-padding-md);
+    @include table-size(--mini, $table-cell-padding-xs);
+    @include table-size(--small, $table-cell-padding-sm);
+    @include table-size(--medium, $table-cell-padding-md);
+  }
+}
 
 /*
   重置表格过滤器

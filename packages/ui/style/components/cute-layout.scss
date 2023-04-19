@@ -36,8 +36,10 @@
     overflow: auto;
   }
 
-  &__main__wrap {
+  &__main {
     flex: 1;
+    /* 最小分辨率 - 侧边栏宽度 - 边距 - 边距 */
+    min-width: calc(#{$screen-lg} - #{$cute-layout-sidebar-width} - #{$padding-5x} - #{$padding-5x});
 
     &.fixed-navbar {
       overflow: auto;
@@ -45,12 +47,6 @@
       margin-right: -$margin-5x;
       margin-bottom: -$margin-5x;
     }
-  }
-
-  &__main {
-    flex: 1;
-    /* 最小分辨率 - 侧边栏宽度 - 边距 - 边距 */
-    min-width: calc(#{$screen-lg} - #{$cute-layout-sidebar-width} - #{$padding-5x} - #{$padding-5x});
   }
 }
 
@@ -91,6 +87,10 @@
 
       &__img {
         height: $cute-layout-header-sub-logo-height;
+      }
+
+      &__img + &__title {
+        margin-left: $margin;
       }
     }
   }

@@ -78,7 +78,7 @@ export default class extends Mixins(Locale) {
   }
 
   private get routes() {
-    return this.sidebarRoutes || (this.$auth && this.$auth.getRoutes())
+    return this.sidebarRoutes || this.$router.options.routes
   }
 
   @Watch('sidebarRoutes', { immediate: true })

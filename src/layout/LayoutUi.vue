@@ -1,5 +1,5 @@
 <template>
-  <cute-layout custom-class="layout-ui-wrap" :sidebar="false" :navbar="false">
+  <cute-layout :header-sub-logo="logoIcon" custom-class="layout-ui-wrap" :sidebar="false" :navbar="false">
     <template #header-right>
       <header-nav />
     </template>
@@ -15,6 +15,7 @@ import CuteLayout from '@cutedesign/ui/components/CuteLayout/index.vue'
 import HeaderNav from './components/LayoutHeaderNav/index.vue'
 import UiSidebar from '@/views/ui/Sidebar.vue'
 import { list } from '@/views/ui/components/index'
+import settings from '@/settings'
 
 @Component({
   name: 'LayoutUi',
@@ -25,6 +26,7 @@ import { list } from '@/views/ui/components/index'
   },
 })
 export default class extends Vue {
+  private logoIcon = settings.logoIcon
   private componentList = list
   private titles = null
   private currentId = null
@@ -32,7 +34,6 @@ export default class extends Vue {
   private mounted() {
     const uiContainer = document.querySelector('#ui-container')
     this.titles = uiContainer.querySelectorAll('h1')
-    console.log(this.titles)
     document.addEventListener('scroll', this.findCurrentTitle)
     this.findCurrentTitle()
   }
@@ -46,7 +47,6 @@ export default class extends Vue {
    */
   private findCurrentTitle() {
     const scrollY = window.scrollY
-    console.log(scrollY)
     let currentTitle = null
     for (let i = 0; i < this.titles.length; i++) {
       const title = this.titles[i]

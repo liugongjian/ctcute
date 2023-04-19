@@ -8,4 +8,7 @@ export default {
   area: {
     recent: '最近访问',
   },
+  tabs: {
+    new: '新选项卡',
+  },
 }

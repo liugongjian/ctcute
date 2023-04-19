@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-10 14:52:04
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-04-19 07:58:59
  * @Description:
  */
 import ElementUI, {
@@ -186,6 +186,16 @@ export default {
   install(Vue, opts = { size: 'medium' }) {
     Vue.use(ElementUI, opts)
     Vue.use(ElementUIOverride)
+    Vue.use(InfiniteScroll)
+    Vue.use(Loading.directive)
+
+    Vue.prototype.$loading = Loading.service
+    Vue.prototype.$msgbox = MessageBox
+    Vue.prototype.$alert = MessageBox.alert
+    Vue.prototype.$confirm = MessageBox.confirm
+    Vue.prototype.$prompt = MessageBox.prompt
+    Vue.prototype.$notify = Notification
+    Vue.prototype.$message = Message
     Vue.component('SvgIcon', SvgIcon)
 
     componentsList.map((component: any) => {

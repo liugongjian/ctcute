@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-19 16:30:50
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-03-28 12:25:13
+ * @LastEditors: error: git config user.name & please set dead value or install git
+ * @LastEditTime: 2023-04-11 16:20:51
  * @Description:
 -->
 <template>
@@ -68,14 +68,14 @@ export default class extends Vue {
     zh: '选择按钮',
     en: 'SelectedButton',
   }
-  public inputSize = ''
   public static description = {
     maintainer: '马妍、王亚振',
     version: 'v1.0',
     updateTime: '2022.07.12',
   }
   private size = 'small'
-  buutonData = [
+  public inputSize = ''
+  private buutonData = [
     {
       label: 'Active',
     },

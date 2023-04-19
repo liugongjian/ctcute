@@ -1,87 +1,75 @@
 <template>
-  <div class="real-order">
-    <div class="order-header">
-      <svg-icon
-        class="left-icon"
-        name="left"
-        :color="colorVariables.colorWhite"
-        :width="15"
-        :height="15"
-        @click="openPreview"
-      />
-      <p class="order-compute">云硬盘</p>
+  <el-card class="real-order">
+    <div class="page-header" @click="openPreview">
+      <svg-icon class="page-header__icon" name="arrow-left" />
+      <span class="page-header__content">云硬盘</span>
     </div>
-    <div class="order-content">
-      <el-card>
-        <el-form ref="orderForm" :model="form" :rules="rules" label-width="139px" class="order-form">
-          <el-form-item label="地域" prop="nodeCode">
-            <cute-area
-              v-model="form.nodeCode"
-              placeholder="请选择"
-              :data="areas"
-              :column="4"
-              @change="selectCityClick"
-            >
-            </cute-area>
-          </el-form-item>
-          <el-form-item label="磁盘名称" prop="diskName">
-            <el-select v-model="form.diskName" placeholder="请选择">
-              <el-option v-for="item in options" :key="item" :value="item"> </el-option>
-            </el-select>
-            <cute-form-info title="标题测试" content="对标题测试的详细说明" />
-          </el-form-item>
-          <el-form-item label="容量（GB）" prop="capacity" style="margin-bottom: 48px">
-            <el-input-number v-model="form.capacity" :min="0" :max="32768"></el-input-number>
-            <div class="form-item__tip">你还可以使用32768GB硬盘。</div>
-          </el-form-item>
-          <el-form-item label="磁盘类型" prop="diskType">
-            <cute-special-radio v-model="form.diskType" :options="buutonData" @change="changeFun" />
-          </el-form-item>
-          <el-form-item label="高级配置" prop="AdConfiguration">
-            <el-checkbox v-model="form.AdConfiguration" @change="handleCheckChange"> 共享盘 </el-checkbox>
-          </el-form-item>
-          <el-form-item label="付费方式" prop="payment">
-            <cute-special-radio v-model="form.payment" :options="buutonDatas" @change="changeFuns" />
-          </el-form-item>
-          <el-form-item label="数量" prop="number" style="margin-bottom: 48px">
-            <el-input-number v-model="form.number" :min="0" :max="200"></el-input-number>
-            <div class="form-item__tip">您还可以创建200个云硬盘。</div>
-          </el-form-item>
-          <el-form-item label="企业项目" prop="Enterproject">
-            <el-select v-model="form.Enterproject" placeholder="请选择">
-              <el-option v-for="item in options" :key="item" :value="item"> </el-option>
-            </el-select>
-            <el-button type="text" plain
-              ><svg-icon class="refresh-icon" height="14" width="14" name="reload" @click="openPreview" />
-            </el-button>
-            <cute-form-info title="标题测试" content="对标题测试的详细说明" />
-          </el-form-item>
-          <el-form-item
-            label="创建时长"
-            prop="createTime"
-            style="padding-bottom: 24px"
-            :inline-message="true"
-          >
-            <div style="display: inline-block; height: 38px">
-              <cute-slider
-                ref="Sliders"
-                v-model="form.createTime"
-                :min="1"
-                :max="17"
-                :disabled="false"
-                :marks="marks"
-                :range="false"
-                unit="个月"
-                :width="1000"
-                @moveChange="changes"
-                @inputChange="inputChanges"
-                @blur="handleBlur"
-              />
-            </div>
-          </el-form-item>
-        </el-form>
-      </el-card>
-    </div>
+
+    <el-form
+      ref="orderForm"
+      label-position="left"
+      :model="form"
+      :rules="rules"
+      label-width="90px"
+      class="simple-form"
+    >
+      <el-form-item label="地域" prop="nodeCode">
+        <cute-area
+          v-model="form.nodeCode"
+          placeholder="请选择"
+          :data="areas"
+          :column="4"
+          @change="selectCityClick"
+        />
+      </el-form-item>
+      <el-form-item label="磁盘名称" prop="diskName">
+        <el-select v-model="form.diskName" placeholder="请选择">
+          <el-option v-for="item in options" :key="item" :value="item"> </el-option>
+        </el-select>
+        <cute-form-info title="标题测试" content="对标题测试的详细说明" />
+      </el-form-item>
+      <el-form-item label="容量（GB）" prop="capacity">
+        <el-input-number v-model="form.capacity" :min="0" :max="32768"></el-input-number>
+        <div class="form-item__tip">你还可以使用32768GB硬盘。</div>
+      </el-form-item>
+      <el-form-item label="磁盘类型" prop="diskType">
+        <cute-special-radio v-model="form.diskType" :options="buutonData" @change="changeFun" />
+      </el-form-item>
+      <el-form-item label="高级配置" prop="AdConfiguration">
+        <el-checkbox v-model="form.AdConfiguration" @change="handleCheckChange"> 共享盘 </el-checkbox>
+      </el-form-item>
+      <el-form-item label="付费方式" prop="payment">
+        <cute-special-radio v-model="form.payment" :options="buutonDatas" @change="changeFuns" />
+      </el-form-item>
+      <el-form-item label="数量" prop="number">
+        <el-input-number v-model="form.number" :min="0" :max="200"></el-input-number>
+        <div class="form-item__tip">您还可以创建200个云硬盘。</div>
+      </el-form-item>
+      <el-form-item label="企业项目" prop="Enterproject">
+        <el-select v-model="form.Enterproject" placeholder="请选择">
+          <el-option v-for="item in options" :key="item" :value="item"> </el-option>
+        </el-select>
+        <el-button type="text" plain>
+          <svg-icon class="refresh-icon" height="14" width="14" name="reload" @click="openPreview" />
+        </el-button>
+        <cute-form-info title="标题测试" content="对标题测试的详细说明" />
+      </el-form-item>
+      <el-form-item label="创建时长" prop="createTime">
+        <cute-slider
+          ref="Sliders"
+          v-model="form.createTime"
+          :min="1"
+          :max="17"
+          :disabled="false"
+          :marks="marks"
+          :range="false"
+          unit="个月"
+          @moveChange="changes"
+          @inputChange="inputChanges"
+        />
+      </el-form-item>
+    </el-form>
+
     <div class="order-footer">
       <div>
         <span class="config-cost">配置费用：</span>
@@ -92,23 +80,19 @@
               href="https://www.ctyun.cn/document/10026753/10027021"
               target="_blank"
               style="color: #fa8334; cursor: pointer; text-decoration: none"
-              >了解计费详情</a
             >
+              了解计费详情
+            </a>
           </div>
-          <svg-icon
-            name="question-circle"
-            :color="colorVariables.colorGrey3"
-            :width="15"
-            :height="15"
-          ></svg-icon>
+          <svg-icon name="question-circle" :color="colorVariables.colorGrey3" :width="15" :height="15" />
         </el-tooltip>
       </div>
       <div>
         <el-button @click="handleCancel"> 取消 </el-button>
-        <el-button type="danger" @click="handleSure"> 下一步 </el-button>
+        <el-button type="ct" @click="handleSure"> 下一步 </el-button>
       </div>
     </div>
-  </div>
+  </el-card>
 </template>
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
@@ -231,12 +215,6 @@ export default class extends Vue {
     17: '5年',
   }
 
-  /**
-   * 校验slider
-   */
-  private handleBlur(v) {
-    this.ruleFormRef.$emit('el.form.blur', v)
-  }
   private changes(val) {
     console.log(val, 'slider值')
     switch (val) {

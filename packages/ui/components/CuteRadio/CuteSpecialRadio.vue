@@ -1,13 +1,13 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-15 10:12:49
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-13 10:31:09
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-14 10:56:50
  * @Description:
 -->
 <template>
   <div class="special-radio">
-    <el-radio-group :value="value" :size="size" @input="myChange">
+    <el-radio-group :value="value" :size="size" :disabled="disabled" @input="myChange">
       <el-radio-button
         v-for="(item, i) in options"
         :key="i"
@@ -24,6 +24,7 @@ import { Vue, Component, Prop, Model, Emit } from 'vue-property-decorator'
 })
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) options?: []
+  @Prop({ type: Boolean, default: false }) disabled?: false
   @Prop({ type: String, default: '' }) size?: ''
   @Model('change', { type: String, default: '' }) value: string
   @Emit('change')

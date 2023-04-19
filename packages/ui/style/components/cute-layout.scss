@@ -88,6 +88,10 @@
       &__img {
         height: $cute-layout-header-sub-logo-height;
       }
+
+      &__img + &__title {
+        margin-left: $margin;
+      }
     }
   }
 

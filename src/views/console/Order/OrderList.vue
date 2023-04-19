@@ -89,7 +89,7 @@
       </div>
       <div>
         <el-button @click="handleCancel"> 取消 </el-button>
-        <el-button type="danger" @click="handleSure"> 下一步 </el-button>
+        <el-button type="ct" @click="handleSure"> 下一步 </el-button>
       </div>
     </div>
   </el-card>

@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 马妍
- * @LastEditTime: 2023-04-14 15:35:40
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-19 15:06:54
  * @Description: 操作已选项
 -->
 <template>
@@ -15,7 +15,9 @@
       :disabled="disabled"
       @change="handelSelectChange"
     >
-      <span slot="prefix" :class="flag ? 'select-field' : 'select-uncheck'">{{ sele }}</span>
+      <span slot="prefix" class="cute-select-input-field" :class="flag ? 'select-field' : 'select-uncheck'">
+        {{ sele }}
+      </span>
       <el-option
         v-for="(v, i) in options"
         :key="i"
@@ -59,6 +61,17 @@ export default class extends Vue {
     } else {
       this.flag = false
       this.sele = '操作已选项'
+    }
+  }
+  @Watch('sele')
+  // 动态宽度
+  private seleChange() {
+    const field: any = document.getElementsByClassName('cute-select-input-field')
+    for (const i of field) {
+      const parent: any = i.parentNode.parentNode
+      this.$nextTick(() => {
+        parent.style.width = i.clientWidth + 55 + 'px'
+      })
     }
   }
 

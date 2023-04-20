@@ -1,4 +1,5 @@
 import Layout from '@/layout/LayoutPage.vue'
+import { CuteStatusPage404, CuteStatusPage403, CuteStatusPage500, CuteStatusEmptyPage } from '@cutedesign/ui'
 
 const indexPageRoutes = [
   //首页展示
@@ -406,7 +407,7 @@ const restPageRoutes = [
     children: [
       {
         path: 'Page403',
-        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page403.vue'),
+        component: CuteStatusPage403,
         name: 'Page403',
         meta: {
           title: 'Page403 403页',
@@ -415,7 +416,7 @@ const restPageRoutes = [
       },
       {
         path: 'Page404',
-        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page404.vue'),
+        component: CuteStatusPage404,
         name: 'Page404',
         meta: {
           title: 'Page404 404页',
@@ -424,7 +425,7 @@ const restPageRoutes = [
       },
       {
         path: 'Page500',
-        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page500.vue'),
+        component: CuteStatusPage500,
         name: 'Page500',
         meta: {
           title: 'Page500 500页',
@@ -433,7 +434,7 @@ const restPageRoutes = [
       },
       {
         path: 'EmptyPage',
-        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/EmptyPage.vue'),
+        component: CuteStatusEmptyPage,
         name: 'EmptyPage',
         meta: {
           title: 'EmptyPage 空页面',

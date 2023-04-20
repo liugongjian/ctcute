@@ -116,7 +116,10 @@
     "Alert",
     "Collapse",
     "Rate",
-    "createI18n"
+    "createI18n",
+    "CuteStatusPage403",
+    "CuteStatusPage404",
+    "CuteStatusPage500"
   ],
   "vxetable": "VXETable"
 }

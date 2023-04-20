@@ -8,6 +8,7 @@
 export * from './CuteAppendix'
 export * from './CuteArea'
 export * from './CuteButtonGroup'
+export * from './CuteCardBox'
 export * from './CuteChart'
 export * from './CuteDistributionBar'
 export * from './CuteEditInput'

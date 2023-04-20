@@ -737,9 +737,9 @@
                 </el-col>
                 <el-col :span="8">
                   <div class="expand-form-item-content">
-                    <el-tag type="info" size="small" style="margin-right: 8px">{{
-                      scope.row.label[0]
-                    }}</el-tag>
+                    <el-tag type="info" size="small" style="margin-right: 8px">
+                      {{ scope.row.label[0] }}
+                    </el-tag>
                     <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
                   </div>
                 </el-col>
@@ -841,9 +841,92 @@
               ref="multipleTable"
               tooltip-effect="dark"
               :data="scope.row.projectSpaces"
-              class="expand-table"
+              class="expand-table expand-table-1"
             >
-              <el-table-column width="20"></el-table-column>
+              <el-table-column prop="projectSpace" label="名称">
+                <template slot-scope="{ row }">
+                  <el-button :disabled="row.projectSpaceState === '1' ? false : true" type="text">
+                    {{ row.projectSpace }}
+                  </el-button>
+                </template>
+              </el-table-column>
+              <el-table-column prop="projectSpaceState" label="其他状态">
+                <template slot-scope="{ row }">
+                  <cute-state :type="NESTED_TABLE_STATUS[row.projectSpaceState].colorType">
+                    {{ NESTED_TABLE_STATUS[row.projectSpaceState].text }}
+                  </cute-state>
+                </template>
+              </el-table-column>
+              <el-table-column prop="cu" label="已使用 / 已购买CU">
+                <template slot-scope="{ row }">
+                  <span class="used">{{ row.cuUsedNum }}</span> / {{ row.cuNum }}
+                </template>
+              </el-table-column>
+              <el-table-column label="创建时间" prop="createTime">
+                <template slot-scope="{ row }">
+                  {{ formatDatetime(row.createTime) }}
+                </template>
+              </el-table-column>
+              <el-table-column label="操作">
+                <template slot-scope="{ row }">
+                  <el-button
+                    :disabled="row.projectSpaceState === '1' ? false : true"
+                    type="text"
+                    @click="handleDistribute('资源分配')"
+                  >
+                    资源分配
+                  </el-button>
+                  <el-button
+                    :disabled="row.projectSpaceState === '1' ? false : true"
+                    type="text"
+                    @click="handleDistribute('删除')"
+                  >
+                    删除
+                  </el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+          </template>
+        </el-table-column>
+        <el-table-column label="工作空间/实例ID" prop="workspace">
+          <template slot-scope="{ row }">
+            <el-button :disabled="row.workspaceState === '1' ? false : true" type="text">
+              {{ row.workspace }}
+            </el-button>
+          </template>
+        </el-table-column>
+        <el-table-column label="工作空间状态" prop="workspaceState">
+          <template slot-scope="{ row }">
+            <cute-state :type="NESTED_TABLE_STATUS[row.workspaceState].colorType">
+              {{ NESTED_TABLE_STATUS[row.workspaceState].text }}
+            </cute-state>
+          </template>
+        </el-table-column>
+        <el-table-column label="已使用 / 已购买CU" prop="CU">
+          <template slot-scope="{ row }">
+            <span class="used">{{ row.cuUsedNum }}</span> / {{ row.cuNum }}
+          </template>
+        </el-table-column>
+        <el-table-column label="付费类型" prop="payType">
+          <template slot-scope="{ row }">
+            <el-tag type="warning">{{ NESTED_TABLE_TYPE[row.payType] }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="创建时间" prop="createTime">
+          <template slot-scope="{ row }"> {{ formatDatetime(row.createTime) }}</template>
+        </el-table-column>
+      </el-table>
+      <el-table v-loading="nestedTableLoading" :data="nestedTableData" fit>
+        <el-table-column type="expand" width="40">
+          <template slot-scope="scope">
+            <el-table
+              ref="multipleTable"
+              tooltip-effect="dark"
+              :data="scope.row.projectSpaces"
+              class="expand-table expand-table-2"
+              stripe
+              size="small"
+            >
               <el-table-column prop="projectSpace" label="名称">
                 <template slot-scope="{ row }">
                   <el-button :disabled="row.projectSpaceState === '1' ? false : true" type="text">
@@ -989,9 +1072,9 @@
       <el-table :data="tableComponentData && tableComponentData.smallTable" size="small">
         <el-table-column label="排行">
           <template slot-scope="scope">
-            <span :class="scope.$index < 3 ? 'sub-index sub-index-top3' : 'sub-index'">{{
-              scope.$index + 1
-            }}</span>
+            <span :class="scope.$index < 3 ? 'sub-index sub-index-top3' : 'sub-index'">
+              {{ scope.$index + 1 }}
+            </span>
           </template>
         </el-table-column>
         <el-table-column prop="name" label="工作流名称">
@@ -1345,6 +1428,162 @@
     <h3>行禁用表格</h3>
     <div class="sub-table">
       <el-table v-loading="loading" :data="table10" fit :row-class-name="getDisabledRowClassName">
+        <el-table-column prop="name" label="主机别名" width="150px">
+          <template slot-scope="scope">
+            <div>
+              <span class="text-ellipsis name-primary" :title="scope.row.name">{{ scope.row.name }}</span>
+            </div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="status" label="实例状态"></el-table-column>
+        <el-table-column prop="ip" label="IP地址" width="100px"></el-table-column>
+        <el-table-column prop="time" label="时间" sortable width="150px"></el-table-column>
+        <el-table-column prop="label" label="标签" width="150px">
+          <template slot-scope="scope">
+            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="描述" width="150px">
+          <template slot-scope="scope">
+            <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+              <span class="text-ellipsis">{{ scope.row.description }}</span>
+            </el-tooltip>
+          </template>
+        </el-table-column>
+        <el-table-column prop="healthy" label="健康状态">
+          <template slot-scope="scope">
+            <cute-state :type="HEALTH[scope.row.healthy].colorType">
+              {{ HEALTH[scope.row.healthy].text }}
+            </cute-state>
+          </template>
+        </el-table-column>
+        <el-table-column label="操作" width="200px">
+          <template slot-scope="scope">
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
+              挂载
+            </el-button>
+            <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+            <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+            <el-divider direction="vertical"></el-divider>
+            <el-dropdown
+              trigger="click"
+              :append-to-body="false"
+              @visible-change="openDropdown(scope.$index, 1)"
+            >
+              <el-button type="text" size="small" class="bt-operation">
+                更多
+                <i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                />
+              </el-button>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>退订</el-dropdown-item>
+                <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
+                <el-dropdown-item>创建</el-dropdown-item>
+                <el-dropdown-item disabled>Disabled</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </template>
+        </el-table-column>
+      </el-table>
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="153"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
+    </div>
+
+    <h3>带斑马纹表格</h3>
+    <div class="sub-table">
+      <el-table v-loading="loading" :data="table1" fit stripe>
+        <el-table-column prop="name" label="主机别名" width="150px">
+          <template slot-scope="scope">
+            <div>
+              <span class="text-ellipsis name-primary" :title="scope.row.name">{{ scope.row.name }}</span>
+            </div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="status" label="实例状态"></el-table-column>
+        <el-table-column prop="ip" label="IP地址" width="100px"></el-table-column>
+        <el-table-column prop="time" label="时间" sortable width="150px"></el-table-column>
+        <el-table-column prop="label" label="标签" width="150px">
+          <template slot-scope="scope">
+            <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
+            <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="描述" width="150px">
+          <template slot-scope="scope">
+            <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
+              <span class="text-ellipsis">{{ scope.row.description }}</span>
+            </el-tooltip>
+          </template>
+        </el-table-column>
+        <el-table-column prop="healthy" label="健康状态">
+          <template slot-scope="scope">
+            <cute-state :type="HEALTH[scope.row.healthy].colorType">
+              {{ HEALTH[scope.row.healthy].text }}
+            </cute-state>
+          </template>
+        </el-table-column>
+        <el-table-column label="操作" width="200px">
+          <template slot-scope="scope">
+            <el-button
+              type="text"
+              size="small"
+              class="bt-operation"
+              @click="handleClick(scope.$index, scope.row)"
+            >
+              挂载
+            </el-button>
+            <el-button type="text" size="small" class="bt-operation">卸载</el-button>
+            <el-button type="text" size="small" class="bt-operation">扩容</el-button>
+            <el-divider direction="vertical"></el-divider>
+            <el-dropdown
+              trigger="click"
+              :append-to-body="false"
+              @visible-change="openDropdown(scope.$index, 1)"
+            >
+              <el-button type="text" size="small" class="bt-operation">
+                更多
+                <i
+                  class="el-icon-arrow-down el-icon--right"
+                  :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                />
+              </el-button>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>退订</el-dropdown-item>
+                <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
+                <el-dropdown-item>创建</el-dropdown-item>
+                <el-dropdown-item disabled>Disabled</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </template>
+        </el-table-column>
+      </el-table>
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="153"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
+    </div>
+
+    <h3>可拖动列表格</h3>
+    <div class="sub-table">
+      <el-table v-loading="loading" :data="table1" fit border>
         <el-table-column prop="name" label="主机别名" width="150px">
           <template slot-scope="scope">
             <div>
@@ -1870,10 +2109,10 @@ export default class extends Vue {
 
 .sub-index {
   display: inline-block;
-  width: 20px;
+  width: 18px;
   text-align: center;
-  height: 20px;
-  line-height: 20px;
+  height: 18px;
+  line-height: 18px;
   font-size: $text-size;
   color: $text-color;
   background: $color-neutral-4;
@@ -1907,7 +2146,30 @@ export default class extends Vue {
 }
 
 .expand-table {
-  margin: 8px 50px; // 按业务调整
+  margin: -10px 50px; // 按业务调整
   width: calc(100% - 100px);
+
+  &::before {
+    height: 0;
+  }
+
+  ::v-deep {
+    .el-table__row:last-child {
+      .el-table__cell {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &-1 {
+    background-color: transparent;
+
+    ::v-deep {
+      tr,
+      .el-table__cell {
+        background-color: transparent;
+      }
+    }
+  }
 }
 </style>

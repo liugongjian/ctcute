@@ -5,4 +5,7 @@
  * @LastEditTime: 2023-04-18 20:31:24
  * @Description:
  */
-export declare class CuteSortTable { }
+import { CuteComponent } from './component'
+
+export declare class CuteSortTable extends CuteComponent { }
+

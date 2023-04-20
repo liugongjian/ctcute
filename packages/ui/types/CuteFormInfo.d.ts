@@ -5,4 +5,7 @@
  * @LastEditTime: 2023-04-18 20:33:02
  * @Description:
  */
-export declare class CuteFormInfo { }
+import { CuteComponent } from './component'
+
+export declare class CuteFormInfo extends CuteComponent { }
+

@@ -1,5 +1,10 @@
 <template>
-  <cute-layout :sidebar-filter="filterRoutes" :sidebar-title="sidebarTitle" :sidebar-routes="routes">
+  <cute-layout
+    :header-sub-logo="logoIcon"
+    :sidebar-filter="filterRoutes"
+    :sidebar-title="sidebarTitle"
+    :sidebar-routes="routes"
+  >
     <template #header-right>
       <header-nav />
     </template>
@@ -12,6 +17,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 import CuteLayout from '@cutedesign/ui/components/CuteLayout/index.vue'
 import HeaderNav from './components/LayoutHeaderNav/index.vue'
+import settings from '@/settings'
 
 @Component({
   name: 'LayoutComponent',
@@ -23,6 +29,7 @@ import HeaderNav from './components/LayoutHeaderNav/index.vue'
 export default class extends Vue {
   private sidebarTitle = '组件'
   private type = 'component'
+  private logoIcon = settings.logoIcon
   private routes = this.$auth && this.$auth.getRoutes()
 
   private filterRoutes(routes: Array<any>): Array<any> {

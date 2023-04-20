@@ -40,8 +40,7 @@
 
 <script lang="ts">
 import path from 'path'
-import { Component, Prop } from 'vue-property-decorator'
-import { mixins } from 'vue-class-component'
+import { Component, Prop, Mixins } from 'vue-property-decorator'
 import { RouteConfig } from 'vue-router'
 import Locale from '@cutedesign/ui/mixins/locale'
 import { isExternal } from '../utils/validate'
@@ -55,7 +54,7 @@ import SidebarItemLink from './SidebarItemLink.vue'
     SidebarItemLink,
   },
 })
-export default class extends mixins(Locale) {
+export default class extends Mixins(Locale) {
   @Prop({ required: true }) public item!: RouteConfig
   @Prop({ default: 1 }) public level!: number
   @Prop({ default: '' }) private basePath!: string

@@ -5,4 +5,7 @@
  * @LastEditTime: 2023-04-18 20:32:19
  * @Description:
  */
-export declare class CuteEditInput { }
+import { CuteComponent } from './component'
+
+export declare class CuteEditInput extends CuteComponent { }
+

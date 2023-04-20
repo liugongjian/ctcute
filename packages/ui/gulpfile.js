@@ -30,19 +30,19 @@ const scssCutedFiles = [
   './style/index.scss',
 ]
 
-// 编译scss需要正确路径，把variables.scss提取到根目录
-function extractVariablesScss() {
-  return src(['./style/themes/default/variables.scss'])
+// 编译scss需要正确路径，把variables.scss提取到根目录; path是路径，theme是default or dark
+function extractVariablesScss(path, theme) {
+  return src([`./style/themes/${path}/variables.scss`])
     // 替换palette的路径
-    .pipe(replace("@import 'palette'", "@import './themes/default/palette'"))
-    .pipe(rename('variables-cute.scss'))
+    .pipe(replace("@import 'palette'", `@import './themes/${path}/palette'`))
+    .pipe(rename(`variables-${theme}.scss`))
     .pipe(dest('./style'));
 }
 
 // 编译cuted scss
-function compileCutedScss() {
-  return src(['./style/variables-cute.scss', './style/_mixins.scss'].concat(scssCutedFiles))
-    .pipe(concat('./cuted.scss'))
+function compileCutedScss(theme) {
+  return src([`./style/variables-${theme}.scss`, './style/_mixins.scss'].concat(scssCutedFiles))
+    .pipe(concat(`./cuted-${theme}.scss`))
     // 要把element-variables.scss从index.scss抽取出来做两次replace，才能正确编译
     .pipe(replace('~element-ui/lib/theme-chalk/fonts', 'fonts'))
     // gulp不认识~，替换为项目根目录下node_modules的element-ui
@@ -53,14 +53,14 @@ function compileCutedScss() {
       cascade: false
     }))
     .pipe(cssmin())
-    .pipe(rename('cuted.css'))
+    .pipe(rename(`cuted-${theme}.css`))
     .pipe(dest('./lib'));
 }
 
 // iconfont.css和bahnschrift.css加进去
-function concatCSS() {
-  return src(['./fonts/iconfont.css', './fonts/bahnschrift.css', './lib/cuted.css'])
-    .pipe(concat('index.css'))
+function concatCSS(theme) {
+  return src(['./fonts/iconfont.css', './fonts/bahnschrift.css', `./lib/cuted-${theme}.css`])
+    .pipe(concat(`${theme == 'default' ? 'index.css' : 'index.' + theme + '.css'}`))
     .pipe(cssmin())
     .pipe(dest('./lib'));
 }
@@ -77,8 +77,8 @@ function copyfontLocal() {
     .pipe(dest('./lib'));
 }
 
-function cleanup() {
-  return src(['./lib/cuted.css', './style/variables-cute.scss'], { read: false })
+function cleanup(theme) {
+  return src([`./lib/cuted-${theme}.css`, `./style/variables-${theme}.scss`], { read: false })
     .pipe(clean({ force: true }));
 }
 
@@ -98,7 +98,7 @@ function mergeSCSS() {
 
 // 编译element-override.scss直接输出css，给非scss项目使用，用于覆盖
 function compileElementOverrideScss() {
-  return src(['./style/variables-cute.scss', './style/_mixins.scss', './style/element-variables.scss', './style/element-override.scss'])
+  return src(['./style/variables-default.scss', './style/_mixins.scss', './style/element-variables.scss', './style/element-override.scss'])
     .pipe(concat('./cute-element-override.scss'))
     // element-variables.scss编译需要替换element-ui路径变量，所以需要单独引用
     .pipe(replace("@import './themes/default/variables.scss';", ""))
@@ -118,4 +118,29 @@ function compileElementOverrideScss() {
     .pipe(dest('./lib'));
 }
 
-exports.build = series(extractVariablesScss, compileCutedScss, concatCSS, copyfontElementUI, copyfontLocal, mergeSCSS, compileElementOverrideScss, cleanup);
+// 组合构建dark和default样式
+const buildDefaultCss = series(
+  () => extractVariablesScss('default', 'default'),
+  () => compileCutedScss('default'),
+  () => concatCSS('default')
+)
+const buildDarkCss = series(
+  () => extractVariablesScss('dark/blue', 'dark'),
+  () => compileCutedScss('dark'),
+  () => concatCSS('dark')
+)
+
+const cleanFiles = series(
+  () => cleanup('default'),
+  () => cleanup('dark')
+)
+
+exports.build = series(
+  buildDefaultCss,
+  buildDarkCss,
+  copyfontElementUI,
+  copyfontLocal,
+  mergeSCSS,
+  compileElementOverrideScss,
+  cleanFiles
+);

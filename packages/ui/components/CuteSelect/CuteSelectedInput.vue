@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-20 13:47:29
+ * @LastEditTime: 2023-04-20 13:56:53
  * @Description: 操作已选项
 -->
 <template>
@@ -31,7 +31,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Mixins } from 'vue-property-decorator'
+import { Component, Prop, Mixins, Watch } from 'vue-property-decorator'
 import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
@@ -40,7 +40,9 @@ import Locale from '@cutedesign/ui/mixins/locale'
 export default class extends Mixins(Locale) {
   @Prop({ type: Array, default: [] }) checkedList?: [] //已选中数据
   @Prop({ type: Array, default: [] }) options?: [] //下拉数据
-
+  private mounted() {
+    this.seleChange()
+  }
   private get flag() {
     return this.checkedList.length > 0
   }
@@ -52,13 +54,13 @@ export default class extends Mixins(Locale) {
   @Watch('sele')
   // 动态宽度
   private seleChange() {
-    const field: any = document.getElementsByClassName('cute-select-input-field')
-    for (const i of field) {
-      const parent: any = i.parentNode.parentNode
-      this.$nextTick(() => {
+    this.$nextTick(() => {
+      const field: any = document.getElementsByClassName('cute-select-input-field')
+      for (const i of field) {
+        const parent: any = i.parentNode.parentNode
         parent.style.width = i.clientWidth + 55 + 'px'
-      })
-    }
+      }
+    })
   }
 
   private handelSelectChange(e) {

@@ -1,12 +1,12 @@
 <!--
  * @Author: 万璐敏
  * @Date: 2022-07-08 13:45:09
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-07 08:53:25
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-20 18:00:10
  * @Description: 空页面
 -->
 <template>
-  <div class="page-status">
+  <div class="cute-status-page">
     <div class="box-new">
       <div class="box-image">
         <el-image :src="Img" fit="cover"></el-image>
@@ -23,7 +23,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 import Img from './Image/empty-page.svg'
 @Component({
-  name: 'EmptyPage',
+  name: 'CuteStatusEmptyPage',
 })
 export default class extends Vue {
   private Img = Img

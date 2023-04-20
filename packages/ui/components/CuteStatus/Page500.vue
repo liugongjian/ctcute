@@ -6,7 +6,7 @@
  * @Description: 500页
 -->
 <template>
-  <div class="page-status">
+  <div class="cute-status-page">
     <div class="box-new">
       <div class="box-image">
         <el-image :src="Img" fit="cover"></el-image>
@@ -23,7 +23,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 import Img from './Image/page-500.svg'
 @Component({
-  name: 'Page500',
+  name: 'CuteStatusPage500',
 })
 export default class extends Vue {
   private Img = Img

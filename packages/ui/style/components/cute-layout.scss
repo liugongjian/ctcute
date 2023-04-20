@@ -9,19 +9,17 @@
 
 .cute-layout {
   @include clearfix;
-  
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
+  height: 100%;
+  min-width: $screen-lg;
 
   &__body {
     display: flex;
-    margin-top: $cute-layout-header-height;
-    height: calc(100vh - #{$cute-layout-header-height});
-  }
-
-  &--hide-header {
-    margin-top: 0;
-    height: 100vh;
+    flex: 1;
+    overflow: auto;
   }
 
   &__container {
@@ -39,7 +37,7 @@
   &__main {
     flex: 1;
     /* 最小分辨率 - 侧边栏宽度 - 边距 - 边距 */
-    min-width: calc(#{$screen-lg} - #{$cute-layout-sidebar-width} - #{$padding-5x} - #{$padding-5x});
+    // min-width: calc(#{$screen-lg} - #{$cute-layout-sidebar-width} - #{$padding-5x} - #{$padding-5x});
 
     &.fixed-navbar {
       overflow: auto;
@@ -53,11 +51,7 @@
 /* Header */
 .cute-layout-header {
   display: flex;
-  position: fixed;
-  left: 0;
-  top: 0;
   width: 100%;
-  min-width: $screen-lg;
   height: $cute-layout-header-height;
   z-index: $zindex-layout-header;
   justify-content: space-between;

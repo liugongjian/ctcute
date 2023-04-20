@@ -1,4 +1,5 @@
-export default  [
+/* eslint-disable prettier/prettier */
+export default [
   {
     'title': '主题色',
     'doc': 'true',
@@ -2201,7 +2202,7 @@ export default  [
       {
         'name': '$screen-lg',
         'type': 'string',
-        'value': '1200px',
+        'value': '1280px',
         'scene': ''
       }
     ]

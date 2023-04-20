@@ -15,7 +15,7 @@
         </template>
       </layout-header>
     </slot>
-    <div class="cute-layout__body" :class="{ 'cute-layout--hide-header': !header }">
+    <div class="cute-layout__body">
       <slot name="sidebar">
         <layout-sidebar
           v-if="sidebar"

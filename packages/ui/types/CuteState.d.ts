@@ -5,4 +5,6 @@
  * @LastEditTime: 2023-04-18 20:34:40
  * @Description:
  */
-export declare class CuteState { }
+import { CuteComponent } from './component'
+
+export declare class CuteState extends CuteComponent { }

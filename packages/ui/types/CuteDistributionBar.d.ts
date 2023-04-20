@@ -5,4 +5,7 @@
  * @LastEditTime: 2023-04-18 20:38:10
  * @Description:
  */
-export declare class CuteDistributionBar { }
+import { CuteComponent } from './component'
+
+export declare class CuteDistributionBar extends CuteComponent { }
+

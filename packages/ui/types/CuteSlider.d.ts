@@ -5,4 +5,6 @@
  * @LastEditTime: 2023-04-18 20:37:26
  * @Description:
  */
-export declare class CuteSlider { }
+import { CuteComponent } from './component'
+
+export declare class CuteSlider extends CuteComponent { }

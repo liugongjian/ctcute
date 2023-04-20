@@ -6,11 +6,11 @@
         <img class="cute-layout-header__logo__main" :src="logo" />
         <!-- 项目LOGO -->
         <div class="cute-layout-header__logo__sub">
-          <template v-if="headerSubTitle">
-            {{ headerSubTitle }}
+          <template v-if="headerSubLogo">
+            <img :src="headerSubLogo" class="cute-layout-header__logo__sub__img" />
           </template>
-          <template v-else>
-            <img :src="subLogo" class="cute-layout-header__logo__sub__img" />
+          <template v-if="headerSubTitle">
+            <span class="cute-layout-header__logo__sub__title">{{ headerSubTitle }}</span>
           </template>
         </div>
       </slot>
@@ -43,10 +43,6 @@ export default class extends Vue {
 
   private get logo() {
     return this.headerLogo || require('./images/ct-logo.svg')
-  }
-
-  private get subLogo() {
-    return this.headerSubLogo || require('./images/cute-design.svg')
   }
 }
 </script>

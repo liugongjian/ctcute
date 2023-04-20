@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
  * description: 读取SCSS的变量文件，并生成SASS导出变量、变量TS类型文件、变量说明文档
  * author: zhulh
@@ -116,8 +117,12 @@ function generateDoc(data, filePath) {
   })
   // 将文本写入文件
   const targetPath = filePath.substring(0, filePath.lastIndexOf('/')) + '/variables-doc.js'
-  // eslint-disable-next-line quotes
-  fs.writeFileSync(targetPath, `export default  ${JSON.stringify(docList, null, 2).replace(/"/g, "'")}`)
+  fs.writeFileSync(
+    targetPath,
+`/* eslint-disable prettier/prettier */
+export default ${JSON.stringify(docList, null, 2).replace(/"/g, '\'')}
+`
+  )
   console.log(chalk.green('Variables Doc生成成功'))
 }
 

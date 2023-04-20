@@ -33,6 +33,7 @@ $cute-slider-btn-radius: 8px;
         color: $color-master;
       }
     }
+
     //禁用
     .el-slider__runway.disabled {
       .el-slider__bar {
@@ -41,7 +42,7 @@ $cute-slider-btn-radius: 8px;
 
       .el-slider__button {
         border: 1px solid $disabled-border;
-        background: $disabled-bg;
+        background: $cute-slider-btn-bg;
         color: $disabled-color;
       }
     }
@@ -104,6 +105,7 @@ $cute-slider-btn-radius: 8px;
     justify-content: center;
     align-items: center;
     height: 100%;
+
     span {
       display: block;
       background-color: $cute-slider-btn-color;
@@ -120,13 +122,14 @@ $cute-slider-btn-radius: 8px;
       }
     }
   }
-  .disabled {
-    background: $disabled-border;
+
+  .el-slider__runway.disabled {
+    background: $cute-slider-bg-disabled;
+
     .cute-slider-user-button {
       span {
         background-color: $cute-slider-btn-color-disabled;
       }
     }
   }
-
 }

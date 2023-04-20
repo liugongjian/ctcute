@@ -117,7 +117,6 @@ $color-body-bg: $color-bg-3 !default;
 
 $body-fill: $color-bg-3 !default; // deprecated(弃用)
 
-
 /* Title: 禁用色; Doc: true
 由于多个表单组件会用到disabled的状态，因此仍然保留以下变量
 -------------------------- */
@@ -134,7 +133,8 @@ $disabled-icon-color: $neutral-6 !default; // deprecated(弃用)
 
 /* Title: 字体、字号、字体颜色、字重; Doc: true
 -------------------------- */
-$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif, '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
+$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif,
+  '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
 $font-family-cute-icons: 'cute-icons' !default;
 $text-size: 12px !default; // 标准字体大小
 $text-size-sm: 12px !default; // 字号small
@@ -237,7 +237,7 @@ $shadow-form-item: 0 2px 2px 0 rgba(0, 0, 0, 20%) !default; // 组件Focused状�
 $shadow-input: 0 0 4px 0 rgba(250, 131, 52, 20%) !default; // deprecated(弃用)
 $shadow-card: 0 2px 8px 0 rgba(200, 201, 204, 50%) !default; // deprecated(弃用)
 $shadow-dialog: 0 6px 16px -8px rgba(0, 0, 0, 8%), 0 9px 28px 0 rgba(0, 0, 0, 5%),
-0 12px 48px 16px rgba(0, 0, 0, 3%) !default; // deprecated(弃用)
+  0 12px 48px 16px rgba(0, 0, 0, 3%) !default; // deprecated(弃用)
 $shadow-table-card: rgba(200, 201, 204, 50%) !default; // deprecated(弃用)
 
 /* Title: 页面框架; Doc: true
@@ -316,7 +316,7 @@ $button-margin: $margin-3x !default;
 /* Title: Radio; Doc: false
 -------------------------- */
 $radio-checked-bg: $color-white !default; // 普通radio背景色
-$radio-group-color: $color-white !default; 
+$radio-group-color: $color-white !default;
 $radio-group-bg: $color-master !default;
 $radio-group-disabled-bg: $disabled-bg !default;
 $radio-group-border-color: $disabled-border !default;
@@ -325,11 +325,11 @@ $radio-group-border-disabled-bg: $color-master-disabled !default;
 $radio-width: 14px !default; // 普通按钮外部宽高
 $radio-label-width: $common-space-2x !default; // 普通按钮 中间按钮宽高
 
-$input-lg-padding: 0 $padding-6x  !default;
+$input-lg-padding: 0 $padding-6x !default;
 $input-md-padding: 0 $padding-4x !default;
-$input-sm-padding: 0 $padding-3x  !default;
+$input-sm-padding: 0 $padding-3x !default;
 $input-xs-padding: 0 $padding-3x !default;
-$cute-special-radio-size:3px  !default;
+$cute-special-radio-size: 3px !default;
 
 /* Title: Form; Doc: false
 -------------------------- */
@@ -357,9 +357,9 @@ $input-fill: $color-white !default; // deprecated(弃用)
 -------------------------- */
 $select-border-color-hover: $border-color-hover !default;
 $select-disabled-border: $disabled-border !default;
-$select-color: $color-master  !default; 
-$select-color: $color-master  !default; 
-$select-dropdown-bg: $color-bg-1 !default; 
+$select-color: $color-master !default;
+$select-color: $color-master !default;
+$select-dropdown-bg: $color-bg-1 !default;
 $select-xs-height: 24px !default;
 $select-sm-height: 24px !default;
 $select-md-height: 32px !default;
@@ -456,10 +456,10 @@ $notification-border-color: $neutral-1 !default;
 
 /* Title: Upload; Doc: false
 -------------------------- */
-$upload-color:$color-master !default;
+$upload-color: $color-master !default;
 $upload-border-color: $border-color !default;
 $upload-bg: $color-bg-1 !default;
-$upload-bg-hover: $color-neutral-9 !default;
+$upload-bg-hover: $color-body-bg !default;
 $upload-fill: $upload-bg !default; // deprecated(弃用)
 $upload-font-size: $text-size-sm !default;
 $upload-tips-font-color: $color-neutral-7 !default;
@@ -529,10 +529,12 @@ $alert-weak-bg: $neutral-1 !default;
 /* Title: CuteSlider; Doc: false
 -------------------------- */
 $cute-slider-line-color: $color-master;
-$cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;
+$cute-slider-disabled-border: $disabled-border;
+$cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $blue-10) !default;
 $cute-slider-btn-width: 17px !default;
 $cute-slider-btn-height: 22px !default;
 $cute-slider-btn-color: $color-master-2 !default;
+$cute-slider-bg-disabled: $color-grey-9;
 $cute-slider-btn-color-disabled: $color-master-4 !default;
 
 /* Title: CuteArea; Doc: false
@@ -544,7 +546,7 @@ $cute-area-recent-item-background-color: $blue-1 !default;
 $cute-area-item-hover-background-color: $blue-1 !default;
 $cute-area-item-hover-color: $blue-base !default;
 $cute-area-item-seleted-background-color: $blue-base !default;
-$cute-area-head-color: $neutral-9 !default;
+$cute-area-head-color: $neutral-5 !default;
 $cute-area-item-color: $neutral-10 !default;
 
 /* Title: Animation; Doc: true
@@ -573,7 +575,7 @@ $zindex-loading-mask: 2000 !default;
 
 /* Title: 响应式断点; Doc: true
 -------------------------- */
-$screen-lg: 1200px !default;
+$screen-lg: 1280px !default;
 
 /* Title: 图表默认的颜色; Doc: true
 -------------------------- */

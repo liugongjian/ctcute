@@ -9,6 +9,7 @@ $input-suffix-padding: $padding-9x;
 .el-input {
   .el-input__inner {
     padding: 0 $margin-3x;
+
     &:active,
     &:focus {
       box-shadow: $shadow-form-item;
@@ -35,11 +36,6 @@ $input-suffix-padding: $padding-9x;
       .el-input__icon {
         width: auto;
       }
-      // .el-input__icon.el-icon-search {
-      //   display: flex;
-      //   align-items: center;
-      //   justify-content: center;
-      // }
     }
   }
 
@@ -64,11 +60,6 @@ $input-suffix-padding: $padding-9x;
         vertical-align: text-bottom;
       }
 
-      // .el-icon-view {
-      //   font-size: $text-size-lg;
-      //   vertical-align: text-bottom;
-      // }
-
       // 关闭图标样式
       .el-icon-close {
         &:hover {
@@ -81,6 +72,7 @@ $input-suffix-padding: $padding-9x;
 
   // 复杂输入框组
   &.el-input-group {
+
     .el-input-group__append,
     .el-input-group__prepend {
       color: $text-color;
@@ -104,6 +96,7 @@ $input-suffix-padding: $padding-9x;
     }
 
     &.input-with-select {
+
       .el-input-group__append,
       .el-input-group__prepend {
         background-color: transparent;
@@ -124,6 +117,7 @@ $input-suffix-padding: $padding-9x;
     }
   }
 }
+
 /*
   提示
 */
@@ -135,9 +129,11 @@ $input-suffix-padding: $padding-9x;
 .el-input.input-forgot.el-input--suffix .el-input__inner {
   padding-right: 110px;
 }
+
 .el-input.el-input--suffix .el-input__inner {
   padding-right: $padding-10x;
 }
+
 .el-select .el-input.el-input--suffix .el-input__inner {
   padding-right: 30px;
 }

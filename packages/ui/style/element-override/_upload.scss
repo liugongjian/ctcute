@@ -153,6 +153,11 @@
 
   .el-progress-bar__outer {
     height: $upload-progress-bar-height !important;
+    border-radius: 0 !important;
+  }
+
+  .el-progress-bar__inner {
+    border-radius: 0 !important;
   }
 }
 

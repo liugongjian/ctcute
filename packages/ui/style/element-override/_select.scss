@@ -103,9 +103,9 @@ $tags-left-lg: $padding-4x - 6;
     &:not(.el-select-dropdown__item.selected):not(.el-select-dropdown__item.is-disabled):hover {
       color: $select-color;
     }
-
     &.selected {
       color: $select-color;
+      background-color: unset;
       font-weight: normal;
     }
 
@@ -116,7 +116,7 @@ $tags-left-lg: $padding-4x - 6;
   }
 
   &.is-multiple &__item.selected {
-    // background: $color-bg-3;
+    background-color: unset;
     color: $select-color;
 
     &:hover {

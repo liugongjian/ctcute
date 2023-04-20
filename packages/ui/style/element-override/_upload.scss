@@ -9,6 +9,7 @@
     &:hover,
     &:focus,
     &:active {
+      background-color: $upload-bg-hover;
       color: $upload-font-active-color;
     }
   }
@@ -171,7 +172,6 @@
 
   .sub-svg-text {
     margin-top: 29px; // TODO
-
     svg {
       color: $upload-color;
       margin-right: $margin-10;

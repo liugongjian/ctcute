@@ -119,25 +119,26 @@ function compileElementOverrideScss() {
 }
 
 // 组合构建dark和default样式
+// theme由 类型(dark or ligt) + 颜色(orange or blue)组合而成，default默认是light_blue
 const buildDefaultCss = series(
   () => extractVariablesScss('default', 'default'),
   () => compileCutedScss('default'),
   () => concatCSS('default')
 )
-const buildDarkCss = series(
-  () => extractVariablesScss('dark/blue', 'dark'),
-  () => compileCutedScss('dark'),
-  () => concatCSS('dark')
+const buildDarkBlueCss = series(
+  () => extractVariablesScss('dark/blue', 'dark_blue'),
+  () => compileCutedScss('dark_blue'),
+  () => concatCSS('dark_blue')
 )
 
 const cleanFiles = series(
   () => cleanup('default'),
-  () => cleanup('dark')
+  () => cleanup('dark_blue')
 )
 
 exports.build = series(
   buildDefaultCss,
-  buildDarkCss,
+  buildDarkBlueCss,
   copyfontElementUI,
   copyfontLocal,
   mergeSCSS,

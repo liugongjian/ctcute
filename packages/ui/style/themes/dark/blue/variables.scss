@@ -456,10 +456,11 @@ $notification-border-color: $neutral-1 !default;
 
 /* Title: Upload; Doc: false
 -------------------------- */
+$upload-progress-bar-height: 2px !default;
 $upload-color: $color-master !default;
 $upload-border-color: $border-color !default;
 $upload-bg: $color-bg-1 !default;
-$upload-bg-hover: $color-body-bg !default;
+$upload-bg-hover: $color-master-bg-light-2 !default;
 $upload-fill: $upload-bg !default; // deprecated(弃用)
 $upload-font-size: $text-size-sm !default;
 $upload-tips-font-color: $color-neutral-7 !default;

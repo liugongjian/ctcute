@@ -2,22 +2,23 @@
  * @Author: 马妍
  * @Date: 2022-07-19 16:32:05
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-13 14:21:10
+ * @LastEditTime: 2023-04-20 16:27:52
  * @Description: 
 -->
 <template>
   <div>
     <h3>文件上传-基础按钮</h3>
-    <el-upload
-      action="https://jsonplaceholder.typicode.com/posts/"
-      :on-preview="handlePreview"
-      :on-remove="handleRemove"
-      :on-success="handleSuccess"
-    >
-      <el-button><svg-icon name="upload" /> 上传文件</el-button>
-      <div slot="tip" class="el-upload__tip">支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
-    </el-upload>
-
+    <div style="width: 320px">
+      <el-upload
+        action="https://jsonplaceholder.typicode.com/posts/"
+        :on-preview="handlePreview"
+        :on-remove="handleRemove"
+        :on-success="handleSuccess"
+      >
+        <el-button><svg-icon name="upload" /> 上传文件</el-button>
+        <div slot="tip" class="el-upload__tip">支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
+      </el-upload>
+    </div>
     <div>
       <h3>拖拽上传</h3>
       <p>如果有上传限制，只能上传一个的情况，请删除重新上传</p>

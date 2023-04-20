@@ -21,12 +21,12 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import Img from './Image/page-404.svg'
+
 @Component({
   name: 'CuteStatusPage404',
 })
 export default class extends Vue {
-  private Img = Img
+  private Img = require('./Image/page-404.svg')
   private toHome() {
     this.$router.push('/')
   }

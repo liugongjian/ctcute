@@ -3,7 +3,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
  * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-19 09:32:48
+ * @LastEditTime: 2023-04-20 09:15:28
  * @Description:
  */
 // import Layout from '@/layout/component.vue'
@@ -713,6 +713,24 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Layout.vue'),
         meta: {
           title: 'Layout',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'Container',
+        name: 'Container',
+        component: () => import('@/views/component/Test/Container.vue'),
+        meta: {
+          title: 'Container',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'PageHeader',
+        name: 'PageHeader',
+        component: () => import('@/views/component/Test/PageHeader.vue'),
+        meta: {
+          title: 'PageHeader',
           breadcrumb: true,
         },
       },

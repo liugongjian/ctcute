@@ -5,6 +5,14 @@ $dropdown-min-width: 120px;
 $dropdown-icon-line-height: 0.5;
 $dropdown-shadow: 0px 0px 15px rgba(100, 110, 144, 0.15);
 
+@mixin dropdown-size($size, $font-size) {
+  .el-dropdown-menu--#{$size} {
+    .el-dropdown-menu__item {
+      font-size: $font-size;
+    }
+  }
+}
+
 // @mixin dropdown-button-size($size, $font-size, $padding, $icon-vertical-align) {
 //   $top-padding: str-slice(
 //     inspect($padding),
@@ -41,10 +49,10 @@ $dropdown-shadow: 0px 0px 15px rgba(100, 110, 144, 0.15);
 //   }
 // }
 
-// @include dropdown-button-size(mini, $text-size, $button-padding-mini, -0.17em);
-// @include dropdown-button-size(small, $text-size, $button-padding-small, -0.17em);
-// @include dropdown-button-size(medium, $text-size, $button-padding-medium, -0.16em);
-// @include dropdown-button-size(large, $text-size-md, $button-padding-large, -0.15em);
+@include dropdown-size(mini, $text-size);
+@include dropdown-size(small, $text-size);
+@include dropdown-size(medium, $text-size);
+@include dropdown-size(large, $text-size-md);
 
 .el-dropdown-menu {
   // min-width: $dropdown-min-width;

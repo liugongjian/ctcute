@@ -71,13 +71,49 @@ $button-padding-large: $margin-3x $padding-6x;
   }
 }
 
-@include button-color(null, $button-default-color-border, $color-master, $color-master-active, $button-default-color-bg-disabled);
-@include button-color(--default, $button-default-color-border, $color-master, $color-master-active, $button-default-color-bg-disabled);
-@include button-color(--primary, $color-master, $color-master-hover, $color-master-active, $color-master-disabled);
+@include button-color(
+  null,
+  $button-default-color-border,
+  $color-master,
+  $color-master-active,
+  $button-default-color-bg-disabled
+);
+@include button-color(
+  --default,
+  $button-default-color-border,
+  $color-master,
+  $color-master-active,
+  $button-default-color-bg-disabled
+);
+@include button-color(
+  --primary,
+  $color-master,
+  $color-master-hover,
+  $color-master-active,
+  $color-master-disabled
+);
 @include button-color(--info, $color-info, $color-info-hover, $color-info-active, $color-info-disabled);
-@include button-color(--success, $color-success, $color-success-hover, $color-success-active, $color-success-disabled);
-@include button-color(--warning, $color-warning, $color-warning-hover, $color-warning-active, $color-warning-disabled);
-@include button-color(--danger, $color-danger, $color-danger-hover, $color-danger-active, $color-danger-disabled);
+@include button-color(
+  --success,
+  $color-success,
+  $color-success-hover,
+  $color-success-active,
+  $color-success-disabled
+);
+@include button-color(
+  --warning,
+  $color-warning,
+  $color-warning-hover,
+  $color-warning-active,
+  $color-warning-disabled
+);
+@include button-color(
+  --danger,
+  $color-danger,
+  $color-danger-hover,
+  $color-danger-active,
+  $color-danger-disabled
+);
 @include button-color(--fatal, $color-fatal, $color-fatal-hover, $color-fatal-active, $color-fatal-disabled);
 @include button-color(--ct, $color-ct, $color-ct-hover, $color-ct-active, $color-ct-disabled);
 
@@ -88,7 +124,14 @@ $button-padding-large: $margin-3x $padding-6x;
   $color-bg: 背景颜色;
   $color-bg-hover: 背景悬浮颜色;
 */
-@mixin button-plain($type, $color-border, $color-border-hover, $color-border-active, $color-bg-hover, $color-bg-disabled) {
+@mixin button-plain(
+  $type,
+  $color-border,
+  $color-border-hover,
+  $color-border-active,
+  $color-bg-hover,
+  $color-bg-disabled
+) {
   $color-text: $color-border;
   $color-bg: $color-bg-1;
 
@@ -130,13 +173,62 @@ $button-padding-large: $margin-3x $padding-6x;
   }
 }
 
-@include button-plain(default, $color-grey-6, $color-master-hover, $color-master-active, $tag-master, $color-info-disabled);
-@include button-plain(primary, $color-master, $color-master-hover, $color-master-active, $tag-master, $color-master-disabled);
-@include button-plain(info, $color-info, $color-info-hover, $color-info-active, $tag-info, $color-info-disabled);
-@include button-plain(success, $color-success, $color-success-hover, $color-success-active, $tag-success, $color-success-disabled);
-@include button-plain(warning, $color-warning, $color-warning-hover, $color-warning-active, $tag-warning, $color-warning-disabled);
-@include button-plain(danger, $color-danger, $color-danger-hover, $color-danger-active, $tag-danger, $color-danger-disabled);
-@include button-plain(fatal, $color-fatal, $color-fatal-hover, $color-fatal-active, $tag-fatal, $color-fatal-disabled);
+@include button-plain(
+  default,
+  $color-grey-6,
+  $color-master-hover,
+  $color-master-active,
+  $tag-master,
+  $color-info-disabled
+);
+@include button-plain(
+  primary,
+  $color-master,
+  $color-master-hover,
+  $color-master-active,
+  $tag-master,
+  $color-master-disabled
+);
+@include button-plain(
+  info,
+  $color-info,
+  $color-info-hover,
+  $color-info-active,
+  $tag-info,
+  $color-info-disabled
+);
+@include button-plain(
+  success,
+  $color-success,
+  $color-success-hover,
+  $color-success-active,
+  $tag-success,
+  $color-success-disabled
+);
+@include button-plain(
+  warning,
+  $color-warning,
+  $color-warning-hover,
+  $color-warning-active,
+  $tag-warning,
+  $color-warning-disabled
+);
+@include button-plain(
+  danger,
+  $color-danger,
+  $color-danger-hover,
+  $color-danger-active,
+  $tag-danger,
+  $color-danger-disabled
+);
+@include button-plain(
+  fatal,
+  $color-fatal,
+  $color-fatal-hover,
+  $color-fatal-active,
+  $tag-fatal,
+  $color-fatal-disabled
+);
 @include button-plain(ct, $color-ct, $color-ct-hover, $color-ct-active, $tag-ct, $color-ct-disabled);
 
 /*
@@ -145,7 +237,11 @@ $button-padding-large: $margin-3x $padding-6x;
   $font-size: 字体大小;
 */
 @mixin button-size($size, $font-size, $padding) {
-  $top-padding: str-slice(inspect($padding), 1, str-index(inspect($padding), ' ') - 1); // 从第1个字符开始，截取到第一个空格前的字符
+  $top-padding: str-slice(
+    inspect($padding),
+    1,
+    str-index(inspect($padding), ' ') - 1
+  ); // 从第1个字符开始，截取到第一个空格前的字符
 
   .el-button--#{$size} {
     display: inline-flex;
@@ -160,7 +256,7 @@ $button-padding-large: $margin-3x $padding-6x;
       height: $font-size;
 
       .svg-icon,
-      [class*=el-icon-] {
+      [class*='el-icon-'] {
         position: absolute;
         left: 0;
         top: 0;
@@ -189,7 +285,6 @@ $button-padding-large: $margin-3x $padding-6x;
   重置按钮其他样式
 */
 .el-button {
-
   /*
     重置按钮图标样式
   */
@@ -207,7 +302,7 @@ $button-padding-large: $margin-3x $padding-6x;
   /*
     重置按钮与下拉框的间距
   */
-  &+.el-dropdown {
+  & + .el-dropdown {
     margin-left: $margin-4x;
     margin-right: $margin-4x;
   }
@@ -241,7 +336,7 @@ $button-padding-large: $margin-3x $padding-6x;
   /*
     重置按钮与按钮的间距
   */
-  &+.el-button {
+  & + .el-button {
     margin-left: $button-margin;
   }
 
@@ -254,11 +349,13 @@ $button-padding-large: $margin-3x $padding-6x;
     background: transparent;
     border-color: transparent;
 
-    &:hover, &:active, &:focus {
+    &:hover,
+    &:active,
+    &:focus {
       background: transparent;
       border-color: transparent;
     }
-      
+
     &:hover {
       color: $color-master-hover;
     }
@@ -281,7 +378,9 @@ $button-padding-large: $margin-3x $padding-6x;
       }
     }
 
-    &.is-disabled, &.is-disabled:hover, &.is-loading {
+    &.is-disabled,
+    &.is-disabled:hover,
+    &.is-loading {
       color: $color-master-disabled;
       border-color: transparent;
       background: transparent;

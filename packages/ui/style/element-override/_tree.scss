@@ -107,7 +107,6 @@ $tree-leaf-expand-icon-padding: 2px;
     color: $color-neutral-11;
 
     &:hover:not(.is-current > .el-tree-node__content:hover) {
-      // background: $color-master-bg-light-2;
 
       .el-checkbox__inner {
         border-color: $color-master;

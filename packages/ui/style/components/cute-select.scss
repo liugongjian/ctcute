@@ -52,6 +52,7 @@ $cute-selected-input-width: 140px;
   .is-disabled {
     .el-input__prefix {
       cursor: not-allowed;
+
       .select-field {
         color: $button-default-text-color-disabled;
       }

@@ -105,7 +105,7 @@ export default class extends Vue {
     },
     {
       name: 'headerSubTitle',
-      desc: '二级标题，设置后二级Logo则不显示',
+      desc: '二级文本标题',
       type: 'string',
       options: '',
       default: '二级标题',

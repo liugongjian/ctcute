@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-08-11 16:27:09
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-20 09:00:11
+ * @LastEditTime: 2023-04-10 20:47:59
  * @Description:
 -->
 <template>
@@ -32,7 +32,7 @@
             >
               <svg-icon slot="prefix" name="safety certificate" />
             </el-input>
-            <div class="cute-login__code__svg" @click="refreshCode" v-html="codeUrl"></div>
+            <div class="cute-login__code-svg" @click="refreshCode" v-html="codeUrl"></div>
           </el-form-item>
           <el-form-item class="cute-login__remember">
             <el-checkbox></el-checkbox>记住密码

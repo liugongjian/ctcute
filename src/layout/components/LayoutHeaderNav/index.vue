@@ -16,9 +16,9 @@
       <router-link to="/page/chart" :class="{ active: currentPath.startsWith('/page') }">页面</router-link>
     </div>
     <!-- 用户信息 -->
-    <div v-if="isLogin" class="header-nav__login-info" @click="flag = !flag">
+    <div v-if="isLogin" v-click-outside="hideDropdown" class="header-nav__login-info" @click="flag = !flag">
       <img class="img" src="./images/cute-portrait.svg" alt="" />
-      <span class="user-name">{{ isLogin ? username : '未登录' }}</span>
+      <span class="user-name">{{ username }}</span>
       <svg-icon :name="!flag ? 'caret-down' : 'caret-up'" />
 
       <ul v-if="flag" :class="flag ? 'down' : 'ul'">
@@ -37,12 +37,16 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
+import ClickOutside from 'vue-click-outside'
 import Search from '../Search/index.vue'
 
 @Component({
   name: 'LayoutHeaderNav',
   components: {
     Search,
+  },
+  directives: {
+    ClickOutside,
   },
 })
 export default class extends Vue {
@@ -60,6 +64,10 @@ export default class extends Vue {
   @Watch('$route')
   private onRouteChange() {
     this.getAuthInfo()
+  }
+
+  private hideDropdown() {
+    this.flag = false
   }
 
   //退出登录

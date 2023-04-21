@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 10:47:36
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-20 18:05:07
  * @Description:
  */
 import ElementUI, {
@@ -124,6 +124,10 @@ import CuteSlider from './components/CuteSlider/index.vue'
 import CuteDistributionBar from './components/CuteDistributionBar/index.vue'
 import CuteCardBox from './components/CuteCardBox/index.vue'
 import CuteScroller from './components/CuteScroller/index.vue'
+import CuteStatusPage403 from './components/CuteStatus/Page403.vue'
+import CuteStatusPage404 from './components/CuteStatus/Page404.vue'
+import CuteStatusPage500 from './components/CuteStatus/Page500.vue'
+import CuteStatusEmptyPage from './components/CuteStatus/EmptyPage.vue'
 export {
   CuteLayout,
   CuteButtonGroup,
@@ -145,6 +149,10 @@ export {
   CuteDistributionBar,
   CuteCardBox,
   CuteScroller,
+  CuteStatusPage403,
+  CuteStatusPage404,
+  CuteStatusPage500,
+  CuteStatusEmptyPage,
 }
 
 /**

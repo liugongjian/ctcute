@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-17 20:57:52
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-17 16:18:44
+ * @LastEditTime: 2023-04-21 14:08:50
  * @Description:
 -->
 <template>
@@ -59,6 +59,9 @@
         @moveChange="rangeChanges"
         @inputChange="inputChange"
       />
+    </el-row>
+    <el-row>
+      <cute-slider v-model="values" :min="0" :max="500" :marks="marks" :range="false" @moveChange="changes" />
     </el-row>
     <el-row>
       <cute-slider

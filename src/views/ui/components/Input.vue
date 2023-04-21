@@ -173,7 +173,7 @@
         </div>
         <div>
           <el-input v-model="height" :size="inputSize" placeholder="请输入身高" class="input-with-select">
-            <el-select slot="append" v-model="select" placeholder="CM">
+            <el-select slot="append" v-model="select2" placeholder="CM">
               <el-option label="cm" value="2"></el-option>
             </el-select>
           </el-input>
@@ -387,6 +387,7 @@ export default class extends Vue {
   private num1 = 1
   private content = '这是一段内容'
   private select = ''
+  private select2 = ''
   private value = 's2.mall.1'
   private searchValue = ''
   private searchValue1 = ''

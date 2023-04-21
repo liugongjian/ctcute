@@ -324,7 +324,6 @@ $radio-group-border-disabled-color: $disabled-border !default;
 $radio-group-border-disabled-bg: $color-master-disabled !default;
 $radio-width: 14px !default; // 普通按钮外部宽高
 $radio-label-width: $common-space-2x !default; // 普通按钮 中间按钮宽高:
-
 $input-lg-padding: 0 $padding-6x !default;
 $input-md-padding: 0 $padding-4x !default;
 $input-sm-padding: 0 $padding-3x !default;
@@ -374,6 +373,7 @@ $range-editor-tags-size: 16px !default;
 
 /* Title: Checkbox; Doc: false
 -------------------------- */
+$checkbox-label-size: 14px !default;
 $checkbox-bg: $color-master-bg-light-2 !default;
 $checkbox-border: $color-master !default;
 $checkbox-button: $color-master-bg-light-2 !default;
@@ -470,11 +470,14 @@ $upload-picture-card-progress-circle-size: 70px !default;
 $upload-file-uploader-width: 320px !default;
 $upload-dragger-border-radius: $border-radius !default;
 $upload-dragger-text-color: $text-color !default;
-
 /* Title: Card; Doc: false
 -------------------------- */
 $card-bg: $color-bg-2 !default;
 $card-shadow: $shadow-1 !default;
+
+/* Title: Time; Doc: false
+-------------------------- */
+$date-panel-btn-size: 28px !default;
 
 /* Title: Cascader; Doc: false
 -------------------------- */
@@ -529,6 +532,7 @@ $alert-weak-bg: $neutral-1 !default;
 
 /* Title: CuteSlider; Doc: false
 -------------------------- */
+$cute-slider-bg: $neutral-1 !default;
 $cute-slider-line-color: $color-master;
 $cute-slider-disabled-border: $disabled-border;
 $cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;

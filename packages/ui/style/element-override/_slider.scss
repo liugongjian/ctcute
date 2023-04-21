@@ -13,6 +13,11 @@
 }
 
 .el-slider__stop {
-  border: 2px solid $color-white;
+  display: none;
+  // border: 2px solid $cute-slider-bg;
+  // background-color: $cute-slider-bg;
 }
-.el-slider__input{ margin-top: 5px;}
+
+.el-slider__input {
+  margin-top: 5px;
+}

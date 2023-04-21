@@ -45,9 +45,11 @@ $checkbox-border-radius: $border-radius;
       color: $disabled-color;
       background-color: unset;
       border-color: $disabled-border;
+
       &:before {
         border-color: transparent $disabled-border $disabled-border transparent;
       }
+
       &:after {
         color: $color-grey-5;
       }
@@ -57,7 +59,7 @@ $checkbox-border-radius: $border-radius;
   .el-checkbox-button__inner {
     color: $text-color;
     font-size: $text-size;
-    background-color: unset; 
+    background-color: unset;
     border-radius: $checkbox-border-radius;
     border: 1px solid $disabled-border;
 
@@ -77,17 +79,20 @@ $checkbox-border-radius: $border-radius;
   }
 }
 
-.el-checkbox-group + .el-form-item__error {
+.el-checkbox-group+.el-form-item__error {
   padding-top: 0;
 }
 
 .el-checkbox__input {
-  line-height: 16px; // 写死的不用改成动态
+  // vertical-align: text-bottom;
+  line-height: $checkbox-label-size - 2;
+  height: $checkbox-label-size;
+  margin-top: -3px;
 }
 
 .el-checkbox__inner {
-  width: 14px;
-  height: 14px;
+  width: $checkbox-label-size;
+  height: $checkbox-label-size;
   background-color: transparent;
 
   &:after {
@@ -126,6 +131,7 @@ $checkbox-border-radius: $border-radius;
   font-size: $text-size;
   color: $text-color;
   font-weight: normal;
+  line-height: $checkbox-label-size;
 }
 
 @mixin checkbox-size($size, $padding) {
@@ -135,6 +141,7 @@ $checkbox-border-radius: $border-radius;
     }
   }
 }
+
 @include checkbox-size(large, $checkbox-padding-large);
 @include checkbox-size(medium, $checkbox-padding-medium);
 @include checkbox-size(small, $checkbox-padding-small);

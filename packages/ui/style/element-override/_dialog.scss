@@ -19,11 +19,15 @@ $dialog-fullscreen-margin: $margin-6x;
   }
 
   &__headerbtn &__close {
-    color: $text-color-light;
+    color: $text-color-light-2;
   }
 
   &__headerbtn {
     right: $common-space-8x;
+  }
+
+  &__title {
+    font-weight: $text-title-weight;
   }
 
   /*

@@ -9,10 +9,6 @@ const en: { [key: string]: any } = {
       total: 'Total {total}',
       pageClassifier: '',
     },
-    colorpicker: {
-      clear: 'Cancel',
-      confirm: 'Confirm',
-    },
   },
 }
 

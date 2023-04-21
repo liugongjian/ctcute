@@ -9,6 +9,10 @@ const zh: { [key: string]: any } = {
       total: '共{total}条',
       pageClassifier: '页',
     },
+    messagebox: {
+      confirm: '确 认',
+      cancel: '取 消',
+    },
     colorpicker: {
       clear: '取 消',
       confirm: '确 定',

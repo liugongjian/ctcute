@@ -59,7 +59,7 @@ export default class extends Mixins(Locale) {
   private getBreadcrumb() {
     let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
     const first = matched[0]
-    if (!this.isDashboard(first)) {
+    if (first && !this.isDashboard(first)) {
       matched = [{ path: '/', meta: { title: 'home.title' } } as unknown as RouteRecord].concat(matched)
     }
     this.breadcrumbs = matched.filter(item => {

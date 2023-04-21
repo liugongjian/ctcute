@@ -1,13 +1,36 @@
 .el-color-picker {
   &__trigger {
     border-color: $border-color;
+    border-radius: $border-radius;
   }
 
   &__color {
     border-color: $border-color-dark;
+    border-radius: $border-radius;
   }
 
   &__panel {
     background-color: $color-bg-1;
   }
 }
+
+/*
+  重置尺寸
+  $size: 大小名称;
+  $font-size: 字体大小;
+*/
+@mixin color-picker-size($size, $height) {
+  .el-color-picker#{$size} {
+    height: $height;
+
+    .el-color-picker__trigger {
+      height: $height;
+      width: $height;
+    }
+  }
+}
+
+@include color-picker-size(--large, $select-lg-height);
+@include color-picker-size(--medium, $select-md-height);
+@include color-picker-size(--small, $select-sm-height);
+@include color-picker-size(--mini, $select-xs-height);

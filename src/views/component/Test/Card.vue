@@ -69,7 +69,7 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .text {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .item {

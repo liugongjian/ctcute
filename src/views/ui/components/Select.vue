@@ -100,7 +100,7 @@
       </div>
     </div>
     <div class="sub-down">
-      <h3>多选-折叠展示tag - 大： 中： 小</h3>
+      <h3>多选-可查询：折叠展示tag - 大： 中： 小</h3>
       <div class="line">
         <div class="line__left">
           <el-select

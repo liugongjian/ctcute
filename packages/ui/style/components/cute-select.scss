@@ -47,6 +47,7 @@ $cute-selected-input-width: 140px;
 
   .select-field {
     color: $color-master;
+    cursor: pointer;
   }
 
   .is-disabled {
@@ -61,9 +62,11 @@ $cute-selected-input-width: 140px;
 }
 
 .cute-select-tree {
+
   .el-tree {
     color: $text-color;
     font-weight: $text-weight;
+    margin-top: 0;
   }
 
   .el-select-dropdown__item,
@@ -78,4 +81,8 @@ $cute-selected-input-width: 140px;
       padding: 0;
     }
   }
+
+  // .el-select-dropdown__list {
+  //   padding: 0;
+  // }
 }

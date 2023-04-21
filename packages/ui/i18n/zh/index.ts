@@ -10,6 +10,9 @@ const zh: { [key: string]: any } = {
       pageClassifier: '页',
     },
   },
+  home: {
+    title: '首页',
+  },
 }
 
 const getFileName = (path: string) => path.split('/').pop().replace('.js', '')

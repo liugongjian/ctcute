@@ -9,12 +9,24 @@
       @hide="handlePopoverHide"
     >
       <!-- 固定的，用来全选 -->
-      <el-checkbox v-model="allSelected" label="全选" @change="handleSelectedChange" />
+      <el-checkbox
+        v-model="allSelected"
+        :label="t('cute.tableColumnSet.checkall')"
+        @change="handleSelectedChange"
+      />
       <!-- 分割线 -->
       <el-divider class="table-column-settings__popover__divider" />
       <!-- 列出全部选项 -->
-      <el-checkbox-group v-model="selectedColumns" class="table-column-settings__popover__label-group">
-        <el-checkbox v-for="v in tableColumns" :key="v.label" :label="v.label" :disabled="v.isDisabled" />
+      <el-checkbox-group
+        v-model="selectedColumns"
+        class="table-column-settings__popover__label-group"
+      >
+        <el-checkbox
+          v-for="v in tableColumns"
+          :key="v.label"
+          :label="v.label"
+          :disabled="v.isDisabled"
+        />
       </el-checkbox-group>
       <!-- 列设置图标 -->
       <div slot="reference" class="table-column-settings__btns">
@@ -35,7 +47,12 @@
       v-bind="$attrs"
     >
       <template v-for="(item, index) in selectedTableColumns">
-        <el-table-column :key="index + item.prop" :prop="item.prop" :label="item.label" v-bind="item.props">
+        <el-table-column
+          :key="index + item.prop"
+          :prop="item.prop"
+          :label="item.label"
+          v-bind="item.props"
+        >
           <template slot-scope="scope">
             <slot v-if="item.slot" :name="item.slot" :scope="scope" />
             <span v-else>{{ scope.row[item.prop] }}</span>
@@ -59,14 +76,15 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Watch, Ref } from 'vue-property-decorator'
+import { Component, Prop, Watch, Ref, Mixins } from 'vue-property-decorator'
 import { ElTable } from 'element-ui/types/table'
 import TableHookClass from '@cutedesign/ui/hook/TableHook'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
   name: 'CuteTableColumnSettings',
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   @Prop({ type: Array, default: [] }) tableData?: []
   @Prop({ type: Array, default: [] }) tableColumns?: []
 

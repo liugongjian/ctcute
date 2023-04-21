@@ -13,19 +13,24 @@
       </div>
       <div class="box-text">
         <div class="box-text-title">404</div>
-        <div class="box-text-tips">抱歉，您访问的页面不存在</div>
-        <el-button class="box-button" type="primary" @click="toHome">返回首页</el-button>
+        <div class="box-text-tips">{{ t('cute.pageStatus.page404Tips') }}</div>
+        <el-button
+          class="box-button"
+          type="primary"
+          @click="toHome"
+        >{{ t('cute.pageStatus.toHome') }}</el-button>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Component, Mixins } from 'vue-property-decorator'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
   name: 'CuteStatusPage404',
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   private Img = require('./Image/page-404.svg')
   private toHome() {
     this.$router.push('/')

@@ -22,6 +22,9 @@
     &.is-disabled {
       color: $color-disabled;
     }
+    &.is-underline:hover:after {
+      border-bottom: 1px solid $color;
+    }
   }
 }
 @include link-color(null, $text-color, $color-master-hover, $color-master-active, $text-color-disabled);

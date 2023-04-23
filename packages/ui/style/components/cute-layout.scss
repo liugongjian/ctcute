@@ -134,11 +134,14 @@
 
   &__wrapper {
     width: $cute-layout-sidebar-width;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 
     .el-menu {
       border: none;
       background-color: transparent;
+      flex: 1;
+      overflow: auto;
   
       a:hover {
         text-decoration: none;

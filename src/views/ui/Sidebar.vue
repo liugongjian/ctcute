@@ -74,8 +74,9 @@ export default class extends Vue {
   private changeHash(id) {
     history.pushState(null, null, `#${id}`)
     const title = document.querySelector(`#${id}`) as HTMLElement
+    const layoutBody = document.querySelector('.cute-layout__body')
     if (title) {
-      window.scrollTo({
+      layoutBody.scrollTo({
         top: title.offsetTop - 27,
         behavior: 'smooth',
       })

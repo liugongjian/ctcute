@@ -18,6 +18,9 @@ const zh: { [key: string]: any } = {
       confirm: '确 定',
     },
   },
+  home: {
+    title: '首页',
+  },
 }
 
 const getFileName = (path: string) => path.split('/').pop().replace('.js', '')

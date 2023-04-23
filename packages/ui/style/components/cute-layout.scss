@@ -35,6 +35,7 @@
   }
 
   &__main {
+    margin-top: $margin-5x; // 默认向 padding 对齐
     flex: 1;
     /* 最小分辨率 - 侧边栏宽度 - 边距 - 边距 */
     // min-width: calc(#{$screen-lg} - #{$cute-layout-sidebar-width} - #{$padding-5x} - #{$padding-5x});
@@ -98,7 +99,7 @@
 
 /* NavBar */
 .cute-layout-navbar {
-  margin: $margin-3x 0;
+  margin-top: $margin-3x;
 
   &__main {
     display: flex;
@@ -116,6 +117,10 @@
 
   &__bottom {
     margin-top: $margin-3x;
+  }
+
+  &+.cute-layout__main {
+    margin-top: $margin-3x; // 存在面包屑时，调整为向面包屑对齐
   }
 }
 

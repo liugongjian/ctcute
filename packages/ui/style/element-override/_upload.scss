@@ -5,6 +5,8 @@
     color: $upload-font-active-color;
     font-size: $upload-font-size;
     align-items: center;
+    margin-right: 0;
+    padding-right: 40px;
 
     &:hover,
     &:focus,
@@ -62,8 +64,9 @@
   border: 1px solid $upload-border-color;
   border-radius: $border-radius;
 
-  @include uploader-success();
 }
+
+@include uploader-success();
 
 //图片上传
 .picture-uploader {
@@ -79,11 +82,13 @@
     align-items: center;
     justify-content: center;
     background: $color-grey-11;
+
     .el-upload-list__item {
       width: $upload-picture-card-size;
       height: $upload-picture-card-size;
       border-radius: $border-radius;
     }
+
     .el-icon-plus {
       font-size: $text-size-xl;
       color: $text-color-light;
@@ -92,14 +97,6 @@
     &:hover {
       border-color: $upload-color;
     }
-  }
-
-  .el-upload-list__item.is-uploading {
-    width: $upload-picture-card-size;
-    height: $upload-picture-card-size;
-    background-color: none;
-    border-radius: $border-radius;
-    border: 1px dashed $loading-default-border;
   }
 
   .el-upload-list__item.is-success {
@@ -152,6 +149,26 @@
   }
 }
 
+.el-upload-list__item {
+  &.is-uploading {
+
+    .el-progress-bar__outer {
+      height: $upload-progress-bar-height !important;
+      border-radius: 0 !important;
+    }
+
+    .el-progress-bar__inner {
+      border-radius: 0 !important;
+    }
+  }
+
+  .el-progress-bar {
+    margin-left: 28px; // 写死的
+    border-radius: 0px;
+    width: calc(100% - 28px); // 写死的
+  }
+}
+
 //文件上传
 .file-uploader {
   width: $upload-file-uploader-width; // TODO
@@ -172,6 +189,7 @@
 
   .sub-svg-text {
     margin-top: 29px; // TODO
+
     svg {
       color: $upload-color;
       margin-right: $margin-10;
@@ -194,16 +212,23 @@
     background-color: $upload-bg;
     height: $upload-picture-card-size;
     width: $upload-file-uploader-width;
+
     .el-upload__text {
       line-height: $form-item-content-line-height;
       color: $upload-dragger-text-color;
       vertical-align: middle;
       padding-top: 34px;
+
       span {
         color: $upload-color;
       }
     }
+
+    &:hover {
+      border-color: $upload-color;
+    }
   }
+
   @include uploader-success();
 }
 

@@ -7,6 +7,11 @@
     padding-left: 18px; //TODO
   }
 
+    .el-timeline-item__tail {
+      width: 2px;
+      border-left: 2px solid $color-neutral-2;
+    }
+
   .el-timeline-item__timestamp.is-top {
     padding: 2px 0px;//TODO
     margin-bottom: 0;//TODO

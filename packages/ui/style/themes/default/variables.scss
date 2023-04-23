@@ -230,7 +230,7 @@ $margin-primary: $margin-small !default; // deprecated(弃用)
 /* Title: 阴影; Doc: true
 -------------------------- */
 $shadow-1: 0px 0px 8px rgba(100, 110, 144, 0.1) !default; // 一级阴影: 背景卡片使用
-$shadow-2: 0px 0px 15px rgba(100, 110, 144, 0.2) !default; // 二级阴影: 下拉组件使用，如下拉菜单、下拉选择器、气泡确认框
+$shadow-2: 0px 0px 16px rgba(100, 110, 144, 0.2) !default; // 二级阴影: 下拉组件使用，如下拉菜单、下拉选择器、气泡确认框
 $shadow-3: 0px 0px 40px rgba(0, 0, 0, 0.1) !default; // 三级阴影: 最上层投影，对话框、抽屉使用
 $shadow-form-item: 0px 2px 2px rgba(0, 0, 0, 0.1) !default; // 组件Focused状态使用
 
@@ -324,7 +324,6 @@ $radio-group-border-disabled-color: $disabled-border !default;
 $radio-group-border-disabled-bg: $color-master-disabled !default;
 $radio-width: 14px !default; // 普通按钮外部宽高
 $radio-label-width: $common-space-2x !default; // 普通按钮 中间按钮宽高:
-
 $input-lg-padding: 0 $padding-6x !default;
 $input-md-padding: 0 $padding-4x !default;
 $input-sm-padding: 0 $padding-3x !default;
@@ -374,6 +373,7 @@ $range-editor-tags-size: 16px !default;
 
 /* Title: Checkbox; Doc: false
 -------------------------- */
+$checkbox-label-size: 14px !default;
 $checkbox-bg: $color-master-bg-light-2 !default;
 $checkbox-border: $color-master !default;
 $checkbox-button: $color-master-bg-light-2 !default;
@@ -456,6 +456,7 @@ $notification-border-color: $neutral-1 !default;
 
 /* Title: Upload; Doc: false
 -------------------------- */
+$upload-progress-bar-height: 2px !default;
 $upload-color: $color-master !default;
 $upload-border-color: $border-color !default;
 $upload-bg: $color-bg-1 !default;
@@ -469,11 +470,18 @@ $upload-picture-card-progress-circle-size: 70px !default;
 $upload-file-uploader-width: 320px !default;
 $upload-dragger-border-radius: $border-radius !default;
 $upload-dragger-text-color: $text-color !default;
-
 /* Title: Card; Doc: false
 -------------------------- */
 $card-bg: $color-bg-2 !default;
 $card-shadow: $shadow-1 !default;
+
+/* Title: Badge; Doc: false
+-------------------------- */
+$badge-content-padding: 4.5px  !default;
+
+/* Title: Time; Doc: false
+-------------------------- */
+$date-panel-btn-size: 28px !default;
 
 /* Title: Cascader; Doc: false
 -------------------------- */
@@ -508,7 +516,7 @@ $dialog-footer-bg: $color-neutral-1 !default;
 
 /* Title: Icon; Doc: false
 -------------------------- */
-$icon-color: $color-grey-3 !default;
+$icon-color: $color-grey-2 !default;
 
 /* Title: Loading; Doc: false
 -------------------------- */
@@ -528,6 +536,8 @@ $alert-weak-bg: $neutral-1 !default;
 
 /* Title: CuteSlider; Doc: false
 -------------------------- */
+$cute-slider-text-color: $neutral-10 !default;
+$cute-slider-bg: $neutral-2 !default;
 $cute-slider-line-color: $color-master;
 $cute-slider-disabled-border: $disabled-border;
 $cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;

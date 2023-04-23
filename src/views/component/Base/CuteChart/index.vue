@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2023-04-10 06:51:22
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-10 07:06:24
+ * @LastEditTime: 2023-04-22 10:02:15
  * @Description: 图表组件说明
 -->
 
@@ -71,7 +71,7 @@ export default class extends Vue {
       name: 'theme',
       desc: 'echarts主题',
       type: 'String',
-      options: 'cuted-light, echarts内置的theme',
+      options: 'cuted-light, cuted-dark, echarts内置的theme',
       default: 'cuted-light',
     },
   ]

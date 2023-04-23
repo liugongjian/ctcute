@@ -30,27 +30,29 @@ export default class extends Vue {
   private componentList = list
   private titles = null
   private currentId = null
+  private layoutBody = null
 
   private mounted() {
+    this.layoutBody = document.querySelector('.cute-layout__body')
     const uiContainer = document.querySelector('#ui-container')
     this.titles = uiContainer.querySelectorAll('h1')
-    document.addEventListener('scroll', this.findCurrentTitle)
+    this.layoutBody.addEventListener('scroll', this.findCurrentTitle)
     this.findCurrentTitle()
   }
 
   private beforeDestroy() {
-    document.removeEventListener('scroll', this.findCurrentTitle)
+    this.layoutBody.removeEventListener('scroll', this.findCurrentTitle)
   }
 
   /**
    * 滚动页面时找到对应的标题，并更新url hash
    */
   private findCurrentTitle() {
-    const scrollY = window.scrollY
+    const scrollTop = this.layoutBody.scrollTop
     let currentTitle = null
     for (let i = 0; i < this.titles.length; i++) {
       const title = this.titles[i]
-      if (scrollY < title.offsetTop + 50) {
+      if (scrollTop < title.offsetTop) {
         currentTitle = title
         break
       }

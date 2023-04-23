@@ -12,7 +12,6 @@ $toast-height: 36px;
     min-width: $toast-width;
     height: $toast-height;
     background: $bg-color;
-    box-shadow: $shadow-3;
     border-radius: $border-radius;
     border: none;
     padding: $padding-2x $padding-4x;
@@ -33,7 +32,8 @@ $toast-height: 36px;
 
     .el-message__content {
       font-size: $text-size-primary;
-      color: $text-color-light-1;
+      color: $text-color-feature;
+      line-height: $line-height;
     }
   }
 }

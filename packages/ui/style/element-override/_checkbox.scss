@@ -47,12 +47,9 @@ $checkbox-border-radius: $border-radius;
       border-color: $disabled-border;
 
       &:before {
-        border-color: transparent $disabled-border $disabled-border transparent;
+        border-color: transparent $checkbox-button-disabled-select $checkbox-button-disabled-select transparent;
       }
 
-      &:after {
-        color: $color-grey-5;
-      }
     }
 
     &.is-disabled.is-checked .el-checkbox-button__inner {

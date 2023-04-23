@@ -69,11 +69,11 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .text {
-  font-size: 12px;
+  font-size: $text-size;
 }
 
 .item {
-  margin-bottom: 18px;
+  margin-bottom: $text-size-xl;
 }
 
 .clearfix:before,
@@ -91,13 +91,13 @@ export default class extends Vue {
 }
 
 .time {
-  font-size: 12px;
+  font-size: $text-size;
   color: $color-neutral-7;
 }
 
 .bottom {
-  margin-top: 13px;
-  line-height: 12px;
+  margin-top: $text-size;
+  line-height: $text-size;
 }
 
 .button {

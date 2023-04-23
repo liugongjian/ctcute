@@ -106,7 +106,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $color-grey-11;
+    // background: $color-grey-11;
 
     .el-upload-list__item {
       width: $upload-picture-card-size;
@@ -121,7 +121,14 @@
 
     &:hover {
       border-color: $upload-color;
+      color: $upload-color;
+
+      .el-icon-plus {
+        color: $upload-color;
+      }
     }
+
+
   }
 
   .el-upload-list__item.is-success {
@@ -181,6 +188,19 @@
 
   .el-progress--circle .el-progress__text {
     font-size: $text-size-md !important;
+  }
+
+  &.disabled {
+    .el-upload--picture-card {
+      background-color: $disabled-bg;
+      border-color: $disabled-border;
+      color: $disabled-color;
+      cursor: not-allowed;
+
+      .el-icon-plus {
+        color: $disabled-color;
+      }
+    }
   }
 }
 

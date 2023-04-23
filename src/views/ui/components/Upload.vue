@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-19 16:32:05
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-23 15:16:46
+ * @LastEditTime: 2023-04-23 16:46:43
  * @Description: 
 -->
 <template>
@@ -50,6 +50,22 @@
       <h3>图片上传</h3>
       <el-upload
         class="picture-uploader"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        list-type="picture-card"
+        :on-remove="handleRemove"
+        :file-list="fileList1"
+      >
+        <i class="el-icon-plus"></i>
+      </el-upload>
+      <el-dialog :visible.sync="dialogVisible">
+        <img :src="dialogImageUrl" alt="" />
+      </el-dialog>
+    </div>
+    <div>
+      <h3>图片上传-禁用</h3>
+      <el-upload
+        disabled
+        class="picture-uploader disabled"
         action="https://jsonplaceholder.typicode.com/posts/"
         list-type="picture-card"
         :on-remove="handleRemove"
@@ -113,7 +129,7 @@ export default class extends Vue {
   private dialogVisible = false
   private fileList1 = [
     {
-      url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2Ftp09%2F210F2130512J47-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1660837138&t=2e98f5317104b33332b5ea2aed5185ca',
+      url: 'https://fastly.picsum.photos/id/107/400/400.jpg?hmac=Tw5IGwPKXffTRtERQNVpnngbuGCU41IywM01jKfkK8w',
     },
   ]
   private fileList2 = [

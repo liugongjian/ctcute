@@ -378,6 +378,8 @@ $checkbox-bg: $color-master-bg-light-2 !default;
 $checkbox-border: $color-master !default;
 $checkbox-button: $color-master-bg-light-2 !default;
 $checkbox-button-hover: $color-master-bg-light !default;
+$checkbox-button-disabled: $color-neutral-1 !default;
+$checkbox-button-disabled-select: $color-master-disabled !default;
 
 /* Title: Table; Doc: false
 -------------------------- */
@@ -437,7 +439,9 @@ $tabs-default-line-color: $color-neutral-3 !default; // 默认风格的线条颜
 /* Title: Switch; Doc: false
 -------------------------- */
 $switch-core-bg: $neutral-6 !default;
+$switch-core-bg-disabled: $neutral-5 !default;
 $switch-core-color: $color-bg-1 !default;
+$switch-core-bg-disabled: $neutral-5 !default;
 $switch-small-height: $common-space-4x !default;
 $switch-small-core-size: $common-space-3x !default;
 
@@ -466,7 +470,7 @@ $upload-font-size: $text-size-sm !default;
 $upload-tips-font-color: $color-neutral-7 !default;
 $upload-font-active-color: $color-grey-1 !default;
 $upload-picture-card-size: 100px !default;
-$upload-picture-card-progress-circle-size: 70px !default;
+$upload-picture-card-progress-circle-size: 72px !default;
 $upload-file-uploader-width: 320px !default;
 $upload-dragger-border-radius: $border-radius !default;
 $upload-dragger-text-color: $text-color !default;
@@ -533,6 +537,8 @@ $alert-weak-bg: $neutral-1 !default;
 
 /* Title: CuteSlider; Doc: false
 -------------------------- */
+$cute-slider-size: 14px !default; // 特殊大小
+$slider-height: 4px !default;
 $cute-slider-text-color: $neutral-10 !default;
 $cute-slider-bg: $neutral-2 !default;
 $cute-slider-line-color: $color-master;

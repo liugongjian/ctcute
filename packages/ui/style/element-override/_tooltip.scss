@@ -1,5 +1,9 @@
 /* Tooltip
 -------------------------- */
+.el-tooltip__popper {
+  border-radius: $border-radius;
+  line-height: $line-height;
+}
 
 .el-tooltip__popper.is-dark {
   background: $tooltip-bg;

@@ -1,4 +1,4 @@
-$cute-slider-marks-height: 6px;
+$cute-slider-marks-height: 10px;
 $cute-slider-bar-height: 10px;
 $cute-slider-input-width: 64px;
 $cute-slider-btn-radius: 8px;
@@ -11,6 +11,7 @@ $cute-slider-btn-radius: 8px;
     width: 1px;
     height: $cute-slider-marks-height;
     border-radius: 0;
+    margin-top: 0;
   }
 
   .el-slider__stop:last-child {
@@ -110,14 +111,14 @@ $cute-slider-btn-radius: 8px;
       display: block;
       background-color: $cute-slider-btn-color;
       width: 1px;
-      height: 8px;
+      height: $cute-slider-marks-height;
 
       &:first-child {
         margin-left: 0;
       }
 
       &:nth-child(2) {
-        height: 10px;
+        height: $cute-slider-marks-height;
         margin: 0 2px;
       }
     }
@@ -131,5 +132,9 @@ $cute-slider-btn-radius: 8px;
         background-color: $cute-slider-btn-color-disabled;
       }
     }
+  }
+
+  .el-slider__button-wrapper {
+    top: -13px;
   }
 }

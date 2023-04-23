@@ -9,11 +9,11 @@ $checkbox-border-radius: $border-radius;
 
 .el-checkbox-group {
   .el-checkbox-button {
-    margin-right: $margin-2x;
+    margin-right: $margin;
 
     &.is-checked .el-checkbox-button__inner {
       color: $text-color;
-      background-color: $checkbox-bg;
+      background-color: $checkbox-button-hover;
       border: 1px solid $checkbox-border;
       box-shadow: none;
       position: relative;
@@ -43,16 +43,18 @@ $checkbox-border-radius: $border-radius;
 
     &.is-disabled .el-checkbox-button__inner {
       color: $disabled-color;
-      background-color: unset;
+      background-color: $checkbox-button-disabled;
       border-color: $disabled-border;
 
       &:before {
-        border-color: transparent $disabled-border $disabled-border transparent;
+        border-color: transparent $checkbox-button-disabled-select $checkbox-button-disabled-select transparent;
       }
 
-      &:after {
-        color: $color-grey-5;
-      }
+    }
+
+    &.is-disabled.is-checked .el-checkbox-button__inner {
+      background-color: $checkbox-button-hover;
+      border: 1px solid $checkbox-button-disabled-select;
     }
   }
 

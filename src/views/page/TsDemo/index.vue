@@ -7,17 +7,6 @@
 -->
 <template>
   <el-card class="box-card">
-    <div class="font-style">
-      <el-button type="primary">xxx</el-button>
-      <el-button disabled type="primary">xxx</el-button>
-      <el-button type="danger" plain>xxx</el-button>
-      <el-button type="danger">xxx</el-button>
-      <el-button disabled type="danger">xxx</el-button>
-      <el-button type="warning">xxx</el-button>
-      <el-button disabled type="warning">xxx</el-button>
-      <el-button type="info">xxx</el-button>
-      <el-button disabled type="info">xxx</el-button>
-    </div>
     <div slot="header">
       <h2>根组件</h2>
     </div>

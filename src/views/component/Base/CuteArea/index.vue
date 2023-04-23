@@ -13,6 +13,10 @@
       <component-demo path="@/views/component/Base/CuteArea/Demo1.vue">
         <demo1 />
       </component-demo>
+      <h1>CuteArea / 地区选择可清空</h1>
+      <component-demo path="@/views/component/Base/CuteArea/Demo2.vue">
+        <demo2 />
+      </component-demo>
       <h2>CuteArea Attributes</h2>
       <el-table :data="prop" fit border>
         <el-table-column prop="name" label="参数" />
@@ -38,6 +42,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Demo1 from './Demo1.vue'
+import Demo2 from './Demo2.vue'
 import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 
 @Component({
@@ -45,6 +50,7 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
   components: {
     ComponentDemo,
     Demo1,
+    Demo2
   },
 })
 export default class extends Vue {
@@ -62,6 +68,13 @@ export default class extends Vue {
       type: 'Number',
       options: null,
       default: 4,
+    },
+    {
+      name: 'clearable',
+      desc: '是否可以清空选项',
+      type: 'boolean',
+      options: '—',
+      default: "false",
     },
     {
       name: 'popper-width',
@@ -120,9 +133,18 @@ export default class extends Vue {
       desc: '选中值发生变化时触发',
       callback: '目前的选中值',
     },
+    {
+      name: 'clear',
+      desc: '可清空模式下用户点击清空按钮时触发',
+      callback: '—',
+    },
   ]
 
   private slot = [
+    {
+      name: 'prefix',
+      desc: '组件前缀内容',
+    },
     {
       name: 'other',
       desc: '额外展示其他内容',

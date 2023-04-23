@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-10 07:27:14
+ * @LastEditTime: 2023-04-22 10:00:18
  * @Description: 基础图表
 -->
 <template>

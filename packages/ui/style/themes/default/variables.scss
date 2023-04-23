@@ -230,7 +230,7 @@ $margin-primary: $margin-small !default; // deprecated(弃用)
 /* Title: 阴影; Doc: true
 -------------------------- */
 $shadow-1: 0px 0px 8px rgba(100, 110, 144, 0.1) !default; // 一级阴影: 背景卡片使用
-$shadow-2: 0px 0px 15px rgba(100, 110, 144, 0.2) !default; // 二级阴影: 下拉组件使用，如下拉菜单、下拉选择器、气泡确认框
+$shadow-2: 0px 0px 16px rgba(100, 110, 144, 0.2) !default; // 二级阴影: 下拉组件使用，如下拉菜单、下拉选择器、气泡确认框
 $shadow-3: 0px 0px 40px rgba(0, 0, 0, 0.1) !default; // 三级阴影: 最上层投影，对话框、抽屉使用
 $shadow-form-item: 0px 2px 2px rgba(0, 0, 0, 0.1) !default; // 组件Focused状态使用
 
@@ -478,6 +478,10 @@ $upload-dragger-text-color: $text-color !default;
 $card-bg: $color-bg-2 !default;
 $card-shadow: $shadow-1 !default;
 
+/* Title: Badge; Doc: false
+-------------------------- */
+$badge-content-padding: 4.5px  !default;
+
 /* Title: Time; Doc: false
 -------------------------- */
 $date-panel-btn-size: 28px !default;
@@ -513,9 +517,9 @@ $steps-icon-bg: $blue-1 !default; // 完成步骤背景色
 $dialog-header-border: $color-neutral-3 !default;
 $dialog-footer-bg: $color-neutral-1 !default;
 
-/* Title: Icon; Doc: false
+/* Title: Icon; Doc: true
 -------------------------- */
-$icon-color: $color-grey-3 !default;
+$icon-color: $color-neutral-6 !default;
 
 /* Title: Loading; Doc: false
 -------------------------- */

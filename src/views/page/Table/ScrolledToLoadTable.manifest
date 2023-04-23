@@ -5,16 +5,16 @@
       "path": "@/views/page/Table/ScrolledToLoadTable.vue"
     },
     {
-      "name": "SimpleTable.d.ts",
-      "path": "@/types/SimpleTable.d.ts"
+      "name": "ScrolledTable.d.ts",
+      "path": "@/types/ScrolledTable.d.ts"
     },
     {
-      "name": "api/simpleTable.ts",
-      "path": "@/api/simpleTable.ts"
+      "name": "api/scrolledTable.ts",
+      "path": "@/api/scrolledTable.ts"
     },
     {
-      "name": "dics/simpleTable.ts",
-      "path": "@/dics/simpleTable.ts"
+      "name": "dics/scrolledTable.ts",
+      "path": "@/dics/scrolledTable.ts"
     }
   ]
 }

@@ -1,16 +1,27 @@
 /* 状态页 */
 @mixin status {
-  height: 100%;
+  min-height: 100vh;
   background-color: $color-content-bg;
 }
 
-.cute-status-page {
+.page-status {
   @include status();
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  .box {
+    .el-empty__description p {
+      font-family: $font-family;
+      font-size: $text-size-lg;
+      color: $text-color-feature;
+      text-align: center;
+      font-weight: $text-weight;
+      padding-top: $padding-5x;
+    }
+  }
 
   .box-new {
     width: 100%;
@@ -43,6 +54,27 @@
       .box-button {
         margin-top: $margin-6x;
       }
+    }
+  }
+}
+
+.empty-page {
+  @include status();
+
+  .box {
+    min-height: calc(100vh - 206px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .text {
+      font-family: $font-family;
+      font-size: $text-size-lg;
+      color: $text-color-feature;
+      text-align: center;
+      font-weight: $text-weight;
+      padding-top: $padding-5x;
     }
   }
 }

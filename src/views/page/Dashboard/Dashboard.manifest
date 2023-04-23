@@ -23,7 +23,7 @@
     {
       "name": "TableComponent.ts",
       "path": "@/types/TableComponent.ts"
-    }
+    },
     {
       "name": "icon-click.svg",
       "path": "@/views/page/Dashboard/Images/icon-click.svg"
@@ -51,7 +51,7 @@
     {
       "name": "china.json",
       "path": "@/views/page/Dashboard/json/china.json"
-    },
+    }
   ],
   "package": {
     "dependencies": {

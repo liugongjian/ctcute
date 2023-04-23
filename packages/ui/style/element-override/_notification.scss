@@ -1,9 +1,10 @@
 /* Notification
 -------------------------- */
 .el-notification {
-  padding: $padding-4x;
+  padding: $padding-3x $padding-4x $padding-4x $padding-4x;
   background: $color-bg-2;
   border-color: $notification-border-color;
+  box-shadow: $shadow-2;
 }
 
 .el-notification__group {
@@ -18,7 +19,15 @@
 
 .el-notification__title {
   font-size: $text-size-md;
-  margin-bottom: $margin-4x;
+  margin-bottom: $margin-3x;
   font-weight: $text-title-weight;
   line-height: $line-height;
+}
+
+.el-notification__content {
+  margin-top: 0;
+}
+
+.el-notification__closeBtn {
+  color: $color-neutral-6;
 }

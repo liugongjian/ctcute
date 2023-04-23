@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2023-02-03 15:17:40
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-10 06:50:41
+ * @LastEditTime: 2023-04-22 09:59:42
  * @Description:
 -->
 <template>
@@ -15,9 +15,12 @@
 import * as echarts from 'echarts'
 import ECharts, { THEME_KEY } from 'vue-echarts'
 import { Component, Prop, Vue, Provide } from 'vue-property-decorator'
-import themeLight from './theme/light.json'
+import themeLight from './theme/cuted-light.json'
+import themeDark from './theme/cuted-dark.json'
 
 echarts.registerTheme('cuted-light', themeLight)
+echarts.registerTheme('cuted-dark', themeDark)
+
 @Component({
   name: 'CuteChart',
   components: {

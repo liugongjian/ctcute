@@ -28,9 +28,9 @@
     <div class="sub-steps">
       <el-steps :space="180" :active="activeMini" finish-status="success" size="small">
         <el-step
-          v-for="(s, index) in steps"
+          v-for="(s, index) in stepsSmall"
           :key="index"
-          :title="getTitle(s, index)"
+          :title="getTitleSmall(s, index)"
           :status="s.status"
         ></el-step>
       </el-steps>
@@ -131,6 +131,15 @@ export default class extends Vue {
     { title: '结束' },
   ]
 
+  private stepsSmall = [
+    { title: '步骤1' },
+    { title: '步骤2' },
+    { title: '步骤3' },
+    { title: '步骤4' },
+    { title: '错误/失败', status: 'error' },
+    { title: '结束' },
+  ]
+
   private multisteps = [
     { title: '步骤1' },
     { title: '步骤2' },
@@ -208,6 +217,18 @@ export default class extends Vue {
     } else if (index === this.active + 1) {
       return '等待处理'
     } else if (this.steps.length - 1 === this.active) {
+      return '处理完成'
+    } else {
+      return s.title
+    }
+  }
+
+  private getTitleSmall(s: any, index: number) {
+    if (index === this.activeMini) {
+      return '正在处理'
+    } else if (index === this.activeMini + 1) {
+      return '等待处理'
+    } else if (this.stepsSmall.length - 1 === this.activeMini) {
       return '处理完成'
     } else {
       return s.title

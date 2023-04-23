@@ -91,14 +91,14 @@ export default class extends Vue {
     },
     {
       name: 'headerLogo',
-      desc: '主Logo图片URL',
+      desc: '主Logo图片URL，仅支持使用相对路径的图片地址',
       type: 'string',
       options: '',
       default: '天翼云Logo',
     },
     {
       name: 'headerSubLogo',
-      desc: '二级Logo图片URL',
+      desc: '二级Logo图片URL，仅支持使用相对路径的图片地址',
       type: 'string',
       options: '',
       default: 'CuteDesign Logo',

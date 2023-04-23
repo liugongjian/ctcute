@@ -1,13 +1,13 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2023-04-10 07:08:29
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-10 07:12:08
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-23 15:17:18
  * @Description: 指定内容区高度
 -->
 
 <template>
-  <cute-card-box title="指定内容区高度" content-height="320px">
+  <cute-card-box :title="$t('demo.cardBox.demo4.title')" content-height="320px">
     <template #content>
       <CuteChart :option="option" :width="'100%'" :height="'100%'" />
     </template>

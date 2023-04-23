@@ -6,13 +6,13 @@ export default {
     action: 'Operate selected',
   },
   area: {
-    recent: 'recently visited',
+    recent: 'Recently visited',
   },
   tabs: {
     new: 'New Tab',
   },
   tableColumnSet: {
-    checkall: "Check all"
+    checkall: "Check all",
   },
   tableFilter: {
     new: 'Add filter rules',
@@ -22,20 +22,20 @@ export default {
     submit: 'OK',
   },
   select: {
-    placeholder: 'Please select'
+    placeholder: 'Please select',
   },
   slider: {
-    warnMessage: 'Incorrect input, please check and retry'
+    warnMessage: 'Incorrect input, please check and retry',
   },
   stepsMulti: {
-    processing: 'processing',
-    pending: 'pending',
-    completed: 'completed'
+    processing: 'Processing',
+    pending: 'Pending',
+    completed: 'Completed',
   },
   pageStatus: {
     page403Tips: 'Access denied, you do not have access to the page',
     page404Tips: 'Sorry, the page you visited does not exist',
     page500Tips: 'Server error',
-    toHome: 'Back to homepage'
+    toHome: 'Back to homepage',
   }
 }

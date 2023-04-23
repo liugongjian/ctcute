@@ -3,7 +3,7 @@
     <h3>{{ $t('demo.area.demo1.title') }}</h3>
     <cute-area
       v-model="value"
-      placeholder="请选择"
+      :placeholder="$t('demo.area.demo1.placeholder')"
       :data="areas"
       :column="4"
       popper-width="560px"
@@ -12,9 +12,10 @@
       :show-recent="showRecent"
       @change="selectCityClick"
     >
-      <span slot="other" class="suffix-other"
-        >其他区域<span>{{ otherCount }}</span></span
-      >
+      <span slot="other" class="suffix-other">
+        {{ $t('demo.area.demo1.suffix') }}
+        <span>{{ otherCount }}</span>
+      </span>
     </cute-area>
   </div>
 </template>

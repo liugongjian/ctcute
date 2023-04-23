@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <cute-card-box title="只有title">
+  <cute-card-box :title="$t('demo.cardBox.demo1.title')">
     <template #content>
       <CuteChart :option="option" :height="'280px'" :width="'100%'" />
     </template>

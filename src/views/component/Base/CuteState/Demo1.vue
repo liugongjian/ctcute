@@ -1,18 +1,18 @@
 <!--
  * @Author: 王亚振
  * @Date: 2022-12-7 9:15:32
- * @LastEditors: 胡一苗
- * @LastEditTime: 2023-03-24 10:21:44
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-21 16:38:03
  * @Description:
 -->
 <template>
   <div class="sample">
-    <cute-state>默认</cute-state>
-    <cute-state :color="colorVariables.colorSuccess">健康/正常/成功</cute-state>
-    <cute-state type="warning">警告</cute-state>
-    <cute-state type="danger" icon="close-circle">危险/故障/失败</cute-state>
-    <cute-state type="fatal" icon="fault">严重故障</cute-state>
-    <cute-state type="master" :loading="true">启动中</cute-state>
+    <cute-state>{{ $t(('demo.state.demo1.default')) }}</cute-state>
+    <cute-state :color="colorVariables.colorSuccess">{{ $t(('demo.state.demo1.success')) }}</cute-state>
+    <cute-state type="warning">{{ $t(('demo.state.demo1.warn')) }}</cute-state>
+    <cute-state type="danger" icon="close-circle">{{ $t(('demo.state.demo1.error')) }}</cute-state>
+    <cute-state type="fatal" icon="fault">{{ $t(('demo.state.demo1.serious')) }}</cute-state>
+    <cute-state type="master" :loading="true">{{ $t(('demo.state.demo1.start')) }}</cute-state>
   </div>
 </template>
 <script lang="ts">

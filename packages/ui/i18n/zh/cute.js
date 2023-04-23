@@ -1,3 +1,10 @@
+/*
+ * @Author: XinZhao
+ * @Date: 2023-04-20 15:12:18
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-23 15:48:38
+ * @Description: 
+ */
 export default {
   editInput: {
     placeholder: '请输入',
@@ -12,30 +19,30 @@ export default {
     new: '新选项卡',
   },
   tableColumnSet: {
-    checkall: "全选"
+    checkall: "全选",
   },
   tableFilter: {
     new: '新增过滤',
   },
   button: {
-    cancel: '取消',
+    cancel: '取 消',
     submit: '确 定',
   },
   select: {
-    placeholder: '请选择'
+    placeholder: '请选择',
   },
   slider: {
-    warnMessage: '输入错误，请重新输入'
+    warnMessage: '输入错误，请重新输入',
   },
   stepsMulti: {
     processing: '正在处理',
     pending: '等待处理',
-    completed: '处理完成'
+    completed: '处理完成',
   },
   pageStatus: {
     page403Tips: '你无权访问该页面',
     page404Tips: '抱歉，您访问的页面不存在',
     page500Tips: '服务器出错了',
-    toHome: '返回首页'
+    toHome: '返回首页',
   }
 }

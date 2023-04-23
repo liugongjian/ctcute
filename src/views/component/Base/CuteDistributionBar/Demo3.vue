@@ -6,7 +6,7 @@
  * @Description: 带标题的内容块
 -->
 <template>
-  <cute-distribution-bar :data="barList" mode="free" :max="3000"> </cute-distribution-bar>
+  <cute-distribution-bar :data="barList" mode="free" :max="3000"></cute-distribution-bar>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
@@ -21,23 +21,23 @@ export default class extends Vue {
   barList = [
     {
       code: 'nm-center',
-      name: '内蒙中心',
+      name: this.$t('demo.distributeBar.common.label1'),
       checked: true,
       value: 300,
     },
     {
       code: 'gz-center',
-      name: '贵州中心',
+      name: this.$t('demo.distributeBar.common.label2'),
       checked: true,
       value: 1000,
     },
     {
       code: 'third-center',
-      name: '第三中心',
+      name: this.$t('demo.distributeBar.common.label3'),
     },
     {
       code: 'fourth-center',
-      name: '第四中心',
+      name: this.$t('demo.distributeBar.common.label4'),
     },
   ]
 }

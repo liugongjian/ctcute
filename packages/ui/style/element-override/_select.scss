@@ -4,23 +4,28 @@ $tags-left-xs: $padding-2x - 6;
 $tags-left-sm: $padding-2x - 6;
 $tags-left-md: $padding-3x - 6;
 $tags-left-lg: $padding-4x - 6;
+
 /*
   重置Select基本样式
 */
 .el-range-editor--mini.el-input__inner {
   height: $range-editor-height;
 }
+
 .el-range-editor--small.el-input__inner {
   height: $range-editor-height;
 }
+
 .el-select {
   .el-icon-circle-close:before {
     font-family: $font-family-cute-icons;
     content: '\ea4f';
   }
+
   .el-input--suffix {
     height: 100%;
   }
+
   &.disabled-select {
     .el-select__tags-text:after {
       @include iconfont;
@@ -54,6 +59,7 @@ $tags-left-lg: $padding-4x - 6;
 .el-select__input {
   height: 20px;
 }
+
 .el-select {
   .el-tag {
     background: $cascader-tag-bg;
@@ -64,6 +70,7 @@ $tags-left-lg: $padding-4x - 6;
   .el-tag.el-tag--light.el-tag--info {
     color: $text-color;
   }
+
   .el-tag.el-tag--info .el-tag__close {
     background-color: unset;
     color: $text-color;
@@ -86,6 +93,7 @@ $tags-left-lg: $padding-4x - 6;
 .el-range-editor.el-input__inner.is-disabled {
   background-color: $range-editor-disabled-bg;
 }
+
 .el-select-dropdown {
   background: $select-dropdown-bg;
   box-shadow: $shadow-2;
@@ -95,14 +103,18 @@ $tags-left-lg: $padding-4x - 6;
     &.hover {
       background-color: unset;
     }
+
     &:hover {
       background-color: $color-info-bg;
     }
+
     font-size: $text-size;
     background-color: $select-dropdown-bg;
+
     &:not(.el-select-dropdown__item.selected):not(.el-select-dropdown__item.is-disabled):hover {
       color: $select-color;
     }
+
     &.selected {
       color: $select-color;
       background-color: unset;
@@ -149,28 +161,34 @@ $tags-left-lg: $padding-4x - 6;
     }
   }
 }
+
 .el-select--small {
   .el-tag.el-tag--mini {
     height: $select-xs-height - 6;
     line-height: $select-xs-height - 6;
   }
 }
+
 @mixin select-size($size, $height, $left) {
   .el-select {
     &.el-select--#{$size} {
       line-height: $height - 2;
+
       .el-input--suffix {
         line-height: $height - 2;
+
         .el-input__inner {
-          line-height: $height - 2;
+          line-height: $height;
         }
       }
+
       .el-select__tags {
         left: $left;
       }
     }
   }
 }
+
 @include select-size(large, $select-lg-height, $tags-left-lg);
 @include select-size(medium, $select-md-height, $tags-left-md);
 @include select-size(small, $select-sm-height, $tags-left-sm);

@@ -1,0 +1,12 @@
+{
+  "files": [
+    {
+      "name": "EmptyPage.vue",
+      "path": "@/views/page/StatusPage/EmptyPage.vue"
+    },
+    {
+      "name": "empty-page.svg",
+      "path": "@/views/page/StatusPage/Image/empty-page.svg"
+    }
+  ]
+}

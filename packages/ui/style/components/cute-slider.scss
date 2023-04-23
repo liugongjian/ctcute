@@ -23,7 +23,7 @@ $cute-slider-btn-radius: 8px;
     //常规
     .el-slider__runway {
       width: var(--width-slider);
-      background: $color-master-bg-light;
+      background: $cute-slider-bg;
       height: $cute-slider-marks-height;
 
       .el-slider__button {
@@ -124,7 +124,7 @@ $cute-slider-btn-radius: 8px;
   }
 
   .el-slider__runway.disabled {
-    background: $cute-slider-bg-disabled;
+    background: $cute-slider-bg;
 
     .cute-slider-user-button {
       span {

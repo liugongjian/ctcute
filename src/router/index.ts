@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-29 10:25:03
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-20 17:21:20
+ * @LastEditTime: 2023-04-14 12:16:49
  * @Description:
  */
 import Vue from 'vue'
@@ -17,7 +17,6 @@ import docRouter from '@/router/modules/doc'
 import consoleRoutes from '@/router/modules/console'
 import layoutTestRoutes from '@/router/modules/layoutTest'
 import i18n from '@/i18n'
-import { CuteStatusPage404, CuteStatusPage403, CuteStatusPage500 } from '@cutedesign/ui'
 
 Vue.use(Router)
 
@@ -60,17 +59,17 @@ Router.prototype.push = function push(location) {
 const _statusRoutes = [
   {
     path: '/404',
-    component: CuteStatusPage404,
+    component: () => import('@/views/page/StatusPage/Page404.vue'),
     meta: { hidden: true },
   },
   {
     path: '/403',
-    component: CuteStatusPage403,
+    component: () => import('@/views/page/StatusPage/Page403.vue'),
     meta: { hidden: true },
   },
   {
     path: '/500',
-    component: CuteStatusPage500,
+    component: () => import('@/views/page/StatusPage/Page500.vue'),
     meta: { hidden: true },
   },
   { path: '*', redirect: '/404', meta: { hidden: true } },

@@ -1,23 +1,39 @@
 /* DatePicker
 -------------------------- */
 $datepicker-shadow: $shadow-2;
+.el-picker-panel.el-date-picker.el-popper.has-sidebar // .el-picker-panel__body-wrapper {
+//   min-width: 640px;
+// }
+
+.el-date-range-picker .el-picker-panel__body {
+  min-width: 600px;
+}
+
+.el-date-picker {
+  width: auto;
+
+  &.has-sidebar {
+    width: auto;
+  }
+}
 
 .el-date-picker:not(.el-picker-panel.el-date-picker.el-popper.has-sidebar) {
-  width: 270px;
+  // width: 380px;
 
   .el-picker-panel__content {
-    width: 240px;
+    width: 350px;
   }
 }
 
 .el-picker-panel {
   border: none;
+
   .el-picker-panel__sidebar {
-    width: 100px;
+    width: 140px;
   }
 
-  .el-picker-panel__sidebar + .el-picker-panel__body {
-    margin-left: 100px;
+  .el-picker-panel__sidebar+.el-picker-panel__body {
+    margin-left: 140px;
   }
 }
 
@@ -51,7 +67,10 @@ $datepicker-shadow: $shadow-2;
     }
   }
 }
-.time-select-item:hover { font-weight: normal; }
+
+.time-select-item:hover {
+  font-weight: normal;
+}
 
 .el-picker-panel.el-date-picker.el-popper.has-sidebar,
 .el-picker-panel.el-date-range-picker.el-popper.has-sidebar {
@@ -82,7 +101,7 @@ $datepicker-shadow: $shadow-2;
 }
 
 .el-picker-panel.el-date-range-picker.el-popper {
-  width: 540px;
+  width: 720px;
   background-color: $color-bg-1;
 }
 
@@ -103,7 +122,7 @@ $datepicker-shadow: $shadow-2;
 }
 
 .el-picker-panel.el-date-range-picker.el-popper.has-sidebar {
-  width: 639px;
+  width: 860px;
 }
 
 .el-picker-panel.el-date-range-picker.el-popper.has-time {
@@ -144,10 +163,9 @@ $datepicker-shadow: $shadow-2;
 }
 
 .el-picker-panel.el-date-picker.el-popper.has-sidebar {
-  width: 369px;
 
   .el-picker-panel__content {
-    width: 238px;
+    width: 350px;
   }
 }
 
@@ -193,6 +211,7 @@ $datepicker-shadow: $shadow-2;
 }
 
 .el-date-editor {
+
   .el-range-input,
   .el-input__inner {
     background-color: $color-bg-1;
@@ -232,4 +251,26 @@ $datepicker-shadow: $shadow-2;
 
 .el-time-panel__content.has-seconds:before {
   margin: -15px 0;
+}
+
+.el-time-panel__btn.confirm {
+  font-weight: 400;
+}
+
+.el-date-table {
+  td {
+    height: $date-panel-btn-size;
+    width: $date-panel-btn-size;
+
+    div {
+      padding: 0;
+      margin: 3px 0;
+    }
+
+    span {
+      height: $date-panel-btn-size;
+      width: $date-panel-btn-size;
+      line-height: $date-panel-btn-size;
+    }
+  }
 }

@@ -6,7 +6,7 @@
  * @Description: 404页
 -->
 <template>
-  <div class="cute-status-page">
+  <div class="page-status">
     <div class="box-new">
       <div class="box-image">
         <el-image :src="Img" fit="cover"></el-image>
@@ -23,7 +23,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 
 @Component({
-  name: 'CuteStatusPage404',
+  name: 'Page404',
 })
 export default class extends Vue {
   private Img = require('./Image/page-404.svg')

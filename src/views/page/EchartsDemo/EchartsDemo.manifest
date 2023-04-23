@@ -47,7 +47,7 @@
     {
       "name": "TreemapDemo.vue",
       "path": "@/views/page/EchartsDemo/TreemapDemo.vue"
-    },
+    }
   ],
   "package": {
     "dependencies": {

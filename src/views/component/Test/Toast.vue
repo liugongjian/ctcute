@@ -2,7 +2,7 @@
  * @Author: 李志伟
  * @Date: 2023-03-27 16:34:29
  * @LastEditors: 李志伟
- * @LastEditTime: 2023-03-30 14:33:58
+ * @LastEditTime: 2023-04-23 10:57:28
  * @Description: Toast 轻提示
 -->
 <template>
@@ -42,7 +42,7 @@
           <span class="btn-text">警告</span>
         </el-button>
       </el-col>
-      <el-col :span="2">
+      <el-col :span="1">
         <el-button
           type="text"
           @click="
@@ -58,7 +58,7 @@
           <span class="btn-text">错误</span>
         </el-button>
       </el-col>
-      <el-col :span="2">
+      <el-col :span="1">
         <el-button
           type="text"
           @click="

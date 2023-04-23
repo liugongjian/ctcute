@@ -1,12 +1,15 @@
 /* Upload
 -------------------------- */
 @mixin uploader-success {
+
   .el-upload-list__item .el-upload-list__item-name {
     color: $upload-font-active-color;
+    border-radius: $upload-dragger-border-radius;
     font-size: $upload-font-size;
     align-items: center;
     margin-right: 0;
     padding-right: 40px;
+    font-size: 12px;
 
     &:hover,
     &:focus,
@@ -25,13 +28,18 @@
 
   .el-upload-list__item:hover {
     background: $upload-bg-hover;
+    border-radius: $upload-dragger-border-radius;
   }
 
-  .el-icon-close:before {
-    font-family: $font-family-cute-icons !important;
-    font-style: normal;
-    content: '\ea70' !important;
-    font-size: $text-size-lg;
+  .el-upload-list__item,
+  .file-uploader,
+  .el-upload-list {
+    .el-icon-close:before {
+      font-family: $font-family-cute-icons !important;
+      font-style: normal;
+      content: '\ea70' !important;
+      font-size: $text-size-lg;
+    }
   }
 
   .el-upload__tip {
@@ -48,11 +56,28 @@
   }
 
   .el-upload-list__item-name {
+
     text-decoration-line: none;
+    border-radius: $upload-dragger-border-radius;
 
     .el-icon-document {
       vertical-align: middle;
     }
+
+    &:hover {
+      color: $text-color !important;
+    }
+  }
+}
+
+@include uploader-success();
+
+.el-upload-list__item-name {
+  font-size: $text-size;
+
+  &:hover {
+    text-decoration: none;
+    color: $text-color;
   }
 }
 
@@ -66,10 +91,10 @@
 
 }
 
-@include uploader-success();
 
 //图片上传
 .picture-uploader {
+
   display: flex;
   margin-bottom: $margin-10;
 
@@ -109,18 +134,37 @@
     width: $upload-picture-card-progress-circle-size;
   }
 
-  .el-upload-list--picture-card .el-upload-list__item {
-    width: $upload-picture-card-size;
-    height: $upload-picture-card-size;
+  .el-upload-list--picture-card {
     display: flex;
-    border-color: $upload-border-color;
-    align-items: center;
-    border-radius: $border-radius;
-    justify-content: center;
-    background-color: $upload-bg;
 
-    .el-upload-list__item-status-label {
-      display: none;
+    .el-upload-list__item-thumbnail {
+      width: $upload-picture-card-size; // TODO
+      height: $upload-picture-card-size; // TODO
+    }
+
+    .el-upload-list__item {
+      width: $upload-picture-card-size;
+      height: $upload-picture-card-size;
+      display: flex;
+      border-color: $upload-border-color;
+      align-items: center;
+      border-radius: $border-radius;
+      justify-content: center;
+      background-color: $upload-bg;
+
+      .el-upload-list__item-status-label {
+        display: none;
+      }
+    }
+
+    .el-icon-delete:before {
+      content: '\ea70';
+      font-family: $font-family-cute-icons !important;
+      font-style: normal;
+    }
+
+    .el-upload-list__item-delete {
+      vertical-align: middle;
     }
   }
 
@@ -129,23 +173,14 @@
     height: $upload-picture-card-progress-circle-size !important;
   }
 
-  .el-upload-list--picture-card {
-    display: flex;
 
-    .el-upload-list__item-thumbnail {
-      width: 68px; // TODO
-      height: 68px; // TODO
-    }
-  }
-
-  .el-icon-delete:before {
-    content: '\ea70';
-    font-family: $font-family-cute-icons !important;
-    font-style: normal;
-  }
 
   .el-progress-circle svg path:nth-child(2) {
     stroke: $upload-color;
+  }
+
+  .el-progress--circle .el-progress__text {
+    font-size: $text-size-md !important;
   }
 }
 

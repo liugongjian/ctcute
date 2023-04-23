@@ -1,5 +1,9 @@
 /* Drawer
 -------------------------- */
+.v-modal {
+  opacity: 0.4;
+}
+
 .el-drawer {
   .el-form {
     .el-form-item--medium .el-form-item__label {
@@ -8,9 +12,9 @@
       color: $text-color;
       font-size: $text-size;
     }
-    .el-form-item--medium .el-form-item__content{
-      line-height: 30px; 
 
+    .el-form-item--medium .el-form-item__content {
+      line-height: 30px;
     }
   }
 }

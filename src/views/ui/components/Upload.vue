@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-19 16:32:05
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-20 16:27:52
+ * @LastEditTime: 2023-04-23 15:16:46
  * @Description: 
 -->
 <template>
@@ -17,6 +17,12 @@
       >
         <el-button><svg-icon name="upload" /> 上传文件</el-button>
         <div slot="tip" class="el-upload__tip">支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
+      </el-upload>
+    </div>
+    <h3>文件上传-禁用</h3>
+    <div style="width: 320px">
+      <el-upload disabled>
+        <el-button disabled><svg-icon name="upload" /> 上传文件</el-button>
       </el-upload>
     </div>
     <div>

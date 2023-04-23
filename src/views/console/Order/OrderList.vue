@@ -70,7 +70,7 @@
       </el-form-item>
     </el-form>
 
-    <div class="order-footer">
+    <div ref="orderFooter" class="order-footer">
       <div>
         <span class="config-cost">配置费用：</span>
         <span class="cost-count">￥{{ form.totalPrice }}</span>
@@ -108,6 +108,8 @@ export default class extends Vue {
   private ruleFormRef
   @Ref('Sliders')
   private RefSlider
+  @Ref('orderFooter')
+  private RefOrderFooter
   private colorVariables = variables
   private areas = [
     {
@@ -278,9 +280,26 @@ export default class extends Vue {
   /**
    * 页面Mounted
    */
-  // private mounted() {
-  //   this.getOptions()
-  // }
+  private mounted() {
+    this.updateFooter()
+    window.addEventListener('resize', this.updateFooter)
+    window.addEventListener('scroll', this.updateFooter)
+  }
+
+  private beforeDestroy() {
+    window.removeEventListener('resize', this.updateFooter)
+    window.removeEventListener('scroll', this.updateFooter)
+  }
+
+  updateFooter() {
+    const layoutContainer = document.getElementById('layout-container')
+    if (!layoutContainer) return
+
+    const { width, left } = layoutContainer.getBoundingClientRect()
+
+    this.RefOrderFooter.style.setProperty('width', width + 'px')
+    this.RefOrderFooter.style.setProperty('left', left + 'px')
+  }
 
   /**
    * 获取获取告警对象

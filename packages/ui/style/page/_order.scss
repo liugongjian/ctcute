@@ -16,7 +16,7 @@
 }
 
 @mixin page-footer {
-  position: absolute;
+  position: fixed;
   z-index: $zindex-layout-header;
   left: 0;
   bottom: 0;

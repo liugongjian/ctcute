@@ -4,7 +4,12 @@
     :sidebar-filter="filterRoutes"
     :sidebar-title="sidebarTitle"
     :sidebar-routes="routes"
+    class="layout-page"
   >
+    <template #navbar-breadcrumb>
+      <cute-breadcrumb />
+      <description />
+    </template>
     <template #header-right>
       <header-nav />
     </template>
@@ -16,14 +21,18 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import CuteLayout from '@cutedesign/ui/components/CuteLayout/index.vue'
+import CuteBreadcrumb from '@cutedesign/ui/components/CuteLayout/Breadcrumb/index.vue'
 import HeaderNav from './components/LayoutHeaderNav/index.vue'
+import Description from './components/Description/index.vue'
 import settings from '@/settings'
 
 @Component({
   name: 'LayoutComponent',
   components: {
     CuteLayout,
+    CuteBreadcrumb,
     HeaderNav,
+    Description,
   },
 })
 export default class extends Vue {
@@ -37,3 +46,15 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.layout-page {
+  ::v-deep .cute-layout-navbar__breadcrumb {
+    display: flex;
+    align-items: center;
+
+    .desc-box {
+      margin-left: $margin;
+    }
+  }
+}
+</style>

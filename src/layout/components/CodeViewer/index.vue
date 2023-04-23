@@ -210,10 +210,11 @@ export default class extends Vue {
   private renderMore() {
     this.$nextTick(() => {
       const menuWidth = this.menu.$el.clientWidth
+      let firstHiddenIndex = 0
       for (let i = 0; i < this.menu.$el.children.length; i++) {
         const li = this.menu.$el.children[i]
         const rightPos = li.clientWidth + li.offsetLeft
-        if (rightPos > menuWidth) {
+        if (firstHiddenIndex || rightPos > menuWidth) {
           if (!this.menuIndex) {
             this.menuIndex = i
             const left = li.offsetLeft
@@ -222,6 +223,7 @@ export default class extends Vue {
             })
           }
           li.style.display = 'none'
+          firstHiddenIndex = i
         } else {
           li.style.display = 'block'
         }

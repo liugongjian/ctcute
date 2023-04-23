@@ -4,6 +4,7 @@
   padding: $padding-4x;
   background: $color-bg-2;
   border-color: $notification-border-color;
+  box-shadow: $shadow-2;
 }
 
 .el-notification__group {
@@ -21,4 +22,8 @@
   margin-bottom: $margin-4x;
   font-weight: $text-title-weight;
   line-height: $line-height;
+}
+
+.el-notification__closeBtn {
+  color: $color-neutral-6;
 }

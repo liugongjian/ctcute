@@ -1,7 +1,7 @@
 <template>
   <el-card class="real-order">
-    <div class="page-header" @click="openPreview">
-      <svg-icon class="page-header__icon" name="arrow-left" />
+    <div class="page-header" :style="fixedStyle" @click="openPreview">
+      <svg-icon class="page-header__icon" name="left" />
       <span class="page-header__content">云硬盘</span>
     </div>
 
@@ -70,7 +70,7 @@
       </el-form-item>
     </el-form>
 
-    <div ref="orderFooter" class="order-footer">
+    <div :style="fixedStyle" class="order-footer">
       <div>
         <span class="config-cost">配置费用：</span>
         <span class="cost-count">￥{{ form.totalPrice }}</span>
@@ -89,7 +89,7 @@
       </div>
       <div>
         <el-button @click="handleCancel"> 取消 </el-button>
-        <el-button type="ct" @click="handleSure"> 下一步 </el-button>
+        <el-button type="primary" @click="handleSure"> 下一步 </el-button>
       </div>
     </div>
   </el-card>
@@ -108,8 +108,9 @@ export default class extends Vue {
   private ruleFormRef
   @Ref('Sliders')
   private RefSlider
-  @Ref('orderFooter')
-  private RefOrderFooter
+
+  private fixedStyle = {}
+
   private colorVariables = variables
   private areas = [
     {
@@ -241,7 +242,6 @@ export default class extends Vue {
     }
   }
   private inputChanges(val) {
-    console.log(val, 'input值')
     if (val == 0) {
       this.form.createTime = null
     } else {
@@ -281,24 +281,26 @@ export default class extends Vue {
    * 页面Mounted
    */
   private mounted() {
-    this.updateFooter()
-    window.addEventListener('resize', this.updateFooter)
-    window.addEventListener('scroll', this.updateFooter)
+    this.updateFixed()
+    window.addEventListener('resize', this.updateFixed)
+    window.addEventListener('scroll', this.updateFixed)
   }
 
   private beforeDestroy() {
-    window.removeEventListener('resize', this.updateFooter)
-    window.removeEventListener('scroll', this.updateFooter)
+    window.removeEventListener('resize', this.updateFixed)
+    window.removeEventListener('scroll', this.updateFixed)
   }
 
-  updateFooter() {
+  updateFixed() {
     const layoutContainer = document.getElementById('layout-container')
     if (!layoutContainer) return
 
     const { width, left } = layoutContainer.getBoundingClientRect()
 
-    this.RefOrderFooter.style.setProperty('width', width + 'px')
-    this.RefOrderFooter.style.setProperty('left', left + 'px')
+    this.fixedStyle = {
+      width: width + 'px',
+      left: left + 'px',
+    }
   }
 
   /**

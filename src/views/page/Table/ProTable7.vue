@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-21 13:41:25
  * @LastEditors: 胡一苗
- * @LastEditTime: 2023-04-19 16:05:38
+ * @LastEditTime: 2023-04-23 14:23:53
  * @Description: 复杂表格7
 -->
 <template>
@@ -15,7 +15,7 @@
     </p>
 
     <el-table v-loading="loading" :data="tableData" fit>
-      <el-table-column type="expand" width="40">
+      <el-table-column type="expand" width="32">
         <template slot-scope="scope">
           <el-table ref="multipleTable" tooltip-effect="dark" :data="scope.row.projectSpaces" class="expand-table">
             <el-table-column prop="projectSpace" label="名称">
@@ -147,8 +147,8 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .expand-table {
-  margin: -10px 50px; // 按业务调整
-  width: calc(100% - 100px);
+  margin: 0 48px; // 按业务调整
+  width: calc(100% - 96px);
   background-color: transparent;
 
   &::before {

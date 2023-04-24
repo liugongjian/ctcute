@@ -2,7 +2,7 @@
   "files": [
     {
       "name": "OrderList.vue",
-      "path": "@/views/console/Order/OrderList.vue"
+      "path": "@/views/page/Order/OrderList.vue"
     },
     {
       "name": "OrderList.d.ts",

@@ -2,16 +2,11 @@
  * @Author: 秦瑞斌
  * @Date: 2022-11-14 16:17:28
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-16 22:02:09
+ * @LastEditTime: 2023-04-24 12:29:53
  * @Description:
 -->
 <template>
   <el-card class="product-detail">
-    <div class="page-header" @click="openPreview">
-      <svg-icon class="page-header__icon" name="arrow-left" />
-      <span class="page-header__content">存储库</span>
-    </div>
-
     <cute-titled-block title="S1详情">
       <template #content>
         <div class="detail-message">
@@ -179,10 +174,6 @@ export default class extends Vue {
   private handleCurrentChange(page: number) {
     this.pager.page = page
     // this.getTable()
-  }
-
-  private openPreview() {
-    console.log('跳转')
   }
 }
 </script>

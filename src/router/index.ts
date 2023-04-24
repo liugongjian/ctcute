@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-29 10:25:03
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-14 12:16:49
+ * @LastEditTime: 2023-04-23 15:19:47
  * @Description:
  */
 import Vue from 'vue'
@@ -14,7 +14,6 @@ import componentRoutes from '@/router/modules/component'
 import uiRoutes from '@/router/modules/ui'
 import loginRouter from '@/router/modules/login'
 import docRouter from '@/router/modules/doc'
-import consoleRoutes from '@/router/modules/console'
 import layoutTestRoutes from '@/router/modules/layoutTest'
 import i18n from '@/i18n'
 
@@ -37,11 +36,6 @@ const _restPageRoutes = restPageRoutes.map((route: any) => {
 
 const _componentRoutes = componentRoutes.map((route: any) => {
   route.meta.type = 'component'
-  return route
-})
-
-const _consoleRoutes = consoleRoutes.map((route: any) => {
-  route.meta.type = 'page'
   return route
 })
 
@@ -157,7 +151,6 @@ export const originConstantRoutes: RouteConfig[] = [
   ...uiRoutes,
   ...loginRouter,
   ..._statusRoutes,
-  ..._consoleRoutes,
   ..._layoutTestRoutes,
 ]
 // 非通用，只是cute-design的场景，遍历所有constantRoutes，给每一条路由的meta加上withoutLogin为true的属性，跳过asyncRoutes

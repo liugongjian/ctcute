@@ -2,11 +2,11 @@
   "files": [
     {
       "name": "ProductDetails.vue",
-      "path": "@/views/console/Order/ProductDetails.vue"
+      "path": "@/views/page/Order/ProductDetails.vue"
     },
     {
       "name": "console.svg",
-      "path": "@/views/console/Order/images/console.svg"
+      "path": "@/views/page/Order/images/console.svg"
     },
     {
       "name": "dics/productDetails.ts",

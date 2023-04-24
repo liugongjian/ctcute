@@ -87,6 +87,7 @@ $color-neutral-9: $neutral-9 !default;
 $color-neutral-10: $neutral-10 !default;
 $color-neutral-11: $neutral-10 !default;
 $color-white: $white !default;
+$color-white-hover: $color-neutral-3 !default;
 $color-black: $black !default;
 
 $color-grey-0: $black !default; // deprecated(弃用)
@@ -377,8 +378,8 @@ $checkbox-label-size: 14px !default;
 $checkbox-bg: $color-master-bg-light-2 !default;
 $checkbox-border: $color-master !default;
 $checkbox-button: $color-master-bg-light-2 !default;
-$checkbox-button-hover: $color-master-bg-light !default;
 $checkbox-button-disabled: $color-neutral-1 !default;
+$checkbox-button-hover: $color-master-bg-light !default;
 $checkbox-button-disabled-select: $color-master-disabled !default;
 
 /* Title: Table; Doc: false
@@ -441,7 +442,6 @@ $tabs-default-line-color: $color-neutral-3 !default; // 默认风格的线条颜
 $switch-core-bg: $neutral-6 !default;
 $switch-core-bg-disabled: $neutral-5 !default;
 $switch-core-color: $color-bg-1 !default;
-$switch-core-bg-disabled: $neutral-5 !default;
 $switch-small-height: $common-space-4x !default;
 $switch-small-core-size: $common-space-3x !default;
 
@@ -474,11 +474,14 @@ $upload-picture-card-progress-circle-size: 72px !default;
 $upload-file-uploader-width: 320px !default;
 $upload-dragger-border-radius: $border-radius !default;
 $upload-dragger-text-color: $text-color !default;
-
 /* Title: Card; Doc: false
 -------------------------- */
 $card-bg: $color-bg-2 !default;
 $card-shadow: $shadow-1 !default;
+
+/* Title: Badge; Doc: false
+-------------------------- */
+$badge-content-padding: 4.5px  !default;
 
 /* Title: Time; Doc: false
 -------------------------- */
@@ -515,9 +518,9 @@ $steps-icon-bg: $blue-1 !default; // 完成步骤背景色
 $dialog-header-border: $color-neutral-3 !default;
 $dialog-footer-bg: $color-neutral-1 !default;
 
-/* Title: Icon; Doc: false
+/* Title: Icon; Doc: true
 -------------------------- */
-$icon-color: $color-grey-3 !default;
+$icon-color: $color-neutral-6 !default;
 
 /* Title: Loading; Doc: false
 -------------------------- */
@@ -537,17 +540,19 @@ $alert-weak-bg: $neutral-1 !default;
 
 /* Title: CuteSlider; Doc: false
 -------------------------- */
-$cute-slider-size: 14px !default; // 特殊大小
+$slider-stop-color: $color-white !default;
+$slider-stop-border-color: $neutral-5 !default;
 $slider-height: 4px !default;
+$cute-slider-size: 14px !default; // 特殊大小
 $cute-slider-text-color: $neutral-10 !default;
 $cute-slider-bg: $neutral-2 !default;
 $cute-slider-line-color: $color-master;
 $cute-slider-disabled-border: $disabled-border;
-$cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $blue-10) !default;
+$cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;
 $cute-slider-btn-width: 17px !default;
 $cute-slider-btn-height: 22px !default;
 $cute-slider-btn-color: $color-master-2 !default;
-$cute-slider-bg-disabled: $color-grey-9;
+$cute-slider-bg-disabled: $disabled-border !default;
 $cute-slider-btn-color-disabled: $color-master-4 !default;
 
 /* Title: CuteArea; Doc: false
@@ -559,7 +564,7 @@ $cute-area-recent-item-background-color: $blue-1 !default;
 $cute-area-item-hover-background-color: $blue-1 !default;
 $cute-area-item-hover-color: $blue-base !default;
 $cute-area-item-seleted-background-color: $blue-base !default;
-$cute-area-head-color: $neutral-5 !default;
+$cute-area-head-color: $neutral-9 !default;
 $cute-area-item-color: $neutral-10 !default;
 
 /* Title: Animation; Doc: true

@@ -20,35 +20,6 @@
     </div>
     <el-row>
       <el-col :span="5">
-        <h3>四层树状菜单标题</h3>
-        <el-tree :data="fourTree" node-key="key" draggable :default-expanded-keys="[2]" :indent="10">
-          <span slot-scope="{ node, data }" class="node-content">
-            <span class="node-icon">
-              <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
-              <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
-            </span>
-            {{ node.label }}
-            <div class="handler-menu">
-              <el-button v-if="!node.isLeaf" slot="reference" type="text">
-                <svg-icon name="plus-square" class="handler-icon" @click.stop="() => {}" />
-              </el-button>
-              <div class="hover-wrapper">
-                <el-button v-if="data.key !== 1" type="text">
-                  <svg-icon name="ellipsis-square" class="handler-icon" @click.stop />
-                </el-button>
-                <div class="pop-tooltip tree-node-popover el-tooltip__popper">
-                  <div class="tooltip-content">
-                    <el-button v-if="!node.isLeaf" size="mini" type="text" @click.stop>重命名</el-button>
-                    <el-button v-if="!node.isLeaf" size="mini" type="text" @click.stop>删除</el-button>
-                    <el-button v-if="node.isLeaf" size="mini" type="text" @click.stop>移动</el-button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </span>
-        </el-tree>
-      </el-col>
-      <el-col :span="5">
         <h3>三层树状菜单标题</h3>
         <el-tree :data="threeTree" draggable node-key="key" :default-expanded-keys="[3]" :indent="10">
           <span slot-scope="{ node }" class="node-content">
@@ -90,55 +61,6 @@
         </el-tree>
       </el-col>
     </el-row>
-    <div>
-      <h3>四层树状菜单带搜索</h3>
-      <div class="tree-search">
-        <el-input
-          v-model="filterText"
-          prefix-icon="el-icon-search"
-          placeholder="请输入"
-          size="mini"
-          clearable
-        />
-
-        <el-tree
-          ref="tree"
-          class="filter-tree"
-          :data="fourTree"
-          :props="defaultProps"
-          :filter-node-method="filterNode"
-          :indent="10"
-          draggable
-          :default-expanded-keys="[2]"
-          node-key="key"
-        >
-          <span slot-scope="{ node, data }" class="node-content">
-            <span class="node-icon">
-              <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
-              <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
-            </span>
-            {{ node.label }}
-            <div class="handler-menu">
-              <el-button v-if="!node.isLeaf" slot="reference" type="text">
-                <svg-icon name="plus-square" class="handler-icon" @click.stop="() => {}" />
-              </el-button>
-              <div class="hover-wrapper">
-                <el-button v-if="data.key !== 1" type="text">
-                  <svg-icon name="ellipsis-square" class="handler-icon" @click.stop />
-                </el-button>
-                <div class="pop-tooltip tree-node-popover el-tooltip__popper">
-                  <div class="tooltip-content">
-                    <el-button v-if="!node.isLeaf" size="mini" type="text" @click.stop>重命名</el-button>
-                    <el-button v-if="!node.isLeaf" size="mini" type="text" @click.stop>删除</el-button>
-                    <el-button v-if="node.isLeaf" size="mini" type="text" @click.stop>移动</el-button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </span>
-        </el-tree>
-      </div>
-    </div>
   </div>
 </template>
 <script lang="ts">

@@ -71,6 +71,7 @@ export interface IScssVariablesRevised {
   colorNeutral10: string;
   colorNeutral11: string;
   colorWhite: string;
+  colorWhiteHover: string;
   colorBlack: string;
   colorGrey0: string;
   colorGrey1: string;
@@ -290,10 +291,13 @@ export interface IScssVariablesRevised {
   rangeEditorMultipleBg: string;
   rangeEditorHeight: string;
   rangeEditorTagsSize: string;
+  checkboxLabelSize: string;
   checkboxBg: string;
   checkboxBorder: string;
   checkboxButton: string;
+  checkboxButtonDisabled: string;
   checkboxButtonHover: string;
+  checkboxButtonDisabledSelect: string;
   tableHeaderBg: string;
   tableCellBg: string;
   tableCellPaddingXs: string;
@@ -336,6 +340,7 @@ export interface IScssVariablesRevised {
   tabsMaster: string;
   tabsDefaultLineColor: string;
   switchCoreBg: string;
+  switchCoreBgDisabled: string;
   switchCoreColor: string;
   switchSmallHeight: string;
   switchSmallCoreSize: string;
@@ -345,6 +350,7 @@ export interface IScssVariablesRevised {
   tooltopLightTextColor: string;
   tooltipFill: string;
   notificationBorderColor: string;
+  uploadProgressBarHeight: string;
   uploadColor: string;
   uploadBorderColor: string;
   uploadBg: string;
@@ -360,6 +366,8 @@ export interface IScssVariablesRevised {
   uploadDraggerTextColor: string;
   cardBg: string;
   cardShadow: string;
+  badgeContentPadding: string;
+  datePanelBtnSize: string;
   cascaderTagBg: string;
   cascaderTagBorder: string;
   cascaderTagCloseColor: string;
@@ -389,11 +397,19 @@ export interface IScssVariablesRevised {
   alertWarningBg: string;
   alertDangerBg: string;
   alertWeakBg: string;
+  sliderStopColor: string;
+  sliderStopBorderColor: string;
+  sliderHeight: string;
+  cuteSliderSize: string;
+  cuteSliderTextColor: string;
+  cuteSliderBg: string;
   cuteSliderLineColor: string;
+  cuteSliderDisabledBorder: string;
   cuteSliderBtnBg: string;
   cuteSliderBtnWidth: string;
   cuteSliderBtnHeight: string;
   cuteSliderBtnColor: string;
+  cuteSliderBgDisabled: string;
   cuteSliderBtnColorDisabled: string;
   cuteAreaRecentBorderColor: string;
   cuteAreaRecentHeadColor: string;

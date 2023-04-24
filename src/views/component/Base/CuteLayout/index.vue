@@ -35,7 +35,7 @@
       </el-table>
 
       <h2>Layout Slots</h2>
-      <el-table :data="prop" fit border>
+      <el-table :data="slot" fit border>
         <el-table-column prop="name" label="name" />
         <el-table-column prop="desc" label="说明" />
       </el-table>

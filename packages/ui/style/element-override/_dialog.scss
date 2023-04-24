@@ -50,6 +50,7 @@ $dialog-fullscreen-margin: $margin-6x;
   &__footer {
     background-color: $dialog-footer-bg;
     padding: $dialog-footer-padding;
+    border-radius: 0 0 $border-radius $border-radius;
   }
 
   /*

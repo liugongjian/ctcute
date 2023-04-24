@@ -248,6 +248,7 @@ $button-padding-large: $margin-3x $padding-6x;
     align-items: center;
     font-size: $font-size;
     padding: $padding;
+    border-radius: $border-radius;
 
     .el-button__icon {
       position: relative;

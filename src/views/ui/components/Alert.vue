@@ -103,16 +103,6 @@ export default class extends Vue {
     animation: rotating 2s linear infinite;
   }
 
-  .long-text {
-    ::v-deep.el-alert {
-      align-items: center;
-    }
-
-    .el-alert__icon {
-      margin-top: $margin;
-    }
-  }
-
   ::v-deep .el-alert {
     margin-top: $margin-5x;
   }

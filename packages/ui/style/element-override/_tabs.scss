@@ -148,9 +148,13 @@ $tabs-lg-height: $input-lg-height;
   }
 }
 
-// border-card风格darm模式兼容
+// border-card风格dark模式兼容
 .el-tabs--border-card, .el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active{
   background-color: $color-bg-2;
+}
+
+.el-tabs--border-card > .el-tabs__header .el-tabs__item{
+  color: $text-color;
 }
 
 

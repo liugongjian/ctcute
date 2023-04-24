@@ -63,7 +63,7 @@
 
   .el-tabs__item {
     border: 1px solid $border-color;
-    box-sizing: border-box;
+    box-sizing: content-box;
     background-color: $color-bg-2;
     text-align: center;
 
@@ -76,6 +76,12 @@
       background-color: $tabs-master;
       border-color: $tabs-master;
       color: $color-white;
+      .el-icon-close{
+        color: $color-white;
+        &:hover{
+          color: $color-neutral-3;
+        }
+      }
     }
 
     &.is-top,

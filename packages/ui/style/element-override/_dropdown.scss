@@ -3,6 +3,7 @@
 $dropdown-item-padding-top-bottom: 7px;
 $dropdown-min-width: 120px;
 $dropdown-icon-line-height: 0.5;
+$dropdown-item-medium-line-height: 34px;
 $dropdown-shadow: 0px 0px 15px rgba(100, 110, 144, 0.15);
 
 @mixin dropdown-size($size, $font-size) {
@@ -66,20 +67,28 @@ $dropdown-shadow: 0px 0px 15px rgba(100, 110, 144, 0.15);
     border-bottom-color: transparent;
   }
 
+  &--medium {
+    .el-dropdown-menu__item {
+      line-height: $dropdown-item-medium-line-height;
+    }
+  }
+
   .el-dropdown-menu__item {
     // font-size: $text-size;
     // line-height: $line-height;
     // min-height: 32px;
     // padding: 0 $padding-4x;
+    text-align: left;
 
     &:hover {
       background: $color-master-bg-light-2;
-      color: $color-master;
+      color: $text-color;
     }
 
     &:active {
-      background: $color-master;
-      color: $color-white;
+      // background: $color-master;
+      color: $color-master;
+      font-weight: $text-title-weight;
     }
   }
 }

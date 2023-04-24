@@ -431,13 +431,18 @@
   }
 
   .vxe-checkbox--icon {
+    font-size: $vxe-radio-icon-font-size;
+  }
+
+  .vxe-checkbox--icon {
     display: inline-block;
     position: relative;
     border: 1px solid $vxe-table-border-color;
-    border-radius: 2px;
+    border-radius: $vxe-border-radius;
     box-sizing: border-box;
-    width: 16px;
-    height: 16px;
+    width: $vxe-checkbox-icon-width-size;
+    height: $vxe-checkbox-icon-height-size;
+    // font-size: $vxe-checkbox-icon-font-size;
     background-color: $vxe-table-checkbox-color;
     z-index: 1;
     transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46), background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
@@ -456,11 +461,12 @@
     transition: transform 0.15s ease-in 0.05s;
     transform-origin: center;
     left: 5px;
-    top: 2px;
+    top: 1px;
   }
 
   .vxe-icon-checkbox-indeterminate {
     background-color: $vxe-table-checkbox-color;
+    border-color: $vxe-primary-color;
   }
 
   .vxe-icon-checkbox-indeterminate:before {
@@ -468,10 +474,10 @@
     background-color: $vxe-primary-color;
     border-radius: 2px;
     transform: scale(0.5);
-    top: 1px;
+    top: 0px;
     width: 12px;
     height: 12px;
-    left: 1px;
+    left: 0px;
     position: absolute;
     display: block;
   }
@@ -484,7 +490,6 @@
   .vxe-icon-checkbox-checked:before {
     content: '';
     box-sizing: content-box;
-    content: "";
     border: 1px solid $vxe-table-checkbox-color;
     border-left: 0;
     border-top: 0;
@@ -495,7 +500,7 @@
     transform: rotate(45deg) scaleY(1);
     transform-origin: center;
     left: 5px;
-    top: 2px;
+    top: 1px;
   }
 }
 
@@ -549,9 +554,7 @@
   // .vxe-cell--required-icon,
   // .vxe-cell--edit-icon,
   // .vxe-cell-help-icon,
-  // .vxe-cell--title {
-  //   vertical-align: middle;
-  // }
+
   .vxe-cell--required-icon {
     margin-right: 0.1em;
   }
@@ -846,15 +849,24 @@
     }
   }
 
-  // .vxe-header--column {
-  //   border-right: $vxe-table-header-column-border-right;
-  // }
+  .vxe-header--column {
+    &.col--checkbox {
+        .vxe-cell--radio,
+        .vxe-cell--checkbox {
+          margin-left: -$margin;
+        }
+      }
+  }
 
   .vxe-body--column {
     padding: $vxe-table-body--column-padding-default;
 
     &.col--checkbox {
       user-select: none;
+      .vxe-cell--radio,
+      .vxe-cell--checkbox {
+        margin-left: -$margin
+      }
     }
   }
 

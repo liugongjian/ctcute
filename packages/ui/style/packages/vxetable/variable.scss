@@ -56,7 +56,7 @@ $vxe-table-row-height-medium: 40px !default;
 $vxe-table-row-height-small: 32px !default;
 $vxe-table-row-height-mini: 32px !default;
 $vxe-table-row-line-height: $line-height !default;
-$vxe-table-row-hover-background-color: $blue-1 !default;
+$vxe-table-row-hover-background-color: $neutral-2 !default;
 $vxe-table-row-striped-background-color: $blue-1 !default;
 $vxe-table-row-hover-striped-background-color: $blue-1 !default;
 $vxe-table-row-radio-checked-background-color: $blue-1 !default;
@@ -120,7 +120,13 @@ $vxe-table-fixed-left-scrolling-box-shadow: 4px 3px 4px 0px rgba(0, 0, 0, 0.12) 
 $vxe-table-fixed-right-scrolling-box-shadow: -4px 3px 4px 0px rgba(0, 0, 0, 0.12) !default;
 
 /*filter*/
-$vxe-table-filter-panel-background-color: $color-white !default;
+$vxe-table-filter-panel-background-color: $color-bg-2 !default;
+$vxe-table-filter-footer-border-color: $neutral-3 !default;
+$vxe-table-filter-footer-border-color: $neutral-3 !default;
+$vxe-table-filter-wrapper-min-width: 120px !default;
+$vxe-table-filter-wrapper-max-width: 360px !default;
+$vxe-table-filter-body-max-height: 200px !default;
+$vxe-table-filter-wrapper-zindex: 10 !default;
 
 /*menu*/
 $vxe-table-menu-item-width: 178px !default;
@@ -142,7 +148,15 @@ $vxe-grid-maximize-background-color: $color-white !default;
 /*toolbar*/
 $vxe-toolbar-background-color: $color-bg-2 !default;
 $vxe-toolbar-custom-active-background-color: #D9DADB !default;
-$vxe-toolbar-panel-background-color: $color-white !default;
+$vxe-toolbar-panel-background-color: $color-bg-2 !default;
+$vxe-toolbar-custom-option-hover-color: $neutral-1 !default;
+$vxe-toolbar-custom-header-border-color: $neutral-2 !default;
+$vxe-toolbar-custom-option-height: 32px !default;
+$vxe-toolbar-custom-option-line-height: 32px !default;
+$vxe-toolbar-custom-option-top: 38px !default;
+$vxe-toolbar-custom-option-wrapper-zindex: 20 !default;
+$vxe-toolbar-custom-option-min-width: 150px !default;
+$vxe-toolbar-custom-option-max-width: 360px !default;
 
 /*tooltip*/
 $vxe-tooltip-dark-color: $color-white !default;
@@ -162,14 +176,13 @@ $vxe-modal-body-background-color: $color-bg-2 !default;
 $vxe-modal-border-color: $dialog-header-border !default;
 
 /*checkbox*/
-$vxe-checkbox-font-size-default: 15px !default;
-$vxe-checkbox-font-size-medium: 14px !default;
-$vxe-checkbox-font-size-small: 13px !default;
+$vxe-checkbox-font-size-default: 12px !default;
+$vxe-checkbox-font-size-medium: 12px !default;
+$vxe-checkbox-font-size-small: 12px !default;
 $vxe-checkbox-font-size-mini: 12px !default;
-$vxe-checkbox-checked-width: 0.32em !default;
-$vxe-checkbox-checked-height: 0.64em !default;
-$vxe-checkbox-indeterminate-width: 0.6em !default;
-$vxe-checkbox-indeterminate-height: 2px !default;
+$vxe-checkbox-icon-width-size: 14px !default;
+$vxe-checkbox-icon-height-size: 14px !default;
+$vxe-checkbox-icon-font-size: 12px !default;
 $vxe-checkbox-border-width: 2px !default;
 $vxe-checkbox-border-radius: 2px !default;
 $vxe-checkbox-icon-background-color: $color-white !default;
@@ -184,6 +197,7 @@ $vxe-radio-font-size-mini: $vxe-checkbox-font-size-mini !default;
 $vxe-radio-border-width: $vxe-checkbox-border-width !default;
 $vxe-radio-icon-background-color: $color-white !default;
 $vxe-radio-checked-icon-background-color: $color-white !default;
+$vxe-radio-icon-font-size: 12px !default;
 $vxe-radio-indeterminate-icon-background-color: $color-white !default;
 $vxe-radio-button-default-background-color: $color-white !default;
 

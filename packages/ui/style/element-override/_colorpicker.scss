@@ -11,6 +11,16 @@
 
   &__panel {
     background-color: $color-bg-1;
+    box-shadow: $shadow-2;
+    padding: $padding-2x;
+
+    .el-color-dropdown__main-wrapper {
+      margin-bottom: $margin-2x;
+    }
+
+    .el-color-dropdown__btns {
+      margin-top: 0;
+    }
   }
 }
 

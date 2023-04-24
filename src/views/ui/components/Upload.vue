@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-19 16:32:05
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-23 16:46:43
+ * @LastEditTime: 2023-04-24 14:39:38
  * @Description: 
 -->
 <template>
@@ -95,6 +95,22 @@
     <h3>文件上传</h3>
     <div class="file">
       <el-upload
+        class="file-uploader"
+        :file-list="fileList"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        multiple
+        :on-preview="handlePreview"
+      >
+        <div class="file-uploader_content">
+          <div class="sub-svg-text"><svg-icon name="upload" /><span>添加文件</span></div>
+          <div class="el-upload__tip">单个文件不超过15M</div>
+        </div>
+      </el-upload>
+    </div>
+    <h3>文件上传-禁用</h3>
+    <div class="file file-disabled">
+      <el-upload
+        disabled
         class="file-uploader"
         :file-list="fileList"
         action="https://jsonplaceholder.typicode.com/posts/"

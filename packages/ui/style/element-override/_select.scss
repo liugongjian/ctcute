@@ -73,11 +73,10 @@ $tags-left-lg: $padding-4x - 6;
 
   .el-tag.el-tag--info .el-tag__close {
     background-color: unset;
-    color: $text-color;
+    color: $select-tag-color;
 
     &:hover {
-      background: $select-color;
-      color: $select-dropdown-bg;
+      color: $select-tag-color-hover;
     }
   }
 }
@@ -91,7 +90,7 @@ $tags-left-lg: $padding-4x - 6;
 */
 
 .el-range-editor.el-input__inner.is-disabled {
-  background-color: $range-editor-disabled-bg;
+  background-color: $select-color-disabled;
 }
 
 .el-select-dropdown {
@@ -121,9 +120,15 @@ $tags-left-lg: $padding-4x - 6;
       font-weight: bold;
     }
 
-    &.is-disabled:hover {
-      color: $color-grey-4;
-      background-color: $select-dropdown-bg;
+    &.is-disabled {
+      .el-input__prefix {
+        color: $select-color-disabled;
+      }
+
+      &:hover {
+        color: $select-color-disabled;
+        background-color: $select-dropdown-bg;
+      }
     }
   }
 

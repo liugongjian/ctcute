@@ -769,13 +769,15 @@ export default class extends Vue {
 
 .auxiliary-message:after {
   content: '辅助信息';
-  margin-left: 10px;
+  margin-left: 20px;
   color: $text-color-light-2;
+  font-weight: normal;
 }
 
 .option__msg {
   float: right;
   color: $text-color-light-1;
+  font-weight: normal;
 }
 
 .time-size-box {

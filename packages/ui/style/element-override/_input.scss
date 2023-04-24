@@ -109,11 +109,20 @@ $input-suffix-padding: $padding-9x;
     .el-input__inner {
       background-color: $color-grey-10;
       border: 1px solid $disabled-border;
+      color: $select-color-disabled;
 
       &:active,
       &:focus {
         box-shadow: none;
       }
+    }
+
+    .el-input__prefix {
+      color: $select-color-disabled;
+    }
+
+    .prefix-placeholder {
+      color: $select-color-disabled;
     }
   }
 }

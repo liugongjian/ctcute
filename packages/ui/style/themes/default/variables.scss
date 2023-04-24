@@ -358,8 +358,10 @@ $input-fill: $color-white !default; // deprecated(弃用)
 $select-border-color-hover: $border-color-hover !default;
 $select-disabled-border: $disabled-border !default;
 $select-color: $color-master !default;
-$select-color: $color-master !default;
+$select-color-disabled: $neutral-6 !default;
 $select-dropdown-bg: $color-bg-1 !default;
+$select-tag-color: $color-neutral-6 !default;
+$select-tag-color-hover: $color-neutral-5 !default;
 $select-xs-height: 24px !default;
 $select-sm-height: 24px !default;
 $select-md-height: 32px !default;
@@ -375,7 +377,7 @@ $range-editor-tags-size: 16px !default;
 /* Title: Checkbox; Doc: false
 -------------------------- */
 $checkbox-label-size: 14px !default;
-$checkbox-bg: $color-master-bg-light-2 !default;
+$checkbox-bg: $color-bg-1 !default;
 $checkbox-border: $color-master !default;
 $checkbox-button: $color-master-bg-light-2 !default;
 $checkbox-button-disabled: $color-neutral-1 !default;

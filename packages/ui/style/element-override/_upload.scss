@@ -233,7 +233,7 @@
   .file-uploader_content {
     width: $upload-file-uploader-width; // TODO
     height: $upload-picture-card-size; // TODO
-    border: 1px solid $upload-border-color; // TODO
+    border: 1px dashed $upload-border-color; // TODO
     border-radius: $border-radius;
     background-color: $upload-bg;
 
@@ -310,4 +310,27 @@
   font-size: $text-size;
   color: $upload-tips-font-color;
   margin-top: $margin-2x;
+}
+
+.file-disabled .file-uploader {
+
+  .file-uploader_content,
+  &.file-uploader_content:hover {
+    background-color: $disabled-bg;
+    border-color: $disabled-border;
+    color: $disabled-color;
+    cursor: not-allowed;
+
+    .sub-svg-text {
+      opacity: 0.5;
+    }
+
+    .el-upload__tip {
+      color: $color-neutral-6;
+    }
+  }
+
+  .el-icon-plus {
+    color: $disabled-color;
+  }
 }

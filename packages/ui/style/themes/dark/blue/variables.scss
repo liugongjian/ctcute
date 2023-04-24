@@ -358,7 +358,9 @@ $input-fill: $color-white !default; // deprecated(弃用)
 $select-border-color-hover: $border-color-hover !default;
 $select-disabled-border: $disabled-border !default;
 $select-color: $color-master !default;
-$select-color: $color-master !default;
+$select-color-disabled: $neutral-6 !default;
+$select-tag-color: $text-color !default;
+$select-tag-color-hover: $select-dropdown-bg !default;
 $select-dropdown-bg: $color-bg-1 !default;
 $select-xs-height: 24px !default;
 $select-sm-height: 24px !default;
@@ -481,7 +483,7 @@ $card-shadow: $shadow-1 !default;
 
 /* Title: Badge; Doc: false
 -------------------------- */
-$badge-content-padding: 4.5px  !default;
+$badge-content-padding: 4.5px !default;
 
 /* Title: Time; Doc: false
 -------------------------- */

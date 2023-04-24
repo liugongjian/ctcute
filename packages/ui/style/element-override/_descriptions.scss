@@ -23,7 +23,7 @@ $descriptions-item-label-max-width: 128px;
     .el-descriptions-row {
       .el-descriptions-item__cell {
         // padding-bottom: $padding-4x;
-        padding: 8px;
+        padding: $padding-2x;
         .el-descriptions-item__label {
           margin-right: $margin-4x;
         }

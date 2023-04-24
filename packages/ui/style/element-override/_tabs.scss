@@ -11,11 +11,24 @@ $tabs-lg-height: $input-lg-height;
 */
 .el-tabs__item{
   font-weight: $text-weight;
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .el-icon-close{
+      color: $disabled-color;
+      transition: none;
+      &:hover{
+        background-color: transparent;
+      }
+    }
+  }
   
-  .el-icon-close{
+  &:not(.is-disabled) .el-icon-close{
     color: $text-color-light-2;
     transition: none;
     cursor: pointer;
+    
     &:hover{
       background-color: transparent;
       color: $tabs-master;

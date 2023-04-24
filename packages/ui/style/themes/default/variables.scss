@@ -87,6 +87,7 @@ $color-neutral-9: $neutral-9 !default;
 $color-neutral-10: $neutral-10 !default;
 $color-neutral-11: $neutral-10 !default;
 $color-white: $white !default;
+$color-white-hover: $color-neutral-3 !default;
 $color-black: $black !default;
 
 $color-grey-0: $black !default; // deprecated(弃用)
@@ -377,7 +378,9 @@ $checkbox-label-size: 14px !default;
 $checkbox-bg: $color-master-bg-light-2 !default;
 $checkbox-border: $color-master !default;
 $checkbox-button: $color-master-bg-light-2 !default;
+$checkbox-button-disabled: $color-neutral-1 !default;
 $checkbox-button-hover: $color-master-bg-light !default;
+$checkbox-button-disabled-select: $color-master-disabled !default;
 
 /* Title: Table; Doc: false
 -------------------------- */
@@ -437,6 +440,7 @@ $tabs-default-line-color: $color-neutral-3 !default; // 默认风格的线条颜
 /* Title: Switch; Doc: false
 -------------------------- */
 $switch-core-bg: $neutral-6 !default;
+$switch-core-bg-disabled: $neutral-5 !default;
 $switch-core-color: $color-bg-1 !default;
 $switch-small-height: $common-space-4x !default;
 $switch-small-core-size: $common-space-3x !default;
@@ -460,13 +464,13 @@ $upload-progress-bar-height: 2px !default;
 $upload-color: $color-master !default;
 $upload-border-color: $border-color !default;
 $upload-bg: $color-bg-1 !default;
-$upload-bg-hover: $color-neutral-9 !default;
+$upload-bg-hover: $color-master-bg-light-2 !default;
 $upload-fill: $upload-bg !default; // deprecated(弃用)
 $upload-font-size: $text-size-sm !default;
 $upload-tips-font-color: $color-neutral-7 !default;
 $upload-font-active-color: $color-grey-1 !default;
 $upload-picture-card-size: 100px !default;
-$upload-picture-card-progress-circle-size: 70px !default;
+$upload-picture-card-progress-circle-size: 72px !default;
 $upload-file-uploader-width: 320px !default;
 $upload-dragger-border-radius: $border-radius !default;
 $upload-dragger-text-color: $text-color !default;
@@ -514,9 +518,9 @@ $steps-icon-bg: $blue-1 !default; // 完成步骤背景色
 $dialog-header-border: $color-neutral-3 !default;
 $dialog-footer-bg: $color-neutral-1 !default;
 
-/* Title: Icon; Doc: false
+/* Title: Icon; Doc: true
 -------------------------- */
-$icon-color: $color-grey-2 !default;
+$icon-color: $color-neutral-6 !default;
 
 /* Title: Loading; Doc: false
 -------------------------- */
@@ -536,6 +540,10 @@ $alert-weak-bg: $neutral-1 !default;
 
 /* Title: CuteSlider; Doc: false
 -------------------------- */
+$slider-stop-color: $color-white !default;
+$slider-stop-border-color: $neutral-5 !default;
+$slider-height: 4px !default;
+$cute-slider-size: 14px !default; // 特殊大小
 $cute-slider-text-color: $neutral-10 !default;
 $cute-slider-bg: $neutral-2 !default;
 $cute-slider-line-color: $color-master;

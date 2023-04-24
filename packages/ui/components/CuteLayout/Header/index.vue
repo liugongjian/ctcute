@@ -28,10 +28,32 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
   name: 'CuteLayoutHeader',
 })
 export default class extends Vue {
-  @Prop({ type: String, default: '' })
+  @Prop({
+    type: String,
+    default: '',
+    validator: function (value) {
+      const reg = /^(?!https?:\/\/)/
+      const result = reg.test(value)
+      if (!result) {
+        console.error('header-logo仅支持传入相对路径图片地址')
+      }
+      return reg.test(value)
+    },
+  })
   private headerLogo?: string
 
-  @Prop({ type: String, default: '' })
+  @Prop({
+    type: String,
+    default: '',
+    validator: function (value) {
+      const reg = /^(?!https?:\/\/)/
+      const result = reg.test(value)
+      if (!result) {
+        console.error('header-sub-logo仅支持传入相对路径图片地址')
+      }
+      return reg.test(value)
+    },
+  })
   private headerSubLogo?: string
 
   @Prop({ type: String, default: '' })

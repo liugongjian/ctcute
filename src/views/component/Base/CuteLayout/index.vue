@@ -1,3 +1,10 @@
+<!--
+ * @Author: 朱凌浩
+ * @Date: 2023-04-21 10:56:09
+ * @LastEditors: 朱凌浩
+ * @LastEditTime: 2023-04-21 10:56:09
+ * @Description:
+-->
 <template>
   <div>
     <div class="component__container">
@@ -28,7 +35,7 @@
       </el-table>
 
       <h2>Layout Slots</h2>
-      <el-table :data="prop" fit border>
+      <el-table :data="slot" fit border>
         <el-table-column prop="name" label="name" />
         <el-table-column prop="desc" label="说明" />
       </el-table>
@@ -91,14 +98,14 @@ export default class extends Vue {
     },
     {
       name: 'headerLogo',
-      desc: '主Logo图片URL',
+      desc: '主Logo图片URL，仅支持使用相对路径的图片地址',
       type: 'string',
       options: '',
       default: '天翼云Logo',
     },
     {
       name: 'headerSubLogo',
-      desc: '二级Logo图片URL',
+      desc: '二级Logo图片URL，仅支持使用相对路径的图片地址',
       type: 'string',
       options: '',
       default: 'CuteDesign Logo',

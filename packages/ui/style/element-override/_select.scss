@@ -112,13 +112,13 @@ $tags-left-lg: $padding-4x - 6;
     background-color: $select-dropdown-bg;
 
     &:not(.el-select-dropdown__item.selected):not(.el-select-dropdown__item.is-disabled):hover {
-      color: $select-color;
+      color: unset;
     }
 
     &.selected {
       color: $select-color;
-      background-color: unset;
-      font-weight: normal;
+      // background-color: unset;
+      font-weight: bold;
     }
 
     &.is-disabled:hover {
@@ -130,6 +130,7 @@ $tags-left-lg: $padding-4x - 6;
   &.is-multiple &__item.selected {
     background-color: unset;
     color: $select-color;
+
 
     &:hover {
       background: $range-editor-multiple-bg;

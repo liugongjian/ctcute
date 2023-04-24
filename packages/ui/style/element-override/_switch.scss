@@ -21,7 +21,21 @@
     margin-top: 0;
   }
 
-  .el-switch.is-checked .el-switch__core:after {
+  &.el-switch.is-checked .el-switch__core:after {
     margin-left: -13px;
+  }
+}
+
+.el-switch.is-disabled {
+  opacity: 1;
+
+  .el-switch__core {
+    border-color: $switch-core-bg-disabled;
+    background-color: $switch-core-bg-disabled;
+  }
+
+  &.is-checked .el-switch__core {
+    border-color: $color-master-disabled;
+    background-color: $color-master-disabled;
   }
 }

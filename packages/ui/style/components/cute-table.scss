@@ -39,12 +39,14 @@
       margin-left: $margin-3x;
     }
 
+    &.is-checked {
+      .el-checkbox__label {
+        font-weight: $text-title-weight;
+      }
+    }
+
     &:hover:not(.is-disabled) {
       background-color: $color-master-bg-light-2;
-
-      .el-checkbox__label {
-        color: $color-master;
-      }
     }
   }
 }

@@ -9,6 +9,9 @@ $tabs-lg-height: $input-lg-height;
 /*
   默认风格
 */
+.el-tabs__item{
+  font-weight: $text-weight;
+}
 .el-tabs__nav-wrap::after{
   background-color: $tabs-default-line-color;
   height: 1px;

@@ -29,13 +29,6 @@
       > .el-tabs__add__input{
         transform: translateY(-1px); // 边框偏移
         width: 100%;
-        // @if $size == small {
-        //    width: calc(120px - $margin-4x * 2);
-        // }
-  
-        // @else {
-        //   width: calc(120px - $margin-6x * 2);
-        // }
         > .el-input__inner{
           height: $text-size;
         }
@@ -72,6 +65,7 @@
     border: 1px solid $border-color;
     box-sizing: border-box;
     background-color: $color-bg-2;
+    text-align: center;
 
     &:not(.is-disabled):not(.is-active):hover {
       border-color: $tabs-master;

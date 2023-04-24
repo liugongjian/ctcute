@@ -1,10 +1,3 @@
-/*
- * @Author: XinZhao
- * @Date: 2023-04-20 15:12:18
- * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-23 15:48:38
- * @Description: 
- */
 export default {
   editInput: {
     placeholder: '请输入',

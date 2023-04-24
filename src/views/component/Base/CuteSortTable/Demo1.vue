@@ -2,7 +2,7 @@
  * @Author: 胡一苗 
  * @Date: 2023-03-31 14:54:29 
  * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-23 14:45:24
+ * @LastEditTime: 2023-04-24 14:28:54
  * @Description: desc 
 -->
 <template>
@@ -31,9 +31,9 @@
         <el-table-column prop="memory" :label="$t('demo.table.common.disk')"></el-table-column>
         <el-table-column prop="healthy" :label="$t('demo.table.common.health')">
           <template slot-scope="scope">
-            <cute-state
-              :type="HEALTH[scope.row.health].colorType"
-            >{{ HEALTH[scope.row.health].text }}</cute-state>
+            <cute-state :type="HEALTH[scope.row.health].colorType">{{
+              HEALTH[scope.row.health].text
+            }}</cute-state>
           </template>
         </el-table-column>
         <el-table-column :label="$t('demo.table.common.operate')" width="200px">
@@ -43,23 +43,16 @@
               size="small"
               class="bt-operation"
               @click="handleClick(scope.$index, scope.row)"
-            >{{ $t('demo.table.common.mount') }}</el-button>
-            <el-button
-              type="text"
-              size="small"
-              class="bt-operation"
-            >{{ $t('demo.table.common.unload') }}</el-button>
-            <el-button
-              type="text"
-              size="small"
-              class="bt-operation"
-            >{{ $t('demo.table.common.expand') }}</el-button>
-            <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              :append-to-body="false"
-              @visible-change="openDropdown(scope.$index)"
+              >{{ $t('demo.table.common.mount') }}</el-button
             >
+            <el-button type="text" size="small" class="bt-operation">{{
+              $t('demo.table.common.unload')
+            }}</el-button>
+            <el-button type="text" size="small" class="bt-operation">{{
+              $t('demo.table.common.expand')
+            }}</el-button>
+            <el-divider direction="vertical"></el-divider>
+            <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
               <el-button type="text" size="small" class="bt-operation">
                 {{ $t('demo.table.common.more') }}
                 <i

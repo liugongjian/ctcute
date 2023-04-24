@@ -1,16 +1,16 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-19 22:03:32
- * @LastEditors: 黄靖
- * @LastEditTime: 2023-03-17 10:03:32
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-24 14:16:52
  * @Description: 
 -->
 <template>
   <div>
-    <h3>单选</h3>
+    <h3>{{ $t('demo.selectTree.demo1.single') }}</h3>
     <cute-select-tree v-model="treeData" :options="treeOptions" />
 
-    <h3>多选</h3>
+    <h3>{{ $t('demo.selectTree.demo1.multiple') }}</h3>
     <cute-select-tree v-model="multiTreeData" :options="treeOptions" multiple />
   </div>
 </template>

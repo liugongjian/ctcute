@@ -2,12 +2,12 @@
  * @Author: 黄靖
  * @Date: 2023-03-31 15:30:49
  * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-21 16:18:31
+ * @LastEditTime: 2023-04-24 14:07:38
  * @Description: 此为直接覆写element-ui的组件，el-steps原有的属性和事件未变，下面只列出新增/有改动的部分
 -->
 <template>
   <div>
-    <h3>基础步骤条</h3>
+    <h3>{{ $t('demo.steps.demo1.intro1') }}</h3>
     <div class="sub-steps">
       <el-steps :space="180" :active="active" finish-status="success">
         <el-step
@@ -24,11 +24,12 @@
               active++
             }
           "
-        >{{ $t(('demo.steps.demo1.next')) }}</el-button>
-        <el-button @click="() => (active = 0)">{{ $t(('demo.steps.demo1.reset')) }}</el-button>
+          >{{ $t('demo.steps.demo1.next') }}</el-button
+        >
+        <el-button @click="() => (active = 0)">{{ $t('demo.steps.demo1.reset') }}</el-button>
       </div>
     </div>
-    <h3>较小步骤条</h3>
+    <h3>{{ $t('demo.steps.demo1.intro2') }}</h3>
     <div class="sub-steps">
       <el-steps :space="180" :active="activeMini" finish-status="success" size="small">
         <el-step
@@ -45,8 +46,9 @@
               activeMini++
             }
           "
-        >{{ $t(('demo.steps.demo1.next')) }}</el-button>
-        <el-button @click="() => (activeMini = 0)">{{ $t(('demo.steps.demo1.reset')) }}</el-button>
+          >{{ $t('demo.steps.demo1.next') }}</el-button
+        >
+        <el-button @click="() => (activeMini = 0)">{{ $t('demo.steps.demo1.reset') }}</el-button>
       </div>
     </div>
   </div>

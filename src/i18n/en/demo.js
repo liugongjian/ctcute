@@ -1,4 +1,15 @@
 export default {
+  alert: {
+    demo1: {
+      title1: 'Custom icon',
+      title2: 'Customize the configuration color of the close button',
+    },
+    demo2: {
+      normalTip: 'This is a general tip',
+      warnTip: 'This is a warn tip',
+      errorTip: 'This is a error tip',
+    },
+  },
   area: {
     demo1: {
       title: 'select area',
@@ -6,11 +17,33 @@ export default {
       suffix: 'other area',
     },
   },
+  breadcrumb: {
+    demo1: {
+      title1: 'Default size',
+      title2: 'Small size',
+      page: 'current page',
+      level1: 'level 1',
+      level2: 'level 2',
+    },
+  },
+  button: {
+    demo1: {
+      intro: 'Cuted-icons Supported Button',
+      add: 'add',
+    },
+    demo2: {
+      intro: 'Button without borders',
+      add: 'add',
+    },
+    demo3: {
+      intro: 'Square button',
+    },
+  },
   buttonGroup: {
     demo1: {
       operate: 'operate',
       main: 'main operate',
-    }
+    },
   },
   cardBox: {
     demo1: {
@@ -26,8 +59,25 @@ export default {
       tab2: 'Tab 2',
     },
     demo4: {
-      title: 'Specify content-area height'
-    }
+      title: 'Specify content-area height',
+    },
+  },
+  collapse: {
+    demo1: {
+      intro: 'Seperate collapse panel (Expanded contents are not included in the panel)',
+      title: 'Title',
+      id: 'id',
+      name: 'name',
+      code: 'bar code',
+      price: 'unit price',
+      count: 'count',
+      total: 'total price',
+    },
+  },
+  colorPicker: {
+    demo1: {
+      intro: 'Show predefined colors only',
+    },
   },
   distributeBar: {
     common: {
@@ -40,26 +90,38 @@ export default {
   editInput: {
     demo1: {
       defaultText: 'default text',
-    }
+    },
   },
   remindInput: {
     demo1: {
       resource: 'resource',
-    }
+    },
   },
   remindSelect: {
     demo1: {
       single: 'single select',
       multiple: 'multiple select',
       options: 'option list',
-    }
+    },
   },
   scoller: {
     demo1: {
       table: 'Table',
       detail: 'Detail',
-      monitor: 'Statistics'
-    }
+      monitor: 'Statistics',
+    },
+  },
+  selectTree: {
+    demo1: {
+      single: 'Single select',
+      multiple: 'Multiple select',
+    },
+  },
+  specialRadio: {
+    demo1: {
+      medium: 'Medium size',
+      small: 'Small size',
+    },
   },
   state: {
     demo1: {
@@ -69,10 +131,12 @@ export default {
       error: 'danger/fault/fail',
       serious: 'major failure',
       start: 'starting',
-    }
+    },
   },
   steps: {
     demo1: {
+      intro1: 'Default size',
+      intro2: 'Small size',
       step1: 'Step 1',
       step2: 'Step 2',
       step3: 'Step 3',
@@ -84,7 +148,7 @@ export default {
       completed: 'Completed',
       next: 'Next step',
       reset: 'Reset',
-    }
+    },
   },
   stepsMulti: {
     demo1: {
@@ -94,19 +158,38 @@ export default {
       unclickable: 'Click disabled',
       clickMessage1: 'Click',
       clickMessage2: 'success',
-    }
+    },
+  },
+  tabs: {
+    common: {
+      large: 'Large size',
+      medium: 'Medium size (Default)',
+      small: 'Small size',
+      delete: 'Deletable',
+      option1: 'Item one',
+      option2: 'Item two',
+      optionDefault: 'Item default',
+      optionForbid: 'Item forbidden',
+      optionChoosed: 'Item selected',
+      optionDisable: 'Item disabled',
+    },
+    demo5: {
+      title1: 'Position of tabs is bottom',
+      title2: 'Position of tabs is left',
+      title3: 'Position of tabs is right',
+    },
   },
   tag: {
     demo1: {
       default: 'tag',
       large: 'large tag',
-    }
+    },
   },
   titleBlock: {
     demo1: {
       basic: 'Basic Info',
       extra: 'Extra Operation',
-    }
+    },
   },
   table: {
     common: {
@@ -125,6 +208,6 @@ export default {
       unsubscribe: 'Unsubscribe',
       backup: 'Create a cloud-disk backup',
       create: 'Create',
-    }
+    },
   },
 }

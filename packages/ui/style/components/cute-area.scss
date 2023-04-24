@@ -16,7 +16,7 @@ $cute-area-wrap-margin: $margin-10x;
 
     .cute-area-head {
       margin: $margin-3x $cute-area-padding 0;
-      color: $cute-area-head-color;
+      color: $color-neutral-9;
       font-size: $text-size-sm;
       line-height: $cute-area-head-line-height;
       white-space: nowrap;
@@ -32,7 +32,7 @@ $cute-area-wrap-margin: $margin-10x;
         margin-top: $margin-10;
         height: $cute-area-item-height;
         line-height: $cute-area-item-height;
-        color: $cute-area-item-color;
+        color: $color-neutral-10;
         font-size: $text-size-sm;
         white-space: nowrap;
         overflow: hidden;
@@ -42,14 +42,14 @@ $cute-area-wrap-margin: $margin-10x;
       }
 
       .cute-area-city:hover {
-        background-color: $cute-area-item-hover-background-color;
+        background-color: $color-master-6;
         font-weight: normal;
-        color: $cute-area-item-hover-color;
+        color: $color-master;
       }
 
       .cute-area-city.selected,
       .cute-area-city.selected.hover {
-        background: $cute-area-item-seleted-background-color;
+        background: $color-master;
         color: $color-white;
       }
     }
@@ -58,11 +58,11 @@ $cute-area-wrap-margin: $margin-10x;
 
 .cute-area-recent {
   padding-bottom: $padding-3x;
-  border-bottom: 1px dashed $cute-area-recent-border-color;
+  border-bottom: 1px dashed $color-neutral-5;
 
   .cute-area-recent-head {
     padding: 0 $cute-area-padding;
-    color: $cute-area-recent-head-color;
+    color: $color-neutral-10;
     font-size: $text-size-sm;
     line-height: $cute-area-head-line-height;
     font-weight: $text-title-weight;
@@ -85,19 +85,19 @@ $cute-area-wrap-margin: $margin-10x;
         position: relative;
         height: $cute-area-item-height;
         line-height: $cute-area-item-height;
-        color: $cute-area-recent-item-color;
+        color: $color-neutral-9;
         font-size: $text-size-sm;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         box-sizing: border-box;
         cursor: pointer;
-        background-color: $cute-area-recent-item-background-color;
+        background-color: $color-master-6;
       }
 
       .cute-area-recent-item:hover {
-        background-color: $cute-area-item-hover-background-color;
-        color: $cute-area-item-hover-color;
+        background-color: $color-master-6;
+        color: $color-master;
       }
     }
   }

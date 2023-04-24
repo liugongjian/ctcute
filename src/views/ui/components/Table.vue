@@ -96,7 +96,7 @@
         tooltip-effect="dark"
         @selection-change="handleSelectionChange"
       >
-        <el-table-column type="selection" width="55"></el-table-column>
+        <el-table-column type="selection" width="32"></el-table-column>
         <el-table-column prop="name" label="主机别名">
           <template slot-scope="scope">
             <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
@@ -187,7 +187,7 @@
         :data="table3"
         @selection-change="handleSelectionChangeOver3"
       >
-        <el-table-column type="selection" width="55"></el-table-column>
+        <el-table-column type="selection" width="32"></el-table-column>
         <el-table-column prop="name" label="主机别名">
           <template slot-scope="scope">
             <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
@@ -267,7 +267,7 @@
     <div class="sub-table">
       <div>
         <el-table v-loading="loading" :data="table4" height="250">
-          <el-table-column type="selection" width="55"></el-table-column>
+          <el-table-column type="selection" width="32"></el-table-column>
           <el-table-column prop="name" label="主机别名">
             <template slot-scope="scope">
               <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
@@ -344,8 +344,8 @@
       </div>
       <div>
         <el-table v-loading="loading" :data="table4">
-          <el-table-column type="selection" width="55" fixed></el-table-column>
-          <el-table-column prop="name" label="主机别名" width="150">
+          <el-table-column type="selection" width="32"></el-table-column>
+          <el-table-column prop="name" label="主机别名" width="150" fixed>
             <template slot-scope="scope">
               <span class="text-ellipsis name-primary" style="width: 100%">{{ scope.row.name }}</span>
             </template>
@@ -512,7 +512,7 @@
     <div class="sub-table">
       <cute-sort-table handle=".handle">
         <el-table ref="tableRef" v-loading="tableHook.loading" :data="tableHook.tableData">
-          <el-table-column label="" width="48">
+          <el-table-column label="" width="32">
             <div class="handle">
               <svg-icon name="sort-table" class="sort-icon" />
             </div>
@@ -595,7 +595,15 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="status" label="实例状态"></el-table-column>
+        <el-table-column
+          prop="status"
+          label="实例状态"
+          :filters="[
+            { text: '待分配', value: '1' },
+            { text: '已部署', value: '2' },
+          ]"
+          :filter-multiple="false"
+        ></el-table-column>
         <el-table-column prop="ip" label="IP地址" width="100px"></el-table-column>
         <el-table-column
           prop="time"
@@ -700,7 +708,7 @@
         </el-table-column>
       </el-table>
       <el-table v-loading="loading" :data="table9">
-        <el-table-column type="expand" width="40">
+        <el-table-column type="expand" width="32">
           <template slot-scope="scope">
             <div class="expand-form">
               <el-row class="expand-form-row">
@@ -835,7 +843,7 @@
     <h3>嵌套表格</h3>
     <div class="sub-table">
       <el-table v-loading="nestedTableLoading" :data="nestedTableData" fit>
-        <el-table-column type="expand" width="40">
+        <el-table-column type="expand" width="32">
           <template slot-scope="scope">
             <el-table
               ref="multipleTable"
@@ -917,7 +925,7 @@
         </el-table-column>
       </el-table>
       <el-table v-loading="nestedTableLoading" :data="nestedTableData" fit>
-        <el-table-column type="expand" width="40">
+        <el-table-column type="expand" width="32">
           <template slot-scope="scope">
             <el-table
               ref="multipleTable"
@@ -1796,8 +1804,11 @@ export default class extends Vue {
     // 接口
     const res = await getTableComponent()
     this.tableComponentData = res.data
-    this.table1 = this.tableComponentData.tableData.map(item => {
+    this.table1 = this.tableComponentData.tableData.map((item, index) => {
       ;(item as any).flag = false
+      if (index === 1) {
+        ;(item as any).description = '-'
+      }
       return item
     })
     this.table2 = this.tableComponentData.tableData10.map(item => {
@@ -2134,7 +2145,7 @@ export default class extends Vue {
 }
 
 .expand-form {
-  padding: 8px 50px; // 按业务调整
+  padding: 20px 40px; // 按业务调整
 
   .expand-form-row:not(:last-child) {
     margin-bottom: $margin-4x;
@@ -2146,8 +2157,8 @@ export default class extends Vue {
 }
 
 .expand-table {
-  margin: -10px 50px; // 按业务调整
-  width: calc(100% - 100px);
+  margin: 0 48px; // 按业务调整
+  width: calc(100% - 96px);
 
   &::before {
     height: 0;
@@ -2171,5 +2182,10 @@ export default class extends Vue {
       }
     }
   }
+}
+
+// 修正拖动排序的间距
+.handle {
+  margin-left: -4px;
 }
 </style>

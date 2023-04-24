@@ -33,11 +33,11 @@
       <el-alert title="提示文案，预警提示" type="warning" show-icon> </el-alert>
       <el-alert title="提示文案，失败提示" type="error" show-icon> </el-alert>
       <h3>文字居中</h3>
-      <el-alert title="弱提示文字弱提示文字" type="weak" show-icon> </el-alert>
-      <el-alert title="提示文案，常规提示" show-icon></el-alert>
-      <el-alert title="提示文案，成功提示" type="success" show-icon> </el-alert>
-      <el-alert title="提示文案，预警提示" type="warning" show-icon> </el-alert>
-      <el-alert title="提示文案，失败提示" type="error" show-icon> </el-alert>
+      <el-alert title="弱提示文字弱提示文字" type="weak" show-icon center> </el-alert>
+      <el-alert title="提示文案，常规提示" show-icon center></el-alert>
+      <el-alert title="提示文案，成功提示" type="success" show-icon center> </el-alert>
+      <el-alert title="提示文案，预警提示" type="warning" show-icon center> </el-alert>
+      <el-alert title="提示文案，失败提示" type="error" show-icon center> </el-alert>
       <h3>带辅助性文字介绍</h3>
       <el-alert
         title="带辅助性文字介绍"

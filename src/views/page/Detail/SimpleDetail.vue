@@ -1,19 +1,12 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 胡一苗
- * @LastEditTime: 2022-12-13 19:41:40
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-04-24 10:41:48
  * @Description:简单表单页
 -->
 <template>
   <el-card class="simple-detail">
-    <div class="detail-nav">
-      <div @click="goBack">
-        <svg-icon name="arrow-left" class="back"></svg-icon>
-        <span>返回</span>
-      </div>
-      <div class="detail-title">{{ detail }}</div>
-    </div>
     <cute-titled-block title="基础信息">
       <template #content>
         <el-descriptions :column="2" border>

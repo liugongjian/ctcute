@@ -23,9 +23,9 @@
         <div>提示文案，常规提示</div>
       </template>
     </el-alert>
-    <el-alert type="info" show-icon close-text="文字链接" :close-btn-color="infoColor">
+    <el-alert type="info" show-icon close-text="知道了" :close-btn-color="infoColor">
       <template slot="title">
-        <div>提示文案，常规提示</div>
+        <div>提示文案，常规提示，自定义关闭文字</div>
       </template>
     </el-alert>
     <el-alert type="warning" show-icon :close-btn-color="alertColor">

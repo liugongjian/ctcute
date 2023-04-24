@@ -178,7 +178,7 @@ export default class extends Vue {
           children: [
             {
               value: 'radio',
-              label: 'Radio 单选框',
+              label: 'Radio 单选框 Radio 单选框 Radio 单选框',
             },
             {
               value: 'checkbox',

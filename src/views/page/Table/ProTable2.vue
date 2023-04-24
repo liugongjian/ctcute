@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 胡一苗
- * @LastEditTime: 2023-03-31 14:16:07
+ * @LastEditTime: 2023-04-23 12:33:07
  * @Description: 复杂表格2
 -->
 <template>
@@ -87,7 +87,7 @@
     </div>
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="55"></el-table-column>
+      <el-table-column type="selection" width="32"></el-table-column>
       <el-table-column prop="name" label="主机别名">
         <template slot-scope="{ row }">
           <router-link to="/">{{ row.name }}</router-link>

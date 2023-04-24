@@ -50,7 +50,7 @@
     </div>
     <div>
       <h3>小红点</h3>
-      <el-badge is-dot class="item fw-600">数据查询</el-badge>
+      <el-badge is-dot class="item">数据查询</el-badge>
       <el-badge is-dot class="item">
         <el-button class="share-button" icon="el-icon-share" type="primary"></el-button>
       </el-badge>
@@ -74,9 +74,5 @@ export default class extends Vue {}
 .item {
   margin-top: 10px;
   margin-right: 40px;
-}
-
-.fw-600 {
-  font-weight: 600;
 }
 </style>

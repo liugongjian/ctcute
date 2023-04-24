@@ -57,13 +57,13 @@ $datepicker-shadow: $shadow-2;
 
     &:hover {
       background-color: $color-master-bg-light-2;
-      color: $color-master;
+      // color: $color-master;
     }
 
     &.selected {
       background-color: unset;
       color: $color-master;
-      font-weight: normal;
+      font-weight: bold;
     }
   }
 }
@@ -81,7 +81,7 @@ $datepicker-shadow: $shadow-2;
 
     .el-picker-panel__shortcut {
       font-size: $text-size;
-      font-weight: 400;
+      font-weight: normal;
       color: $color-grey-1;
 
       &:hover {
@@ -101,7 +101,7 @@ $datepicker-shadow: $shadow-2;
 }
 
 .el-picker-panel.el-date-range-picker.el-popper {
-  width: 720px;
+  width: 700px;
   background-color: $color-bg-1;
 }
 
@@ -254,7 +254,7 @@ $datepicker-shadow: $shadow-2;
 }
 
 .el-time-panel__btn.confirm {
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .el-date-table {
@@ -264,6 +264,7 @@ $datepicker-shadow: $shadow-2;
 
     div {
       padding: 0;
+      height: $date-panel-btn-size;
       margin: 3px 0;
     }
 

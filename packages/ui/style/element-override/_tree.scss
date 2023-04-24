@@ -44,14 +44,14 @@ $tree-leaf-expand-icon-padding: 2px;
         }
       }
     }
-    .is-indeterminate {
-      .el-checkbox__inner {
-        background: $color-master;
-        &::before {
-          background: $color-white;
-        }
-      }
-    }
+    // .is-indeterminate {
+    //   .el-checkbox__inner {
+    //     background: $color-master;
+    //     &::before {
+    //       background: $color-white;
+    //     }
+    //   }
+    // }
     &:hover {
       background: none;
 
@@ -91,6 +91,10 @@ $tree-leaf-expand-icon-padding: 2px;
     color: $color-master;
     font-weight: $text-title-weight;
   }
+  &:focus > &__content > :is(.el-checkbox, .is-disabled) ~ &__label {
+    color: $text-color;
+    font-weight: $text-weight;
+  }
   &:focus > &__content {
     background: none;
     &:hover {
@@ -107,9 +111,8 @@ $tree-leaf-expand-icon-padding: 2px;
     color: $color-neutral-11;
 
     &:hover:not(.is-current > .el-tree-node__content:hover) {
-
       .el-checkbox__inner {
-        border-color: $color-master;
+        // border-color: $color-master;
       }
     }
   }

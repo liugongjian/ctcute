@@ -136,6 +136,7 @@
     width: $cute-layout-sidebar-width;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 
     .el-menu {
       border: none;
@@ -246,10 +247,11 @@
   &__title {
     font-size: $text-size-md;
     color: $cute-layout-sidebar-text-color;
-    padding: $padding-6x 0 $margin-5x $padding-2x;
+    padding: $padding-6x 0 $margin-4x $padding-2x;
     margin: 0 $margin-4x $margin-3x $margin-4x;
     font-weight: $text-title-weight;
     border-bottom: 1px solid $cute-layout-sidebar-border;
+    line-height: 1;
 
     &__back {
       cursor: pointer;

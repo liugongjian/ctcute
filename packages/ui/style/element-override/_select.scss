@@ -1,9 +1,15 @@
 /* Select
 -------------------------- */
-$tags-left-xs: $padding-2x - 6;
-$tags-left-sm: $padding-2x - 6;
-$tags-left-md: $padding-3x - 6;
-$tags-left-lg: $padding-4x - 6;
+// $tags-left-xs: $padding-2x;
+// $tags-left-sm: $padding-2x;
+// $tags-left-md: $padding-3x;
+// $tags-left-lg: $padding-4x;
+$tags-left-xs: $common-space;
+$tags-left-sm: $common-space;
+$tags-left-md: $common-space;
+$tags-left-lg: $common-space;
+$select-sm-height: $input-sm-height;
+$select-tag-margin: 2px 0 2px 8px;
 
 /*
   重置Select基本样式
@@ -65,7 +71,13 @@ $tags-left-lg: $padding-4x - 6;
     background: $cascader-tag-bg;
     border: 1px solid $border-color;
     border-radius: $border-radius;
+    height: $select-sm-height;
+    margin: 2px 0 2px 8px;
   }
+
+  // .el-tag:first-child {
+  //   margin-left: 0;
+  // }
 
   .el-tag.el-tag--light.el-tag--info {
     color: $text-color;
@@ -189,7 +201,7 @@ $tags-left-lg: $padding-4x - 6;
       }
 
       .el-select__tags {
-        left: $left;
+        left: $left + 1;
       }
     }
   }

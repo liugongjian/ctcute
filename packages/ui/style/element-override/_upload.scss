@@ -72,6 +72,34 @@
 
 @include uploader-success();
 
+.file-uploader .el-upload-list {
+  .is-success.el-upload-list__item :hover {
+    border-radius: 0px;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .is-success.el-upload-list__item {
+      cursor: not-allowed;
+
+      &:hover {
+        cursor: not-allowed;
+        background: unset;
+      }
+
+      .el-upload-list__item-name {
+        cursor: not-allowed;
+
+        &:hover {
+          cursor: not-allowed;
+          background: unset;
+        }
+      }
+    }
+  }
+}
+
 .el-upload-list__item-name {
   font-size: $text-size;
 
@@ -172,6 +200,20 @@
 
     .el-upload-list__item-delete {
       vertical-align: middle;
+    }
+
+    &.is-disabled {
+      .el-upload-list__item {
+        cursor: not-allowed;
+      }
+
+      .el-upload-list__item-status-label {
+        display: none !important;
+      }
+
+      .el-upload-list__item-actions:hover {
+        opacity: 0;
+      }
     }
   }
 

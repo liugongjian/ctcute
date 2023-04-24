@@ -1,5 +1,6 @@
 $cute-slider-marks-height: 10px;
-$cute-slider-bar-height: 10px;
+$cute-slider-bar-height: 6px;
+$cute-slider-bar-height-hover: 10px;
 $cute-slider-input-width: 64px;
 $cute-slider-btn-radius: 8px;
 
@@ -25,7 +26,7 @@ $cute-slider-btn-radius: 8px;
     .el-slider__runway {
       width: var(--width-slider);
       background: $cute-slider-bg;
-      height: $cute-slider-marks-height;
+      height: $cute-slider-bar-height;
 
       .el-slider__button {
         border: 1px solid $color-master;
@@ -49,8 +50,8 @@ $cute-slider-btn-radius: 8px;
     }
 
     .el-slider__bar {
-      height: $cute-slider-bar-height;
-      top: calc(-1 * (#{$cute-slider-bar-height} - #{$cute-slider-marks-height}) / 2);
+      height: $cute-slider-bar-height-hover;
+      top: calc(-1 * (#{$cute-slider-bar-height-hover} - #{$cute-slider-bar-height}) / 2);
       border-radius: $border-radius;
     }
 
@@ -135,6 +136,6 @@ $cute-slider-btn-radius: 8px;
   }
 
   .el-slider__button-wrapper {
-    top: -13px;
+    top: -15px;
   }
 }

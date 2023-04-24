@@ -2,6 +2,7 @@ $cute-area-head-line-height: 20px;
 $cute-area-padding: 2px;
 $cute-area-item-height: 30px;
 $cute-area-wrap-margin: $margin-10x;
+$cute-area-item-hover-bg: $neutral-1;
 
 .cute-area-column {
   float: left;
@@ -42,15 +43,16 @@ $cute-area-wrap-margin: $margin-10x;
       }
 
       .cute-area-city:hover {
-        background-color: $cute-area-item-hover-background-color;
+        background-color: $cute-area-item-hover-bg;
         font-weight: normal;
-        color: $cute-area-item-hover-color;
+        // color: $cute-area-item-hover-color;
       }
 
       .cute-area-city.selected,
       .cute-area-city.selected.hover {
-        background: $cute-area-item-seleted-background-color;
-        color: $color-white;
+        // background: $cute-area-item-seleted-background-color;
+        color: $cute-area-item-hover-color;
+        font-weight: bold;
       }
     }
   }
@@ -85,20 +87,21 @@ $cute-area-wrap-margin: $margin-10x;
         position: relative;
         height: $cute-area-item-height;
         line-height: $cute-area-item-height;
-        color: $cute-area-recent-item-color;
+        color: $cute-area-recent-head-color;
         font-size: $text-size-sm;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         box-sizing: border-box;
         cursor: pointer;
-        background-color: $cute-area-recent-item-background-color;
+        background-color: $cute-area-item-hover-bg;
+
+        &:hover {
+          color: $cute-area-item-hover-color;
+          font-weight: bold;
+        }
       }
 
-      .cute-area-recent-item:hover {
-        background-color: $cute-area-item-hover-background-color;
-        color: $cute-area-item-hover-color;
-      }
     }
   }
 }

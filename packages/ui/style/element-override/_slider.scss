@@ -13,6 +13,7 @@
 }
 
 .el-slider__runway {
+  background: $cute-slider-bg;
   height: $slider-height;
 }
 
@@ -24,10 +25,6 @@
   height: $slider-height;
   z-index: 1;
 }
-
-// .el-slider__bar {
-//   z-index: 9;
-// }
 
 .el-slider__stop {
   // display: none;

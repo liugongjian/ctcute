@@ -1,7 +1,7 @@
 /* Cascader
 -------------------------- */
 $cascader-panel-shadow: $shadow-2;
-
+$cascader-tags-size: $select-sm-height;
 
 
 .el-cascader {
@@ -30,32 +30,37 @@ $cascader-panel-shadow: $shadow-2;
 
   .el-cascader__tags {
     .el-tag {
+      background: $cascader-tag-bg;
       display: flex;
       justify-content: center;
 
       &.el-tag--small {
-        line-height: 20px;
-        height: 20px;
+        line-height: $cascader-tags-size;
+        height: $cascader-tags-size;
       }
     }
 
     .el-tag>span {
-      background: $cascader-tag-bg;
+
       color: $color-grey-1;
     }
 
-    .el-tag:not(.is-hit) {
-      border: 0;
-    }
+    // .el-tag:not(.is-hit) {
+    //   border: 0;
+    // }
 
     .el-icon-close {
       color: $cascader-tag-close-bg;
       background-color: unset;
+
+      &:hover {
+        color: $select-tag-color-hover;
+      }
     }
 
     .el-icon-close:before {
       color: $cascader-tag-close-bg;
-      line-height: 20px;
+      line-height: $cascader-tags-size;
     }
   }
 

@@ -1,8 +1,8 @@
 <!--
  * @Author: 刘功坚
  * @Date: 2023-03-17 13:45:09
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-20 14:18:40
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-04-25 14:30:18
  * @Description: DropDown
 -->
 <template>
@@ -77,8 +77,8 @@
     </div>
     <div>
       <h3>不同尺寸</h3>
-      <el-dropdown split-button type="primary">
-        默认尺寸
+      <el-dropdown size="large" split-button type="primary">
+        最大尺寸
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>黄金糕</el-dropdown-item>
           <el-dropdown-item>狮子头</el-dropdown-item>

@@ -67,6 +67,7 @@
             size="large"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
           >
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
@@ -79,6 +80,7 @@
             size="medium"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
           >
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
@@ -91,6 +93,7 @@
             size="small"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
           >
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
@@ -108,6 +111,7 @@
             size="large"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
             collapse-tags
             clearable
@@ -125,6 +129,7 @@
             size="medium"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
             collapse-tags
             clearable
@@ -142,6 +147,7 @@
             size="small"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
             collapse-tags
             clearable
@@ -769,13 +775,15 @@ export default class extends Vue {
 
 .auxiliary-message:after {
   content: '辅助信息';
-  margin-left: 10px;
+  margin-left: 20px;
   color: $text-color-light-2;
+  font-weight: normal;
 }
 
 .option__msg {
   float: right;
   color: $text-color-light-1;
+  font-weight: normal;
 }
 
 .time-size-box {

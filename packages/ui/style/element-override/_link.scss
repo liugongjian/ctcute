@@ -15,7 +15,8 @@
       color: $color-hover;
     }
 
-    &:active, &:focus {
+    &:active,
+    &:focus {
       color: $color-active;
     }
 
@@ -23,15 +24,45 @@
       color: $color-disabled;
     }
     &.is-underline:hover:after {
-      border-bottom: 1px solid $color;
+      border-bottom: 1px solid $color-hover;
     }
   }
 }
-@include link-color(null, $text-color, $color-master-hover, $color-master-active, $text-color-disabled);
-@include link-color(--primary, $color-master, $color-master-hover, $color-master-active, $color-master-disabled);
-@include link-color(--success, $color-success, $color-success-hover, $color-success-active, $color-success-disabled);
-@include link-color(--warning, $color-warning, $color-warning-hover, $color-warning-active, $color-warning-disabled);
-@include link-color(--danger, $color-danger, $color-danger-hover, $color-danger-active, $color-danger-disabled);
+@include link-color(
+  --default,
+  $color-master,
+  $color-master-hover,
+  $color-master-active,
+  $text-color-disabled
+);
+@include link-color(
+  --primary,
+  $color-master,
+  $color-master-hover,
+  $color-master-active,
+  $color-master-disabled
+);
+@include link-color(
+  --success,
+  $color-success,
+  $color-success-hover,
+  $color-success-active,
+  $color-success-disabled
+);
+@include link-color(
+  --warning,
+  $color-warning,
+  $color-warning-hover,
+  $color-warning-active,
+  $color-warning-disabled
+);
+@include link-color(
+  --danger,
+  $color-danger,
+  $color-danger-hover,
+  $color-danger-active,
+  $color-danger-disabled
+);
 @include link-color(--info, $color-info, $color-info-hover, $color-info-active, $color-info-disabled);
 @include link-color(--fatal, $color-fatal, $color-fatal-hover, $color-fatal-active, $color-fatal-disabled);
 

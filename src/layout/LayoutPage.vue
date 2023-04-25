@@ -1,8 +1,8 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2023-04-18 17:17:41
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-18 17:21:01
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-24 12:25:16
  * @Description:
 -->
 <template>
@@ -11,6 +11,8 @@
     :sidebar-filter="filterRoutes"
     :sidebar-title="sidebarTitle"
     :sidebar-routes="routes"
+    :navbar="!fullScreen"
+    :sidebar="!fullScreen"
     class="layout-page"
   >
     <template #navbar-breadcrumb>
@@ -50,6 +52,10 @@ export default class extends Vue {
   private type = 'page'
   private logoIcon = settings.logoIcon
   private routes = this.$auth && this.$auth.getRoutes()
+
+  private get fullScreen() {
+    return this.$route.meta.fullScreen
+  }
 
   private filterRoutes(routes: Array<any>): Array<any> {
     return routes.filter(route => route.meta.type === this.type)

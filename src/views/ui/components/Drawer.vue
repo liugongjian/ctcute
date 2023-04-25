@@ -64,8 +64,8 @@
             </el-form>
           </div>
           <div class="sub-foot">
-            <el-button type="primary" @click="drawer1 = false">确定</el-button>
-            <el-button @click="drawer1 = false">取消</el-button>
+            <el-button type="primary" @click="drawer1 = false">确 定</el-button>
+            <el-button class="cancel" @click="drawer1 = false">取 消</el-button>
           </div>
         </el-drawer>
       </el-col>
@@ -119,10 +119,13 @@ export default class extends Vue {
     z-index: 9;
     bottom: 0;
     width: 100%;
-    padding: 10px 24px;
+    padding: 12px 24px;
     display: flex;
     align-items: center;
     background: $color-grey-10;
+    .cancel {
+      margin-left: 20px;
+    }
   }
 }
 

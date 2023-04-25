@@ -1,5 +1,5 @@
 <template>
-  <div :class="['el-breadcrumb', `el-breadcrumb--${size}`]" aria-label="Breadcrumb" role="navigation">
+  <div :class="['el-breadcrumb', 'el-breadcrumb--' + `${size}`]" aria-label="Breadcrumb" role="navigation">
     <slot></slot>
   </div>
 </template>

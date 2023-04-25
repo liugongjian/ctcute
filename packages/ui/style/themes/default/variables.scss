@@ -11,8 +11,8 @@ $color-master-active: $blue-7 !default; // 触发
 $color-master-disabled: $blue-3 !default; // 禁用
 $color-master-bg: $blue-3 !default; // 背景
 $color-master-bg-light: $blue-2 !default; // 背景浅色
-// $color-master-bg-light-2: $blue-1 !default; // 背景浅色2
-$color-master-bg-light-2: $neutral-1 !default; // 背景浅色2
+$color-master-bg-light-2: $blue-1 !default; // 背景浅色2
+// $color-master-bg-light-2: $neutral-1 !default; // 背景浅色2
 
 $color-master-1: $blue-base !default; // deprecated(弃用)
 $color-master-2: $blue-5 !default; // deprecated(弃用)
@@ -359,8 +359,10 @@ $input-fill: $color-white !default; // deprecated(弃用)
 $select-border-color-hover: $border-color-hover !default;
 $select-disabled-border: $disabled-border !default;
 $select-color: $color-master !default;
-$select-color: $color-master !default;
+$select-color-disabled: $neutral-6 !default;
 $select-dropdown-bg: $color-bg-1 !default;
+$select-tag-color: $color-neutral-6 !default;
+$select-tag-color-hover: $color-neutral-5 !default;
 $select-xs-height: 24px !default;
 $select-sm-height: 24px !default;
 $select-md-height: 32px !default;
@@ -376,7 +378,7 @@ $range-editor-tags-size: 16px !default;
 /* Title: Checkbox; Doc: false
 -------------------------- */
 $checkbox-label-size: 14px !default;
-$checkbox-bg: $color-master-bg-light-2 !default;
+$checkbox-bg: $color-bg-1 !default;
 $checkbox-border: $color-master !default;
 $checkbox-button: $color-master-bg-light-2 !default;
 $checkbox-button-disabled: $color-neutral-1 !default;
@@ -465,7 +467,7 @@ $upload-progress-bar-height: 2px !default;
 $upload-color: $color-master !default;
 $upload-border-color: $border-color !default;
 $upload-bg: $color-bg-1 !default;
-$upload-bg-hover: $color-master-bg-light-2 !default;
+$upload-bg-hover: $color-neutral-1 !default;
 $upload-fill: $upload-bg !default; // deprecated(弃用)
 $upload-font-size: $text-size-sm !default;
 $upload-tips-font-color: $color-neutral-7 !default;
@@ -482,7 +484,7 @@ $card-shadow: $shadow-1 !default;
 
 /* Title: Badge; Doc: false
 -------------------------- */
-$badge-content-padding: 4.5px  !default;
+$badge-content-padding: 5px  !default;
 
 /* Title: Time; Doc: false
 -------------------------- */
@@ -541,8 +543,8 @@ $alert-weak-bg: $neutral-1 !default;
 
 /* Title: CuteSlider; Doc: false
 -------------------------- */
-$slider-stop-color: $color-white !default;
-$slider-stop-border-color: $neutral-5 !default;
+$slider-stop-color: $neutral-3 !default;
+$slider-stop-border-color: $color-white !default;
 $slider-height: 4px !default;
 $cute-slider-size: 14px !default; // 特殊大小
 $cute-slider-text-color: $neutral-10 !default;
@@ -555,18 +557,6 @@ $cute-slider-btn-height: 22px !default;
 $cute-slider-btn-color: $color-master-2 !default;
 $cute-slider-bg-disabled: $disabled-border !default;
 $cute-slider-btn-color-disabled: $color-master-4 !default;
-
-/* Title: CuteArea; Doc: false
--------------------------- */
-$cute-area-recent-border-color: $neutral-5 !default;
-$cute-area-recent-head-color: $neutral-10 !default;
-$cute-area-recent-item-color: $neutral-9 !default;
-$cute-area-recent-item-background-color: $blue-1 !default;
-$cute-area-item-hover-background-color: $blue-1 !default;
-$cute-area-item-hover-color: $blue-base !default;
-$cute-area-item-seleted-background-color: $blue-base !default;
-$cute-area-head-color: $neutral-9 !default;
-$cute-area-item-color: $neutral-10 !default;
 
 /* Title: Animation; Doc: true
 -------------------------- */

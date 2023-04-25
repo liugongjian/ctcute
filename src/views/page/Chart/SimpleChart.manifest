@@ -8,11 +8,6 @@
       "name": "ChartCard.vue",
       "path": "@/views/page/Chart/ChartCard.vue"
     }
-  ],
-  "package": {
-    "dependencies": {
-      "@cutedesign/chart":  "^1.0.0"
-    }
-  }
+  ]
 }
 

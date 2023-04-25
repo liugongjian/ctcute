@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-12 19:56:53
+ * @LastEditTime: 2023-04-25 15:50:10
  * @Description: 树选择器
 -->
 <template>
@@ -12,6 +12,7 @@
     placeholder="请选择"
     :size="size"
     :disabled="disabled"
+    :class="{ 'is-disabled': disabled }"
     :multiple="multiple ? true : false"
     popper-class="cute-select-tree"
   >

@@ -77,7 +77,7 @@
     </div>
     <div>
       <h3>不同尺寸</h3>
-      <el-dropdown split-button type="primary">
+      <el-dropdown size="large" split-button type="primary">
         默认尺寸
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>黄金糕</el-dropdown-item>

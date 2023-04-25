@@ -1,6 +1,9 @@
 /* Upload
 -------------------------- */
 @mixin uploader-success {
+  .el-upload .el-button.el-button--default .svg-icon {
+    color: $color-neutral-6;
+  }
 
   .el-upload-list__item .el-upload-list__item-name {
     color: $upload-font-active-color;
@@ -71,6 +74,34 @@
 }
 
 @include uploader-success();
+
+.file-uploader .el-upload-list {
+  .is-success.el-upload-list__item :hover {
+    border-radius: 0px;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .is-success.el-upload-list__item {
+      cursor: not-allowed;
+
+      &:hover {
+        cursor: not-allowed;
+        background: unset;
+      }
+
+      .el-upload-list__item-name {
+        cursor: not-allowed;
+
+        &:hover {
+          cursor: not-allowed;
+          background: unset;
+        }
+      }
+    }
+  }
+}
 
 .el-upload-list__item-name {
   font-size: $text-size;
@@ -173,6 +204,20 @@
     .el-upload-list__item-delete {
       vertical-align: middle;
     }
+
+    &.is-disabled {
+      .el-upload-list__item {
+        cursor: not-allowed;
+      }
+
+      .el-upload-list__item-status-label {
+        display: none !important;
+      }
+
+      .el-upload-list__item-actions:hover {
+        opacity: 0;
+      }
+    }
   }
 
   .el-progress-circle {
@@ -233,7 +278,7 @@
   .file-uploader_content {
     width: $upload-file-uploader-width; // TODO
     height: $upload-picture-card-size; // TODO
-    border: 1px solid $upload-border-color; // TODO
+    border: 1px dashed $upload-border-color; // TODO
     border-radius: $border-radius;
     background-color: $upload-bg;
 
@@ -310,4 +355,33 @@
   font-size: $text-size;
   color: $upload-tips-font-color;
   margin-top: $margin-2x;
+}
+
+.file-disabled .file-uploader {
+
+  .file-uploader_content,
+  &.file-uploader_content:hover {
+    background-color: $disabled-bg;
+    border-color: $disabled-border;
+    color: $disabled-color;
+    cursor: not-allowed;
+
+    .sub-svg-text {
+
+      color: $color-master-disabled;
+
+      span,
+      svg {
+        color: $color-master-disabled
+      }
+    }
+
+    .el-upload__tip {
+      color: $color-neutral-6;
+    }
+  }
+
+  .el-icon-plus {
+    color: $disabled-color;
+  }
 }

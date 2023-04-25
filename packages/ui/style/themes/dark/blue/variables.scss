@@ -358,7 +358,9 @@ $input-fill: $color-white !default; // deprecated(弃用)
 $select-border-color-hover: $border-color-hover !default;
 $select-disabled-border: $disabled-border !default;
 $select-color: $color-master !default;
-$select-color: $color-master !default;
+$select-color-disabled: $neutral-6 !default;
+$select-tag-color: $text-color !default;
+$select-tag-color-hover: $select-dropdown-bg !default;
 $select-dropdown-bg: $color-bg-1 !default;
 $select-xs-height: 24px !default;
 $select-sm-height: 24px !default;
@@ -540,8 +542,8 @@ $alert-weak-bg: $neutral-1 !default;
 
 /* Title: CuteSlider; Doc: false
 -------------------------- */
-$slider-stop-color: $color-white !default;
-$slider-stop-border-color: $neutral-5 !default;
+$slider-stop-color: $neutral-3 !default;
+$slider-stop-border-color: $color-white !default;
 $slider-height: 4px !default;
 $cute-slider-size: 14px !default; // 特殊大小
 $cute-slider-text-color: $neutral-10 !default;

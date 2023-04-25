@@ -55,7 +55,7 @@
               </el-select>
             </el-form-item>
             <el-form-item label="模板类型" prop="templateType">
-              <el-table border style="width: 97%" :data="form.tableData">
+              <el-table border style="width: 97%;" :data="form.tableData">
                 <el-table-column min-width="180" label="监控指标">
                   <template slot-scope="scope">
                     <el-form-item
@@ -65,7 +65,7 @@
                       <el-select
                         v-model="scope.row.monitorIndicators"
                         placeholder="请选择"
-                        style="width: 160px"
+                        style="width: 160px;"
                       >
                         <el-option
                           v-for="item in monitorOptions"
@@ -83,7 +83,7 @@
                       :prop="'tableData.' + scope.$index + '.timeSection'"
                       :rules="rules.templateType.monitor"
                     >
-                      <el-select v-model="scope.row.timeSection" placeholder="请选择" style="width: 160px">
+                      <el-select v-model="scope.row.timeSection" placeholder="请选择" style="width: 160px;">
                         <el-option
                           v-for="item in timeSectOptions"
                           :key="item.value"
@@ -97,14 +97,14 @@
                 <el-table-column min-width="345" label="计算方法">
                   <template slot-scope="scope">
                     <el-form-item
-                      style="display: inline-block"
+                      style="display: inline-block;"
                       :prop="'tableData.' + scope.$index + '.computValue'"
                       :rules="rules.templateType.monitor"
                     >
                       <el-select
                         v-model="scope.row.computValue"
                         placeholder="请选择"
-                        style="width: 90px; margin-right: 8px"
+                        style="width: 90px; margin-right: 8px;"
                       >
                         <el-option
                           v-for="item in computOptions"
@@ -115,14 +115,14 @@
                       </el-select>
                     </el-form-item>
                     <el-form-item
-                      style="display: inline-block"
+                      style="display: inline-block;"
                       :prop="'tableData.' + scope.$index + '.operation'"
                       :rules="rules.templateType.monitor"
                     >
                       <el-select
                         v-model="scope.row.operation"
                         placeholder="请选择"
-                        style="width: 90px; margin-right: 8px"
+                        style="width: 90px; margin-right: 8px;"
                       >
                         <el-option
                           v-for="item in operationOptions"
@@ -133,14 +133,14 @@
                       </el-select>
                     </el-form-item>
                     <el-form-item
-                      style="display: inline-block"
+                      style="display: inline-block;"
                       :prop="'tableData.' + scope.$index + '.calculate'"
                       :rules="rules.templateType.percentage"
                     >
                       <el-input
                         v-model="scope.row.calculate"
                         placeholder="请输入"
-                        style="width: 90px; margin-right: 8px"
+                        style="width: 90px; margin-right: 8px;"
                       />
                     </el-form-item>
 
@@ -153,7 +153,7 @@
                       :prop="'tableData.' + scope.$index + '.occurrences'"
                       :rules="rules.templateType.monitor"
                     >
-                      <el-select v-model="scope.row.occurrences" placeholder="请选择" style="width: 160px">
+                      <el-select v-model="scope.row.occurrences" placeholder="请选择" style="width: 160px;">
                         <el-option
                           v-for="item in occurrencesOptions"
                           :key="item.value"
@@ -171,7 +171,7 @@
                 </el-table-column>
                 <template #append>
                   <div class="el-table__append-row">
-                    <el-button style="width: 97%; height: 42px" type="text" @click="addCondit">
+                    <el-button style="width: 97%; height: 42px;" type="text" @click="addCondit">
                       +添加条件
                     </el-button>
                   </div>
@@ -200,8 +200,8 @@
         </cute-titled-block>
       </el-form>
     </el-card>
-    <div class="pro-form-bottom">
-      <el-button type="primary" :loading="submitting" style="margin: 0 16px 0 40px" @click="submit"
+    <div class="pro-form-bottom" :style="{ width: `calc(100% - ${sidebarWidth})` }">
+      <el-button type="primary" :loading="submitting" style="margin: 0 16px 0 40px;" @click="submit"
         >提 交</el-button
       >
       <el-button @click="back">取 消</el-button>
@@ -213,6 +213,7 @@ import { Component, Vue, Ref } from 'vue-property-decorator'
 import * as ProForm1 from '@/types/ProForm1'
 import { CuteTitledBlock } from '@cutedesign/ui'
 import { createProForm1, getAlertTarget } from '@/api/proForm1'
+import variables from '@cutedesign/ui/style/themes/default/index.scss'
 
 @Component({
   name: 'ProForm1',
@@ -224,6 +225,10 @@ export default class extends Vue {
   // 表单Ref对象
   @Ref('proForm1')
   private proForm1Ref
+
+  private sidebarWidth = variables.cuteLayoutSidebarWidth
+
+  private sizeObserver: any
 
   // 表单对象
   private form: ProForm1.Form = {
@@ -400,6 +405,7 @@ export default class extends Vue {
    */
   private mounted() {
     this.getAlertTarget()
+    this.handleObserver(true)
   }
 
   /**
@@ -475,6 +481,25 @@ export default class extends Vue {
    */
   private back() {
     console.log('返回')
+  }
+
+  private handleObserver(observe: boolean) {
+    if (ResizeObserver) {
+      const node = document.querySelector('.cute-layout-sidebar')
+      if (this.sizeObserver && !observe) {
+        this.sizeObserver.unobserve(node)
+      } else {
+        this.sizeObserver = new ResizeObserver((attrs: Array<ResizeObserverEntry>) => {
+          const container = attrs[0].target as any
+          this.sidebarWidth = container.offsetWidth + 'px'
+        })
+        this.sizeObserver.observe(node)
+      }
+    }
+  }
+
+  destroyed() {
+    this.handleObserver(false)
   }
 }
 </script>

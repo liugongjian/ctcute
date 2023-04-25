@@ -77,14 +77,13 @@
 @mixin formBottom {
   .pro-form-bottom {
     box-shadow: $shadow-2;
-    position: absolute;
-    left: 0;
+    position: fixed;
+    right: 0;
     bottom: 0;
-    width: 100%;
     background: $color-form-component-bg;
     padding: $padding-4x 0;
     transition: 0.3s;
-    z-index: $zindex-affix;
+    z-index: $zindex-normal;
   }
 }
 

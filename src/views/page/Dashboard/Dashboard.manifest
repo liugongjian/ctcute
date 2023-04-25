@@ -52,10 +52,5 @@
       "name": "china.json",
       "path": "@/views/page/Dashboard/json/china.json"
     }
-  ],
-  "package": {
-    "dependencies": {
-      "@cutedesign/chart":  "^1.0.0"
-    }
-  }
+  ]
 }

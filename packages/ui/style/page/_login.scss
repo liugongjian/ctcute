@@ -1,123 +1,70 @@
-.login {
+.cute-login {
   width: 100%;
+  min-width: 1333px;
   min-height: 100vh;
-  background: $color-bg-2;
+  background: $color-body-bg;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  .login-content {
+  &__content {
     width: 1333px;
     height: 650px;
     position: relative;
+  }
 
-    .login-content_img {
-      width: 100%;
-      height: 100%;
-    }
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
 
-    .login-content_image {
-      position: absolute;
-      left: 42px;
-      top: 77px;
-    }
+  &__desc {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $padding-primary * 6 $padding-primary * 3 0;
+    width: 465px;
+    height: 100%;
+  }
 
-    .content-desc {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 463px;
-      height: 100%;
+  &__title {
+    margin: $margin-4x 0;
+    color: $text-color;
+    font-size: $text-size-xl;
+  }
+
+  &__tip {
+    margin: $margin-2x 0;
+    color: $color-danger;
+    font-size: $text-size-md;
+    line-height: $line-height;
+  }
+
+  &__code {
+    .el-form-item__content {
       display: flex;
-      justify-content: center;
+    }
 
-      .content-desc_from {
-        margin-top: 128px;
-        width: 350px;
+    &__svg {
+      height: $input-md-height;
 
-        .svg-icon {
-          margin: 0 8px 0 12px;
-        }
-
-        .el-input--prefix .el-input__inner {
-          padding-left: 35px;
-        }
-
-        h3 {
-          font-size: 24px;
-          color: $color-grey-1;
-          font-weight: 400;
-          margin: 0;
-        }
-
-        p {
-          font-size: 18px;
-          color: $color-status-danger-1;
-          line-height: 20px;
-          font-weight: 400;
-          margin-bottom: 18px;
-        }
-
-        .content-desc-code {
-          .el-form-item__content {
-            display: flex;
-
-            .code {
-              width: 100px;
-              height: 33px;
-              margin-left: 10px;
-              text-align: center;
-
-              svg {
-                height: 33px !important;
-              }
-            }
-          }
-        }
-
-        .content-desc_from-pass {
-          .el-form-item__content {
-            .el-checkbox__inner {
-              border: 1px solid $color-grey-6;
-              background: none;
-            }
-
-            .el-checkbox__input.is-checked {
-              .el-checkbox__inner {
-                border: 1px solid $color-master-1;
-                background-color: $color-master-1;
-              }
-            }
-
-            display: flex;
-
-            .remember {
-              font-size: 12px;
-              color: $color-grey-1;
-              line-height: 20px;
-              font-weight: 400;
-
-              .el-checkbox {
-                margin-right: 8px;
-              }
-            }
-
-            .el-link {
-              margin-left: 230px;
-            }
-          }
-        }
-
-        .content-desc_btn {
-          margin-top: 6px;
-
-          .el-form-item__content {
-            .el-button {
-              width: 100%;
-            }
-          }
-        }
+      svg {
+        margin-left: $margin-3x;
+        height: $input-md-height;
       }
     }
+  }
+
+  &__remember {
+    margin-bottom: $margin-2x;
+
+    .el-checkbox {
+      margin-right: 8px;
+    }
+  }
+
+  // 登录按钮
+  &__btn {
+    width: 100%;
   }
 }

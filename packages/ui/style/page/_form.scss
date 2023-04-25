@@ -1,13 +1,13 @@
 @mixin form {
-  padding-top: 5px;
-
   .el-input,
   .el-select,
   .el-textarea {
     width: 50%;
     max-width: 745px;
+
     /* 1920页面宽度下，右侧面板50%的像素值 */
     min-width: 468px;
+
     /* 1366页面宽度下，右侧面板50%的像素值 */
   }
 
@@ -34,18 +34,18 @@
     position: absolute;
     top: 100%;
     left: 0;
-    color: $text-color-light-1;
-    font-size: $text-size-primary;
-    line-height: $text-size-primary;
-    padding-top: 6px;
+    color: $text-color-light;
+    font-size: $text-size;
+    height: $common-space-6x;
+    line-height: $common-space-6x;
 
     &:before {
-      font-family: 'cute-icons';
+      font-family: cute-icons;
       content: '\eb5b';
       color: $icon-color;
-      font-size: $text-size-medium;
+      font-size: $text-size-md;
       vertical-align: top;
-      margin-right: $margin-tiny;
+      margin-right: $margin;
     }
   }
 
@@ -53,8 +53,9 @@
     position: relative;
     top: auto;
   }
+
   .form-item__info {
-    margin-left: $margin-small;
+    margin-left: $margin-2x;
   }
 
   .el-button + .el-button {
@@ -64,13 +65,12 @@
 
 @mixin formTitle {
   .block__title {
-    line-height: 14px;
-    height: 14px;
+    line-height: 1;
     font-family: PingFangSC-Medium;
     font-size: $text-size-medium;
     color: $color-grey-1;
-    margin: 0 0 24px 40px;
-    font-weight: 500;
+    margin: 0 0 $margin-6x $margin-10x;
+    font-weight: $text-title-weight;
   }
 }
 
@@ -82,9 +82,9 @@
     bottom: 0;
     width: 100%;
     background: $color-form-component-bg;
-    line-height: 48px;
+    padding: $padding-4x 0;
     transition: 0.3s;
-    z-index: 11;
+    z-index: $zindex-affix;
   }
 }
 
@@ -99,31 +99,27 @@
   @include formBottom();
 
   .el-form {
-    margin-top: 10px;
+    margin-top: $margin-10;
   }
 
   .el-card__body {
-    padding: 20px 20px 0 0;
-  }
-
-  .block__title {
-    margin-bottom: 21px !important;
+    padding: $padding-5x $padding-5x 0 0;
   }
 
   .block__content {
     box-sizing: border-box;
-    margin-left: -10px;
+    margin-left: -$margin-10;
   }
 
-  padding-bottom: 33px;
+  padding-bottom: $padding-8x;
 
   .el-divider--horizontal {
     width: 95%;
-    margin: 24px 0 24px 40px;
+    margin: $margin-6x 0 $margin-6x $margin-10x;
   }
 
-  .el-table {
-    margin: 16px 0 0 0 !important;
+  .el-form-item .el-table {
+    margin: $margin-4x 0 0;
   }
 
   @include form();
@@ -141,7 +137,7 @@
   @include formBottom();
 
   .el-form {
-    margin-top: 10px;
+    margin-top: $margin-10;
   }
 
   .el-table {
@@ -149,23 +145,23 @@
   }
 
   .el-card__body {
-    padding: 20px 20px 0 0;
+    padding: $padding-5x $padding-5x 0 0;
   }
 
   .block {
     margin-bottom: 0 !important;
 
     &__title {
-      margin: 0 0 24px 40px !important;
+      margin: 0 0 $margin-6x $margin-10x !important;
     }
   }
 
   .el-form-item__label {
     line-height: 24px;
-    padding: 0 0 8px 0;
+    padding: 0 0 $padding-2x;
   }
 
-  padding-bottom: 33px;
+  padding-bottom: $margin-8x;
 
   .pro-form-bottom {
     display: flex;
@@ -176,12 +172,11 @@
 
   .el-divider--horizontal {
     width: 96%;
-    margin: 0 24px 24px 40px;
-    // margin-left: 34px;
+    margin: 0 $margin-6x $margin-6x $margin-10x;
   }
 
   .form-items {
-    margin: 0 20px 0 40px;
+    margin: 0 $margin-5x 0 $margin-10x;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -207,10 +202,6 @@
 
   @include form();
 
-  .block__title {
-    margin: 0 0 24px 35px;
-  }
-
   .el-input,
   .el-select {
     min-width: 0;
@@ -220,7 +211,8 @@
 /* 分步表单 */
 .step-form {
   @include form();
-  padding: 24px;
+
+  padding: $padding-6x;
 
   .steps {
     width: 100%;
@@ -228,8 +220,8 @@
   }
 
   .form-content {
-    margin-top: 20px;
-    margin: 20px auto;
+    margin-top: $margin-5x;
+    margin: $margin-5x auto;
     max-width: 800px;
   }
 
@@ -237,18 +229,5 @@
     .el-input {
       min-width: 70px;
     }
-  }
-
-  .form-item-tip {
-    font-size: 12px;
-    color: $color-grey-2;
-    line-height: 20px;
-    font-weight: 400;
-  }
-
-  .footer {
-    // padding-left: 130px; // 与form-label宽度对齐
-    // margin: 0px auto;
-    // max-width: 800px;
   }
 }

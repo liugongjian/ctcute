@@ -2,33 +2,50 @@
  * @Author: 王亚振
  * @Date: 2022-10-11 15:06:30
  * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-24 14:38:32
+ * @LastEditTime: 2023-04-10 14:34:48
  * @Description:
 -->
 <template>
-  <span v-if="!editing"
-    >{{ syncedValue }} <svg-icon class="edit-input-icon" name="edit" @click="startEdit"
-  /></span>
-  <span v-else class="wrap">
-    <el-input v-model="editValue" :type="textarea ? 'textarea' : 'text'" placeholder="请输入"></el-input>
-    <svg-icon name="check" :color="colorVariables.colorSuccess" @click="onOk" />
-    <svg-icon name="close" :color="colorVariables.colorDanger" @click="editing = false" />
+  <span v-if="!editing">
+    {{ syncedValue }} <svg-icon class="edit-input-icon" name="edit" @click="startEdit" />
+  </span>
+  <span v-else class="cute-edit-input-wrap">
+    <el-input
+      v-model="editValue"
+      :type="textarea ? 'textarea' : 'text'"
+      :placeholder="t('cute.editInput.placeholder')"
+    ></el-input>
+    <svg-icon
+      :class="'cute-edit-input__edit-icon--' + size"
+      name="check"
+      :color="colorVariables.colorSuccess"
+      @click="onOk"
+    />
+    <svg-icon
+      :class="'cute-edit-input__edit-icon--' + size"
+      name="close"
+      :color="colorVariables.colorDanger"
+      @click="editing = false"
+    />
   </span>
 </template>
 
 <script lang="ts">
-import { Component, Prop, VModel, Vue } from 'vue-property-decorator'
+import { Component, Prop, VModel, Mixins } from 'vue-property-decorator'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
   name: 'CuteEditInput',
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   @VModel({ type: String }) syncedValue!: string
   @Prop({ default: false }) private textarea!: boolean
+  @Prop({ type: String, default: '' }) size?: '' //size
   private colorVariables = variables
   private editing = false
   private editValue = ''
+
   private onOk() {
     this.editing = false
     this.syncedValue = this.editValue
@@ -40,48 +57,4 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.edit-input-icon {
-  font-size: $text-size-lg;
-  margin-left: $margin-10;
-  color: $color-neutral-8;
-  cursor: pointer;
-
-  &:hover {
-    color: $color-master;
-  }
-
-  &.svg-icon {
-    vertical-align: sub;
-  }
-}
-
-.wrap {
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-
-  .el-input,
-  .el-textarea {
-    width: $cute-edit-input-width;
-    height: 100%;
-    margin-right: $margin-10;
-  }
-
-  .el-textarea ~ svg {
-    margin-bottom: $margin;
-  }
-
-  svg {
-    cursor: pointer;
-    font-size: $text-size-lg;
-    margin-right: $margin;
-    vertical-align: sub;
-  }
-}
-
-::v-deep textarea {
-  height: 100%;
-}
-</style>
+<style lang="scss" scoped></style>

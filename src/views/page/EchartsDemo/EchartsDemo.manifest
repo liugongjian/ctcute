@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "name": "index.vue",
+      "path": "@/views/page/EchartsDemo/index.vue"
+    },
+    {
+      "name": "AnimationFuncDemo.vue",
+      "path": "@/views/page/EchartsDemo/AnimationFuncDemo.vue"
+    },
+    {
+      "name": "BarDemo.vue",
+      "path": "@/views/page/EchartsDemo/BarDemo.vue"
+    },
+    {
+      "name": "BarLineDemo.vue",
+      "path": "@/views/page/EchartsDemo/BarLineDemo.vue"
+    },
+    {
+      "name": "FunnelDemo.vue",
+      "path": "@/views/page/EchartsDemo/FunnelDemo.vue"
+    },
+    {
+      "name": "GradiantLineDemo.vue",
+      "path": "@/views/page/EchartsDemo/GradiantLineDemo.vue"
+    },
+    {
+      "name": "LineDemo.vue",
+      "path": "@/views/page/EchartsDemo/LineDemo.vue"
+    },
+    {
+      "name": "LineStackDemo.vue",
+      "path": "@/views/page/EchartsDemo/LineStackDemo.vue"
+    },
+    {
+      "name": "MapDemo.vue",
+      "path": "@/views/page/EchartsDemo/MapDemo.vue"
+    },
+    {
+      "name": "PieDemo.vue",
+      "path": "@/views/page/EchartsDemo/PieDemo.vue"
+    },
+    {
+      "name": "StackAreaDemo.vue",
+      "path": "@/views/page/EchartsDemo/StackAreaDemo.vue"
+    },
+    {
+      "name": "TreemapDemo.vue",
+      "path": "@/views/page/EchartsDemo/TreemapDemo.vue"
+    }
+  ]
+}

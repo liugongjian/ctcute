@@ -1,26 +1,47 @@
 /* Slider
 -------------------------- */
 .el-slider__marks-text {
-  color: $text-color-light;
-  min-width: 30px; //TODO
+  color: $cute-slider-text-color;
+  word-break: keep-all;
   text-align: center;
-}
-
-.el-slider__button {
-  width: $common-space-10;
-  height: $common-space-10;
-}
-
-.el-slider__marks-text {
   font-size: $text-size;
 }
 
-.el-slider__runway,
-.el-slider__runway.show-input {
-  width: 616px; //TODO
+.el-slider__button {
+  width: $cute-slider-size;
+  height: $cute-slider-size;
+}
+
+.el-slider__runway {
+  background: $cute-slider-bg;
+  height: $slider-height;
+}
+
+.el-slider__button-wrapper {
+  top: -16px;
+}
+
+.el-slider__bar {
+  height: $slider-height;
+  z-index: 1;
 }
 
 .el-slider__stop {
-  border: 2px solid $color-white;
+  // display: none;
+  border: 1px solid $slider-stop-border-color;
+  background-color: $slider-stop-color;
+  box-sizing: content-box;
+  // height: 10px;
+  // width: 10px;
+  margin-top: -2px;
+  z-index: 2;
+
+  // &:first-child,
+  // &:last-child {
+  //   display: none;
+  // }
 }
-.el-slider__input{ margin-top: 5px;}
+
+.el-slider__input {
+  margin-top: 5px;
+}

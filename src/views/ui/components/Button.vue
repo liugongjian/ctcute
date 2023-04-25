@@ -18,7 +18,7 @@
       <el-button>次按钮</el-button>
       <el-button type="danger" plain>危险</el-button>
       <el-button size="small" icon="plus-circle">带图标按钮</el-button>
-      <el-dropdown @visible-change="openDropdown">
+      <el-dropdown placement="bottom-start" @visible-change="openDropdown">
         <el-button size="small" icon="select">
           按钮2
           <svg-icon name="caret-down" :class="flag ? 'top-fill' : 'svg-icon svg-fill'" />
@@ -89,7 +89,13 @@ export default class extends Vue {
     updateTime: '2022.07.12',
   }
 
-  buttonData = ['操作一', '操作二', '操作三']
+  private buttonData = [
+    { label: '操作一', name: 'op1' },
+    { label: '操作二', name: 'op2' },
+    { label: '操作三', name: 'op3' },
+    { label: '主操作', name: 'op--main' },
+  ]
+
   private flag = false
   private openDropdown(e) {
     e ? (this.flag = true) : (this.flag = false)

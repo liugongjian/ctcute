@@ -19,9 +19,11 @@
     ]"
     @click="handleClick"
   >
-    <i v-if="loading" class="el-icon-loading"></i>
-    <i v-if="icon && !loading && !isCutedIcon" :class="icon"></i>
-    <svg-icon v-if="icon && !loading && isCutedIcon" :name="icon" />
+    <span v-if="loading || icon" class="el-button__icon">
+      <i v-if="loading" class="el-icon-loading"></i>
+      <i v-if="icon && !loading && !isCutedIcon" :class="icon"></i>
+      <svg-icon v-if="icon && !loading && isCutedIcon" :name="icon" />
+    </span>
     <span v-if="$slots.default"><slot></slot></span>
   </button>
 </template>

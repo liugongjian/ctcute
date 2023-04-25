@@ -1,8 +1,28 @@
 /* Transfer
 -------------------------- */
+$transfer-button-height: 38px; // Transfer组件圆形按钮
+$transfer-button-width: 38px; // Transfer组件圆形按钮
+$transfer-button-radius: 50%; // Transfer组件圆形按钮
+
 .el-transfer {
+  .el-checkbox__input{
+    margin: 0px; // 消除checkbox组件margin-top:-3px影响
+  }
   .el-transfer-panel {
     background-color: $color-bg-1;
+
+    &__list {
+      height: 100%;
+      padding: 0px;
+
+      &.is-filterable {
+        height: calc(100% - #{$transfer-filter-height});
+      }
+    }
+
+    .el-transfer-panel__item{
+      padding-left: $padding-4x;
+    }
 
     .el-transfer-panel__footer {
       background: $transfer-footert-bg;
@@ -30,7 +50,7 @@
       }
 
       &:not(.is-with-texts) {
-        height: $transfer-button-hegiht;
+        height: $transfer-button-height;
         width: $transfer-button-width;
         border-radius: $transfer-button-radius;
         padding: 0;
@@ -67,13 +87,23 @@
 
   .el-transfer-panel__header {
     margin-bottom: 0;
+    padding-left: $padding-4x;
   }
 
   .el-transfer-panel__filter {
-    margin: $margin-2x $margin-3x;
+    margin: $transfer-filter-input-margin;
 
-    .el-input__inner {
+    &.el-input.el-input--prefix .el-input__prefix {
+      left: auto;
+      right: $common-space-4x;
+    }
+
+    &.el-input.el-input--small .el-input__inner {
       border-radius: $border-radius;
+      height: $transfer-filter-input-height;
+      line-height: $transfer-filter-input-height;
+      padding-left: $padding-4x;
+      padding-right: $padding-10x;
     }
   }
 
@@ -96,6 +126,9 @@
 
 .el-transfer-panel .el-transfer-panel__header .el-checkbox .el-checkbox__label {
   font-size: $text-size;
+  > span {
+    color: $text-color; // 标题统计数字颜色
+  }
 }
 
 .el-transfer-panel__filter {

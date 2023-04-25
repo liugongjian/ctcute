@@ -1,6 +1,7 @@
 <script>
 import TabBar from './tab-bar'
 import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 function noop() {}
 const firstUpperCase = str => {
@@ -14,12 +15,15 @@ export default {
     TabBar,
   },
 
+  mixins: [Locale],
+
   inject: ['rootTabs'],
 
   props: {
     panes: Array,
     currentName: String,
     editable: Boolean,
+    
     onTabClick: {
       type: Function,
       default: noop,
@@ -28,10 +32,10 @@ export default {
       type: Function,
       default: noop,
     },
-
     type: String,
     stretch: Boolean,
     addable: Boolean,
+    size: String, // large|medium|small
     handleTabAdd: {
       type: Function,
       default: noop,
@@ -44,6 +48,8 @@ export default {
       navOffset: 0,
       isFocus: false,
       focusable: true,
+      newTabEditing: false,
+      newTabName: this.defaultTabName,
     }
   },
 
@@ -57,6 +63,9 @@ export default {
     sizeName() {
       return ['top', 'bottom'].indexOf(this.rootTabs.tabPosition) !== -1 ? 'width' : 'height'
     },
+    defaultTabName() {
+      return this.t('cute.tabs.new')
+    }
   },
 
   updated() {
@@ -81,6 +90,13 @@ export default {
   },
 
   methods: {
+    showTabAdd(){
+      this.newTabEditing = true
+      this.newTabName = this.defaultTabName
+      this.$nextTick(() => {
+        this.$refs.tabAddInput?.focus()
+      })
+    },
     scrollPrev() {
       const containerSize = this.$refs.navScroll[`offset${firstUpperCase(this.sizeName)}`]
       const currentOffset = this.navOffset
@@ -235,6 +251,10 @@ export default {
       removeFocus,
       addable,
       handleTabAdd,
+      showTabAdd,
+      newTabName,
+      newTabEditing,
+      size
     } = this
     const scrollBtn = scrollable
       ? [
@@ -323,18 +343,36 @@ export default {
             {!type ? <tab-bar tabs={panes}></tab-bar> : null}
             {tabs}
             {editable || addable ? (
-              <b
-                class="el-tabs__item newAdd"
-                on-click={handleTabAdd}
+              <div
+                class={['el-tabs__item', `is-${this.rootTabs.tabPosition}`, 'el-tabs__add']}
+                on-click={showTabAdd}
+                ref="tabAdd"
                 tabindex="0"
-                on-keydown={ev => {
-                  if (ev.keyCode === 13) {
-                    handleTabAdd()
-                  }
-                }}
               >
-                + 新增标签
-              </b>
+                {
+                  newTabEditing ? 
+                    <el-input
+                      class="el-tabs__add__input"
+                      ref="tabAddInput"
+                      value={newTabName}
+                      nativeOnClick={e => e.stopPropagation()}
+                      on-input={$event => this.newTabName = $event}
+                      on-blur={() => {
+                        this.newTabEditing = false
+                      }}
+                      on-focus={e => e.currentTarget.select()}
+                      nativeOnKeyup={e => {
+                        e.stopPropagation()
+                        e.preventDefault()
+                        if (e.keyCode === 13) {
+                          this.newTabEditing = false
+                          handleTabAdd(newTabName)
+                        }
+                      }}
+                    ></el-input>
+                    : `+ ${this.defaultTabName}`
+                }
+              </div>
             ) : null}
           </div>
         </div>
@@ -343,8 +381,3 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-.newAdd {
-  color: $color-master-1;
-}
-</style>

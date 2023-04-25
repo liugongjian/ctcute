@@ -1,12 +1,17 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-19 22:03:32
- * @LastEditors: 马妍
- * @LastEditTime: 2022-07-25 13:45:13
- * @Description: 
+ * @LastEditors: liugongjian
+ * @LastEditTime: 2023-04-13 10:36:12
+ * @Description:
 -->
 <template>
-  <cute-special-radio v-model="radio" :options="buutonData" @change="changeFun" />
+  <div>
+    <h3>中尺寸</h3>
+    <cute-special-radio v-model="radio" :options="butonData" size="medium" @change="changeFun" />
+    <h3>小尺寸</h3>
+    <cute-special-radio v-model="radio1" :options="butonData" size="small" @change="changeFun1" />
+  </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
@@ -18,7 +23,8 @@ import { CuteSpecialRadio } from '@cutedesign/ui'
 })
 export default class extends Vue {
   private radio = 'Active'
-  private buutonData = [
+  private radio1 = 'Active'
+  private butonData = [
     {
       label: 'Active',
     },
@@ -34,6 +40,9 @@ export default class extends Vue {
   //子组件修改父组件的值
   private changeFun(key) {
     this.radio = key
+  }
+  private changeFun1(key) {
+    this.radio1 = key
   }
 }
 </script>

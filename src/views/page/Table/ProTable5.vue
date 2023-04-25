@@ -2,7 +2,7 @@
  * @Author: 黄靖
  * @Date: 2023-01-10 16:45:36
  * @LastEditors: 胡一苗
- * @LastEditTime: 2023-03-31 14:16:07
+ * @LastEditTime: 2023-04-23 16:39:11
  * @Description: 复杂表格5
 -->
 <template>
@@ -51,7 +51,7 @@
     </div>
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="55" />
+      <el-table-column type="selection" width="32" />
       <el-table-column prop="name" label="主机别名">
         <template slot-scope="{ row }">
           <router-link to="/">{{ row.name }}</router-link>
@@ -71,16 +71,15 @@
       </el-table-column>
       <el-table-column prop="actions" label="操作" fixed="right" class-name="actions" width="200px">
         <template slot-scope="scope">
-          <el-button
-            type="text"
-            size="small"
-            class="bt-operation"
-            @click="gotoMount(scope.row)"
-          >
+          <el-button type="text" size="small" class="bt-operation" @click="gotoMount(scope.row)">
             挂载
           </el-button>
-          <el-button type="text" size="small" class="bt-operation" @click="gotoUninstall(scope.row)">卸载</el-button>
-          <el-button type="text" size="small" class="bt-operation" @click="gotoExpansion(scope.row)">扩容</el-button>
+          <el-button type="text" size="small" class="bt-operation" @click="gotoUninstall(scope.row)">
+            卸载
+          </el-button>
+          <el-button type="text" size="small" class="bt-operation" @click="gotoExpansion(scope.row)">
+            扩容
+          </el-button>
           <el-divider direction="vertical"></el-divider>
           <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
             <el-button type="text" size="small" class="bt-operation">
@@ -114,7 +113,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import * as ProTable5 from '@/types/ProTable5'
 import { getTable, getHosts } from '@/api/proTable5'
-import { STATUS, HEALTH2 } from '@/dics/simpleTable'
+import { STATUS, HEALTH2 } from '@/dics/proTable5'
 import { ElForm } from 'element-ui/types/form'
 
 @Component({

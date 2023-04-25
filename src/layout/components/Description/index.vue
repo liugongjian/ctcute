@@ -95,7 +95,7 @@ export default class extends Vue {
   }
 
   .icon {
-    color: $color-grey-3;
+    color: $icon-color;
   }
 }
 </style>

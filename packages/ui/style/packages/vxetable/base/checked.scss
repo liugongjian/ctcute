@@ -1,0 +1,98 @@
+%XECheckboxIcon {
+  .vxe-checkbox--icon {
+    font-size: $text-size;
+  }
+
+  .vxe-checkbox--icon {
+    color: $vxe-input-border-color;
+    vertical-align: middle;
+    font-weight: $text-weight;
+    user-select: none;
+  }
+
+  &.is--checked {
+    .vxe-checkbox--icon {
+      color: $vxe-primary-color;
+      font-weight: $text-title-weight;
+    }
+
+    .vxe-checkbox--label {
+      color: $vxe-primary-color;
+      font-weight: $text-title-weight;
+    }
+  }
+
+  &.is--indeterminate {
+    color: $vxe-primary-color;
+    font-weight: $text-title-weight;
+
+    .vxe-checkbox--label {
+      font-weight: $text-title-weight;
+    }
+  }
+
+  &:not(.is--disabled) {
+    cursor: pointer;
+  }
+
+  &.is--disabled {
+    color: $vxe-disabled-color;
+    cursor: not-allowed;
+
+    .vxe-checkbox--icon {
+      color: $vxe-input-disabled-color;
+    }
+  }
+
+  .vxe-checkbox--label {
+    padding-left: $padding-2x;
+    vertical-align: middle;
+  }
+}
+
+%XERadioIcon {
+  cursor: pointer;
+
+  .vxe-radio--icon {
+    font-size: 1.4em;
+  }
+
+  .vxe-radio--icon {
+    color: $vxe-input-border-color;
+    vertical-align: middle;
+    font-weight: $text-weight;
+    user-select: none;
+  }
+
+  &.is--checked {
+    color: $vxe-primary-color;
+
+    .vxe-radio--icon {
+      color: $vxe-primary-color;
+    }
+  }
+
+  &:not(.is--disabled) {
+    cursor: pointer;
+
+    &:hover {
+      .vxe-radio--icon {
+        color: $vxe-primary-color;
+      }
+    }
+  }
+
+  &.is--disabled {
+    color: $vxe-disabled-color;
+    cursor: not-allowed;
+
+    .vxe-radio--icon {
+      color: $vxe-input-disabled-color;
+    }
+  }
+
+  .vxe-radio--label {
+    padding-left: $padding-2x;
+    vertical-align: middle;
+  }
+}

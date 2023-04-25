@@ -69,16 +69,16 @@ export default class extends Vue {
   @Prop({
     type: Array,
     default: () => [
-      variables.chartColorH12,
-      variables.chartColor3,
-      variables.chartColor4,
-      variables.chartColor11,
-      variables.chartColor8,
-      variables.chartColor9,
-      variables.chartColor5,
       variables.chartColor1,
+      variables.chartColor2,
       variables.chartColor6,
+      variables.chartColor8,
       variables.chartColor10,
+      variables.chartColor11,
+      variables.chartColor5,
+      variables.chartColor4,
+      variables.chartColor7,
+      variables.chartColor9,
     ],
   })
   barColor?: []
@@ -316,81 +316,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.sp-slider {
-  display: flex;
-  align-items: center;
-
-  .sp-slider__bar {
-    width: $cute-distribution-bar-slider-width;
-    height: $cute-distribution-bar-slider-height;
-    background-color: $color-grey-8;
-    border-radius: $border-radius-medium;
-    position: relative;
-    cursor: pointer;
-    vertical-align: middle;
-
-    .sp-slider__bar-item {
-      position: absolute;
-      left: 0;
-      height: $cute-distribution-bar-slider-height;
-      border-radius: $border-radius-medium;
-    }
-
-    .sp-slider__wrap {
-      width: $cute-distribution-bar-slider-item-width;
-      height: $cute-distribution-bar-slider-item-height;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translate(-50%, -50%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &.hover,
-      &:hover {
-        cursor: grab;
-      }
-
-      user-select: none;
-
-      &.dragging {
-        cursor: grabbing;
-      }
-
-      &.disabled {
-        cursor: not-allowed;
-      }
-    }
-
-    .sp-slider__button {
-      width: $cute-distribution-bar-slider-button-width;
-      height: $cute-distribution-bar-slider-button-height;
-      background-color: $color-white;
-      border-radius: 50%;
-      transition: 0.2s;
-
-      &.hover,
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
-
-    .sp-slider__text {
-      position: absolute;
-      top: -$cute-distribution-bar-slider-item-height;
-      font-size: $text-size;
-      width: $cute-distribution-bar-slider-item-width;
-      height: $cute-distribution-bar-slider-item-height;
-      line-height: $cute-distribution-bar-slider-item-height;
-      text-align: center;
-      transform: translateX(-50%);
-    }
-  }
-
-  .sp-slider__max {
-    margin-left: 15px;
-  }
-}
-</style>

@@ -1,5 +1,12 @@
 /* Collapse
 -------------------------- */
+$collapse-seperate-header-height: 32px;
+
+.el-collapse-item__content {
+  color: $text-color;
+  font-size: $text-size;
+}
+
 .el-collapse {
   border: none;
 
@@ -29,11 +36,8 @@
   }
 
   .el-collapse-item__content {
-    // font-size: $text-size;
-    // color: $text-color-light;
     line-height: $line-height;
     padding: $padding-10;
-    // background-color: $color-bg-1;
     border: 1px solid $collapse-border-color;
     border-top: none;
   }

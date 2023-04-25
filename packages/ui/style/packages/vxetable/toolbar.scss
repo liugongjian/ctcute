@@ -1,0 +1,322 @@
+/**Variable**/
+@import './base/checked.scss';
+
+/*toolbar*/
+.vxe-toolbar {
+  margin-bottom: $margin-4x;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: $vxe-font-color;
+  font-family: $vxe-font-family;
+  background-color: $vxe-toolbar-background-color;
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  &.is--perfect {
+    border: 1px solid $vxe-table-border-color;
+    border-bottom-width: 0;
+    background-color: $vxe-table-header-background-color;
+  }
+  &.is--loading {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: $vxe-loading-z-index;
+      user-select: none;
+      background-color: $vxe-loading-background-color;
+    }
+  }
+  .vxe-buttons--wrapper {
+    flex-grow: 1;
+    & > .vxe-button+.vxe-button--item,
+    & > .vxe-button--item+.vxe-button,
+    & > .vxe-button--item+.vxe-button--item {
+      margin-left: 0.8em;
+    }
+    & > .vxe-button--item {
+      display: inline-block;
+    }
+  }
+  .vxe-tools--wrapper {
+    & > .vxe-button+.vxe-tool--item,
+    & > .vxe-tool--item+.vxe-button,
+    & > .vxe-tool--item+.vxe-tool--item {
+      margin-left: 0.8em;
+    }
+    & > .vxe-tool--item {
+      display: inline-block;
+    }
+  }
+  .vxe-tools--wrapper {
+    & > .vxe-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .vxe-buttons--wrapper,
+  .vxe-tools--wrapper,
+  .vxe-tools--operate {
+    display: flex;
+    align-items: center;
+  }
+  .vxe-buttons--wrapper,
+  .vxe-tools--wrapper {
+    flex-wrap: wrap;
+  }
+  .vxe-tools--operate {
+    flex-shrink: 0;
+  }
+  .vxe-custom--wrapper {
+
+    position: relative;
+    background-color: $vxe-toolbar-panel-background-color;
+    &.is--active {
+      & > .vxe-button {
+        background-color: $vxe-toolbar-custom-active-background-color;
+        // border-radius: 50%;
+      }
+      .vxe-custom--option-wrapper {
+        display: block;
+      }
+    }
+    .vxe-button {
+      border: none;
+      background-color: $color-bg-2 !important;
+      .is--cicle {
+        padding-right: 0px;
+      }
+      &:after {
+        content: '';
+      }
+      &:active {
+        background-color: $color-bg-2 !important;
+      }
+      .vxe-button--icon {
+        background: $color-bg-2;
+        border: 1px solid $neutral-5;
+        border-radius: $vxe-border-radius;
+        font-family: $font-family-cute-icons !important;
+        margin-left: $margin-3x;
+        height: $vxe-toolbar-custom-button-height;
+        line-height: $vxe-toolbar-custom-button-line-height;
+        display: inline-block;
+        width: $vxe-toolbar-custom-button-line-height;
+
+        &:before {
+          content: '\eae7';
+          font-size: 14px;
+        }
+      }
+    }
+
+  }
+  .vxe-custom--option-wrapper {
+    display: none; // TODO
+    position: absolute;
+    right: 0px;
+    top: $vxe-toolbar-custom-option-top; // 34+4
+    text-align: left;
+    background-color: $vxe-toolbar-panel-background-color;
+    z-index: $vxe-toolbar-custom-option-wrapper-zindex;
+    border: 1px solid $vxe-table-border-color;
+    border-radius: $vxe-border-radius;
+    box-shadow: $shadow-2;
+    .vxe-custom--header {
+      font-weight: $text-weight;
+      border-bottom: 1px solid $vxe-toolbar-custom-header-border-color;
+    }
+    .vxe-custom--body {
+      .vxe-custom--option {
+        &:hover {
+          background-color: $vxe-toolbar-custom-option-hover-color;
+        }
+      }
+    }
+    .vxe-custom--header {
+      .is--indeterminate {
+        color: $vxe-primary-color;
+        font-weight: $text-title-weight;
+    
+        .vxe-checkbox--label {
+          font-weight: $text-title-weight;
+        }
+        .vxe-checkbox--icon {
+          display: inline-block;
+          position: relative;
+          border: 1px solid $vxe-table-border-color;
+          border-radius: $vxe-border-radius;
+          box-sizing: border-box;
+          width: $vxe-checkbox-icon-width-size;
+          height: $vxe-checkbox-icon-height-size;
+          background-color: $vxe-table-checkbox-color;
+          z-index: 1;
+          transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46), background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+        }
+
+        .vxe-icon-checkbox-checked:before {
+          box-sizing: content-box;
+          content: "";
+          border: 1px solid $vxe-table-checkbox-color;
+          border-left: 0;
+          border-top: 0;
+          height: 7px;
+          position: absolute;
+          transform: rotate(45deg) scaleY(0);
+          width: 3px;
+          transition: transform 0.15s ease-in 0.05s;
+          transform-origin: center;
+          left: 5px;
+          top: 1px;
+        }
+        .vxe-icon-checkbox-indeterminate:before {
+          background-color: $vxe-primary-color;
+          content: '';
+            border-radius: $vxe-border-radius;
+            transform: scale(0.5);
+            top: 0px;
+            width: 12px;
+            height: 12px;
+            left: 0px;
+            position: absolute;
+            display: block;
+        }
+      }
+      &>li {
+        margin-top: $margin;
+        margin-bottom: $margin;
+        margin-bottom: $margin;
+        max-width: $vxe-toolbar-custom-option-max-width;
+        min-width: $vxe-toolbar-custom-option-min-width;
+        padding: 0px $padding-3x;
+        height: $vxe-toolbar-custom-option-height;
+        line-height: $vxe-toolbar-custom-option-height;
+      }
+    }
+    .vxe-custom--body {
+      & > li {
+        margin-top: $margin;
+        max-width: $vxe-toolbar-custom-option-max-width;
+        min-width: $vxe-toolbar-custom-option-min-width;
+        height: $vxe-toolbar-custom-option-height;
+        line-height: $vxe-toolbar-custom-option-line-height;
+        padding: 0px $padding-3x;
+      }
+      margin-bottom: $margin;
+    }
+    .vxe-custom--footer {
+      border-top: 1px solid $vxe-table-popup-border-color;
+      text-align: left;
+      height: calc($vxe-toolbar-custom-option-height + 4px);
+      line-height: calc($vxe-toolbar-custom-option-line-height + 4px);
+      button {
+        background-color: transparent;
+        border: 0;
+        color: $vxe-font-color;
+        font-size: $text-size;
+        padding-left: $padding-3x;
+        padding-right: $padding;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+        &:hover {
+          color: $vxe-primary-color;
+        }
+      }
+    }
+  }
+}
+
+.vxe-custom--option-wrapper .vxe-custom--header,
+.vxe-custom--option-wrapper .vxe-custom--body {
+  list-style-type: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  & > li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.vxe-custom--option {
+      .vxe-checkbox--icon {
+        font-size: $text-size-md;
+      }
+      .vxe-checkbox--icon {
+        color: $vxe-input-border-color;
+        vertical-align: middle;
+        font-weight: $text-weight;
+        user-select: none;
+      }
+  
+      &.is--checked {
+        .vxe-checkbox--icon {
+          color: $vxe-primary-color;
+          font-weight: $text-title-weight;
+        }
+        .vxe-checkbox--label {
+          color: $vxe-primary-color;
+          font-weight: $text-title-weight;
+        }
+      }
+  
+      &:not(.is--disabled) {
+        cursor: pointer;
+      }
+  
+      &.is--disabled {
+        color: $vxe-disabled-color;
+        cursor: not-allowed;
+  
+        .vxe-checkbox--icon {
+          color: $vxe-input-disabled-color;
+        }
+      }
+  
+      .vxe-checkbox--label {
+        padding-left: $padding-2x;
+        vertical-align: middle;
+      }
+      .is--indeterminate {
+        color: $vxe-primary-color;
+        font-weight: $text-title-weight;
+
+        .vxe-checkbox--label {
+          font-weight: $text-title-weight;
+        }
+
+        .vxe-icon-checkbox-indeterminate:before {
+          background-color: $vxe-primary-color;
+        }
+      }
+      
+}
+
+.vxe-toolbar {
+  font-size: $vxe-font-size;
+  &.size--medium {
+    font-size: $vxe-font-size-medium;
+  }
+  &.size--small {
+    font-size: $vxe-font-size-small;
+  }
+  &.size--mini {
+    font-size: $vxe-font-size-mini;
+  }
+}

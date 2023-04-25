@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-11-19 07:41:39
  * @Description:
  */
-import LayoutBak from '@/layout/doc.vue'
 import Layout from '@/layout/LayoutDoc.vue'
+
 const docRoutes = [
   // 更新日志
   {
@@ -185,6 +185,24 @@ const docRoutes = [
         component: () => import('@/views/doc/Guides/Variables.vue'),
         meta: {
           title: 'SASS变量',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/docs/upgrade-v2',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'UpgradeV2',
+        component: () => import('@/views/doc/Guides/UpgradeV2.vue'),
+        meta: {
+          title: '升级到V2',
           breadcrumb: true,
         },
       },

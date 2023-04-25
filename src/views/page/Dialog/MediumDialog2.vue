@@ -1,8 +1,8 @@
 <!--
  * @Author: zhaodan
  * @Date: 2023-01-06 14:40:32
- * @LastEditors: zhulh
- * @LastEditTime: 2023-03-24 14:50:27
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-16 12:21:50
  * @Description: 中弹窗2
 -->
 
@@ -12,11 +12,11 @@
     <div>
       <p>
         弹窗头部跟底部跟天翼云弹窗样式统一，在中尺寸弹窗中，宽度为
-        560px，弹窗底部按钮水平居中展示，最大高度为570px。
+        600px，弹窗底部按钮水平居中展示，最大高度为窗口高度70%。
       </p>
       <el-button type="primary" @click="handleClick">中弹窗2</el-button>
     </div>
-    <el-dialog width="570px" :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
+    <el-dialog width="600px" :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
       <el-form ref="ruleForm" :rules="rules" :model="form" label-width="104px">
         <el-form-item label="类型" prop="type">
           <el-radio-group v-model="form.type">
@@ -40,15 +40,13 @@
           <el-input v-model="form.sort" value="" placeholder="请输入排序"></el-input>
         </el-form-item>
 
-        <el-form-item label=" " class="medium-dialog2__explain">
-          <span>
-            <svg-icon name="warning-circle" />
-          </span>
-          <span class="medium-dialog2__explain__text">
-            权限标识与别名说明<br />
-            标识，别名属同一个权限，主要用于前后分离，前后权限标识不一致，且前后两端皆须判定权限的项目，一般情况别名指控即可，如有多个别名可逗号分隔。
-          </span>
-        </el-form-item>
+        <el-alert
+          :closable="false"
+          type="info"
+          show-icon
+          title="权限标识与别名说明"
+          description="标识，别名属同一个权限，主要用于前后分离,前后权限标识不一致,且前后两端皆需判定权限的项目。一般情况别名置空即可,如有多个别名可逗号分隔。"
+        />
 
         <el-form-item label="标识" prop="permissionTag">
           <el-input v-model="form.permissionTag" value="" placeholder="请输入权限标识"></el-input>
@@ -138,3 +136,8 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+::v-deep .el-alert {
+  margin-bottom: $form-item-margin-bottom;
+}
+</style>

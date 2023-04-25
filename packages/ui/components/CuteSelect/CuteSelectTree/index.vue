@@ -1,13 +1,22 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 黄靖
- * @LastEditTime: 2023-03-27 18:11:10
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-25 15:50:10
  * @Description: 树选择器
 -->
 <template>
-  <el-select ref="selector" :value="treeData" placeholder="请选择" :multiple="multiple ? true : false">
-    <el-option :value="value" :label="label" style="height: auto;">
+  <el-select
+    ref="selector"
+    :value="treeData"
+    placeholder="请选择"
+    :size="size"
+    :disabled="disabled"
+    :class="{ 'is-disabled': disabled }"
+    :multiple="multiple ? true : false"
+    popper-class="cute-select-tree"
+  >
+    <el-option :value="value" :label="label" style="height: auto">
       <el-tree
         v-if="$scopedSlots.node"
         ref="tree"
@@ -61,11 +70,14 @@ export default class extends Vue {
   @Ref('selector') refSelector!: any
   @Prop({ type: Boolean, default: false }) multiple?: boolean // 是否多选
   @Prop({ type: Array, default: '' }) options?: [] //option 值
+  @Prop({ type: String, default: 'medium' }) size?: 'medium' //option 值
+
   @Prop({ type: Object, default: () => ({}) }) nodeProps!: NODE_PROPS //el-tree的props属性
   @Prop({ type: Boolean, default: false }) defaultExpandAll!: boolean //el-tree的default-expand-all属性
   @Prop({ type: Boolean, default: false }) lazy!: boolean //el-tree的lazy属性
+  @Prop({ type: Boolean, default: false }) disabled!: boolean //禁用状态
+
   @Prop({ type: Boolean, default: false }) collapseTags!: boolean //el-tree的collapse-tags属性
-  @Prop({ type: String, default: 'medium' }) size!: string //el-tree的collapse-tags属性
   @Prop({ type: Function }) load?: any //el-tree的load属性
   @Model('change', { default: '' }) treeData: Array<any> | string //select 值
   private value = ''
@@ -201,23 +213,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.el-tree {
-  color: $text-color;
-  font-weight: $text-weight;
-}
-
-.el-select-dropdown__item,
-.el-select-dropdown__item.hover {
-  background: $color-bg-1;
-  padding: 0;
-}
-
-.el-select-dropdown.el-popper.is-multiple {
-  .el-select-dropdown__item.hover {
-    background: $color-bg-1;
-    padding: 0;
-  }
-}
-</style>

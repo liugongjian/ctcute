@@ -1,14 +1,14 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-24 14:41:47
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-20 15:47:10
  * @Description: 操作已选项
 -->
 <template>
-  <div class="selected-input">
+  <div class="cute-selected-input">
     <el-select ref="select" :value="''" placeholder="" @change="handelSelectChange">
-      <span slot="prefix" :class="flag ? 'select-field' : 'select-uncheck'">{{ sele }}</span>
+      <span slot="prefix" class="text" :class="flag ? 'select-field' : 'select-uncheck'">{{ sele }}</span>
       <el-option
         v-for="(v, i) in options"
         :key="i"
@@ -22,62 +22,26 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
+import { Component, Prop, Mixins } from 'vue-property-decorator'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
   name: 'CuteSelectedInput',
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   @Prop({ type: Array, default: [] }) checkedList?: [] //已选中数据
   @Prop({ type: Array, default: [] }) options?: [] //下拉数据
-  private sele = ''
-  private flag = false
-  private created() {
-    if (this.checkedList.length > 0) {
-      this.flag = true
-      this.sele = `操作已选项(${this.checkedList.length})`
-    } else {
-      this.flag = false
-      this.sele = '操作已选项'
-    }
-  }
-  @Watch('checkedList')
-  private change() {
-    if (this.checkedList.length > 0) {
-      this.flag = true
-      this.sele = `操作已选项(${this.checkedList.length})`
-    } else {
-      this.flag = false
-      this.sele = '操作已选项'
-    }
-  }
 
+  private get flag() {
+    return this.checkedList.length > 0
+  }
+  private get sele() {
+    return this.checkedList.length > 0
+      ? `(${this.checkedList.length})${this.t('cute.selectedInput.action')}`
+      : this.t('cute.selectedInput.action')
+  }
   private handelSelectChange(e) {
     this.$emit('change', { checkedList: this.checkedList, value: e })
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.el-select {
-  ::v-deep .el-input.el-input--medium.el-input--suffix {
-    width: $cute-selected-input-width;
-    padding-right: 0;
-  }
-
-  ::v-deep.el-input__inner {
-    padding-right: 0;
-    color: $color-neutral-10;
-  }
-}
-
-.select-uncheck {
-  padding-right: 0;
-  color: $color-neutral-10;
-}
-
-.select-field {
-  padding-right: 0;
-  color: $color-master;
-}
-</style>

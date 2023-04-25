@@ -2,32 +2,27 @@
  * @Author: 马妍
  * @Date: 2022-10-19 10:59:22
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-01-11 12:12:53
+ * @LastEditTime: 2023-04-23 14:26:55
  * @Description: 
 -->
 <template>
   <div>
-    <div class="sub-switch">
-      <b>Enable</b>
+    <div>
+      <div class="input-content">
+        <el-radio-group v-model="inputDisabled" size="small">
+          <el-radio-button :value="true" :label="true">禁用</el-radio-button>
+          <el-radio-button :value="false" :label="false">启用</el-radio-button>
+        </el-radio-group>
+      </div>
       <div>
-        <el-switch v-model="value1"> </el-switch>
-        <el-switch v-model="value"> </el-switch>
-      </div>
-      <div class="small-switch">
-        <!-- 宽度不要用important 用原生width-->
-        <el-switch v-model="value2" :width="28"> </el-switch>
-        <el-switch v-model="value3" :width="28"> </el-switch>
-      </div>
-    </div>
-    <div class="sub-switch">
-      <b>Unable</b>
-      <div>
-        <el-switch :value="false" disabled> </el-switch>
-        <el-switch :value="true" disabled> </el-switch>
-      </div>
-      <div class="small-switch">
-        <el-switch :value="false" disabled :width="28"> </el-switch>
-        <el-switch :value="true" disabled :width="28"> </el-switch>
+        <h3>默认用法 - 大</h3>
+        <div>
+          <el-switch v-model="value1" :disabled="inputDisabled"> </el-switch>
+        </div>
+        <h3>默认用法 - 小</h3>
+        <div>
+          <el-switch v-model="value2" class="small-switch" :disabled="inputDisabled" :width="32"> </el-switch>
+        </div>
       </div>
     </div>
   </div>
@@ -43,6 +38,8 @@ export default class extends Vue {
     zh: '开关',
     en: 'Switch',
   }
+  private inputSize = 'medium'
+  private inputDisabled = false
   public static description = {
     maintainer: '马妍',
     version: 'v1.0',
@@ -66,5 +63,15 @@ b {
   display: flex;
   align-items: center;
   margin-top: 24px;
+}
+.input-content {
+  width: 846px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  clear: both;
+  .el-input {
+    width: 250px;
+  }
 }
 </style>

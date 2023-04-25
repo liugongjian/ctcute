@@ -1,15 +1,20 @@
 <!--
  * @Author: 何晋升
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-07-18 13:45:39
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-14 09:56:55
  * @Description: 分步表单
 -->
 <template>
   <el-card>
     <div class="step-form">
       <el-steps :active="active" class="steps" finish-status="success" space="30%">
-        <el-step v-for="(s, index) in steps" :key="index" :title="getTitle(index)"></el-step>
+        <el-step
+          v-for="(s, index) in steps"
+          :key="index"
+          description="提示性文字"
+          :title="getTitle(index)"
+        ></el-step>
       </el-steps>
 
       <div class="form-content">
@@ -17,7 +22,6 @@
         <el-form v-show="active === 0" ref="firstForm" :model="firstForm" :rules="rules" label-width="130px">
           <el-form-item label="输入查询" prop="name">
             <el-input v-model="firstForm.name" placeholder="请输入策略名称" />
-            <div class="form-item__tip">策略格式为XXXXXXXXXXXXXXXXX</div>
           </el-form-item>
           <el-form-item label="备注/描述" prop="remark">
             <el-input
@@ -214,7 +218,7 @@
         </div>
 
         <div v-show="active > 2">
-          <el-result icon="success" sub-title="恭喜你提交成功" style="width: 350px;"> </el-result>
+          <el-result icon="success" sub-title="恭喜你提交成功" style="width: 350px"> </el-result>
           <div class="footer--center">
             <el-button class="btn-style" type="primary" @click="resetForm"> 再来一次 </el-button>
             <el-button @click="handleClick">查看结构表</el-button>

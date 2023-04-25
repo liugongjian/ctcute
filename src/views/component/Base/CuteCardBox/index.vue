@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2023-02-09 08:30:39
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-02-12 09:41:57
+ * @LastEditTime: 2023-04-10 07:10:06
  * @Description: 有标题的卡片，通常用于图表类的盒子
 -->
 
@@ -21,6 +21,10 @@
       <h1>标题右侧有tabs切换</h1>
       <component-demo path="@/views/component/Base/CuteCardBox/Demo3.vue">
         <demo3 />
+      </component-demo>
+      <h1>指定内容区高度</h1>
+      <component-demo path="@/views/component/Base/CuteCardBox/Demo4.vue">
+        <demo4 />
       </component-demo>
       <h2>CuteCardBox Attributes</h2>
       <el-table :data="prop" fit border>
@@ -43,6 +47,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import Demo1 from './Demo1.vue'
 import Demo2 from './Demo2.vue'
 import Demo3 from './Demo3.vue'
+import Demo4 from './Demo4.vue'
 import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 
 @Component({
@@ -52,6 +57,7 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
     Demo1,
     Demo2,
     Demo3,
+    Demo4,
   },
 })
 export default class extends Vue {
@@ -61,7 +67,14 @@ export default class extends Vue {
       desc: '标题',
       type: 'String',
       options: null,
-      default: null,
+      default: '',
+    },
+    {
+      name: 'contentHeight',
+      desc: '内容区高度',
+      type: 'String',
+      options: null,
+      default: '100%',
     },
   ]
   private slot = [

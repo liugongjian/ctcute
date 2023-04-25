@@ -1,5 +1,11 @@
 /* Dialog
 -------------------------- */
+$dialog-header-padding: $padding-4x $padding-8x;
+$dialog-body-padding: $padding-6x $padding-8x;
+$dialog-footer-padding: $padding-3x $padding-8x;
+$dialog-footer-margin-top: -30px;
+$dialog-fullscreen-margin: $margin-6x;
+
 .el-dialog {
   display: flex;
   flex-direction: column;
@@ -13,11 +19,15 @@
   }
 
   &__headerbtn &__close {
-    color: $text-color-light;
+    color: $text-color-light-2;
   }
 
   &__headerbtn {
     right: $common-space-8x;
+  }
+
+  &__title {
+    font-weight: $text-title-weight;
   }
 
   /*
@@ -40,6 +50,7 @@
   &__footer {
     background-color: $dialog-footer-bg;
     padding: $dialog-footer-padding;
+    border-radius: 0 0 $border-radius $border-radius;
   }
 
   /*
@@ -47,8 +58,8 @@
   */
   &.is-fullscreen {
     margin: $dialog-fullscreen-margin;
-    width: calc(100% - $dialog-fullscreen-margin * 2);
-    height: calc(100% - $dialog-fullscreen-margin * 2);
+    width: calc(100% - #{$dialog-fullscreen-margin} * 2);
+    height: calc(100% - #{$dialog-fullscreen-margin} * 2);
     overflow: visible;
   }
 }

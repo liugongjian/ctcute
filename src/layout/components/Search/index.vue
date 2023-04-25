@@ -3,8 +3,8 @@
   <el-autocomplete
     ref="autocomplete"
     v-model="keyword"
-    class="layout-header__search--input"
-    popper-class="layout-header__search--popper"
+    class="header-nav__search__input"
+    popper-class="header-nav__search__popper"
     placeholder="搜索..."
     :fetch-suggestions="search"
     :trigger-on-focus="false"
@@ -78,7 +78,7 @@ export default class extends Vue {
       parentPath &&
         items.push({
           path: path,
-          value: route.meta.title,
+          value: this.$t(route.meta.title),
           type: 'page',
         })
     })
@@ -103,7 +103,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss">
-.layout-header__search--popper {
+.header-nav__search__popper {
   li:hover {
     background: $color-master-7;
   }

@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 15:28:57
+ * @LastEditTime: 2023-04-07 09:31:42
  * @Description:
 -->
 <template>
@@ -42,6 +42,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { getTable } from '@/api/simpleTable'
+import * as SimpleTable from '@/types/SimpleTable'
 
 @Component({
   name: 'Demo1',
@@ -49,7 +50,13 @@ import { getTable } from '@/api/simpleTable'
 export default class extends Vue {
   private heightVal = 'none'
 
-  private tableData = []
+  // 表格数据
+  private tableData: SimpleTable.Host[] = null
+
+  private conditions: SimpleTable.Conditions = {
+    host: '',
+    name: '',
+  }
 
   // 分页信息
   private pager = {
@@ -70,10 +77,12 @@ export default class extends Vue {
   private async getTable() {
     try {
       this.loading = true
-      const res = await getTable({
+      const params: SimpleTable.TableParams = {
         page: this.pager.page,
         limit: this.pager.limit,
-      })
+        ...this.conditions,
+      }
+      const res = await getTable(params)
       this.pager.total = res.data.total
       this.tableData = res.data.list
     } catch (e) {

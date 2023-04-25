@@ -1,8 +1,8 @@
 <!--
  * @Author: fanzhengle
  * @Date: 2022-12-03 11:18:32
- * @LastEditors: 范郑乐
- * @LastEditTime: 2022-12-13 11:18:32
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-16 11:18:10
  * @Description: 可编辑表格 - 弹框编辑
 -->
 
@@ -48,39 +48,29 @@
       </vxe-column>
     </vxe-table>
 
-    <el-dialog
-      class="medium-dialog"
-      title="编辑"
-      :visible="showEdit"
-      :close-on-click-modal="false"
-      @close="close"
-    >
-      <el-scrollbar ref="scrollBar" class="medium-dialog--scroll">
-        <div class="medium-dialog--content">
-          <el-form ref="ruleForm" :model="form" label-width="124px">
-            <el-form-item label="名字" prop="name">
-              <el-input v-model="form.name" />
-            </el-form-item>
-            <el-form-item label="性别" prop="sex">
-              <el-select v-model="form.sex">
-                <el-option
-                  v-for="item in sexList"
-                  :key="item.value"
-                  :value="item.value"
-                  :label="item.label"
-                ></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="年龄" prop="age">
-              <el-input-number v-model="form.age" controls-position="right"></el-input-number>
-            </el-form-item>
-            <el-form-item label="地址" prop="address">
-              <el-input v-model="form.address" />
-            </el-form-item>
-          </el-form>
-        </div>
-      </el-scrollbar>
-      <div class="medium-dialog--footer">
+    <el-dialog title="编辑" :visible="showEdit" :close-on-click-modal="false" @close="close">
+      <el-form ref="ruleForm" :model="form" label-width="124px">
+        <el-form-item label="名字" prop="name">
+          <el-input v-model="form.name" />
+        </el-form-item>
+        <el-form-item label="性别" prop="sex">
+          <el-select v-model="form.sex">
+            <el-option
+              v-for="item in sexList"
+              :key="item.value"
+              :value="item.value"
+              :label="item.label"
+            ></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="年龄" prop="age">
+          <el-input-number v-model="form.age" controls-position="right"></el-input-number>
+        </el-form-item>
+        <el-form-item label="地址" prop="address">
+          <el-input v-model="form.address" />
+        </el-form-item>
+      </el-form>
+      <div slot="footer">
         <el-button @click="close">取消</el-button>
         <el-button type="primary" :loading="loading" @click="confirm">确定</el-button>
       </div>
@@ -89,7 +79,6 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import '@cutedesign/vxe-table'
 import { getTableData2 } from './mock'
 import { TableType2 } from './types'
 import { SEX } from './dict'

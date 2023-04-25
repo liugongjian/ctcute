@@ -1,4 +1,4 @@
-import UiLayout from '@/layout/ui.vue'
+import UiLayout from '@/layout/LayoutUi.vue'
 
 const uiRoutes = [
   {

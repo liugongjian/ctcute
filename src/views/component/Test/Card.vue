@@ -41,7 +41,7 @@
         </el-col>
       </el-row>
     </div>
-    <div>
+    <div class="mb-12">
       <h3>卡片阴影</h3>
       <el-row :gutter="12">
         <el-col :span="8">
@@ -69,11 +69,11 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .text {
-  font-size: 14px;
+  font-size: $text-size;
 }
 
 .item {
-  margin-bottom: 18px;
+  margin-bottom: $text-size-xl;
 }
 
 .clearfix:before,
@@ -91,13 +91,13 @@ export default class extends Vue {
 }
 
 .time {
-  font-size: 13px;
-  color: #999;
+  font-size: $text-size;
+  color: $color-neutral-7;
 }
 
 .bottom {
-  margin-top: 13px;
-  line-height: 12px;
+  margin-top: $text-size;
+  line-height: $text-size;
 }
 
 .button {
@@ -108,5 +108,9 @@ export default class extends Vue {
 .image {
   width: 100%;
   display: block;
+}
+
+.mb-12 {
+  margin-bottom: $common-space-3x;
 }
 </style>

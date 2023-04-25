@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 10:47:36
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-04-19 07:58:59
  * @Description:
  */
 import ElementUI, {
@@ -97,10 +97,22 @@ import ElementUIOverride, {
   MessageBox,
 } from './components/ElementUI'
 import './components/ElementUI/settings'
-import './style/index.scss'
-import './fonts/iconfont.css'
-import './fonts/bahnschrift.css'
+// svgIcon
 import './icons/index'
+import SvgIcon from './icons/index.vue'
+
+// 整合appendix，chart等
+import CuteAppendix from './packages/appendix/CuteAppendix.vue'
+import CuteChart from './packages/chart/CuteChart.vue'
+import VXETable from './packages/vxe-table/index'
+import CuteSortTable from './packages/sort-table/CuteSortTable.vue'
+
+export {
+  CuteAppendix,
+  CuteChart,
+  VXETable, // VXETable使用时要vue.use全局注册，因为他会自动注册其他几个相关组件
+  CuteSortTable,
+}
 
 /**
  * 组件清单
@@ -155,6 +167,7 @@ const componentsList = [
   CuteLayout,
   CuteFormInfo,
   CuteEditInput,
+  CuteButtonGroup,
   CuteState,
   CuteTag,
   CuteRemindInput,
@@ -170,9 +183,20 @@ const componentsList = [
 ]
 
 export default {
-  install(Vue) {
-    Vue.use(ElementUI, { size: 'medium' })
+  install(Vue, opts = { size: 'medium' }) {
+    Vue.use(ElementUI, opts)
     Vue.use(ElementUIOverride)
+    Vue.use(InfiniteScroll)
+    Vue.use(Loading.directive)
+
+    Vue.prototype.$loading = Loading.service
+    Vue.prototype.$msgbox = MessageBox
+    Vue.prototype.$alert = MessageBox.alert
+    Vue.prototype.$confirm = MessageBox.confirm
+    Vue.prototype.$prompt = MessageBox.prompt
+    Vue.prototype.$notify = Notification
+    Vue.prototype.$message = Message
+    Vue.component('SvgIcon', SvgIcon)
 
     componentsList.map((component: any) => {
       Vue.component(component.options ? component.options.name : component.name, component)
@@ -269,3 +293,5 @@ export {
   Collapse,
   Rate,
 }
+
+export { default as createI18n } from './i18n'

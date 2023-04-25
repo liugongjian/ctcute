@@ -15,6 +15,7 @@
   border-top: 1px solid $color-neutral-5;
   z-index: 2;
   height: 11px;
+  .el-icon-arrow-down{ margin-top: -1px;}
 }
 
 .el-input-number.is-controls-right[class*='mini'] [class*='increase'] {
@@ -27,6 +28,7 @@
   border-top: 1px solid $color-neutral-5;
   z-index: 2;
   height: 11px;
+  .el-icon-arrow-down{ margin-top: -1px;}
 }
 
 .el-input-number.is-controls-right[class*='small'] [class*='increase'] {

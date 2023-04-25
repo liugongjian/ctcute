@@ -1,18 +1,34 @@
 /*
  * @Author: 马妍
  * @Date: 2022-08-09 13:41:43
- * @LastEditors: 黄璐璐
- * @LastEditTime: 2022-10-18 14:18:50
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-15 22:10:34
  * @Description:
  */
 import request from '@/utils/request'
 import { AxiosPromise } from 'axios'
 
+type CommonRes = { code: number | string; msg: string }
+
 /**
  * 获取表格数据
  * @returns 表格数据
  */
-export const getUsers = (params): AxiosPromise<any> =>
+export const getUsers = (
+  params
+): Promise<
+  CommonRes & {
+    data: {
+      pageInfo: {
+        limit: number
+        page: number
+        totalItems: number
+        totalPage: number
+      }
+      result: any[]
+    }
+  }
+> =>
   request({
     url: '/v1/auth/users',
     method: 'get',
@@ -22,7 +38,7 @@ export const getUsers = (params): AxiosPromise<any> =>
 /**
  * 冻结某一个用户
  */
-export const freezeUsers = (id): AxiosPromise<any> =>
+export const freezeUsers = (id): Promise<CommonRes> =>
   request({
     url: `/v1/auth/users/${id}/freeze`,
     method: 'put',
@@ -31,7 +47,7 @@ export const freezeUsers = (id): AxiosPromise<any> =>
 /**
  * 解冻某一个用户
  */
-export const unfreezeUsers = (id): AxiosPromise<any> =>
+export const unfreezeUsers = (id): Promise<CommonRes> =>
   request({
     url: `/v1/auth/users/${id}/unfreeze`,
     method: 'put',
@@ -40,7 +56,7 @@ export const unfreezeUsers = (id): AxiosPromise<any> =>
 /**
  * 删除某一个用户
  */
-export const delUsers = (data): AxiosPromise<any> =>
+export const delUsers = (data): Promise<CommonRes> =>
   request({
     url: '/v1/auth/users',
     method: 'delete',
@@ -50,7 +66,7 @@ export const delUsers = (data): AxiosPromise<any> =>
 /**
  * 某一个用户密码重置
  */
-export const resetPWDUsers = (id): AxiosPromise<any> =>
+export const resetPWDUsers = (id): Promise<CommonRes & { data: { password: string } }> =>
   request({
     url: `/v1/auth/users/${id}/password/reset`,
     method: 'put',
@@ -59,7 +75,7 @@ export const resetPWDUsers = (id): AxiosPromise<any> =>
 /**
  * 修改某一个用户
  */
-export const editUsers = (id, data): AxiosPromise<any> =>
+export const editUsers = (id, data): Promise<CommonRes> =>
   request({
     url: `/v1/auth/users/${id}`,
     method: 'put',
@@ -69,7 +85,7 @@ export const editUsers = (id, data): AxiosPromise<any> =>
 /**
  * 添加某一个用户
  */
-export const addUsers = (data): AxiosPromise<any> =>
+export const addUsers = (data): Promise<CommonRes & { data: { password: string } }> =>
   request({
     url: '/v1/auth/users',
     method: 'post',

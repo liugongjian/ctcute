@@ -1,0 +1,11 @@
+$cute-remind-input-width: 300px;
+
+.el-autocomplete.inline-input {
+  width: $cute-remind-input-width;
+  height: $common-space-8x;
+
+  .prompt-title {
+    line-height: $common-space-8x;
+    margin-right: $margin-3x;
+  }
+}

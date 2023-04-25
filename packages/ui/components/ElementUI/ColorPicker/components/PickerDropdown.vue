@@ -2,7 +2,7 @@
   <transition name="el-zoom-in-top" @after-leave="doDestroy">
     <div
       v-show="showPopper"
-      class="el-color-dropdown"
+      class="el-color-dropdown cute-color-dropdown"
       :class="{ 'el-color-dropdown-simple': isSimpleLayout }"
     >
       <div v-if="!isSimpleLayout" class="el-color-dropdown__main-wrapper">
@@ -32,7 +32,7 @@
         <ElButton size="mini" type="text" class="el-color-dropdown__link-btn" @click="$emit('clear')">
           {{ t('el.colorpicker.clear') }}
         </ElButton>
-        <ElButton plain size="mini" class="el-color-dropdown__btn" @click="confirmValue">
+        <ElButton size="mini" class="el-color-dropdown__btn" @click="confirmValue">
           {{ t('el.colorpicker.confirm') }}
         </ElButton>
       </div>
@@ -47,7 +47,7 @@ import HueSlider from './HueSlider'
 import AlphaSlider from './AlphaSlider'
 import Predefine from './PredefinePanel'
 import Popper from 'element-ui/src/utils/vue-popper'
-import Locale from 'element-ui/src/mixins/locale'
+import Locale from 'element-ui/lib/mixins/locale'
 import ElInput from 'element-ui/packages/input'
 import ElButton from 'element-ui/packages/button'
 
@@ -128,25 +128,3 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-.el-color-dropdown ::v-deep {
-  .hue-slider {
-    float: right;
-  }
-
-  .el-color-predefine.predefine-simple {
-    width: 232px;
-    margin: 0;
-
-    .el-color-predefine__color-selector {
-      margin: $margin 0 $margin $margin-2x;
-    }
-  }
-}
-</style>
-<style lang="scss">
-.el-color-picker__panel.el-color-dropdown-simple {
-  padding: $padding 0;
-  width: auto;
-}
-</style>

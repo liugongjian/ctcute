@@ -2,7 +2,7 @@
  * @Author: 李志伟
  * @Date: 2023-03-27 16:34:29
  * @LastEditors: 李志伟
- * @LastEditTime: 2023-03-30 15:45:57
+ * @LastEditTime: 2023-04-12 14:26:49
  * @Description: Toast 轻提示
 -->
 <template>
@@ -48,13 +48,13 @@
           </el-row>
           <el-row class="tooltip-interval">
             <el-tooltip effect="dark" content="提示描述性文案" placement="bottom-end">
-              <el-button>右边</el-button>
+              <el-button>右下</el-button>
             </el-tooltip>
           </el-row>
         </el-col>
         <el-col :span="1">
           <el-tooltip effect="dark" content="提示描述性文案" placement="right">
-            <el-button>右下</el-button>
+            <el-button>右边</el-button>
           </el-tooltip>
         </el-col>
       </el-row>
@@ -63,11 +63,17 @@
     <div class="sub-tooltip">
       <el-row type="flex" align="middle" justify="center">
         <el-col :span="6">
-          <el-tooltip placement="top" effect="light">
+          <el-tooltip placement="top" effect="dark">
             <div slot="content" class="link-content">
               <el-link type="primary">更多</el-link> 关于什么的类型
             </div>
-            <el-button>Link</el-button>
+            <el-button>Dark</el-button>
+          </el-tooltip>
+          <el-tooltip placement="top" trigger="click" effect="light">
+            <div slot="content" class="link-content">
+              <el-link type="primary">更多</el-link> 关于什么的类型
+            </div>
+            <el-button>Light</el-button>
           </el-tooltip>
         </el-col>
       </el-row>

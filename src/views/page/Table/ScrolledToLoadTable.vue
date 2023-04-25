@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-07-26 15:13:36
- * @LastEditors: 胡一苗
- * @LastEditTime: 2023-03-30 20:43:49
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-04-23 12:37:50
  * @Description: 基础表格 - 滚动底部加载
 -->
 <template>
@@ -71,9 +71,9 @@
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import { ElForm } from 'element-ui/types/form'
 import { ElTable } from 'element-ui/types/table'
-import * as SimpleTable from '@/types/SimpleTable'
-import { getTable, getHosts } from '@/api/simpleTable'
-import { STATUS, HEALTH2 } from '@/dics/simpleTable'
+import * as ScrolledTable from '@/types/ScrolledTable'
+import { getTable, getHosts } from '@/api/scrolledTable'
+import { STATUS, HEALTH2 } from '@/dics/scrolledTable'
 import TableHookClass from '@cutedesign/ui/hook/TableHook'
 
 @Component({
@@ -84,7 +84,7 @@ export default class extends Vue {
   private HEALTH = HEALTH2
 
   // 搜索信息
-  private conditions: SimpleTable.Conditions = {
+  private conditions: ScrolledTable.Conditions = {
     host: '',
     name: '',
   }
@@ -145,25 +145,25 @@ export default class extends Vue {
 
   /**
    * 查看详情
-   * @param data {SimpleTable.Host} 表格行对象
+   * @param data {ScrolledTable.Host} 表格行对象
    */
-  private gotoDetail(data: SimpleTable.Host) {
+  private gotoDetail(data: ScrolledTable.Host) {
     this.$message.success(`前往${data.name}详情页面`)
   }
 
   /**
    * 查看监控指标
-   * @param data {SimpleTable.Host} 表格行对象
+   * @param data {ScrolledTable.Host} 表格行对象
    */
-  private gotoDashboard(data: SimpleTable.Host) {
+  private gotoDashboard(data: ScrolledTable.Host) {
     this.$message.info(`前往${data.name}监控指标页面`)
   }
 
   /**
    * 使用字典格式化实例状态
-   * @param data {SimpleTable.Host} 表格行对象
+   * @param data {ScrolledTable.Host} 表格行对象
    */
-  private statusFormatter(data: SimpleTable.Host) {
+  private statusFormatter(data: ScrolledTable.Host) {
     return STATUS[data.status]
   }
 }

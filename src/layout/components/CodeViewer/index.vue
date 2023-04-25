@@ -210,10 +210,11 @@ export default class extends Vue {
   private renderMore() {
     this.$nextTick(() => {
       const menuWidth = this.menu.$el.clientWidth
+      let firstHiddenIndex = 0
       for (let i = 0; i < this.menu.$el.children.length; i++) {
         const li = this.menu.$el.children[i]
         const rightPos = li.clientWidth + li.offsetLeft
-        if (rightPos > menuWidth) {
+        if (firstHiddenIndex || rightPos > menuWidth) {
           if (!this.menuIndex) {
             this.menuIndex = i
             const left = li.offsetLeft
@@ -222,6 +223,7 @@ export default class extends Vue {
             })
           }
           li.style.display = 'none'
+          firstHiddenIndex = i
         } else {
           li.style.display = 'block'
         }
@@ -244,8 +246,8 @@ $width: 640px;
   position: fixed;
   z-index: 100;
   right: 0;
-  top: $header-height;
-  height: calc(100% - $header-height);
+  top: $cute-layout-header-height;
+  height: calc(100% - $cute-layout-header-height);
   transition: transform 200ms ease-out;
   transform: translateX(640px);
   font-size: 12px; // TODO REMOVE

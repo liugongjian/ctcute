@@ -1,8 +1,8 @@
 <!--
  * @Author: 邱文琦
  * @Date: 2022-10-11 13:30
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-03-13 09:36:43
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-14 16:34:17
  * @Description: 首页
 -->
 <template>
@@ -14,7 +14,7 @@
     <!-- 统计数据 -->
     <el-row :gutter="22" class="header">
       <el-col :span="6">
-        <cute-chart-item
+        <chart-item
           :loading="loading"
           :icon="iconReach"
           title="短链触达量"
@@ -23,10 +23,10 @@
           percentage="2.5%"
           :lift="false"
         >
-        </cute-chart-item>
+        </chart-item>
       </el-col>
       <el-col :span="6">
-        <cute-chart-item
+        <chart-item
           :loading="loading"
           :icon="iconClick"
           title="短链点击量"
@@ -35,10 +35,10 @@
           percentage="2.5%"
           :lift="true"
         >
-        </cute-chart-item>
+        </chart-item>
       </el-col>
       <el-col :span="6">
-        <cute-chart-item
+        <chart-item
           :loading="loading"
           :icon="iconStartUp"
           title="短链启动量"
@@ -47,10 +47,10 @@
           percentage="2.5%"
           :lift="false"
         >
-        </cute-chart-item>
+        </chart-item>
       </el-col>
       <el-col :span="6">
-        <cute-chart-item
+        <chart-item
           :loading="loading"
           :icon="iconInstall"
           title="短链安装量"
@@ -59,12 +59,12 @@
           percentage="2.5%"
           :lift="false"
         >
-        </cute-chart-item>
+        </chart-item>
       </el-col>
     </el-row>
     <el-row :gutter="22">
       <el-col :span="18">
-        <cute-card-box title="今日数据概况" content-height="410px">
+        <cute-card-box title="今日数据概况" content-height="413px">
           <template #extra>
             <div class="header-time-line">
               <el-select v-model="value" placeholder="请选择" size="small">
@@ -204,7 +204,7 @@
         </cute-card-box>
       </el-col>
       <el-col :span="16">
-        <cute-card-box title="数据列表" class="table">
+        <cute-card-box title="数据列表" class="table" content-height="364px">
           <template #content>
             <el-tabs value="third" type="card" size="small">
               <el-tab-pane label="默认项" name="second"> </el-tab-pane>
@@ -260,7 +260,8 @@ import { HEALTH } from '@/dics/simpleTable'
 import { formatDatetime } from '@/utils/date'
 import { getTableComponent } from '@/api/tableComponent'
 import * as TableComponent from '@/types/TableComponent'
-import { CuteChart, CuteChartItem } from '@cutedesign/chart'
+import { CuteChart } from '@cutedesign/ui'
+import ChartItem from './ChartItem.vue'
 import { CuteCardBox } from '@cutedesign/ui'
 import { Component, Vue } from 'vue-property-decorator'
 import iconReach from './Images/icon-reach.svg'
@@ -272,7 +273,7 @@ import iconInstall from './Images/icon-install.svg'
   name: 'SimpleChart',
   components: {
     CuteChart,
-    CuteChartItem,
+    ChartItem,
     CuteCardBox,
   },
 })
@@ -741,7 +742,7 @@ export default class extends Vue {
         itemGap: 20,
         textAlign: 'center',
         x: '49%',
-        y: '30%',
+        y: '27%',
         textStyle: {
           fontFamily: 'bahnschrift',
           fontSize: 26,
@@ -1352,7 +1353,7 @@ export default class extends Vue {
       series: [
         {
           name: '安装量',
-          stack: 'Total',
+          // stack: 'Total',
           type: 'line',
           showSymbol: false,
           color: '#fdac6f',
@@ -1380,7 +1381,7 @@ export default class extends Vue {
         },
         {
           name: '启动量',
-          stack: 'Total',
+          // stack: 'Total',
           type: 'line',
           showSymbol: false,
           smooth: true,
@@ -1408,7 +1409,7 @@ export default class extends Vue {
         },
         {
           name: '短链点击量',
-          stack: 'Total',
+          // stack: 'Total',
           type: 'line',
           showSymbol: false,
           smooth: true,
@@ -1437,7 +1438,7 @@ export default class extends Vue {
         },
         {
           name: '短链触达量',
-          stack: 'Total',
+          // stack: 'Total',
           type: 'line',
           showSymbol: false,
           color: '#91c6f5',
@@ -1649,6 +1650,7 @@ export default class extends Vue {
   }
 
   .map-select {
+    display: flex;
     ::v-deep .el-select {
       width: 107px;
       margin-right: $margin-4x;

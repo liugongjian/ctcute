@@ -21,7 +21,7 @@ const settings: ISettings = {
   errorLog: ['production'],
   sidebarTextTheme: true,
   apiBaseUrl: '/',
-  logoIcon: require('./layout/components/LayoutHeader/images/cute-design.svg'),
+  logoIcon: require('./assets/images/cute-design.svg'),
 }
 
 export default settings

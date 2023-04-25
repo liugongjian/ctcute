@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-03-14 14:49:06
+ * @LastEditTime: 2023-04-22 10:00:18
  * @Description: 基础图表
 -->
 <template>
@@ -10,31 +10,31 @@
     <!-- 统计数据 -->
     <el-row :gutter="22">
       <el-col :span="8">
-        <cute-chart-card
+        <chart-card
           :loading="loading"
           icon="sever"
           title="数据库总数(个)"
           total="20"
           background="139, 178, 249"
-        ></cute-chart-card>
+        ></chart-card>
       </el-col>
       <el-col :span="8">
-        <cute-chart-card
+        <chart-card
           :loading="loading"
           icon="sever"
           title="总表数(个)"
           total="295"
           background="122, 211, 183"
-        ></cute-chart-card>
+        ></chart-card>
       </el-col>
       <el-col :span="8">
-        <cute-chart-card
+        <chart-card
           :loading="loading"
           icon="sever"
           title="总存储量(GB)"
           total="0.67"
           background="248, 211, 76"
-        ></cute-chart-card>
+        ></chart-card>
       </el-col>
     </el-row>
     <el-row :gutter="22">
@@ -127,14 +127,15 @@
   </div>
 </template>
 <script lang="ts">
-import { CuteChartCard, CuteChart } from '@cutedesign/chart'
+import { CuteChart } from '@cutedesign/ui'
 import { CuteCardBox } from '@cutedesign/ui'
 import { Component, Vue } from 'vue-property-decorator'
+import ChartCard from './ChartCard.vue'
 
 @Component({
   name: 'SimpleChart',
   components: {
-    CuteChartCard,
+    ChartCard,
     CuteChart,
     CuteCardBox,
   },

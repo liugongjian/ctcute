@@ -1,16 +1,19 @@
 @mixin table {
-
   /* 分页 */
   .el-pagination {
     text-align: right;
   }
 
   .el-table {
-
     /* 操作按钮 */
     .actions.el-table__cell {
       .el-button--text + .el-button--text {
         margin-left: $button-margin;
+      }
+
+      .el-button + .el-dropdown {
+        margin-left: $button-margin;
+        margin-right: 0;
       }
     }
   }
@@ -18,7 +21,6 @@
 
 /* 筛选表单 1 */
 @mixin tableToolsConditionForm1 {
-
   .el-form {
     display: flex;
   }
@@ -40,7 +42,6 @@
 
 /* 筛选表单 2 */
 @mixin tableToolsConditionForm2 {
-
   &__row {
     display: flex;
 
@@ -78,8 +79,9 @@
 
     .table-tools__left {
       display: flex;
+
       // 操作已选项
-      .selected-input {
+      .cute-selected-input {
         margin-right: $margin-5x;
       }
     }
@@ -88,7 +90,6 @@
 
 /* 简单表格 */
 .simple-table {
-
   /* 表格工具栏 */
   .table-tools {
     display: flex;
@@ -108,10 +109,8 @@
 
 /* 简单表格 2 */
 .simple-table2 {
-
   /* 表格工具栏 */
   .table-tools {
-
     /* 筛选表单 */
     &__conditions {
       @include tableToolsConditionForm1();
@@ -123,7 +122,6 @@
 
 /* 复杂表格 1 */
 .pro-table-1 {
-
   /* 表格工具栏 */
   .table-tools {
     display: flex;
@@ -154,13 +152,12 @@
 }
 
 /* 复杂表格 2 */
+
 /* 复杂表格 3 */
 .pro-table-2,
 .pro-table-3 {
-
   /* 表格工具栏 */
   .table-tools {
-
     /* 筛选表单 */
     &__conditions {
       margin-bottom: $margin-4x;
@@ -189,6 +186,7 @@
 
   .table4-right {
     flex: 1;
+    overflow-x: hidden; // 解决el-table在flex下不会缩小
   }
 
   /* 树 */
@@ -277,7 +275,6 @@
 
   /* 表格 */
   .table-wrap {
-
     /* 表格工具栏 */
     .table-tools {
       display: flex;
@@ -298,10 +295,8 @@
 
 /* 复杂表格 5 */
 .pro-table-5 {
-
   /* 表格工具栏 */
   .table-tools {
-
     /* 筛选表单 */
     &__conditions {
       margin-bottom: $margin-4x;
@@ -318,12 +313,10 @@
 
 /* 复杂表格 6 */
 .pro-table-6 {
-
 }
 
 /* 复杂表格 7 */
 .pro-table-7 {
-
 }
 
 /* 暂无数据 */
@@ -336,14 +329,14 @@
 
   &:before {
     display: block;
-    content: url('../images/table/not-have.svg');
+    content: url('#{$images-path}/table/not-have.svg');
     margin-top: $margin-6;
     margin-right: $margin-2x;
   }
 }
 
 /* 下拉展开旋转小三角 */
-.top-fill {
+.el-table .el-button .top-fill {
   transform: rotate(180deg);
 }
 

@@ -13,13 +13,17 @@ $--color-white: $color-white;
 $--color-text-primary: $text-color;
 $--color-text-regular: $text-color;
 $--color-text-secondary: $text-color-light;
-$--color-text-placeholder: $text-color-light-2;
+$--color-text-placeholder: $text-color-placeholder;
 $--border-color-base: $border-color;
 $--border-color-light: $border-color-light;
 $--border-color-lighter: $border-color-light;
 $--border-color-extra-light: $border-color-light;
 $--background-color-base: $color-bg-3;
 
+/* Border-radius
+-------------------------- */
+$--border-radius-base: $border-radius;
+$--border-radius-small: $border-radius;
 
 /* Box-shadow
 -------------------------- */
@@ -97,7 +101,7 @@ $--table-fixed-box-shadow: $table-fixed-box-shadow;
 
 /* Tree
 -------------------------- */
-$--tree-node-hover-background-color: $color-master-bg-light-2;
+$--tree-node-hover-background-color: $color-neutral-1;
 $--tree-expand-icon-color: $text-color-light;
 
 /* Rate
@@ -129,7 +133,7 @@ $--collapse-content-font-color: $text-color-light;
 -------------------------- */
 $--msgbox-border-radius: $border-radius;
 $--messagebox-font-size: $text-size-lg;
-$--msgbox-padding-primary: $messagebox-header-padding;
+$--msgbox-padding-primary: $padding-8x;
 
 /* Message
 -------------------------- */

@@ -1,0 +1,118 @@
+.table-column-settings {
+  &__btns {
+    display: flex;
+    justify-content: right;
+  }
+
+  &__btn--active {
+    color: $color-master-3;
+    border-color: $color-master-3;
+  }
+
+  &__page {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+// TODO 讨论：自定义全局样式
+.table-column-settings__popover {
+  min-width: 190px;
+  padding: 0;
+
+  &__divider {
+    margin: 0;
+  }
+
+  &__label-group {
+    max-height: 300px;
+    overflow: auto;
+  }
+
+  label.el-checkbox {
+    display: block;
+    margin: $margin 0;
+    height: $table-filter-item-height;
+    line-height: $table-filter-item-height;
+
+    .el-checkbox__inner {
+      margin-left: $margin-3x;
+    }
+
+    &.is-checked {
+      .el-checkbox__label {
+        font-weight: $text-title-weight;
+      }
+    }
+
+    &:hover:not(.is-disabled) {
+      background-color: $color-neutral-1;
+    }
+  }
+}
+
+.table-filter {
+  display: flex;
+  align-items: center;
+
+  .el-tag {
+    margin-right: $margin-3x;
+  }
+
+  .table-filter-dropdown {
+    position: relative;
+
+    .table-filter_content {
+      position: absolute;
+      top: $common-space-8x;
+      left: 0;
+      min-width: 335px;
+      background: $color-bg-1;
+      box-shadow: $shadow-2;
+      z-index: $zindex-dropdown;
+
+      .table-filter_top {
+        padding: $padding-4x;
+
+        .el-form-item {
+          margin-bottom: $margin-4x;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          display: flex;
+
+          .el-form-item__label {
+            min-width: 84px;
+            padding-right: $padding-3x;
+          }
+
+          .el-select,
+          .el-input {
+            width: 90px;
+            margin-right: $margin-2x;
+          }
+
+          span {
+            font-size: $text-size;
+            color: $text-color-light;
+          }
+        }
+      }
+
+      .table-filter_foot {
+        background: $color-neutral-2;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        height: 50px;
+        padding: 0 $padding-4x;
+
+        .el-button+.el-button {
+          margin-left: $margin-4x;
+        }
+      }
+    }
+  }
+}

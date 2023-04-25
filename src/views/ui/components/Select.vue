@@ -1,11 +1,22 @@
 <template>
   <div class="ui-select">
-    <p>将动作或菜单折叠到下拉菜单中</p>
+    <!-- <p>将动作或菜单折叠到下拉菜单中</p> -->
+    <div class="page-content">
+      <el-radio-group v-model="itemSize" size="small">
+        <el-radio-button value="medium" label="medium">默认</el-radio-button>
+        <el-radio-button value="small" label="small">小</el-radio-button>
+        <el-radio-button value="large" label="large">大</el-radio-button>
+      </el-radio-group>
+      <el-radio-group v-model="itemDisabled" size="small">
+        <el-radio-button :value="true" :label="true">禁用</el-radio-button>
+        <el-radio-button :value="false" :label="false">启用</el-radio-button>
+      </el-radio-group>
+    </div>
     <div class="sub-down">
       <h3>常规用法</h3>
       <div class="line">
         <div class="line__left">
-          <el-select v-model="value" filterable>
+          <el-select v-model="value" :size="itemSize" :disabled="itemDisabled" filterable>
             <el-option label="默认选项" value="默认选项"> </el-option>
             <el-option label="已选择项" value="已选择项"> </el-option>
             <el-option label="不可用" value="不可用" disabled> </el-option>
@@ -13,45 +24,130 @@
           </el-select>
         </div>
         <div class="line__right">
-          <el-select value="" filterable loading placeholder="加载中">
+          <el-select
+            value=""
+            :size="itemSize"
+            :disabled="itemDisabled"
+            filterable
+            loading
+            placeholder="加载中"
+          >
             <option value=""></option>
           </el-select>
         </div>
       </div>
     </div>
     <div class="sub-down">
-      <h3>禁用状态</h3>
+      <h3>
+        带提示-使用了
+        <a href="/component/base/cute-remind-select" target="_blank">CuteRemindSelect</a>
+        组件
+      </h3>
       <div class="line">
         <div class="line__left">
-          <el-select v-model="value2" disabled placeholder="请选择">
-            <el-option label="选项一" value="选项一"> </el-option>
-          </el-select>
+          <cute-remind-select
+            v-model="value9"
+            :size="itemSize"
+            :disabled="itemDisabled"
+            :options="options1"
+            :title="name"
+            :placeholder="name"
+            @change="changeFun"
+          />
         </div>
       </div>
     </div>
+
     <div class="sub-down">
-      <h3>多选</h3>
+      <h3>多选 - 大： 中： 小</h3>
       <div class="line">
         <div class="line__left">
-          <el-select v-model="selectValue" multiple placeholder="请选择">
+          <el-select
+            v-model="selectValue"
+            size="large"
+            :disabled="itemDisabled"
+            multiple
+            :class="{ 'is-disabled': itemDisabled }"
+            placeholder="请选择"
+          >
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
             </el-option>
           </el-select>
         </div>
-        <div class="line__right">
-          <el-select v-model="value1" multiple placeholder="请选择" disabled class="disabled-select">
-            <el-option value=""> <svg-icon name="save"> </svg-icon></el-option>
+        <div class="line__left">
+          <el-select
+            v-model="selectValue"
+            size="medium"
+            :disabled="itemDisabled"
+            multiple
+            :class="{ 'is-disabled': itemDisabled }"
+            placeholder="请选择"
+          >
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+            </el-option>
+          </el-select>
+        </div>
+        <div class="line__left">
+          <el-select
+            v-model="selectValue"
+            size="small"
+            :disabled="itemDisabled"
+            multiple
+            :class="{ 'is-disabled': itemDisabled }"
+            placeholder="请选择"
+          >
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+            </el-option>
           </el-select>
         </div>
       </div>
     </div>
     <div class="sub-down">
-      <h3>多选-折叠展示tag</h3>
+      <h3>多选-可查询：折叠展示tag - 大： 中： 小</h3>
       <div class="line">
         <div class="line__left">
           <el-select
             v-model="collapsedValue"
+            size="large"
+            :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
+            placeholder="请选择"
+            collapse-tags
+            clearable
+            filterable
+          >
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+              <span>{{ item.label }}</span>
+              <span class="option__msg">{{ item.value }}</span>
+            </el-option>
+          </el-select>
+        </div>
+        <div class="line__left">
+          <el-select
+            v-model="collapsedValue"
+            size="medium"
+            :disabled="itemDisabled"
+            multiple
+            :class="{ 'is-disabled': itemDisabled }"
+            placeholder="请选择"
+            collapse-tags
+            clearable
+            filterable
+          >
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+              <span>{{ item.label }}</span>
+              <span class="option__msg">{{ item.value }}</span>
+            </el-option>
+          </el-select>
+        </div>
+        <div class="line__left">
+          <el-select
+            v-model="collapsedValue"
+            size="small"
+            :disabled="itemDisabled"
+            multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
             collapse-tags
             clearable
@@ -67,31 +163,19 @@
     </div>
     <div class="sub-down">
       <h3>
-        带提示-使用了
-        <a href="/component/base/cute-remind-select" target="_blank">CuteRemindSelect</a>
-        组件
-      </h3>
-      <div class="line">
-        <div class="line__left">
-          <cute-remind-select
-            v-model="value9"
-            :options="options1"
-            :title="name"
-            :placeholder="name"
-            @change="changeFun"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="sub-down">
-      <h3>
         树形选择/单选-使用了
         <a href="/component/base/cute-select-tree" target="_blank">CuteSelectTree</a>
         组件
       </h3>
       <div class="line">
         <div class="line__left">
-          <cute-select-tree v-model="treeData" :value="treeDataValue" :options="treeOptions" />
+          <cute-select-tree
+            v-model="treeData"
+            :value="treeDataValue"
+            :size="itemSize"
+            :disabled="itemDisabled"
+            :options="treeOptions"
+          />
         </div>
       </div>
     </div>
@@ -99,12 +183,38 @@
       <h3>
         树形选择/多选-使用了
         <a href="/component/base/cute-select-tree" target="_blank">CuteSelectTree</a>
-        组件
+        组件 - 大： 中： 小
       </h3>
       <div class="line">
         <div class="line__left">
           <cute-select-tree
             v-model="multiTreeData"
+            size="large"
+            :disabled="itemDisabled"
+            :value="multiTsreeDataValue"
+            :options="treeOptions"
+            multiple
+            @remove-tag="handelRemove"
+            @change="changeTree"
+          />
+        </div>
+        <div class="line__left">
+          <cute-select-tree
+            v-model="multiTreeData"
+            size="medium"
+            :disabled="itemDisabled"
+            :value="multiTsreeDataValue"
+            :options="treeOptions"
+            multiple
+            @remove-tag="handelRemove"
+            @change="changeTree"
+          />
+        </div>
+        <div class="line__left">
+          <cute-select-tree
+            v-model="multiTreeData"
+            size="small"
+            :disabled="itemDisabled"
             :value="multiTsreeDataValue"
             :options="treeOptions"
             multiple
@@ -117,33 +227,24 @@
 
     <div class="sub-down">
       <h3>时间点选择</h3>
-      <div class="date">
-        <div class="sub-date">
-          <div class="sub-date_left">
-            <el-time-select
-              v-model="text"
-              :picker-options="{
-                start: '08:30',
-                step: '00:15',
-                end: '18:30',
-              }"
-              placeholder="选择时间"
-            >
-            </el-time-select>
-          </div>
-          <div class="sub-date_right">
-            <el-date-picker v-model="value6" type="datetime" placeholder="选择时间"> </el-date-picker>
-          </div>
-        </div>
+      <div class="page-content">
+        <el-radio-group v-model="itemSize" size="small">
+          <el-radio-button value="medium" label="medium">默认</el-radio-button>
+          <el-radio-button value="small" label="small">小</el-radio-button>
+          <el-radio-button value="large" label="large">大</el-radio-button>
+        </el-radio-group>
+        <el-radio-group v-model="itemDisabled" size="small">
+          <el-radio-button :value="true" :label="true">禁用</el-radio-button>
+          <el-radio-button :value="false" :label="false">启用</el-radio-button>
+        </el-radio-group>
       </div>
-
-      <h3>时间点选择-小</h3>
       <div class="date">
         <div class="sub-date">
           <div class="sub-date_left">
             <el-time-select
               v-model="text"
-              size="mini"
+              :size="itemSize"
+              :disabled="itemDisabled"
               :picker-options="{
                 start: '08:30',
                 step: '00:15',
@@ -156,10 +257,12 @@
           <div class="sub-date_right">
             <el-date-picker
               v-model="value6"
+              :size="itemSize"
+              :disabled="itemDisabled"
               type="datetime"
               placeholder="选择时间"
-              size="mini"
-            ></el-date-picker>
+            >
+            </el-date-picker>
           </div>
         </div>
       </div>
@@ -167,34 +270,27 @@
       <h3>日期点选择</h3>
       <div class="date">
         <div class="sub-date">
-          <el-date-picker v-model="date" type="date" placeholder="选择日期"> </el-date-picker>
-        </div>
-      </div>
-
-      <h3>日期点选择-小</h3>
-      <div class="date">
-        <div class="sub-date">
-          <el-date-picker v-model="date1" size="mini" type="date" placeholder="选择日期"> </el-date-picker>
+          <el-date-picker
+            v-model="date"
+            :size="itemSize"
+            :disabled="itemDisabled"
+            type="date"
+            placeholder="选择日期"
+          >
+          </el-date-picker>
         </div>
       </div>
 
       <h3>日期点选择-带快捷键</h3>
       <div class="date">
         <div class="sub-date">
-          <el-date-picker v-model="date4" type="date" placeholder="选择日期" :picker-options="pickerOptions">
-          </el-date-picker>
-        </div>
-      </div>
-
-      <h3>日期点选择-小-带快捷键</h3>
-      <div class="date">
-        <div class="sub-date">
           <el-date-picker
-            v-model="date5"
+            v-model="date4"
+            :size="itemSize"
+            :disabled="itemDisabled"
             type="date"
             placeholder="选择日期"
             :picker-options="pickerOptions"
-            size="mini"
           >
           </el-date-picker>
         </div>
@@ -206,24 +302,11 @@
           <el-date-picker
             v-model="value4"
             type="daterange"
+            :size="itemSize"
+            :disabled="itemDisabled"
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
-          >
-          </el-date-picker>
-        </div>
-      </div>
-
-      <h3>日期区间选择-小</h3>
-      <div class="date">
-        <div class="sub-date">
-          <el-date-picker
-            v-model="value7"
-            type="daterange"
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期"
-            size="mini"
           >
           </el-date-picker>
         </div>
@@ -235,28 +318,13 @@
           <el-date-picker
             v-model="date6"
             type="daterange"
+            :size="itemSize"
+            :disabled="itemDisabled"
             unlink-panels
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
             :picker-options="pickerOptions1"
-          >
-          </el-date-picker>
-        </div>
-      </div>
-
-      <h3>日期区间选择-小-带快捷键</h3>
-      <div class="date">
-        <div class="sub-date">
-          <el-date-picker
-            v-model="date7"
-            type="daterange"
-            unlink-panels
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期"
-            :picker-options="pickerOptions1"
-            size="mini"
           >
           </el-date-picker>
         </div>
@@ -267,6 +335,8 @@
         <div class="sub-date">
           <el-date-picker
             v-model="value5"
+            :size="itemSize"
+            :disabled="itemDisabled"
             type="datetimerange"
             range-separator="至"
             start-placeholder="开始日期和时间"
@@ -276,45 +346,18 @@
         </div>
       </div>
 
-      <h3>日期时间区间选择-小</h3>
-      <div class="date">
-        <div class="sub-date">
-          <el-date-picker
-            v-model="value8"
-            type="datetimerange"
-            range-separator="至"
-            start-placeholder="开始日期和时间"
-            end-placeholder="结束日期和时间"
-            size="mini"
-          >
-          </el-date-picker>
-        </div>
-      </div>
       <h3>日期时间区间选择-带快捷键</h3>
       <div class="date">
         <div class="sub-date">
           <el-date-picker
             v-model="date8"
+            :size="itemSize"
+            :disabled="itemDisabled"
             type="datetimerange"
             :picker-options="pickerOptions1"
             range-separator="至"
             start-placeholder="开始日期和时间"
             end-placeholder="结束日期和时间"
-          >
-          </el-date-picker>
-        </div>
-      </div>
-      <h3>日期时间区间选择-小-带快捷键</h3>
-      <div class="date">
-        <div class="sub-date">
-          <el-date-picker
-            v-model="date8"
-            type="datetimerange"
-            :picker-options="pickerOptions1"
-            range-separator="至"
-            start-placeholder="开始日期和时间"
-            end-placeholder="结束日期和时间"
-            size="mini"
           >
           </el-date-picker>
         </div>
@@ -330,6 +373,9 @@
         <div class="line__left">
           <cute-area
             v-model="areaValue"
+            popper-max-height="220px"
+            :size="itemSize"
+            :disabled="itemDisabled"
             placeholder="请选择"
             :data="areas"
             :column="4"
@@ -355,9 +401,15 @@
       </h3>
       <p>勾选多选列表后，选择操作下拉框会显示勾选了几个选项</p>
       <el-row>
-        <cute-selected-input :checked-list="checkedList" :options="optionData" @change="change" />
+        <cute-selected-input
+          :size="itemSize"
+          :disabled="itemDisabled"
+          :checked-list="checkedList"
+          :options="optionData"
+          @change="change"
+        />
       </el-row>
-      <el-checkbox-group v-model="checkedList">
+      <el-checkbox-group v-model="checkedList" :size="itemSize" :disabled="itemDisabled">
         <el-row>
           <el-checkbox label="未选中项"></el-checkbox>
         </el-row>
@@ -384,7 +436,8 @@ export default class extends Vue {
     version: 'v1.0',
     updateTime: '2022.07.12',
   }
-
+  private itemSize = 'medium'
+  private itemDisabled = false
   private checkedList = ['已选中项']
   private name = '数据资源名称'
   private selectValue = []
@@ -722,12 +775,28 @@ export default class extends Vue {
 
 .auxiliary-message:after {
   content: '辅助信息';
-  margin-left: 10px;
+  margin-left: 20px;
   color: $text-color-light-2;
+  font-weight: normal;
 }
 
 .option__msg {
   float: right;
   color: $text-color-light-1;
+  font-weight: normal;
+}
+
+.time-size-box {
+  margin-bottom: 20px;
+}
+
+.page-content {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  .el-input {
+    width: 250px;
+  }
 }
 </style>

@@ -1,7 +1,6 @@
 const path = require('path')
 const isHttps = process.argv[process.argv.length - 1] === '--https'
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 console.info('是否开启https:', isHttps)
 
 module.exports = {
@@ -57,17 +56,17 @@ module.exports = {
           outputStyle: 'expanded',
           quietDeps: true
         },
+        // additionalData: `@import "node_modules/@cutedesign/ui/style/themes/dark/blue/variables.scss";
         additionalData: `@import "node_modules/@cutedesign/ui/style/themes/default/variables.scss";
-                          @import "node_modules/@cutedesign/ui/style/_mixins.scss";`
+                          @import "node_modules/@cutedesign/ui/style/_mixins.scss";`,
       },
     },
-  },
-  configureWebpack: {
-    plugins: [new HardSourceWebpackPlugin()],
   },
   chainWebpack: config => {
     // 配置alias
     config.resolve.alias.set('scripts', path.join(__dirname, 'scripts'))
+    // module和main是原来就有的，不能少了，否则其他依赖包报错
+    config.resolve.mainFields.add('main').prepend('module').prepend('cuteMain')
 
     // 配置monaco
     config.plugin('monaco').use(

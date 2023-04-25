@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 胡一苗
- * @LastEditTime: 2023-03-31 10:49:54
+ * @LastEditTime: 2023-04-07 21:34:26
  * @Description: 复杂表格1
 -->
 <template>
@@ -317,3 +317,10 @@ export default class extends Vue {
   ]
 }
 </script>
+<style lang="scss" scoped>
+::v-deep {
+  .table-filter .table-filter-dropdown .table-filter_content {
+    z-index: 9999; // 按业务调整
+  }
+}
+</style>

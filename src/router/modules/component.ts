@@ -2,8 +2,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 14:51:20
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-20 09:15:28
  * @Description:
  */
 // import Layout from '@/layout/component.vue'
@@ -16,7 +16,7 @@ const componentRoutes = [
     component: Layout,
     redirect: '/component/base/cute-remind-select',
     meta: {
-      title: '基础组件',
+      title: 'component.base.title',
       alwaysShow: true,
       breadcrumb: true,
     },
@@ -76,11 +76,29 @@ const componentRoutes = [
         },
       },
       {
+        path: 'cute-chart',
+        name: 'CuteChart',
+        component: () => import('@/views/component/Base/CuteChart/index.vue'),
+        meta: {
+          title: 'CuteChart',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'cute-edit-input',
         name: 'CuteEditInput',
         component: () => import('@/views/component/Base/CuteEditInput/index.vue'),
         meta: {
           title: 'CuteEditInput',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-button-group',
+        name: 'CuteButtonGroup',
+        component: () => import('@/views/component/Base/CuteButtonGroup/index.vue'),
+        meta: {
+          title: 'CuteButtonGroup',
           breadcrumb: true,
         },
       },
@@ -268,7 +286,7 @@ const componentRoutes = [
     component: Layout,
     redirect: '/component/biz/vss-video-player',
     meta: {
-      title: '业务组件',
+      title: 'component.biz.title',
       alwaysShow: true,
       breadcrumb: true,
     },
@@ -348,11 +366,47 @@ const componentRoutes = [
     },
     children: [
       {
+        path: 'cute-layout',
+        name: 'CuteLayout',
+        component: () => import('@/views/component/Test/CuteLayout/index.vue'),
+        meta: {
+          title: 'CuteLayout',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'button',
         name: 'Button',
         component: () => import('@/views/component/Test/Button.vue'),
         meta: {
           title: 'Button',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'radio',
+        name: 'Radio',
+        component: () => import('@/views/component/Test/Radio.vue'),
+        meta: {
+          title: 'Radio',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'checkbox',
+        name: 'Checkbox',
+        component: () => import('@/views/component/Test/Checkbox.vue'),
+        meta: {
+          title: 'Checkbox',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cascadeSelect',
+        name: 'CascadeSelect',
+        component: () => import('@/views/component/Test/CascadeSelect.vue'),
+        meta: {
+          title: 'CascadeSelect',
           breadcrumb: true,
         },
       },
@@ -425,6 +479,42 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Select.vue'),
         meta: {
           title: 'Select',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'switch',
+        name: 'Switch',
+        component: () => import('@/views/component/Test/Switch.vue'),
+        meta: {
+          title: 'Switch',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'drawer',
+        name: 'Drawer',
+        component: () => import('@/views/component/Test/Drawer.vue'),
+        meta: {
+          title: 'Drawer',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'upload',
+        name: 'Upload',
+        component: () => import('@/views/component/Test/Upload.vue'),
+        meta: {
+          title: 'Upload',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'slider',
+        name: 'Slider',
+        component: () => import('@/views/component/Test/Slider.vue'),
+        meta: {
+          title: 'Slider',
           breadcrumb: true,
         },
       },
@@ -623,6 +713,33 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Card.vue'),
         meta: {
           title: 'Card',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'Layout',
+        name: 'Layout',
+        component: () => import('@/views/component/Test/Layout.vue'),
+        meta: {
+          title: 'Layout',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'Container',
+        name: 'Container',
+        component: () => import('@/views/component/Test/Container.vue'),
+        meta: {
+          title: 'Container',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'PageHeader',
+        name: 'PageHeader',
+        component: () => import('@/views/component/Test/PageHeader.vue'),
+        meta: {
+          title: 'PageHeader',
           breadcrumb: true,
         },
       },

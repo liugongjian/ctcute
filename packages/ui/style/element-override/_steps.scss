@@ -1,94 +1,14 @@
 /* Steps
 -------------------------- */
-
-/* $size:大小;
-   $icon-height:步骤标号大小
-   $title-size:标题字体大小
-   $icon-inner-status-size: 步骤标号中状态icon字体大小
-   $icon-inner-text-size：步骤标号中数字字体大小
-*/
-@mixin steps-size($size, $icon-height, $title-size, $icon-inner-status-size, $icon-inner-text-size) {
-  // 垂直方向、simple模式、居中模式不改变title位置
-  // size为重写el-step增加的class
-  .el-steps--#{$size} {
-    .el-step.is-horizontal:not(.is-center):not(.is-simple) {
-      .el-step__title {
-        position: absolute;
-        left: $icon-height;
-        top: 0;
-        background-color: $color-bg-2;
-      }
-
-      .el-step__description {
-        margin-left: $icon-height;
-        margin-top: 0;
-      }
-
-      .el-step__title,
-      .el-step__description {
-        @if $size == small {
-          padding: 0 $padding-2x 0 $padding;
-        }
-
-        @else {
-          padding: 0 $padding-2x;
-        }
-      }
-    }
-
-    .el-step.is-vertical {
-      .el-step__line {
-        left: calc(($icon-height - $steps-line-size) / 2);
-      }
-
-      .el-step__head {
-        width: $icon-height;
-      }
-    }
-
-    .el-step.is-horizontal .el-step__line {
-      top: calc(($icon-height - $steps-line-size) / 2);
-    }
-
-    .el-step:not(.is-simple) {
-      .el-step__title {
-        font-size: $title-size;
-        line-height: $icon-height;
-      }
-
-      .el-step__icon .el-step__icon-inner {
-        &:is(.is-text) {
-          font-size: $icon-inner-text-size;
-        }
-
-        &:is(.is-status) {
-          transform: translateY(0);
-          font-size: $icon-inner-status-size;
-        }
-      }
-
-      .el-step__icon.is-text {
-        width: $icon-height;
-        height: $icon-height;
-      }
-    }
-  }
-}
-
-@include steps-size(
-  medium,
-  $steps-icon-height-md,
-  $steps-title-size-md,
-  $steps-icon-inner-status-size-md,
-  $steps-icon-inner-text-size-md
-);
-@include steps-size(
-  small,
-  $steps-icon-height-sm,
-  $steps-title-size-sm,
-  $steps-icon-inner-status-size-sm,
-  $steps-icon-inner-text-size-sm
-);
+$steps-icon-height-md: 32px; // 中号尺寸
+$steps-icon-height-sm: 24px; // 小号尺寸
+$steps-title-size-md: $text-size-lg; // 中号标题：16px
+$steps-title-size-sm: $text-size-sm; // 小号标题：12px
+$steps-icon-inner-status-size-md: $text-size-md; // 中号状态icon size：14px
+$steps-icon-inner-status-size-sm: $text-size-sm; // 小号状态icon size：12px
+$steps-icon-inner-text-size-md: $text-size-md; // 小号标号size：14px
+$steps-icon-inner-text-size-sm: $text-size-md; // 中号标号size：14px
+$steps-line-size: 1px; // 线条粗细;
 
 /* $class:类名;
    $bdColor:边框颜色
@@ -98,42 +18,37 @@
 @mixin steps-page($class: is-success,
   $bdColor: $color-master,
   $color: $color-master,
-  $bgColor: $color-bg-2) {
+  $descriptionColor: $text-color-disabled,
+  $titleColor: $color) {
   .el-step__head.#{$class} {
     border-color: $bdColor;
     color: $color;
-
-    .el-step__icon.is-text, .el-step__icon.is-icon {
-      // 用背景色盖住线条
-      background-color: $bgColor;
-    }
     .el-step__icon.is-status {
       background-color: $color;
     }
   }
   .el-step__title.#{$class}{
-    color: $color;
+    color: $titleColor;
+  }
+  .el-step .el-step__main > .el-step__description.#{$class} {
+    color: $descriptionColor;
   }
 }
 
 @include steps-page();
-@include steps-page(is-finish);
-@include steps-page(is-process, $color-master, $color-master, $color-bg-2);
-@include steps-page(is-error, $color-danger, $color-danger, $color-bg-2);
-@include steps-page(is-wait, $border-color, $text-color-light-2, $color-bg-2);
-
-
-.el-step__icon-inner {
-  font-weight: normal;
-}
-
-.el-step.is-simple > .el-step__head > .el-step__icon{
-  background-color: transparent;
-}
+@include steps-page(is-success, $color-master, $color-master, $text-color-feature, $text-color);
+@include steps-page(is-finish, $color-master, $color-master, $text-color-feature, $text-color);
+@include steps-page(is-process, $color-master, $color-master, $text-color-feature);
+@include steps-page(is-error, $color-danger, $color-danger);
+@include steps-page(is-wait, $border-color, $text-color-disabled);
 
 .el-step {
-  .el-step__main > .el-step__description {
-    color: $text-color-light-2;
+  .el-step__icon-inner {
+    font-weight: normal;
+  }
+
+  & > .el-step__head > .el-step__icon{
+    background-color: transparent;
   }
 
   &:not(.is-center).is-horizontal .el-step__line {
@@ -149,7 +64,7 @@
   }
 
   .el-step__line {
-    background-color: $color-grey-6;
+    background-color: $border-color; 
 
     .el-step__line-inner {
       border-bottom: 0;
@@ -158,6 +73,7 @@
 
   .el-step__icon.is-text {
     border: 1px solid;
+    background-color: $color-bg-2;// 普通序号背景色
   }
 
   .el-step__title.is-process {

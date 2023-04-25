@@ -1,5 +1,10 @@
 /* Pagination
 -------------------------- */
+$pagination-select-width: 56px; // TODO 如何实现自适应
+$pagination-input-width: 56px; // TODO 如何实现自适应
+$pagination-button-margin: $margin-2x;
+$pagination-button-margin-sm: $margin;
+
 .el-pagination {
   padding: 0;
   font-weight: $text-weight;
@@ -8,7 +13,7 @@
     margin-right: $margin-6x;
 
     .el-select .el-input {
-      width: $pagination-input-width;
+      width: $pagination-select-width;
       margin: 0;
 
       .el-input__inner {
@@ -22,6 +27,10 @@
         right: $common-space-2x;
       }
     }
+  }
+
+  span.el-pagination__sizes {
+    line-height: $select-xs-height - 2;
   }
 
   &__total {
@@ -91,10 +100,12 @@
   &__editor {
     &.el-input {
       width: $pagination-input-width;
+      height: $input-xs-height;
+      line-height: $input-xs-height - 2;
 
       .el-input__inner {
         height: $input-xs-height;
-        line-height: $input-xs-height;
+        line-height: $input-xs-height - 2;
         padding: 0 $padding;
       }
     }
@@ -128,10 +139,11 @@
     .el-pagination__editor {
       &.el-input {
         height: $input-xs-height;
+        line-height: $input-xs-height - 2;
 
         .el-input__inner {
           height: $input-xs-height;
-          line-height: $input-xs-height;
+          line-height: $input-xs-height - 2;
         }
       }
     }
@@ -168,6 +180,15 @@
     .el-pager li {
       &.active {
         color: $pagination-active-color;
+      }
+
+      &.btn-quickprev,
+      &.btn-quicknext {
+        color: $pagination-button-color;
+
+        &.disabled {
+          color: $disabled-color;
+        }
       }
     }
 

@@ -1,0 +1,49 @@
+$cute-button-group-margin: -1px;
+$cute-button-group-zindex: 1;
+$cute-button-group-border: 2px;
+
+.combination-button {
+  .el-button + .el-button {
+    margin-left: $cute-button-group-margin;
+    z-index: $cute-button-group-zindex;
+  }
+
+  .el-button + .el-dropdown {
+    margin: 0;
+  }
+
+  .el-dropdown + .el-button {
+    margin: 0;
+  }
+
+  .el-button--medium {
+    border-radius: 0;
+
+    &:hover {
+      position: relative;
+      border-color: $color-master;
+    }
+  }
+
+  .el-button--medium:first-child {
+    border-radius: $cute-button-group-border 0 0 $cute-button-group-border;
+  }
+
+  .el-button--medium:last-child {
+    border-radius: 0 $cute-button-group-border $cute-button-group-border 0;
+  }
+
+  .el-button + .el-dropdown {
+    margin-left: $cute-button-group-margin;
+
+    .el-button--medium {
+      border-radius: 0;
+      border-right: 0;
+
+      &:hover {
+        position: relative;
+        border-color: $color-master;
+      }
+    }
+  }
+}

@@ -1,14 +1,14 @@
 <!--
  * @Author: fanzhengle
  * @Date: 2022-12-03 11:18:32
- * @LastEditors: 范郑乐
- * @LastEditTime: 2022-12-13 11:18:32
+ * @LastEditors: 朱玉豆
+ * @LastEditTime: 2023-04-21 13:59:10
  * @Description: 高亮行
 -->
 
 <template>
   <!--高亮行-->
-  <vxe-table :row-config="{ isCurrent: true, isHover: true }" border="inner" :data="tableData">
+  <vxe-table :row-config="{ isCurrent: true, isHover: true }" border="inner" :data="tableData" size="small">
     <vxe-column field="name" title="主机别名">
       <template #default="{ row }">
         <router-link to="/">{{ row.name }}</router-link>
@@ -20,7 +20,7 @@
       </template>
     </vxe-column>
     <vxe-column field="ip" title="IP地址"></vxe-column>
-    <vxe-column field="time" title="时间" sortable></vxe-column>
+    <!-- <vxe-column field="time" title="时间" sortable></vxe-column> -->
     <vxe-column field="tags" title="标签">
       <template #default="{ row }">
         <el-tag v-for="item in row.tags" :key="item" type="info">{{ item }}</el-tag>
@@ -58,7 +58,6 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import '@cutedesign/vxe-table'
 import { getTableData } from './mock'
 import { STATUS, HEALTH } from './dict'
 import { TableType } from './types'

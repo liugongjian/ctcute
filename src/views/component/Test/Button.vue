@@ -6,257 +6,145 @@
  * @Description: Button
 -->
 <template>
-  <div>
+  <div class="button-test">
     <h1>Button</h1>
-    <el-row>
+    <el-card>
       <h3>默认按钮</h3>
-      <el-button>默认按钮</el-button>
-      <el-button type="primary">主要按钮</el-button>
-      <el-button type="ct">天翼云按钮</el-button>
-      <el-button type="success">成功按钮</el-button>
-      <el-button type="info">信息按钮</el-button>
-      <el-button type="warning">警告按钮</el-button>
-      <el-button type="danger">危险按钮</el-button>
-      <el-button type="fatal">严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>默认按钮(禁用状态)</h3>
-      <el-button disabled>默认按钮</el-button>
-      <el-button type="primary" disabled>主要按钮</el-button>
-      <el-button type="ct" disabled>天翼云按钮</el-button>
-      <el-button type="success" disabled>成功按钮</el-button>
-      <el-button type="info" disabled>信息按钮</el-button>
-      <el-button type="warning" disabled>警告按钮</el-button>
-      <el-button type="danger" disabled>危险按钮</el-button>
-      <el-button type="fatal" disabled>严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>默认按钮(加载中)</h3>
-      <el-button loading>默认按钮</el-button>
-      <el-button type="primary" loading>主要按钮</el-button>
-      <el-button type="ct" loading>天翼云按钮</el-button>
-      <el-button type="success" loading>成功按钮</el-button>
-      <el-button type="info" loading>信息按钮</el-button>
-      <el-button type="warning" loading>警告按钮</el-button>
-      <el-button type="danger" loading>危险按钮</el-button>
-      <el-button type="fatal" loading>严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>默认按钮</h3>
-      <el-button round>默认按钮</el-button>
-      <el-button type="primary" round>主要按钮</el-button>
-      <el-button type="ct" round>天翼云按钮</el-button>
-      <el-button type="success" round>成功按钮</el-button>
-      <el-button type="info" round>信息按钮</el-button>
-      <el-button type="warning" round>警告按钮</el-button>
-      <el-button type="danger" round>危险按钮</el-button>
-      <el-button type="fatal" round>严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>默认按钮(图标)</h3>
-      <el-button>默认按钮</el-button>
-      <el-button type="primary" icon="plus-circle">主要按钮</el-button>
-      <el-button type="ct" icon="plus-circle">天翼云按钮</el-button>
-      <el-button type="success" icon="plus-circle">成功按钮</el-button>
-      <el-button type="info" icon="plus-circle">信息按钮</el-button>
-      <el-button type="warning" icon="plus-circle">警告按钮</el-button>
-      <el-button type="danger" icon="plus-circle">危险按钮</el-button>
-      <el-button type="fatal" icon="plus-circle">严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>大尺寸按钮(large)(图标)</h3>
-      <el-button size="large" icon="plus-circle">大尺寸按钮</el-button>
-      <el-button type="primary" size="large" icon="plus-circle">主要按钮</el-button>
-      <el-button type="ct" size="large" icon="plus-circle">天翼云按钮</el-button>
-      <el-button type="success" size="large" icon="plus-circle">成功按钮</el-button>
-      <el-button type="info" size="large" icon="plus-circle">信息按钮</el-button>
-      <el-button type="warning" size="large" icon="plus-circle">警告按钮</el-button>
-      <el-button type="danger" size="large" icon="plus-circle">危险按钮</el-button>
-      <el-button type="fatal" size="large" icon="plus-circle">严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>小尺寸按钮(small)(图标)</h3>
-      <el-button size="small" icon="plus-circle">小尺寸按钮</el-button>
-      <el-button type="primary" size="small" icon="plus-circle">主要按钮</el-button>
-      <el-button type="ct" size="small" icon="plus-circle">天翼云按钮</el-button>
-      <el-button type="success" size="small" icon="plus-circle">成功按钮</el-button>
-      <el-button type="info" size="small" icon="plus-circle">信息按钮</el-button>
-      <el-button type="warning" size="small" icon="plus-circle">警告按钮</el-button>
-      <el-button type="danger" size="small" icon="plus-circle">危险按钮</el-button>
-      <el-button type="fatal" size="small" icon="plus-circle">严重危险按钮</el-button>
-    </el-row>
+      <el-form inline>
+        <el-form-item label="按钮尺寸">
+          <el-select v-model="size" placeholder="请选择按钮尺寸">
+            <el-option v-for="size in sizeList" :key="size" :label="size" :value="size"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="是否为朴素按钮">
+          <el-checkbox v-model="isPlain"></el-checkbox>
+        </el-form-item>
+        <el-form-item label="是否禁用">
+          <el-checkbox v-model="isDisabed"></el-checkbox>
+        </el-form-item>
+        <el-form-item label="是否加载中">
+          <el-checkbox v-model="isLoading"></el-checkbox>
+        </el-form-item>
+        <el-form-item label="是否显示图标">
+          <el-checkbox v-model="hasIcon"></el-checkbox>
+        </el-form-item>
+      </el-form>
+      <el-button
+        v-for="button in buttonList"
+        :key="button.type"
+        :type="button.type"
+        :size="size"
+        :disabled="isDisabed"
+        :loading="isLoading"
+        :plain="isPlain"
+        :icon="getIcon()"
+      >
+        {{ button.label }}
+      </el-button>
+    </el-card>
 
-    <el-row>
-      <h3>朴素按钮</h3>
-      <el-button plain>朴素按钮</el-button>
-      <el-button type="primary" plain>主要按钮</el-button>
-      <el-button type="ct" plain>天翼云按钮</el-button>
-      <el-button type="success" plain>成功按钮</el-button>
-      <el-button type="info" plain>信息按钮</el-button>
-      <el-button type="warning" plain>警告按钮</el-button>
-      <el-button type="danger" plain>危险按钮</el-button>
-      <el-button type="fatal" plain>严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>朴素按钮(禁用状态)</h3>
-      <el-button plain disabled>朴素按钮</el-button>
-      <el-button type="primary" plain disabled>主要按钮</el-button>
-      <el-button type="ct" plain disabled>天翼云按钮</el-button>
-      <el-button type="success" plain disabled>成功按钮</el-button>
-      <el-button type="info" plain disabled>信息按钮</el-button>
-      <el-button type="warning" plain disabled>警告按钮</el-button>
-      <el-button type="danger" plain disabled>危险按钮</el-button>
-      <el-button type="fatal" plain disabled>严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>朴素按钮(加载中)</h3>
-      <el-button plain loading>朴素按钮</el-button>
-      <el-button type="primary" plain loading>主要按钮</el-button>
-      <el-button type="ct" plain loading>天翼云按钮</el-button>
-      <el-button type="success" plain loading>成功按钮</el-button>
-      <el-button type="info" plain loading>信息按钮</el-button>
-      <el-button type="warning" plain loading>警告按钮</el-button>
-      <el-button type="danger" plain loading>危险按钮</el-button>
-      <el-button type="fatal" plain loading>严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>朴素按钮(圆角)</h3>
-      <el-button plain round>朴素按钮</el-button>
-      <el-button type="primary" plain round>主要按钮</el-button>
-      <el-button type="ct" plain round>天翼云按钮</el-button>
-      <el-button type="success" plain round>成功按钮</el-button>
-      <el-button type="info" plain round>信息按钮</el-button>
-      <el-button type="warning" plain round>警告按钮</el-button>
-      <el-button type="danger" plain round>危险按钮</el-button>
-      <el-button type="fatal" plain round>严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>朴素按钮(图标)</h3>
-      <el-button plain>默认按钮</el-button>
-      <el-button type="primary" plain icon="el-icon-search">主要按钮</el-button>
-      <el-button type="ct" plain icon="el-icon-search">天翼云按钮</el-button>
-      <el-button type="success" plain icon="plus-circle">成功按钮</el-button>
-      <el-button type="info" plain icon="plus-circle">信息按钮</el-button>
-      <el-button type="warning" plain icon="plus-circle">警告按钮</el-button>
-      <el-button type="danger" plain icon="plus-circle">危险按钮</el-button>
-      <el-button type="fatal" plain icon="plus-circle">严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>大尺寸按钮(large)(图标)</h3>
-      <el-button plain size="large" icon="plus-circle">小尺寸按钮</el-button>
-      <el-button type="primary" plain size="large" icon="el-icon-search">主要按钮</el-button>
-      <el-button type="ct" plain size="large" icon="el-icon-search">天翼云按钮</el-button>
-      <el-button type="success" plain size="large" icon="plus-circle">成功按钮</el-button>
-      <el-button type="info" plain size="large" icon="plus-circle">信息按钮</el-button>
-      <el-button type="warning" plain size="large" icon="plus-circle">警告按钮</el-button>
-      <el-button type="danger" plain size="large" icon="plus-circle">危险按钮</el-button>
-      <el-button type="fatal" plain size="large" icon="plus-circle">严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>小尺寸按钮(small)(图标)</h3>
-      <el-button plain size="small" icon="plus-circle">小尺寸按钮</el-button>
-      <el-button type="primary" plain size="small" icon="el-icon-search">主要按钮</el-button>
-      <el-button type="ct" plain size="small" icon="el-icon-search">天翼云按钮</el-button>
-      <el-button type="success" plain size="small" icon="plus-circle">成功按钮</el-button>
-      <el-button type="info" plain size="small" icon="plus-circle">信息按钮</el-button>
-      <el-button type="warning" plain size="small" icon="plus-circle">警告按钮</el-button>
-      <el-button type="danger" plain size="small" icon="plus-circle">危险按钮</el-button>
-      <el-button type="fatal" plain size="small" icon="plus-circle">严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>迷你尺寸按钮(mini)(图标)</h3>
-      <el-button plain size="mini" icon="plus-circle">小尺寸按钮</el-button>
-      <el-button type="primary" plain size="mini" icon="el-icon-search">主要按钮</el-button>
-      <el-button type="ct" plain size="mini" icon="el-icon-search">天翼云按钮</el-button>
-      <el-button type="success" plain size="mini" icon="plus-circle">成功按钮</el-button>
-      <el-button type="info" plain size="mini" icon="plus-circle">信息按钮</el-button>
-      <el-button type="warning" plain size="mini" icon="plus-circle">警告按钮</el-button>
-      <el-button type="danger" plain size="mini" icon="plus-circle">危险按钮</el-button>
-      <el-button type="fatal" plain size="mini" icon="plus-circle">严重危险按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>文本按钮</h3>
-      <el-button type="text">默认按钮</el-button>
-      <el-button type="text" icon="plus-circle">默认按钮</el-button>
-      <el-button type="text" size="large">默认按钮</el-button>
-    </el-row>
-    <el-row>
-      <h3>Dropdown Button</h3>
-      <el-dropdown>
-        <el-button size="small">
-          <svg-icon name="select" /> 按钮2
-          <svg-icon name="caret-down" />
-        </el-button>
-        <el-dropdown-menu slot="dropdown" class="conventional-dropdown">
-          <el-dropdown-item><svg-icon name="select" /> 按钮</el-dropdown-item>
-          <el-dropdown-item><svg-icon name="select" /> 按钮</el-dropdown-item>
-          <el-dropdown-item><svg-icon name="select" /> 按钮</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
-    </el-row>
-    <el-row>
-      <h3>按钮Element图标</h3>
-      <el-button icon="el-icon-search">搜索</el-button>
-      <el-button icon="el-icon-message">消息</el-button>
-      <el-button icon="el-icon-message" type="primary">消息</el-button>
-      <el-button icon="el-icon-message" type="primary" plain>消息</el-button>
-      <el-button icon="el-icon-message" :border="false">消息</el-button>
-      <el-button icon="el-icon-message" type="primary" plain :border="false">消息</el-button>
-      <el-button icon="el-icon-search" size="large" square></el-button>
-      <el-button icon="el-icon-search" size="medium" square></el-button>
-      <el-button icon="el-icon-search" size="small" square></el-button>
-      <el-button icon="el-icon-search" size="mini" square></el-button>
-      <el-button icon="el-icon-search" size="large" circle></el-button>
-      <el-button icon="el-icon-search" size="medium" circle></el-button>
-      <el-button icon="el-icon-search" size="small" circle></el-button>
-      <el-button icon="el-icon-search" size="mini" circle></el-button>
-    </el-row>
-    <el-row>
-      <h3>按钮Cuted图标</h3>
-      <el-button icon="plus-circle">添加</el-button>
-      <el-button icon="alert-fill">告警</el-button>
-      <el-button icon="alert-fill" type="primary">告警</el-button>
-      <el-button icon="alert-fill" type="primary" plain>告警</el-button>
-      <el-button icon="alert-fill" :border="false">告警</el-button>
-      <el-button icon="alert-fill" type="primary" plain :border="false">告警</el-button>
-      <el-button icon="plus-circle" size="large" square></el-button>
-      <el-button icon="plus-circle" size="medium" square></el-button>
-      <el-button icon="plus-circle" size="small" square></el-button>
-      <el-button icon="plus-circle" size="mini" square></el-button>
-      <el-button icon="plus-circle" size="large" circle></el-button>
-      <el-button icon="plus-circle" size="medium" circle></el-button>
-      <el-button icon="plus-circle" size="small" circle></el-button>
-      <el-button icon="plus-circle" size="mini" circle></el-button>
-    </el-row>
-    <el-row>
-      <h3>按钮Cuted图标(禁用)</h3>
-      <el-button icon="plus-circle" disabled>添加</el-button>
-      <el-button icon="alert-fill" disabled>告警</el-button>
-      <el-button icon="alert-fill" type="primary" disabled>告警</el-button>
-      <el-button icon="alert-fill" type="primary" plain disabled>告警</el-button>
-      <el-button icon="alert-fill" :border="false" disabled>告警</el-button>
-      <el-button icon="alert-fill" type="primary" plain :border="false" disabled>告警</el-button>
-      <el-button icon="plus-circle" size="large" square disabled></el-button>
-      <el-button icon="plus-circle" size="medium" square disabled></el-button>
-      <el-button icon="plus-circle" size="small" square disabled></el-button>
-      <el-button icon="plus-circle" size="mini" square disabled></el-button>
-      <el-button icon="plus-circle" size="large" circle disabled></el-button>
-      <el-button icon="plus-circle" size="medium" circle disabled></el-button>
-      <el-button icon="plus-circle" size="small" circle disabled></el-button>
-      <el-button icon="plus-circle" size="mini" circle disabled></el-button>
-    </el-row>
-    <el-row>
+    <el-card>
+      <h3>图标按钮</h3>
+      <el-form inline>
+        <el-form-item label="按钮尺寸">
+          <el-select v-model="size" placeholder="请选择按钮尺寸">
+            <el-option v-for="size in sizeList" :key="size" :label="size" :value="size"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="是否为朴素按钮">
+          <el-checkbox v-model="isPlain"></el-checkbox>
+        </el-form-item>
+        <el-form-item label="是否禁用">
+          <el-checkbox v-model="isDisabed"></el-checkbox>
+        </el-form-item>
+        <el-form-item label="是否圆形">
+          <el-checkbox v-model="isCircle"></el-checkbox>
+        </el-form-item>
+        <el-form-item label="是否方形">
+          <el-checkbox v-model="isSquare"></el-checkbox>
+        </el-form-item>
+      </el-form>
+      <el-button
+        v-for="button in buttonList"
+        :key="button.type"
+        :type="button.type"
+        :size="size"
+        :disabled="isDisabed"
+        :plain="isPlain"
+        :round="isRound"
+        :circle="isCircle"
+        :square="isSquare"
+        :icon="getIcon(true)"
+      ></el-button>
+    </el-card>
+
+    <el-card v-if="false">
       <h3>按钮组</h3>
-      <el-button-group>
-        <el-button icon="el-icon-arrow-left">上一页</el-button>
-        <el-button>下一页<i class="el-icon-arrow-right el-icon--right"></i></el-button>
-      </el-button-group>
-      <el-button-group style="margin-left: 40px">
-        <el-button type="primary" icon="el-icon-edit"></el-button>
-        <el-button type="primary" icon="el-icon-share"></el-button>
-        <el-button type="primary" icon="el-icon-delete"></el-button>
-      </el-button-group>
-    </el-row>
+      <el-form inline>
+        <el-form-item label="按钮尺寸">
+          <el-select v-model="size" placeholder="请选择按钮尺寸">
+            <el-option v-for="size in sizeList" :key="size" :label="size" :value="size"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="是否为朴素按钮">
+          <el-checkbox v-model="isPlain"></el-checkbox>
+        </el-form-item>
+        <el-form-item label="是否禁用">
+          <el-checkbox v-model="isDisabed"></el-checkbox>
+        </el-form-item>
+        <el-form-item label="是否圆角">
+          <el-checkbox v-model="isRound"></el-checkbox>
+        </el-form-item>
+      </el-form>
+      <p v-for="button in buttonList" :key="button.type">
+        <el-button-group>
+          <el-button
+            :type="button.type"
+            :plain="isPlain"
+            :round="isRound"
+            :size="size"
+            :disabled="isDisabed"
+            icon="el-icon-arrow-left"
+          >
+            上一页
+          </el-button>
+          <el-button :type="button.type" :plain="isPlain" :round="isRound" :size="size" :disabled="isDisabed">
+            下一页
+            <i class="el-icon-arrow-right el-icon--right"></i>
+          </el-button>
+        </el-button-group>
+      </p>
+    </el-card>
+    <el-card>
+      <h3>文本按钮</h3>
+      <el-form inline>
+        <el-form-item label="按钮尺寸">
+          <el-select v-model="size" placeholder="请选择按钮尺寸">
+            <el-option v-for="size in sizeList" :key="size" :label="size" :value="size"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="是否禁用">
+          <el-checkbox v-model="isDisabed"></el-checkbox>
+        </el-form-item>
+        <el-form-item label="是否加载中">
+          <el-checkbox v-model="isLoading"></el-checkbox>
+        </el-form-item>
+        <el-form-item label="是否显示图标">
+          <el-checkbox v-model="hasIcon"></el-checkbox>
+        </el-form-item>
+      </el-form>
+      <el-button
+        type="text"
+        :size="size"
+        :disabled="isDisabed"
+        :loading="isLoading"
+        :plain="isPlain"
+        :round="isRound"
+        :icon="getIcon()"
+      >
+        文本按钮
+      </el-button>
+    </el-card>
   </div>
 </template>
 <script lang="ts">
@@ -265,5 +153,73 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component({
   name: 'Button',
 })
-export default class extends Vue {}
+export default class extends Vue {
+  private buttonList = [
+    {
+      type: '',
+      label: '默认按钮',
+    },
+    {
+      type: 'primary',
+      label: '主要按钮',
+    },
+    {
+      type: 'ct',
+      label: '天翼云按钮',
+    },
+    {
+      type: 'success',
+      label: '成功按钮',
+    },
+    {
+      type: 'warning',
+      label: '警告按钮',
+    },
+    {
+      type: 'danger',
+      label: '危险按钮',
+    },
+  ]
+  private sizeList = ['large', 'medium', 'small', 'mini']
+  private size = 'medium'
+  private isDisabed = false
+  private isLoading = false
+  private isPlain = false
+  private isRound = false
+  private isSquare = false
+  private isCircle = false
+  private hasIcon = false
+
+  /**
+   * 随机生成一个图标
+   */
+  private getIcon(hasIcon) {
+    const list = [
+      'el-icon-search',
+      'plus-circle',
+      'el-icon-share',
+      'el-icon-edit',
+      'area-chart',
+      'bell-fill',
+      'check-circle-fill',
+      'dashboard',
+    ]
+    if (!hasIcon && !this.hasIcon) {
+      return
+    }
+    const randomIndex = Math.floor(Math.random() * list.length)
+    return list[randomIndex]
+  }
+}
 </script>
+<style lang="scss" scoped>
+.button-test {
+  .el-card {
+    margin-bottom: $margin-4x;
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+}
+</style>

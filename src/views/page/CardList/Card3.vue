@@ -6,7 +6,7 @@
  * @Description: 卡片3
 -->
 <template>
-  <div class="card-big">
+  <div class="page-card-list card-big">
     <el-card shadow="always">
       <div class="card-btn">
         <el-button type="primary">+ 新增组件类型</el-button>
@@ -18,7 +18,7 @@
               <div class="card-box__info__header">
                 <div class="card-box__info__title">
                   <span class="card-box__info__avatar">
-                    <svg-icon name="question-circle-fill" width="24px" height="24px" />
+                    <svg-icon class="card-box--title--icon" name="question-circle-fill" />
                   </span>
                   <span class="card-box__info__name">{{ item.name }}</span>
                   <span class="card-box__info__version">

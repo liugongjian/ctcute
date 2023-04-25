@@ -1,12 +1,12 @@
 <!--
  * @Author: 王亚振
  * @Date: 2022-07-10 13:13:36
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-02-14 09:52:19
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-04-06 18:20:19
  * @Description: 卡片1
 -->
 <template>
-  <el-card class="card1-page">
+  <el-card class="page-card-list card1-page">
     <el-tabs value="third" type="card" size="small">
       <el-tab-pane label="默认项" name="second"></el-tab-pane>
       <el-tab-pane label="选中项" name="third"></el-tab-pane>
@@ -30,7 +30,7 @@
           <el-card shadow="hover">
             <div :class="index === 0 ? 'card-box active' : 'card-box'">
               <div class="card-box--title">
-                <svg-icon name="question-circle-fill" width="24px" height="24px" /> {{ card.title }}
+                <svg-icon class="card-box--title--icon" name="question-circle-fill" /> {{ card.title }}
               </div>
               <div class="card-box--bar">
                 <div class="card-box--bar--text">
@@ -129,10 +129,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style scoped>
-.card1-page .card-box .card-box--info {
-  line-height: 34px;
-  margin-top: 3px;
-  display: flex;
-}
-</style>

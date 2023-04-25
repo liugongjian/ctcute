@@ -1,4 +1,3 @@
-@import './element-variables.scss';
 @import './element-override/index.scss';
 @import './core/base.scss';
 @import './core/layout.scss';
@@ -6,3 +5,7 @@
 @import './core/margin.scss';
 @import './core/animation.scss';
 @import './page/index.scss';
+// 以下是components抽取的scss文件
+@import './components/index.scss';
+// 以下是packages包业务组件抽取的scss文件
+@import './packages/index.scss';

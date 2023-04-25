@@ -2,87 +2,87 @@
 -------------------------- */
 
 /* 蓝(主题色) */
-$blue-base: #3d73f5;
-$blue-1: #f0f7ff;
-$blue-2: #e3efff;
-$blue-3: #bad6ff;
-$blue-4: #91baff;
-$blue-5: #699bff;
-$blue-6: $blue-base;
-$blue-7: #2955cf;
-$blue-8: #193ba8;
-$blue-9: #0d2482;
-$blue-10: #08165c;
+$blue-base: #3d73f5 !default;
+$blue-1: #f0f7ff !default;
+$blue-2: #e3efff !default;
+$blue-3: #bad6ff !default;
+$blue-4: #91baff !default;
+$blue-5: #699bff !default;
+$blue-6: $blue-base !default;
+$blue-7: #2955cf !default;
+$blue-8: #193ba8 !default;
+$blue-9: #0d2482 !default;
+$blue-10: #08165c !default;
 
 /* 橙 */
-$orange-base: #ff8f34;
-$orange-1: #fff9f0;
-$orange-2: #ffeed6;
-$orange-3: #ffdaad;
-$orange-4: #ffc485;
-$orange-5: #ffab5c;
-$orange-6: $orange-base;
-$orange-7: #d96d21;
-$orange-8: #b34f12;
-$orange-9: #8c3607;
-$orange-10: #662304;
+$orange-base: #ff8f34 !default;
+$orange-1: #fff9f0 !default;
+$orange-2: #ffeed6 !default;
+$orange-3: #ffdaad !default;
+$orange-4: #ffc485 !default;
+$orange-5: #ffab5c !default;
+$orange-6: $orange-base !default;
+$orange-7: #d96d21 !default;
+$orange-8: #b34f12 !default;
+$orange-9: #8c3607 !default;
+$orange-10: #662304 !default;
 
 /* 天翼红 */
-$red-base: #df0428;
-$red-1: #ffe6e6;
-$red-2: #ffabae;
-$red-3: #ff828a;
-$red-4: #f75767;
-$red-5: #eb2d46;
-$red-6: $red-base;
-$red-7: #b80025;
-$red-8: #910022;
-$red-9: #6b001d;
-$red-10: #450015;
+$red-base: #df0629 !default;
+$red-1: #ffe6e6 !default;
+$red-2: #ffabae !default;
+$red-3: #ff828a !default;
+$red-4: #f75767 !default;
+$red-5: #eb2d46 !default;
+$red-6: $red-base !default;
+$red-7: #b80025 !default;
+$red-8: #910022 !default;
+$red-9: #6b001d !default;
+$red-10: #450015 !default;
 
 /* 宝石红 */
-$ruby-base: #ff4545;
-$ruby-1: #fff2f0;
-$ruby-2: #ffebe8;
-$ruby-3: #ffc6bf;
-$ruby-4: #ff9d96;
-$ruby-5: #ff736e;
-$ruby-6: $ruby-base;
-$ruby-7: #d93035;
-$ruby-8: #b31e28;
-$ruby-9: #8c111d;
-$ruby-10: #660b17;
+$ruby-base: #ff4545 !default;
+$ruby-1: #fff2f0 !default;
+$ruby-2: #ffebe8 !default;
+$ruby-3: #ffc6bf !default;
+$ruby-4: #ff9d96 !default;
+$ruby-5: #ff736e !default;
+$ruby-6: $ruby-base !default;
+$ruby-7: #d93035 !default;
+$ruby-8: #b31e28 !default;
+$ruby-9: #8c111d !default;
+$ruby-10: #660b17 !default;
 
 /* 绿 */
-$green-base: #27d68f;
-$green-1: #f0fff6;
-$green-2: #d1ffe7;
-$green-3: #a7fcd2;
-$green-4: #78f0b8;
-$green-5: #4de3a2;
-$green-6: $green-base;
-$green-7: #17b078;
-$green-8: #0b8a5f;
-$green-9: #036347;
-$green-10: #013d2d;
+$green-base: #27d68f !default;
+$green-1: #f0fff6 !default;
+$green-2: #d1ffe7 !default;
+$green-3: #a7fcd2 !default;
+$green-4: #78f0b8 !default;
+$green-5: #4de3a2 !default;
+$green-6: $green-base !default;
+$green-7: #17b078 !default;
+$green-8: #0b8a5f !default;
+$green-9: #036347 !default;
+$green-10: #013d2d !default;
 
 /* 中性色盘
 -------------------------- */
 
 /* 黑色 */
-$black: #000;
+$black: #000 !default;
 
 /* 白色 */
-$white: #fff;
+$white: #fff !default;
 
 /* 灰色 */
-$neutral-1: #f7f8fa;
-$neutral-2: #eff1f4;
-$neutral-3: #e2e5ed;
-$neutral-4: #e5e6e8;
-$neutral-5: #d9d9d9;
-$neutral-6: #999;
-$neutral-7: #7c818c;
-$neutral-8: #353f58;
-$neutral-9: #666;
-$neutral-10: #333;
+$neutral-1: #f7f8fa !default;
+$neutral-2: #eff1f4 !default;
+$neutral-3: #e2e5ed !default;
+$neutral-4: #e5e6e8 !default;
+$neutral-5: #d9d9d9 !default;
+$neutral-6: #999 !default;
+$neutral-7: #7c818c !default;
+$neutral-8: #353f58 !default;
+$neutral-9: #666 !default;
+$neutral-10: #333 !default;

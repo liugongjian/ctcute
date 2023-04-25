@@ -1,24 +1,41 @@
 /* Switch
 -------------------------- */
-.el-switch + .el-switch {
-  margin-left: 30px; //TODO
+
+.el-switch__core {
+  background-color: $switch-core-bg;
+  border: 1px solid $switch-core-bg;
+
+  &:after {
+    background-color: $switch-core-color;
+  }
 }
 
 .small-switch {
-  margin-left: $margin-8x;
+  .el-switch__core {
+    height: $switch-small-height;
+  }
+
+  .el-switch__core:after {
+    width: $switch-small-core-size;
+    height: $switch-small-core-size;
+    margin-top: 0;
+  }
+
+  &.el-switch.is-checked .el-switch__core:after {
+    margin-left: -13px;
+  }
+}
+
+.el-switch.is-disabled {
+  opacity: 1;
 
   .el-switch__core {
-    // width: 28px !important;
-    height: $common-space-4x;
+    border-color: $switch-core-bg-disabled;
+    background-color: $switch-core-bg-disabled;
   }
 
-  .el-switch__core::after {
-    width: $common-space-3x;
-    height: $common-space-3x;
-    margin-top: 0px;
-  }
-
-  .el-switch.is-checked .el-switch__core::after {
-    margin-left: -13px;//TODO
+  &.is-checked .el-switch__core {
+    border-color: $color-master-disabled;
+    background-color: $color-master-disabled;
   }
 }

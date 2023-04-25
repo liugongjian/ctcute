@@ -2,4 +2,5 @@
 --------------------------*/
 .el-loading-mask {
   background-color: $color-bg-2;
+  z-index: $zindex-loading-mask;
 }

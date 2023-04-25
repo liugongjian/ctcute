@@ -1,16 +1,17 @@
 /* Toast
 -------------------------- */
+$toast-width: 400px;
+$toast-height: 36px;
+
 /*
   $class:类名;
-  $iconColor:icon颜色;
-  $iconClass:icon类名;
+  $icon-color:icon颜色;
 */
-@mixin toast-page($class: success, $iconColor: $color-status-success, $iconClass: success) {
-  .el-message.el-message--#{$class}.toast-#{$class} {
+@mixin toast-page($class, $bg-color, $icon-color) {
+  .el-message.el-message--#{$class} {
     min-width: $toast-width;
     height: $toast-height;
-    background: $color-bg-1;
-    box-shadow: $shadow-3;
+    background: $bg-color;
     border-radius: $border-radius;
     border: none;
     padding: $padding-2x $padding-4x;
@@ -20,21 +21,24 @@
     }
 
     .el-message__closeBtn {
+      color: $icon-color;
       font-size: $text-size-md;
       margin-top: 1px; // 更改字体大小后，上下距离有1px的偏移
     }
 
-    .el-icon-success {
-      color: $iconColor;
+    .el-icon-#{$class} {
+      color: $icon-color;
     }
 
     .el-message__content {
       font-size: $text-size-primary;
-      color: $text-color-light-1;
+      color: $text-color-feature;
+      line-height: $line-height;
     }
   }
 }
 
-@include toast-page();
-@include toast-page(warning, $color-status-warning);
-@include toast-page(error, $color-status-danger);
+@include toast-page(info, $color-master-bg, $color-status-master);
+@include toast-page(success, $color-success-bg, $color-status-success);
+@include toast-page(warning, $color-warning-bg, $color-status-warning);
+@include toast-page(error, $color-danger-bg, $color-status-danger);

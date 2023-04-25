@@ -29,36 +29,3 @@ export default class extends Vue {
   @Prop({ default: '', required: true }) private readonly title: string
 }
 </script>
-<style lang="scss" scoped>
-.block {
-  margin-bottom: $margin-6x;
-
-  &__title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: $margin-4x;
-
-    &__text {
-      color: $text-color;
-      font-weight: $text-title-weight;
-      display: flex;
-      align-items: center;
-      font-size: $text-size-md;
-
-      &:before {
-        width: 4px;
-        height: $text-size-md;
-        background-color: $color-master;
-        margin-right: $margin-3x;
-        content: ' ';
-        display: inline-block;
-      }
-    }
-  }
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-}
-</style>

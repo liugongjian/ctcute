@@ -66,16 +66,16 @@ export default class extends Vue {
   @Prop({
     type: Array,
     default: () => [
-      variables.chartColorH12,
-      variables.chartColor3,
-      variables.chartColor4,
-      variables.chartColor11,
-      variables.chartColor8,
-      variables.chartColor9,
-      variables.chartColor5,
       variables.chartColor1,
+      variables.chartColor2,
       variables.chartColor6,
+      variables.chartColor8,
       variables.chartColor10,
+      variables.chartColor11,
+      variables.chartColor5,
+      variables.chartColor4,
+      variables.chartColor7,
+      variables.chartColor9,
     ],
   })
   colors: []
@@ -331,61 +331,3 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.distribution-bar {
-  &__split {
-    margin-top: $margin-5x;
-  }
-
-  &__wrap {
-    margin-bottom: -$margin-5x;
-  }
-
-  &__checkbox {
-    margin-right: $margin-6x;
-    margin-bottom: $margin-5x;
-
-    ::v-deep {
-      .el-checkbox__label {
-        padding-left: $padding-2x;
-      }
-
-      .el-checkbox__input.is-checked + .el-checkbox__label {
-        color: $color-grey-1;
-      }
-    }
-
-    &__value {
-      display: inline-block;
-      margin-left: $margin-2x;
-      width: $cute-distribution-bar-input-width;
-
-      ::v-deep {
-        .el-input .el-input__inner {
-          padding-left: $padding-2x;
-          padding-right: $padding-2x;
-        }
-      }
-    }
-
-    &__rate {
-      display: inline-block;
-      padding-left: $padding-3x;
-      cursor: default;
-    }
-  }
-
-  ::v-deep {
-    @for $i from 1 through 10 {
-      .distribution-bar__checkbox-item:nth-child(#{$i}) .el-checkbox__input.is-checked .el-checkbox__inner {
-        border-color: var(--color#{$i});
-        background-color: var(--color#{$i});
-      }
-      .distribution-bar__checkbox-item:nth-child(#{$i}) .el-checkbox__input .el-checkbox__inner:hover,
-      .distribution-bar__checkbox-item:nth-child(#{$i}) .el-checkbox__input.is-focus .el-checkbox__inner {
-        border-color: var(--color#{$i});
-      }
-    }
-  }
-}
-</style>

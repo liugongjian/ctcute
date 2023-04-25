@@ -1,0 +1,105 @@
+$cute-area-head-line-height: 20px;
+$cute-area-padding: 2px;
+$cute-area-item-height: 30px;
+$cute-area-wrap-margin: $margin-10x;
+
+.cute-area-column {
+  float: left;
+
+  .cute-area-wrap {
+    margin-bottom: $cute-area-wrap-margin;
+    text-align: center;
+
+    &:last-child {
+      margin-bottom: $margin-3x;
+    }
+
+    .cute-area-head {
+      margin: $margin-3x $cute-area-padding 0;
+      color: $color-neutral-9;
+      font-size: $text-size-sm;
+      line-height: $cute-area-head-line-height;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cute-area-body {
+      padding: 0 $cute-area-padding;
+
+      .cute-area-city {
+        position: relative;
+        margin-top: $margin-10;
+        height: $cute-area-item-height;
+        line-height: $cute-area-item-height;
+        color: $color-neutral-10;
+        font-size: $text-size-sm;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        box-sizing: border-box;
+        cursor: pointer;
+      }
+
+      .cute-area-city:hover {
+        background-color: $color-neutral-1;
+        font-weight: normal;
+        // color: $color-master;
+      }
+
+      .cute-area-city.selected,
+      .cute-area-city.selected.hover {
+        font-weight: bold;
+        color: $color-master;
+      }
+    }
+  }
+}
+
+.cute-area-recent {
+  padding-bottom: $padding-3x;
+  border-bottom: 1px dashed $color-neutral-5;
+
+  .cute-area-recent-head {
+    padding: 0 $cute-area-padding;
+    color: $color-neutral-10;
+    font-size: $text-size-sm;
+    line-height: $cute-area-head-line-height;
+    font-weight: $text-title-weight;
+  }
+
+  .cute-area-recent-body {
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    .cute-area-recent-option {
+      float: left;
+      padding: 0 $cute-area-padding;
+      margin-top: $margin-3x;
+      text-align: center;
+
+      .cute-area-recent-item {
+        position: relative;
+        height: $cute-area-item-height;
+        line-height: $cute-area-item-height;
+        color: $color-neutral-9;
+        font-size: $text-size-sm;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        box-sizing: border-box;
+        cursor: pointer;
+        background-color: $color-neutral-1;
+      }
+
+      .cute-area-recent-item:hover {
+        background-color: $color-neutral-1;
+        font-weight: bold;
+        color: $color-master;
+      }
+    }
+  }
+}

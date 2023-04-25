@@ -10,7 +10,10 @@
     "build-test": "vue-cli-service build --mode test",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint --fix",
-    "svg": "vsvg -s ./src/assets/icons/svg -t ./src/assets/icons/components --ext ts --es6"
+    "clean:all": "sh ./build/clean-all.sh",
+    "compile:all": "sh ./build/build-all.sh",
+    "compile:ui": "yarn workspace @cutedesign/ui run build",
+    "compile:authenticate": "yarn workspace @cutedesign/authenticate run build"
   },
   "lint-staged": {
     "*.{ts,js,vue}": [
@@ -43,6 +46,7 @@
     "svg-topology": "1.0.21",
     "vue": "2.6.14",
     "vue-class-component": "^7.2.6",
+    "vue-click-outside": "^1.1.0",
     "vue-codemirror": "^4.0.6",
     "vue-i18n": "8.27.2",
     "vue-property-decorator": "^9.1.2",
@@ -77,7 +81,6 @@
     "eslint-plugin-prettier": "~3.4.1",
     "eslint-plugin-promise": "~4.2.1",
     "eslint-plugin-vue": "~7.0.0",
-    "hard-source-webpack-plugin": "^0.13.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "mockjs": "^1.1.0",
@@ -104,11 +107,6 @@
   },
   "workspaces": [
     "packages/ui",
-    "packages/chart",
-    "packages/appendix",
-    "packages/sort-table",
-    "packages/authenticate",
-    "packages/layout",
-    "packages/vxe-table"
+    "packages/authenticate"
   ]
 }

@@ -7,24 +7,21 @@
 
 .el-form-item {
   margin-bottom: $form-item-margin-bottom;
-}
 
-.el-form-item__error {
-  padding-top: $form-item-error-padding-top;
-}
-
-.el-form-item--medium {
-  .el-form-item__label {
-    line-height: $form-item-label-line-height;
+  .el-checkbox-group {
+    height: 24px;
   }
 }
 
-.el-form--inline .el-form-item {
-  margin-right: $margin-5x;
+.el-form-item__error {
+  padding: $form-item-error-padding-top 0;
 }
 
-.el-form-item--medium .el-form-item__content {
-  line-height: $form-item-label-line-height;
+.el-form-item--mini,
+.el-form-item--small {
+  &.el-form-item {
+    margin-bottom: $form-item-margin-bottom;
+  }
 }
 
 .el-form-item__error {
@@ -58,3 +55,27 @@
     color: $color-status-danger-1;
   }
 }
+.el-form--inline .el-form-item {
+  margin-right: $margin-5x;
+}
+
+@mixin form-size($size, $height, $padding) {
+  .el-form-item {
+    &.el-form-item--#{$size} {
+      line-height: $height;
+
+      .el-form-item__label {
+        line-height: $height;
+      }
+
+      .el-form-item__content {
+        line-height: $height;
+      }
+    }
+  }
+}
+
+@include form-size(large, $input-lg-height, $input-lg-padding);
+@include form-size(medium, $input-md-height, $input-md-padding);
+@include form-size(small, $input-sm-height, $input-sm-padding);
+@include form-size(mini, $input-xs-height, $input-xs-padding);

@@ -1,0 +1,300 @@
+// 下面变量Dark模式测试用，后续删除
+// $cute-layout-sidebar-width: 240px;
+// $cute-layout-sidebar-bg: $neutral-8;
+// $cute-layout-sidebar-border: $neutral-5;
+// $cute-layout-sidebar-item-bg-hover: $orange-10;
+// $cute-layout-sidebar-color-master: $orange-6;
+// $cute-layout-sidebar-text-color: $orange-1;
+// $cute-layout-sidebar-arrow-color: $orange-3;
+
+.cute-layout {
+  @include clearfix;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: $screen-lg;
+
+  &__body {
+    display: flex;
+    flex: 1;
+    overflow: auto;
+  }
+
+  &__container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    position: relative;
+    padding: 0 $padding-5x $padding-5x;
+    min-width: 0;
+    min-height: 100%;
+    transition: margin-left 0.28s;
+    overflow: auto;
+  }
+
+  &__main {
+    margin-top: $margin-5x; // 默认向 padding 对齐
+    flex: 1;
+    /* 最小分辨率 - 侧边栏宽度 - 边距 - 边距 */
+    // min-width: calc(#{$screen-lg} - #{$cute-layout-sidebar-width} - #{$padding-5x} - #{$padding-5x});
+
+    &.fixed-navbar {
+      overflow: auto;
+      padding-right: $padding-5x;
+      margin-right: -$margin-5x;
+      margin-bottom: -$margin-5x;
+    }
+  }
+}
+
+/* Header */
+.cute-layout-header {
+  display: flex;
+  width: 100%;
+  height: $cute-layout-header-height;
+  z-index: $zindex-layout-header;
+  justify-content: space-between;
+  background: $cute-layout-header-bg;
+  color: $cute-layout-header-text-color;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    padding-left: $padding-7x;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &__main {
+      height: $cute-layout-header-logo-height;
+    }
+
+    &__sub {
+      display: flex;
+      align-items: center;
+      margin-left: $margin-4x;
+      padding-left: $padding-4x;
+      border-left: 1px solid $cute-layout-header-border;
+      font-size: $text-size-md;
+
+      &__img {
+        height: $cute-layout-header-sub-logo-height;
+      }
+
+      &__img + &__title {
+        margin-left: $margin;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    margin-right: $margin-5x;
+  }
+}
+
+/* NavBar */
+.cute-layout-navbar {
+  margin-top: $margin-3x;
+
+  &__main {
+    display: flex;
+    align-items: center;
+    height: $common-space-8x;
+  }
+  
+  &__breadcrumb {
+    flex: 1;
+
+    .el-breadcrumb {
+      display: inline-block;
+    }
+  }
+
+  &__bottom {
+    margin-top: $margin-3x;
+  }
+
+  &+.cute-layout__main {
+    margin-top: $margin-3x; // 存在面包屑时，调整为向面包屑对齐
+  }
+}
+
+
+/* Sidebar */
+.cute-layout-sidebar {
+  display: flex;
+  position: relative;
+  background: $cute-layout-sidebar-bg;
+  z-index: $zindex-layout-sidebar;
+
+  &__wrapper {
+    width: $cute-layout-sidebar-width;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .el-menu {
+      border: none;
+      background-color: transparent;
+      flex: 1;
+      overflow: auto;
+  
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  
+    .el-menu-item,
+    .el-submenu__title {
+      min-width: auto;
+      height: $common-space-10x;
+      line-height: $common-space-10x;
+      background-color: transparent;
+      border-right: 2px solid transparent;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: $cute-layout-sidebar-text-color;
+  
+      &:hover {
+        color: $cute-layout-sidebar-color-master;
+      }
+
+      &:hover {
+        background-color: $cute-layout-sidebar-item-bg-hover !important;
+      }
+
+      .menu-item-icon {
+        margin-right: $margin;
+      }
+
+      span {
+        vertical-align: inherit;
+      }
+    }
+
+    .el-menu-item.is-active {
+      position: relative;
+      color: $cute-layout-sidebar-color-master !important;
+
+      /* 选中状态前面的小竖线 */
+      &:before {
+        content: '';
+        display: inline-block;
+        background-color: $cute-layout-sidebar-color-master;
+        width: 2px;
+        height: $text-size;
+        position: absolute;
+        top: calc((#{$common-space-10x} - #{$text-size}) / 2);
+        z-index: 1;
+      }
+    }
+
+    /* 层级缩进 */
+    .level-1 {
+      .el-submenu__title, .el-menu-item {
+        padding-left: $padding-6x !important;
+
+        &:before {
+          left: $padding-6x - $common-space-2x;
+        }
+      }
+    }
+
+    .level-2 {
+      .el-submenu__title, .el-menu-item {
+        padding-left: $padding-10x !important;
+
+        &:before {
+          left: $padding-10x - $common-space-2x;
+        }
+      }
+
+      .menu-items-wrap:after {
+        position: absolute;
+        content: '';
+        display: inline-block;
+        background-color: $cute-layout-sidebar-border;
+        width: 2px;
+        height: calc(100% - (#{$common-space-10x} - #{$text-size}));
+        left: $padding-10x;
+        top: calc((#{$common-space-10x} - #{$text-size}) / 2);
+      }
+    }
+
+    .level-3 {
+      .el-submenu__title, .el-menu-item {
+        padding-left: $padding-10x + $padding-10 !important;
+
+        &:before {
+          left: $padding-10x;
+        }
+      }
+    }
+
+    .el-submenu__icon-arrow {
+      color: $cute-layout-sidebar-arrow-color;
+      right: $common-space-2x;
+    }
+  }
+
+  /* 侧边栏标题 */
+  &__title {
+    font-size: $text-size-md;
+    color: $cute-layout-sidebar-text-color;
+    padding: $padding-6x 0 $margin-4x $padding-2x;
+    margin: 0 $margin-4x $margin-3x $margin-4x;
+    font-weight: $text-title-weight;
+    border-bottom: 1px solid $cute-layout-sidebar-border;
+    line-height: 1;
+
+    &__back {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      margin: -$margin $margin-4x $margin-2x $margin-4x;
+
+      &__icon {
+        padding: $padding;
+        display: flex;
+        align-items: center;
+        transition: background-color $transition-time;
+
+        .svg-icon {
+          font-size: $text-size-lg;
+        }
+      }
+
+      &:hover {
+        .cute-layout-sidebar__title__back__icon {
+          background: $cute-layout-sidebar-item-bg-hover;
+        }
+      }
+    }
+  }
+
+  /* 侧边栏关闭按钮 */
+  &__knob {
+    height: $common-space-10x * 2;
+    width: $common-space-3x;
+    position: absolute;
+    top: calc(50% - #{$common-space-10x} - #{$cute-layout-header-height} / 2); // $common-space-10x是自身高度的一半
+    right: -$common-space-3x;
+    background: $cute-layout-sidebar-bg;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .svg-icon {
+      font-size: $text-size;
+      color: $cute-layout-sidebar-arrow-color;
+    }
+  }
+}

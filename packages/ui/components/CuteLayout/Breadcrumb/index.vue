@@ -1,21 +1,21 @@
 <template>
-  <el-breadcrumb v-if="breadcrumbCustomlast">
+  <el-breadcrumb v-if="breadcrumbCustomTitle">
     <el-breadcrumb-item>
-      <span>{{ breadcrumbCustomlast }}</span>
+      <span>{{ breadcrumbCustomTitle }}</span>
     </el-breadcrumb-item>
   </el-breadcrumb>
-  <el-breadcrumb v-else-if="breadcrumbShowlast">
+  <el-breadcrumb v-else-if="breadcrumbShowLast">
     <el-breadcrumb-item>
-      <span>{{ lastcrumbs.meta.title }}</span>
+      <span>{{ t(lastCrumb.meta.title) }}</span>
     </el-breadcrumb-item>
   </el-breadcrumb>
-  <el-breadcrumb v-else class="app-breadcrumb" separator="/">
+  <el-breadcrumb v-else separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
-        <span v-if="item.redirect === 'noredirect' || index === breadcrumbs.length - 1" class="no-redirect">{{
-          item.meta.title
-        }}</span>
-        <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
+        <span v-if="item.redirect === 'noredirect' || index === breadcrumbs.length - 1" class="no-redirect">
+          {{ t(item.meta.title) }}
+        </span>
+        <a v-else @click.prevent="handleLink(item)">{{ t(item.meta.title) }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -23,22 +23,23 @@
 
 <script lang="ts">
 import { compile } from 'path-to-regexp'
-import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
+import { Component, Prop, Watch, Mixins } from 'vue-property-decorator'
 import { RouteRecord, Route } from 'vue-router'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
-  name: 'Breadcrumb',
+  name: 'CuteLayoutBreadcrumb',
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   @Prop({ default: '' })
-  public breadcrumbCustomlast: string
+  public breadcrumbCustomTitle: string
 
-  @Prop({ default: true })
-  public breadcrumbShowlast: boolean
+  @Prop({ default: false })
+  public breadcrumbShowLast: boolean
 
   private breadcrumbs: RouteRecord[] = []
 
-  private get lastcrumbs() {
+  private get lastCrumb() {
     return this.breadcrumbs[this.breadcrumbs.length - 1]
   }
 
@@ -58,8 +59,8 @@ export default class extends Vue {
   private getBreadcrumb() {
     let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
     const first = matched[0]
-    if (!this.isDashboard(first)) {
-      matched = [{ path: '/', meta: { title: '首页' } } as unknown as RouteRecord].concat(matched)
+    if (first && !this.isDashboard(first)) {
+      matched = [{ path: '/', meta: { title: 'home.title' } } as unknown as RouteRecord].concat(matched)
     }
     this.breadcrumbs = matched.filter(item => {
       return item.meta && item.meta.title && item.meta.breadcrumb !== false
@@ -67,14 +68,12 @@ export default class extends Vue {
   }
 
   private isDashboard(route: RouteRecord) {
-    const name = route && route.meta && route.meta.title
-    return name === '首页'
+    return route.path === '/'
   }
 
   private pathCompile(path: string) {
     // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
     const { params } = this.$route
-    console.log(compile)
     const toPath = compile(path)
     return toPath(params)
   }
@@ -89,9 +88,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.app-breadcrumb.el-breadcrumb {
-  display: inline-block;
-}
-</style>

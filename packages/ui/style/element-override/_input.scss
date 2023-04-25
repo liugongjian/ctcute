@@ -1,5 +1,8 @@
 /* Input
 -------------------------- */
+$input-prefix-padding: $padding-9x;
+$input-suffix-padding: $padding-9x;
+
 /*
   重置Input基本样式
 */
@@ -28,19 +31,13 @@
     .el-input__prefix {
       display: flex;
       align-items: center;
-      left: $padding-4x;
+      left: $padding-3x;
 
       .el-input__icon {
         width: auto;
       }
-      // .el-input__icon.el-icon-search {
-      //   display: flex;
-      //   align-items: center;
-      //   justify-content: center;
-      // }
     }
   }
-  
 
   // 后置元素样式
   .el-input__suffix {
@@ -62,14 +59,9 @@
         font-size: $text-size-lg;
         vertical-align: text-bottom;
       }
-  
-      // .el-icon-view {
-      //   font-size: $text-size-lg;
-      //   vertical-align: text-bottom;
-      // }
-  
+
       // 关闭图标样式
-      .el-icon-close {  
+      .el-icon-close {
         &:hover {
           color: $color-master;
           cursor: pointer;
@@ -80,11 +72,13 @@
 
   // 复杂输入框组
   &.el-input-group {
+
     .el-input-group__append,
     .el-input-group__prepend {
       color: $text-color;
 
-      div.el-select, button.el-button {
+      div.el-select,
+      button.el-button {
         border-color: transparent;
         background-color: transparent;
         color: inherit;
@@ -101,11 +95,11 @@
       }
     }
 
-    
     &.input-with-select {
+
       .el-input-group__append,
       .el-input-group__prepend {
-        background-color: transparent;  
+        background-color: transparent;
       }
     }
   }
@@ -115,31 +109,47 @@
     .el-input__inner {
       background-color: $color-grey-10;
       border: 1px solid $disabled-border;
+      color: $select-color-disabled;
 
-      &:active, &:focus {
+      &:active,
+      &:focus {
         box-shadow: none;
       }
     }
+
+    .el-input__prefix {
+      color: $select-color-disabled;
+    }
+
+    .prefix-placeholder {
+      color: $select-color-disabled;
+    }
   }
 }
+
 /*
   提示
 */
-.input-right-tips { color: $color-neutral-7; margin-left: 28px; }
-/*
-  IP地址输入框
-*/
-.input-ip { 
-  display: flex;
-  align-items: center;
-  .el-input-number{ width: 48px; text-align: center;}
-  // .el-input.el-input--medium .el-input__inner {text-align: center;}
-  .el-input-number.is-without-controls .el-input__inner{ padding: 0 5px;}
-  .ip-dot{ height: 18px; width: 18px; margin: 0 8px; text-align: center; font-size: 18px; line-height: 16px; color: $text-color;}
+.input-right-tips {
+  color: $color-neutral-7;
+  margin-left: $margin-7x;
+}
+
+.el-input.input-forgot.el-input--suffix .el-input__inner {
+  padding-right: 110px;
+}
+
+.el-input.el-input--suffix .el-input__inner {
+  padding-right: $padding-10x;
+}
+
+.el-select .el-input.el-input--suffix .el-input__inner {
+  padding-right: 30px;
 }
 
 @mixin input-size($size, $height, $text-size) {
   .el-input.el-input--#{$size} {
+    line-height: $height - 2;
     font-size: $text-size;
 
     .el-input__inner {

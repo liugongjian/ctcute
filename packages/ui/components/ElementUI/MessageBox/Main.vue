@@ -183,7 +183,7 @@ export default {
     },
 
     confirmButtonClasses() {
-      return `el-button--primary ${this.confirmButtonClass}`
+      return 'el-button--primary' + ` ${this.confirmButtonClass}`
     },
     cancelButtonClasses() {
       return `${this.cancelButtonClass}`

@@ -24,7 +24,7 @@
       color: $color-disabled;
     }
     &.is-underline:hover:after {
-      border-bottom: 1px solid $color;
+      border-bottom: 1px solid $color-hover;
     }
   }
 }

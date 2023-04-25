@@ -153,6 +153,7 @@
     &:hover {
       border-color: $upload-color;
       color: $upload-color;
+      background-color: unset;
 
       .el-icon-plus {
         color: $upload-color;
@@ -217,6 +218,10 @@
       .el-upload-list__item-actions:hover {
         opacity: 0;
       }
+    }
+
+    .el-upload-list__item-actions {
+      background-color: $color-neutral-2;
     }
   }
 
@@ -384,4 +389,8 @@
   .el-icon-plus {
     color: $disabled-color;
   }
+}
+
+.el-upload-list__item:hover .el-icon-close {
+  color: $color-neutral-6;
 }

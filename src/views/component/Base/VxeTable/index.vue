@@ -2,7 +2,7 @@
  * @Author: fanzhengle
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-04-24 20:08:37
+ * @LastEditTime: 2023-04-25 09:43:03
  * @Description:
 -->
 <template>
@@ -23,6 +23,10 @@
         点击高亮当前行或者列,鼠标悬浮时提示当前行(整行)或者列(列表头)
         行数较多需要,查阅时候需要着重强调,或者方便查阅的时候使用
       </p>
+      <h3>复杂列设置</h3>
+      <component-demo path="@/views/component/Base/VxeTable/EditTableDemo7.vue">
+        <demo8></demo8>
+      </component-demo>
       <h3>高亮列</h3>
       <component-demo path="@/views/component/Base/VxeTable/Demo2.vue">
         <demo2></demo2>
@@ -103,10 +107,6 @@
       <h3>编辑表格-展开行</h3>
       <component-demo path="@/views/component/Base/VxeTable/EditTableDemo7.vue">
         <edit-table-demo7></edit-table-demo7>
-      </component-demo>
-      <h3>复杂列设置</h3>
-      <component-demo path="@/views/component/Base/VxeTable/EditTableDemo7.vue">
-        <demo8></demo8>
       </component-demo>
     </div>
   </div>

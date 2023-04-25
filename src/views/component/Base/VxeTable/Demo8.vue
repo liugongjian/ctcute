@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2023-04-22 08:35:39
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-04-24 19:49:38
+ * @LastEditTime: 2023-04-25 09:46:46
  * @Description: 复杂列设置
 -->
 <template>
@@ -26,19 +26,8 @@
           <router-link to="/">{{ row.name }}</router-link>
         </template>
       </vxe-column>
-      <!-- <vxe-column field="status" title="实例状态">
-        <template #default="{ row }">
-          {{ statusFormatter(row) }}
-        </template>
-      </vxe-column> -->
       <vxe-column field="ip" title="IP地址"></vxe-column>
       <vxe-column field="time" title="时间" sortable></vxe-column>
-      <!-- <vxe-column field="tags" title="标签">
-        <template #default="{ row }">
-          <el-tag v-for="item in row.tags" :key="item" type="info">{{ item }}</el-tag>
-        </template>
-      </vxe-column> -->
-      <!-- <vxe-column field="desc" title="描述" show-overflow></vxe-column> -->
       <vxe-column
         field="health"
         title="健康状态"
@@ -47,6 +36,7 @@
           { label: '警告', value: 2 },
           { label: '危险', value: 3 },
           { label: '进行中', value: 4 },
+          { label: '失联', value: 5 },
         ]"
         :filter-method="filterNameMethod"
       >
@@ -126,10 +116,8 @@ export default class extends Vue {
     console.log(customData)
   }
 
-  filterNameMethod(data: any) {
-    console.log(data.value, data.row.health, data.column)
-    let filter = this.tableData.filter(item => item.health)
-    return this.tableData
+  filterNameMethod({ value, row }) {
+    return value === row.health
   }
 }
 </script>

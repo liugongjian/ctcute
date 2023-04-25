@@ -180,10 +180,10 @@ export default {
       <div
         class={{
           'el-tabs': true,
-          [`el-tabs--${size}`]: true,
+          ['el-tabs--' + `${size}`]: true,
           'el-tabs--button': type === 'button',
           'el-tabs--card': type === 'card',
-          [`el-tabs--${tabPosition}`]: true,
+          ['el-tabs--' + `${tabPosition}`]: true,
           'el-tabs--border-card': type === 'border-card',
         }}
       >

@@ -64,8 +64,8 @@
             </el-form>
           </div>
           <div class="sub-foot">
-            <el-button type="primary" @click="drawer1 = false">确定</el-button>
-            <el-button class="cancel" @click="drawer1 = false">取消</el-button>
+            <el-button type="primary" @click="drawer1 = false">确 定</el-button>
+            <el-button class="cancel" @click="drawer1 = false">取 消</el-button>
           </div>
         </el-drawer>
       </el-col>

@@ -12,7 +12,8 @@ $cute-slider-btn-radius: 8px;
     width: 1px;
     height: $cute-slider-marks-height;
     border-radius: 0;
-    margin-top: 0;
+    margin-top: -2px;
+    box-sizing: border-box;
   }
 
   .el-slider__stop:last-child {

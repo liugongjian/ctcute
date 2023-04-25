@@ -28,11 +28,12 @@
 
 .el-slider__stop {
   // display: none;
-  border: 2px solid $slider-stop-border-color;
+  border: 1px solid $slider-stop-border-color;
   background-color: $slider-stop-color;
-  height: 10px;
-  width: 10px;
-  margin-top: -3px;
+  box-sizing: content-box;
+  // height: 10px;
+  // width: 10px;
+  margin-top: -2px;
   z-index: 2;
 
   // &:first-child,

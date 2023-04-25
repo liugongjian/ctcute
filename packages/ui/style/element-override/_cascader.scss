@@ -5,6 +5,8 @@ $cascader-tags-size: $select-sm-height;
 
 
 .el-cascader {
+
+  // .el-cascader-menu{}
   .el-cascader__caret.el-input__icon.el-icon-arrow-down {
     transform: rotate(360deg);
     color: $text-color-light-2;
@@ -73,6 +75,15 @@ $cascader-tags-size: $select-sm-height;
       cursor: not-allowed;
     }
 
+    .el-tag.el-tag--light.el-tag--info {
+
+      background-color: $color-neutral-1;
+      border: 1px solid $color-neutral-3;
+
+      span {
+        color: $color-neutral-6;
+      }
+    }
   }
 
   // &:not(.is-disabled):hover{

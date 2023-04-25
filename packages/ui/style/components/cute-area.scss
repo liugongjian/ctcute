@@ -42,15 +42,15 @@ $cute-area-wrap-margin: $margin-10x;
       }
 
       .cute-area-city:hover {
-        background-color: $color-master-6;
+        background-color: $color-neutral-1;
         font-weight: normal;
-        color: $color-master;
+        // color: $color-master;
       }
 
       .cute-area-city.selected,
       .cute-area-city.selected.hover {
-        background: $color-master;
-        color: $color-white;
+        font-weight: bold;
+        color: $color-master;
       }
     }
   }
@@ -92,11 +92,12 @@ $cute-area-wrap-margin: $margin-10x;
         text-overflow: ellipsis;
         box-sizing: border-box;
         cursor: pointer;
-        background-color: $color-master-6;
+        background-color: $color-neutral-1;
       }
 
       .cute-area-recent-item:hover {
-        background-color: $color-master-6;
+        background-color: $color-neutral-1;
+        font-weight: bold;
         color: $color-master;
       }
     }

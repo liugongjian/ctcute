@@ -10,9 +10,9 @@ $cute-slider-btn-radius: 8px;
   .el-slider__stop {
     border: 1px solid $color-bg-2;
     width: 1px;
-    height: $cute-slider-marks-height;
+    height: $cute-slider-bar-height;
     border-radius: 0;
-    margin-top: -2px;
+    margin-top: 0;
     box-sizing: border-box;
   }
 
@@ -51,6 +51,7 @@ $cute-slider-btn-radius: 8px;
     }
 
     .el-slider__bar {
+      z-index: 8;
       height: $cute-slider-bar-height-hover;
       top: calc(-1 * (#{$cute-slider-bar-height-hover} - #{$cute-slider-bar-height}) / 2);
       border-radius: $border-radius;

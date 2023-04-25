@@ -67,6 +67,7 @@
             size="large"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
           >
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
@@ -79,6 +80,7 @@
             size="medium"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
           >
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
@@ -91,6 +93,7 @@
             size="small"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
           >
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
@@ -108,6 +111,7 @@
             size="large"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
             collapse-tags
             clearable
@@ -125,6 +129,7 @@
             size="medium"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
             collapse-tags
             clearable
@@ -142,6 +147,7 @@
             size="small"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
             collapse-tags
             clearable

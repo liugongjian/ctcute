@@ -57,6 +57,14 @@ $select-tag-margin: 2px 0 2px 8px;
       }
     }
   }
+
+  &.is-disabled {
+    .el-tag.el-tag--light.el-tag--info {
+      color: $color-neutral-6;
+      background-color: $color-neutral-1;
+      border-color: $color-neutral-3;
+    }
+  }
 }
 
 /* 

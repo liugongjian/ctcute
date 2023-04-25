@@ -1,6 +1,9 @@
 /* Upload
 -------------------------- */
 @mixin uploader-success {
+  .el-upload .el-button.el-button--default .svg-icon {
+    color: $color-neutral-6;
+  }
 
   .el-upload-list__item .el-upload-list__item-name {
     color: $upload-font-active-color;
@@ -364,7 +367,13 @@
     cursor: not-allowed;
 
     .sub-svg-text {
-      opacity: 0.5;
+
+      color: $color-master-disabled;
+
+      span,
+      svg {
+        color: $color-master-disabled
+      }
     }
 
     .el-upload__tip {

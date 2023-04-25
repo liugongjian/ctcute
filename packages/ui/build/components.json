@@ -29,6 +29,7 @@
     "CuteDistributionBar",
     "CuteCardBox",
     "CuteScroller",
+    "CuteFixedFooter",
     "Pagination",
     "Dialog",
     "Autocomplete",

@@ -74,19 +74,6 @@
   }
 }
 
-@mixin formBottom {
-  .pro-form-bottom {
-    box-shadow: $shadow-2;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    background: $color-form-component-bg;
-    padding: $padding-4x 0;
-    transition: 0.3s;
-    z-index: $zindex-normal;
-  }
-}
-
 /* 简单表单 */
 .simple-form {
   @include form();
@@ -95,7 +82,6 @@
 /* 复杂表单1 */
 .pro-form1 {
   @include formTitle();
-  @include formBottom();
 
   .el-form {
     margin-top: $margin-10;
@@ -133,7 +119,6 @@
 /* 复杂表单2 */
 .pro-form2 {
   @include formTitle();
-  @include formBottom();
 
   .el-form {
     margin-top: $margin-10;
@@ -161,13 +146,6 @@
   }
 
   padding-bottom: $margin-8x;
-
-  .pro-form-bottom {
-    display: flex;
-    justify-content: flex-end;
-    height: 48px;
-    align-items: center;
-  }
 
   .el-divider--horizontal {
     width: 96%;

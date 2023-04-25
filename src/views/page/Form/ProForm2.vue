@@ -235,12 +235,12 @@
         </cute-titled-block>
       </el-form>
     </el-card>
-    <div class="pro-form-bottom" :style="{ width: `calc(100% - ${sidebarWidth})` }">
+    <cute-fixed-footer slot="footer">
       <el-button type="primary" :loading="submitting" style="margin-right: 16px;" @click="submit"
         >提 交</el-button
       >
       <el-button style="margin-right: 40px;" @click="back">取 消</el-button>
-    </div>
+    </cute-fixed-footer>
   </div>
 </template>
 <script lang="ts">
@@ -250,11 +250,13 @@ import * as ProForm2 from '@/types/ProForm2'
 import { getAlertTarget } from '@/api/simpleForm'
 import { createProForm2 } from '@/api/proForm2'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
+import CuteFixedFooter from '@cutedesign/ui/components/CuteFixedFooter/index.vue'
 
 @Component({
   name: 'ProForm2',
   components: {
     CuteTitledBlock,
+    CuteFixedFooter,
   },
 })
 export default class extends Vue {

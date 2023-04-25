@@ -200,12 +200,12 @@
         </cute-titled-block>
       </el-form>
     </el-card>
-    <div class="pro-form-bottom" :style="{ width: `calc(100% - ${sidebarWidth})` }">
+    <cute-fixed-footer slot="footer">
       <el-button type="primary" :loading="submitting" style="margin: 0 16px 0 40px;" @click="submit"
         >提 交</el-button
       >
       <el-button @click="back">取 消</el-button>
-    </div>
+    </cute-fixed-footer>
   </div>
 </template>
 <script lang="ts">
@@ -213,11 +213,12 @@ import { Component, Vue, Ref } from 'vue-property-decorator'
 import * as ProForm1 from '@/types/ProForm1'
 import { CuteTitledBlock } from '@cutedesign/ui'
 import { createProForm1, getAlertTarget } from '@/api/proForm1'
-import variables from '@cutedesign/ui/style/themes/default/index.scss'
+import CuteFixedFooter from '@cutedesign/ui/components/CuteFixedFooter/index.vue'
 
 @Component({
   name: 'ProForm1',
   components: {
+    CuteFixedFooter,
     CuteTitledBlock,
   },
 })
@@ -225,11 +226,6 @@ export default class extends Vue {
   // 表单Ref对象
   @Ref('proForm1')
   private proForm1Ref
-
-  private sidebarWidth = variables.cuteLayoutSidebarWidth
-
-  private sizeObserver: any
-
   // 表单对象
   private form: ProForm1.Form = {
     name: null,
@@ -405,7 +401,6 @@ export default class extends Vue {
    */
   private mounted() {
     this.getAlertTarget()
-    this.handleObserver(true)
   }
 
   /**
@@ -481,25 +476,6 @@ export default class extends Vue {
    */
   private back() {
     console.log('返回')
-  }
-
-  private handleObserver(observe: boolean) {
-    if (ResizeObserver) {
-      const node = document.querySelector('.cute-layout-sidebar')
-      if (this.sizeObserver && !observe) {
-        this.sizeObserver.unobserve(node)
-      } else {
-        this.sizeObserver = new ResizeObserver((attrs: Array<ResizeObserverEntry>) => {
-          const container = attrs[0].target as any
-          this.sidebarWidth = container.offsetWidth + 'px'
-        })
-        this.sizeObserver.observe(node)
-      }
-    }
-  }
-
-  destroyed() {
-    this.handleObserver(false)
   }
 }
 </script>

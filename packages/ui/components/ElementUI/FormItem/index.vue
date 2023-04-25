@@ -213,11 +213,8 @@ export default {
     validateStatus(value) {
       this.validateState = value
     },
-    validateMessage: {
-      immediate: true,
-      handler() {
-        this.handleResize()
-      },
+    validateMessage() {
+      this.setErrorTooltipVisible()
     },
     rules(value) {
       if ((!value || value.length === 0) && this.required === undefined) {
@@ -249,12 +246,13 @@ export default {
     handleResize() {
       this.errorTooltipVisible = false
       setTimeout(() => {
-        this.errorTooltipVisible =
-          !!this.validateMessage &&
-          this.validateState === 'error' &&
-          this.showMessage &&
-          this.form.showMessage
+        this.setErrorTooltipVisible()
       }, 50)
+    },
+
+    setErrorTooltipVisible() {
+      this.errorTooltipVisible =
+        !!this.validateMessage && this.validateState === 'error' && this.showMessage && this.form.showMessage
     },
 
     debounce(func, delay) {
@@ -268,7 +266,7 @@ export default {
     },
 
     debounceHandleResize() {
-      return this.debounce(this.handleResize.bind(this), 100)
+      return this.debounce(this.handleResize.bind(this), 50)
     },
 
     validate(trigger, callback = noop) {

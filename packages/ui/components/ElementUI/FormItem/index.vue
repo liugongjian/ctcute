@@ -23,21 +23,23 @@
     </LabelWrap>
 
     <div class="el-form-item__content" :style="contentStyle">
-      <span v-if="errorShowType === 'errorTooltip'">
+      <transition v-if="errorShowType === 'tooltip'">
         <el-tooltip
           v-model="errorTooltipVisible"
-          :content="validateMessage"
-          :visible-arrow="false"
-          placement="bottom"
+          :placement="placement"
           :manual="true"
           popper-class="el-form-item__custom__error"
         >
+          <template slot="content">
+            <i class="el-icon-warning"></i>
+            <span>{{ validateMessage }}</span>
+          </template>
           <slot></slot>
         </el-tooltip>
-      </span>
+      </transition>
 
       <slot v-else></slot>
-      <transition v-if="errorShowType === 'inlineError'" name="el-zoom-in-top">
+      <transition v-if="errorShowType === 'inline'" name="el-zoom-in-top">
         <slot
           v-if="validateState === 'error' && showMessage && form.showMessage"
           name="error"
@@ -56,7 +58,7 @@
           </div>
         </slot>
       </transition>
-      <transition v-if="errorShowType === 'inlineError'" name="el-zoom-in-top"> </transition>
+      <transition v-if="errorShowType === 'inline'" name="el-zoom-in-top"> </transition>
     </div>
   </div>
 </template>
@@ -88,7 +90,11 @@ export default {
   props: {
     errorShowType: {
       type: String,
-      default: 'inlineError',
+      default: 'inline',
+    },
+    placement: {
+      type: String,
+      default: 'bottom',
     },
     label: String,
     labelWidth: String,

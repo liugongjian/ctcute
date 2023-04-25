@@ -133,7 +133,6 @@
                       </el-select>
                     </el-form-item>
                     <el-form-item
-                      error-show-type="errorTooltip"
                       style="display: inline-block"
                       :prop="'tableData.' + scope.$index + '.calculate'"
                       :rules="rules.templateType.percentage"
@@ -243,7 +242,7 @@ export default class extends Vue {
         computValue: 1,
         operation: 1,
         occurrences: 1,
-        calculate: '',
+        calculate: 50,
       },
       {
         id: 2,
@@ -382,13 +381,12 @@ export default class extends Vue {
     alertLevel: [{ required: true, message: '请选择告警级别', trigger: 'change' }],
     templateType: {
       required: true,
-      trigger: 'blur',
       validator: this.valValue,
       monitor: { required: true, message: '请选择', trigger: 'change' },
       percentage: {
         required: true,
         pattern: /^(\d|[1-9]\d|100)(\.\d{1,2})?$/,
-        message: '这是一个错误提示这是一个错误提示这是长长的错误提示',
+        message: '请输入一百以内最多两位小数',
         trigger: 'blur',
       },
     },

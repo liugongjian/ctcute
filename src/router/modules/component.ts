@@ -182,6 +182,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-form',
+        name: 'ElForm',
+        component: () => import('@/views/component/Base/ElForm/index.vue'),
+        meta: {
+          title: 'ElForm',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'el-collapse',
         name: 'ElCollapse',
         component: () => import('@/views/component/Base/ElCollapse/index.vue'),

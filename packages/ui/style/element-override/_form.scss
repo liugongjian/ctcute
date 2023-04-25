@@ -48,12 +48,13 @@
 
 
 .el-form-item__custom__error {
-  border: none!important;
-  background: $color-status-danger-1 !important;
   border-radius: 0;
   padding: 4px 16px;
   line-height: 20px;
-  max-width: 200px;
+  max-width: 300px;
   border-radius: 2px;
-
+  i{
+    margin-right: 8px;
+    color: $color-status-danger-1;
+  }
 }

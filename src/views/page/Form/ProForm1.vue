@@ -133,6 +133,7 @@
                       </el-select>
                     </el-form-item>
                     <el-form-item
+                      error-show-type="errorTooltip"
                       style="display: inline-block"
                       :prop="'tableData.' + scope.$index + '.calculate'"
                       :rules="rules.templateType.percentage"
@@ -242,7 +243,7 @@ export default class extends Vue {
         computValue: 1,
         operation: 1,
         occurrences: 1,
-        calculate: 50,
+        calculate: '',
       },
       {
         id: 2,

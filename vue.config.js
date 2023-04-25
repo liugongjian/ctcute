@@ -53,7 +53,10 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        sassOptions: { outputStyle: 'expanded', quietDeps: true },
+        sassOptions: {
+          outputStyle: 'expanded',
+          quietDeps: true
+        },
         additionalData: `@import "node_modules/@cutedesign/ui/style/themes/default/variables.scss";
                           @import "node_modules/@cutedesign/ui/style/_mixins.scss";`
       },
@@ -69,7 +72,7 @@ module.exports = {
     // 配置monaco
     config.plugin('monaco').use(
       new MonacoWebpackPlugin({
-        languages: ['json', 'yaml', 'javascript', 'css', 'html', 'markdown', 'mysql', 'xml'],
+        languages: ['json', 'yaml', 'javascript', 'css', 'html', 'markdown', 'mysql', 'xml', 'lua'],
       })
     )
 
@@ -97,8 +100,7 @@ module.exports = {
       .use('svgo-loader')
       .loader('svgo-loader')
       .options({
-        plugins: [
-          {
+        plugins: [{
             name: 'removeAttrs',
             params: {
               attrs: '(fill|fill-rule)',

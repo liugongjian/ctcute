@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2023-03-17 13:45:09
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-24 09:10:19
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-04-25 14:35:45
  * @Description: Link
 -->
 <template>
@@ -11,7 +11,6 @@
     <LinkDemo />
     <div>
       <h3>基础用法</h3>
-      <el-link>默认链接</el-link>
       <el-link type="primary">主要链接</el-link>
       <el-link type="success">成功链接</el-link>
       <el-link type="warning">警告链接</el-link>
@@ -19,7 +18,6 @@
     </div>
     <div>
       <h3>禁用状态</h3>
-      <el-link disabled>默认链接</el-link>
       <el-link type="primary" disabled>主要链接</el-link>
       <el-link type="success" disabled>成功链接</el-link>
       <el-link type="warning" disabled>警告链接</el-link>

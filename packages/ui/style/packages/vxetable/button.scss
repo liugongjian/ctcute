@@ -123,9 +123,9 @@ $btnThemeList: (
       border-radius: $vxe-border-radius;
     }
     &.is--circle {
-      padding: 0 0.5em;
+      padding: 0;
       min-width: $vxe-button-height-default;
-      border-radius: 50%;
+      // border-radius: 50%;
     }
     &:not(.is--circle) {
       padding: 0 1em;

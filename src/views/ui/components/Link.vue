@@ -1,9 +1,15 @@
+<!--
+ * @Author: liugj
+ * @Date: 2023-03-06 19:31:42
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-04-25 14:34:09
+ * @Description:
+-->
 <template>
   <div>
     <p>常用的链接</p>
     <h2>默认状态</h2>
     <div class="sub-sample">
-      <el-link>链接文字</el-link>
       <el-link type="primary">链接文字</el-link>
     </div>
   </div>

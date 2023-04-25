@@ -4,11 +4,16 @@ $dropdown-item-padding-top-bottom: 7px;
 $dropdown-min-width: 120px;
 $dropdown-icon-line-height: 0.5;
 $dropdown-item-medium-line-height: 34px;
-$dropdown-shadow: 0px 0px 15px rgba(100, 110, 144, 0.15);
+// $dropdown-shadow: 0px 0px 16px rgba(100, 110, 144, 0.15);
 
 @mixin dropdown-size($size, $font-size) {
   .el-dropdown-menu--#{$size} {
     .el-dropdown-menu__item {
+      font-size: $font-size;
+    }
+  }
+  .el-dropdown {
+    .el-button--#{$size} {
       font-size: $font-size;
     }
   }
@@ -58,7 +63,7 @@ $dropdown-shadow: 0px 0px 15px rgba(100, 110, 144, 0.15);
 .el-dropdown-menu {
   // min-width: $dropdown-min-width;
   &.el-popper {
-    box-shadow: $dropdown-shadow;
+    box-shadow: $shadow-2;
   }
 
   .popper__arrow,

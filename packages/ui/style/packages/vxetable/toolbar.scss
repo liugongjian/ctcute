@@ -134,7 +134,7 @@
     border-radius: $vxe-border-radius;
     box-shadow: $shadow-2;
     .vxe-custom--header {
-      font-weight: 400;
+      font-weight: $text-weight;
       border-bottom: 1px solid $vxe-toolbar-custom-header-border-color;
     }
     .vxe-custom--body {
@@ -147,10 +147,10 @@
     .vxe-custom--header {
       .is--indeterminate {
         color: $vxe-primary-color;
-        font-weight: bold;
+        font-weight: $text-title-weight;
     
         .vxe-checkbox--label {
-          font-weight: bold;
+          font-weight: $text-title-weight;
         }
         .vxe-checkbox--icon {
           display: inline-block;
@@ -261,18 +261,18 @@
       .vxe-checkbox--icon {
         color: $vxe-input-border-color;
         vertical-align: middle;
-        font-weight: 400;
+        font-weight: $text-weight;
         user-select: none;
       }
   
       &.is--checked {
         .vxe-checkbox--icon {
           color: $vxe-primary-color;
-          font-weight: bold;
+          font-weight: $text-title-weight;
         }
         .vxe-checkbox--label {
           color: $vxe-primary-color;
-          font-weight: bold;
+          font-weight: $text-title-weight;
         }
       }
   
@@ -295,10 +295,10 @@
       }
       .is--indeterminate {
         color: $vxe-primary-color;
-        font-weight: bold;
+        font-weight: $text-title-weight;
 
         .vxe-checkbox--label {
-          font-weight: bold;
+          font-weight: $text-title-weight;
         }
 
         .vxe-icon-checkbox-indeterminate:before {

@@ -486,7 +486,7 @@
     background-color: $vxe-primary-color ;
     border-color: $vxe-primary-color;
     .vxe-checkbox--label {
-      font-weight: bold;
+      font-weight: $text-title-weight;
     }
 
   }
@@ -510,7 +510,7 @@
 
 .vxe-header--column {
   position: relative;
-  font-weight: $vxe-table-header-font-weight;
+  font-weight: $text-title-weight;
 
   &:hover {
     background: $vxe-table-column-header-hover-background-color;
@@ -544,7 +544,7 @@
     height: 1em;
     line-height: 1em;
     font-family: $vxe-icon-font-family;
-    font-weight: normal;
+    font-weight: $text-title-weight;
     position: relative;
 
     &:before {

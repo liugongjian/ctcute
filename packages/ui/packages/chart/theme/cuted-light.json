@@ -17,10 +17,10 @@
   "textStyle": {},
   "title": {
     "textStyle": {
-      "color": "#666666"
+      "color": "#333333"
     },
     "subtextStyle": {
-      "color": "#999999"
+      "color": "#666666"
     }
   },
   "line": {
@@ -130,6 +130,32 @@
     ],
     "label": {
       "color": "#333333"
+    }
+  },
+  "map": {
+    "label": {
+      "color": "#151515"
+    },
+    "emphasis": {
+      "itemStyle": {
+        "areaColor": "#FFDF55"
+      },
+      "label": {
+        "color": "#000"
+      }
+    }
+  },
+  "geo": {
+    "label": {
+      "color": "#151515"
+    },
+    "emphasis": {
+      "itemStyle": {
+        "areaColor": "#FFDF55"
+      },
+      "label": {
+        "color": "#000"
+      }
     }
   },
   "categoryAxis": {
@@ -338,7 +364,10 @@
     "color": [
       "#669eec",
       "#a2d6f9"
-    ]
+    ],
+    "textStyle": {
+      "color": "#666"
+    }
   },
   "dataZoom": {
     "backgroundColor": "rgba(47,69,84,0)",

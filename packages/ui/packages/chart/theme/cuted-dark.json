@@ -139,16 +139,16 @@
       "borderWidth": 0.5
     },
     "label": {
-      "color": "#d87a80"
+      "color": "#666"
     },
     "emphasis": {
       "itemStyle": {
-        "areaColor": "rgba(254,153,78,1)",
+        "areaColor": "#FFDF55",
         "borderColor": "#444",
         "borderWidth": 1
       },
       "label": {
-        "color": "rgb(100,0,0)"
+        "color": "#333"
       }
     }
   },
@@ -159,16 +159,16 @@
       "borderWidth": 0.5
     },
     "label": {
-      "color": "#d87a80"
+      "color": "#666"
     },
     "emphasis": {
       "itemStyle": {
-        "areaColor": "rgba(254,153,78,1)",
+        "areaColor": "#FFDF55",
         "borderColor": "#444",
         "borderWidth": 1
       },
       "label": {
-        "color": "rgb(100,0,0)"
+        "color": "#333"
       }
     }
   },
@@ -378,7 +378,10 @@
     "color": [
       "#669eec",
       "#a2d6f9"
-    ]
+    ],
+    "textStyle": {
+      "color": "#c6c7cc"
+    }
   },
   "dataZoom": {
     "backgroundColor": "rgba(47,69,84,0)",

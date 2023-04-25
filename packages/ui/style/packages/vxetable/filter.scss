@@ -19,7 +19,7 @@
     cursor: pointer;
 
     &:hover {
-      color: $vxe-table-font-color;
+      color: $vxe-primary-color;
     }
   }
 }
@@ -34,7 +34,7 @@
 
 .vxe-icon-funnel {
   font-family: $font-family-cute-icons !important;
-  margin-left: $margin-3x;
+  margin-left: $margin-2x;
   font-size: $text-size;
 
   &:before {

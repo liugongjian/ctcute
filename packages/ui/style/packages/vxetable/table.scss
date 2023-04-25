@@ -389,7 +389,7 @@
 
   /*排序*/
   .vxe-cell--sort {
-    width: 1.5em;
+    padding-left: $padding-2x;
     height: 1.35em;
     vertical-align: middle;
     text-align: center;
@@ -485,6 +485,10 @@
   .vxe-icon-checkbox-checked {
     background-color: $vxe-primary-color ;
     border-color: $vxe-primary-color;
+    .vxe-checkbox--label {
+      font-weight: bold;
+    }
+
   }
 
   .vxe-icon-checkbox-checked:before {
@@ -899,6 +903,25 @@
       background-repeat: no-repeat;
       background-size: 100% $vxe-table-border-width;
       background-position: right bottom;
+      @extend %DefaultColumnHeight;
+      padding: 0px 0px;
+    }
+    &.size--medium {
+      .vxe-body--column {
+        @extend %MediumColumnHeight;
+      }
+    }
+
+    &.size--small {
+      .vxe-body--column {
+        @extend %SmallColumnHeight;
+      }
+    }
+
+    &.size--mini {
+      .vxe-body--column {
+        @extend %MiniColumnHeight;
+      }
     }
   }
 

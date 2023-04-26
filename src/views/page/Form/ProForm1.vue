@@ -200,11 +200,13 @@
         </cute-titled-block>
       </el-form>
     </el-card>
-    <cute-fixed-footer slot="footer">
-      <el-button type="primary" :loading="submitting" style="margin: 0 16px 0 40px;" @click="submit"
-        >提 交</el-button
-      >
-      <el-button @click="back">取 消</el-button>
+    <cute-fixed-footer>
+      <div class="pro-form-footer-content">
+        <el-button type="primary" :loading="submitting" style="margin: 0 16px 0 40px;" @click="submit"
+          >提 交</el-button
+        >
+        <el-button @click="back">取 消</el-button>
+      </div>
     </cute-fixed-footer>
   </div>
 </template>

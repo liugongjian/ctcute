@@ -235,11 +235,13 @@
         </cute-titled-block>
       </el-form>
     </el-card>
-    <cute-fixed-footer slot="footer">
-      <el-button type="primary" :loading="submitting" style="margin-right: 16px;" @click="submit"
-        >提 交</el-button
-      >
-      <el-button style="margin-right: 40px;" @click="back">取 消</el-button>
+    <cute-fixed-footer>
+      <div class="pro-form-footer-content">
+        <el-button type="primary" :loading="submitting" style="margin-right: 16px;" @click="submit"
+          >提 交</el-button
+        >
+        <el-button style="margin-right: 40px;" @click="back">取 消</el-button>
+      </div>
     </cute-fixed-footer>
   </div>
 </template>
@@ -249,7 +251,6 @@ import { CuteTitledBlock } from '@cutedesign/ui'
 import * as ProForm2 from '@/types/ProForm2'
 import { getAlertTarget } from '@/api/simpleForm'
 import { createProForm2 } from '@/api/proForm2'
-import variables from '@cutedesign/ui/style/themes/default/index.scss'
 import CuteFixedFooter from '@cutedesign/ui/components/CuteFixedFooter/index.vue'
 
 @Component({
@@ -263,10 +264,6 @@ export default class extends Vue {
   // 表单Ref对象
   @Ref('proForm2')
   private proForm2Ref
-
-  private sidebarWidth = variables.cuteLayoutSidebarWidth
-
-  private sizeObserver: any
 
   // 表单对象
   private form: ProForm2.Form = {
@@ -491,7 +488,6 @@ export default class extends Vue {
    */
   private mounted() {
     this.getAlertTarget()
-    this.handleObserver(true)
   }
 
   /**
@@ -567,25 +563,6 @@ export default class extends Vue {
    */
   private back() {
     console.log('返回')
-  }
-
-  private handleObserver(observe: boolean) {
-    if (ResizeObserver) {
-      const node = document.querySelector('.cute-layout-sidebar')
-      if (this.sizeObserver && !observe) {
-        this.sizeObserver.unobserve(node)
-      } else {
-        this.sizeObserver = new ResizeObserver((attrs: Array<ResizeObserverEntry>) => {
-          const container = attrs[0].target as any
-          this.sidebarWidth = container.offsetWidth + 'px'
-        })
-        this.sizeObserver.observe(node)
-      }
-    }
-  }
-
-  destroyed() {
-    this.handleObserver(false)
   }
 }
 </script>

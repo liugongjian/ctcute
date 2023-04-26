@@ -74,6 +74,12 @@
   }
 }
 
+@mixin formFooter {
+  .pro-form-footer-content {
+    float: right;
+  }
+}
+
 /* 简单表单 */
 .simple-form {
   @include form();
@@ -82,6 +88,7 @@
 /* 复杂表单1 */
 .pro-form1 {
   @include formTitle();
+  @include formFooter();
 
   .el-form {
     margin-top: $margin-10;
@@ -119,6 +126,7 @@
 /* 复杂表单2 */
 .pro-form2 {
   @include formTitle();
+  @include formFooter();
 
   .el-form {
     margin-top: $margin-10;

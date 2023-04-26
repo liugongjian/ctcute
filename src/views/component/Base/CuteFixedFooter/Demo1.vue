@@ -7,10 +7,12 @@
 -->
 <template>
   <div>
-    需要使用在CuteLayout页面主体内容中，见页面下方
-    <cute-fixed-footer slot="footer">
-      <el-button type="primary" @click="operate('提交')">提 交</el-button>
-      <el-button @click="operate('取消')">取 消</el-button>
+    需要使用在CuteLayout中，见页面下方
+    <cute-fixed-footer>
+      <div class="footer-content">
+        <el-button type="primary" @click="operate('提交')">提 交</el-button>
+        <el-button @click="operate('取消')">取 消</el-button>
+      </div>
     </cute-fixed-footer>
   </div>
 </template>
@@ -31,3 +33,8 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.footer-content {
+  float: right;
+}
+</style>

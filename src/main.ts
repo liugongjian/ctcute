@@ -19,6 +19,9 @@ import http from '@/utils/request'
 import CuteAuthenticate from '@cutedesign/authenticate'
 import SvgTopology from 'svg-topology'
 import 'svg-topology/dist/svg-topology.css'
+import ECharts from 'vue-echarts'
+Vue.component('VChart', ECharts)
+
 Vue.use(CuteAuthenticate, {
   baseUrl: window.commonConfig.baseUrl,
   authenticateType: window.commonConfig.authenticateType,

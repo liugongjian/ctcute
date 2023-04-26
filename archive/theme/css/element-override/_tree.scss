@@ -1,0 +1,123 @@
+/* Tree
+-------------------------- */
+.el-tree {
+  margin-top: 10px;
+  background: transparent;
+}
+
+.el-tree-node {
+  &__content {
+    height: 30px;
+    margin-bottom: 6px;
+    font-size: $text-size-primary;
+    color: $color-grey-4;
+
+    &:hover {
+      background: none;
+
+      .handler-menu {
+        display: flex;
+      }
+    }
+
+    .node-content {
+      .handler-menu {
+        height: 30px;
+        display: flex;
+        align-items: center;
+
+        .hover-wrapper {
+          height: 100%;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  // &:focus {
+  //   .el-tree-node__content {
+  //     background: none;
+  //   }
+  // }
+
+  .pop-tooltip {
+    display: none;
+    position: absolute;
+    z-index: 2019;
+    top: 24px;
+    right: 0;
+    background: $color-bg-1;
+  }
+}
+
+.el-tree-node.is-focusable {
+  & > .el-tree-node__content {
+    color: $color-grey-1;
+
+    &:hover:not(.is-current>.el-tree-node__content:hover) {
+      color: $color-master-1;
+      background: $color-master-7;
+
+      .el-checkbox__inner {
+        border-color: $color-master-1;
+      }
+    }
+  }
+
+  &.is-current {
+    & > .el-tree-node__content {
+      color: $color-white;
+      background: $color-master-1;
+
+      .el-tree-node__expand-icon:not(.is-leaf),
+      .node-icon,
+      .node-content,
+      .handler-icon {
+        // color: $color-white !important; 不需要加
+        color: $color-white;
+      }
+
+      .el-checkbox__inner {
+        border-color: $color-white;
+        background: $color-master-1;
+
+        &::before {
+          background: $color-white;
+        }
+      }
+    }
+  }
+}
+
+.tree-node-popover {
+  // border: 1px solid $color-bg-1 !important;
+  box-shadow: $shadow-card;
+  min-width: 0;
+  padding: 0;
+  margin: 0.3em 0 0 0;
+
+  .tooltip-content {
+    display: flex;
+    flex-direction: column;
+    background: $color-bg-1;
+
+    .el-button {
+      margin: 0;
+      padding: 0.8em 1.2em;
+      color: $text-color-light-1;
+
+      &:hover {
+        background: $color-master-7;
+      }
+    }
+  }
+}
+
+.el-tree-node__expand-icon {
+  color: $color-grey-5;
+}
+
+.el-tree-node__expand-icon.is-leaf {
+  padding: 2px;
+}

@@ -1,0 +1,363 @@
+/* 特殊弹窗 */
+@mixin special-dialog {
+  display: flex;
+  align-items: center;
+
+  .el-dialog {
+    width: 480px;
+    margin: 0 auto !important;
+    background-color: $color-bg-2;
+
+    /* 弹窗Header */
+    .el-dialog__header {
+      padding: 32px 0 0 32px;
+      background-color: $color-bg-2;
+      border-radius: 2px 2px 0 0;
+
+      .el-dialog__title {
+        color: $color-grey-1;
+        font-size: $text-size-large;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+      }
+
+      button {
+        display: none;
+      }
+    }
+
+    /* 弹窗Body */
+    .el-dialog__body {
+      padding: 16px 32px 32px;
+    }
+  }
+
+  &--content {
+    display: flex;
+
+    .svg-icon {
+      /* 图标 */
+      flex: none;
+      font-size: 20px;
+      margin-right: 12px;
+    }
+
+    > div {
+      /* 内容 */
+      line-height: 20px;
+      color: $color-grey-1;
+    }
+  }
+
+  &--btns {
+    text-align: center;
+    margin-top: 24px;
+
+    .el-button + .el-button {
+      margin-left: 16px;
+    }
+  }
+}
+
+/* 基础弹窗 */
+@mixin base-dialog {
+  display: flex;
+  align-items: center;
+
+  .el-dialog {
+    width: 480px;
+    margin: 0 auto !important;
+    background-color: $color-bg-2;
+    border-radius: 2px;
+
+    /* 弹窗Header */
+    .el-dialog__header {
+      padding: 17px 24px;
+      border-bottom: 1px solid $border-color-light-1;
+      background-color: $color-bg-1;
+      border-radius: 2px 2px 0 0;
+
+      .el-dialog__title {
+        color: $color-grey-1;
+        font-size: $text-size-large;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+      }
+    }
+
+    /* 弹窗Body */
+    .el-dialog__body {
+      padding: 0;
+    }
+  }
+
+  &--content {
+    display: flex;
+    margin: 24px;
+    color: $color-grey-1;
+    font-size: $text-size-medium;
+    font-weight: 400;
+  }
+
+  &--footer {
+    text-align: center;
+    padding: 9px 0;
+    background-color: $color-grey-9;
+    border-radius: 0 0 2px 2px;
+
+    .el-button + .el-button {
+      margin-left: 16px;
+    }
+  }
+}
+
+/* 小弹窗 */
+.small-dialog {
+  @include base-dialog();
+}
+
+/* 中弹窗 */
+.medium-dialog {
+  @include base-dialog();
+
+  .el-dialog {
+    width: 560px;
+    max-height: 570px;
+    display: flex;
+    flex-direction: column;
+
+    .el-dialog__header {
+      height: auto;
+      border-radius: 2px 2px 0 0;
+    }
+
+    // .el-dialog__body {
+    //   flex: 1;
+    //   overflow: scroll;
+    //   .medium-dialog--footer{
+    //     position: absolute;
+    //     bottom: 0px;
+    //     width: 100%;
+    //   }
+    // }
+  }
+
+  &--scroll {
+    background-color: $color-bg-2;
+  }
+
+  &--content {
+    display: block;
+    clear: both;
+    // max-height: 521px;
+    // overflow-y: auto;
+    margin-bottom: 0px;
+    .warn-tip {
+      display: block !important;
+      margin-bottom: 24px;
+    }
+    .el-form-item--medium {
+      display: flex;
+      align-items: center;
+
+      .el-form-item__label {
+        line-height: 20px;
+      }
+
+      .el-form-item__content {
+        margin-left: 0px !important;
+        width: 100%;
+      }
+    }
+  }
+
+  &--footer {
+    position: absolute;
+    border-radius: 0 0 2px 2px;
+    width: 100%;
+  }
+}
+
+/* 中弹窗2 */
+.medium-dialog2 {
+   @include base-dialog();
+
+  .el-dialog{
+    width: 560px;
+    max-height: 570px;
+    display: flex;
+    flex-direction: column;
+
+    .el-dialog__header {
+      height: auto;
+      border-radius: 2px 2px 0 0;
+    }
+  }
+
+  &--content {
+    display: block;
+    clear: both;
+    max-height: 461px;
+    margin-bottom: 0px;
+
+    .el-form-item--medium {
+      display: flex;
+      align-items: center;
+
+      .el-form-item__label {
+        line-height: 20px;
+      }
+
+      .el-form-item__content {
+        margin-left: 0px !important;
+        width: 100%;
+      }
+
+      .el-select {
+        width: 100%;
+      }
+    }
+  }
+
+  &__explain {
+    border-top: 1px solid $color-grey-7;
+    padding-top: 16px;
+
+    .el-form-item__content {
+      font-size: 12px;
+      line-height: 20px;
+      color: $color-grey-2;
+      font-weight: 400;
+      display: flex;
+    }
+
+    &__text {
+      display: inline-block;
+      width: 354px;
+      margin-left: 10px;
+    }
+  }
+
+}
+
+/* 全屏弹窗 */
+.fullscreen-dialog {
+  @include base-dialog();
+
+  .el-dialog {
+    margin: 24px !important;
+    width: 100%;
+    height: calc(100% - 48px);
+    display: flex;
+    flex-flow: column nowrap;
+
+    &__body {
+      flex: 1;
+      display: flex;
+      flex-flow: column nowrap;
+    }
+  }
+
+  &--content {
+    flex: 1;
+    display: block;
+  }
+}
+
+/* 成功弹窗 */
+.success-dialog {
+  @include special-dialog();
+
+  .svg-icon {
+    color: $color-status-success;
+  }
+}
+
+/* 警告弹窗 */
+.warn-dialog {
+  @include special-dialog();
+
+  .svg-icon {
+    color: $color-status-warning;
+  }
+}
+
+/* 警告弹窗 --有二次输入确认*/
+.warn-dialog2 {
+  @include special-dialog();
+
+  .svg-icon {
+    color: $color-status-warning;
+  }
+  .warn-dialog--content {
+    display: inline-block;
+    .warn-dialog--content_describe {
+      display: flex;
+      align-items: center;
+    }
+    .el-form {
+      margin-top: 24px;
+      .el-form-item {
+        display: flex;
+        .el-input {
+          width: 304px;
+        }
+      }
+    }
+  }
+}
+
+/* 复杂中弹窗 */
+.log-dialog {
+  @include base-dialog();
+
+  .el-button + .el-button {
+    margin-left: 14px;
+  }
+  .last-button {
+    margin-right: 10px;
+  }
+
+  .el-dialog {
+    width: 560px;
+  }
+
+  &--content {
+    display: block;
+    background-color: $color-grey-10;
+    color: $color-grey-1;
+    font-size: 12px;
+  }
+
+  &--pre {
+    width: 100%;
+    margin: 0;
+    line-height: 20px;
+  }
+}
+
+/* 复杂小弹窗 */
+.info-dialog {
+  @include base-dialog();
+
+  &--content {
+    display: block;
+    background-color: $color-grey-10;
+  }
+
+  &--pre {
+    width: 100%;
+    margin: 0;
+    margin: -20px 0;
+    line-height: 32px;
+  }
+}
+
+/* 大弹窗 */
+.large-dialog {
+  @include base-dialog();
+  .el-dialog {
+    width: 1000px;
+    margin: 0 auto !important;
+  }
+}

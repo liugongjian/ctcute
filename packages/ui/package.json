@@ -1,6 +1,6 @@
 {
   "name": "@cutedesign/ui",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "cuteMain": "index.ts",
   "module": "dist/index.js",
@@ -22,7 +22,8 @@
     "lib",
     "style",
     "images",
-    "fonts"
+    "fonts",
+    "echarts-theme"
   ],
   "scripts": {
     "patch": "npm version patch",

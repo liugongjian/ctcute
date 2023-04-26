@@ -1,0 +1,221 @@
+.app-wrapper {
+  @include clearfix;
+
+  position: relative;
+  width: 100%;
+}
+
+.layout-wrap {
+  display: flex;
+  margin-top: $header-height;
+  height: calc(100vh - $header-height);
+}
+
+/* 侧边栏样式 */
+.layout-sidebar {
+  transition: width 0.28s;
+  font-size: 0;
+  background: $color-bg-2;
+  z-index: 10;
+
+  &__title {
+    font-size: 14px;
+    color: $text-color-primary;
+    padding: 25px 0 20px 17px;
+    margin: 0 7px 12px 15px;
+    font-weight: bold;
+    border-bottom: 1px solid $border-color-primary;
+  }
+
+  .el-menu {
+    border: none;
+    background-color: $color-bg-2;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+  .el-menu-item,
+  .el-submenu__title {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 32px !important;
+  }
+
+  .el-submenu__title {
+    display: flex;
+    align-items: center;
+
+    >i.el-submenu__icon-arrow {
+      margin-top: 0;
+      top: auto;
+    }
+  }
+
+  .el-submenu__title * {
+    vertical-align: baseline !important;
+  }
+
+  .el-submenu.is-active > .el-submenu__title {
+    color: $text-color-primary;
+  }
+
+  .el-menu-item,
+  .el-submenu > .el-submenu__title,
+  .el-submenu .el-menu-item {
+    min-width: calc($sidebar-width - 40px);
+    background-color: $color-bg-2;
+    border-right: 2px solid transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.is-active,
+    &:hover {
+      color: $color-master-1;
+    }
+  }
+
+  .el-submenu {
+    .el-menu-item {
+      padding-left: 22px !important;
+      padding-right: 20px !important;
+    }
+
+    .el-submenu__title {
+      &:hover {
+        background-color: $sidebar-sub-hover !important;
+        color: $color-master-1;
+      }
+    }
+  }
+
+  .el-submenu.is-active .el-submenu__title,
+  div.first-level > a > li.is-active {
+    color: $color-master-1 !important;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      background-color: $color-master-1;
+      width: 2px;
+      height: 12px;
+      position: absolute;
+      left: 20px;
+      top: 14px;
+    }
+  }
+
+  /* 含有图标的菜单项，去除选中时的竖线 */
+  .carry-icon {
+    .el-submenu.is-active .el-submenu__title,
+    &.first-level > a > li.is-active {
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .el-menu > div.first-level > a > li.is-active {
+    &:before {
+      top: 16px;
+    }
+  }
+  .scrollbar-wrapper { height: 100%; overflow-y: auto; }
+
+  .vertical-bar {
+    margin: 0 0 0 32px;
+
+    &:after {
+      position: absolute;
+      content: '';
+      display: inline-block;
+      background-color: $border-color-primary;
+      width: 2px;
+      height: calc(100% - 31px);
+      left: 42px;
+      top: 14px;
+    }
+
+    >div:last-child {
+      .el-menu-item {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  .el-submenu__icon-arrow {
+    color: $color-grey-2;
+    right: 8px;
+  }
+}
+
+/* 主容器样式 */
+.layout-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  position: relative;
+  padding: 0 $padding-primary $padding-primary;
+  min-width: 0;
+  min-height: 100%;
+  transition: margin-left 0.28s;
+
+  .navbar {
+    margin-left: -19px;
+    margin-right: -16px;
+    padding: $padding-medium;
+    margin-bottom: $padding-primary;
+    display: flex;
+    align-items: center;
+    background: $color-bg-2;
+  }
+
+  .app-main-wrap {
+    flex: 1;
+    overflow: auto;
+
+    .app-main {
+      /* 最小分辨率 - 侧边栏宽度 - 边距 - 边距 */
+      min-width: calc(1366px - $sidebar-width - $padding-primary - $padding-primary);
+    }
+  }
+
+  /* 兼容老项目，无.app-main-wrap */
+  > .app-main {
+    flex: 1;
+    overflow: auto;
+  }
+
+  .app-main > .el-card.is-always-shadow {
+    border-radius: $border-radius-medium;
+    border: none;
+    color: inherit;
+  }
+
+  /* 组件规范页需要支持滚动 */
+  > .el-card {
+    max-height: 100%;
+    overflow: auto;
+  }
+}
+
+.layout-containers {
+  @extend .layout-container;
+
+  padding: 0;
+}
+
+.component__container {
+  padding-bottom: $padding-medium;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    padding-top: $padding-medium;
+  }
+}

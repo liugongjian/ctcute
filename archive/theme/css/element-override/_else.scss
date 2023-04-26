@@ -1,0 +1,39 @@
+// _element-override.scss中剩余样式
+
+// TODO 待确认作用后优化：转移、删除
+
+.top-fill {
+  transform: rotate(180deg);
+}
+
+.input-icon {
+  .el-input {
+    width: 200px;
+  }
+}
+
+.suffix-forgot,
+.icon-money {
+  line-height: 32px;
+  margin-right: $text-size-primary;
+  font-weight: normal;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.suffix-forgot + .el-link {
+  height: 16px;
+  line-height: 32px;
+}
+
+.suffix-forgot::after {
+  content: '|';
+  color: $border-color-primary;
+  margin-left: $text-size-primary;
+}
+
+.bt-operation {
+  color: $color-master-1;
+}

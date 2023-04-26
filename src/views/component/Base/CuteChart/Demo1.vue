@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2023-04-10 06:51:22
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-10 06:59:48
+ * @LastEditTime: 2023-04-26 12:55:25
  * @Description: 图表组件示例
 -->
 
@@ -11,7 +11,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { CuteChart } from '@cutedesign/ui'
+import { CuteChart } from '@cutedesign/chart'
 @Component({
   name: 'CuteChartDemo1',
   components: {

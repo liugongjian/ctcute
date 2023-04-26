@@ -43,7 +43,7 @@ export default [
       {
         'name': '$color-master-bg-light-2',
         'type': 'color',
-        'value': '#292b2e',
+        'value': '#202638',
         'scene': '背景浅色2'
       },
       {
@@ -1276,15 +1276,27 @@ export default [
         'scene': ''
       },
       {
-        'name': '$select-color',
+        'name': '$select-color-disabled',
         'type': 'color',
-        'value': '#3967d6',
+        'value': '#737579',
         'scene': ''
       },
       {
         'name': '$select-dropdown-bg',
         'type': 'color',
         'value': '#242528',
+        'scene': ''
+      },
+      {
+        'name': '$select-tag-color',
+        'type': 'color',
+        'value': '#737579',
+        'scene': ''
+      },
+      {
+        'name': '$select-tag-color-hover',
+        'type': 'color',
+        'value': '#535558',
         'scene': ''
       },
       {
@@ -1320,13 +1332,13 @@ export default [
       {
         'name': '$range-editor-disabled-bg',
         'type': 'color',
-        'value': '#292b2e',
+        'value': '#202638',
         'scene': ''
       },
       {
         'name': '$range-editor-multiple-bg',
         'type': 'color',
-        'value': '#292b2e',
+        'value': '#202638',
         'scene': ''
       },
       {
@@ -1356,7 +1368,7 @@ export default [
       {
         'name': '$checkbox-bg',
         'type': 'color',
-        'value': '#292b2e',
+        'value': '#242528',
         'scene': ''
       },
       {
@@ -1368,7 +1380,7 @@ export default [
       {
         'name': '$checkbox-button',
         'type': 'color',
-        'value': '#292b2e',
+        'value': '#202638',
         'scene': ''
       },
       {
@@ -1824,7 +1836,7 @@ export default [
       {
         'name': '$badge-content-padding',
         'type': 'string',
-        'value': '4.5px',
+        'value': '5px',
         'scene': ''
       }
     ]
@@ -2040,13 +2052,13 @@ export default [
       {
         'name': '$slider-stop-color',
         'type': 'color',
-        'value': '#fff',
+        'value': '#3f4345',
         'scene': ''
       },
       {
         'name': '$slider-stop-border-color',
         'type': 'color',
-        'value': '#535558',
+        'value': '#fff',
         'scene': ''
       },
       {
@@ -2119,66 +2131,6 @@ export default [
         'name': '$cute-slider-btn-color-disabled',
         'type': 'color',
         'value': '#293a63',
-        'scene': ''
-      }
-    ]
-  },
-  {
-    'title': 'CuteArea',
-    'doc': 'false',
-    'list': [
-      {
-        'name': '$cute-area-recent-border-color',
-        'type': 'color',
-        'value': '#535558',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-recent-head-color',
-        'type': 'color',
-        'value': '#fff',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-recent-item-color',
-        'type': 'color',
-        'value': '#c6c7cc',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-recent-item-background-color',
-        'type': 'color',
-        'value': '#202638',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-item-hover-background-color',
-        'type': 'color',
-        'value': '#202638',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-item-hover-color',
-        'type': 'color',
-        'value': '#3967d6',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-item-seleted-background-color',
-        'type': 'color',
-        'value': '#3967d6',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-head-color',
-        'type': 'color',
-        'value': '#c6c7cc',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-item-color',
-        'type': 'color',
-        'value': '#fff',
         'scene': ''
       }
     ]

@@ -18,7 +18,7 @@
 }
 
 .vxe-table--render-default.column--highlight .vxe-header--column:not(.col--seq):hover {
-  background-color: #d7effb;
+  background-color: $vxe-table-column-header-hover-background-color;
 }
 
 %DefaultColumnHeight {
@@ -389,7 +389,7 @@
 
   /*排序*/
   .vxe-cell--sort {
-    width: 1.5em;
+    padding-left: $padding-2x;
     height: 1.35em;
     vertical-align: middle;
     text-align: center;
@@ -431,13 +431,18 @@
   }
 
   .vxe-checkbox--icon {
+    font-size: $vxe-radio-icon-font-size;
+  }
+
+  .vxe-checkbox--icon {
     display: inline-block;
     position: relative;
     border: 1px solid $vxe-table-border-color;
-    border-radius: 2px;
+    border-radius: $vxe-border-radius;
     box-sizing: border-box;
-    width: 16px;
-    height: 16px;
+    width: $vxe-checkbox-icon-width-size;
+    height: $vxe-checkbox-icon-height-size;
+    // font-size: $vxe-checkbox-icon-font-size;
     background-color: $vxe-table-checkbox-color;
     z-index: 1;
     transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46), background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
@@ -456,11 +461,12 @@
     transition: transform 0.15s ease-in 0.05s;
     transform-origin: center;
     left: 5px;
-    top: 2px;
+    top: 1px;
   }
 
   .vxe-icon-checkbox-indeterminate {
     background-color: $vxe-table-checkbox-color;
+    border-color: $vxe-primary-color;
   }
 
   .vxe-icon-checkbox-indeterminate:before {
@@ -468,10 +474,10 @@
     background-color: $vxe-primary-color;
     border-radius: 2px;
     transform: scale(0.5);
-    top: 1px;
+    top: 0px;
     width: 12px;
     height: 12px;
-    left: 1px;
+    left: 0px;
     position: absolute;
     display: block;
   }
@@ -479,12 +485,15 @@
   .vxe-icon-checkbox-checked {
     background-color: $vxe-primary-color ;
     border-color: $vxe-primary-color;
+    .vxe-checkbox--label {
+      font-weight: $text-title-weight;
+    }
+
   }
 
   .vxe-icon-checkbox-checked:before {
     content: '';
     box-sizing: content-box;
-    content: "";
     border: 1px solid $vxe-table-checkbox-color;
     border-left: 0;
     border-top: 0;
@@ -495,13 +504,17 @@
     transform: rotate(45deg) scaleY(1);
     transform-origin: center;
     left: 5px;
-    top: 2px;
+    top: 1px;
   }
 }
 
 .vxe-header--column {
   position: relative;
-  font-weight: $vxe-table-header-font-weight;
+  font-weight: $text-title-weight;
+
+  &:hover {
+    background: $vxe-table-column-header-hover-background-color;
+  }
 
   // user-select: none;
   &.col--ellipsis {
@@ -531,7 +544,7 @@
     height: 1em;
     line-height: 1em;
     font-family: $vxe-icon-font-family;
-    font-weight: normal;
+    font-weight: $text-title-weight;
     position: relative;
 
     &:before {
@@ -545,9 +558,7 @@
   // .vxe-cell--required-icon,
   // .vxe-cell--edit-icon,
   // .vxe-cell-help-icon,
-  // .vxe-cell--title {
-  //   vertical-align: middle;
-  // }
+
   .vxe-cell--required-icon {
     margin-right: 0.1em;
   }
@@ -775,7 +786,7 @@
     .vxe-header--column {
       &:not(.col--seq) {
         &:hover {
-          background-color: $vxe-table-column-hover-background-color;
+          background-color: $vxe-table-column-header-hover-background-color;
         }
       }
     }
@@ -843,7 +854,12 @@
   }
 
   .vxe-header--column {
-    border-right: $vxe-table-header-column-border-right;
+    &.col--checkbox {
+        .vxe-cell--radio,
+        .vxe-cell--checkbox {
+          margin-left: -$margin;
+        }
+      }
   }
 
   .vxe-body--column {
@@ -851,6 +867,10 @@
 
     &.col--checkbox {
       user-select: none;
+      .vxe-cell--radio,
+      .vxe-cell--checkbox {
+        margin-left: -$margin
+      }
     }
   }
 
@@ -870,17 +890,45 @@
   &.border--default,
   &.border--inner {
 
-    .vxe-header--column,
+    .vxe-header--column {
+      background-image: linear-gradient($vxe-table-column-header-background-color, $vxe-table-column-header-background-color);
+      background-repeat: no-repeat;
+      background-size: 100% $vxe-table-border-width;
+      background-position: right bottom;
+    }
+
     .vxe-body--column,
     .vxe-footer--column {
       background-image: linear-gradient($vxe-table-border-color, $vxe-table-border-color);
       background-repeat: no-repeat;
       background-size: 100% $vxe-table-border-width;
       background-position: right bottom;
+      @extend %DefaultColumnHeight;
+      padding: 0px 0px;
+    }
+    &.size--medium {
+      .vxe-body--column {
+        @extend %MediumColumnHeight;
+      }
+    }
+
+    &.size--small {
+      .vxe-body--column {
+        @extend %SmallColumnHeight;
+      }
+    }
+
+    &.size--mini {
+      .vxe-body--column {
+        @extend %MiniColumnHeight;
+      }
     }
   }
 
   &.border--full {
+    .vxe-body--column {
+      padding: $vxe-table-body--column-padding-full-default; //TODO 没区分size
+    }
 
     .vxe-header--column,
     .vxe-body--column,
@@ -954,12 +1002,20 @@
     }
 
     .vxe-header--column,
-    .vxe-body--column,
     .vxe-footer--column {
       &:not(.col--ellipsis) {
         padding: $vxe-table-column-padding-medium;
       }
     }
+
+    .vxe-body--column {
+      padding: $vxe-table-body--column-padding-medium;
+    }
+
+    .border--full .vxe-body--column {
+      padding: $vxe-table-body--column-padding-full-medium;
+    }
+
 
     .vxe-cell {
 
@@ -985,13 +1041,17 @@
       min-height: $vxe-table-row-height-small;
     }
 
+    .vxe-body--column {
+      padding: $vxe-table-body--column-padding-small;
+    }
+
     .vxe-header--column,
-    .vxe-body--column,
     .vxe-footer--column {
       &:not(.col--ellipsis) {
         padding: $vxe-table-column-padding-small;
       }
     }
+
 
     .vxe-cell {
 
@@ -1017,13 +1077,25 @@
       min-height: $vxe-table-row-height-mini;
     }
 
+    .vxe-body--column {
+      padding: $vxe-table-body--column-padding-mini;
+    }
+
+    .vxe-body--column {
+      padding: $vxe-table-body--column-padding-mini;
+    }
+
+    .border--full .vxe-body--column {
+      padding: $vxe-table-body--column-padding-full-mini;
+    }
+
     .vxe-header--column,
-    .vxe-body--column,
     .vxe-footer--column {
       &:not(.col--ellipsis) {
         padding: $vxe-table-column-padding-mini;
       }
     }
+
 
     .vxe-cell {
 
@@ -1315,6 +1387,7 @@
   &.vxe-editable {
     .vxe-body--column {
       @extend %DefaultColumnHeight;
+      padding: 0px 0px;
     }
 
     &.size--medium {

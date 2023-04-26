@@ -1,7 +1,7 @@
-/**Variable**/
+/**  Variable  **/
 @import './helpers/mixin.scss';
 
-/*pager*/
+/* pager */
 .vxe-pager {
   position: relative;
   display: flex;
@@ -10,18 +10,22 @@
   font-family: $vxe-font-family;
   text-align: right;
   background-color: $vxe-pager-background-color;
+
   &.is--hidden {
     display: none;
   }
+
   &.align--left {
     text-align: left;
   }
+
   &.align--center {
     text-align: center;
   }
+
   &.is--loading {
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -32,6 +36,7 @@
       background-color: $vxe-loading-background-color;
     }
   }
+
   .vxe-pager--prev-btn,
   .vxe-pager--next-btn,
   .vxe-pager--num-btn,
@@ -41,18 +46,22 @@
     outline: 0;
     padding: 0;
     border: 1px solid transparent;
+
     &:not(.is--disabled) {
       &:focus {
         box-shadow: 0 0 0.25em 0 $vxe-primary-color;
       }
+
       &:hover {
         color: lighten($vxe-primary-color, 6%);
       }
+
       &:active {
         background-color: darken($vxe-button-default-background-color, 3%);
       }
     }
   }
+
   &.is--border,
   &.is--perfect {
     &:not(.is--background) {
@@ -65,6 +74,7 @@
       }
     }
   }
+
   &.is--background,
   &.is--perfect {
     .vxe-pager--prev-btn,
@@ -74,6 +84,7 @@
     .vxe-pager--jump-next {
       background-color: $vxe-pager-perfect-button-background-color;
     }
+
     .vxe-pager--jump-prev,
     .vxe-pager--num-btn,
     .vxe-pager--jump-next {
@@ -81,12 +92,15 @@
         &.is--active {
           color: #fff;
           background-color: $vxe-primary-color;
+
           &:hover {
             background-color: lighten($vxe-primary-color, 6%);
           }
+
           &:focus {
             border-color: $vxe-primary-color;
           }
+
           &:active {
             border-color: darken($vxe-primary-color, 3%);
             background-color: darken($vxe-primary-color, 3%);
@@ -95,11 +109,13 @@
       }
     }
   }
+
   &.is--perfect {
     border: 1px solid $vxe-table-border-color;
     border-top-width: 0;
     background-color: $vxe-pager-perfect-background-color;
   }
+
   &.is--border {
     .vxe-pager--num-btn {
       &.is--active {
@@ -107,9 +123,11 @@
       }
     }
   }
+
   .vxe-pager--wrapper {
     flex-grow: 1;
   }
+
   .vxe-pager--jump-icon,
   .vxe-pager--btn-icon {
     position: absolute;
@@ -117,6 +135,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
   .vxe-pager--left-wrapper,
   .vxe-pager--right-wrapper,
   .vxe-pager--total,
@@ -131,6 +150,7 @@
     vertical-align: middle;
     display: inline-block;
   }
+
   .vxe-pager--prev-btn,
   .vxe-pager--jump-prev,
   .vxe-pager--num-btn,
@@ -139,6 +159,7 @@
     position: relative;
     cursor: pointer;
   }
+
   .vxe-pager--left-wrapper,
   .vxe-pager--right-wrapper,
   .vxe-pager--count,
@@ -151,14 +172,17 @@
     line-height: 2em;
     display: inline-block;
   }
+
   .vxe-pager--jump .vxe-pager--goto,
   .vxe-pager--sizes > .vxe-input {
     height: 2.15em;
     line-height: 2.15em;
   }
+
   .vxe-pager--sizes > .vxe-select--panel .vxe-select-option {
     text-align: center;
   }
+
   .vxe-pager--jump-prev,
   .vxe-pager--prev-btn,
   .vxe-pager--next-btn,
@@ -167,26 +191,31 @@
   .vxe-pager--count {
     min-width: 2.15em;
   }
+
   .vxe-pager--btn-wrapper {
     padding: 0;
     margin: 0;
     display: inline-block;
     text-align: center;
+
     .vxe-pager--jump-prev,
     .vxe-pager--jump-next {
       &:hover {
         .vxe-pager--jump-more-icon {
           display: none;
         }
+
         .vxe-pager--jump-icon {
           display: inline-block;
         }
       }
     }
+
     .vxe-pager--jump-icon {
       display: none;
     }
   }
+
   .vxe-pager--jump-prev,
   .vxe-pager--prev-btn,
   .vxe-pager--next-btn,
@@ -197,71 +226,89 @@
     margin: 0 0.25em;
     user-select: none;
     background-color: $vxe-pager-background-color;
+
     &:not(.is--disabled) {
       &:hover {
         color: lighten($vxe-primary-color, 6%);
       }
+
       &.is--active,
       &:focus {
         color: $vxe-primary-color;
       }
+
       &:active {
         color: darken($vxe-primary-color, 3%);
       }
     }
+
     &.is--disabled {
       cursor: no-drop;
       color: $vxe-disabled-color;
+
       &:hover {
         color: $vxe-disabled-color;
       }
     }
   }
+
   .vxe-pager--num-btn {
     vertical-align: middle;
+
     &.is--active {
-      font-weight: 700;
+      font-weight: $text-title-weight;
     }
   }
+
   .vxe-pager--sizes {
     width: 7em;
     text-align: center;
     cursor: pointer;
+
     & .vxe-input--inner {
       text-align: center;
     }
   }
+
   .vxe-pager--count {
     text-align: center;
+
     & > span {
       vertical-align: middle;
     }
+
     .vxe-pager--separator {
       margin-right: 0.2em;
+
       &:before {
-        content: "/";
+        content: '/';
       }
     }
   }
+
   .vxe-pager--jump .vxe-pager--goto {
     border-radius: $vxe-border-radius;
     border: 1px solid $vxe-input-border-color;
     color: $vxe-font-color;
-    transition: border .2s ease-in-out;
+    transition: border 0.2s ease-in-out;
     padding: 0 0.4em;
     background-color: $vxe-input-background-color;
+
     &:focus {
       border: 1px solid $vxe-primary-color;
       outline: 0;
     }
   }
+
   .vxe-pager--jump {
     .vxe-pager--goto-text {
       margin-right: 0.25em;
     }
+
     .vxe-pager--classifier-text {
       margin-left: 0.25em;
     }
+
     .vxe-pager--goto {
       width: 3.2em;
       text-align: center;
@@ -272,14 +319,17 @@
 .vxe-pager {
   font-size: $vxe-font-size;
   height: $vxe-table-row-height-default;
+
   &.size--medium {
     font-size: $vxe-font-size-medium;
     height: $vxe-table-row-height-medium;
   }
+
   &.size--small {
     font-size: $vxe-font-size-small;
     height: $vxe-table-row-height-small;
   }
+
   &.size--mini {
     font-size: $vxe-font-size-mini;
     height: $vxe-table-row-height-mini;

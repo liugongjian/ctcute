@@ -1,26 +1,29 @@
-/**Variable**/
+/**  Variable  **/
 @import './base/checked.scss';
 
-/*筛选*/
+/* 筛选 */
 .vxe-cell--filter {
-  padding: 0 0.1em 0 0.25em;
   text-align: center;
   vertical-align: middle;
   display: inline-block;
   line-height: 0;
+
   &.col--filter {
     .vxe-filter--btn {
       color: $vxe-table-font-color;
     }
   }
+
   .vxe-filter--btn {
     color: $vxe-table-column-icon-border-color;
     cursor: pointer;
+
     &:hover {
-      color: $vxe-table-font-color;
+      color: $vxe-primary-color;
     }
   }
 }
+
 .is--filter-active {
   .vxe-cell--filter {
     .vxe-filter--btn {
@@ -29,47 +32,64 @@
   }
 }
 
-/*筛选容器*/
+.vxe-icon-funnel {
+  font-family: $font-family-cute-icons !important;
+  margin-left: $margin-2x;
+  font-size: $vxe-font-icon-size;
+
+  &:before {
+    content: '\ea80';
+  }
+}
+
+/* 筛选容器 */
 .vxe-table--filter-wrapper {
   display: none;
   position: absolute;
   top: 0;
-  min-width: 100px;
+  min-width: $vxe-table-filter-wrapper-min-width;
   border-radius: $vxe-border-radius;
   background-color: $vxe-table-filter-panel-background-color;
   border: 1px solid $vxe-table-popup-border-color;
-  box-shadow: 0 1px 6px rgba(0,0,0,.2);
-  z-index: 10;
+  box-shadow: $shadow-2;
+  z-index: $vxe-table-filter-wrapper-zindex;
+
   &:not(.is--multiple) {
     text-align: center;
   }
+
   &.is--active {
     display: block;
   }
+
   .vxe-table--filter-header,
   .vxe-table--filter-body {
     & > li {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      max-width: 360px;
-      padding: 0.25em 0.8em;
+      max-width: $vxe-table-filter-wrapper-max-width;
       cursor: pointer;
+
       &.is--checked {
         color: $vxe-primary-color;
       }
+
       &:hover {
         background-color: $vxe-table-row-hover-background-color;
       }
     }
   }
+
   .vxe-table--filter-header {
-    padding-top: 0.2em;
+    padding-top: $padding;
   }
+
   .vxe-table--filter-body {
-    max-height: 200px;
-    padding-bottom: 0.2em;
+    max-height: $vxe-table-filter-body-max-height;
+    margin-bottom: $margin;
   }
+
   & > ul {
     list-style-type: none;
     padding: 0;
@@ -77,29 +97,39 @@
     overflow: auto;
     user-select: none;
   }
+
   &.is--multiple {
     & > ul {
       & > li {
-        padding: 0.25em 0.8em 0.25em 1em;
+        padding: 0 $padding-3x;
+        line-height: $table-filter-item-height;
+        height: $table-filter-item-height;
+        margin-top: $margin;
       }
     }
   }
+
   .vxe-table--filter-footer {
-    border-top: 1px solid $vxe-table-popup-border-color;
-    padding: 0.6em;
+    border-top: 1px solid $vxe-table-filter-footer-border-color;
+    padding: $padding-2x $padding-3x;
     user-select: none;
+
     button {
       background-color: transparent;
-      padding: 0 0.4em;
+      padding: 0 $padding-4x 0 0;
       border: 0;
       color: $vxe-table-font-color;
+      font-size: $text-size;
       cursor: pointer;
+
       &:focus {
         outline: none;
       }
+
       &:hover {
         color: $vxe-primary-color;
       }
+
       &.is--disabled {
         color: $vxe-disabled-color;
         cursor: not-allowed;

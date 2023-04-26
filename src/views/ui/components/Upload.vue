@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-19 16:32:05
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-24 14:39:38
+ * @LastEditTime: 2023-04-26 13:55:18
  * @Description: 
 -->
 <template>
@@ -43,8 +43,8 @@
           <b>点击或将文件拖拽到<span>这里上传</span></b>
           <!-- <div>支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div> -->
         </div>
+        <div slot="tip" class="el-upload-out__tip">支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
       </el-upload>
-      <div slot="tip" class="el-upload-out__tip">支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
     </div>
     <div>
       <h3>图片上传</h3>
@@ -194,5 +194,10 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .file {
   margin: 24px 0;
+}
+.small-uploader,
+.drag-uploader,
+.file-uploader {
+  width: 320px;
 }
 </style>

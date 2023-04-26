@@ -21,22 +21,24 @@
         <slot name="label">{{ label + form.labelSuffix }}</slot>
       </label>
     </LabelWrap>
-
     <div class="el-form-item__content" :style="contentStyle">
-      <transition v-if="errorShowType === 'tooltip'">
+      <div v-if="errorShowType === 'tooltip'">
         <el-tooltip
           v-model="errorTooltipVisible"
           :placement="placement"
           :manual="true"
+          transition="''"
           popper-class="el-form-item__custom__error"
         >
           <template slot="content">
-            <i class="el-icon-warning"></i>
-            <span>{{ validateMessage }}</span>
+            <div class="el-form-item__custom__error__content">
+              <i class="el-icon-warning"></i>
+              <span>{{ validateMessage }}</span>
+            </div>
           </template>
           <slot></slot>
         </el-tooltip>
-      </transition>
+      </div>
 
       <slot v-else></slot>
       <transition v-if="errorShowType === 'inline'" name="el-zoom-in-top">
@@ -249,13 +251,6 @@ export default {
     window.removeEventListener('resize', this.debounceHandleResize())
   },
   methods: {
-    handleResize() {
-      this.errorTooltipVisible = false
-      setTimeout(() => {
-        this.setErrorTooltipVisible()
-      }, 50)
-    },
-
     setErrorTooltipVisible() {
       this.errorTooltipVisible =
         !!this.validateMessage && this.validateState === 'error' && this.showMessage && this.form.showMessage
@@ -272,7 +267,7 @@ export default {
     },
 
     debounceHandleResize() {
-      return this.debounce(this.handleResize.bind(this), 50)
+      return this.debounce(this.setErrorTooltipVisible.bind(this), 50)
     },
 
     validate(trigger, callback = noop) {

@@ -1,3 +1,9 @@
+<!--
+ * @Description:
+ * @Author: 甘雨涛
+ * @Date: 2023/4/26 14:50
+ * @LastEditors: 甘雨涛
+-->
 <template>
   <div class="button-demo-1">
     <el-form ref="formRef" :model="form" :rules="rules" label-width="130px">
@@ -225,20 +231,53 @@ export default class extends Vue {
   ]
   validatePlacementOptons = [
     {
-      label: '底部(bottom)',
-      value: 'bottom',
+      label: '上左(top-start)',
+      value: 'top-start',
     },
     {
-      label: '顶部(top)',
+      label: '上边(top)',
       value: 'top',
+    },
+    {
+      label: '上右(top-end)',
+      value: 'top-end',
+    },
+    {
+      label: '左上(left-start)',
+      value: 'left-start',
+    },
+
+    {
+      label: '左边(left)',
+      value: 'left',
+    },
+    {
+      label: '左下(left-end)',
+      value: 'left-end',
+    },
+    {
+      label: '右上(right-start)',
+      value: 'right-start',
     },
     {
       label: '右边(right)',
       value: 'right',
     },
     {
-      label: '左边(left)',
-      value: 'left',
+      label: '右下(right-end)',
+      value: 'right-end',
+    },
+    {
+      label: '下左(bottom-start)',
+      value: 'bottom-start',
+    },
+    {
+      label: '下边(bottom)',
+      value: 'bottom',
+    },
+    {
+      label: '下右(bottom-end)',
+      value: 'bottom-end',
     },
   ]
 

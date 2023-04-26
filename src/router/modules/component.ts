@@ -200,11 +200,11 @@ const componentRoutes = [
         },
       },
       {
-        path: 'el-form',
-        name: 'ElForm',
-        component: () => import('@/views/component/Base/ElForm/index.vue'),
+        path: 'el-form-item',
+        name: 'ElFormItem',
+        component: () => import('@/views/component/Base/ElFormItem/index.vue'),
         meta: {
-          title: 'ElForm',
+          title: 'ElFormItem',
           breadcrumb: true,
         },
       },

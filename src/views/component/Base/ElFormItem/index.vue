@@ -1,12 +1,18 @@
+<!--
+ * @Description:
+ * @Author: 甘雨涛
+ * @Date: 2023/4/26 14:50
+ * @LastEditors: 甘雨涛
+-->
 <template>
   <div>
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
-      <h1>ElForm / tooltip样式的表单错误提示</h1>
+      <h1>ElFormItem / tooltip样式的表单错误提示</h1>
       <component-demo path="@/views/component/Base/CuteRemindInput/Demo1.vue">
         <demo1 />
       </component-demo>
-      <h2>ElAlert Attributes</h2>
+      <h2>ElFormItem Attributes</h2>
       <el-table :data="prop" fit border>
         <el-table-column prop="name" label="参数" />
         <el-table-column prop="desc" label="说明" />
@@ -24,7 +30,7 @@ import Demo1 from './Demo1.vue'
 import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 
 @Component({
-  name: 'ElForm',
+  name: 'ElFormItem',
   components: {
     ComponentDemo,
     Demo1,
@@ -45,7 +51,8 @@ export default class extends Vue {
       desc: '当类型为tooltip时，提示位置',
       type: 'String',
       required: '选填',
-      options: 'bottom/top/right/left',
+      options:
+        'top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end',
       default: 'bottom',
     },
   ]

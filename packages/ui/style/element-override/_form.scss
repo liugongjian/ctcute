@@ -45,15 +45,20 @@
 
 
 .el-form-item__custom__error {
-  border-radius: 0;
-  padding: 4px 16px;
-  line-height: 20px;
+  padding: 9px 16px;
+  line-height: 8px;
   max-width: 300px;
   border-radius: 2px;
-  i{
-    margin-right: 8px;
-    color: $color-status-danger-1;
+  .el-form-item__custom__error__content{
+    display: flex;
+    i{
+      padding-top: 3px;
+      font-size: 14px;
+      margin-right: 8px;
+      color: $color-status-danger-1;
+    }
   }
+
 }
 .el-form--inline .el-form-item {
   margin-right: $margin-5x;

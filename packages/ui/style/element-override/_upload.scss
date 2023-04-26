@@ -7,20 +7,28 @@
   .small-uploader,
   .picture-uploader,
   .file-uploader {
-
-    .el-button.el-button--default,
-    .is-disabled {
+    .el-button.el-button--default {
       .svg-icon {
         color: $color-neutral-6;
       }
 
-      :hover {
+      &:hover {
         .svg-icon {
           color: $upload-color;
         }
       }
 
+      &.is-disabled {
+        .svg-icon {
+          color: $color-neutral-6;
+        }
 
+        :hover {
+          .svg-icon {
+            color: $color-neutral-6;
+          }
+        }
+      }
     }
 
 

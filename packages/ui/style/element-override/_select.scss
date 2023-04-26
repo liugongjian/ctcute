@@ -23,9 +23,15 @@ $select-tag-margin: 2px 0 2px 8px;
 }
 
 .el-select {
-  .el-icon-circle-close:before {
-    font-family: $font-family-cute-icons;
-    content: '\ea4f';
+  .el-icon-circle-close {
+    &:hover {
+      color: $color-neutral-5;
+      cursor: pointer;
+    }
+
+    &:before {
+      content: '\ea3c';
+    }
   }
 
   .el-input--suffix {
@@ -104,6 +110,7 @@ $select-tag-margin: 2px 0 2px 8px;
 .el-input__suffix .el-input__suffix-inner .suffix-other {
   margin-right: 16px;
 }
+
 
 /*
   重置Select Dropdown样式
@@ -194,6 +201,7 @@ $select-tag-margin: 2px 0 2px 8px;
     line-height: $select-xs-height - 6;
   }
 }
+
 
 @mixin select-size($size, $height, $left) {
   .el-select {

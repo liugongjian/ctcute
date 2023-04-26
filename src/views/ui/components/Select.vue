@@ -317,11 +317,12 @@
         <div class="sub-date">
           <el-date-picker
             v-model="date6"
+            align="right"
             type="daterange"
             :size="itemSize"
             :disabled="itemDisabled"
             unlink-panels
-            range-separator="至"
+            range-separator="-"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
             :picker-options="pickerOptions1"

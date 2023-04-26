@@ -2,11 +2,14 @@
 -------------------------- */
 @mixin uploader-success {
 
+  .drag-uploader,
   .el-upload,
   .small-uploader,
   .picture-uploader,
   .file-uploader {
-    .el-button.el-button--default {
+
+    .el-button.el-button--default,
+    .is-disabled {
       .svg-icon {
         color: $color-neutral-6;
       }
@@ -15,9 +18,11 @@
         .svg-icon {
           color: $upload-color;
         }
-
       }
+
+
     }
+
 
     .el-upload-list__item .el-upload-list__item-name {
       color: $upload-font-active-color;
@@ -59,11 +64,7 @@
       }
     }
 
-    .el-upload__tip {
-      color: $upload-tips-font-color;
-      font-size: $upload-font-size;
-      margin: $margin-3x 0 $margin-10;
-    }
+
 
     .el-icon-circle-check:before {
       font-family: $font-family-cute-icons !important;
@@ -129,7 +130,7 @@
 
 //小文件
 .small-uploader {
-  width: 316px; // TODO
+  width: $upload-file-uploader-width;
   padding: $padding-5x;
   background-color: $upload-bg;
   border: 1px solid $upload-border-color;
@@ -349,7 +350,6 @@
     }
   }
 
-  @include uploader-success();
 }
 
 .el-upload__text {
@@ -408,10 +408,16 @@
 
 .el-upload-list__item {
   .el-icon-close {
-    color: $color-neutral-6;
+    color: $color-neutral-9;
 
     &:hover {
-      color: $color-neutral-5;
+      color: $color-master;
     }
   }
+}
+
+.el-upload__tip {
+  color: $upload-tips-font-color;
+  font-size: $upload-font-size;
+  margin: $common-space-2x 0 $common-space-2x;
 }

@@ -8,7 +8,7 @@ const path = require('path')
 const scssLib = require('./libs/scss')
 
 // 从命令行参数中获取文件路径
-const filePath = process.argv[2] || path.join(__dirname, '../packages/ui/style/themes/default/variables.scss')
+const filePath = process.argv[2] || path.join(__dirname, '../../packages/ui/style/themes/default/variables.scss')
 const fileData = fs.readFileSync(filePath, 'utf-8')
 const jsExportFilePath = scssLib.generateJsExport(fileData, filePath)
 scssLib.generateTsType(fileData, filePath)

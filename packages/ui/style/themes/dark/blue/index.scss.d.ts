@@ -282,7 +282,10 @@ export interface IScssVariablesRevised {
   selectBorderColorHover: string;
   selectDisabledBorder: string;
   selectColor: string;
+  selectColorDisabled: string;
   selectDropdownBg: string;
+  selectTagColor: string;
+  selectTagColorHover: string;
   selectXsHeight: string;
   selectSmHeight: string;
   selectMdHeight: string;
@@ -411,15 +414,6 @@ export interface IScssVariablesRevised {
   cuteSliderBtnColor: string;
   cuteSliderBgDisabled: string;
   cuteSliderBtnColorDisabled: string;
-  cuteAreaRecentBorderColor: string;
-  cuteAreaRecentHeadColor: string;
-  cuteAreaRecentItemColor: string;
-  cuteAreaRecentItemBackgroundColor: string;
-  cuteAreaItemHoverBackgroundColor: string;
-  cuteAreaItemHoverColor: string;
-  cuteAreaItemSeletedBackgroundColor: string;
-  cuteAreaHeadColor: string;
-  cuteAreaItemColor: string;
   transitionTime: string;
   zindexBadge: string;
   zindexNormal: string;

@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-26 12:59:43
+ * @LastEditTime: 2023-04-26 14:51:15
  * @Description:
  */
 import ElementUI, {
@@ -103,13 +103,11 @@ import SvgIcon from './icons/index.vue'
 
 // 整合appendix，chart等
 import CuteAppendix from './packages/appendix/CuteAppendix.vue'
-import CuteChart from './packages/chart/CuteChart.vue'
 import VXETable from './packages/vxe-table/index'
 import CuteSortTable from './packages/sort-table/CuteSortTable.vue'
 
 export {
   CuteAppendix,
-  CuteChart,
   VXETable, // VXETable使用时要vue.use全局注册，因为他会自动注册其他几个相关组件
   CuteSortTable,
 }

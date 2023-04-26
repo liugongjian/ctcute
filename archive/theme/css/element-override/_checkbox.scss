@@ -1,0 +1,121 @@
+/* Checkbox
+-------------------------- */
+.el-checkbox-group {
+  .el-checkbox-button {
+    margin-right: 8px;
+
+    &:first-child .el-checkbox-button__inner {
+      border: 1px solid transparent;
+    }
+
+    &.is-focus .el-checkbox-button__inner {
+      border: 1px solid transparent;
+    }
+
+    &.is-checked .el-checkbox-button__inner {
+      color: $text-color-primary;
+      background-color: $color-master-7;
+      border: 1px solid $color-master-1;
+      box-shadow: none;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        border: 8px solid transparent;
+        border-color: transparent $color-master-1 $color-master-1 transparent;
+        transform: rotate(270deg);
+      }
+
+      &::after {
+        content: '\eac7';
+        color: $color-white;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: $text-size-primary;
+        zoom: 0.75;
+        @include iconfont;
+      }
+    }
+
+    &.is-disabled .el-checkbox-button__inner {
+      color: $disabled-color;
+      background-color: $disabled-fill;
+      border-color: $disabled-border;
+
+      &::before {
+        border-color: transparent $disabled-border $disabled-border transparent;
+      }
+
+      &::after {
+        color: $color-grey-5;
+      }
+    }
+
+    &.el-checkbox-button--medium .el-checkbox-button__inner {
+      padding: 7px 19px;
+    }
+  }
+
+  .el-checkbox-button__inner {
+    color: $text-color-primary;
+    font-size: $text-size-primary;
+    background-color: $color-master-6;
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: $color-master-5;
+    }
+  }
+}
+
+.el-checkbox-group + .el-form-item__error {
+  padding-top: 0;
+}
+
+.el-checkbox__inner {
+  width: 16px;
+  height: 16px;
+  background-color: $color-bg-1;
+
+  &::after {
+    left: 5px;
+    top: 2px;
+  }
+}
+
+.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  background-color: $color-bg-1;
+}
+
+.el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
+  background-color: $color-master-1;
+  top: 1px;
+  width: 12px;
+  height: 12px;
+  left: 1px;
+}
+
+.el-checkbox__input.is-disabled.is-indeterminate .el-checkbox__inner::before {
+  border-color: $disabled-border;
+  background-color: $color-grey-6;
+}
+
+.el-checkbox__input.is-disabled .el-checkbox__inner,
+.el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+  background: $disabled-fill;
+}
+
+.el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
+  border-color: $disabled-border;
+}
+
+.el-checkbox__label {
+  font-size: $text-size-primary;
+  color: $text-color-primary;
+  font-weight: normal;
+}

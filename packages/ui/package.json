@@ -22,7 +22,8 @@
     "lib",
     "style",
     "images",
-    "fonts"
+    "fonts",
+    "echarts-theme"
   ],
   "scripts": {
     "patch": "npm version patch",

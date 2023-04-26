@@ -2,28 +2,28 @@
  * @Author: 胡佳婷
  * @Date: 2023-02-12 09:47:21
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-02-12 09:53:03
+ * @LastEditTime: 2023-04-26 14:15:55
  * @Description: 柱状图
 -->
 <template>
   <cute-card-box title="柱状图">
     <template #content>
-      <CuteChart :option="option" :height="'280px'" :width="'100%'" />
+      <VChart :option="option" style="height: 280px; width: 100%" :theme="theme" />
     </template>
   </cute-card-box>
 </template>
 <script lang="ts">
 import { CuteCardBox } from '@cutedesign/ui'
-import { CuteChart } from '@cutedesign/ui'
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
+
 @Component({
   name: 'BarDemo',
   components: {
     CuteCardBox,
-    CuteChart,
   },
 })
 export default class extends Vue {
+  @Prop({ default: 'cuted-light', required: false }) private readonly theme: string
   private option = {}
   /**
    * 页面Mounted

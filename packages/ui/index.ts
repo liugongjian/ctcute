@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-19 07:58:59
+ * @LastEditTime: 2023-04-26 12:59:43
  * @Description:
  */
 import ElementUI, {
@@ -180,6 +180,7 @@ const componentsList = [
   CuteStepsMulti,
   CuteCardBox,
   CuteScroller,
+  CuteTitledBlock,
 ]
 
 export default {

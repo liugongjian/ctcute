@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>cloud-fill</title>
+    <g id="cloud-fill" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <rect id="矩形" opacity="0" x="0" y="0" width="16" height="16"></rect>
+            <path d="M12.678125,6.5421875 C11.9625,4.6546875 10.1390625,3.3125 8.003125,3.3125 C5.8671875,3.3125 4.04375,4.653125 3.328125,6.540625 C1.9890625,6.8921875 1,8.1109375 1,9.5625 C1,11.2890625 2.3984375,12.6875 4.1234375,12.6875 L11.8765625,12.6875 C13.6015625,12.6875 15,11.2890625 15,9.5625 C15,8.1140625 14.0140625,6.8953125 12.678125,6.5421875 Z" id="路径" fill="#000000"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,66 @@
+/* Notification
+-------------------------- */
+/*
+  $class:类名;
+  $iconColor:icon颜色;
+  $iconClass:icon类名;
+*/
+@mixin notification-page($class: error-tips, $iconColor: $color-status-danger, $iconClass: error) {
+  .el-notification.#{$class}.right {
+    width: 480px;
+    height: 144px;
+    background-color: $color-bg-1;
+    box-shadow: 0 2px 8px 0 $color-bg-3;
+    border-radius: 4px;
+
+    .el-icon-#{$iconClass} {
+      font-size: $text-size-medium;
+      color: $iconColor;
+      margin-top: 1px;
+    }
+
+    .el-notification__title {
+      font-size: $text-size-primary;
+      margin-bottom: 20px;
+    }
+
+    .el-notification__content {
+      font-size: $text-size-primary;
+    }
+  }
+}
+
+@include notification-page(ordinary-tips, $color-status-info, info);
+@include notification-page(success-tips, $color-status-success, success);
+@include notification-page();
+@include notification-page(warning-tips, $color-status-warning, warning);
+
+.el-notification.routine-tips.right {
+  background-color: $color-bg-1;
+  box-shadow: 0 2px 8px 0 $color-bg-3;
+  border-radius: 4px;
+}
+
+.el-notification {
+  border-radius: 4px;
+  box-shadow: $shadow-card;
+
+}
+
+.el-notification.ordinary-tips.right .el-icon-info {
+  color: $color-master-1;
+}
+
+.el-notification.routine-tips.right {
+  width: 480px;
+  height: 124px;
+
+  .el-notification__title {
+    font-size: $text-size-primary;
+    margin-bottom: 20px;
+  }
+
+  .el-notification__content {
+    font-size: $text-size-primary;
+  }
+}

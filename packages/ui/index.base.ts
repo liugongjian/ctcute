@@ -124,6 +124,7 @@ import CuteSlider from './components/CuteSlider/index.vue'
 import CuteDistributionBar from './components/CuteDistributionBar/index.vue'
 import CuteCardBox from './components/CuteCardBox/index.vue'
 import CuteScroller from './components/CuteScroller/index.vue'
+import CuteFixedFooter from './components/CuteFixedFooter/index.vue'
 export {
   CuteLayout,
   CuteButtonGroup,
@@ -145,6 +146,7 @@ export {
   CuteDistributionBar,
   CuteCardBox,
   CuteScroller,
+  CuteFixedFooter,
 }
 
 /**
@@ -166,6 +168,7 @@ const componentsList = [
   CuteStepsMulti,
   CuteCardBox,
   CuteScroller,
+  CuteFixedFooter,
 ]
 
 export default {

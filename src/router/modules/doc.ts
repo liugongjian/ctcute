@@ -90,7 +90,7 @@ const docRoutes = [
     component: Layout,
     meta: {
       breadcrumb: false,
-      title: '更换主题',
+      title: '主题',
     },
     children: [
       {
@@ -117,6 +117,15 @@ const docRoutes = [
         component: () => import('@/views/doc/Theme/Tool.vue'),
         meta: {
           title: '主题生成工具',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'echarts-theme',
+        name: 'Echarts-Theme',
+        component: () => import('@/views/doc/Theme/EchartsTheme.vue'),
+        meta: {
+          title: '内置的Echarts主题',
           breadcrumb: true,
         },
       },
@@ -222,6 +231,24 @@ const docRoutes = [
         component: () => import('@/views/doc/Guides/UpgradeV2.vue'),
         meta: {
           title: '升级到V2',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/docs/template-intro',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'TemplateIntro',
+        component: () => import('@/views/doc/Guides/TemplateIntro.vue'),
+        meta: {
+          title: '各template介绍',
           breadcrumb: true,
         },
       },

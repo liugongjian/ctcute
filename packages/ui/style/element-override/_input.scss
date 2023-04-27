@@ -175,6 +175,22 @@ $input-suffix-padding: $padding-8x + 2;
     .el-input__suffix-inner .el-icon-close {
       line-height: $height;
     }
+
+    .el-select {
+      height: $height - 2;
+      line-height: $height - 2;
+      margin-bottom: 0 !important;
+      margin-top: 0 !important
+    }
+
+    .el-input--suffix {
+      line-height: $height - 2;
+
+      .el-input__inner {
+        height: $height - 2;
+        line-height: $height;
+      }
+    }
   }
 }
 

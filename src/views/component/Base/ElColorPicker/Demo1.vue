@@ -1,13 +1,13 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2023-01-11 14:18:32
- * @LastEditors: 朱凌浩
- * @LastEditTime: 2023-01-11 14:18:32
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-24 09:38:15
  * @Description: 仅显示预定义颜色
 -->
 <template>
   <div class="collapse-demo">
-    <p>仅显示预定义颜色</p>
+    <p>{{ $t('demo.colorPicker.demo1.intro') }}</p>
     <el-color-picker v-model="colorVal" :predefine="predefine1" type="predefine"></el-color-picker>
   </div>
 </template>

@@ -15,7 +15,7 @@ import { Vue, Component } from 'vue-property-decorator'
   name: 'Demo1',
 })
 export default class extends Vue {
-  private desc = '描述文本'
+  private desc = this.$t('demo.editInput.demo1.defaultText')
   private size = ''
 }
 </script>

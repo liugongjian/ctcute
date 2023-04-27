@@ -1,13 +1,13 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-19 22:03:32
- * @LastEditors: 马妍
- * @LastEditTime: 2023-02-16 10:46:07
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-23 14:27:54
  * @Description: 
 -->
 <template>
   <div>
-    <h3>单选</h3>
+    <h3>{{ $t('demo.remindSelect.demo1.single') }}</h3>
     <cute-remind-select
       v-model="value"
       :options="options"
@@ -15,7 +15,7 @@
       :placeholder="name"
       @change="changeFun"
     />
-    <h3>多选</h3>
+    <h3>{{ $t('demo.remindSelect.demo1.multiple') }}</h3>
     <cute-remind-select
       v-model="values"
       :options="options"
@@ -42,7 +42,7 @@ import { Vue, Component } from 'vue-property-decorator'
   name: 'Demo1',
 })
 export default class extends Vue {
-  private name = '数据资源名称'
+  private name = this.$t('demo.remindSelect.demo1.options')
   private value = ''
   private values = []
   private valueTags = []

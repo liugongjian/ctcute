@@ -1,12 +1,17 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-19 22:03:32
- * @LastEditors: 马妍
- * @LastEditTime: 2022-07-25 14:22:10
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-23 14:34:44
  * @Description:
 -->
 <template>
-  <cute-remind-input v-model="value" placeholder="数据资源名称1" title="数据资源名称2" @change="changeFun" />
+  <cute-remind-input
+    v-model="value"
+    :placeholder="`${this.$t('demo.remindInput.demo1.resource')}1`"
+    :title="`${this.$t('demo.remindInput.demo1.resource')}2`"
+    @change="changeFun"
+  />
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'

@@ -2,26 +2,26 @@
  * @Author: 赵昕
  * @Date: 2022-07-21 14:18:32
  * @LastEditors: XinZhao
- * @LastEditTime: 2022-10-31 09:40:48
+ * @LastEditTime: 2023-04-24 09:28:42
  * @Description: 分离式折叠面板（展开后内容不包括在面板里）
 -->
 <template>
   <div class="collapse-demo">
-    <p>分离式折叠面板（展开后内容不包括在面板里）</p>
+    <p>{{ $t('demo.collapse.demo1.intro') }}</p>
     <el-collapse v-model="activeNames1" seperate>
-      <el-collapse-item title="小标题" name="1">
+      <el-collapse-item :title="$t('demo.collapse.demo1.title')" name="1">
         <el-table
           ref="table1"
           :data="smallTable"
           :row-style="{ height: '42px' }"
           :cell-style="{ padding: 0 }"
         >
-          <el-table-column prop="id" label="商品编码"></el-table-column>
-          <el-table-column prop="name" label="商品名称"></el-table-column>
-          <el-table-column prop="code" label="商品条码"></el-table-column>
-          <el-table-column prop="price" label="单价"></el-table-column>
-          <el-table-column prop="count" label="数量"></el-table-column>
-          <el-table-column prop="total" label="总价"></el-table-column>
+          <el-table-column prop="id" :label="$t('demo.collapse.demo1.id')"></el-table-column>
+          <el-table-column prop="name" :label="$t('demo.collapse.demo1.name')"></el-table-column>
+          <el-table-column prop="code" :label="$t('demo.collapse.demo1.code')"></el-table-column>
+          <el-table-column prop="price" :label="$t('demo.collapse.demo1.price')"></el-table-column>
+          <el-table-column prop="count" :label="$t('demo.collapse.demo1.count')"></el-table-column>
+          <el-table-column prop="total" :label="$t('demo.collapse.demo1.total')"></el-table-column>
         </el-table>
       </el-collapse-item>
     </el-collapse>

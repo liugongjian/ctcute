@@ -1,13 +1,13 @@
 <!--
  * @Author: wujingcheng
  * @Date: 2022-12-23 15:25:18
- * @LastEditors: wujingcheng
- * @LastEditTime: 2022-12-28 16:19:23
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-23 15:29:15
  * @Description: 带标题的内容块
 -->
 <template>
   <div>
-    <cute-distribution-bar :data="barList" :props="props" :max="200"> </cute-distribution-bar>
+    <cute-distribution-bar :data="barList" :props="props" :max="200"></cute-distribution-bar>
   </div>
 </template>
 <script lang="ts">
@@ -23,19 +23,19 @@ export default class extends Vue {
   barList = [
     {
       id: 'nm-center',
-      label: '内蒙中心',
+      label: this.$t('demo.distributeBar.common.label1'),
     },
     {
       id: 'gz-center',
-      label: '贵州中心',
+      label: this.$t('demo.distributeBar.common.label2'),
     },
     {
       id: 'third-center',
-      label: '第三中心',
+      label: this.$t('demo.distributeBar.common.label3'),
     },
     {
       id: 'fourth-center',
-      label: '第四中心',
+      label: this.$t('demo.distributeBar.common.label4'),
     },
   ]
   props = {

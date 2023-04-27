@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <cute-card-box title="指定内容区高度" content-height="320px">
+  <cute-card-box :title="$t('demo.cardBox.demo4.title')" content-height="320px">
     <template #content>
       <VChart :option="option" style="height: 100%; width: 100%" />
     </template>

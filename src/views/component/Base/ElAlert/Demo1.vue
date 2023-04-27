@@ -2,25 +2,31 @@
  * @Author: 赵昕
  * @Date: 2022-07-21 14:18:32
  * @LastEditors: XinZhao
- * @LastEditTime: 2022-10-28 16:19:59
+ * @LastEditTime: 2023-04-24 09:24:06
  * @Description: 带自定义配置的Alert
 -->
 <template>
   <div class="alert-demo-1">
     <div class="alert-primary">
-      <p>自定义icon</p>
+      <p>{{ $t('demo.alert.demo1.title1') }}</p>
       <el-alert type="info" show-icon :closable="false">
         <span slot="icon-custom">
           <svg-icon class="el-alert__icon loading" name="sync" :color="infoColor" />
         </span>
         <template slot="title">
-          <div>商品正在上架中，已完成<span :style="{ color: infoColor }">13/25</span>，请耐心等待</div>
+          <div>
+            商品正在上架中，已完成
+            <span :style="{ color: infoColor }">13/25</span>，请耐心等待
+          </div>
         </template>
       </el-alert>
-      <p>自定义关闭按钮配置色</p>
+      <p>{{ $t('demo.alert.demo1.title2') }}</p>
       <el-alert type="error" show-icon :close-btn-color="errorColor">
         <template slot="title">
-          <div>上架完成，<span :style="{ color: errorColor }">25</span>个商品上架失败</div>
+          <div>
+            上架完成，
+            <span :style="{ color: errorColor }">25</span>个商品上架失败
+          </div>
         </template>
       </el-alert>
     </div>

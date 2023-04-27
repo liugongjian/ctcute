@@ -41,7 +41,7 @@ function parseThemeVariables() {
 
 // 读取默认主题变量
 function parseDefaultVariables() {
-  const filePath = path.join(__dirname, '../packages/ui/style/themes/default/variables.scss')
+  const filePath = path.join(__dirname, '../../packages/ui/style/themes/default/variables.scss')
   const data = fs.readFileSync(filePath, 'utf-8')
   const variableLines = data.split('\n')
   const exports = []

@@ -1,8 +1,8 @@
 <!--
  * @Author: fanzhengle
  * @Date: 2022-12-03 11:18:32
- * @LastEditors: 范郑乐
- * @LastEditTime: 2022-12-13 11:18:32
+ * @LastEditors: 朱玉豆
+ * @LastEditTime: 2023-04-21 18:52:08
  * @Description: 单选表格
 -->
 
@@ -13,6 +13,7 @@
     <vxe-table
       ref="xTable"
       border="inner"
+      size="small"
       :data="tableData"
       :radio-config="{ highlight: true, checkMethod: checkRadioMethod }"
       @cell-click="cellClickEvent"
@@ -34,7 +35,7 @@
         </template>
       </vxe-column>
       <vxe-column field="ip" title="IP地址"></vxe-column>
-      <vxe-column field="time" title="时间" sortable></vxe-column>
+      <!-- <vxe-column field="time" title="时间" sortable></vxe-column> -->
       <vxe-column field="tags" title="标签">
         <template #default="{ row }">
           <el-tag v-for="item in row.tags" :key="item" type="info">{{ item }}</el-tag>
@@ -144,7 +145,7 @@
         </template>
       </vxe-column>
       <vxe-column field="ip" title="IP地址"></vxe-column>
-      <vxe-column field="time" title="时间" sortable></vxe-column>
+      <!-- <vxe-column field="time" title="时间" sortable></vxe-column> -->
       <vxe-column field="tags" title="标签">
         <template #default="{ row }">
           <el-tag v-for="item in row.tags" :key="item" type="info">{{ item }}</el-tag>

@@ -1,74 +1,90 @@
 /* Upload
 -------------------------- */
 @mixin uploader-success {
-  .el-upload .el-button.el-button--default .svg-icon {
-    color: $color-neutral-6;
-  }
 
-  .el-upload-list__item .el-upload-list__item-name {
-    color: $upload-font-active-color;
-    border-radius: $upload-dragger-border-radius;
-    font-size: $upload-font-size;
-    align-items: center;
-    margin-right: 0;
-    padding-right: 40px;
-    font-size: 12px;
+  .drag-uploader,
+  .el-upload,
+  .small-uploader,
+  .picture-uploader,
+  .file-uploader {
 
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: $upload-bg-hover;
-      color: $upload-font-active-color;
+    .el-button.el-button--default,
+    .is-disabled {
+      .svg-icon {
+        color: $color-neutral-6;
+      }
+
+      :hover {
+        .svg-icon {
+          color: $upload-color;
+        }
+      }
+
+
     }
-  }
 
-  .el-icon-document:before {
-    font-family: $font-family-cute-icons !important;
-    font-style: normal;
-    content: '\ea3e';
-    font-size: $text-size-lg;
-  }
 
-  .el-upload-list__item:hover {
-    background: $upload-bg-hover;
-    border-radius: $upload-dragger-border-radius;
-  }
+    .el-upload-list__item .el-upload-list__item-name {
+      color: $upload-font-active-color;
+      border-radius: $upload-dragger-border-radius;
+      font-size: $upload-font-size;
+      align-items: center;
+      margin-right: 0;
+      padding-right: 40px;
+      font-size: 12px;
 
-  .el-upload-list__item,
-  .file-uploader,
-  .el-upload-list {
-    .el-icon-close:before {
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $upload-bg-hover;
+        color: $upload-font-active-color;
+      }
+    }
+
+    .el-icon-document:before {
       font-family: $font-family-cute-icons !important;
       font-style: normal;
-      content: '\ea70' !important;
+      content: '\ea3e';
       font-size: $text-size-lg;
     }
-  }
 
-  .el-upload__tip {
-    color: $upload-tips-font-color;
-    font-size: $upload-font-size;
-    margin: $margin-3x 0 $margin-10;
-  }
-
-  .el-icon-circle-check:before {
-    font-family: $font-family-cute-icons !important;
-    font-style: normal;
-    content: '\ea64' !important;
-    font-size: $text-size-lg;
-  }
-
-  .el-upload-list__item-name {
-
-    text-decoration-line: none;
-    border-radius: $upload-dragger-border-radius;
-
-    .el-icon-document {
-      vertical-align: middle;
+    .el-upload-list__item:hover {
+      background: $upload-bg-hover;
+      border-radius: $upload-dragger-border-radius;
     }
 
-    &:hover {
-      color: $text-color !important;
+    .el-upload-list__item,
+    .file-uploader,
+    .el-upload-list {
+      .el-icon-close:before {
+        font-family: $font-family-cute-icons !important;
+        font-style: normal;
+        content: '\ea70' !important;
+        font-size: $text-size-lg;
+      }
+    }
+
+
+
+    .el-icon-circle-check:before {
+      font-family: $font-family-cute-icons !important;
+      font-style: normal;
+      content: '\ea64' !important;
+      font-size: $text-size-lg;
+    }
+
+    .el-upload-list__item-name {
+
+      text-decoration-line: none;
+      border-radius: $upload-dragger-border-radius;
+
+      .el-icon-document {
+        vertical-align: middle;
+      }
+
+      &:hover {
+        color: $text-color !important;
+      }
     }
   }
 }
@@ -114,7 +130,7 @@
 
 //小文件
 .small-uploader {
-  width: 316px; // TODO
+  width: $upload-file-uploader-width;
   padding: $padding-5x;
   background-color: $upload-bg;
   border: 1px solid $upload-border-color;
@@ -153,6 +169,7 @@
     &:hover {
       border-color: $upload-color;
       color: $upload-color;
+      background-color: unset;
 
       .el-icon-plus {
         color: $upload-color;
@@ -218,6 +235,10 @@
         opacity: 0;
       }
     }
+
+    // .el-upload-list__item-actions {
+    //   background-color: $color-neutral-2;
+    // }
   }
 
   .el-progress-circle {
@@ -329,7 +350,6 @@
     }
   }
 
-  @include uploader-success();
 }
 
 .el-upload__text {
@@ -384,4 +404,20 @@
   .el-icon-plus {
     color: $disabled-color;
   }
+}
+
+.el-upload-list__item {
+  .el-icon-close {
+    color: $color-neutral-9;
+
+    &:hover {
+      color: $color-master;
+    }
+  }
+}
+
+.el-upload__tip {
+  color: $upload-tips-font-color;
+  font-size: $upload-font-size;
+  margin: $common-space-2x 0 $common-space-2x;
 }

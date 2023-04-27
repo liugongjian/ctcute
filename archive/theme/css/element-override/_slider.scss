@@ -1,0 +1,25 @@
+/* Slider
+-------------------------- */
+.el-slider__marks-text {
+  color: $text-color-light-1;
+  min-width: 30px;
+  text-align: center;
+}
+
+.el-slider__button {
+  width: 10px;
+  height: 10px;
+}
+
+.el-slider__marks-text {
+  font-size: $text-size-primary;
+}
+
+.el-slider__runway,
+.el-slider__runway.show-input {
+  width: 616px;
+}
+
+.el-slider__stop {
+  border: 2px solid $color-white;
+}

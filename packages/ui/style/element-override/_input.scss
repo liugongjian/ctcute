@@ -10,10 +10,10 @@ $input-suffix-padding: $padding-9x;
   .el-input__inner {
     padding: 0 $margin-3x;
 
-    &:active,
-    &:focus {
-      box-shadow: $shadow-form-item;
-    }
+    // &:active,
+    // &:focus {
+    //   box-shadow: $shadow-form-item;
+    // }
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
@@ -41,6 +41,7 @@ $input-suffix-padding: $padding-9x;
 
   // 后置元素样式
   .el-input__suffix {
+    color: $color-neutral-6;
     display: flex;
     align-items: center;
     right: $padding-4x;
@@ -63,7 +64,7 @@ $input-suffix-padding: $padding-9x;
       // 关闭图标样式
       .el-icon-close {
         &:hover {
-          color: $color-master;
+          color: $color-neutral-5;
           cursor: pointer;
         }
       }
@@ -75,6 +76,7 @@ $input-suffix-padding: $padding-9x;
 
     .el-input-group__append,
     .el-input-group__prepend {
+      padding: 0 $common-space-3x;
       color: $text-color;
 
       div.el-select,
@@ -88,6 +90,7 @@ $input-suffix-padding: $padding-9x;
 
       .el-select {
         min-width: 80px;
+        margin: -10px -12px;
 
         .el-input__inner::placeholder {
           color: $text-color;
@@ -117,13 +120,15 @@ $input-suffix-padding: $padding-9x;
       }
     }
 
-    .el-input__prefix {
+    .el-input__prefix,
+    .el-input__suffix {
       color: $select-color-disabled;
     }
 
     .prefix-placeholder {
       color: $select-color-disabled;
     }
+
   }
 }
 
@@ -145,6 +150,10 @@ $input-suffix-padding: $padding-9x;
 
 .el-select .el-input.el-input--suffix .el-input__inner {
   padding-right: 30px;
+}
+
+.el-textarea__inner {
+  font-family: unset;
 }
 
 @mixin input-size($size, $height, $text-size) {

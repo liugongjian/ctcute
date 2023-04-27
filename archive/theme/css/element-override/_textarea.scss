@@ -1,0 +1,26 @@
+/* Textarea
+-------------------------- */
+
+.el-textarea {
+  font-size: $text-size-primary;
+  width: 100%;
+
+  .el-textarea__inner {
+    padding: 7px 12px;
+    background-color: $color-bg-1;
+  }
+
+  .el-input__count {
+    color: $color-grey-4;
+    background-color: $color-bg-1;
+  }
+}
+
+.el-textarea .el-input__count {
+  color: $text-color-light-1;
+  line-height: 150%;
+}
+
+.el-textarea.is-disabled .el-textarea__inner {
+  border-color: $border-color-primary;
+}

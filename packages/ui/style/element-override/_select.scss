@@ -23,9 +23,15 @@ $select-tag-margin: 2px 0 2px 8px;
 }
 
 .el-select {
-  .el-icon-circle-close:before {
-    font-family: $font-family-cute-icons;
-    content: '\ea4f';
+  .el-icon-circle-close {
+    &:hover {
+      color: $color-master-1;
+      cursor: pointer;
+    }
+
+    &:before {
+      content: '\ea3c';
+    }
   }
 
   .el-input--suffix {
@@ -96,7 +102,7 @@ $select-tag-margin: 2px 0 2px 8px;
     color: $select-tag-color;
 
     &:hover {
-      color: $select-tag-color-hover;
+      color: $color-master-1;
     }
   }
 }
@@ -104,6 +110,7 @@ $select-tag-margin: 2px 0 2px 8px;
 .el-input__suffix .el-input__suffix-inner .suffix-other {
   margin-right: 16px;
 }
+
 
 /*
   重置Select Dropdown样式
@@ -156,10 +163,6 @@ $select-tag-margin: 2px 0 2px 8px;
     background-color: unset;
     color: $select-color;
 
-
-    &:hover {
-      background: $range-editor-multiple-bg;
-    }
   }
 
   &__empty {
@@ -174,11 +177,12 @@ $select-tag-margin: 2px 0 2px 8px;
   }
 
   &.el-popper[x-placement^='bottom'] {
-    margin-top: $margin;
+    margin-top: $margin-2x;
+
   }
 
   &el-popper[x-placement^='top'] {
-    margin-bottom: $margin;
+    margin-bottom: $margin-2x;
   }
 
   &.el-popper {
@@ -194,6 +198,7 @@ $select-tag-margin: 2px 0 2px 8px;
     line-height: $select-xs-height - 6;
   }
 }
+
 
 @mixin select-size($size, $height, $left) {
   .el-select {

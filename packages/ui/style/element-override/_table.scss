@@ -17,7 +17,7 @@
       border-right: 0;
     }
 
-    &>.cell {
+    & > .cell {
       display: block; // 原生为inline-block，有小数问题
     }
   }
@@ -49,7 +49,7 @@
     th.el-table__cell {
 
       // 有gutter，最后第二列留白
-      &:nth-last-child(2)>.cell {
+      &:nth-last-child(2) > .cell {
         padding-right: $padding-5x;
       }
     }
@@ -178,7 +178,7 @@
       }
 
       // 最后第一列没有border
-      &:not(:last-child)>.cell {
+      &:not(:last-child) > .cell {
         border-right: 1px solid $color-neutral-4;
       }
     }
@@ -187,7 +187,7 @@
       th.el-table__cell {
 
         // 有gutter，最后第二列没有border
-        &:nth-last-child(2)>.cell {
+        &:nth-last-child(2) > .cell {
           border-right: none;
         }
       }
@@ -256,13 +256,6 @@
   重置表格大小
 */
 @mixin table-size($size, $cell-padding) {
-  $th-cell-padding: $cell-padding + 1;
-
-  th.el-table__cell {
-    padding-top: $th-cell-padding;
-    padding-bottom: $th-cell-padding;
-  }
-
   .el-table#{$size} {
     .el-table__cell {
       padding: $cell-padding 0;

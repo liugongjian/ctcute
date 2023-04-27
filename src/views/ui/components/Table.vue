@@ -2081,7 +2081,7 @@ export default class extends Vue {
   }
 
   .name-subtext {
-    color: $text-color-light-2;
+    color: $text-color-light;
   }
 
   .name-icon-wrap {
@@ -2090,9 +2090,9 @@ export default class extends Vue {
   }
 
   .name-icon {
-    margin-right: $margin-2x;
+    margin-right: $margin;
     font-size: $text-size-lg;
-    color: $text-color-light-2;
+    color: $color-master;
   }
 
   // 行禁用样式

@@ -1,38 +1,12 @@
 /* Upload
 -------------------------- */
-@mixin uploader-success {
-
-  .drag-uploader,
-  .el-upload,
-  .small-uploader,
-  .picture-uploader,
-  .file-uploader {
-    .el-button.el-button--default {
-      .svg-icon {
-        color: $color-neutral-6;
-      }
-
-      &:hover {
-        .svg-icon {
-          color: $upload-color;
-        }
-      }
-
-      &.is-disabled {
-        .svg-icon {
-          color: $color-neutral-6;
-        }
-
-        :hover {
-          .svg-icon {
-            color: $color-neutral-6;
-          }
-        }
-      }
-    }
-
-
-    .el-upload-list__item .el-upload-list__item-name {
+.el-upload-list {
+  .el-upload-list__item {
+    .el-upload-list__item-name {
+      line-height: $input-sm-height;
+      text-decoration-line: none;
+      border-radius: $upload-dragger-border-radius;
+      display: flex;
       color: $upload-font-active-color;
       border-radius: $upload-dragger-border-radius;
       font-size: $upload-font-size;
@@ -49,55 +23,72 @@
       }
     }
 
-    .el-icon-document:before {
-      font-family: $font-family-cute-icons !important;
-      font-style: normal;
-      content: '\ea3e';
-      font-size: $text-size-lg;
-    }
+  }
 
-    .el-upload-list__item:hover {
-      background: $upload-bg-hover;
-      border-radius: $upload-dragger-border-radius;
-    }
+  .el-icon-document {
+    vertical-align: middle;
+    height: $input-sm-height;
+    color: $color-neutral-6;
+  }
 
-    .el-upload-list__item,
-    .file-uploader,
-    .el-upload-list {
-      .el-icon-close:before {
-        font-family: $font-family-cute-icons !important;
-        font-style: normal;
-        content: '\ea70' !important;
-        font-size: $text-size-lg;
-      }
-    }
+  .el-icon-document:before {
+    font-family: $font-family-cute-icons !important;
+    font-style: normal;
+    content: '\ea3e';
+    font-size: $text-size-md;
+  }
 
+  .el-icon-close:before {
+    font-family: $font-family-cute-icons !important;
+    font-style: normal;
+    content: '\ea70' !important;
+    font-size: $text-size-md;
+  }
 
-
-    .el-icon-circle-check:before {
-      font-family: $font-family-cute-icons !important;
-      font-style: normal;
-      content: '\ea64' !important;
-      font-size: $text-size-lg;
-    }
-
-    .el-upload-list__item-name {
-
-      text-decoration-line: none;
-      border-radius: $upload-dragger-border-radius;
-
-      .el-icon-document {
-        vertical-align: middle;
-      }
-
-      &:hover {
-        color: $text-color !important;
-      }
-    }
+  .el-icon-circle-check:before {
+    font-family: $font-family-cute-icons !important;
+    font-style: normal;
+    content: '\ea64' !important;
+    font-size: $text-size-md;
   }
 }
 
-@include uploader-success();
+.drag-uploader,
+.el-upload,
+.small-uploader,
+.picture-uploader,
+.file-uploader {
+  .el-button.el-button--default {
+    .svg-icon {
+      color: $color-neutral-6;
+    }
+
+    &:hover {
+      .svg-icon {
+        color: $upload-color;
+      }
+    }
+
+    &.is-disabled {
+      .svg-icon {
+        color: $color-neutral-6;
+      }
+
+      :hover {
+        .svg-icon {
+          color: $color-neutral-6;
+        }
+      }
+    }
+  }
+
+  .el-upload-list__item:hover {
+    background: $upload-bg-hover;
+    border-radius: $upload-dragger-border-radius;
+  }
+
+}
+
 
 .file-uploader .el-upload-list {
   .is-success.el-upload-list__item :hover {
@@ -127,14 +118,14 @@
   }
 }
 
-.el-upload-list__item-name {
-  font-size: $text-size;
+// .el-upload-list__item-name {
+//   font-size: $text-size;
 
-  &:hover {
-    text-decoration: none;
-    color: $text-color;
-  }
-}
+//   &:hover {
+//     text-decoration: none;
+//     color: $text-color;
+//   }
+// }
 
 //小文件
 .small-uploader {
@@ -276,6 +267,10 @@
       }
     }
   }
+
+  .el-upload-list .el-upload-list__item .el-upload-list__item-name {
+    display: none;
+  }
 }
 
 .el-upload-list__item {
@@ -301,8 +296,6 @@
 //文件上传
 .file-uploader {
   width: $upload-file-uploader-width; // TODO
-
-  @include uploader-success();
 
   .file-uploader_content {
     width: $upload-file-uploader-width; // TODO

@@ -16,7 +16,7 @@
       <h3>常规用法</h3>
       <div class="line">
         <div class="line__left">
-          <el-select v-model="value" :size="itemSize" :disabled="itemDisabled" filterable>
+          <el-select v-model="value" :size="itemSize" :disabled="itemDisabled" filterable clearable>
             <el-option label="默认选项" value="默认选项"> </el-option>
             <el-option label="已选择项" value="已选择项"> </el-option>
             <el-option label="不可用" value="不可用" disabled> </el-option>

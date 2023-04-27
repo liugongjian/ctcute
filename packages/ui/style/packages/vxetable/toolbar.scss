@@ -113,7 +113,10 @@
         line-height: $vxe-toolbar-custom-button-line-height;
         display: inline-block;
         width: $vxe-toolbar-custom-button-line-height;
-
+        color: $vxe-icon-color;
+        &:hover {
+            color: $vxe-primary-color
+        }
         &:before {
           content: '\eae7';
           font-size: 14px;

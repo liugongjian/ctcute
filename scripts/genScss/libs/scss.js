@@ -71,7 +71,7 @@ export default variablesRevised
 }
 
 // 生成变量Doc文档
-function generateDoc(data, filePath) {
+function generateDoc(data, filePath, docFileName) {
   // 解析出css值
   const scssResult = sass.compile(filePath, { style: 'compressed' })
   const regex = /:export{([^}]+)}/
@@ -104,26 +104,26 @@ function generateDoc(data, filePath) {
       const comment = valueStringList[1] || ''
       const value = cssMap[jsKey]
       const type = value.startsWith('#') ? 'color' : 'string'
-      if (!comment.includes('deprecated')) {
-        docList.length &&
-          docList[docList.length - 1].list.push({
-            name: key,
-            type: type,
-            value: value,
-            scene: comment.replace('//', '').trim(),
-          })
-      }
+      
+      docList.length &&
+        docList[docList.length - 1].list.push({
+          name: key,
+          type: type,
+          value: value,
+          scssValue: valueStringList[0].replace('!default', '').trim(),
+          scene: comment.replace('//', '').trim(),
+        })
     }
   })
   // 将文本写入文件
-  const targetPath = filePath.substring(0, filePath.lastIndexOf('/')) + '/variables-doc.js'
+  const targetPath = filePath.substring(0, filePath.lastIndexOf('/')) + `/${docFileName}.js`
   fs.writeFileSync(
     targetPath,
 `/* eslint-disable prettier/prettier */
 export default ${JSON.stringify(docList, null, 2).replace(/"/g, '\'')}
 `
   )
-  console.log(chalk.green('Variables Doc生成成功'))
+  console.log(chalk.green(`${docFileName}生成成功`))
 }
 
 // 中划线变量转驼峰

@@ -5,15 +5,15 @@
  * @LastEditTime: 2023-04-25 14:32:49
  * @Description:
 -->
+
 <template>
-  <div class="cute-fixed-footer" :style="`left: ${offsetLeft};width: ${footerWidth}`">
+  <div class="cute-fixed-footer" :style="{ left: offsetLeft, width: footerWidth }">
     <slot></slot>
   </div>
 </template>
+
 <script lang="ts">
-// import { CreateElement } from 'vue'
 import { Component, Vue } from 'vue-property-decorator'
-import variables from '@cutedesign/ui/style/themes/default/index.scss'
 
 @Component({
   // 组件名称，可以获得更有语义信息的组件树。用于在Vue DevTool Components中显示组件名称。
@@ -22,8 +22,9 @@ import variables from '@cutedesign/ui/style/themes/default/index.scss'
 export default class extends Vue {
   private footerNode: Element | null
   private sizeObserver: ResizeObserver
-  private offsetLeft = variables.cuteLayoutSidebarWidth
-  private footerWidth = ''
+  private offsetLeft = '0'
+  private footerWidth = '0'
+  private layoutOffsetBottom: string
 
   private initObserver(target: Element) {
     if (ResizeObserver) {
@@ -49,23 +50,31 @@ export default class extends Vue {
   }
 
   private mounted() {
-    const layout = document.querySelector('#layout-container')
-    if (layout) {
-      this.initObserver(layout)
-      this.setOffset(layout)
-      this.footerWidth = layout.clientWidth + 'px'
+    this.footerNode = this.$el
+    const target = document.querySelector('#layout-container')
+    // 需在使用了CuteLayout的情况下使用
+    if (target) {
+      target.appendChild(this.footerNode)
+      this.initObserver(target)
+      this.setOffset(target)
+      this.footerWidth = target.clientWidth + 'px'
       window.addEventListener('scroll', this.handleScroll)
-      ;(layout as any).style.paddingBottom = this.$el.clientHeight + 'px'
+
+      this.$nextTick(() => {
+        this.layoutOffsetBottom = (target as any).style.paddingBottom
+        ;(target as any).style.paddingBottom = this.footerNode.clientHeight + 'px'
+      })
     }
   }
 
   private destroyed() {
+    this.footerNode && this.footerNode.remove()
     const layout = document.querySelector('#layout-container')
     if (layout) {
       if (this.sizeObserver) {
         this.sizeObserver.unobserve(layout)
       }
-      ;(layout as any).style.paddingBottom = 0
+      ;(layout as any).style.paddingBottom = this.layoutOffsetBottom
     }
   }
 }

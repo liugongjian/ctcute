@@ -102,19 +102,19 @@
 
     .card-box--bar--text {
       width: 40%;
-      color: $text-color-light-1;
+      color: $text-color-light;
 
       span {
         font-size: $text-size-lg;
         margin-left: $margin-3x;
         
-        color: $text-color-primary;
+        color: $text-color;
       }
     }
 
     &.active {
       .card-box--title svg {
-        color: $color-status-success;
+        color: $color-success;
         
       }
     }
@@ -129,7 +129,7 @@
   }
 
   .el-card.is-hover-shadow:hover {
-    box-shadow: $shadow-card;
+    box-shadow: $shadow-1;
   }
 
   .card-btn {
@@ -141,7 +141,7 @@
       margin-bottom: $margin-5x;
 
       .el-card.is-hover-shadow:hover {
-        box-shadow: $shadow-card;
+        box-shadow: $shadow-1;
       }
     }
 
@@ -180,7 +180,7 @@
         
 
         &__num {
-          color: $color-master-1;
+          color: $color-master;
           padding-left: $padding;
         }
       }
@@ -240,7 +240,7 @@
 
     &.active {
       .card-box__info__avatar svg {
-        color: $color-status-success;
+        color: $color-success;
         
       }
     }
@@ -294,7 +294,7 @@
           .card-box--title-icon {
             width: 24px;
             height: 24px;
-            background-color: $color-tag-success-1;
+            background-color: $tag-success-border;
             padding: $padding;
             margin-right: $margin-4x;
 

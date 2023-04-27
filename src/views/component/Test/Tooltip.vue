@@ -92,7 +92,7 @@ export default class extends Vue {}
 .sub-tooltip {
   margin: 24px 0;
   padding-bottom: 24px;
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
 }
 
 .tooltip-interval {

@@ -1,7 +1,7 @@
 /*font*/
 // $vxe-font-family: -apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol !default;
 $vxe-font-family:'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, arial, STHeiTi, sans-serif;
-$vxe-header-font-color: $neutral-10 !default;
+$vxe-header-font-color: $color-neutral-10 !default;
 $vxe-font-color: $color-neutral-10 !default;
 $vxe-font-size: $text-size !default;
 $vxe-font-size-medium: $text-size-md !default;
@@ -14,26 +14,26 @@ $vxe-border-radius: $border-radius !default;
 /*icon*/
 $vxe-icon-font-family: Verdana,Arial,Tahoma !default;
 $vxe-icon-background-color: $color-white !default; // TODO
-$vxe-icon-color: $neutral-9 !default;
+$vxe-icon-color: $color-neutral-9 !default;
 
 /*color*/
 $vxe-table-checkbox-color: $color-white !default;
 $vxe-primary-color: $color-master !default;
 $vxe-success-color: $color-success !default;
-$vxe-info-color: $neutral-6 !default;
+$vxe-info-color: $color-neutral-6 !default;
 $vxe-warning-color: $orange-base !default;
 $vxe-danger-color: $color-danger !default;
 $vxe-disabled-color: $disabled-color !default;
 $vxe-primary-disabled-color: $color-master-disabled !default;
 
 /*input/radio/checkbox*/
-$vxe-input-border-color: $border-color-primary !default;
+$vxe-input-border-color: $border-color !default;
 $vxe-input-disabled-color: $input-disabled-bg !default;
 $vxe-input-disabled-background-color: $disabled-bg !default;
 $vxe-input-placeholder-color: $text-color !default;
 
 /*popup*/
-$vxe-table-popup-border-color: $border-color-primary !default;
+$vxe-table-popup-border-color: $border-color !default;
 
 /*table*/
 $vxe-table-font-line-height: $line-height !default;
@@ -56,7 +56,7 @@ $vxe-table-row-height-medium: 40px !default;
 $vxe-table-row-height-small: 32px !default;
 $vxe-table-row-height-mini: 32px !default;
 $vxe-table-row-line-height: $line-height !default;
-$vxe-table-row-hover-background-color: $neutral-2 !default;
+$vxe-table-row-hover-background-color: $color-neutral-2 !default;
 $vxe-table-row-striped-background-color: $blue-1 !default;
 $vxe-table-row-hover-striped-background-color: $blue-1 !default;
 $vxe-table-row-radio-checked-background-color: $blue-1 !default;
@@ -65,8 +65,8 @@ $vxe-table-row-checkbox-checked-background-color: $blue-1 !default;
 $vxe-table-row-hover-checkbox-checked-background-color: $blue-1 !default;
 $vxe-table-row-current-background-color: $blue-1 !default;
 $vxe-table-row-hover-current-background-color: $blue-1 !default;
-$vxe-table-column-header-hover-background-color: $neutral-2;
-$vxe-table-column-header-background-color: $neutral-1;
+$vxe-table-column-header-hover-background-color: $color-neutral-2;
+$vxe-table-column-header-background-color: $color-neutral-1;
 
 $vxe-header-font-size:12px !default;
 $vxe-table-header-border-top : 0px solid $color-white!default;
@@ -84,12 +84,12 @@ $vxe-table-column-padding-default: 11px 0 !default;
 $vxe-table-column-padding-medium: 11px 0 !default;
 $vxe-table-column-padding-small: 7px 0 !default;
 $vxe-table-column-padding-mini: 7px 0 !default;
-$vxe-table-column-hover-background-color: $color-master-6!default;
-$vxe-table-column-current-background-color: $color-master-6 !default;
+$vxe-table-column-hover-background-color: $color-master-bg-light-2 !default;
+$vxe-table-column-current-background-color: $color-master-bg-light-2 !default;
 $vxe-table-column-icon-border-color: #c0c4cc !default;
 $vxe-table-column-icon-border-hover-color: #515A6E !default;
 
-$vxe-table-cell-placeholder-color: $neutral-7 !default;
+$vxe-table-cell-placeholder-color: $color-neutral-7 !default;
 $vxe-table-cell-padding-left: 10px !default;
 $vxe-table-cell-padding-left-first: 20px !default;
 $vxe-table-cell-padding-right: 10px !default;
@@ -121,8 +121,8 @@ $vxe-table-fixed-right-scrolling-box-shadow: -4px 3px 4px 0px rgba(0, 0, 0, 0.12
 
 /*filter*/
 $vxe-table-filter-panel-background-color: $color-bg-2 !default;
-$vxe-table-filter-footer-border-color: $neutral-3 !default;
-$vxe-table-filter-footer-border-color: $neutral-3 !default;
+$vxe-table-filter-footer-border-color: $color-neutral-3 !default;
+$vxe-table-filter-footer-border-color: $color-neutral-3 !default;
 $vxe-table-filter-wrapper-min-width: 120px !default;
 $vxe-table-filter-wrapper-max-width: 360px !default;
 $vxe-table-filter-body-max-height: 200px !default;
@@ -149,8 +149,8 @@ $vxe-grid-maximize-background-color: $color-white !default;
 $vxe-toolbar-background-color: $color-bg-2 !default;
 $vxe-toolbar-custom-active-background-color: #D9DADB !default;
 $vxe-toolbar-panel-background-color: $color-bg-2 !default;
-$vxe-toolbar-custom-option-hover-color: $neutral-1 !default;
-$vxe-toolbar-custom-header-border-color: $neutral-2 !default;
+$vxe-toolbar-custom-option-hover-color: $color-neutral-1 !default;
+$vxe-toolbar-custom-header-border-color: $color-neutral-2 !default;
 $vxe-toolbar-custom-option-height: 32px !default;
 $vxe-toolbar-custom-option-line-height: 32px !default;
 $vxe-toolbar-custom-option-top: 42px !default; // 36 + 8

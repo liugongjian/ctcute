@@ -105,11 +105,11 @@ export default class extends Vue {
 <style lang="scss">
 .header-nav__search__popper {
   li:hover {
-    background: $color-master-7;
+    background: $color-master-bg-light-2;
   }
 
   li .keyword {
-    color: $color-master-1;
+    color: $color-master;
   }
 }
 </style>

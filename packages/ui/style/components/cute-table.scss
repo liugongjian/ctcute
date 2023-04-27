@@ -5,8 +5,8 @@
   }
 
   &__btn--active {
-    color: $color-master-3;
-    border-color: $color-master-3;
+    color: $color-master-active;
+    border-color: $color-master-active;
   }
 
   &__page {
@@ -109,7 +109,7 @@
         height: 50px;
         padding: 0 $padding-4x;
 
-        .el-button+.el-button {
+        .el-button + .el-button {
           margin-left: $margin-4x;
         }
       }

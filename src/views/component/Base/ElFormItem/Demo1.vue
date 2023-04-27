@@ -365,22 +365,23 @@ export default class extends Vue {
 .validate-select {
   width: 300px;
 }
+
 .form-item__tip {
   position: absolute;
   top: 100%;
   left: 0;
-  color: $text-color-light-1;
-  font-size: $text-size-primary;
-  line-height: $text-size-primary;
+  color: $text-color-light;
+  font-size: $text-size;
+  line-height: $text-size;
   padding-top: 6px;
 
   &:before {
-    font-family: 'cute-icons';
+    font-family: cute-icons;
     content: '\eb5b';
     color: $icon-color;
-    font-size: $text-size-medium;
+    font-size: $text-size-md;
     vertical-align: top;
-    margin-right: $margin-tiny;
+    margin-right: $margin;
   }
 }
 </style>

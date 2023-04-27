@@ -12,25 +12,13 @@ $color-master-disabled: $blue-3 !default; // 禁用
 $color-master-bg: $blue-3 !default; // 背景
 $color-master-bg-light: $blue-2 !default; // 背景浅色
 $color-master-bg-light-2: $blue-1 !default; // 背景浅色2
-// $color-master-bg-light-2: $neutral-1 !default; // 背景浅色2
-
-$color-master-1: $blue-base !default; // deprecated(弃用)
-$color-master-2: $blue-5 !default; // deprecated(弃用)
-$color-master-3: $blue-7 !default; // deprecated(弃用)
-$color-master-4: $blue-3 !default; // deprecated(弃用)
-$color-master-5: $blue-2 !default; // deprecated(弃用)
-$color-master-6: $blue-1 !default; // deprecated(弃用)
-$color-master-7: $blue-1 !default; // deprecated(弃用)
 
 /* CT特殊色, ct意为ctyun缩写 */
 $color-ct: $red-base !default; // 默认
 $color-ct-hover: $red-5 !default; // 悬停
 $color-ct-active: $red-7 !default; // 触发
 $color-ct-disabled: $red-3 !default; // 禁用
-
-$color-sp-1: $red-base !default; // deprecated(弃用)
-$color-sp-2: $red-5 !default; // deprecated(弃用)
-$color-sp-3: $red-7 !default; // deprecated(弃用)
+$color-ct-bg: $red-1 !default;
 
 /* Title: 状态色; Doc: true
 -------------------------- */
@@ -60,19 +48,6 @@ $color-fatal-active: $ruby-10 !default;
 $color-fatal-disabled: $ruby-6 !default;
 $color-fatal-bg: $ruby-1 !default;
 
-$color-status-master: $color-master !default; // deprecated(弃用)
-$color-status-master-1: $color-master !default; // deprecated(弃用)
-$color-status-danger: $ruby-base !default; // deprecated(弃用)
-$color-status-danger-1: $ruby-base !default; // deprecated(弃用)
-$color-status-danger-2: $ruby-1 !default; // deprecated(弃用)
-$color-status-danger-3: $ruby-8 !default; // deprecated(弃用)
-$color-status-info: $blue-base !default; // deprecated(弃用)
-$color-status-info-1: $blue-base !default; // deprecated(弃用)
-$color-status-success: $green-base !default; // deprecated(弃用)
-$color-status-success-1: $green-base !default; // deprecated(弃用)
-$color-status-warning: $orange-base !default; // deprecated(弃用)
-$color-status-warning-1: $orange-base !default; // deprecated(弃用)
-
 /* Title: 中性色; Doc: true
 -------------------------- */
 $color-neutral-1: $neutral-1 !default;
@@ -90,47 +65,21 @@ $color-white: $white !default;
 $color-white-hover: $color-neutral-3 !default;
 $color-black: $black !default;
 
-$color-grey-0: $black !default; // deprecated(弃用)
-$color-grey-1: $neutral-10 !default; // deprecated(弃用)
-$color-grey-2: $neutral-9 !default; // deprecated(弃用)
-$color-grey-3: $neutral-8 !default; // deprecated(弃用)
-$color-grey-4: $neutral-7 !default; // deprecated(弃用)
-$color-grey-5: $neutral-6 !default; // deprecated(弃用)
-$color-grey-6: $neutral-5 !default; // deprecated(弃用)
-$color-grey-7: $neutral-4 !default; // deprecated(弃用)
-$color-grey-8: $neutral-3 !default; // deprecated(弃用)
-$color-grey-9: $neutral-2 !default; // deprecated(弃用)
-$color-grey-10: $neutral-1 !default; // deprecated(弃用)
-$color-grey-11: $neutral-1 !default; // deprecated(弃用)
-
-/* Title: 其他色; Doc: false
--------------------------- */
-$color-other-1: $color-neutral-8 !default; // deprecated(弃用) 使用在tooltip背景, order页眉背景
-
 /* Title: 背景色; Doc: true
 -------------------------- */
 $color-bg-1: $white !default; // 组件背景色
 $color-bg-2: $white !default; // 背景卡片颜色
-$color-bg-3: $neutral-1 !default; // 页面整体背景色
+$color-bg-3: $color-neutral-1 !default; // 页面整体背景色
 $color-form-component-bg: $color-bg-1 !default;
 $color-content-bg: $color-bg-2 !default;
 $color-body-bg: $color-bg-3 !default;
 
-$body-fill: $color-bg-3 !default; // deprecated(弃用)
-
 /* Title: 禁用色; Doc: true
 由于多个表单组件会用到disabled的状态，因此仍然保留以下变量
 -------------------------- */
-$disabled-bg: $neutral-1 !default;
-$disabled-border: $neutral-5 !default;
-$disabled-color: $neutral-6 !default;
-
-$disabled-danger-bg: $color-white !default; // deprecated(弃用)
-$disabled-danger-color: mix($white, $color-status-danger-1, 50%) !default; // deprecated(弃用)
-$disabled-danger-border: $disabled-danger-color !default; // deprecated(弃用)
-$disabled-fill: $disabled-bg !default; // deprecated(弃用)
-$disabled-danger-fill: $color-white !default; // deprecated(弃用)
-$disabled-icon-color: $neutral-6 !default; // deprecated(弃用)
+$disabled-bg: $color-neutral-1 !default;
+$disabled-border: $color-neutral-5 !default;
+$disabled-color: $color-neutral-6 !default;
 
 /* Title: 字体、字号、字体颜色、字重; Doc: true
 -------------------------- */
@@ -142,22 +91,14 @@ $text-size-sm: 12px !default; // 字号small
 $text-size-md: 14px !default; // 字号medium
 $text-size-lg: 16px !default; // 字号large
 $text-size-xl: 18px !default; // 字号extra large
-$text-color: $neutral-10 !default; // 强调/正文标题
-$text-color-light: $neutral-9 !default; // 次强调/正文标题
-$text-color-light-2: $neutral-6 !default; // 置灰信息
+$text-color: $color-neutral-10 !default; // 强调/正文标题
+$text-color-light: $color-neutral-9 !default; // 次强调/正文标题
+$text-color-light-2: $color-neutral-6 !default; // 置灰信息
 $text-color-disabled: $text-color-light-2 !default; // 置灰信息($text-color-light-2别名)
-$text-color-feature: $neutral-7 !default; // 说明文字
-$text-color-placeholder: $neutral-7 !default; // 组件占位文本
+$text-color-feature: $color-neutral-7 !default; // 说明文字
+$text-color-placeholder: $color-neutral-7 !default; // 组件占位文本
 $text-weight: normal; // 标准字体粗细
 $text-title-weight: bold; // 标题的字体粗细
-
-$text-size-primary: $text-size !default; // deprecated(弃用)
-$text-size-small: $text-size-sm !default; // deprecated(弃用)
-$text-size-medium: $text-size-md !default; // deprecated(弃用)
-$text-size-large: $text-size-lg !default; // deprecated(弃用)
-$text-size-x-large: $text-size-xl !default; // deprecated(弃用)
-$text-color-primary: $text-color !default; // deprecated(弃用)
-$text-color-light-1: $text-color-light !default; // deprecated(弃用)
 
 /* Title: 行间距; Doc: true
 -------------------------- */
@@ -165,17 +106,12 @@ $line-height: 1.5 !default;
 
 /* Title: 边框; Doc: true
 -------------------------- */
-$border-color: $neutral-5 !default;
-$border-color-hover: $neutral-9 !default;
-$border-color-light: $neutral-1 !default;
-$border-color-dark: $neutral-6 !default;
+$border-color: $color-neutral-5 !default;
+$border-color-hover: $color-neutral-9 !default;
+$border-color-light: $color-neutral-1 !default;
+$border-color-dark: $color-neutral-6 !default;
 $border-radius: 3px !default;
 $border-radius-md: 5px !default;
-
-$border-color-primary: $border-color !default; // deprecated(弃用)
-$border-color-light-1: $border-color-light !default; // deprecated(弃用)
-$border-color-dark-1: $border-color-dark !default; // deprecated(弃用)
-$border-radius-medium: 5px !default; // deprecated(弃用)
 
 /* Title: 间距; Doc: true
 -------------------------- */
@@ -218,28 +154,12 @@ $margin-10x: $common-space-10x !default; // 40px
 $margin-6: $common-space-6 !default; // 特殊场景使用6px
 $margin-10: $common-space-10 !default; // 特殊场景使用10px
 
-$padding-primary: 20px !default; // deprecated(弃用)
-$padding-medium: 16px !default; // deprecated(弃用)
-$padding-small: 8px !default; // deprecated(弃用)
-$padding-tiny: 4px !default; // deprecated(弃用)
-$margin-large: 20px !default; // deprecated(弃用)
-$margin-medium: 16px !default; // deprecated(弃用)
-$margin-small: 8px !default; // deprecated(弃用)
-$margin-tiny: 4px !default; // deprecated(弃用)
-$margin-primary: $margin-small !default; // deprecated(弃用)
-
 /* Title: 阴影; Doc: true
 -------------------------- */
 $shadow-1: 0px 0px 8px rgba(100, 110, 144, 0.1) !default; // 一级阴影: 背景卡片使用
 $shadow-2: 0px 0px 16px rgba(100, 110, 144, 0.2) !default; // 二级阴影: 下拉组件使用，如下拉菜单、下拉选择器、气泡确认框
 $shadow-3: 0px 0px 40px rgba(0, 0, 0, 0.1) !default; // 三级阴影: 最上层投影，对话框、抽屉使用
 $shadow-form-item: 0px 2px 2px rgba(0, 0, 0, 0.1) !default; // 组件Focused状态使用 4级
-
-$shadow-input: 0 0 4px 0 rgba(250, 131, 52, 20%) !default; // deprecated(弃用)
-$shadow-card: 0 2px 8px 0 rgba(200, 201, 204, 50%) !default; // deprecated(弃用)
-$shadow-dialog: 0 6px 16px -8px rgba(0, 0, 0, 8%), 0 9px 28px 0 rgba(0, 0, 0, 5%),
-  0 12px 48px 16px rgba(0, 0, 0, 3%) !default; // deprecated(弃用)
-$shadow-table-card: rgba(200, 201, 204, 50%) !default; // deprecated(弃用)
 
 /* Title: 页面框架; Doc: true
 -------------------------- */
@@ -258,49 +178,28 @@ $cute-layout-sidebar-text-color: $text-color !default;
 $cute-layout-sidebar-arrow-color: $text-color-light !default;
 
 $header-input-bg: #353f58 !default;
-
-$header-text-color: #c2c2c2 !default; // deprecated(弃用)
-$header-search-text-color: $text-color-light-2 !default; // deprecated(弃用)
-$header-height: $cute-layout-header-height !default; // deprecated(弃用)
-$header-fill-1: $cute-layout-header-bg !default; // deprecated(弃用)
-$header-fill-2: $header-input-bg !default; // deprecated(弃用)
-$header-border: $cute-layout-header-border !default; // deprecated(弃用)
-$sidebar-width: $cute-layout-sidebar-width !default; // deprecated(弃用)
-$sidebar-fill: $color-white !default; // deprecated(弃用)
-$sidebar-sub-fill: $color-white !default; // deprecated(弃用)
-$sidebar-sub-hover: $color-master-bg-light-2 !default; // deprecated(弃用)
+$header-search-text-color: $text-color-light-2 !default;
 
 /* Title: Tag; Doc: false
 -------------------------- */
-$tag-master: $blue-1 !default; // 主题色标签背景
-$tag-master-border: $blue-base !default; // 主题色标签边框
-$tag-info: $neutral-1 !default; // 信息色标签背景
-$tag-info-dark: $neutral-6 !default; // 信息色标签Dark类型背景
-$tag-info-border: $neutral-3 !default; // 信息色标签边框
+$tag-master: $color-master-bg-light-2 !default; // 主题色标签背景
+$tag-master-border: $color-master !default; // 主题色标签边框
+$tag-info: $color-neutral-1 !default; // 信息色标签背景
+$tag-info-dark: $color-neutral-6 !default; // 信息色标签Dark类型背景
+$tag-info-border: $color-neutral-3 !default; // 信息色标签边框
 $tag-info-text: $text-color !default; // 信息色标签字体颜色
-$tag-success: $green-1 !default; // 成功色标签背景
-$tag-success-border: $green-base !default; // 成功色标签边框
-$tag-warning: $orange-1 !default; // 警告色标签背景
-$tag-warning-border: $orange-base !default; // 警告色标签边框
-$tag-danger: $ruby-1 !default; // 危险色标签背景
-$tag-danger-border: $ruby-base !default; // 危险色标签边框
+$tag-success: $color-success-bg !default; // 成功色标签背景
+$tag-success-border: $color-success !default; // 成功色标签边框
+$tag-warning: $color-warning-bg !default; // 警告色标签背景
+$tag-warning-border: $color-warning !default; // 警告色标签边框
+$tag-danger: $color-danger-bg !default; // 危险色标签背景
+$tag-danger-border: $color-danger !default; // 危险色标签边框
 $tag-fatal: $ruby-2 !default; // 危险色标签背景
-$tag-fatal-border: $ruby-8 !default; // 危险色标签边框
-$tag-weak: $neutral-1 !default; // 轻微提示色标签背景
-$tag-weak-border: $neutral-6 !default; // 轻微提示色标签边框
-$tag-ct: $red-1 !default; // CT特殊色标签背景
-$tag-ct-border: $red-base !default; // CT特殊色标签边框
-
-$color-tag-master-1: $tag-master-border !default; // deprecated(弃用)
-$color-tag-master-2: $tag-master !default; // deprecated(弃用)
-$color-tag-info-1: $tag-info-border !default; // deprecated(弃用)
-$color-tag-info-2: $tag-info !default; // deprecated(弃用)
-$color-tag-success-1: $tag-success-border !default; // deprecated(弃用)
-$color-tag-success-2: $tag-success !default; // deprecated(弃用)
-$color-tag-warning-1: $tag-warning-border !default; // deprecated(弃用)
-$color-tag-warning-2: $tag-warning !default; // deprecated(弃用)
-$color-tag-danger-1: $tag-danger-border !default; // deprecated(弃用)
-$color-tag-danger-2: $tag-danger !default; // deprecated(弃用)
+$tag-fatal-border: $color-fatal !default; // 危险色标签边框
+$tag-weak: $color-neutral-1 !default; // 轻微提示色标签背景
+$tag-weak-border: $color-neutral-6 !default; // 轻微提示色标签边框
+$tag-ct: $color-ct-bg !default; // CT特殊色标签背景
+$tag-ct-border: $color-ct !default; // CT特殊色标签边框
 
 /* Title: Button; Doc: false
 -------------------------- */
@@ -351,7 +250,6 @@ $input-lg-height: 40px !default;
 $input-height: $input-md-height !default;
 $input-prefix-padding: $padding-9x !default;
 $input-suffix-padding: $padding-9x !default;
-$input-fill: $color-white !default; // deprecated(弃用)
 
 /* Title: Select; Doc: false
 -------------------------- */
@@ -396,16 +294,12 @@ $table-cell-selection-line-height: 20px !default;
 $table-border-color: $color-neutral-3 !default;
 $table-sort-caret-bg: $color-neutral-6 !default;
 $table-fixed-box-shadow: 0px 2px 8px rgba(100, 110, 144, 0.2) !default;
-$table-row-hover-background-color: $neutral-2 !default;
+$table-row-hover-background-color: $color-neutral-2 !default;
 $table-filter-item-height: 32px !default;
-
-$table-header-fill: $table-header-bg !default; // deprecated(弃用)
-$table-cell-fill: $table-cell-bg !default; // deprecated(弃用)
-$table-sort-caret-fill: $table-sort-caret-bg !default; // deprecated(弃用)
 
 /* Title: Pagination; Doc: false
 -------------------------- */
-$pagination-bg: $neutral-1 !default;
+$pagination-bg: $color-neutral-1 !default;
 $pagination-button-color: $text-color-light !default;
 $pagination-hover-color: $color-master !default;
 $pagination-hover-bg: $color-bg-3 !default;
@@ -418,8 +312,6 @@ $pagination-height: 24px !default;
 $pagination-height-sm: 24px !default;
 $pagination-button-width: 20px !default;
 $pagination-button-width-sm: 20px !default;
-
-$pagination-fill: $color-white; // deprecated(弃用)
 
 /* Title: Transfer; Doc: false
 -------------------------- */
@@ -441,8 +333,8 @@ $tabs-default-line-color: $color-neutral-3 !default; // 默认风格的线条颜
 
 /* Title: Switch; Doc: false
 -------------------------- */
-$switch-core-bg: $neutral-6 !default;
-$switch-core-bg-disabled: $neutral-5 !default;
+$switch-core-bg: $color-neutral-6 !default;
+$switch-core-bg-disabled: $color-neutral-5 !default;
 $switch-core-color: $color-bg-1 !default;
 $switch-small-height: $common-space-4x !default;
 $switch-small-core-size: $common-space-3x !default;
@@ -450,15 +342,13 @@ $switch-small-core-size: $common-space-3x !default;
 /* Title: Tooltip; Doc: false
 -------------------------- */
 $tooltip-bg: $color-neutral-8 !default;
-$tooltop-text-color: $neutral-1 !default;
+$tooltop-text-color: $color-neutral-1 !default;
 $tooltip-light-bg: $color-bg-1 !default;
-$tooltop-light-text-color: $neutral-9 !default;
-
-$tooltip-fill: $tooltip-bg !default; // deprecated(弃用)
+$tooltop-light-text-color: $color-neutral-9 !default;
 
 /* Title: Notification; Doc: false
 -------------------------- */
-$notification-border-color: $neutral-1 !default;
+$notification-border-color: $color-neutral-1 !default;
 
 /* Title: Upload; Doc: false
 -------------------------- */
@@ -467,15 +357,15 @@ $upload-color: $color-master !default;
 $upload-border-color: $border-color !default;
 $upload-bg: $color-bg-1 !default;
 $upload-bg-hover: $color-neutral-1 !default;
-$upload-fill: $upload-bg !default; // deprecated(弃用)
 $upload-font-size: $text-size-sm !default;
 $upload-tips-font-color: $color-neutral-7 !default;
-$upload-font-active-color: $color-grey-1 !default;
+$upload-font-active-color: $color-neutral-10 !default;
 $upload-picture-card-size: 100px !default;
 $upload-picture-card-progress-circle-size: 72px !default;
 $upload-file-uploader-width: 320px !default;
 $upload-dragger-border-radius: $border-radius !default;
 $upload-dragger-text-color: $text-color !default;
+
 /* Title: Card; Doc: false
 -------------------------- */
 $card-bg: $color-bg-2 !default;
@@ -491,11 +381,11 @@ $date-panel-btn-size: 28px !default;
 
 /* Title: Cascader; Doc: false
 -------------------------- */
-$cascader-tag-bg: $neutral-1 !default;
-$cascader-tag-border: $neutral-5 !default;
+$cascader-tag-bg: $color-neutral-1 !default;
+$cascader-tag-border: $color-neutral-5 !default;
 $cascader-tag-close-color: $white !default;
-$cascader-tag-close-bg: $neutral-6 !default;
-$cascader-node-hover: $neutral-1 !default;
+$cascader-tag-close-bg: $color-neutral-6 !default;
+$cascader-node-hover: $color-neutral-1 !default;
 $cascader-panel-bg: $color-bg-1 !default;
 
 /* Title: Collapse; Doc: false
@@ -503,17 +393,14 @@ $cascader-panel-bg: $color-bg-1 !default;
 $collapse-border-color: $color-neutral-3 !default;
 $collapse-content-background-color: $color-bg-1 !default;
 $collapse-header-bg: $color-neutral-1 !default;
-$collapse-header-arrow-color: $neutral-6 !default;
+$collapse-header-arrow-color: $color-neutral-6 !default;
 $collapse-seperate-header-bg: $color-neutral-2 !default;
 $collapse-header-height: 36px !default;
-
-$collapse-item-header-height: 32px !default; // deprecated(弃用)
-$collapse-header-fill: $collapse-header-bg; // deprecated(弃用)
 
 /* Title: Steps; Doc: false
 -------------------------- */
 $steps-bg-color: $color-bg-2 !default; // 覆盖色块，与背景同色
-$steps-icon-bg: $blue-1 !default; // 完成步骤背景色
+$steps-icon-bg: $color-master !default; // 完成步骤背景色
 
 /* Title: Dialog; Doc: false
 -------------------------- */
@@ -526,36 +413,34 @@ $icon-color: $color-neutral-6 !default;
 
 /* Title: Loading; Doc: false
 -------------------------- */
-$loading-primary-color: mix($color-white, $color-master, 50%) !default; // deprecated(弃用)
-$loading-primary-border: $loading-primary-color !default; // deprecated(弃用)
-$loading-default-color: $color-grey-10 !default;
-$loading-default-border: $color-grey-6 !default;
+$loading-default-color: $color-neutral-1 !default;
+$loading-default-border: $color-neutral-5 !default;
 
 /* Title: Alert; Doc: false
 -------------------------- */
 $alert-text-color: $text-color-light !default;
-$alert-info-bg: $blue-1 !default;
-$alert-success-bg: $green-1 !default;
-$alert-warning-bg: $orange-1 !default;
-$alert-danger-bg: $ruby-1 !default;
-$alert-weak-bg: $neutral-1 !default;
+$alert-info-bg: $color-master-bg-light-2 !default;
+$alert-success-bg: $color-success-bg !default;
+$alert-warning-bg: $color-warning-bg !default;
+$alert-danger-bg: $color-danger-bg !default;
+$alert-weak-bg: $color-neutral-1 !default;
 
 /* Title: CuteSlider; Doc: false
 -------------------------- */
-$slider-stop-color: $neutral-3 !default;
+$slider-stop-color: $color-neutral-3 !default;
 $slider-stop-border-color: $color-white !default;
 $slider-height: 4px !default;
 $cute-slider-size: 14px !default; // 特殊大小
-$cute-slider-text-color: $neutral-10 !default;
-$cute-slider-bg: $neutral-2 !default;
+$cute-slider-text-color: $color-neutral-10 !default;
+$cute-slider-bg: $color-neutral-2 !default;
 $cute-slider-line-color: $color-master;
 $cute-slider-disabled-border: $disabled-border;
 $cute-slider-btn-bg: linear-gradient(to bottom, $color-white, $color-master-bg-light) !default;
 $cute-slider-btn-width: 17px !default;
 $cute-slider-btn-height: 22px !default;
-$cute-slider-btn-color: $color-master-2 !default;
+$cute-slider-btn-color: $color-master-hover !default;
 $cute-slider-bg-disabled: $disabled-border !default;
-$cute-slider-btn-color-disabled: $color-master-4 !default;
+$cute-slider-btn-color-disabled: $color-master-disabled !default;
 
 /* Title: Animation; Doc: true
 -------------------------- */
@@ -600,21 +485,6 @@ $chart-color-10: #93c2bb !default;
 $chart-color-11: #81dbe3 !default;
 $chart-color-12: #f48fb4 !default;
 
-/* Title: 图表默认颜色(deprecated(弃用)); Doc: false
--------------------------- */
-$chartColor1: $chart-color-1 !default;
-$chartColor2: $chart-color-2 !default;
-$chartColor3: $chart-color-3 !default;
-$chartColor4: $chart-color-4 !default;
-$chartColor5: $chart-color-5 !default;
-$chartColor6: $chart-color-6 !default;
-$chartColor7: $chart-color-7 !default;
-$chartColor8: $chart-color-8 !default;
-$chartColor9: $chart-color-9 !default;
-$chartColor10: $chart-color-10 !default;
-$chartColor11: $chart-color-11 !default;
-$chartColor12: $chart-color-12 !default;
-
 /* Title: 图表高亮颜色; Doc: true
 -------------------------- */
 $chart-color-h-1: #9fd9ff !default;
@@ -630,32 +500,5 @@ $chart-color-h-10: #a1d5cd !default;
 $chart-color-h-11: #8df0f9 !default;
 $chart-color-h-12: #ff9dc6 !default;
 
-/* Title: 图表高亮颜色(deprecated(弃用)); Doc: false
--------------------------- */
-$chartColorH1: $chart-color-h-1 !default;
-$chartColorH2: $chart-color-h-2 !default;
-$chartColorH3: $chart-color-h-3 !default;
-$chartColorH4: $chart-color-h-4 !default;
-$chartColorH5: $chart-color-h-5 !default;
-$chartColorH6: $chart-color-h-6 !default;
-$chartColorH7: $chart-color-h-7 !default;
-$chartColorH8: $chart-color-h-8 !default;
-$chartColorH9: $chart-color-h-9 !default;
-$chartColorH10: $chart-color-h-10 !default;
-$chartColorH11: $chart-color-h-11 !default;
-$chartColorH12: $chart-color-h-12 !default;
 
-/* Title: 图表light颜色(deprecated(弃用)); Doc: false
--------------------------- */
-$chartColorL1: #f2f7ff !default;
-$chartColorL2: #f6fbef !default;
-$chartColorL3: #fefaed !default;
-$chartColorL4: #fdf5ed !default;
-$chartColorL5: #f5f3fc !default;
-$chartColorL6: #f1f9fe !default;
-$chartColorL7: #f7f0fc !default;
-$chartColorL8: #fdf1ea !default;
-$chartColorL9: #f5f6fe !default;
-$chartColorL10: #effaf7 !default;
-$chartColorL11: #fdf0ef !default;
-$chartColorL12: #fef9f3 !default;
+@import './variables-deprecated.scss';

@@ -110,7 +110,7 @@ $input-suffix-padding: $padding-9x;
   // 禁用状态样式
   &.is-disabled {
     .el-input__inner {
-      background-color: $color-grey-10;
+      background-color: $color-neutral-1;
       border: 1px solid $disabled-border;
       color: $select-color-disabled;
 

@@ -9,4 +9,5 @@ export default (app: Application) => {
   router.get('/v1/pageNames', controller.code.getAllPageName)
   router.get('/v1/pages', controller.code.getPageList)
   router.get('/v1/theme', controller.theme.getTheme)
+  router.get('/v1/scss/gen', controller.scss.genScssTheme)
 }

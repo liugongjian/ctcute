@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 
 // 引入自定义语言配置
@@ -6,6 +7,8 @@ import en from './en/index'
 
 // 引入UI框架语言配置---elementui
 import locale from 'element-ui/lib/locale'
+
+Vue.use(VueI18n)
 
 const DEFAULT_OPTIONS = {
   storageKey: 'lang',

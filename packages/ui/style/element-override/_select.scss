@@ -25,7 +25,7 @@ $select-tag-margin: 2px 0 2px 8px;
 .el-select {
   .el-icon-circle-close {
     &:hover {
-      color: $color-neutral-5;
+      color: $color-master-1;
       cursor: pointer;
     }
 
@@ -102,7 +102,7 @@ $select-tag-margin: 2px 0 2px 8px;
     color: $select-tag-color;
 
     &:hover {
-      color: $select-tag-color-hover;
+      color: $color-master-1;
     }
   }
 }
@@ -163,10 +163,6 @@ $select-tag-margin: 2px 0 2px 8px;
     background-color: unset;
     color: $select-color;
 
-
-    &:hover {
-      background: $range-editor-multiple-bg;
-    }
   }
 
   &__empty {
@@ -181,11 +177,12 @@ $select-tag-margin: 2px 0 2px 8px;
   }
 
   &.el-popper[x-placement^='bottom'] {
-    margin-top: $margin;
+    margin-top: $margin-2x;
+
   }
 
   &el-popper[x-placement^='top'] {
-    margin-bottom: $margin;
+    margin-bottom: $margin-2x;
   }
 
   &.el-popper {

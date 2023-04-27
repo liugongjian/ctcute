@@ -6,6 +6,7 @@ $checkbox-padding-small: 5px $padding-2x;
 $checkbox-padding-medium: 9px $padding-4x;
 $checkbox-padding-large: $margin-3x $padding-6x;
 $checkbox-border-radius: $border-radius;
+$checkbox-label-height: $checkbox-label-size + 4;
 
 .el-checkbox-group {
   .el-checkbox-button {
@@ -87,20 +88,26 @@ $checkbox-border-radius: $border-radius;
 
 .el-checkbox__input {
   // vertical-align: text-bottom;
-  line-height: $checkbox-label-size - 2;
-  height: $checkbox-label-size;
-  margin-top: -3px;
+  line-height: $checkbox-label-size;
+  height: $checkbox-label-height;
+
+  .el-checkbox__inner {
+    width: $checkbox-label-size;
+    height: $checkbox-label-size;
+    background-color: transparent;
+
+    &:after {
+      left: 4px;
+      top: 1px;
+    }
+  }
 }
 
-.el-checkbox__inner {
-  width: $checkbox-label-size;
-  height: $checkbox-label-size;
-  background-color: transparent;
-
-  &:after {
-    left: 4px;
-    top: 1px;
-  }
+.el-checkbox__label {
+  font-size: $text-size;
+  color: $text-color;
+  font-weight: normal;
+  line-height: $checkbox-label-size;
 }
 
 .el-checkbox__input.is-indeterminate .el-checkbox__inner {
@@ -127,13 +134,6 @@ $checkbox-border-radius: $border-radius;
 
 .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner:after {
   border-color: $disabled-border;
-}
-
-.el-checkbox__label {
-  font-size: $text-size;
-  color: $text-color;
-  font-weight: normal;
-  line-height: $checkbox-label-size;
 }
 
 @mixin checkbox-size($size, $padding) {

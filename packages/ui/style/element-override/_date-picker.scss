@@ -107,6 +107,12 @@ $datepicker-footer-button-color: $color-white;
   }
 }
 
+.el-date-range-picker__time-header,
+.el-date-picker__time-header {
+  padding-left: $common-space-3x;
+  padding-right: $common-space-3x;
+}
+
 .el-picker-panel.el-date-range-picker.el-popper {
   width: 646px;
   background-color: $color-bg-1;
@@ -176,6 +182,7 @@ $datepicker-footer-button-color: $color-white;
 
 .el-range-editor.el-input__inner {
   background-color: $color-bg-1;
+  padding: 3px $padding-3x;
 
   &.is-disabled {
     background-color: $color-neutral-1;
@@ -196,6 +203,7 @@ $datepicker-footer-button-color: $color-white;
 
 .el-range-editor .el-range__close-icon {
   justify-content: right;
+  color: $color-neutral-6;
 }
 
 .el-range-editor--medium .el-range__icon {
@@ -219,21 +227,36 @@ $datepicker-footer-button-color: $color-white;
 .el-range-editor--small,
 .el-range-editor--large,
 .el-date-editor {
+  .el-input__suffix-inner {
+    width: 14px;
+
+    .el-input__icon::before {
+      font-size: $text-size-md;
+    }
+  }
+
   .el-range__icon {
     color: $color-neutral-6;
     margin-left: 0;
     font-size: $text-size-md;
+    justify-content: left;
   }
 
-  &.el-input.el-input--prefix .el-input__prefix .el-input__icon {
-    width: $text-size-md;
+  .el-input__prefix {
     color: $color-neutral-6;
-    margin-left: 0;
 
-    &:before {
-      font-size: $text-size-md;
+    .el-input__icon {
+      width: $text-size-md;
+      color: $color-neutral-6;
+      margin-left: 0;
+      font-size: 14px;
+
+      &::before {
+        font-size: $text-size-md;
+      }
     }
   }
+
 
   .el-range-separator {
     width: 40px;
@@ -250,8 +273,10 @@ $datepicker-footer-button-color: $color-white;
   }
 
   .el-input__icon.el-icon-circle-close {
+    color: $color-neutral-6;
+
     &:hover {
-      color: $color-neutral-5;
+      color: $color-master-1;
     }
 
     &::before {
@@ -268,7 +293,7 @@ $datepicker-footer-button-color: $color-white;
 
 
   &.el-input .el-input__suffix {
-    right: $common-space-4x !important;
+    right: $common-space-3x !important;
   }
 
   &.el-input.el-input--medium {
@@ -280,6 +305,10 @@ $datepicker-footer-button-color: $color-white;
       line-height: $input-height;
     }
   }
+}
+
+.el-picker-panel__icon-btn {
+  color: $color-neutral-6;
 }
 
 .el-range-editor--large,

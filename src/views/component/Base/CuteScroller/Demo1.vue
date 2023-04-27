@@ -1,30 +1,39 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
- * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-07 09:31:42
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-23 15:44:24
  * @Description:
 -->
 <template>
   <div>
-    <h3>表格</h3>
+    <h3>{{ $t('demo.scoller.demo1.table') }}</h3>
     <cute-scroller v-model="heightVal">
       <el-table v-loading="loading" :data="tableData" fit border :height="heightVal">
-        <el-table-column prop="name" label="主机别名">
+        <el-table-column prop="name" :label="$t('demo.table.common.hostAlias')">
           <template slot-scope="{ row }">
             <router-link to="/">{{ row.name }}</router-link>
           </template>
         </el-table-column>
-        <el-table-column prop="status" label="实例状态"> </el-table-column>
-        <el-table-column prop="ip" label="IP地址" />
-        <el-table-column prop="cpu" label="CPU利用率(%)" />
-        <el-table-column prop="memory" label="内存利用率(%)" />
-        <el-table-column prop="disk" label="磁盘利用率(%)" />
-        <el-table-column prop="health" label="健康状态"> </el-table-column>
-        <el-table-column prop="actions" label="操作" width="150" fixed="right" class-name="actions">
+        <el-table-column prop="status" :label="$t('demo.table.common.instanceStatus')"></el-table-column>
+        <el-table-column prop="ip" :label="$t('demo.table.common.ip')" />
+        <el-table-column prop="cpu" :label="$t('demo.table.common.cpu')" />
+        <el-table-column prop="memory" :label="$t('demo.table.common.memory')" />
+        <el-table-column prop="disk" :label="$t('demo.table.common.disk')" />
+        <el-table-column prop="health" :label="$t('demo.table.common.health')"></el-table-column>
+        <el-table-column
+          prop="actions"
+          :label="$t('demo.table.common.operate')"
+          width="150"
+          fixed="right"
+          class-name="actions"
+        >
           <template slot-scope="{ row }">
-            <el-button type="text" @click="gotoDetail(row)">详情</el-button>
-            <el-button type="text" @click="gotoDashboard(row)">监控指标</el-button>
+            <el-button type="text" @click="gotoDetail(row)">{{ $t('demo.scoller.demo1.detail') }}</el-button>
+            <el-button
+              type="text"
+              @click="gotoDashboard(row)"
+            >{{ $t('demo.scoller.demo1.monitor') }}</el-button>
           </template>
         </el-table-column>
       </el-table>

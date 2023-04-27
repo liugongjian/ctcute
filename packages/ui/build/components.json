@@ -112,8 +112,8 @@
     "Step",
     "Alert",
     "Collapse",
-    "Rate",
-    "createI18n"
+    "Rate"
   ],
-  "vxetable": "VXETable"
+  "vxetable": "VXETable",
+  "i18n": "createI18n"
 }

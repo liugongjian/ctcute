@@ -7,8 +7,8 @@
 -->
 <template>
   <div class="button-demo-2">
-    <p>无边框的按钮</p>
-    <el-button icon="plus-circle" :border="false">添加按钮</el-button>
+    <p>{{ $t('demo.button.demo2.intro') }}</p>
+    <el-button icon="plus-circle" :border="false">{{ $t('demo.button.demo2.add') }}</el-button>
     <el-button icon="alert-fill" :border="false"></el-button>
   </div>
 </template>

@@ -273,7 +273,7 @@ $width: 640px;
     overflow: hidden;
     width: $width;
     height: 100%;
-    background: $color-grey-9;
+    background: $color-neutral-2;
     box-shadow: $shadow-1;
 
     .vue-codemirror {

@@ -247,7 +247,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
 
 .child {
   margin: 40px;
-  background: $color-grey-8;
+  background: $color-neutral-3;
 }
 
 .tips {

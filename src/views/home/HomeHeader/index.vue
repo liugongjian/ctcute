@@ -33,7 +33,7 @@ export default class extends Vue {}
 </script>
 <style lang="scss" scoped>
 .home-header {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 70%);
   position: fixed;
   left: 0;
   top: 0;
@@ -85,7 +85,7 @@ export default class extends Vue {}
       height: 30px;
       background: rgba(0, 0, 0, 4%);
       font-size: 12px;
-      color: $color-grey-4;
+      color: $color-neutral-7;
       line-height: 30px;
       font-weight: 400;
       border-radius: 3px;
@@ -104,7 +104,7 @@ export default class extends Vue {}
 
   &__nav {
     a {
-      color: $color-grey-1;
+      color: $color-neutral-10;
       margin-right: 30px;
       font-size: 14px;
 

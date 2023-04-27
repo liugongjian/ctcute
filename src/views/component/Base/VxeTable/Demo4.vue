@@ -254,7 +254,7 @@ export default class extends Vue {
   top: -1px;
 
   &--1 {
-    background: $color-status-success;
+    background: $color-success;
   }
 
   &--2 {
@@ -273,6 +273,7 @@ export default class extends Vue {
     background: $disabled-color;
   }
 }
+
 .el-dropdown-link {
   cursor: pointer;
   color: $color-master-1;
@@ -281,6 +282,7 @@ export default class extends Vue {
 .el-tag {
   margin-right: 8px;
 }
+
 ::v-deep .is--disabled {
   .cute-icon-not-selected {
     background-color: $disabled-fill;

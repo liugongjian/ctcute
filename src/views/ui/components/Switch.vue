@@ -56,7 +56,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 b {
   margin-right: 24px;
-  color: $color-grey-1;
+  color: $color-neutral-10;
 }
 
 .sub-switch {
@@ -64,12 +64,14 @@ b {
   align-items: center;
   margin-top: 24px;
 }
+
 .input-content {
   width: 846px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
   clear: both;
+
   .el-input {
     width: 250px;
   }

@@ -105,7 +105,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .sub-special {
   padding-bottom: 24px;
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
 }
 
 .sub-sample {
@@ -135,7 +135,7 @@ export default class extends Vue {
 }
 
 .button-loading {
-  color: $color-grey-4;
+  color: $color-neutral-7;
   font-size: 12px;
 }
 

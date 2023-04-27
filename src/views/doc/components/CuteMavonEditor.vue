@@ -45,7 +45,7 @@ export default class extends Vue {
   }
 
   ::v-deep.markdown-body h2 {
-    border-bottom: 1px solid $border-color-light-1;
+    border-bottom: 1px solid $border-color-light;
   }
 
   ::v-deep.markdown-body pre {

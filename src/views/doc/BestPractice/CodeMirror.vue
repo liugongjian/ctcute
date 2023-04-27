@@ -350,7 +350,7 @@ export default class extends Vue {
 
   .pB_Container {
     width: 100%;
-    background-color: $color-grey-9;
+    background-color: $color-neutral-2;
     height: 4px;
     display: inline-flex;
     line-height: 10px;
@@ -366,7 +366,7 @@ export default class extends Vue {
   }
 
   &__border {
-    border: 1px solid $color-grey-6;
+    border: 1px solid $color-neutral-5;
   }
 
   .el-cascader {
@@ -379,13 +379,13 @@ export default class extends Vue {
 }
 
 .sub-down {
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
 
   >h3 {
     margin-bottom: 0;
     font-family: PingFangSC-Medium;
     font-size: 14px;
-    color: $color-grey-1;
+    color: $color-neutral-10;
     line-height: 20px;
     font-weight: 500;
   }

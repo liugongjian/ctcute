@@ -142,7 +142,7 @@ export default class extends Vue {
 }
 
 .sub-table:not(:last-child) {
-  border-bottom: 1px solid $color-grey-7;
+  border-bottom: 1px solid $color-neutral-4;
   padding-bottom: 24px;
 }
 
@@ -160,7 +160,7 @@ export default class extends Vue {
   top: -1px;
 
   &--1 {
-    background: $color-status-success;
+    background: $color-success;
   }
 
   &--2 {
@@ -188,7 +188,7 @@ export default class extends Vue {
   margin-right: 10px;
 
   &--6 {
-    background: $color-status-success;
+    background: $color-success;
   }
 
   &--7 {

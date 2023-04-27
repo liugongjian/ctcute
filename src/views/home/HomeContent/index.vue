@@ -93,13 +93,13 @@ export default class extends Vue {
   height: auto;
   margin: 50px auto;
   font-size: 16px;
-  color: $color-grey-1;
+  color: $color-neutral-10;
   font-weight: 500;
 
   > h3 {
     text-align: center;
     font-size: 24px;
-    color: $color-grey-1;
+    color: $color-neutral-10;
     font-weight: 500;
   }
 
@@ -137,7 +137,7 @@ export default class extends Vue {
         top: -4px;
         font-family: PingFangSC-Regular;
         font-size: 14px;
-        color: $color-grey-1;
+        color: $color-neutral-10;
         font-weight: 400;
         pointer-events: none;
       }
@@ -159,7 +159,7 @@ export default class extends Vue {
         left: 157px;
         top: 273px;
         font-size: 16px;
-        color: $color-grey-1;
+        color: $color-neutral-10;
         font-weight: 500;
         margin: 0;
       }
@@ -183,7 +183,7 @@ export default class extends Vue {
     border-radius: 10px;
     font-family: PingFangSC-Regular;
     font-size: 20px;
-    color: $color-grey-4;
+    color: $color-neutral-7;
     font-weight: 400;
     height: 664px;
     background: #efefef;

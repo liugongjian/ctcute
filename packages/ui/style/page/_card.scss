@@ -114,7 +114,7 @@
 
     &.active {
       .card-box--title svg {
-        color: $color-status-success;
+        color: $color-success;
         
       }
     }
@@ -240,7 +240,7 @@
 
     &.active {
       .card-box__info__avatar svg {
-        color: $color-status-success;
+        color: $color-success;
         
       }
     }

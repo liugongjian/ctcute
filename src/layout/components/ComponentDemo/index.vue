@@ -100,7 +100,7 @@ export default class extends Vue {
       }
 
       &:hover {
-        background: $color-grey-10;
+        background: $color-neutral-1;
       }
     }
   }

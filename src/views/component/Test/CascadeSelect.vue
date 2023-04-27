@@ -1,24 +1,34 @@
 <!--
  * @Author: error: 孙善鹏
  * @Date: 2023-04-11 13:49:34
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-17 10:43:16
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-27 10:34:59
  * @Description: 
 -->
 <template>
   <div class="page-test">
-    <h1>CascadeSelect 级联选择</h1>
+    <h1>{{ $t('componentTest.cascadeSelect.title') }}</h1>
     <el-card>
-      <h3>单选-默认</h3>
+      <h3>{{ $t('componentTest.cascadeSelect.single') }}</h3>
       <div class="page-content">
         <el-radio-group v-model="itemSize" size="small">
-          <el-radio-button value="medium" label="medium">默认</el-radio-button>
-          <el-radio-button value="small" label="small">小</el-radio-button>
-          <el-radio-button value="large" label="large">大</el-radio-button>
+          <el-radio-button value="medium" label="medium">{{
+            $t('componentTest.common.data.default')
+          }}</el-radio-button>
+          <el-radio-button value="small" label="small">{{
+            $t('componentTest.common.data.small')
+          }}</el-radio-button>
+          <el-radio-button value="large" label="large">{{
+            $t('componentTest.common.data.large')
+          }}</el-radio-button>
         </el-radio-group>
         <el-radio-group v-model="itemDisabled" size="small">
-          <el-radio-button :value="true" :label="true">禁用</el-radio-button>
-          <el-radio-button :value="false" :label="false">启用</el-radio-button>
+          <el-radio-button :value="true" :label="true">{{
+            $t('componentTest.common.data.disable')
+          }}</el-radio-button>
+          <el-radio-button :value="false" :label="false">{{
+            $t('componentTest.common.data.enable')
+          }}</el-radio-button>
         </el-radio-group>
       </div>
 
@@ -26,7 +36,9 @@
         <!-- <el-checkbox v-model="privateshowalllevels" @change="itemChecked = []">不显示全部层级</el-checkbox> -->
         <!-- <el-divider direction="vertical"></el-divider> -->
 
-        <el-checkbox v-model="checkStrictly" @change="itemChecked = []">任选一级</el-checkbox>
+        <el-checkbox v-model="checkStrictly" @change="itemChecked = []">{{
+          $t('componentTest.cascadeSelect.random')
+        }}</el-checkbox>
       </div>
       <div>
         <el-cascader
@@ -41,12 +53,16 @@
       </div>
     </el-card>
     <el-card>
-      <h3>多选</h3>
+      <h3>{{ $t('componentTest.cascadeSelect.multiple') }}</h3>
       <div class="page-items">
-        <el-checkbox v-model="collapsetags" @change="itemChecked = []">不显示所有tag</el-checkbox>
+        <el-checkbox v-model="collapsetags" @change="itemChecked = []">{{
+          $t('componentTest.cascadeSelect.notAllTag')
+        }}</el-checkbox>
         <el-divider direction="vertical"></el-divider>
 
-        <el-checkbox v-model="checkStrictly" @change="itemChecked = []">任选一级</el-checkbox>
+        <el-checkbox v-model="checkStrictly" @change="itemChecked = []">{{
+          $t('componentTest.cascadeSelect.random')
+        }}</el-checkbox>
       </div>
       <div>
         <div class="page-items">

@@ -1,3 +1,10 @@
+<!--
+ * @Author: 孙善鹏
+ * @Date: 2023-04-10 09:23:15
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-27 18:35:30
+ * @Description: 
+-->
 <template>
   <div>
     <el-row>
@@ -41,7 +48,7 @@ export default class extends Vue {
   private checkAll = false
 
   private handleCheckAllChange(val) {
-    this.checkedCities = val ? this.cityOptions : []
+    this.checkedCities = val
     this.isIndeterminate = false
   }
 

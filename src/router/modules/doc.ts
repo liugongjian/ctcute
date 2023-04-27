@@ -90,14 +90,33 @@ const docRoutes = [
     component: Layout,
     meta: {
       breadcrumb: false,
+      title: '更换主题',
     },
     children: [
       {
-        path: '',
+        path: 'change',
         name: 'Theme',
-        component: () => import('@/views/doc/Guides/Theme.vue'),
+        component: () => import('@/views/doc/Theme/Change.vue'),
+        meta: {
+          title: '一键换肤',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'custom',
+        name: 'Theme',
+        component: () => import('@/views/doc/Theme/Custom.vue'),
         meta: {
           title: '更换主题',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'tool',
+        name: 'Tool',
+        component: () => import('@/views/doc/Theme/Tool.vue'),
+        meta: {
+          title: '主题生成工具',
           breadcrumb: true,
         },
       },

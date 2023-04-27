@@ -1,31 +1,31 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2023-03-17 13:45:09
- * @LastEditors: 朱凌浩
- * @LastEditTime: 2023-03-17 14:09:19
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-27 09:54:55
  * @Description: Button
 -->
 <template>
   <div class="button-test">
     <h1>Button</h1>
     <el-card>
-      <h3>默认按钮</h3>
+      <h3>{{ $t('componentTest.button.defaultButton') }}</h3>
       <el-form inline>
-        <el-form-item label="按钮尺寸">
-          <el-select v-model="size" placeholder="请选择按钮尺寸">
+        <el-form-item :label="$t('componentTest.button.size')">
+          <el-select v-model="size" :placeholder="$t('componentTest.button.placeohlder')">
             <el-option v-for="size in sizeList" :key="size" :label="size" :value="size"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="是否为朴素按钮">
+        <el-form-item :label="$t('componentTest.button.plain')">
           <el-checkbox v-model="isPlain"></el-checkbox>
         </el-form-item>
-        <el-form-item label="是否禁用">
+        <el-form-item :label="$t('componentTest.button.disable')">
           <el-checkbox v-model="isDisabed"></el-checkbox>
         </el-form-item>
-        <el-form-item label="是否加载中">
+        <el-form-item :label="$t('componentTest.button.loading')">
           <el-checkbox v-model="isLoading"></el-checkbox>
         </el-form-item>
-        <el-form-item label="是否显示图标">
+        <el-form-item :label="$t('componentTest.button.icon')">
           <el-checkbox v-model="hasIcon"></el-checkbox>
         </el-form-item>
       </el-form>
@@ -44,23 +44,23 @@
     </el-card>
 
     <el-card>
-      <h3>图标按钮</h3>
+      <h3>{{ $t('componentTest.button.iconButton') }}</h3>
       <el-form inline>
-        <el-form-item label="按钮尺寸">
-          <el-select v-model="size" placeholder="请选择按钮尺寸">
+        <el-form-item :label="$t('componentTest.button.size')">
+          <el-select v-model="size" :placeholder="$t('componentTest.button.placeholder')">
             <el-option v-for="size in sizeList" :key="size" :label="size" :value="size"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="是否为朴素按钮">
+        <el-form-item :label="$t('componentTest.button.plain')">
           <el-checkbox v-model="isPlain"></el-checkbox>
         </el-form-item>
-        <el-form-item label="是否禁用">
+        <el-form-item :label="$t('componentTest.button.disable')">
           <el-checkbox v-model="isDisabed"></el-checkbox>
         </el-form-item>
-        <el-form-item label="是否圆形">
+        <el-form-item :label="$t('componentTest.button.circle')">
           <el-checkbox v-model="isCircle"></el-checkbox>
         </el-form-item>
-        <el-form-item label="是否方形">
+        <el-form-item :label="$t('componentTest.button.square')">
           <el-checkbox v-model="isSquare"></el-checkbox>
         </el-form-item>
       </el-form>
@@ -116,20 +116,20 @@
       </p>
     </el-card>
     <el-card>
-      <h3>文本按钮</h3>
+      <h3>{{ $t('componentTest.button.textButton') }}</h3>
       <el-form inline>
-        <el-form-item label="按钮尺寸">
-          <el-select v-model="size" placeholder="请选择按钮尺寸">
+        <el-form-item :label="$t('componentTest.button.size')">
+          <el-select v-model="size" :placeholder="$t('componentTest.button.placeholder')">
             <el-option v-for="size in sizeList" :key="size" :label="size" :value="size"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="是否禁用">
+        <el-form-item :label="$t('componentTest.button.disable')">
           <el-checkbox v-model="isDisabed"></el-checkbox>
         </el-form-item>
-        <el-form-item label="是否加载中">
+        <el-form-item :label="$t('componentTest.button.loading')">
           <el-checkbox v-model="isLoading"></el-checkbox>
         </el-form-item>
-        <el-form-item label="是否显示图标">
+        <el-form-item :label="$t('componentTest.button.icon')">
           <el-checkbox v-model="hasIcon"></el-checkbox>
         </el-form-item>
       </el-form>
@@ -142,7 +142,7 @@
         :round="isRound"
         :icon="getIcon()"
       >
-        文本按钮
+        {{ $t('componentTest.button.textButton') }}
       </el-button>
     </el-card>
   </div>
@@ -157,27 +157,27 @@ export default class extends Vue {
   private buttonList = [
     {
       type: '',
-      label: '默认按钮',
+      label: this.$t('componentTest.button.defaultButton'),
     },
     {
       type: 'primary',
-      label: '主要按钮',
+      label: this.$t('componentTest.button.primaryButton'),
     },
     {
       type: 'ct',
-      label: '天翼云按钮',
+      label: this.$t('componentTest.button.ctyunButton'),
     },
     {
       type: 'success',
-      label: '成功按钮',
+      label: this.$t('componentTest.button.successButton'),
     },
     {
       type: 'warning',
-      label: '警告按钮',
+      label: this.$t('componentTest.button.warnButton'),
     },
     {
       type: 'danger',
-      label: '危险按钮',
+      label: this.$t('componentTest.button.dangerButton'),
     },
   ]
   private sizeList = ['large', 'medium', 'small', 'mini']

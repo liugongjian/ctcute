@@ -92,30 +92,32 @@ export default class extends Vue {
   top: -1px;
 
   &--1 {
-    background: $color-status-success;
+    background: $color-success;
   }
 
   &--2 {
-    background: $color-status-warning;
+    background: $color-warning;
   }
 
   &--3 {
-    background: $color-status-danger;
+    background: $color-danger;
   }
 
   &--4 {
-    background: $color-status-info;
+    background: $color-master;
   }
 
   &--5 {
     background: $disabled-color;
   }
 }
+
 .el-tag {
   margin-right: 8px;
 }
+
 .el-dropdown-link {
   cursor: pointer;
-  color: $color-master-1;
+  color: $color-master;
 }
 </style>

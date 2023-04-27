@@ -2321,7 +2321,7 @@ export default class extends Vue {
     padding-bottom: 15px;
     list-style: none;
     line-height: 1.8;
-    border: 1px solid $color-grey-6;
+    border: 1px solid $color-neutral-5;
     border-radius: $border-radius;
 
     &:not(:last-child) {
@@ -2333,19 +2333,19 @@ export default class extends Vue {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid $color-grey-6;
+    border-bottom: 1px solid $color-neutral-5;
 
     &__left {
       margin: 0;
       padding: 15px 30px;
       font-size: 20px;
-      color: $color-grey-1;
+      color: $color-neutral-10;
       font-weight: 700;
     }
 
     &__right {
       font-size: 14px;
-      margin-right: $margin-medium;
+      margin-right: $margin-4x;
     }
   }
 
@@ -2365,7 +2365,7 @@ export default class extends Vue {
       list-style: none;
       padding-left: 20px;
       padding-bottom: 5px;
-      color: $color-grey-1;
+      color: $color-neutral-10;
       word-break: break-all;
     }
   }

@@ -1,15 +1,15 @@
 <!--
  * @Author: error: 孙善鹏
  * @Date: 2023-04-11 13:49:34
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-17 10:41:26
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-27 10:24:58
  * @Description: 
 -->
 <template>
   <div class="page-test">
-    <h1>SelectedButton 选择按钮</h1>
+    <h1>{{ $t('componentTest.checkbox.title') }}</h1>
     <el-card>
-      <h3>普通多选</h3>
+      <h3>{{ $t('componentTest.checkbox.basic') }}</h3>
       <el-form inline>
         <div>
           <el-checkbox-group
@@ -24,7 +24,7 @@
       </el-form>
     </el-card>
     <el-card>
-      <h3>普通多选 - 组</h3>
+      <h3>{{ $t('componentTest.checkbox.basicGroup') }}</h3>
       <el-form inline>
         <div>
           <el-checkbox
@@ -33,7 +33,7 @@
             :indeterminate="isIndeterminate"
             @change="handleCheckAllChange"
           >
-            全选
+            {{ $t('componentTest.common.data.all') }}
           </el-checkbox>
           <el-checkbox-group
             v-model="itemChecked"
@@ -47,16 +47,26 @@
       </el-form>
     </el-card>
     <el-card>
-      <h3>特殊多选</h3>
+      <h3>{{ $t('componentTest.checkbox.special') }}</h3>
       <div class="page-content">
         <el-radio-group v-model="itemSize" size="small">
-          <el-radio-button value="medium" label="medium">默认</el-radio-button>
-          <el-radio-button value="small" label="small">小</el-radio-button>
-          <el-radio-button value="large" label="large">大</el-radio-button>
+          <el-radio-button value="medium" label="medium">{{
+            $t('componentTest.common.data.default')
+          }}</el-radio-button>
+          <el-radio-button value="small" label="small">{{
+            $t('componentTest.common.data.small')
+          }}</el-radio-button>
+          <el-radio-button value="large" label="large">{{
+            $t('componentTest.common.data.large')
+          }}</el-radio-button>
         </el-radio-group>
         <el-radio-group v-model="itemDisabled" size="small">
-          <el-radio-button :value="true" :label="true">禁用</el-radio-button>
-          <el-radio-button :value="false" :label="false">启用</el-radio-button>
+          <el-radio-button :value="true" :label="true">{{
+            $t('componentTest.common.data.enable')
+          }}</el-radio-button>
+          <el-radio-button :value="false" :label="false">{{
+            $t('componentTest.common.data.disable')
+          }}</el-radio-button>
         </el-radio-group>
       </div>
       <div>
@@ -84,8 +94,12 @@ export default class extends Vue {
     version: 'v1.0',
     updateTime: '2022.07.12',
   }
-  private cityOptions = ['上海', '北京', '深圳']
-  private itemChecked = ['上海']
+  private cityOptions = [
+    this.$t('componentTest.common.data.sh'),
+    this.$t('componentTest.common.data.bj'),
+    this.$t('componentTest.common.data.sz'),
+  ]
+  private itemChecked: any = ['上海']
   private isIndeterminate = true
   private checkAll = false
 
@@ -117,6 +131,7 @@ export default class extends Vue {
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
+
   .el-input {
     width: 250px;
   }

@@ -1,8 +1,8 @@
 <!--
  * @Author: 王亚振
  * @Date: 2022-07-21 10:53:32
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-14 10:18:26
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-23 11:06:55
  * @Description:
 -->
 <template>
@@ -16,17 +16,17 @@ import { Vue, Component } from 'vue-property-decorator'
 })
 export default class extends Vue {
   private buttonData = [
-    { label: '操作一', name: 'op1' },
-    { label: '操作二', name: 'op2' },
-    { label: '操作三', name: 'op3' },
-    { label: '操作四', name: 'op4' },
-    { label: '操作五', name: 'op5' },
-    { label: '操作六', name: 'op6' },
-    { label: '操作七', name: 'op7' },
-    { label: '操作八', name: 'op8' },
-    { label: '操作九', name: 'op9' },
-    { label: '操作十', name: 'op10' },
-    { label: '主操作', name: 'op-main' },
+    { label: `${this.$t('demo.buttonGroup.demo1.operate')}1`, name: 'op1' },
+    { label: `${this.$t('demo.buttonGroup.demo1.operate')}2`, name: 'op2' },
+    { label: `${this.$t('demo.buttonGroup.demo1.operate')}3`, name: 'op3' },
+    { label: `${this.$t('demo.buttonGroup.demo1.operate')}4`, name: 'op4' },
+    { label: `${this.$t('demo.buttonGroup.demo1.operate')}5`, name: 'op5' },
+    { label: `${this.$t('demo.buttonGroup.demo1.operate')}6`, name: 'op6' },
+    { label: `${this.$t('demo.buttonGroup.demo1.operate')}7`, name: 'op7' },
+    { label: `${this.$t('demo.buttonGroup.demo1.operate')}8`, name: 'op8' },
+    { label: `${this.$t('demo.buttonGroup.demo1.operate')}9`, name: 'op9' },
+    { label: `${this.$t('demo.buttonGroup.demo1.operate')}10`, name: 'op10' },
+    { label: this.$t('demo.buttonGroup.demo1.main'), name: 'op-main' },
   ]
 
   private size = 'medium'

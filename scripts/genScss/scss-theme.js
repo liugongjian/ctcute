@@ -17,9 +17,11 @@ const targetPath = process.argv[2].substring(0, process.argv[2].lastIndexOf('/')
 const fileData = lines.join('\n')
 fs.writeFileSync(targetPath, fileData)
 console.log(chalk.green('变量生成成功!'))
-const jsExportFilePath = scssLib.generateJsExport(fileData, targetPath)
-scssLib.generateTsType(fileData, targetPath)
-scssLib.generateDoc(fileData, jsExportFilePath)
+const deprecatedFilePath = targetPath.replace('variables.scss', 'variables-deprecated.scss')
+const deprecatedFileData = fs.readFileSync(deprecatedFilePath, 'utf-8')
+const jsExportFilePath = scssLib.generateJsExport(fileData + deprecatedFileData, targetPath)
+scssLib.generateTsType(fileData + deprecatedFileData, targetPath)
+scssLib.generateDoc(fileData, jsExportFilePath, 'variables-doc')
 
 // 读取新主题变量
 function parseThemeVariables() {
@@ -41,6 +43,11 @@ function parseThemeVariables() {
 
 // 读取默认主题变量
 function parseDefaultVariables() {
+  // 拷贝废弃的变量
+  const deprecatedFilePath = path.join(__dirname, '../../packages/ui/style/themes/default/variables-deprecated.scss')
+  const deprecatedTargetPath = process.argv[2].substring(0, process.argv[2].lastIndexOf('/')) + '/variables-deprecated.scss'
+  fs.copyFileSync(deprecatedFilePath, deprecatedTargetPath)
+
   const filePath = path.join(__dirname, '../../packages/ui/style/themes/default/variables.scss')
   const data = fs.readFileSync(filePath, 'utf-8')
   const variableLines = data.split('\n')

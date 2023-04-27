@@ -1,15 +1,20 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2023-02-09 08:30:39
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-02-10 09:57:32
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-23 15:19:50
  * @Description:
 -->
 
 <template>
-  <cute-card-box title="title+日期选择">
+  <cute-card-box :title="$t('demo.cardBox.demo2.title')">
     <template #extra>
-      <el-date-picker v-model="statusDate" type="date" placeholder="选择日期" size="mini"></el-date-picker>
+      <el-date-picker
+        v-model="statusDate"
+        type="date"
+        :placeholder="$t('demo.cardBox.demo2.placeholder')"
+        size="mini"
+      ></el-date-picker>
     </template>
     <template #content>
       <VChart :option="option" style="height: 280px; width: 100%" />

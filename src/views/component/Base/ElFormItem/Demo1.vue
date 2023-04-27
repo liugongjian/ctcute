@@ -40,7 +40,7 @@
           </el-form-item>
           <el-form-item label="复杂表单" prop="templateType">
             <el-table border style="width: 97%" :data="form.tableData">
-              <el-table-column min-width="153" label="监控指标">
+              <el-table-column min-width="180" label="监控指标">
                 <template slot-scope="scope">
                   <el-form-item
                     :prop="'tableData.' + scope.$index + '.monitorIndicators'"
@@ -61,7 +61,7 @@
                   </el-form-item>
                 </template>
               </el-table-column>
-              <el-table-column min-width="153" label="时间区间">
+              <el-table-column min-width="180" label="时间区间">
                 <template slot-scope="scope">
                   <el-form-item
                     :error-show-type="form.type"
@@ -80,7 +80,7 @@
                   </el-form-item>
                 </template>
               </el-table-column>
-              <el-table-column min-width="291" label="计算方法">
+              <el-table-column min-width="350" label="计算方法">
                 <template slot-scope="scope">
                   <el-form-item
                     style="display: inline-block"
@@ -135,7 +135,7 @@
                   %
                 </template>
               </el-table-column>
-              <el-table-column prop="templateType" label="出现次数" min-width="153">
+              <el-table-column prop="templateType" label="出现次数" min-width="180">
                 <template slot-scope="scope">
                   <el-form-item
                     :prop="'tableData.' + scope.$index + '.occurrences'"
@@ -365,22 +365,23 @@ export default class extends Vue {
 .validate-select {
   width: 300px;
 }
+
 .form-item__tip {
   position: absolute;
   top: 100%;
   left: 0;
-  color: $text-color-light-1;
-  font-size: $text-size-primary;
-  line-height: $text-size-primary;
+  color: $text-color-light;
+  font-size: $text-size;
+  line-height: $text-size;
   padding-top: 6px;
 
   &:before {
-    font-family: 'cute-icons';
+    font-family: cute-icons;
     content: '\eb5b';
     color: $icon-color;
-    font-size: $text-size-medium;
+    font-size: $text-size-md;
     vertical-align: top;
-    margin-right: $margin-tiny;
+    margin-right: $margin;
   }
 }
 </style>

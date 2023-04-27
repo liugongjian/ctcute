@@ -70,7 +70,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .component-demo {
   display: block;
-  border: 1px solid $border-color-primary;
+  border: 1px solid $border-color;
   transition: $transition-time all;
   box-shadow: $shadow-1 !important;
 
@@ -79,28 +79,28 @@ export default class extends Vue {
   }
 
   &__content {
-    padding: $padding-primary;
-    border-bottom: 1px solid $border-color-primary;
+    padding: $padding-5x;
+    border-bottom: 1px solid $border-color;
   }
 
   &__code {
     &__body {
-      border-bottom: 1px solid $border-color-primary;
+      border-bottom: 1px solid $border-color;
     }
 
     &__trigger {
-      padding: $padding-small;
+      padding: $padding-2x;
       text-align: center;
       cursor: pointer;
       transition: $transition-time all;
 
       svg {
         color: $icon-color;
-        margin-right: $margin-small;
+        margin-right: $margin-2x;
       }
 
       &:hover {
-        background: $color-grey-10;
+        background: $color-neutral-1;
       }
     }
   }

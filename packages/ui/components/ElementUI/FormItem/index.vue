@@ -121,6 +121,7 @@ export default {
   },
   data() {
     return {
+      timeoutId: null,
       errorTooltipVisible: false,
       validateState: '',
       validateMessage: '',
@@ -249,11 +250,18 @@ export default {
   beforeDestroy() {
     this.dispatch('ElForm', 'el.form.removeField', [this])
     window.removeEventListener('resize', this.debounceHandleResize())
+    clearTimeout(this.timeoutId)
   },
   methods: {
     setErrorTooltipVisible() {
-      this.errorTooltipVisible =
-        !!this.validateMessage && this.validateState === 'error' && this.showMessage && this.form.showMessage
+      this.errorTooltipVisible = false
+      this.timeoutId = setTimeout(() => {
+        this.errorTooltipVisible =
+          !!this.validateMessage &&
+          this.validateState === 'error' &&
+          this.showMessage &&
+          this.form.showMessage
+      }, 50)
     },
 
     debounce(func, delay) {
@@ -267,7 +275,7 @@ export default {
     },
 
     debounceHandleResize() {
-      return this.debounce(this.setErrorTooltipVisible.bind(this), 50)
+      return this.debounce(this.setErrorTooltipVisible.bind(this), 200)
     },
 
     validate(trigger, callback = noop) {

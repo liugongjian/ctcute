@@ -62,7 +62,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .home-nav {
   width: 100%;
-  background: $color-grey-10;
+  background: $color-neutral-1;
   margin: 50px auto;
   padding-top: 50px;
   padding-bottom: 50px;

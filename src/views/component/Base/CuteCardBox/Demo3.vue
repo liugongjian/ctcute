@@ -1,17 +1,17 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2023-02-09 08:30:39
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-02-12 09:46:18
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-23 15:16:19
  * @Description:
 -->
 
 <template>
-  <cute-card-box title="title+tabs切换">
+  <cute-card-box :title="$t('demo.cardBox.demo3.title')">
     <template #extra>
       <el-tabs v-model="activeName" class="chart-card-tabs">
-        <el-tab-pane label="选项一" name="first"></el-tab-pane>
-        <el-tab-pane label="选项二" name="second"></el-tab-pane>
+        <el-tab-pane :label="$t('demo.cardBox.demo3.tab1')" name="first"></el-tab-pane>
+        <el-tab-pane :label="$t('demo.cardBox.demo3.tab2')" name="second"></el-tab-pane>
       </el-tabs>
     </template>
     <template #content>

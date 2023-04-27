@@ -126,7 +126,7 @@ export default class extends Vue {
 
     .table-key {
       cursor: pointer;
-      color: $color-master-1;
+      color: $color-master;
     }
 
     .el-table {

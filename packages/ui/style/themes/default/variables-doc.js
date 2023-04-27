@@ -258,15 +258,15 @@ export default [
       {
         'name': '$color-fatal-disabled',
         'type': 'color',
-        'value': '#ff4545',
-        'scssValue': '$ruby-6',
+        'value': '#ff736e',
+        'scssValue': '$ruby-5',
         'scene': ''
       },
       {
         'name': '$color-fatal-bg',
         'type': 'color',
-        'value': '#fff2f0',
-        'scssValue': '$ruby-1',
+        'value': '#ffc6bf',
+        'scssValue': '$ruby-3',
         'scene': ''
       }
     ]
@@ -1116,8 +1116,8 @@ export default [
       {
         'name': '$tag-fatal',
         'type': 'color',
-        'value': '#ffebe8',
-        'scssValue': '$ruby-2',
+        'value': '#ffc6bf',
+        'scssValue': '$color-fatal-bg',
         'scene': '危险色标签背景'
       },
       {

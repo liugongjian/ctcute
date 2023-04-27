@@ -45,8 +45,8 @@ $color-danger-bg: $ruby-1 !default;
 $color-fatal: $ruby-9 !default; // 严重危险
 $color-fatal-hover: $ruby-8 !default;
 $color-fatal-active: $ruby-10 !default;
-$color-fatal-disabled: $ruby-6 !default;
-$color-fatal-bg: $ruby-1 !default;
+$color-fatal-disabled: $ruby-5 !default;
+$color-fatal-bg: $ruby-3 !default;
 
 /* Title: 中性色; Doc: true
 -------------------------- */
@@ -194,7 +194,7 @@ $tag-warning: $color-warning-bg !default; // 警告色标签背景
 $tag-warning-border: $color-warning !default; // 警告色标签边框
 $tag-danger: $color-danger-bg !default; // 危险色标签背景
 $tag-danger-border: $color-danger !default; // 危险色标签边框
-$tag-fatal: $ruby-2 !default; // 危险色标签背景
+$tag-fatal: $color-fatal-bg !default; // 危险色标签背景
 $tag-fatal-border: $color-fatal !default; // 危险色标签边框
 $tag-weak: $color-neutral-1 !default; // 轻微提示色标签背景
 $tag-weak-border: $color-neutral-6 !default; // 轻微提示色标签边框

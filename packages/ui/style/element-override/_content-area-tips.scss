@@ -19,5 +19,5 @@
 }
 
 @include contentareatips-page();
-@include contentareatips-page(warning, $color-status-warning, $color-status-warning);
-@include contentareatips-page(error, $color-status-danger, $color-status-danger);
+@include contentareatips-page(warning, $color-warning, $color-warning);
+@include contentareatips-page(error, $color-danger, $color-danger);

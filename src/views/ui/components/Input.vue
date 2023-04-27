@@ -500,7 +500,7 @@ export default class extends Vue {
 
 .input-demo {
   width: 384px;
-  color: $color-grey-1;
+  color: $color-neutral-10;
 }
 
 .el-textarea {
@@ -540,15 +540,18 @@ export default class extends Vue {
     color: $text-color;
   }
 }
+
 ::v-deep .suffix-box {
   .el-link {
-    &::after {
+    &:after {
       display: none;
     }
   }
+
   .el-link--inner {
     text-decoration: none;
     color: $color-neutral-9;
+
     &:hover {
       color: $color-master;
       text-decoration: none;

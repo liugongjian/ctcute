@@ -107,7 +107,7 @@ export default class extends Vue {
       height: 150px;
       display: flex;
       box-sizing: border-box;
-      border: 1px solid $color-grey-6;
+      border: 1px solid $color-neutral-5;
       border-radius: 10px;
       margin: 0 30px 30px 0;
       padding-right: 29px;
@@ -125,7 +125,7 @@ export default class extends Vue {
 
         > h4 {
           font-size: 20px;
-          color: $color-grey-1;
+          color: $color-neutral-10;
           line-height: 20px;
           font-weight: 500;
           margin: 15px 0 14px;
@@ -136,7 +136,7 @@ export default class extends Vue {
           margin: 0;
           font-size: 12px;
           line-height: 20px;
-          color: $color-grey-1;
+          color: $color-neutral-10;
           font-weight: 400;
         }
       }

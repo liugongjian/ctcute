@@ -273,7 +273,7 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .el-col {
-  border-right: 1px solid $border-color-light-1;
+  border-right: 1px solid $border-color-light;
 }
 
 .el-col:not(:first-child) {
@@ -288,11 +288,11 @@ export default class extends Vue {
   margin-left: -0.5em;
   display: flex;
   align-items: center;
-  color: $text-color-primary;
+  color: $text-color;
 }
 
 .node-icon {
-  color: $color-grey-3;
+  color: $color-neutral-8;
 
   .svg-icon {
     display: none;
@@ -306,7 +306,7 @@ export default class extends Vue {
 
 .is-expanded > .el-tree-node__content {
   .node-icon {
-    color: $color-grey-3;
+    color: $color-neutral-8;
 
     .svg-icon {
       display: none;
@@ -340,7 +340,7 @@ export default class extends Vue {
     }
 
     .handler-icon {
-      color: $color-grey-3;
+      color: $color-neutral-8;
     }
   }
 
@@ -377,7 +377,7 @@ export default class extends Vue {
 }
 
 .simple-tree {
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
   padding-bottom: 24px;
 }
 
@@ -387,7 +387,7 @@ export default class extends Vue {
 //基础树形
 .line {
   width: 500px;
-  border: 1px solid $border-color-primary;
+  border: 1px solid $border-color;
   padding: 10px 20px 20px;
   background: $color-bg-1;
 }
@@ -395,6 +395,6 @@ export default class extends Vue {
 .tree-search {
   width: 240px;
   padding: 20px;
-  border-right: 1px solid $border-color-light-1;
+  border-right: 1px solid $border-color-light;
 }
 </style>

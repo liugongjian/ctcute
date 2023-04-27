@@ -69,6 +69,12 @@ export default [
         'type': 'color',
         'value': '#5a1925',
         'scene': '禁用'
+      },
+      {
+        'name': '$color-ct-bg',
+        'type': 'color',
+        'value': '#450015',
+        'scene': ''
       }
     ]
   },
@@ -317,11 +323,6 @@ export default [
         'scene': ''
       }
     ]
-  },
-  {
-    'title': '其他色',
-    'doc': 'false',
-    'list': []
   },
   {
     'title': '背景色',
@@ -787,13 +788,7 @@ export default [
         'name': '$shadow-form-item',
         'type': 'string',
         'value': '0 2px 2px 0 rgba(0,0,0,.2)',
-        'scene': '组件Focused状态使用'
-      },
-      {
-        'name': '$shadow-dialog',
-        'type': 'string',
-        'value': '0 6px 16px -8px rgba(0,0,0,.08),0 9px 28px 0 rgba(0,0,0,.05),0 12px 48px 16px rgba(0,0,0,.03)',
-        'scene': ''
+        'scene': '组件Focused状态使用 4级'
       }
     ]
   },
@@ -884,6 +879,12 @@ export default [
         'type': 'color',
         'value': '#34373a',
         'scene': ''
+      },
+      {
+        'name': '$header-search-text-color',
+        'type': 'color',
+        'value': '#a5a8ac',
+        'scene': ''
       }
     ]
   },
@@ -972,7 +973,7 @@ export default [
       {
         'name': '$tag-fatal-border',
         'type': 'color',
-        'value': '#f49790',
+        'value': '#f8c1ba',
         'scene': '危险色标签边框'
       },
       {
@@ -1950,7 +1951,7 @@ export default [
       {
         'name': '$steps-icon-bg',
         'type': 'color',
-        'value': '#202638',
+        'value': '#3967d6',
         'scene': '完成步骤背景色'
       }
     ]
@@ -2346,84 +2347,6 @@ export default [
     ]
   },
   {
-    'title': '图表默认颜色(deprecated(弃用))',
-    'doc': 'false',
-    'list': [
-      {
-        'name': '$chartColor1',
-        'type': 'color',
-        'value': '#91c6f5',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor2',
-        'type': 'color',
-        'value': '#8cd4ca',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor3',
-        'type': 'color',
-        'value': '#e8d065',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor4',
-        'type': 'color',
-        'value': '#fdac6f',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor5',
-        'type': 'color',
-        'value': '#a39df7',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor6',
-        'type': 'color',
-        'value': '#8ed8f3',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor7',
-        'type': 'color',
-        'value': '#ffab9a',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor8',
-        'type': 'color',
-        'value': '#78a1da',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor9',
-        'type': 'color',
-        'value': '#fa7175',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor10',
-        'type': 'color',
-        'value': '#93c2bb',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor11',
-        'type': 'color',
-        'value': '#81dbe3',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor12',
-        'type': 'color',
-        'value': '#f48fb4',
-        'scene': ''
-      }
-    ]
-  },
-  {
     'title': '图表高亮颜色',
     'doc': 'true',
     'list': [
@@ -2497,162 +2420,6 @@ export default [
         'name': '$chart-color-h-12',
         'type': 'color',
         'value': '#ff9dc6',
-        'scene': ''
-      }
-    ]
-  },
-  {
-    'title': '图表高亮颜色(deprecated(弃用))',
-    'doc': 'false',
-    'list': [
-      {
-        'name': '$chartColorH1',
-        'type': 'color',
-        'value': '#9fd9ff',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH2',
-        'type': 'color',
-        'value': '#9ae9de',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH3',
-        'type': 'color',
-        'value': '#ffe46f',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH4',
-        'type': 'color',
-        'value': '#ffbd7a',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH5',
-        'type': 'color',
-        'value': '#b3acff',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH6',
-        'type': 'color',
-        'value': '#9cedff',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH7',
-        'type': 'color',
-        'value': '#ffbca9',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH8',
-        'type': 'color',
-        'value': '#84b1ef',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH9',
-        'type': 'color',
-        'value': '#ff7c80',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH10',
-        'type': 'color',
-        'value': '#a1d5cd',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH11',
-        'type': 'color',
-        'value': '#8df0f9',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH12',
-        'type': 'color',
-        'value': '#ff9dc6',
-        'scene': ''
-      }
-    ]
-  },
-  {
-    'title': '图表light颜色(deprecated(弃用))',
-    'doc': 'false',
-    'list': [
-      {
-        'name': '$chartColorL1',
-        'type': 'color',
-        'value': '#f2f7ff',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL2',
-        'type': 'color',
-        'value': '#f6fbef',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL3',
-        'type': 'color',
-        'value': '#fefaed',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL4',
-        'type': 'color',
-        'value': '#fdf5ed',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL5',
-        'type': 'color',
-        'value': '#f5f3fc',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL6',
-        'type': 'color',
-        'value': '#f1f9fe',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL7',
-        'type': 'color',
-        'value': '#f7f0fc',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL8',
-        'type': 'color',
-        'value': '#fdf1ea',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL9',
-        'type': 'color',
-        'value': '#f5f6fe',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL10',
-        'type': 'color',
-        'value': '#effaf7',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL11',
-        'type': 'color',
-        'value': '#fdf0ef',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL12',
-        'type': 'color',
-        'value': '#fef9f3',
         'scene': ''
       }
     ]

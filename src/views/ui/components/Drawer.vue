@@ -122,7 +122,8 @@ export default class extends Vue {
     padding: 12px 24px;
     display: flex;
     align-items: center;
-    background: $color-grey-10;
+    background: $color-neutral-1;
+
     .cancel {
       margin-left: 20px;
     }

@@ -10,6 +10,12 @@ module.exports = {
     },
   },
   chainWebpack: config => {
+    config.externals({
+      "element-ui": "element-ui",
+      vue: "Vue",
+      'vue-i18n': "vue-i18n",
+    })
+
     const svgRule = config.module.rule('svg')
     svgRule.uses.clear()
     svgRule.exclude.add(path.join(__dirname, 'icons')).end()

@@ -2,7 +2,7 @@
  * @Author: XinZhao
  * @Date: 2023-04-19 9:59:34
  * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-20 10:33:30
+ * @LastEditTime: 2023-04-21 13:46:58
  * @Description: Layout
 -->
 <template>
@@ -24,8 +24,11 @@
       </el-form>
       <el-row>
         <el-col :span="layoutNumber" v-for="index in (24 / layoutNumber)" :key="index">
-          <div class="grid-content bg-purple text-pos" v-if="index % 2 === 0">span: {{layoutNumber}}</div>
-          <div class="grid-content bg-purple-light text-pos" v-else>span: {{layoutNumber}}</div>
+          <div
+            class="grid-content bg-purple text-pos"
+            v-if="index % 2 === 0"
+          >span: {{ layoutNumber }}</div>
+          <div class="grid-content bg-purple-light text-pos" v-else>span: {{ layoutNumber }}</div>
         </el-col>
       </el-row>
     </el-card>

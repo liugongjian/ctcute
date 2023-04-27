@@ -94,7 +94,7 @@ const layoutTestRoutes = [
           {
             path: 'page3-1',
             name: 'Page3-1',
-            component: () => import('@/views/component/Test/CuteLayout/Page3.vue'),
+            component: () => import('@/views/component/Test/CuteLayout/Page3-1.vue'),
             meta: {
               title: '测试页面3-1',
               breadcrumb: true,
@@ -103,7 +103,7 @@ const layoutTestRoutes = [
           {
             path: 'page3-2',
             name: 'Page3-2',
-            component: () => import('@/views/component/Test/CuteLayout/Page3.vue'),
+            component: () => import('@/views/component/Test/CuteLayout/Page3-1.vue'),
             meta: {
               title: '测试页面3-2',
               breadcrumb: true,
@@ -112,7 +112,7 @@ const layoutTestRoutes = [
           {
             path: 'page3-3',
             name: 'Page3-3',
-            component: () => import('@/views/component/Test/CuteLayout/Page3.vue'),
+            component: () => import('@/views/component/Test/CuteLayout/Page3-1.vue'),
             meta: {
               title: '测试页面3-3',
               breadcrumb: true,

@@ -12,8 +12,7 @@
       :disabled="disabled"
       :style="{ '--width-slider': width + 'px' }"
       @change="mouseMove"
-    >
-    </el-slider>
+    ></el-slider>
     <div v-if="!range" class="sliders-input">
       <el-input
         v-model="valueInput"
@@ -50,12 +49,14 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue, VModel, Watch } from 'vue-property-decorator'
+import { Component, Prop, Vue, VModel, Watch, Mixins } from 'vue-property-decorator'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
+import Locale from '@cutedesign/ui/mixins/locale'
+
 @Component({
   name: 'CuteSlider',
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   @Prop({ default: 0 }) private min!: number
   @Prop({ default: 100 }) private max!: number
   @Prop({ default: false }) private disabled!: boolean
@@ -139,7 +140,7 @@ export default class extends Vue {
         Number(this.valueInput[0]) > this.max
       ) {
         this.$message({
-          message: '输入错误,请重新输入',
+          message: this.t('cute.slider.warnMessage'),
           type: 'warning',
         })
         this.values = [this.min, this.min]

@@ -9,7 +9,7 @@
   <el-select
     ref="selector"
     :value="treeData"
-    placeholder="请选择"
+    :placeholder="t('cute.select.placeholder')"
     :size="size"
     :disabled="disabled"
     :class="{ 'is-disabled': disabled }"
@@ -42,15 +42,15 @@
         :lazy="lazy"
         :load="load"
         @node-click="handleNodeClick"
-      >
-      </el-tree>
+      ></el-tree>
     </el-option>
   </el-select>
 </template>
 <script lang="ts">
-import { Vue, Component, Ref, Prop, Model, Emit, Watch } from 'vue-property-decorator'
+import { Vue, Component, Ref, Prop, Model, Emit, Watch, Mixins } from 'vue-property-decorator'
 import { Tree } from 'element-ui'
 import SelectedTags from './TreeSelectedTags.vue'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 const defaultNodeProps = { children: 'children', label: 'label', value: 'id', disabled: 'disabled' }
 
@@ -65,7 +65,7 @@ interface NODE_PROPS {
 @Component({
   name: 'CuteSelectTree',
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   @Ref('tree') refTree!: Tree
   @Ref('selector') refSelector!: any
   @Prop({ type: Boolean, default: false }) multiple?: boolean // 是否多选

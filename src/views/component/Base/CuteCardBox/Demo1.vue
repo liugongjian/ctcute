@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <cute-card-box title="只有title">
+  <cute-card-box :title="$t('demo.cardBox.demo1.title')">
     <template #content>
       <VChart :option="option" style="height: 280px; width: 100%" />
     </template>

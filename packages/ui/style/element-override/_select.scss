@@ -42,14 +42,14 @@ $select-tag-margin: 2px 0 2px 8px;
     .el-select__tags-text:after {
       @include iconfont;
       content: '\ea3c';
-      color: $disabled-icon-color;
+      color: $disabled-color;
       text-align: center;
       line-height: 17px;
       display: inline-block;
       width: $range-editor-tags-size;
       height: $range-editor-tags-size;
       background: unset;
-      font-size: $text-size-primary;
+      font-size: $text-size;
       border-radius: 50%;
       margin-left: $margin;
       transform: scale(0.8) translate(0, 1.5px);

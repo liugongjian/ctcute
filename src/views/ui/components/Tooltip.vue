@@ -97,7 +97,7 @@ export default class extends Vue {
 .sub-tooltip {
   margin: 24px 0;
   padding-bottom: 24px;
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
 }
 
 .tooltip-interval {
@@ -110,26 +110,26 @@ export default class extends Vue {
   height: 18px;
   border-radius: 6px 0;
   color: $color-white;
-  font-size: $text-size-primary;
+  font-size: $text-size;
   text-align: center;
   line-height: 18px;
 
   &.prompt-warning {
-    background: $color-status-warning;
+    background: $color-warning;
   }
 
   &.prompt-error {
-    background: $color-status-danger;
+    background: $color-danger;
   }
 
   &.prompt-success {
-    background: $color-status-success;
+    background: $color-success;
   }
 
   &.prompt-conventional {
     background: $color-white;
-    border: 1px solid $color-master-1;
-    color: $color-master-1;
+    border: 1px solid $color-master;
+    color: $color-master;
   }
 }
 </style>

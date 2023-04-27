@@ -92,7 +92,7 @@ $datepicker-footer-button-color: $color-white;
     .el-picker-panel__shortcut {
       font-size: $text-size;
       font-weight: normal;
-      color: $color-grey-1;
+      color: $color-neutral-10;
 
       &:hover {
         color: $color-master;
@@ -272,8 +272,13 @@ $datepicker-footer-button-color: $color-white;
     background-color: $color-bg-1;
   }
 
-  .el-input__icon.el-icon-circle-close {
+  .el-date-editor .el-range-separator {
+    width: 40px;
     color: $color-neutral-6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $text-size;
 
     &:hover {
       color: $color-master-1;

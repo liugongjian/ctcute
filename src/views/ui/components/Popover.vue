@@ -112,7 +112,7 @@ export default class extends Vue {
 }
 
 p {
-  font-size: $text-size-primary;
+  font-size: $text-size;
   margin-top: 15px;
 }
 
@@ -127,7 +127,7 @@ p {
 }
 
 .cancel-popover {
-  border: 1px solid $border-color-primary;
+  border: 1px solid $border-color;
 }
 
 .determine-popover {
@@ -136,7 +136,7 @@ p {
 
 .sub-edit:after {
   content: '|';
-  color: $border-color-primary;
+  color: $border-color;
   font-size: 16px;
   margin: 0 10px;
 }

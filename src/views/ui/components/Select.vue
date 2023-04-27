@@ -744,7 +744,7 @@ export default class extends Vue {
 }
 
 .sub-down {
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
 
   .el-row {
     margin: 24px 0;
@@ -752,7 +752,7 @@ export default class extends Vue {
 }
 
 .date {
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
 
   .sub-date {
     margin-bottom: 24px;
@@ -783,7 +783,7 @@ export default class extends Vue {
 
 .option__msg {
   float: right;
-  color: $text-color-light-1;
+  color: $text-color-light;
   font-weight: normal;
 }
 
@@ -796,6 +796,7 @@ export default class extends Vue {
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
+
   .el-input {
     width: 250px;
   }

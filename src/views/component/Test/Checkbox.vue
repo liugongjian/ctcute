@@ -99,7 +99,7 @@ export default class extends Vue {
     this.$t('componentTest.common.data.bj'),
     this.$t('componentTest.common.data.sz'),
   ]
-  private itemChecked = ['上海']
+  private itemChecked: any = ['上海']
   private isIndeterminate = true
   private checkAll = false
 
@@ -131,6 +131,7 @@ export default class extends Vue {
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
+
   .el-input {
     width: 250px;
   }

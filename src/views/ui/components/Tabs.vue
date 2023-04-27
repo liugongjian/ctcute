@@ -131,7 +131,7 @@ export default class extends Vue {
 
 .sub-tabs,
 .small-tabs {
-  border-bottom: 1px solid $border-color-primary;
+  border-bottom: 1px solid $border-color;
   padding-bottom: $padding-6x;
 }
 

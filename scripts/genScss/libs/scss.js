@@ -110,7 +110,7 @@ function generateDoc(data, filePath, docFileName) {
           name: key,
           type: type,
           value: value,
-          scssValue: valueStringList[0].replace('!default', '').trim(),
+          scssValue: valueStringList[0].replace('!default', '').replaceAll('\'', '"').trim(),
           scene: comment.replace('//', '').trim(),
         })
     }

@@ -458,14 +458,14 @@ export default [
         'name': '$font-family',
         'type': 'string',
         'value': '\'Microsoft YaHei\',\'PingFang SC\',\'Helvetica Neue\',Helvetica,Arial,STHeiTi,sans-serif,\'-apple-system\',\'BlinkMacSystemFont\',\'Segoe UI\',\'Hiragino Sans GB\'',
-        'scssValue': ''Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif,',
+        'scssValue': '\'Microsoft YaHei\', \'PingFang SC\', \'Helvetica Neue\', Helvetica, Arial, STHeiTi, sans-serif,',
         'scene': ''
       },
       {
         'name': '$font-family-cute-icons',
         'type': 'string',
         'value': '\'cute-icons\'',
-        'scssValue': ''cute-icons'',
+        'scssValue': '\'cute-icons\'',
         'scene': ''
       },
       {

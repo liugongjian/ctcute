@@ -22,7 +22,17 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import CtMonaco from '@cutedesign/ct-monaco'
-import { json, yaml, css, html, javascript, markdown, mysql, xml } from '@/views/component/Biz/CtMonaco/text'
+import {
+  json,
+  yaml,
+  css,
+  html,
+  javascript,
+  markdown,
+  mysql,
+  xml,
+  lua,
+} from '@/views/component/Biz/CtMonaco/text'
 
 Vue.use(CtMonaco)
 
@@ -46,12 +56,14 @@ export default class extends Vue {
     { label: 'markdown', value: 'markdown' },
     { label: 'mysql', value: 'mysql' },
     { label: 'xml', value: 'xml' },
+    { label: 'lua', value: 'lua' },
   ]
   private loading = false
   private content = ''
   private json = json
   private yaml = yaml
   private css = css
+  private lua = lua
   private html = html
   private javascript = javascript
   private markdown = markdown

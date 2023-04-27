@@ -144,14 +144,6 @@
       >
         {{ $t('componentTest.button.textButton') }}
       </el-button>
-      <el-button-group>
-        <el-button type="primary" icon="el-icon-arrow-left">{{
-          $t('componentTest.button.prePage')
-        }}</el-button>
-        <el-button type="primary"
-          >{{ $t('componentTest.button.nextPage') }}<i class="el-icon-arrow-right el-icon--right"></i
-        ></el-button>
-      </el-button-group>
     </el-card>
   </div>
 </template>

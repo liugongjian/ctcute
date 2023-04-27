@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-19 07:58:59
+ * @LastEditTime: 2023-04-26 14:51:15
  * @Description:
  */
 import ElementUI, {
@@ -103,13 +103,11 @@ import SvgIcon from './icons/index.vue'
 
 // 整合appendix，chart等
 import CuteAppendix from './packages/appendix/CuteAppendix.vue'
-import CuteChart from './packages/chart/CuteChart.vue'
 import VXETable from './packages/vxe-table/index'
 import CuteSortTable from './packages/sort-table/CuteSortTable.vue'
 
 export {
   CuteAppendix,
-  CuteChart,
   VXETable, // VXETable使用时要vue.use全局注册，因为他会自动注册其他几个相关组件
   CuteSortTable,
 }
@@ -137,10 +135,6 @@ import CuteSlider from './components/CuteSlider/index.vue'
 import CuteDistributionBar from './components/CuteDistributionBar/index.vue'
 import CuteCardBox from './components/CuteCardBox/index.vue'
 import CuteScroller from './components/CuteScroller/index.vue'
-import CuteStatusPage403 from './components/CuteStatus/Page403.vue'
-import CuteStatusPage404 from './components/CuteStatus/Page404.vue'
-import CuteStatusPage500 from './components/CuteStatus/Page500.vue'
-import CuteStatusEmptyPage from './components/CuteStatus/EmptyPage.vue'
 export {
   CuteLayout,
   CuteButtonGroup,
@@ -162,10 +156,6 @@ export {
   CuteDistributionBar,
   CuteCardBox,
   CuteScroller,
-  CuteStatusPage403,
-  CuteStatusPage404,
-  CuteStatusPage500,
-  CuteStatusEmptyPage,
 }
 
 /**
@@ -188,6 +178,7 @@ const componentsList = [
   CuteStepsMulti,
   CuteCardBox,
   CuteScroller,
+  CuteTitledBlock,
 ]
 
 export default {

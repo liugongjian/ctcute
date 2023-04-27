@@ -86,10 +86,10 @@ h5 {
   height: 8px !important;
 }
 
-::-webkit-resizer {
-  background-image: url('#{$images-path}/pull.png');
-  background-size: 9px 9px;
-  background-repeat: no-repeat;
-  background-position: 3px 3px;
-  background-position: 6px 6px;
-}
+// ::-webkit-resizer {
+//   background-image: url('#{$images-path}/pull.png');
+//   background-size: 9px 9px;
+//   background-repeat: no-repeat;
+//   background-position: 3px 3px;
+//   background-position: 6px 6px;
+// }

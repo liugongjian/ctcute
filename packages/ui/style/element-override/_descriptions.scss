@@ -4,7 +4,7 @@ $descriptions-label-width: 160px;
 $descriptions-item-height: 40px;
 $descriptions-item-content-width: 525px;
 $descriptions-item-content-line-height: 22px;
-$descriptions-item-label-min-width: 128px;
+$descriptions-item-label-max-width: 128px;
 
 .el-descriptions {
   &__header {
@@ -22,9 +22,13 @@ $descriptions-item-label-min-width: 128px;
     color: $text-color;
     .el-descriptions-row {
       .el-descriptions-item__cell {
-        padding-bottom: $padding-4x;
+        // padding-bottom: $padding-4x;
+        padding: $padding-2x;
         .el-descriptions-item__label {
           margin-right: $margin-4x;
+        }
+        &.el-descriptions-item__content {
+          padding-left: $padding-6x;
         }
       }
     }
@@ -37,7 +41,7 @@ $descriptions-item-label-min-width: 128px;
         // color: $descriptions-font-color-label-bordered;
         color: $text-color;
         padding-right: $padding-6x;
-        width: $descriptions-label-width;
+        // width: $descriptions-label-width;
       }
     }
   }
@@ -52,19 +56,24 @@ $descriptions-item-label-min-width: 128px;
     }
     th.is-bordered-label,
     td.el-descriptions-item__content {
-      padding: $padding-10 0 $padding-4x $padding-3x;
+      // padding-left: $padding-6x;
     }
     td.el-descriptions-item__content {
       color: $text-color;
     }
+    th.el-descriptions-item__label {
+      color: $text-color-light;
+      text-align: right;
+    }
   }
   &-item {
     &__label {
-      min-width: $descriptions-item-label-min-width;
+      width: $descriptions-item-label-max-width;
     }
     &__cell &__content {
       width: $descriptions-item-content-width;
       // background-color: $color-bg-2;
+      padding-left: $padding-6x;
 
       div {
         line-height: $descriptions-item-content-line-height;

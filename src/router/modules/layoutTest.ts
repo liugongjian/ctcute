@@ -10,8 +10,8 @@ import Layout from '@/views/component/Test/CuteLayout/Layout.vue'
 
 const layoutTestRoutes = [
   {
-    path: '/component/test/layout',
-    redirect: '/component/test/layout/page1-1/page1-1-1',
+    path: '/component/test/layout1',
+    redirect: '/component/test/layout1/page1-1/page1-1-1',
     component: Layout,
     meta: {
       title: '布局-1(下钻)',

@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-21 10:35:45
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-25 15:50:10
  * @Description: 树选择器
 -->
 <template>
@@ -12,6 +12,7 @@
     :placeholder="t('cute.select.placeholder')"
     :size="size"
     :disabled="disabled"
+    :class="{ 'is-disabled': disabled }"
     :multiple="multiple ? true : false"
     popper-class="cute-select-tree"
   >

@@ -33,6 +33,7 @@ export default class extends Vue {}
 </script>
 <style lang="scss" scoped>
 .home-header {
+  background: rgba(255, 255, 255, 0.7);
   position: fixed;
   left: 0;
   top: 0;

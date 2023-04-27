@@ -35,7 +35,8 @@
       </template>
       <template slot="suffix">
         <slot name="other" v-if="$slots.other && value"></slot>
-        <i :class="['el-select__caret', 'el-input__icon', 'el-icon-' + iconClass]"></i>
+        <i v-show="!showClose" :class="['el-select__caret', 'el-input__icon', 'el-icon-' + iconClass]"></i>
+        <i v-if="showClose" class="el-select__caret el-input__icon el-icon-circle-close" @click="handleClearClick"></i>
       </template>
     </el-input>
     <transition
@@ -124,6 +125,12 @@ export default {
 
     readonly() {
       return !isIE() && !isEdge();
+    },
+
+    showClose() {
+      let hasValue = this.value !== undefined && this.value !== null && this.value !== '';
+      let criteria = this.clearable && !this.selectDisabled && this.inputHovering && hasValue;
+      return criteria;
     },
 
     iconClass() {
@@ -216,6 +223,7 @@ export default {
     automaticDropdown: Boolean,
     size: String,
     disabled: Boolean,
+    clearable: Boolean,
     popperClass: String,
     noDataText: String,
     placeholder: {
@@ -377,6 +385,9 @@ export default {
       if (option) {
         this.selectedLabel = option.label
         this.selected = option;
+      } else {
+        this.selectedLabel = '';
+        this.selected = {}
       }
     },
 
@@ -408,6 +419,10 @@ export default {
         }
       }, 50);
       this.softFocus = false;
+    },
+
+    handleClearClick(event) {
+      this.deleteSelected(event);
     },
 
     doDestroy() {
@@ -468,6 +483,15 @@ export default {
       if (!this.visible) {
         this.toggleMenu();
       }
+    },
+
+    deleteSelected(event) {
+      event.stopPropagation();
+      const value = '';
+      this.$emit('input', value);
+      this.emitChange(value);
+      this.visible = false;
+      this.$emit('clear');
     },
 
     resetInputWidth() {

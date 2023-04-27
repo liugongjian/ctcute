@@ -32,7 +32,7 @@
         <ElButton size="mini" type="text" class="el-color-dropdown__link-btn" @click="$emit('clear')">
           {{ t('el.colorpicker.clear') }}
         </ElButton>
-        <ElButton plain size="mini" class="el-color-dropdown__btn" @click="confirmValue">
+        <ElButton size="mini" class="el-color-dropdown__btn" @click="confirmValue">
           {{ t('el.colorpicker.confirm') }}
         </ElButton>
       </div>

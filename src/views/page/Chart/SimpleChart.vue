@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-10 07:27:14
+ * @LastEditTime: 2023-04-26 14:29:34
  * @Description: 基础图表
 -->
 <template>
@@ -49,7 +49,7 @@
             ></el-date-picker>
           </template>
           <template #content>
-            <CuteChart :option="option" :height="'280px'" :width="'100%'" />
+            <VChart :option="option" style="height: 280px; width: 100%" :theme="theme" />
           </template>
         </cute-card-box>
       </el-col>
@@ -62,7 +62,7 @@
             </el-tabs>
           </template>
           <template #content>
-            <CuteChart :option="option2" :height="'280px'" :width="'100%'" />
+            <VChart :option="option2" style="height: 280px; width: 100%" :theme="theme" />
           </template>
         </cute-card-box>
       </el-col>
@@ -71,7 +71,7 @@
       <el-col :span="12">
         <cute-card-box title="流程数量定义统计">
           <template #content>
-            <CuteChart :option="option3" :height="'280px'" :width="'100%'" />
+            <VChart :option="option3" style="height: 280px; width: 100%" :theme="theme" />
           </template>
         </cute-card-box>
       </el-col>
@@ -119,7 +119,7 @@
             </el-tabs>
           </template>
           <template #content>
-            <CuteChart :option="option4" :height="'280px'" :width="'100%'" />
+            <VChart :option="option4" style="height: 280px; width: 100%" :theme="theme" />
           </template>
         </cute-card-box>
       </el-col>
@@ -127,20 +127,23 @@
   </div>
 </template>
 <script lang="ts">
-import { CuteChart } from '@cutedesign/ui'
 import { CuteCardBox } from '@cutedesign/ui'
 import { Component, Vue } from 'vue-property-decorator'
+import * as echarts from 'echarts'
+import themeLight from '@cutedesign/ui/echarts-theme/cuted-light.json'
 import ChartCard from './ChartCard.vue'
+
+echarts.registerTheme('cuted-light', themeLight)
 
 @Component({
   name: 'SimpleChart',
   components: {
     ChartCard,
-    CuteChart,
     CuteCardBox,
   },
 })
 export default class extends Vue {
+  private theme = 'cuted-light'
   statusDate = ''
   activeName = 'first'
   value1 = [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)]

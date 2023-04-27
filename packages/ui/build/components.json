@@ -2,9 +2,6 @@
   "appendix": [
     "CuteAppendix"
   ],
-  "chart": [
-    "CuteChart"
-  ],
   "sorttable": [
     "CuteSortTable"
   ],
@@ -116,10 +113,7 @@
     "Alert",
     "Collapse",
     "Rate",
-    "createI18n",
-    "CuteStatusPage403",
-    "CuteStatusPage404",
-    "CuteStatusPage500"
+    "createI18n"
   ],
   "vxetable": "VXETable"
 }

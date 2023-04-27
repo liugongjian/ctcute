@@ -39,12 +39,14 @@
       margin-left: $margin-3x;
     }
 
-    &:hover:not(.is-disabled) {
-      background-color: $color-master-bg-light-2;
-
+    &.is-checked {
       .el-checkbox__label {
-        color: $color-master;
+        font-weight: $text-title-weight;
       }
+    }
+
+    &:hover:not(.is-disabled) {
+      background-color: $color-neutral-1;
     }
   }
 }
@@ -107,7 +109,7 @@
         height: 50px;
         padding: 0 $padding-4x;
 
-        .el-button + .el-button {
+        .el-button+.el-button {
           margin-left: $margin-4x;
         }
       }

@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2023-04-10 06:51:22
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-10 07:06:24
+ * @LastEditTime: 2023-04-26 12:38:05
  * @Description: 图表组件说明
 -->
 
@@ -10,7 +10,7 @@
   <div>
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
-      <h1>CuteChart / 图表组件</h1>
+      <h1>CuteChart / 图表组件（不再维护，不建议使用）</h1>
       <component-demo path="@/views/component/Base/CuteChart/Demo1.vue">
         <demo1 />
       </component-demo>
@@ -66,13 +66,6 @@ export default class extends Vue {
       type: 'String',
       options: null,
       default: '200px',
-    },
-    {
-      name: 'theme',
-      desc: 'echarts主题',
-      type: 'String',
-      options: 'cuted-light, echarts内置的theme',
-      default: 'cuted-light',
     },
   ]
 }

@@ -1,26 +1,37 @@
 /* Select
 -------------------------- */
-$tags-left-xs: $padding-2x - 6;
-$tags-left-sm: $padding-2x - 6;
-$tags-left-md: $padding-3x - 6;
-$tags-left-lg: $padding-4x - 6;
+// $tags-left-xs: $padding-2x;
+// $tags-left-sm: $padding-2x;
+// $tags-left-md: $padding-3x;
+// $tags-left-lg: $padding-4x;
+$tags-left-xs: $common-space;
+$tags-left-sm: $common-space;
+$tags-left-md: $common-space;
+$tags-left-lg: $common-space;
+$select-sm-height: $input-sm-height;
+$select-tag-margin: 2px 0 2px 8px;
+
 /*
   重置Select基本样式
 */
 .el-range-editor--mini.el-input__inner {
   height: $range-editor-height;
 }
+
 .el-range-editor--small.el-input__inner {
   height: $range-editor-height;
 }
+
 .el-select {
   .el-icon-circle-close:before {
     font-family: $font-family-cute-icons;
     content: '\ea4f';
   }
+
   .el-input--suffix {
     height: 100%;
   }
+
   &.disabled-select {
     .el-select__tags-text:after {
       @include iconfont;
@@ -46,6 +57,14 @@ $tags-left-lg: $padding-4x - 6;
       }
     }
   }
+
+  &.is-disabled {
+    .el-tag.el-tag--light.el-tag--info {
+      color: $color-neutral-6;
+      background-color: $color-neutral-1;
+      border-color: $color-neutral-3;
+    }
+  }
 }
 
 /* 
@@ -54,23 +73,30 @@ $tags-left-lg: $padding-4x - 6;
 .el-select__input {
   height: 20px;
 }
+
 .el-select {
   .el-tag {
     background: $cascader-tag-bg;
     border: 1px solid $border-color;
     border-radius: $border-radius;
+    height: $select-sm-height;
+    margin: 2px 0 2px 8px;
   }
+
+  // .el-tag:first-child {
+  //   margin-left: 0;
+  // }
 
   .el-tag.el-tag--light.el-tag--info {
     color: $text-color;
   }
+
   .el-tag.el-tag--info .el-tag__close {
     background-color: unset;
-    color: $text-color;
+    color: $select-tag-color;
 
     &:hover {
-      background: $select-color;
-      color: $select-dropdown-bg;
+      color: $select-tag-color-hover;
     }
   }
 }
@@ -84,8 +110,9 @@ $tags-left-lg: $padding-4x - 6;
 */
 
 .el-range-editor.el-input__inner.is-disabled {
-  background-color: $range-editor-disabled-bg;
+  background-color: $select-color-disabled;
 }
+
 .el-select-dropdown {
   background: $select-dropdown-bg;
   box-shadow: $shadow-2;
@@ -95,29 +122,40 @@ $tags-left-lg: $padding-4x - 6;
     &.hover {
       background-color: unset;
     }
+
     &:hover {
       background-color: $color-info-bg;
     }
+
     font-size: $text-size;
     background-color: $select-dropdown-bg;
+
     &:not(.el-select-dropdown__item.selected):not(.el-select-dropdown__item.is-disabled):hover {
-      color: $select-color;
-    }
-    &.selected {
-      color: $select-color;
-      background-color: unset;
-      font-weight: normal;
+      color: unset;
     }
 
-    &.is-disabled:hover {
-      color: $color-grey-4;
-      background-color: $select-dropdown-bg;
+    &.selected {
+      color: $select-color;
+      // background-color: unset;
+      font-weight: bold;
+    }
+
+    &.is-disabled {
+      .el-input__prefix {
+        color: $select-color-disabled;
+      }
+
+      &:hover {
+        color: $select-color-disabled;
+        background-color: $select-dropdown-bg;
+      }
     }
   }
 
   &.is-multiple &__item.selected {
     background-color: unset;
     color: $select-color;
+
 
     &:hover {
       background: $range-editor-multiple-bg;
@@ -149,28 +187,34 @@ $tags-left-lg: $padding-4x - 6;
     }
   }
 }
+
 .el-select--small {
   .el-tag.el-tag--mini {
     height: $select-xs-height - 6;
     line-height: $select-xs-height - 6;
   }
 }
+
 @mixin select-size($size, $height, $left) {
   .el-select {
     &.el-select--#{$size} {
       line-height: $height - 2;
+
       .el-input--suffix {
         line-height: $height - 2;
+
         .el-input__inner {
-          line-height: $height - 2;
+          line-height: $height;
         }
       }
+
       .el-select__tags {
-        left: $left;
+        left: $left + 1;
       }
     }
   }
 }
+
 @include select-size(large, $select-lg-height, $tags-left-lg);
 @include select-size(medium, $select-md-height, $tags-left-md);
 @include select-size(small, $select-sm-height, $tags-left-sm);

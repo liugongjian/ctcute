@@ -6,9 +6,50 @@ $tabs-sm-height: $input-sm-height;
 $tabs-md-height: $input-md-height;
 $tabs-lg-height: $input-lg-height;
 
+/**
+ 通用样式
+*/
+.el-tabs__item{
+  font-weight: $text-weight;
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .el-icon-close{
+      color: $disabled-color;
+      transition: none;
+      &:hover{
+        background-color: transparent;
+      }
+    }
+  }
+  
+  &:not(.is-disabled) .el-icon-close{
+    color: $text-color-light-2;
+    transition: none;
+    cursor: pointer;
+    
+    &:hover{
+      background-color: transparent;
+      color: $tabs-master;
+    }
+  }
+
+  &:not(.is-disabled).is-active .el-icon-close{
+    color: $tabs-master;
+  }
+
+  &:not(.is-disabled):not(.is-active):hover {
+    .el-icon-close{
+      color: $tabs-master;
+    }
+  }
+}
+
 /*
   默认风格
 */
+
 .el-tabs__nav-wrap::after{
   background-color: $tabs-default-line-color;
   height: 1px;
@@ -120,9 +161,13 @@ $tabs-lg-height: $input-lg-height;
   }
 }
 
-// border-card风格darm模式兼容
+// border-card风格dark模式兼容
 .el-tabs--border-card, .el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active{
   background-color: $color-bg-2;
+}
+
+.el-tabs--border-card > .el-tabs__header .el-tabs__item{
+  color: $text-color;
 }
 
 

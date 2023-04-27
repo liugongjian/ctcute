@@ -1,10 +1,12 @@
 /* Cascader
 -------------------------- */
 $cascader-panel-shadow: $shadow-2;
-
+$cascader-tags-size: $select-sm-height;
 
 
 .el-cascader {
+
+  // .el-cascader-menu{}
   .el-cascader__caret.el-input__icon.el-icon-arrow-down {
     transform: rotate(360deg);
     color: $text-color-light-2;
@@ -29,39 +31,61 @@ $cascader-panel-shadow: $shadow-2;
   // }
 
   .el-cascader__tags {
-    .el-tag{
+    .el-tag {
+      background: $cascader-tag-bg;
       display: flex;
       justify-content: center;
-      &.el-tag--small{ 
-        line-height: 20px; 
-        height: 20px;
+
+      &.el-tag--small {
+        line-height: $cascader-tags-size;
+        height: $cascader-tags-size;
       }
     }
-    .el-tag > span {
-      background: $cascader-tag-bg;
+
+    .el-tag>span {
+
       color: $color-grey-1;
     }
-    .el-tag:not(.is-hit) {
-      border: 0;
-    }
-     .el-icon-close{
+
+    // .el-tag:not(.is-hit) {
+    //   border: 0;
+    // }
+
+    .el-icon-close {
       color: $cascader-tag-close-bg;
       background-color: unset;
-     }
+
+      &:hover {
+        color: $select-tag-color-hover;
+      }
+    }
+
     .el-icon-close:before {
       color: $cascader-tag-close-bg;
-      line-height: 20px;
+      line-height: $cascader-tags-size;
     }
   }
+
   &.is-disabled {
-    .el-cascader__tags{
-      cursor: not-allowed;
-    }
-    .el-input{
+    .el-cascader__tags {
       cursor: not-allowed;
     }
 
+    .el-input {
+      cursor: not-allowed;
+    }
+
+    .el-tag.el-tag--light.el-tag--info {
+
+      background-color: $color-neutral-1;
+      border: 1px solid $color-neutral-3;
+
+      span {
+        color: $color-neutral-6;
+      }
+    }
   }
+
   // &:not(.is-disabled):hover{
   //   .el-input__inner{
   //     border: 1px solid $color-master;
@@ -76,6 +100,7 @@ $cascader-panel-shadow: $shadow-2;
   box-shadow: $shadow-2;
 
   .el-cascader-node {
+
     // padding: 0 30px 0 2px; // 有选择框不能按设计稿处理，需要重新想办法
     &:hover {
       background-color: $cascader-node-hover;
@@ -95,15 +120,36 @@ $cascader-panel-shadow: $shadow-2;
     background-color: $cascader-panel-bg;
   }
 }
-.el-cascader-node.in-active-path, .el-cascader-node.is-selectable.in-checked-path, .el-cascader-node.is-active{ font-weight: normal;}
-@mixin input-size($size, $height, $text-size) {
-  .el-cascader.el-cascader--#{$size} {
-     line-height: $height;
-     .el-input.el-input--large .el-input__icon{
-        line-height: unset
-     }
+
+.el-cascader-node.in-active-path,
+.el-cascader-node.is-selectable.in-checked-path,
+.el-cascader-node.is-active {
+  font-weight: normal;
+
+  .el-cascader-node__label {
+    font-weight: bold;
   }
 }
+
+.el-cascader-node__label {
+  font-weight: normal;
+  padding: 0 $padding-2x;
+}
+
+.el-cascader-node__postfix {
+  right: 16px;
+}
+
+@mixin input-size($size, $height, $text-size) {
+  .el-cascader.el-cascader--#{$size} {
+    line-height: $height;
+
+    .el-input.el-input--large .el-input__icon {
+      line-height: unset
+    }
+  }
+}
+
 // 组件自己 计算出来的高度比设置高度多1px 需要减掉 
 @include input-size(large, $input-lg-height - 2, $text-size);
 @include input-size(medium, $input-md-height - 2, $text-size);

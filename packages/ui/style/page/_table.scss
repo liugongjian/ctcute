@@ -98,9 +98,16 @@
     /* 筛选表单 */
     &__conditions {
       flex: 1;
-      max-width: 60%;
 
       @include tableToolsConditionForm1();
+
+      .el-form {
+        justify-content: right;
+      }
+
+      .el-form-item {
+        max-width: 30%;
+      }
     }
   }
 
@@ -131,9 +138,16 @@
     /* 筛选表单 */
     &__conditions {
       flex: 1;
-      max-width: 60%;
 
       @include tableToolsConditionForm1();
+
+      .el-form {
+        justify-content: right;
+      }
+
+      .el-form-item {
+        max-width: 30%;
+      }
     }
   }
 
@@ -283,9 +297,16 @@
       /* 筛选表单 */
       &__conditions {
         flex: 1;
-        max-width: 60%;
 
         @include tableToolsConditionForm1();
+
+        .el-form {
+          justify-content: right;
+        }
+
+        .el-form-item {
+          max-width: 30%;
+        }
       }
     }
 
@@ -337,7 +358,7 @@
 
 /* 下拉展开旋转小三角 */
 .el-table .el-button .top-fill {
-  transform: scale(1.28) rotate(180deg);
+  transform: rotate(180deg);
 }
 
 // TODO 这是ProForm页面样式

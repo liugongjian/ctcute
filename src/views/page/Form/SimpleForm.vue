@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-07-12 14:03:28
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-13 17:03:55
+ * @LastEditTime: 2023-04-21 15:00:55
  * @Description: 基础表单
 -->
 <template>
@@ -20,7 +20,7 @@
           <el-radio-button label="large">大</el-radio-button>
           <el-radio-button label="medium">默认</el-radio-button>
           <el-radio-button label="small">小</el-radio-button>
-          <el-radio-button label="mini">小</el-radio-button>
+          <!-- <el-radio-button label="mini">小</el-radio-button> -->
         </el-radio-group>
       </el-form-item>
       <el-form-item label="输入查询" prop="name" :size="itemSize">

@@ -1,6 +1,6 @@
 /* Radio
 -------------------------- */
-
+// .el-radio__label 8px
 .el-radio__inner {
   width: $radio-width;
   height: $radio-width;
@@ -14,15 +14,28 @@
 }
 
 .el-radio__input {
-  .is-disabled.is-checked .el-radio__inner:after {
-    background: $radio-group-border-color;
-  }
-  .is-disabled .el-radio__inner {
+
+  &.is-disabled .el-radio__inner {
     background: $radio-group-disabled-bg;
+    border: 1px solid $radio-group-border-color;
+
   }
-  &.is-checked .el-radio__inner {
-    background-color: $radio-checked-bg;
+
+  &.is-checked {
+    .el-radio__inner {
+      background-color: $radio-checked-bg;
+    }
   }
+
+  &.is-disabled.is-checked .el-radio__inner:after {
+    background: $radio-group-border-color;
+    border: 1px solid $radio-group-border-color;
+  }
+
+  &.is-disabled+span.el-radio__label {
+    color: $text-color;
+  }
+
 }
 
 .el-radio__input.is-checked .el-radio__inner {
@@ -37,13 +50,16 @@
     transition: none;
     background-color: $button-default-color-bg;
   }
+
   .el-radio-button {
     &.is-disabled {
       .el-radio-button__inner {
         border-color: $radio-group-border-disabled-color;
         background-color: $radio-group-disabled-bg;
+        color: $disabled-color;
       }
     }
+
     &:not(.is-disabled):not(.is-active) {
       .el-radio-button__inner:hover {
         color: $radio-group-bg;
@@ -51,12 +67,14 @@
         margin-left: -1px;
       }
     }
+
     &:not(.is-disabled):not(.is-active):first-child {
       .el-radio-button__inner:hover {
         border: 1px solid $radio-group-bg;
         margin-left: 0;
       }
     }
+
     &.is-disabled.is-active {
       .el-radio-button__inner {
         border: 1px solid $radio-group-border-disabled-bg;
@@ -77,6 +95,7 @@
     }
   }
 }
+
 @include radio-size(large, $input-lg-height, $input-lg-padding);
 @include radio-size(medium, $input-md-height, $input-md-padding);
 @include radio-size(small, $input-sm-height, $input-sm-padding);

@@ -1,27 +1,25 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2023-04-10 07:08:29
- * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-23 15:17:18
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-04-26 12:56:59
  * @Description: 指定内容区高度
 -->
 
 <template>
   <cute-card-box :title="$t('demo.cardBox.demo4.title')" content-height="320px">
     <template #content>
-      <CuteChart :option="option" :width="'100%'" :height="'100%'" />
+      <VChart :option="option" style="height: 100%; width: 100%" />
     </template>
   </cute-card-box>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { CuteCardBox } from '@cutedesign/ui'
-import { CuteChart } from '@cutedesign/ui'
 @Component({
   name: 'CuteCardBoxDemo1',
   components: {
     CuteCardBox,
-    CuteChart,
   },
 })
 export default class extends Vue {

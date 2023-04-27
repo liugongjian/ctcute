@@ -20,13 +20,16 @@ $progress-text-size-lg: 20px;
   color: $color-warning !important;
 }
 
-.el-progress-bar__inner,
-.el-progress-bar__outer {
-  height: $progress-text-height-sm !important;
+.el-progress--text-inside {
+  .el-progress-bar__inner,
+  .el-progress-bar__outer {
+    height: $progress-text-height-sm !important;
+  }
 }
 
 .el-progress-bar__outer {
   border-radius: $border-radius;
+  background-color: $color-neutral-2 !important;
 }
 
 .el-progress-bar__inner {
@@ -57,4 +60,30 @@ $progress-text-size-lg: 20px;
   font-size: $progress-text-size-lg !important;
   font-weight: $text-title-weight;
   font-family: $font-family;
+
+  .el-icon-warning {
+    font-size: $text-size-lg;
+  }
+
+  .el-icon-close {
+    font-size: $text-size-lg;
+  }
+
+  .el-icon-check {
+    font-size: $text-size-lg;
+  }
+}
+
+.el-progress--line .el-progress__text {
+  .el-icon-warning {
+    font-size: $text-size-md;
+  }
+
+  .el-icon-circle-close {
+    font-size: $text-size-md;
+  }
+
+  .el-icon-circle-check {
+    font-size: $text-size-md;
+  }
 }

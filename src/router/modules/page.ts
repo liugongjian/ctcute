@@ -1,5 +1,4 @@
 import Layout from '@/layout/LayoutPage.vue'
-import { CuteStatusPage404, CuteStatusPage403, CuteStatusPage500, CuteStatusEmptyPage } from '@cutedesign/ui'
 
 const indexPageRoutes = [
   //首页展示
@@ -407,7 +406,7 @@ const restPageRoutes = [
     children: [
       {
         path: 'Page403',
-        component: CuteStatusPage403,
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page403.vue'),
         name: 'Page403',
         meta: {
           title: 'Page403 403页',
@@ -416,7 +415,7 @@ const restPageRoutes = [
       },
       {
         path: 'Page404',
-        component: CuteStatusPage404,
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page404.vue'),
         name: 'Page404',
         meta: {
           title: 'Page404 404页',
@@ -425,7 +424,7 @@ const restPageRoutes = [
       },
       {
         path: 'Page500',
-        component: CuteStatusPage500,
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/Page500.vue'),
         name: 'Page500',
         meta: {
           title: 'Page500 500页',
@@ -434,7 +433,7 @@ const restPageRoutes = [
       },
       {
         path: 'EmptyPage',
-        component: CuteStatusEmptyPage,
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/EmptyPage.vue'),
         name: 'EmptyPage',
         meta: {
           title: 'EmptyPage 空页面',
@@ -498,21 +497,52 @@ const restPageRoutes = [
         },
       },
       {
-        path: 'variables-refactor',
-        component: () =>
-          import(/* webpackChunkName: "ts-demo" */ '@/views/page/TsDemo/VariablesRefactor.vue'),
-        name: 'VariablesRefactor',
-        meta: {
-          title: 'VariablesRefactor(临时)',
-          breadcrumb: true,
-        },
-      },
-      {
         path: 'echarts-demo',
         component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/EchartsDemo/index.vue'),
         name: 'EchartsDemo',
         meta: {
           title: 'Echarts Demo',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  // 订购页
+  {
+    path: '/page/order',
+    redirect: '/page/order/order-list',
+    component: Layout,
+    name: 'Order',
+    meta: {
+      title: 'Order 订购页',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'order-list',
+        component: () => import('@/views/page/Order/OrderList.vue'),
+        name: 'OrderList',
+        meta: {
+          title: 'OrderList 订购标准页',
+          fullScreen: true,
+        },
+      },
+      {
+        path: 'product-details',
+        component: () => import('@/views/page/Order/ProductDetails.vue'),
+        name: 'ProductDetails',
+        meta: {
+          title: 'ProductDetails 产品详情',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'product-list',
+        component: () => import('@/views/page/Order/ProductList.vue'),
+        name: 'ProductList',
+        meta: {
+          title: 'ProductList 产品列表',
           breadcrumb: true,
         },
       },

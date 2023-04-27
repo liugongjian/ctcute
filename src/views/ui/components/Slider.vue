@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-17 20:57:52
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-17 16:18:44
+ * @LastEditTime: 2023-04-23 10:47:44
  * @Description:
 -->
 <template>
@@ -20,15 +20,7 @@
     </el-row>
     <el-row>
       <el-col>
-        <el-slider
-          v-model="age2"
-          :marks="{ 0: '0', 60: '60' }"
-          :min="0"
-          :max="60"
-          :show-tooltip="false"
-          show-input
-        >
-        </el-slider>
+        <el-slider v-model="age2" :min="0" :max="60" :show-tooltip="true" show-input> </el-slider>
       </el-col>
     </el-row>
     <el-row>
@@ -42,6 +34,12 @@
         </el-slider>
       </el-col>
     </el-row>
+    <el-row>
+      <el-col>
+        <el-slider v-model="value4" :min="10" :max="50" show-stops :step="10"> </el-slider>
+      </el-col>
+    </el-row>
+
     <el-row tag="h4">
       以下滑动输入条使用了
       <a href="/component/base/cute-slider" target="_blank">CuteSlider</a>
@@ -59,6 +57,9 @@
         @moveChange="rangeChanges"
         @inputChange="inputChange"
       />
+    </el-row>
+    <el-row>
+      <cute-slider v-model="values" :min="0" :max="500" :marks="marks" :range="false" @moveChange="changes" />
     </el-row>
     <el-row>
       <cute-slider
@@ -121,6 +122,7 @@ export default class extends Vue {
     500: '500',
   }
   private values = 200
+  private value4 = 30
   private rangeValue = [100, 200]
   private changes(val) {
     console.log(val, 'slider值')

@@ -8,22 +8,21 @@
 <template>
   <cute-card-box title="渐变折线图">
     <template #content>
-      <CuteChart :option="option" :height="'280px'" :width="'100%'" />
+      <VChart :option="option" style="height: 280px; width: 100%" :theme="theme" />
     </template>
   </cute-card-box>
 </template>
 <script lang="ts">
 import { CuteCardBox } from '@cutedesign/ui'
-import { CuteChart } from '@cutedesign/ui'
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component({
   name: 'GradiantLineDemo',
   components: {
     CuteCardBox,
-    CuteChart,
   },
 })
 export default class extends Vue {
+  @Prop({ default: 'cuted-light', required: false }) private readonly theme: string
   private option = {}
   private data = [
     ['2000-06-05', 116],

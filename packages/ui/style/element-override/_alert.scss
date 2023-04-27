@@ -14,6 +14,10 @@ $alert-single-height: 36px;
       background-color: $bg-color;
       .el-alert__closebtn{
         color: $master-color; // 关闭按钮默认颜色
+        font-size: $text-size-md;
+        height: $text-size-md;
+        right: $common-space-4x;
+        top: calc((#{$alert-single-height} - #{$text-size-md}) / 2)
       }
 
       .el-alert__icon {
@@ -39,6 +43,8 @@ $alert-single-height: 36px;
   .el-alert__icon {
     line-height: calc(#{$line-height} * #{$text-size});
     height: calc(#{$line-height} * #{$text-size});
+    font-size: $text-size-md;
+    width: $text-size-md;
   }
 }
 
@@ -61,6 +67,6 @@ $alert-single-height: 36px;
 
 .is-alert-tip {
   .el-alert__closebtn.is-customed {
-    font-size: $text-size-primary;
+    font-size: $text-size;
   }
 }

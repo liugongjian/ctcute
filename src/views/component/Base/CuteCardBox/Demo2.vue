@@ -17,19 +17,17 @@
       ></el-date-picker>
     </template>
     <template #content>
-      <CuteChart :option="option" :height="'280px'" :width="'100%'" />
+      <VChart :option="option" style="height: 280px; width: 100%" />
     </template>
   </cute-card-box>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { CuteCardBox } from '@cutedesign/ui'
-import { CuteChart } from '@cutedesign/ui'
 @Component({
   name: 'CuteCardBoxDemo1',
   components: {
     CuteCardBox,
-    CuteChart,
   },
 })
 export default class extends Vue {

@@ -43,7 +43,7 @@ export default [
       {
         'name': '$color-master-bg-light-2',
         'type': 'color',
-        'value': '#292b2e',
+        'value': '#202638',
         'scene': '背景浅色2'
       },
       {
@@ -305,6 +305,12 @@ export default [
         'scene': ''
       },
       {
+        'name': '$color-white-hover',
+        'type': 'color',
+        'value': '#3f4345',
+        'scene': ''
+      },
+      {
         'name': '$color-black',
         'type': 'color',
         'value': '#000',
@@ -391,7 +397,7 @@ export default [
         'name': '$font-family',
         'type': 'string',
         'value': '\'Microsoft YaHei\',\'PingFang SC\',\'Helvetica Neue\',Helvetica,Arial,STHeiTi,sans-serif,\'-apple-system\',\'BlinkMacSystemFont\',\'Segoe UI\',\'Hiragino Sans GB\'',
-        'scene': '标准字体'
+        'scene': ''
       },
       {
         'name': '$font-family-cute-icons',
@@ -1270,15 +1276,27 @@ export default [
         'scene': ''
       },
       {
-        'name': '$select-color',
+        'name': '$select-color-disabled',
         'type': 'color',
-        'value': '#3967d6',
+        'value': '#737579',
         'scene': ''
       },
       {
         'name': '$select-dropdown-bg',
         'type': 'color',
         'value': '#242528',
+        'scene': ''
+      },
+      {
+        'name': '$select-tag-color',
+        'type': 'color',
+        'value': '#737579',
+        'scene': ''
+      },
+      {
+        'name': '$select-tag-color-hover',
+        'type': 'color',
+        'value': '#535558',
         'scene': ''
       },
       {
@@ -1314,13 +1332,13 @@ export default [
       {
         'name': '$range-editor-disabled-bg',
         'type': 'color',
-        'value': '#292b2e',
+        'value': '#202638',
         'scene': ''
       },
       {
         'name': '$range-editor-multiple-bg',
         'type': 'color',
-        'value': '#292b2e',
+        'value': '#202638',
         'scene': ''
       },
       {
@@ -1342,9 +1360,15 @@ export default [
     'doc': 'false',
     'list': [
       {
+        'name': '$checkbox-label-size',
+        'type': 'string',
+        'value': '14px',
+        'scene': ''
+      },
+      {
         'name': '$checkbox-bg',
         'type': 'color',
-        'value': '#292b2e',
+        'value': '#242528',
         'scene': ''
       },
       {
@@ -1356,6 +1380,12 @@ export default [
       {
         'name': '$checkbox-button',
         'type': 'color',
+        'value': '#202638',
+        'scene': ''
+      },
+      {
+        'name': '$checkbox-button-disabled',
+        'type': 'color',
         'value': '#292b2e',
         'scene': ''
       },
@@ -1363,6 +1393,12 @@ export default [
         'name': '$checkbox-button-hover',
         'type': 'color',
         'value': '#232f4f',
+        'scene': ''
+      },
+      {
+        'name': '$checkbox-button-disabled-select',
+        'type': 'color',
+        'value': '#293a63',
         'scene': ''
       }
     ]
@@ -1624,6 +1660,12 @@ export default [
         'scene': ''
       },
       {
+        'name': '$switch-core-bg-disabled',
+        'type': 'color',
+        'value': '#535558',
+        'scene': ''
+      },
+      {
         'name': '$switch-core-color',
         'type': 'color',
         'value': '#242528',
@@ -1690,6 +1732,12 @@ export default [
     'doc': 'false',
     'list': [
       {
+        'name': '$upload-progress-bar-height',
+        'type': 'string',
+        'value': '2px',
+        'scene': ''
+      },
+      {
         'name': '$upload-color',
         'type': 'color',
         'value': '#3967d6',
@@ -1710,7 +1758,7 @@ export default [
       {
         'name': '$upload-bg-hover',
         'type': 'color',
-        'value': '#c6c7cc',
+        'value': '#292b2e',
         'scene': ''
       },
       {
@@ -1740,7 +1788,7 @@ export default [
       {
         'name': '$upload-picture-card-progress-circle-size',
         'type': 'string',
-        'value': '70px',
+        'value': '72px',
         'scene': ''
       },
       {
@@ -1777,6 +1825,30 @@ export default [
         'name': '$card-shadow',
         'type': 'string',
         'value': '0 0 8px 0 rgba(0,0,0,.1)',
+        'scene': ''
+      }
+    ]
+  },
+  {
+    'title': 'Badge',
+    'doc': 'false',
+    'list': [
+      {
+        'name': '$badge-content-padding',
+        'type': 'string',
+        'value': '5px',
+        'scene': ''
+      }
+    ]
+  },
+  {
+    'title': 'Time',
+    'doc': 'false',
+    'list': [
+      {
+        'name': '$date-panel-btn-size',
+        'type': 'string',
+        'value': '28px',
         'scene': ''
       }
     ]
@@ -1903,12 +1975,12 @@ export default [
   },
   {
     'title': 'Icon',
-    'doc': 'false',
+    'doc': 'true',
     'list': [
       {
         'name': '$icon-color',
         'type': 'color',
-        'value': '#b8babf',
+        'value': '#737579',
         'scene': ''
       }
     ]
@@ -1978,9 +2050,51 @@ export default [
     'doc': 'false',
     'list': [
       {
+        'name': '$slider-stop-color',
+        'type': 'color',
+        'value': '#3f4345',
+        'scene': ''
+      },
+      {
+        'name': '$slider-stop-border-color',
+        'type': 'color',
+        'value': '#fff',
+        'scene': ''
+      },
+      {
+        'name': '$slider-height',
+        'type': 'string',
+        'value': '4px',
+        'scene': ''
+      },
+      {
+        'name': '$cute-slider-size',
+        'type': 'string',
+        'value': '14px',
+        'scene': '特殊大小'
+      },
+      {
+        'name': '$cute-slider-text-color',
+        'type': 'color',
+        'value': '#fff',
+        'scene': ''
+      },
+      {
+        'name': '$cute-slider-bg',
+        'type': 'color',
+        'value': '#34373a',
+        'scene': ''
+      },
+      {
         'name': '$cute-slider-line-color',
         'type': 'color',
         'value': '#3967d6',
+        'scene': ''
+      },
+      {
+        'name': '$cute-slider-disabled-border',
+        'type': 'color',
+        'value': '#535558',
         'scene': ''
       },
       {
@@ -2008,69 +2122,15 @@ export default [
         'scene': ''
       },
       {
-        'name': '$cute-slider-btn-color-disabled',
-        'type': 'color',
-        'value': '#293a63',
-        'scene': ''
-      }
-    ]
-  },
-  {
-    'title': 'CuteArea',
-    'doc': 'false',
-    'list': [
-      {
-        'name': '$cute-area-recent-border-color',
+        'name': '$cute-slider-bg-disabled',
         'type': 'color',
         'value': '#535558',
         'scene': ''
       },
       {
-        'name': '$cute-area-recent-head-color',
+        'name': '$cute-slider-btn-color-disabled',
         'type': 'color',
-        'value': '#fff',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-recent-item-color',
-        'type': 'color',
-        'value': '#c6c7cc',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-recent-item-background-color',
-        'type': 'color',
-        'value': '#202638',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-item-hover-background-color',
-        'type': 'color',
-        'value': '#202638',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-item-hover-color',
-        'type': 'color',
-        'value': '#3967d6',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-item-seleted-background-color',
-        'type': 'color',
-        'value': '#3967d6',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-head-color',
-        'type': 'color',
-        'value': '#c6c7cc',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-item-color',
-        'type': 'color',
-        'value': '#fff',
+        'value': '#293a63',
         'scene': ''
       }
     ]

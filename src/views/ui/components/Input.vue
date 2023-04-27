@@ -165,16 +165,19 @@
             class="input-with-select"
           >
             <div slot="prepend">
-              <el-select v-model="select" placeholder="城市">
+              <el-select v-model="select" size="medium" placeholder="城市">
                 <el-option label="上海" value="1"></el-option>
+                <el-option label="北京" value="2"></el-option>
+                <el-option label="深圳" value="3"></el-option>
               </el-select>
             </div>
           </el-input>
         </div>
         <div>
           <el-input v-model="height" :size="inputSize" placeholder="请输入身高" class="input-with-select">
-            <el-select slot="append" v-model="select" placeholder="CM">
+            <el-select slot="append" v-model="select2" size="medium" placeholder="CM">
               <el-option label="cm" value="2"></el-option>
+              <el-option label="m" value="1"></el-option>
             </el-select>
           </el-input>
         </div>
@@ -264,7 +267,7 @@
           v-model="state1"
           :placeholder="placeholder"
           title="数据资源名称"
-          :size="inputSize"
+          size="small"
           @change="changeFun"
         />
       </el-row>
@@ -387,6 +390,7 @@ export default class extends Vue {
   private num1 = 1
   private content = '这是一段内容'
   private select = ''
+  private select2 = ''
   private value = 's2.mall.1'
   private searchValue = ''
   private searchValue1 = ''
@@ -534,6 +538,21 @@ export default class extends Vue {
     font-size: $text-size-xl;
     line-height: 16px;
     color: $text-color;
+  }
+}
+::v-deep .suffix-box {
+  .el-link {
+    &::after {
+      display: none;
+    }
+  }
+  .el-link--inner {
+    text-decoration: none;
+    color: $color-neutral-9;
+    &:hover {
+      color: $color-master;
+      text-decoration: none;
+    }
   }
 }
 </style>

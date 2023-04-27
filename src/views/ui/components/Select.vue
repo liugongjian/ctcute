@@ -782,7 +782,7 @@ export default class extends Vue {
 
 .option__msg {
   float: right;
-  color: $text-color-light-1;
+  color: $text-color-light;
   font-weight: normal;
 }
 

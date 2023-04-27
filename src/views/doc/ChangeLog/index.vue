@@ -2345,7 +2345,7 @@ export default class extends Vue {
 
     &__right {
       font-size: 14px;
-      margin-right: $margin-medium;
+      margin-right: $margin-4x;
     }
   }
 

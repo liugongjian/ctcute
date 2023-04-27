@@ -43,7 +43,7 @@ export default [
       {
         'name': '$color-master-bg-light-2',
         'type': 'color',
-        'value': '#f7f8fa',
+        'value': '#f0f7ff',
         'scene': '背景浅色2'
       },
       {
@@ -69,6 +69,12 @@ export default [
         'type': 'color',
         'value': '#ff828a',
         'scene': '禁用'
+      },
+      {
+        'name': '$color-ct-bg',
+        'type': 'color',
+        'value': '#ffe6e6',
+        'scene': ''
       }
     ]
   },
@@ -305,17 +311,18 @@ export default [
         'scene': ''
       },
       {
+        'name': '$color-white-hover',
+        'type': 'color',
+        'value': '#e2e5ed',
+        'scene': ''
+      },
+      {
         'name': '$color-black',
         'type': 'color',
         'value': '#000',
         'scene': ''
       }
     ]
-  },
-  {
-    'title': '其他色',
-    'doc': 'false',
-    'list': []
   },
   {
     'title': '背景色',
@@ -391,7 +398,7 @@ export default [
         'name': '$font-family',
         'type': 'string',
         'value': '\'Microsoft YaHei\',\'PingFang SC\',\'Helvetica Neue\',Helvetica,Arial,STHeiTi,sans-serif,\'-apple-system\',\'BlinkMacSystemFont\',\'Segoe UI\',\'Hiragino Sans GB\'',
-        'scene': '标准字体'
+        'scene': ''
       },
       {
         'name': '$font-family-cute-icons',
@@ -768,7 +775,7 @@ export default [
       {
         'name': '$shadow-2',
         'type': 'string',
-        'value': '0px 0px 15px rgba(100,110,144,.2)',
+        'value': '0px 0px 16px rgba(100,110,144,.2)',
         'scene': '二级阴影'
       },
       {
@@ -781,13 +788,7 @@ export default [
         'name': '$shadow-form-item',
         'type': 'string',
         'value': '0px 2px 2px rgba(0,0,0,.1)',
-        'scene': '组件Focused状态使用'
-      },
-      {
-        'name': '$shadow-dialog',
-        'type': 'string',
-        'value': '0 6px 16px -8px rgba(0,0,0,.08),0 9px 28px 0 rgba(0,0,0,.05),0 12px 48px 16px rgba(0,0,0,.03)',
-        'scene': ''
+        'scene': '组件Focused状态使用 4级'
       }
     ]
   },
@@ -878,6 +879,12 @@ export default [
         'type': 'color',
         'value': '#353f58',
         'scene': ''
+      },
+      {
+        'name': '$header-search-text-color',
+        'type': 'color',
+        'value': '#999',
+        'scene': ''
       }
     ]
   },
@@ -966,7 +973,7 @@ export default [
       {
         'name': '$tag-fatal-border',
         'type': 'color',
-        'value': '#b31e28',
+        'value': '#8c111d',
         'scene': '危险色标签边框'
       },
       {
@@ -1270,15 +1277,27 @@ export default [
         'scene': ''
       },
       {
-        'name': '$select-color',
+        'name': '$select-color-disabled',
         'type': 'color',
-        'value': '#3d73f5',
+        'value': '#999',
         'scene': ''
       },
       {
         'name': '$select-dropdown-bg',
         'type': 'color',
         'value': '#fff',
+        'scene': ''
+      },
+      {
+        'name': '$select-tag-color',
+        'type': 'color',
+        'value': '#999',
+        'scene': ''
+      },
+      {
+        'name': '$select-tag-color-hover',
+        'type': 'color',
+        'value': '#d9d9d9',
         'scene': ''
       },
       {
@@ -1314,13 +1333,13 @@ export default [
       {
         'name': '$range-editor-disabled-bg',
         'type': 'color',
-        'value': '#f7f8fa',
+        'value': '#f0f7ff',
         'scene': ''
       },
       {
         'name': '$range-editor-multiple-bg',
         'type': 'color',
-        'value': '#f7f8fa',
+        'value': '#f0f7ff',
         'scene': ''
       },
       {
@@ -1342,9 +1361,15 @@ export default [
     'doc': 'false',
     'list': [
       {
+        'name': '$checkbox-label-size',
+        'type': 'string',
+        'value': '14px',
+        'scene': ''
+      },
+      {
         'name': '$checkbox-bg',
         'type': 'color',
-        'value': '#f7f8fa',
+        'value': '#fff',
         'scene': ''
       },
       {
@@ -1356,6 +1381,12 @@ export default [
       {
         'name': '$checkbox-button',
         'type': 'color',
+        'value': '#f0f7ff',
+        'scene': ''
+      },
+      {
+        'name': '$checkbox-button-disabled',
+        'type': 'color',
         'value': '#f7f8fa',
         'scene': ''
       },
@@ -1363,6 +1394,12 @@ export default [
         'name': '$checkbox-button-hover',
         'type': 'color',
         'value': '#e3efff',
+        'scene': ''
+      },
+      {
+        'name': '$checkbox-button-disabled-select',
+        'type': 'color',
+        'value': '#bad6ff',
         'scene': ''
       }
     ]
@@ -1624,6 +1661,12 @@ export default [
         'scene': ''
       },
       {
+        'name': '$switch-core-bg-disabled',
+        'type': 'color',
+        'value': '#d9d9d9',
+        'scene': ''
+      },
+      {
         'name': '$switch-core-color',
         'type': 'color',
         'value': '#fff',
@@ -1690,6 +1733,12 @@ export default [
     'doc': 'false',
     'list': [
       {
+        'name': '$upload-progress-bar-height',
+        'type': 'string',
+        'value': '2px',
+        'scene': ''
+      },
+      {
         'name': '$upload-color',
         'type': 'color',
         'value': '#3d73f5',
@@ -1710,7 +1759,7 @@ export default [
       {
         'name': '$upload-bg-hover',
         'type': 'color',
-        'value': '#666',
+        'value': '#f7f8fa',
         'scene': ''
       },
       {
@@ -1740,7 +1789,7 @@ export default [
       {
         'name': '$upload-picture-card-progress-circle-size',
         'type': 'string',
-        'value': '70px',
+        'value': '72px',
         'scene': ''
       },
       {
@@ -1777,6 +1826,30 @@ export default [
         'name': '$card-shadow',
         'type': 'string',
         'value': '0px 0px 8px rgba(100,110,144,.1)',
+        'scene': ''
+      }
+    ]
+  },
+  {
+    'title': 'Badge',
+    'doc': 'false',
+    'list': [
+      {
+        'name': '$badge-content-padding',
+        'type': 'string',
+        'value': '5px',
+        'scene': ''
+      }
+    ]
+  },
+  {
+    'title': 'Time',
+    'doc': 'false',
+    'list': [
+      {
+        'name': '$date-panel-btn-size',
+        'type': 'string',
+        'value': '28px',
         'scene': ''
       }
     ]
@@ -1878,7 +1951,7 @@ export default [
       {
         'name': '$steps-icon-bg',
         'type': 'color',
-        'value': '#f0f7ff',
+        'value': '#3d73f5',
         'scene': '完成步骤背景色'
       }
     ]
@@ -1903,12 +1976,12 @@ export default [
   },
   {
     'title': 'Icon',
-    'doc': 'false',
+    'doc': 'true',
     'list': [
       {
         'name': '$icon-color',
         'type': 'color',
-        'value': '#353f58',
+        'value': '#999',
         'scene': ''
       }
     ]
@@ -1978,9 +2051,51 @@ export default [
     'doc': 'false',
     'list': [
       {
+        'name': '$slider-stop-color',
+        'type': 'color',
+        'value': '#e2e5ed',
+        'scene': ''
+      },
+      {
+        'name': '$slider-stop-border-color',
+        'type': 'color',
+        'value': '#fff',
+        'scene': ''
+      },
+      {
+        'name': '$slider-height',
+        'type': 'string',
+        'value': '4px',
+        'scene': ''
+      },
+      {
+        'name': '$cute-slider-size',
+        'type': 'string',
+        'value': '14px',
+        'scene': '特殊大小'
+      },
+      {
+        'name': '$cute-slider-text-color',
+        'type': 'color',
+        'value': '#333',
+        'scene': ''
+      },
+      {
+        'name': '$cute-slider-bg',
+        'type': 'color',
+        'value': '#eff1f4',
+        'scene': ''
+      },
+      {
         'name': '$cute-slider-line-color',
         'type': 'color',
         'value': '#3d73f5',
+        'scene': ''
+      },
+      {
+        'name': '$cute-slider-disabled-border',
+        'type': 'color',
+        'value': '#d9d9d9',
         'scene': ''
       },
       {
@@ -2008,69 +2123,15 @@ export default [
         'scene': ''
       },
       {
-        'name': '$cute-slider-btn-color-disabled',
-        'type': 'color',
-        'value': '#bad6ff',
-        'scene': ''
-      }
-    ]
-  },
-  {
-    'title': 'CuteArea',
-    'doc': 'false',
-    'list': [
-      {
-        'name': '$cute-area-recent-border-color',
+        'name': '$cute-slider-bg-disabled',
         'type': 'color',
         'value': '#d9d9d9',
         'scene': ''
       },
       {
-        'name': '$cute-area-recent-head-color',
+        'name': '$cute-slider-btn-color-disabled',
         'type': 'color',
-        'value': '#333',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-recent-item-color',
-        'type': 'color',
-        'value': '#666',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-recent-item-background-color',
-        'type': 'color',
-        'value': '#f0f7ff',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-item-hover-background-color',
-        'type': 'color',
-        'value': '#f0f7ff',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-item-hover-color',
-        'type': 'color',
-        'value': '#3d73f5',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-item-seleted-background-color',
-        'type': 'color',
-        'value': '#3d73f5',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-head-color',
-        'type': 'color',
-        'value': '#666',
-        'scene': ''
-      },
-      {
-        'name': '$cute-area-item-color',
-        'type': 'color',
-        'value': '#333',
+        'value': '#bad6ff',
         'scene': ''
       }
     ]
@@ -2286,84 +2347,6 @@ export default [
     ]
   },
   {
-    'title': '图表默认颜色(deprecated(弃用))',
-    'doc': 'false',
-    'list': [
-      {
-        'name': '$chartColor1',
-        'type': 'color',
-        'value': '#91c6f5',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor2',
-        'type': 'color',
-        'value': '#8cd4ca',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor3',
-        'type': 'color',
-        'value': '#e8d065',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor4',
-        'type': 'color',
-        'value': '#fdac6f',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor5',
-        'type': 'color',
-        'value': '#a39df7',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor6',
-        'type': 'color',
-        'value': '#8ed8f3',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor7',
-        'type': 'color',
-        'value': '#ffab9a',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor8',
-        'type': 'color',
-        'value': '#78a1da',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor9',
-        'type': 'color',
-        'value': '#fa7175',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor10',
-        'type': 'color',
-        'value': '#93c2bb',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor11',
-        'type': 'color',
-        'value': '#81dbe3',
-        'scene': ''
-      },
-      {
-        'name': '$chartColor12',
-        'type': 'color',
-        'value': '#f48fb4',
-        'scene': ''
-      }
-    ]
-  },
-  {
     'title': '图表高亮颜色',
     'doc': 'true',
     'list': [
@@ -2437,162 +2420,6 @@ export default [
         'name': '$chart-color-h-12',
         'type': 'color',
         'value': '#ff9dc6',
-        'scene': ''
-      }
-    ]
-  },
-  {
-    'title': '图表高亮颜色(deprecated(弃用))',
-    'doc': 'false',
-    'list': [
-      {
-        'name': '$chartColorH1',
-        'type': 'color',
-        'value': '#9fd9ff',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH2',
-        'type': 'color',
-        'value': '#9ae9de',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH3',
-        'type': 'color',
-        'value': '#ffe46f',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH4',
-        'type': 'color',
-        'value': '#ffbd7a',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH5',
-        'type': 'color',
-        'value': '#b3acff',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH6',
-        'type': 'color',
-        'value': '#9cedff',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH7',
-        'type': 'color',
-        'value': '#ffbca9',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH8',
-        'type': 'color',
-        'value': '#84b1ef',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH9',
-        'type': 'color',
-        'value': '#ff7c80',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH10',
-        'type': 'color',
-        'value': '#a1d5cd',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH11',
-        'type': 'color',
-        'value': '#8df0f9',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorH12',
-        'type': 'color',
-        'value': '#ff9dc6',
-        'scene': ''
-      }
-    ]
-  },
-  {
-    'title': '图表light颜色(deprecated(弃用))',
-    'doc': 'false',
-    'list': [
-      {
-        'name': '$chartColorL1',
-        'type': 'color',
-        'value': '#f2f7ff',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL2',
-        'type': 'color',
-        'value': '#f6fbef',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL3',
-        'type': 'color',
-        'value': '#fefaed',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL4',
-        'type': 'color',
-        'value': '#fdf5ed',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL5',
-        'type': 'color',
-        'value': '#f5f3fc',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL6',
-        'type': 'color',
-        'value': '#f1f9fe',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL7',
-        'type': 'color',
-        'value': '#f7f0fc',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL8',
-        'type': 'color',
-        'value': '#fdf1ea',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL9',
-        'type': 'color',
-        'value': '#f5f6fe',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL10',
-        'type': 'color',
-        'value': '#effaf7',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL11',
-        'type': 'color',
-        'value': '#fdf0ef',
-        'scene': ''
-      },
-      {
-        'name': '$chartColorL12',
-        'type': 'color',
-        'value': '#fef9f3',
         'scene': ''
       }
     ]

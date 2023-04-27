@@ -6,7 +6,7 @@
 
     &__left {
       .tags-title {
-        font-size: $text-size-medium;
+        font-size: $text-size-md;
         font-weight: 500;
         margin-right: 16px;
         color: $color-neutral-10;
@@ -85,7 +85,7 @@
   @include detail();
 
   .el-card {
-    border: 1px solid $border-color-primary;
+    border: 1px solid $border-color;
   }
 
   .operate-card {
@@ -95,7 +95,7 @@
     .el-card__header {
       background-color: $color-neutral-1;
       padding: 9px 16px;
-      border-bottom: 1px solid $border-color-primary;
+      border-bottom: 1px solid $border-color;
     }
 
     .el-card__body {
@@ -110,11 +110,11 @@
 
       .status-dot {
         &--0 {
-          background: $color-status-warning;
+          background: $color-warning;
         }
 
         &--1 {
-          background: $color-status-success;
+          background: $color-success;
         }
       }
 
@@ -125,7 +125,7 @@
 
     &__right {
       width: calc(100% - 376px);
-      border-left: 1px solid $border-color-primary;
+      border-left: 1px solid $border-color;
       padding-left: 16px;
       padding-top: 16px;
 
@@ -133,7 +133,7 @@
         margin-top: 24px;
 
         h4 {
-          font-size: $text-size-small;
+          font-size: $text-size-sm;
           color: $color-neutral-9;
           margin-top: 8px;
           margin-bottom: 0 !important;
@@ -156,11 +156,11 @@
 
         .status-dot {
           &--0 {
-            background: $color-status-danger;
+            background: $color-danger;
           }
 
           &--1 {
-            background: $color-status-success;
+            background: $color-success;
           }
         }
       }
@@ -192,11 +192,11 @@
         margin-left: -0.5em;
         display: flex;
         align-items: center;
-        color: $text-color-primary;
+        color: $text-color;
       }
 
       .node-icon {
-        color: $color-grey-5;
+        color: $color-neutral-6;
 
         .svg-icon {
           display: none;
@@ -210,7 +210,7 @@
 
       .is-expanded > .el-tree-node__content {
         .node-icon {
-          color: $color-grey-5;
+          color: $color-neutral-6;
 
           .svg-icon {
             display: none;
@@ -244,7 +244,7 @@
           }
 
           .handler-icon {
-            color: $color-grey-5;
+            color: $color-neutral-6;
           }
         }
 

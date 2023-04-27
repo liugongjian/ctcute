@@ -258,15 +258,15 @@ export default class extends Vue {
   }
 
   &--2 {
-    background: $color-status-warning;
+    background: $color-warning;
   }
 
   &--3 {
-    background: $color-status-danger;
+    background: $color-danger;
   }
 
   &--4 {
-    background: $color-status-info;
+    background: $color-master;
   }
 
   &--5 {
@@ -276,7 +276,7 @@ export default class extends Vue {
 
 .el-dropdown-link {
   cursor: pointer;
-  color: $color-master-1;
+  color: $color-master;
 }
 //todo 解决禁止选中radio没有置灰 的问题，需要ui切图置灰的radio
 .el-tag {
@@ -285,7 +285,7 @@ export default class extends Vue {
 
 ::v-deep .is--disabled {
   .cute-icon-not-selected {
-    background-color: $disabled-fill;
+    background-color: $disabled-bg;
     border-radius: 100%;
   }
 }

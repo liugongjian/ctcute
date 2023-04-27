@@ -338,18 +338,18 @@ $width: 640px;
     }
 
     .el-dropdown .svg-icon {
-      color: $color-master-4;
+      color: $color-master-disabled;
     }
 
     .el-menu--horizontal > .el-menu-item {
       height: 56px;
       line-height: 56px;
-      color: $text-color-primary;
+      color: $text-color;
       padding: 0 16px;
       background: none;
 
       &.is-active {
-        color: $color-master-1;
+        color: $color-master;
       }
     }
   }

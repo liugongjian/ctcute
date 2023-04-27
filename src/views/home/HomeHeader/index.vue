@@ -39,7 +39,7 @@ export default class extends Vue {}
   top: 0;
   width: 100%;
   z-index: 1002;
-  height: $header-height;
+  height: $cute-layout-header-height;
   display: flex;
   justify-content: space-between;
 
@@ -110,7 +110,7 @@ export default class extends Vue {}
 
       &.active,
       &:hover {
-        color: $color-master-1;
+        color: $color-master;
       }
     }
   }

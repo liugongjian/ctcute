@@ -72,7 +72,7 @@ export default class extends Vue {
   }
 
   &__img {
-    color: $text-color-light-1;
+    color: $text-color-light;
   }
 
   &__name {

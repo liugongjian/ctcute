@@ -288,7 +288,7 @@ export default class extends Vue {
   margin-left: -0.5em;
   display: flex;
   align-items: center;
-  color: $text-color-primary;
+  color: $text-color;
 }
 
 .node-icon {
@@ -387,7 +387,7 @@ export default class extends Vue {
 //基础树形
 .line {
   width: 500px;
-  border: 1px solid $border-color-primary;
+  border: 1px solid $border-color;
   padding: 10px 20px 20px;
   background: $color-bg-1;
 }

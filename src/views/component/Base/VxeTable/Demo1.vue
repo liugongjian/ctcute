@@ -106,7 +106,7 @@ export default class extends Vue {
   }
 
   .name-primary {
-    color: $color-master-1;
+    color: $color-master;
   }
 
   .cell {
@@ -116,14 +116,14 @@ export default class extends Vue {
 
     .el-button--text:last-child:before {
       content: '|';
-      color: $border-color-primary;
+      color: $border-color;
       margin-right: 10px;
     }
   }
 
   .el-dropdown-link {
     cursor: pointer;
-    color: $color-master-1;
+    color: $color-master;
   }
 
   .el-icon-arrow-down {
@@ -147,7 +147,7 @@ export default class extends Vue {
 }
 
 .bt-operation {
-  color: $color-master-1;
+  color: $color-master;
 }
 
 .sub-spot {
@@ -164,15 +164,15 @@ export default class extends Vue {
   }
 
   &--2 {
-    background: $color-status-warning;
+    background: $color-warning;
   }
 
   &--3 {
-    background: $color-status-danger;
+    background: $color-danger;
   }
 
   &--4 {
-    background: $color-status-info;
+    background: $color-master;
   }
 
   &--5 {
@@ -192,11 +192,11 @@ export default class extends Vue {
   }
 
   &--7 {
-    background: $color-status-danger;
+    background: $color-danger;
   }
 
   &--8 {
-    background: $color-status-warning;
+    background: $color-warning;
   }
 
   &--9 {
@@ -213,7 +213,7 @@ export default class extends Vue {
   color: #777;
 
   &:hover {
-    color: $color-master-1;
+    color: $color-master;
   }
 }
 </style>

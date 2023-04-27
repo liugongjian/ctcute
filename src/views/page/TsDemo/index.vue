@@ -223,25 +223,25 @@ export default class extends Mixins(TypeScriptDemoMixin) {
 </script>
 <style lang="scss" scoped>
 .font-style {
-  font-size: $text-size-x-large;
+  font-size: $text-size-xl;
 }
 
 .equation {
   margin-top: 15px;
   padding: 10px;
   font-size: 18px;
-  color: $text-color-primary;
-  border: 1px solid $border-color-primary; // 颜色变量请从@cutedesign/theme/_variables.scss查找
+  color: $text-color;
+  border: 1px solid $border-color; // 颜色变量请从@cutedesign/theme/_variables.scss查找
 
   &__binary {
     margin-top: 10px;
     font-size: 12px;
-    color: $text-color-light-1;
+    color: $text-color-light;
   }
 
   &__child {
     font-size: 12px;
-    color: $text-color-light-1;
+    color: $text-color-light;
   }
 }
 
@@ -251,6 +251,6 @@ export default class extends Mixins(TypeScriptDemoMixin) {
 }
 
 .tips {
-  color: $text-color-light-1;
+  color: $text-color-light;
 }
 </style>

@@ -98,15 +98,15 @@ export default class extends Vue {
   }
 
   &--2 {
-    background: $color-status-warning;
+    background: $color-warning;
   }
 
   &--3 {
-    background: $color-status-danger;
+    background: $color-danger;
   }
 
   &--4 {
-    background: $color-status-info;
+    background: $color-master;
   }
 
   &--5 {
@@ -120,6 +120,6 @@ export default class extends Vue {
 
 .el-dropdown-link {
   cursor: pointer;
-  color: $color-master-1;
+  color: $color-master;
 }
 </style>

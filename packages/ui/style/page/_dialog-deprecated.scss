@@ -254,7 +254,7 @@
   @include special-dialog();
 
   .svg-icon {
-    color: $color-status-success;
+    color: $color-success;
   }
 }
 
@@ -263,7 +263,7 @@
   @include special-dialog();
 
   .svg-icon {
-    color: $color-status-warning;
+    color: $color-warning;
   }
 }
 
@@ -272,7 +272,7 @@
   @include special-dialog();
 
   .svg-icon {
-    color: $color-status-warning;
+    color: $color-warning;
   }
 
   .warn-dialog--content {

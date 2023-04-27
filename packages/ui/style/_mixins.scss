@@ -39,10 +39,10 @@
       }
 
       &:hover {
-        border-color: $color-master-1;
+        border-color: $color-master;
 
         .filter-button__close {
-          color: $color-master-1;
+          color: $color-master;
         }
       }
     }
@@ -50,7 +50,7 @@
 }
 
 @mixin iconfont {
-  font-family: 'cute-icons' !important;
+  font-family: cute-icons !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -36,7 +36,7 @@ export default class extends Vue {
 .mavon-box {
   .test {
     font-size: 12px;
-    color: $text-color-primary;
+    color: $text-color;
     z-index: auto;
 
     ::v-deep.v-show-content.scroll-style.scroll-style-border-radius {

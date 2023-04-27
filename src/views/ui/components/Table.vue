@@ -2077,7 +2077,7 @@ export default class extends Vue {
   }
 
   .name-primary {
-    color: $color-master-1;
+    color: $color-master;
   }
 
   .name-subtext {
@@ -2160,7 +2160,7 @@ export default class extends Vue {
   margin: 0 48px; // 按业务调整
   width: calc(100% - 96px);
 
-  &::before {
+  &:before {
     height: 0;
   }
 

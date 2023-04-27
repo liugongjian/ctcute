@@ -529,7 +529,7 @@ $icon-color: $color-neutral-6 !default;
 $loading-primary-color: mix($color-white, $color-master, 50%) !default; // deprecated(弃用)
 $loading-primary-border: $loading-primary-color !default; // deprecated(弃用)
 $loading-default-color: $color-grey-10 !default;
-$loading-default-border: $color-grey-6 !default;
+$loading-default-border: $color-neutral-5 !default;
 
 /* Title: Alert; Doc: false
 -------------------------- */

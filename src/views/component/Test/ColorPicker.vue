@@ -1,35 +1,35 @@
 <!--
  * @Author: ColorPicker
  * @Date: 2023-03-23 13:45:09
- * @LastEditors: 朱凌浩
- * @LastEditTime: 2023-03-23 14:09:19
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-28 15:30:35
  * @Description: ColorPicker
 -->
 <template>
   <div>
     <h1>ColorPicker</h1>
     <el-row>
-      <h3>含默认值，无预定义颜色</h3>
+      <h3>{{ $t('componentTest.colorPicker.title1') }}</h3>
       <el-color-picker v-model="colorVal"></el-color-picker>
     </el-row>
     <el-row>
-      <h3>无默认值，无预定义颜色</h3>
+      <h3>{{ $t('componentTest.colorPicker.title2') }}</h3>
       <el-color-picker v-model="colorVal1"></el-color-picker>
     </el-row>
     <el-row>
-      <h3>含透明度的颜色</h3>
+      <h3>{{ $t('componentTest.colorPicker.title3') }}</h3>
       <el-color-picker v-model="colorVal3" show-alpha></el-color-picker>
     </el-row>
     <el-row>
-      <h3>预定义颜色，无色盘</h3>
+      <h3>{{ $t('componentTest.colorPicker.title4') }}</h3>
       <el-color-picker v-model="colorVal" :predefine="predefine1" type="predefine"></el-color-picker>
     </el-row>
     <el-row>
-      <h3>预定义颜色，含色盘</h3>
+      <h3>{{ $t('componentTest.colorPicker.title5') }}</h3>
       <el-color-picker v-model="colorVal2" :predefine="predefine2" :show-alpha="true"></el-color-picker>
     </el-row>
     <el-row class="color-picker-size">
-      <h3>不同尺寸</h3>
+      <h3>{{ $t('componentTest.colorPicker.title6') }}</h3>
       <el-color-picker v-model="colorVal" size="large"></el-color-picker>
       <el-color-picker v-model="colorVal" size="medium"></el-color-picker>
       <el-color-picker v-model="colorVal" size="small"></el-color-picker>

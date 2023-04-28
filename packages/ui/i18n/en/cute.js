@@ -12,7 +12,7 @@ export default {
     new: 'New Tab',
   },
   tableColumnSet: {
-    checkall: "Check all",
+    checkall: 'Check all',
   },
   tableFilter: {
     new: 'Add filter rules',
@@ -37,5 +37,5 @@ export default {
     page404Tips: 'Sorry, the page you visited does not exist',
     page500Tips: 'Server error',
     toHome: 'Back to homepage',
-  }
+  },
 }

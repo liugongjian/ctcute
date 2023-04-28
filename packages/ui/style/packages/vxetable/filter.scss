@@ -53,6 +53,10 @@
   border: 1px solid $vxe-table-popup-border-color;
   box-shadow: $shadow-2;
   z-index: $vxe-table-filter-wrapper-zindex;
+  
+  // 重写checkbox样式
+  @extend %XECheckboxIconNature;
+  
 
   &:not(.is--multiple) {
     text-align: center;
@@ -64,6 +68,9 @@
 
   .vxe-table--filter-header,
   .vxe-table--filter-body {
+    .vxe-icon-checkbox-indeterminate:before {
+      top: 0.5px;
+    }
     & > li {
       overflow: hidden;
       text-overflow: ellipsis;

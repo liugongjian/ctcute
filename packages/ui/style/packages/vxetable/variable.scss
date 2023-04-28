@@ -13,11 +13,11 @@ $vxe-border-radius: $border-radius !default;
 
 /*icon*/
 $vxe-icon-font-family: Verdana,Arial,Tahoma !default;
-$vxe-icon-background-color: $color-white !default; // TODO
-$vxe-icon-color: $color-neutral-9 !default;
+$vxe-icon-background-color: $color-bg-1 !default; // TODO
+$vxe-icon-color: $neutral-9 !default;
 
 /*color*/
-$vxe-table-checkbox-color: $color-white !default;
+$vxe-table-checkbox-color: $color-bg-1 !default;
 $vxe-primary-color: $color-master !default;
 $vxe-success-color: $color-success !default;
 $vxe-info-color: $color-neutral-6 !default;
@@ -69,7 +69,7 @@ $vxe-table-column-header-hover-background-color: $color-neutral-2;
 $vxe-table-column-header-background-color: $color-neutral-1;
 
 $vxe-header-font-size:12px !default;
-$vxe-table-header-border-top : 0px solid $color-white!default;
+$vxe-table-header-border-top : 0px solid $color-bg-1!default;
 // $vxe-table-header-column-border-right:1px solid !default;
 $vxe-table-body--column-padding-full-default: 11px 0 !default;
 $vxe-table-body--column-padding-full-medium: 11px 0 !default;
@@ -102,7 +102,7 @@ $vxe-table-cell-dirty-update-color: #f56c6c !default;
 $vxe-table-cell-dirty-insert-color: #19A15F !default;
 $vxe-table-cell-area-border-color: $vxe-primary-color !default;
 $vxe-table-cell-area-border-width: 1px !default;
-$vxe-table-cell-main-area-extension-border-color: $color-white;
+$vxe-table-cell-main-area-extension-border-color: $color-bg-1;
 $vxe-table-cell-main-area-extension-background-color: $vxe-primary-color !default;
 $vxe-table-cell-extend-area-border-width: 2px !default;
 $vxe-table-cell-copy-area-border-width: 3px !default;
@@ -130,7 +130,7 @@ $vxe-table-filter-wrapper-zindex: 10 !default;
 
 /*menu*/
 $vxe-table-menu-item-width: 178px !default;
-$vxe-table-menu-background-color: $color-white !default;
+$vxe-table-menu-background-color: $color-bg-1 !default;
 
 /*loading*/
 $vxe-loading-color: $vxe-primary-color !default;
@@ -139,11 +139,11 @@ $vxe-loading-z-index: 999 !default;
 
 /*validate*/
 $vxe-table-validate-error-color: #f56c6c !default;
-$vxe-table-validate-tooltip-error-color: $color-white !default;
+$vxe-table-validate-tooltip-error-color: $color-bg-1 !default;
 $vxe-table-validate-tooltip-error-background-color: $vxe-table-validate-error-color !default;
 
 /*grid*/
-$vxe-grid-maximize-background-color: $color-white !default;
+$vxe-grid-maximize-background-color: $color-bg-1 !default;
 
 /*toolbar*/
 $vxe-toolbar-background-color: $color-bg-2 !default;
@@ -161,15 +161,15 @@ $vxe-toolbar-custom-button-height: 32px !default;
 $vxe-toolbar-custom-button-line-height: 32px !default;
 
 /*tooltip*/
-$vxe-tooltip-dark-color: $color-white !default;
+$vxe-tooltip-dark-color: $color-bg-1 !default;
 $vxe-tooltip-dark-background-color: #303133 !default;
-$vxe-tooltip-light-background-color: $color-white !default;
-$vxe-tooltip-validate-error-color: $color-white !default;
+$vxe-tooltip-light-background-color: $color-bg-1 !default;
+$vxe-tooltip-validate-error-color: $color-bg-1 !default;
 $vxe-tooltip-validate-error-background-color: #f56c6c !default;
 
 /*pager*/
-$vxe-pager-background-color: $color-white !default;
-$vxe-pager-perfect-background-color: $color-white !default;
+$vxe-pager-background-color: $color-bg-1 !default;
+$vxe-pager-perfect-background-color: $color-bg-1 !default;
 $vxe-pager-perfect-button-background-color: #f4f4f5 !default;
 
 /*modal*/
@@ -187,9 +187,16 @@ $vxe-checkbox-icon-height-size: 14px !default;
 $vxe-checkbox-icon-font-size: 12px !default;
 $vxe-checkbox-border-width: 2px !default;
 $vxe-checkbox-border-radius: 2px !default;
-$vxe-checkbox-icon-background-color: $color-white !default;
-$vxe-checkbox-checked-icon-border-color: $color-white !default;
-$vxe-checkbox-indeterminate-icon-background-color: $color-white !default;
+$vxe-checkbox-icon-background-color: $color-bg-1 !default;
+$vxe-checkbox-checked-icon-border-color: $color-bg-1 !default;
+$vxe-checkbox-indeterminate-icon-background-color: $color-bg-1 !default;
+
+$vxe-checkbox-checked-color: $vxe-primary-color;
+$vxe-checkbox-checked-border-color: $vxe-primary-color;
+$vxe-checkbox-disabled-checked-icon-color: $neutral-5;
+$vxe-checkbox-disabled-checked-icon-background-color: $neutral-1;
+$vxe-checkbox-icon-font-size: 14px !default;
+$vxe-checkbox-icon-border-color: $neutral-5 !default;
 
 /*radio*/
 $vxe-radio-font-size-default: $vxe-checkbox-font-size-default !default;
@@ -197,16 +204,16 @@ $vxe-radio-font-size-medium: $vxe-checkbox-font-size-medium !default;
 $vxe-radio-font-size-small: $vxe-checkbox-font-size-small !default;
 $vxe-radio-font-size-mini: $vxe-checkbox-font-size-mini !default;
 $vxe-radio-border-width: $vxe-checkbox-border-width !default;
-$vxe-radio-icon-background-color: $color-white !default;
-$vxe-radio-checked-icon-background-color: $color-white !default;
+$vxe-radio-icon-background-color: $color-bg-1 !default;
+$vxe-radio-checked-icon-background-color: $color-bg-1 !default;
 $vxe-radio-icon-font-size: 12px !default;
-$vxe-radio-indeterminate-icon-background-color: $color-white !default;
-$vxe-radio-button-default-background-color: $color-white !default;
+$vxe-radio-indeterminate-icon-background-color: $color-bg-1 !default;
+$vxe-radio-button-default-background-color: $color-bg-1 !default;
 
 /*button*/
 $vxe-button-max-width: 500px !default;
-$vxe-button-default-background-color: $color-white !default;
-$vxe-button-dropdown-panel-background-color: $color-white !default;
+$vxe-button-default-background-color: $color-bg-1 !default;
+$vxe-button-dropdown-panel-background-color: $color-bg-1 !default;
 $vxe-button-height-default: 34px !default;
 $vxe-button-height-medium: 32px !default;
 $vxe-button-height-small: 30px !default;
@@ -217,15 +224,15 @@ $vxe-button-round-border-radius-small: 15px !default;
 $vxe-button-round-border-radius-mini: 14px !default;
 
 /*input*/
-$vxe-input-background-color: $color-white !default;
+$vxe-input-background-color: $color-bg-1 !default;
 $vxe-input-panel-background-color: $vxe-input-background-color !default;
 $vxe-input-number-disabled-color: #e4e7ed !default;
 $vxe-input-date-festival-color: #999999 !default;
 $vxe-input-date-festival-important-color: $vxe-primary-color !default;
 $vxe-input-date-notice-background-color: #FF0000 !default;
 $vxe-input-date-picker-hover-background-color: #f2f6fc !default;
-$vxe-input-date-picker-selected-color: $color-white !default;
-$vxe-input-date-time-confirm-button-color: $color-white !default;
+$vxe-input-date-picker-selected-color: $color-bg-1 !default;
+$vxe-input-date-time-confirm-button-color: $color-bg-1 !default;
 $vxe-input-date-picker-festival-selected-color: $vxe-input-date-picker-selected-color !default;
 $vxe-input-date-picker-notice-selected-background-color: $vxe-input-date-picker-selected-color !default;
 $vxe-input-date-extra-color: #67c23a !default;
@@ -253,9 +260,9 @@ $vxe-input-height-mini: $vxe-button-height-mini !default;
 
 /*textarea*/
 $vxe-textarea-line-height: 1.5715 !default;
-$vxe-textarea-background-color: $color-white !default;
+$vxe-textarea-background-color: $color-bg-1 !default;
 $vxe-textarea-count-color: #999 !default;
-$vxe-textarea-count-background-color: $color-white !default;
+$vxe-textarea-count-background-color: $color-bg-1 !default;
 $vxe-textarea-count-error-color: $vxe-table-validate-error-color !default;
 
 /*form*/
@@ -263,7 +270,7 @@ $vxe-form-item-min-height-default: 36px !default;
 $vxe-form-item-min-height-medium: 34px !default;
 $vxe-form-item-min-height-small: 32px !default;
 $vxe-form-item-min-height-mini: 30px !default;
-$vxe-form-background-color: $color-white !default;
+$vxe-form-background-color: $color-bg-1 !default;
 $vxe-form-validate-error-color: $vxe-table-validate-error-color !default;
 $vxe-form-validate-error-background-color: inherit !default;
 
@@ -273,16 +280,16 @@ $vxe-select-option-height-medium: 28px !default;
 $vxe-select-option-height-small: 26px !default;
 $vxe-select-option-height-mini: 24px !default;
 $vxe-select-option-hover-background-color: #F8F8F8 !default;
-$vxe-select-panel-background-color: $color-white !default;
+$vxe-select-panel-background-color: $color-bg-1 !default;
 $vxe-select-empty-color: #C0C4CC !default;
 $vxe-optgroup-title-color:#909399 !default;
 
 /*switch*/
-$vxe-switch-font-color: $color-white !default;
-$vxe-switch-icon-background-color: $color-white !default;
+$vxe-switch-font-color: $color-bg-1 !default;
+$vxe-switch-icon-background-color: $color-bg-1 !default;
 $vxe-switch-open-background-color: $vxe-primary-color !default;
 $vxe-switch-close-background-color: rgba(0,0,0,0.35) !default;
 $vxe-switch-disabled-background-color: rgba(0,0,0,0.15) !default;
 
 /*pulldown*/
-$vxe-pulldown-panel-background-color: $color-white !default;
+$vxe-pulldown-panel-background-color: $color-bg-1 !default;

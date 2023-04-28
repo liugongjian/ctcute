@@ -39,9 +39,13 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    & div:first-child {
+      display: flex;
+      align-items: center;
+    }
 
     .back {
-      margin-right: 4px;
+      margin-right: $margin-2x;
       color: $color-neutral-8;
       cursor: pointer;
     }
@@ -54,14 +58,14 @@
     .detail-title {
       font-size: 14px;
       color: $color-neutral-10;
-      line-height: 20px;
-      font-weight: 500;
+      line-height: 24px;
+      font-weight: $text-title-weight;
 
-      &:before {
-        content: '|';
-        color: $color-neutral-5;
-        margin: 0 12px;
-      }
+      // &:before {
+      //   content: '|';
+      //   color: $color-grey-6;
+      //   margin: 0 12px;
+      // }
     }
   }
 

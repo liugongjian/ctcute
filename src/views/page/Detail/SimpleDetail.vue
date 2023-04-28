@@ -1,12 +1,18 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-24 10:41:48
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-04-28 09:47:16
  * @Description:简单表单页
 -->
 <template>
   <el-card class="simple-detail">
+    <div class="detail-nav">
+      <div @click="goBack">
+        <svg-icon name="left" class="back" width="12" height="12"></svg-icon>
+      </div>
+      <div class="detail-title">{{ detail }}</div>
+    </div>
     <cute-titled-block title="基础信息">
       <template #content>
         <el-descriptions :column="2" border>
@@ -121,7 +127,7 @@ import { STATUS, PROGRESS } from '@/dics/simpleDetail'
 })
 export default class extends Vue {
   //跳转携带的name
-  private detail = '页面标题'
+  private detail = '服务管理'
   // 退货进度状态字典
   private STATUS = STATUS
 

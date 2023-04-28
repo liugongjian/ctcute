@@ -14,11 +14,9 @@
       <div class="box-text">
         <div class="box-text-title">403</div>
         <div class="box-text-tips">{{ t('cute.pageStatus.page403Tips') }}</div>
-        <el-button
-          class="box-button"
-          type="primary"
-          @click="toHome"
-        >{{ t('cute.pageStatus.toHome') }}</el-button>
+        <el-button class="box-button" type="primary" @click="toHome">{{
+          t('cute.pageStatus.toHome')
+        }}</el-button>
       </div>
     </div>
   </div>

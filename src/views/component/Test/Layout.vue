@@ -2,7 +2,7 @@
  * @Author: XinZhao
  * @Date: 2023-04-19 9:59:34
  * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-21 13:46:58
+ * @LastEditTime: 2023-04-28 15:04:29
  * @Description: Layout
 -->
 <template>
@@ -23,12 +23,9 @@
         </el-form-item>
       </el-form>
       <el-row>
-        <el-col :span="layoutNumber" v-for="index in (24 / layoutNumber)" :key="index">
-          <div
-            class="grid-content bg-purple text-pos"
-            v-if="index % 2 === 0"
-          >span: {{ layoutNumber }}</div>
-          <div class="grid-content bg-purple-light text-pos" v-else>span: {{ layoutNumber }}</div>
+        <el-col v-for="index in 24 / layoutNumber" :key="index" :span="layoutNumber">
+          <div v-if="index % 2 === 0" class="grid-content bg-purple text-pos">span: {{ layoutNumber }}</div>
+          <div v-else class="grid-content bg-purple-light text-pos">span: {{ layoutNumber }}</div>
         </el-col>
       </el-row>
     </el-card>
@@ -68,9 +65,7 @@
           </el-form-item>
         </el-form>
         <el-col :span="spanNumber" :offset="offsetNumber">
-          <div
-            class="grid-content bg-purple text-pos"
-          >span: {{ spanNumber }} offset: {{ offsetNumber }}</div>
+          <div class="grid-content bg-purple text-pos">span: {{ spanNumber }} offset: {{ offsetNumber }}</div>
         </el-col>
       </el-row>
     </el-card>

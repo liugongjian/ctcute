@@ -2,7 +2,7 @@
  * @Author: 万璐敏
  * @Date: 2022-07-08 13:45:09
  * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-21 11:01:39
+ * @LastEditTime: 2023-04-28 15:02:04
  * @Description: 500页
 -->
 <template>
@@ -14,11 +14,9 @@
       <div class="box-text">
         <div class="box-text-title">500</div>
         <div class="box-text-tips">{{ t('cute.pageStatus.page500Tips') }}</div>
-        <el-button
-          class="box-button"
-          type="primary"
-          @click="toHome"
-        >{{ t('cute.pageStatus.toHome') }}</el-button>
+        <el-button class="box-button" type="primary" @click="toHome">{{
+          t('cute.pageStatus.toHome')
+        }}</el-button>
       </div>
     </div>
   </div>

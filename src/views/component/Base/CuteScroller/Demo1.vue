@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-22 21:14:49
  * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-23 15:44:24
+ * @LastEditTime: 2023-04-28 15:06:37
  * @Description:
 -->
 <template>
@@ -30,10 +30,9 @@
         >
           <template slot-scope="{ row }">
             <el-button type="text" @click="gotoDetail(row)">{{ $t('demo.scoller.demo1.detail') }}</el-button>
-            <el-button
-              type="text"
-              @click="gotoDashboard(row)"
-            >{{ $t('demo.scoller.demo1.monitor') }}</el-button>
+            <el-button type="text" @click="gotoDashboard(row)">{{
+              $t('demo.scoller.demo1.monitor')
+            }}</el-button>
           </template>
         </el-table-column>
       </el-table>

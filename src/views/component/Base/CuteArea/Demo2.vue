@@ -1,9 +1,23 @@
 <template>
   <div>
     <h3>{{ $t('demo.area.demo1.title') }}</h3>
-    <cute-area v-model="value" placeholder="请选择" clearable :data="areas" :column="4" popper-width="560px" :format="format"
-      :recent-data="recentData" :show-recent="showRecent" @change="selectCityClick" @clear="handleClearClick">
-      <span slot="other" class="suffix-other">其他区域<span>{{ otherCount }}</span></span>
+    <cute-area
+      v-model="value"
+      placeholder="请选择"
+      clearable
+      :data="areas"
+      :column="4"
+      popper-width="560px"
+      :format="format"
+      :recent-data="recentData"
+      :show-recent="showRecent"
+      @change="selectCityClick"
+      @clear="handleClearClick"
+    >
+      <span slot="other" class="suffix-other">
+        其他区域
+        <span>{{ otherCount }}</span>
+      </span>
     </cute-area>
   </div>
 </template>

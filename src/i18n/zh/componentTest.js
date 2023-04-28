@@ -2,7 +2,7 @@
  * @Author: XinZhao
  * @Date: 2023-04-24 14:51:40
  * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-27 10:14:12
+ * @LastEditTime: 2023-04-28 15:52:33
  * @Description:
  */
 export default {
@@ -39,6 +39,14 @@ export default {
     basicGroup: '普通多选 - 组',
     special: '特殊多选',
   },
+  colorPicker: {
+    title1: '含默认值，无预定义颜色',
+    title2: '无默认值，无预定义颜色',
+    title3: '含透明度的颜色',
+    title4: '预定义颜色，无色盘',
+    title5: '预定义颜色，含色盘',
+    title6: '不同尺寸',
+  },
   common: {
     data: {
       all: '全选',
@@ -52,6 +60,33 @@ export default {
       sz: '深圳',
       gz: '广州',
     },
+  },
+  dialog: {
+    basic: '基本用法',
+    open: '点击打开 Dialog',
+    custom: '自定义内容',
+    inner1: '打开嵌套表格的 Dialog (未固定高度)',
+    inner2: '打开嵌套表格的 Dialog (固定高度)',
+    inner3: '打开嵌套表单的 Dialog',
+    openFull: '打开全屏嵌套表格的 Dialog',
+    fullscreen: '全屏',
+    cancel: '取 消',
+    ok: '确 定',
+  },
+  link: {
+    basic: '基础用法',
+    main: '主要链接',
+    success: '成功链接',
+    warn: '警告链接',
+    danger: '危险链接',
+    default: '默认连接',
+    disable: '禁用状态',
+    whetherUnderline: '下划线',
+    hasUnderline: '有下划线',
+    noUnderline: '无下划线',
+    icon: '图标',
+    edit: '编辑',
+    info: '查看'
   },
   radio: {
     title: 'Radio 单选框',

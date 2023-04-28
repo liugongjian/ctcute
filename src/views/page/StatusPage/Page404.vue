@@ -1,8 +1,8 @@
 <!--
  * @Author: 万璐敏
  * @Date: 2022-07-08 13:45:09
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-07 08:57:02
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-28 15:02:31
  * @Description: 404页
 -->
 <template>
@@ -14,11 +14,9 @@
       <div class="box-text">
         <div class="box-text-title">404</div>
         <div class="box-text-tips">{{ t('cute.pageStatus.page404Tips') }}</div>
-        <el-button
-          class="box-button"
-          type="primary"
-          @click="toHome"
-        >{{ t('cute.pageStatus.toHome') }}</el-button>
+        <el-button class="box-button" type="primary" @click="toHome">{{
+          t('cute.pageStatus.toHome')
+        }}</el-button>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
  * @Author: 胡一苗
  * @Date: 2023-03-31 14:54:29
  * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-23 14:51:40
+ * @LastEditTime: 2023-04-28 15:06:13
  * @Description: desc
 -->
 <template>
@@ -13,16 +13,12 @@
 
     <template #operation="{}">
       <div>
-        <el-button
-          type="text"
-          size="small"
-          class="bt-operation"
-        >{{ $t('demo.table.common.unload') }}</el-button>
-        <el-button
-          type="text"
-          size="small"
-          class="bt-operation"
-        >{{ $t('demo.table.common.expand') }}</el-button>
+        <el-button type="text" size="small" class="bt-operation">{{
+          $t('demo.table.common.unload')
+        }}</el-button>
+        <el-button type="text" size="small" class="bt-operation">{{
+          $t('demo.table.common.expand')
+        }}</el-button>
       </div>
     </template>
   </cute-table-column-settings>

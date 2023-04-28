@@ -229,7 +229,7 @@
 
     .level-3 {
       .el-submenu__title, .el-menu-item {
-        padding-left: $padding-10x + $padding-10 !important;
+        padding-left: $padding-10x + $padding-3x !important;
 
         &:before {
           left: $padding-10x;

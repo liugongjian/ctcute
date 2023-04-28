@@ -26,8 +26,22 @@ $transfer-button-radius: 50%; // Transfer组件圆形按钮
       }
     }
 
-    .el-transfer-panel__item {
+    .el-checkbox.el-transfer-panel__item {
+      margin-right: 0;
       padding-left: $padding-4x;
+      display: flex !important; // 覆盖element样式原有!important
+      align-items: center;
+
+      .el-checkbox__input {
+        display: inline-flex;
+        position: relative; // 覆盖element样式中absolute
+        top: auto; // 覆盖element样式中top 8px
+      }
+
+      .el-checkbox__label {
+        font-size: $text-size;
+        padding-left: $padding-2x;
+      }
     }
 
     .el-transfer-panel__footer {
@@ -132,13 +146,6 @@ $transfer-button-radius: 50%; // Transfer组件圆形按钮
     color: $color-master;
   }
 
-  .el-checkbox {
-    margin-right: 0;
-  }
-
-  .el-checkbox__label {
-    font-size: $text-size;
-  }
 }
 
 .el-transfer-panel .el-transfer-panel__header .el-checkbox .el-checkbox__label {

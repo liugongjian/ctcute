@@ -26,6 +26,9 @@ $steps-line-size: 1px; // 线条粗细;
     .el-step__icon.is-status {
       background-color: $color;
     }
+    .el-step__icon.is-text{
+      border-color: $bdColor;
+    }
   }
   .el-step__title.#{$class}{
     color: $titleColor;

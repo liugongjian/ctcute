@@ -1,6 +1,10 @@
 /* Radio
 -------------------------- */
 // .el-radio__label 8px
+.el-radio {
+  line-height: 1.5;
+}
+
 .el-radio__inner {
   width: $radio-width;
   height: $radio-width;
@@ -14,6 +18,7 @@
 }
 
 .el-radio__input {
+  line-height: 1.5;
 
   &.is-disabled .el-radio__inner {
     background: $radio-group-disabled-bg;
@@ -23,7 +28,7 @@
 
   &.is-checked {
     .el-radio__inner {
-      background-color: $radio-checked-bg;
+      background: transparent;
     }
   }
 
@@ -35,11 +40,6 @@
   &.is-disabled+span.el-radio__label {
     color: $text-color;
   }
-
-}
-
-.el-radio__input.is-checked .el-radio__inner {
-  background: transparent;
 }
 
 /* SelectButton

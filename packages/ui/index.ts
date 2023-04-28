@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-26 14:51:15
+ * @LastEditTime: 2023-04-28 12:41:31
  * @Description:
  */
 import ElementUI, {
@@ -96,7 +96,7 @@ import ElementUIOverride, {
   Button,
   MessageBox,
 } from './components/ElementUI'
-import './components/ElementUI/settings'
+// import './components/ElementUI/settings'
 // svgIcon
 import './icons/index'
 import SvgIcon from './icons/index.vue'
@@ -187,6 +187,24 @@ export default {
     Vue.use(ElementUIOverride)
     Vue.use(InfiniteScroll)
     Vue.use(Loading.directive)
+
+    const Pagination = ElementUI.Pagination as any
+    const Table = ElementUI.Table as any
+    Pagination.props.layout = {
+      default: 'total, sizes, prev, pager, next',
+    }
+    Pagination.props.pageSize = {
+      default: 20,
+    }
+    Pagination.props.pageSizes = {
+      default: () => [10, 20, 30, 50, 100],
+    }
+    Pagination.props.popperClass = {
+      default: 'pagination__dropdown',
+    }
+    Table.props.emptyText = {
+      default: '暂无数据',
+    }
 
     Vue.prototype.$loading = Loading.service
     Vue.prototype.$msgbox = MessageBox

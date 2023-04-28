@@ -23,7 +23,7 @@ $tree-leaf-expand-icon-padding: 2px;
     font-size: $text-size;
     color: $color-neutral-7;
 
-    &>.el-tree-node__expand-icon {
+    & > .el-tree-node__expand-icon {
       padding: $tree-node-icon-padding;
     }
 
@@ -81,7 +81,7 @@ $tree-leaf-expand-icon-padding: 2px;
     }
 
     .is-disabled {
-      &~.el-tree-node__label {
+      & ~ .el-tree-node__label {
         color: $color-neutral-10;
       }
     }
@@ -96,17 +96,17 @@ $tree-leaf-expand-icon-padding: 2px;
     background: $color-bg-1;
   }
 
-  &:focus>&__content>&__label {
+  &:focus > &__content > &__label {
     color: $color-master;
     font-weight: $text-title-weight;
   }
 
-  &:focus>&__content> :is(.el-checkbox, .is-disabled)~&__label {
+  &:focus > &__content > :is(.el-checkbox, .is-disabled) ~ &__label {
     color: $text-color;
     font-weight: $text-weight;
   }
 
-  &:focus>&__content {
+  &:focus > &__content {
     background: none;
 
     &:hover {
@@ -120,7 +120,7 @@ $tree-leaf-expand-icon-padding: 2px;
 }
 
 .el-tree-node.is-focusable {
-  &>.el-tree-node__content {
+  & > .el-tree-node__content {
     color: $color-neutral-11;
 
     &:hover:not(.is-current > .el-tree-node__content:hover) {
@@ -133,14 +133,14 @@ $tree-leaf-expand-icon-padding: 2px;
   &.is-current {
     background: none;
 
-    &>.el-tree-node__content {
+    & > .el-tree-node__content {
       .node-content {
         color: $color-master;
       }
 
       .el-checkbox__inner {
         &::before {
-          background: $color-white;
+          // background: $color-white;
         }
       }
     }

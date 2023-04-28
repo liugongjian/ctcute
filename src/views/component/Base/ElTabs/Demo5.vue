@@ -1,27 +1,27 @@
 <template>
   <div>
-    <h3>选项卡位于下方</h3>
+    <h3>{{ $t('demo.tabs.demo5.title1') }}</h3>
     <el-row class="sub-tabs">
       <el-tabs type="card" tab-position="bottom">
-        <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
-          {{ item.content }}
-        </el-tab-pane>
+        <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">{{
+          item.content
+        }}</el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>选项卡位于左方</h3>
+    <h3>{{ $t('demo.tabs.demo5.title2') }}</h3>
     <el-row class="sub-tabs">
       <el-tabs type="card" tab-position="left">
-        <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
-          {{ item.content }}
-        </el-tab-pane>
+        <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">{{
+          item.content
+        }}</el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>选项卡位于右方</h3>
+    <h3>{{ $t('demo.tabs.demo5.title3') }}</h3>
     <el-row class="sub-tabs">
       <el-tabs type="card" tab-position="right">
-        <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
-          {{ item.content }}
-        </el-tab-pane>
+        <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">{{
+          item.content
+        }}</el-tab-pane>
       </el-tabs>
     </el-row>
   </div>
@@ -37,19 +37,19 @@ export default class extends Vue {
   }
   private tabs = [
     {
-      title: '选项一',
+      title: this.$t('demo.tabs.common.option1'),
       name: '1',
-      content: '默认项',
+      content: this.$t('demo.tabs.common.optionDefault'),
     },
     {
-      title: '选项二',
+      title: this.$t('demo.tabs.common.option2'),
       name: '2',
-      content: '选中项',
+      content: this.$t('demo.tabs.common.optionChoosed'),
     },
     {
-      title: '不可用',
+      title: this.$t('demo.tabs.common.optionDisable'),
       name: '3',
-      content: '不可用',
+      content: this.$t('demo.tabs.common.optionDisable'),
       disabled: true,
     },
   ]

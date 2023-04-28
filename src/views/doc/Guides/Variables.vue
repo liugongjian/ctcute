@@ -38,11 +38,16 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Variables from '@cutedesign/ui/style/themes/default/index.scss'
+import json from '@cutedesign/ui/style/themes/default/variables-doc.js'
 import copy from 'copy-to-clipboard'
+
 @Component({
   name: 'Variables',
 })
 export default class extends Vue {
+  private mounted() {
+    console.log(json)
+  }
   /**
    * ui/style/themes/default/variables.scss
    * 全局替换 (\$[^:]+):[^\n\/\/]*(\/\/\s([^\n]+))? => { name: '$1', type:'color', scene:'$3'},
@@ -124,7 +129,7 @@ export default class extends Vue {
         //     { name: '$color-status-info', type: 'color', scene: 'deprecated(弃用)' },
         //     { name: '$color-status-info-1', type: 'color', scene: 'deprecated(弃用)' },
         //     { name: '$color-status-success', type: 'color', scene: 'deprecated(弃用)' },
-        //     { name: '$color-status-success-1', type: 'color', scene: 'deprecated(弃用)' },
+        //     { name: '$color-success;', type: 'color', scene: 'deprecated(弃用)' },
         //     { name: '$color-status-warning', type: 'color', scene: 'deprecated(弃用)' },
         //     { name: '$color-status-warning-1', type: 'color', scene: 'deprecated(弃用)' },
       ],

@@ -15,7 +15,7 @@ const DEFAULT_OPTIONS = {
   defaultLang: 'zh',
 }
 
-export default function createI18nInstance(options?: Partial<typeof DEFAULT_OPTIONS>) {
+export default function createI18nInstance(options?: Partial<typeof DEFAULT_OPTIONS>): VueI18n {
   const { storageKey, defaultLang } = Object.assign({}, DEFAULT_OPTIONS, options)
 
   const i18n = new VueI18n({

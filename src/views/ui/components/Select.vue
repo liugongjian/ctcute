@@ -16,7 +16,7 @@
       <h3>常规用法</h3>
       <div class="line">
         <div class="line__left">
-          <el-select v-model="value" :size="itemSize" :disabled="itemDisabled" filterable>
+          <el-select v-model="value" :size="itemSize" :disabled="itemDisabled" filterable clearable>
             <el-option label="默认选项" value="默认选项"> </el-option>
             <el-option label="已选择项" value="已选择项"> </el-option>
             <el-option label="不可用" value="不可用" disabled> </el-option>
@@ -67,6 +67,7 @@
             size="large"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
           >
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
@@ -79,6 +80,7 @@
             size="medium"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
           >
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
@@ -91,6 +93,7 @@
             size="small"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
           >
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
@@ -100,7 +103,7 @@
       </div>
     </div>
     <div class="sub-down">
-      <h3>多选-折叠展示tag - 大： 中： 小</h3>
+      <h3>多选-可查询：折叠展示tag - 大： 中： 小</h3>
       <div class="line">
         <div class="line__left">
           <el-select
@@ -108,6 +111,7 @@
             size="large"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
             collapse-tags
             clearable
@@ -125,6 +129,7 @@
             size="medium"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
             collapse-tags
             clearable
@@ -142,6 +147,7 @@
             size="small"
             :disabled="itemDisabled"
             multiple
+            :class="{ 'is-disabled': itemDisabled }"
             placeholder="请选择"
             collapse-tags
             clearable
@@ -311,11 +317,12 @@
         <div class="sub-date">
           <el-date-picker
             v-model="date6"
+            align="right"
             type="daterange"
             :size="itemSize"
             :disabled="itemDisabled"
             unlink-panels
-            range-separator="至"
+            range-separator="-"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
             :picker-options="pickerOptions1"
@@ -367,6 +374,7 @@
         <div class="line__left">
           <cute-area
             v-model="areaValue"
+            popper-max-height="220px"
             :size="itemSize"
             :disabled="itemDisabled"
             placeholder="请选择"
@@ -736,7 +744,7 @@ export default class extends Vue {
 }
 
 .sub-down {
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
 
   .el-row {
     margin: 24px 0;
@@ -744,7 +752,7 @@ export default class extends Vue {
 }
 
 .date {
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
 
   .sub-date {
     margin-bottom: 24px;
@@ -768,13 +776,15 @@ export default class extends Vue {
 
 .auxiliary-message:after {
   content: '辅助信息';
-  margin-left: 10px;
+  margin-left: 20px;
   color: $text-color-light-2;
+  font-weight: normal;
 }
 
 .option__msg {
   float: right;
-  color: $text-color-light-1;
+  color: $text-color-light;
+  font-weight: normal;
 }
 
 .time-size-box {
@@ -786,6 +796,7 @@ export default class extends Vue {
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
+
   .el-input {
     width: 250px;
   }

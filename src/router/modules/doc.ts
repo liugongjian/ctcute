@@ -90,14 +90,42 @@ const docRoutes = [
     component: Layout,
     meta: {
       breadcrumb: false,
+      title: '主题',
     },
     children: [
       {
-        path: '',
+        path: 'change',
         name: 'Theme',
-        component: () => import('@/views/doc/Guides/Theme.vue'),
+        component: () => import('@/views/doc/Theme/Change.vue'),
+        meta: {
+          title: '一键换肤',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'custom',
+        name: 'Theme',
+        component: () => import('@/views/doc/Theme/Custom.vue'),
         meta: {
           title: '更换主题',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'tool',
+        name: 'Tool',
+        component: () => import('@/views/doc/Theme/Tool.vue'),
+        meta: {
+          title: '主题生成工具',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'echarts-theme',
+        name: 'Echarts-Theme',
+        component: () => import('@/views/doc/Theme/EchartsTheme.vue'),
+        meta: {
+          title: '内置的Echarts主题',
           breadcrumb: true,
         },
       },
@@ -185,6 +213,42 @@ const docRoutes = [
         component: () => import('@/views/doc/Guides/Variables.vue'),
         meta: {
           title: 'SASS变量',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/docs/upgrade-v2',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'UpgradeV2',
+        component: () => import('@/views/doc/Guides/UpgradeV2.vue'),
+        meta: {
+          title: '升级到V2',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/docs/template-intro',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'TemplateIntro',
+        component: () => import('@/views/doc/Guides/TemplateIntro.vue'),
+        meta: {
+          title: '各template介绍',
           breadcrumb: true,
         },
       },

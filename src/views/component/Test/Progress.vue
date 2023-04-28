@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Progress 进度条</h1>
-    <div>
+    <div class="w450">
       <h3>线形进度条</h3>
       <el-progress class="mb-8" :percentage="50"></el-progress>
       <el-progress class="mb-8" :percentage="100" :format="format"></el-progress>
@@ -11,44 +11,48 @@
     </div>
     <div>
       <h3>百分比内显</h3>
-      <el-progress class="mb-8" :text-inside="true" :stroke-width="26" :percentage="70"></el-progress>
-      <el-progress
-        class="mb-8"
-        :text-inside="true"
-        :stroke-width="24"
-        :percentage="100"
-        status="success"
-      ></el-progress>
-      <el-progress
-        class="mb-8"
-        :text-inside="true"
-        :stroke-width="22"
-        :percentage="80"
-        status="warning"
-      ></el-progress>
-      <el-progress :text-inside="true" :stroke-width="20" :percentage="50" status="exception"></el-progress>
+      <div class="w400">
+        <el-progress class="mb-8" :text-inside="true" :stroke-width="26" :percentage="70"></el-progress>
+        <el-progress
+          class="mb-8"
+          :text-inside="true"
+          :stroke-width="24"
+          :percentage="100"
+          status="success"
+        ></el-progress>
+        <el-progress
+          class="mb-8"
+          :text-inside="true"
+          :stroke-width="22"
+          :percentage="80"
+          status="warning"
+        ></el-progress>
+        <el-progress :text-inside="true" :stroke-width="20" :percentage="50" status="exception"></el-progress>
+      </div>
     </div>
     <div>
       <h3>自定义颜色</h3>
-      <el-progress class="mb-8" :percentage="percentage" :color="customColor"></el-progress>
+      <div class="w450">
+        <el-progress class="mb-8" :percentage="percentage" :color="customColor"></el-progress>
 
-      <el-progress class="mb-8" :percentage="percentage" :color="customColorMethod"></el-progress>
+        <el-progress class="mb-8" :percentage="percentage" :color="customColorMethod"></el-progress>
 
-      <el-progress class="mb-8" :percentage="percentage" :color="customColors"></el-progress>
-      <div>
-        <el-button-group>
-          <el-button icon="el-icon-minus" @click="decrease"></el-button>
-          <el-button icon="el-icon-plus" @click="increase"></el-button>
-        </el-button-group>
+        <el-progress class="mb-8" :percentage="percentage" :color="customColors"></el-progress>
+        <div>
+          <el-button-group>
+            <el-button icon="el-icon-minus" @click="decrease"></el-button>
+            <el-button icon="el-icon-plus" @click="increase"></el-button>
+          </el-button-group>
+        </div>
       </div>
     </div>
     <div>
       <h3>环形进度条</h3>
-      <el-progress class="mr-8" type="circle" :percentage="0"></el-progress>
-      <el-progress class="mr-8" type="circle" :percentage="25"></el-progress>
-      <el-progress class="mr-8" type="circle" :percentage="100" status="success"></el-progress>
-      <el-progress class="mr-8" type="circle" :percentage="70" status="warning"></el-progress>
-      <el-progress type="circle" :percentage="50" status="exception"></el-progress>
+      <el-progress class="mr-8" type="circle" :percentage="0" :width="112"></el-progress>
+      <el-progress class="mr-8" type="circle" :percentage="25" :width="112"></el-progress>
+      <el-progress class="mr-8" type="circle" :percentage="100" status="success" :width="112"></el-progress>
+      <el-progress class="mr-8" type="circle" :percentage="70" status="warning" :width="112"></el-progress>
+      <el-progress type="circle" :percentage="50" status="exception" :width="112"></el-progress>
     </div>
     <div>
       <h3>仪表盘形进度条</h3>
@@ -119,5 +123,13 @@ export default class extends Vue {
 
 .mr-8 {
   margin-right: 8px;
+}
+
+.w450 {
+  width: 450px;
+}
+
+.w400 {
+  width: 400px;
 }
 </style>

@@ -13,6 +13,12 @@ $tree-leaf-expand-icon-padding: 2px;
 .el-tree {
   margin-top: $margin-10;
   background: transparent; //TODO
+
+  // checkbox没对齐
+  .el-tree-node__content {
+
+    line-height: 1;
+  }
 }
 
 .el-tree-node {
@@ -21,16 +27,20 @@ $tree-leaf-expand-icon-padding: 2px;
     // margin-bottom: $margin-6;
     line-height: $line-height;
     font-size: $text-size;
-    color: $color-grey-4;
-    & > .el-tree-node__expand-icon {
+    color: $color-neutral-7;
+
+    &>.el-tree-node__expand-icon {
       padding: $tree-node-icon-padding;
     }
+
     .el-checkbox__input {
       width: $tree-checkbox-size;
       height: $tree-checkbox-size;
+
       .el-checkbox__inner {
         width: 100%;
         height: 100%;
+
         &::before {
           width: $tree-checkbox-size;
           height: $tree-checkbox-size;
@@ -38,20 +48,22 @@ $tree-leaf-expand-icon-padding: 2px;
           left: 0px;
           transform: translate($tree-checkbox-transform, $tree-checkbox-transform) scale($tree-checkbox-scale);
         }
+
         &::after {
           left: $common-space;
           top: $tree-checkbox-tick-top;
         }
       }
     }
-    .is-indeterminate {
-      .el-checkbox__inner {
-        background: $color-master;
-        &::before {
-          background: $color-white;
-        }
-      }
-    }
+
+    // .is-indeterminate {
+    //   .el-checkbox__inner {
+    //     background: $color-master;
+    //     &::before {
+    //       background: $color-white;
+    //     }
+    //   }
+    // }
     &:hover {
       background: none;
 
@@ -73,12 +85,14 @@ $tree-leaf-expand-icon-padding: 2px;
         }
       }
     }
+
     .is-disabled {
-      & ~ .el-tree-node__label {
+      &~.el-tree-node__label {
         color: $color-neutral-10;
       }
     }
   }
+
   .pop-tooltip {
     display: none;
     position: absolute;
@@ -87,37 +101,45 @@ $tree-leaf-expand-icon-padding: 2px;
     right: 0;
     background: $color-bg-1;
   }
-  &:focus > &__content > &__label {
+
+  &:focus>&__content>&__label {
     color: $color-master;
     font-weight: $text-title-weight;
   }
-  &:focus > &__content {
+
+  &:focus>&__content> :is(.el-checkbox, .is-disabled)~&__label {
+    color: $text-color;
+    font-weight: $text-weight;
+  }
+
+  &:focus>&__content {
     background: none;
+
     &:hover {
-      background: $color-master-bg-light-2;
+      background: $color-neutral-1;
     }
   }
+
   &__content:hover {
-    background: $color-master-bg-light-2;
+    background: $color-neutral-1;
   }
 }
 
 .el-tree-node.is-focusable {
-  & > .el-tree-node__content {
+  &>.el-tree-node__content {
     color: $color-neutral-11;
 
     &:hover:not(.is-current > .el-tree-node__content:hover) {
-      // background: $color-master-bg-light-2;
-
       .el-checkbox__inner {
-        border-color: $color-master;
+        // border-color: $color-master;
       }
     }
   }
 
   &.is-current {
     background: none;
-    & > .el-tree-node__content {
+
+    &>.el-tree-node__content {
       .node-content {
         color: $color-master;
       }
@@ -148,14 +170,14 @@ $tree-leaf-expand-icon-padding: 2px;
       color: $text-color-light;
 
       &:hover {
-        background: $color-master-bg-light-2;
+        background: $color-neutral-1;
       }
     }
   }
 }
 
 .el-tree-node__expand-icon {
-  color: $color-grey-5;
+  color: $color-neutral-6;
 }
 
 .el-tree-node__expand-icon.is-leaf {

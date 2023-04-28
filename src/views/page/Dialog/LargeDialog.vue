@@ -9,10 +9,10 @@
   <el-card>
     <h2>大弹窗</h2>
     <div>
-      <p>全屏弹窗除外，弹窗最大宽度为 1000px，最大高度为640px</p>
+      <p>全屏弹窗除外，弹窗最大宽度为800px，最大高度为窗口高度70%。</p>
       <el-button type="primary" @click="handleClick">大弹窗</el-button>
     </div>
-    <el-dialog width="1000px" :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
+    <el-dialog width="800px" :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
       <el-descriptions :column="2" border>
         <el-descriptions-item>
           <template slot="label"> 数据库类型 </template>

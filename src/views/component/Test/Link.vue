@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2023-03-17 13:45:09
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-21 15:35:58
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-04-25 14:35:45
  * @Description: Link
 -->
 <template>
@@ -11,28 +11,26 @@
     <LinkDemo />
     <div>
       <h3>基础用法</h3>
-      <el-link href="https://element.eleme.io" target="_blank">默认链接</el-link>
       <el-link type="primary">主要链接</el-link>
       <el-link type="success">成功链接</el-link>
       <el-link type="warning">警告链接</el-link>
       <el-link type="danger">危险链接</el-link>
-      <el-link type="fatal">严重危险链接</el-link>
-      <el-link type="info">信息链接</el-link>
     </div>
     <div>
       <h3>禁用状态</h3>
-      <el-link disabled>默认链接</el-link>
       <el-link type="primary" disabled>主要链接</el-link>
       <el-link type="success" disabled>成功链接</el-link>
       <el-link type="warning" disabled>警告链接</el-link>
       <el-link type="danger" disabled>危险链接</el-link>
-      <el-link type="fatal" disabled>严重危险链接</el-link>
-      <el-link type="info" disabled>信息链接</el-link>
     </div>
     <div>
       <h3>下划线</h3>
       <el-link :underline="false">无下划线</el-link>
       <el-link>有下划线</el-link>
+    </div>
+    <div>
+      <h3>A tag</h3>
+      <a href="#">默认链接</a>
     </div>
     <div>
       <h3>图标</h3>

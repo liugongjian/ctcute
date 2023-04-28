@@ -210,10 +210,11 @@ export default class extends Vue {
   private renderMore() {
     this.$nextTick(() => {
       const menuWidth = this.menu.$el.clientWidth
+      let firstHiddenIndex = 0
       for (let i = 0; i < this.menu.$el.children.length; i++) {
         const li = this.menu.$el.children[i]
         const rightPos = li.clientWidth + li.offsetLeft
-        if (rightPos > menuWidth) {
+        if (firstHiddenIndex || rightPos > menuWidth) {
           if (!this.menuIndex) {
             this.menuIndex = i
             const left = li.offsetLeft
@@ -222,6 +223,7 @@ export default class extends Vue {
             })
           }
           li.style.display = 'none'
+          firstHiddenIndex = i
         } else {
           li.style.display = 'block'
         }
@@ -271,7 +273,7 @@ $width: 640px;
     overflow: hidden;
     width: $width;
     height: 100%;
-    background: $color-grey-9;
+    background: $color-neutral-2;
     box-shadow: $shadow-1;
 
     .vue-codemirror {
@@ -336,18 +338,18 @@ $width: 640px;
     }
 
     .el-dropdown .svg-icon {
-      color: $color-master-4;
+      color: $color-master-disabled;
     }
 
     .el-menu--horizontal > .el-menu-item {
       height: 56px;
       line-height: 56px;
-      color: $text-color-primary;
+      color: $text-color;
       padding: 0 16px;
       background: none;
 
       &.is-active {
-        color: $color-master-1;
+        color: $color-master;
       }
     }
   }

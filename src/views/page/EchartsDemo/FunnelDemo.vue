@@ -9,23 +9,22 @@
 <template>
   <cute-card-box title="漏斗图">
     <template #content>
-      <CuteChart :option="option" :height="'600px'" :width="'100%'" />
+      <VChart :option="option" style="height: 600px; width: 100%" :theme="theme" />
     </template>
   </cute-card-box>
 </template>
 <script lang="ts">
 import { CuteCardBox } from '@cutedesign/ui'
-import { CuteChart } from '@cutedesign/ui'
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
   name: 'FunnelDemo',
   components: {
     CuteCardBox,
-    CuteChart,
   },
 })
 export default class extends Vue {
+  @Prop({ default: 'cuted-light', required: false }) private readonly theme: string
   private option = {}
   /**
    * 页面Mounted

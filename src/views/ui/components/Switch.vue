@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-10-19 10:59:22
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-13 15:01:46
+ * @LastEditTime: 2023-04-23 14:26:55
  * @Description: 
 -->
 <template>
@@ -21,7 +21,7 @@
         </div>
         <h3>默认用法 - 小</h3>
         <div>
-          <el-switch v-model="value2" :disabled="inputDisabled" :width="28"> </el-switch>
+          <el-switch v-model="value2" class="small-switch" :disabled="inputDisabled" :width="32"> </el-switch>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 b {
   margin-right: 24px;
-  color: $color-grey-1;
+  color: $color-neutral-10;
 }
 
 .sub-switch {
@@ -64,12 +64,14 @@ b {
   align-items: center;
   margin-top: 24px;
 }
+
 .input-content {
   width: 846px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
   clear: both;
+
   .el-input {
     width: 250px;
   }

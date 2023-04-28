@@ -6,16 +6,16 @@
   </el-breadcrumb>
   <el-breadcrumb v-else-if="breadcrumbShowLast">
     <el-breadcrumb-item>
-      <span>{{ $t(lastCrumb.meta.title) }}</span>
+      <span>{{ t(lastCrumb.meta.title) }}</span>
     </el-breadcrumb-item>
   </el-breadcrumb>
   <el-breadcrumb v-else separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
         <span v-if="item.redirect === 'noredirect' || index === breadcrumbs.length - 1" class="no-redirect">
-          {{ $t(item.meta.title) }}
+          {{ t(item.meta.title) }}
         </span>
-        <a v-else @click.prevent="handleLink(item)">{{ $t(item.meta.title) }}</a>
+        <a v-else @click.prevent="handleLink(item)">{{ t(item.meta.title) }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -23,15 +23,14 @@
 
 <script lang="ts">
 import { compile } from 'path-to-regexp'
-import { Component, Prop, Watch } from 'vue-property-decorator'
-import { mixins } from 'vue-class-component'
+import { Component, Prop, Watch, Mixins } from 'vue-property-decorator'
 import { RouteRecord, Route } from 'vue-router'
 import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
   name: 'CuteLayoutBreadcrumb',
 })
-export default class extends mixins(Locale) {
+export default class extends Mixins(Locale) {
   @Prop({ default: '' })
   public breadcrumbCustomTitle: string
 
@@ -60,7 +59,7 @@ export default class extends mixins(Locale) {
   private getBreadcrumb() {
     let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
     const first = matched[0]
-    if (!this.isDashboard(first)) {
+    if (first && !this.isDashboard(first)) {
       matched = [{ path: '/', meta: { title: 'home.title' } } as unknown as RouteRecord].concat(matched)
     }
     this.breadcrumbs = matched.filter(item => {

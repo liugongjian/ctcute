@@ -17,24 +17,33 @@ $steps-line-size: 1px; // 线条粗细;
 */
 @mixin steps-page($class: is-success,
   $bdColor: $color-master,
-  $color: $color-master) {
+  $color: $color-master,
+  $descriptionColor: $text-color-disabled,
+  $titleColor: $color) {
   .el-step__head.#{$class} {
     border-color: $bdColor;
     color: $color;
     .el-step__icon.is-status {
       background-color: $color;
     }
+    .el-step__icon.is-text{
+      border-color: $bdColor;
+    }
   }
   .el-step__title.#{$class}{
-    color: $color;
+    color: $titleColor;
+  }
+  .el-step .el-step__main > .el-step__description.#{$class} {
+    color: $descriptionColor;
   }
 }
 
 @include steps-page();
-@include steps-page(is-finish);
-@include steps-page(is-process, $color-master, $color-master);
+@include steps-page(is-success, $color-master, $color-master, $text-color-feature, $text-color);
+@include steps-page(is-finish, $color-master, $color-master, $text-color-feature, $text-color);
+@include steps-page(is-process, $color-master, $color-master, $text-color-feature);
 @include steps-page(is-error, $color-danger, $color-danger);
-@include steps-page(is-wait, $border-color, $text-color-light-2);
+@include steps-page(is-wait, $border-color, $text-color-disabled);
 
 .el-step {
   .el-step__icon-inner {
@@ -43,10 +52,6 @@ $steps-line-size: 1px; // 线条粗细;
 
   & > .el-step__head > .el-step__icon{
     background-color: transparent;
-  }
-
-  .el-step__main > .el-step__description {
-    color: $text-color-light-2;
   }
 
   &:not(.is-center).is-horizontal .el-step__line {
@@ -62,7 +67,7 @@ $steps-line-size: 1px; // 线条粗细;
   }
 
   .el-step__line {
-    background-color: $color-grey-6;
+    background-color: $border-color; 
 
     .el-step__line-inner {
       border-bottom: 0;

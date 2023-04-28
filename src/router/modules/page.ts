@@ -497,21 +497,52 @@ const restPageRoutes = [
         },
       },
       {
-        path: 'variables-refactor',
-        component: () =>
-          import(/* webpackChunkName: "ts-demo" */ '@/views/page/TsDemo/VariablesRefactor.vue'),
-        name: 'VariablesRefactor',
-        meta: {
-          title: 'VariablesRefactor(临时)',
-          breadcrumb: true,
-        },
-      },
-      {
         path: 'echarts-demo',
         component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/EchartsDemo/index.vue'),
         name: 'EchartsDemo',
         meta: {
           title: 'Echarts Demo',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  // 订购页
+  {
+    path: '/page/order',
+    redirect: '/page/order/order-list',
+    component: Layout,
+    name: 'Order',
+    meta: {
+      title: 'Order 订购页',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'order-list',
+        component: () => import('@/views/page/Order/OrderList.vue'),
+        name: 'OrderList',
+        meta: {
+          title: 'OrderList 订购标准页',
+          fullScreen: true,
+        },
+      },
+      {
+        path: 'product-details',
+        component: () => import('@/views/page/Order/ProductDetails.vue'),
+        name: 'ProductDetails',
+        meta: {
+          title: 'ProductDetails 产品详情',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'product-list',
+        component: () => import('@/views/page/Order/ProductList.vue'),
+        name: 'ProductList',
+        meta: {
+          title: 'ProductList 产品列表',
           breadcrumb: true,
         },
       },

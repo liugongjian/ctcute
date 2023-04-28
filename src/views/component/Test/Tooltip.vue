@@ -48,13 +48,13 @@
           </el-row>
           <el-row class="tooltip-interval">
             <el-tooltip effect="dark" content="提示描述性文案" placement="bottom-end">
-              <el-button>右边</el-button>
+              <el-button>右下</el-button>
             </el-tooltip>
           </el-row>
         </el-col>
         <el-col :span="1">
           <el-tooltip effect="dark" content="提示描述性文案" placement="right">
-            <el-button>右下</el-button>
+            <el-button>右边</el-button>
           </el-tooltip>
         </el-col>
       </el-row>
@@ -92,7 +92,7 @@ export default class extends Vue {}
 .sub-tooltip {
   margin: 24px 0;
   padding-bottom: 24px;
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
 }
 
 .tooltip-interval {

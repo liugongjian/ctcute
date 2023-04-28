@@ -1,0 +1,96 @@
+/* Pagination
+-------------------------- */
+.el-pagination {
+  padding-top: 0;
+  padding-bottom: 0;
+
+  span:not([class*='suffix']),
+  button {
+    height: 24px;
+    line-height: 24px;
+
+    &:disabled {
+      color: $color-grey-5;
+      background-color: $color-bg-2;
+    }
+  }
+
+  .btn-prev,
+  .btn-next,
+  .btn-quicknext {
+    color: $color-grey-3;
+    background: none;
+  }
+
+  .el-select.el-select--mini {
+    .el-select__caret.el-input__icon.el-icon-arrow-up.is-reverse {
+      line-height: 24px;
+    }
+
+    .el-input__inner {
+      width: 60px;
+      height: 24px;
+      background-color: $color-bg-1;
+    }
+
+    .el-input.el-input--suffix {
+      width: 60px;
+    }
+
+    .el-input__icon {
+      line-height: 24px;
+      color: $icon-color;
+    }
+  }
+
+  .el-select .el-input__suffix {
+    height: 24px;
+    line-height: 24px;
+  }
+
+  .el-select .el-input {
+    margin: 0;
+  }
+
+  .el-input .el-input__suffix {
+    right: 0;
+  }
+
+  .el-pagination__total {
+    color: $text-color-primary;
+    font-size: $text-size-primary;
+    font-weight: normal;
+    margin: 0 20px 0 10px;
+  }
+
+  .el-pager li + li {
+    margin-left: 10px;
+  }
+
+  .el-pager {
+    li {
+      color: $text-color-primary;
+      font-weight: 400;
+      font-size: 12px;
+      min-width: 20px;
+      height: 24px;
+      line-height: 24px;
+      border-radius: 2px;
+      background: none;
+
+      &.active {
+        background-color: $color-master-1;
+        color: $color-white;
+      }
+
+      &:not(.active):hover {
+        background-color: $color-master-7;
+      }
+    }
+
+    .el-icon-d-arrow-right:before,
+    .el-icon-d-arrow-left:before {
+      line-height: 0;
+    }
+  }
+}

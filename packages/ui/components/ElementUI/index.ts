@@ -11,6 +11,7 @@ import Button from './Button/index.vue'
 import MessageBox from './MessageBox/index.js'
 import Popover from './Popover/index.vue'
 import directive from './Popover/directive.js'
+import FormItem from './FormItem/index.vue'
 
 export default {
   install(Vue) {
@@ -26,6 +27,7 @@ export default {
     Vue.component(Button.name, Button)
     Vue.directive('popover', directive)
     Vue.component(Popover.name, Popover)
+    Vue.component(FormItem.name, FormItem)
     Vue.prototype.$msgbox = MessageBox
     Vue.prototype.$alert = MessageBox.alert
     Vue.prototype.$confirm = MessageBox.confirm

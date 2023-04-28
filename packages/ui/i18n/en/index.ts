@@ -10,6 +10,9 @@ const en: { [key: string]: any } = {
       pageClassifier: '',
     },
   },
+  home: {
+    title: 'Home',
+  },
 }
 
 const getFileName = (path: string) => path.split('/').pop().replace('.js', '')

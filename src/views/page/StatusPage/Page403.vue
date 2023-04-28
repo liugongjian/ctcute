@@ -1,8 +1,8 @@
 <!--
  * @Author: 万璐敏
  * @Date: 2022-07-08 13:45:09
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-11-07 08:53:34
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-21 11:03:12
  * @Description: 403页
 -->
 <template>
@@ -13,20 +13,25 @@
       </div>
       <div class="box-text">
         <div class="box-text-title">403</div>
-        <div class="box-text-tips">你无权访问该页面</div>
-        <el-button class="box-button" type="primary" @click="toHome">返回首页</el-button>
+        <div class="box-text-tips">{{ t('cute.pageStatus.page403Tips') }}</div>
+        <el-button
+          class="box-button"
+          type="primary"
+          @click="toHome"
+        >{{ t('cute.pageStatus.toHome') }}</el-button>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-import Img from './Image/page-403.svg'
+import { Component, Mixins } from 'vue-property-decorator'
+import Locale from '@cutedesign/ui/mixins/locale'
+
 @Component({
   name: 'Page403',
 })
-export default class extends Vue {
-  private Img = Img
+export default class extends Mixins(Locale) {
+  private Img = require('./Image/page-403.svg')
   private toHome() {
     this.$router.push('/')
   }

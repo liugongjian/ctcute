@@ -12,10 +12,5 @@
       "name":"Appendix.d.ts",
       "path":"@/types/Appendix.d.ts"
     }
-  ],
-  "package": {
-    "dependencies":  {
-      "@cutedesign/appendix": "^1.0.0"
-    }
-  }
+  ]
 }

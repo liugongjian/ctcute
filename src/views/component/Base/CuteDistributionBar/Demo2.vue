@@ -1,12 +1,12 @@
 <!--
  * @Author: wujingcheng
  * @Date: 2022-12-23 15:25:18
- * @LastEditors: wujingcheng
- * @LastEditTime: 2022-12-28 09:29:54
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-23 15:31:05
  * @Description: 带标题的内容块
 -->
 <template>
-  <cute-distribution-bar :data="barList" :show-value="false"> </cute-distribution-bar>
+  <cute-distribution-bar :data="barList" :show-value="false"></cute-distribution-bar>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
@@ -21,19 +21,19 @@ export default class extends Vue {
   barList = [
     {
       code: 'nm-center',
-      name: '内蒙中心',
+      name: this.$t('demo.distributeBar.common.label1'),
     },
     {
       code: 'gz-center',
-      name: '贵州中心',
+      name: this.$t('demo.distributeBar.common.label2'),
     },
     {
       code: 'third-center',
-      name: '第三中心',
+      name: this.$t('demo.distributeBar.common.label3'),
     },
     {
       code: 'fourth-center',
-      name: '第四中心',
+      name: this.$t('demo.distributeBar.common.label4'),
     },
   ]
 }

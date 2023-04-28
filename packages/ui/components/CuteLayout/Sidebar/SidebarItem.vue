@@ -4,7 +4,7 @@
     :class="['menu-wrapper', { 'menu-has-icon': item.meta && item.meta.icon }, `level-${level}`]"
   >
     <template v-if="theOnlyOneChild && (!theOnlyOneChild.children || theOnlyOneChild.meta.drillDown)">
-      <sidebar-item-link v-if="theOnlyOneChild.meta" :to="resolvePath(theOnlyOneChild.path)">
+      <sidebar-item-link v-if="theOnlyOneChild.meta" :to="resolvePath(theOnlyOneChild.path, theOnlyOneChild)">
         <el-menu-item :index="resolvePath(theOnlyOneChild.path)">
           <template slot="title">
             <!-- 图标 -->
@@ -40,8 +40,7 @@
 
 <script lang="ts">
 import path from 'path'
-import { Component, Prop } from 'vue-property-decorator'
-import { mixins } from 'vue-class-component'
+import { Component, Prop, Mixins } from 'vue-property-decorator'
 import { RouteConfig } from 'vue-router'
 import Locale from '@cutedesign/ui/mixins/locale'
 import { isExternal } from '../utils/validate'
@@ -55,7 +54,7 @@ import SidebarItemLink from './SidebarItemLink.vue'
     SidebarItemLink,
   },
 })
-export default class extends mixins(Locale) {
+export default class extends Mixins(Locale) {
   @Prop({ required: true }) public item!: RouteConfig
   @Prop({ default: 1 }) public level!: number
   @Prop({ default: '' }) private basePath!: string
@@ -76,7 +75,7 @@ export default class extends mixins(Locale) {
 
   get theOnlyOneChild(): any {
     if (this.item.meta && this.item.meta.drillDown) {
-      return this.item
+      return { ...this.item, path: '' }
     }
     if (this.showingChildNumber > 1 || (this.item.meta && this.item.meta.alwaysShow)) {
       return null
@@ -102,27 +101,20 @@ export default class extends mixins(Locale) {
     return { ...this.item, path: '' }
   }
 
-  public resolvePath(routePath: string) {
+  private resolvePath(routePath: string, route: RouteConfig) {
     if (isExternal(routePath)) {
       return routePath
     }
     if (isExternal(this.basePath)) {
       return this.basePath
     }
-    return path.resolve(this.basePath, routePath)
-  }
-
-  public isOneDisplayChildren(children) {
-    if (
-      Array.isArray(children) &&
-      children.filter(v => {
-        return !(v.meta && Boolean(v.meta.hidden) === true)
-      }).length === 1
-    ) {
-      return true
-    } else {
-      return false
+    // 如果为下钻菜单，并且没有设置redirect，则默认取第一个子菜单的path
+    if (route && route.meta.drillDown && !route.redirect) {
+      if (route.children && route.children.length) {
+        routePath = route.children[0].path
+      }
     }
+    return path.resolve(this.basePath, routePath)
   }
 }
 </script>

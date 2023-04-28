@@ -1,23 +1,49 @@
 /* DatePicker
 -------------------------- */
 $datepicker-shadow: $shadow-2;
+$datepicker-footer-padding: $common-space-3x $common-space-6x;
+$datepicker-border-color: $color-neutral-3;
+$datepicker-footer-button-color: $color-white;
+
+
+.el-picker-panel.el-date-picker.el-popper.has-sidebar // .el-picker-panel__body-wrapper {
+//   min-width: 640px;
+// }
+
+
+.el-date-range-picker {
+
+  .el-picker-panel__body {
+    min-width: 600px;
+  }
+}
+
+.el-date-picker {
+  width: auto;
+
+  &.has-sidebar {
+    width: auto;
+  }
+}
 
 .el-date-picker:not(.el-picker-panel.el-date-picker.el-popper.has-sidebar) {
-  width: 270px;
+  width: 334px;
 
   .el-picker-panel__content {
-    width: 240px;
+    width: 334px;
+    margin: 0;
   }
 }
 
 .el-picker-panel {
   border: none;
+
   .el-picker-panel__sidebar {
-    width: 100px;
+    width: 105px;
   }
 
-  .el-picker-panel__sidebar + .el-picker-panel__body {
-    margin-left: 100px;
+  .el-picker-panel__sidebar+.el-picker-panel__body {
+    margin-left: 105px;
   }
 }
 
@@ -27,7 +53,7 @@ $datepicker-shadow: $shadow-2;
 
 .el-picker-panel.el-popper.has-time {
   .el-time-panel__footer {
-    border-top: 1px solid $border-color-light;
+    border-top: 1px solid $datepicker-border-color;
   }
 }
 
@@ -40,30 +66,33 @@ $datepicker-shadow: $shadow-2;
     font-size: $text-size;
 
     &:hover {
-      background-color: $color-master-bg-light-2;
-      color: $color-master;
+      background-color: $color-neutral-1;
+      // color: $color-master;
     }
 
     &.selected {
       background-color: unset;
       color: $color-master;
-      font-weight: normal;
+      font-weight: bold;
     }
   }
 }
-.time-select-item:hover { font-weight: normal; }
+
+.time-select-item:hover {
+  font-weight: normal;
+}
 
 .el-picker-panel.el-date-picker.el-popper.has-sidebar,
 .el-picker-panel.el-date-range-picker.el-popper.has-sidebar {
   .el-picker-panel__sidebar {
     padding-top: $padding-3x;
     background-color: $color-bg-1;
-    border-right: 1px solid $border-color-light;
+    border-right: 1px solid $datepicker-border-color;
 
     .el-picker-panel__shortcut {
       font-size: $text-size;
-      font-weight: 400;
-      color: $color-grey-1;
+      font-weight: normal;
+      color: $color-neutral-10;
 
       &:hover {
         color: $color-master;
@@ -71,18 +100,21 @@ $datepicker-shadow: $shadow-2;
     }
   }
 
-  .el-picker-panel__footer {
-    border-top: 1px solid $border-color-light;
-    background-color: $color-bg-1;
-  }
+
 
   .el-date-range-picker__time-header {
-    border-bottom: 1px solid $border-color-light;
+    border-bottom: 1px solid $datepicker-border-color;
   }
 }
 
+.el-date-range-picker__time-header,
+.el-date-picker__time-header {
+  padding-left: $common-space-3x;
+  padding-right: $common-space-3x;
+}
+
 .el-picker-panel.el-date-range-picker.el-popper {
-  width: 540px;
+  width: 646px;
   background-color: $color-bg-1;
 }
 
@@ -90,7 +122,7 @@ $datepicker-shadow: $shadow-2;
   box-shadow: $shadow-2;
 
   .el-date-range-picker__content.is-left {
-    border-right: 1px solid $border-color-light;
+    border-right: 1px solid $datepicker-border-color;
   }
 }
 
@@ -103,17 +135,15 @@ $datepicker-shadow: $shadow-2;
 }
 
 .el-picker-panel.el-date-range-picker.el-popper.has-sidebar {
-  width: 639px;
+  width: 825px;
 }
 
 .el-picker-panel.el-date-range-picker.el-popper.has-time {
   .el-date-range-picker__time-header {
-    border-bottom: 1px solid $border-color-light;
+    border-bottom: 1px solid $datepicker-border-color;
   }
 
-  .el-picker-panel__footer {
-    border-top: 1px solid $border-color-light;
-  }
+
 
   .el-time-spinner__list:after {
     height: 160px;
@@ -126,16 +156,13 @@ $datepicker-shadow: $shadow-2;
   border-radius: $border-radius;
 
   .el-picker-panel__sidebar {
-    border-right: 1px solid $border-color-light;
+    border-right: 1px solid $datepicker-border-color;
   }
 
-  .el-picker-panel__footer {
-    background-color: $color-bg-1;
-    border-top: 1px solid $border-color-light;
-  }
+
 
   .el-date-picker__time-header {
-    border-bottom: 1px solid $border-color-light;
+    border-bottom: 1px solid $datepicker-border-color;
   }
 
   .el-time-spinner__list:after {
@@ -144,10 +171,9 @@ $datepicker-shadow: $shadow-2;
 }
 
 .el-picker-panel.el-date-picker.el-popper.has-sidebar {
-  width: 369px;
 
   .el-picker-panel__content {
-    width: 238px;
+    width: 350px;
   }
 }
 
@@ -156,6 +182,11 @@ $datepicker-shadow: $shadow-2;
 
 .el-range-editor.el-input__inner {
   background-color: $color-bg-1;
+  padding: 3px $padding-3x;
+
+  &.is-disabled {
+    background-color: $color-neutral-1;
+  }
 }
 
 .el-range-editor--medium.el-input__inner {
@@ -172,6 +203,7 @@ $datepicker-shadow: $shadow-2;
 
 .el-range-editor .el-range__close-icon {
   justify-content: right;
+  color: $color-neutral-6;
 }
 
 .el-range-editor--medium .el-range__icon {
@@ -180,56 +212,199 @@ $datepicker-shadow: $shadow-2;
   justify-content: center;
 }
 
-.el-range-editor--medium .el-range__icon,
-.el-range-editor--medium .el-range__close-icon {
-  display: flex;
-  align-items: center;
+.el-range-editor--medium {
+
+  .el-range__icon,
+  .el-range__close-icon {
+    display: flex;
+    align-items: center;
+    height: $input-sm-height;
+    line-height: $input-sm-height;
+  }
 }
 
-.el-range-editor--medium .el-range-input,
-.el-date-editor.el-range-input {
-  font-size: $text-size;
-  background-color: $color-bg-1;
-}
-
+.el-range-editor--medium,
+.el-range-editor--small,
+.el-range-editor--large,
 .el-date-editor {
+  .el-input__suffix-inner {
+    width: 14px;
+
+    .el-input__icon::before {
+      font-size: $text-size-md;
+    }
+  }
+
+  .el-range__icon {
+    color: $color-neutral-6;
+    margin-left: 0;
+    font-size: $text-size-md;
+    justify-content: left;
+  }
+
+  .el-input__prefix {
+    color: $color-neutral-6;
+
+    .el-input__icon {
+      width: $text-size-md;
+      color: $color-neutral-6;
+      margin-left: 0;
+      font-size: 14px;
+
+      &::before {
+        font-size: $text-size-md;
+      }
+    }
+  }
+
+
+  .el-range-separator {
+    width: 40px;
+    color: $color-grey-4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $text-size;
+  }
+
   .el-range-input,
   .el-input__inner {
     background-color: $color-bg-1;
   }
-}
 
-.el-date-editor .el-range-separator {
-  width: 40px;
-  color: $color-grey-4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: $text-size;
-}
+  .el-date-editor .el-range-separator {
+    width: 40px;
+    color: $color-neutral-6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $text-size;
 
-.el-date-editor.el-input {
-  .el-input__suffix {
-    right: 5px;
+    &:hover {
+      color: $color-master-1;
+    }
+
+    &::before {
+      content: '\ea3c';
+    }
+  }
+
+  .el-range-input {
+    font-size: $text-size;
+    line-height: normal;
+
+  }
+
+
+
+  &.el-input .el-input__suffix {
+    right: $common-space-3x !important;
+  }
+
+  &.el-input.el-input--medium {
+    .el-input__icon.el-icon-time {
+      line-height: $input-height;
+    }
+
+    .el-input__icon.el-icon-date {
+      line-height: $input-height;
+    }
   }
 }
 
-.el-date-editor.el-input.el-input--medium {
-  .el-input__icon.el-icon-time {
-    line-height: $input-height;
-  }
+.el-picker-panel__icon-btn {
+  color: $color-neutral-6;
+}
 
-  .el-input__icon.el-icon-date {
-    line-height: $input-height;
+.el-range-editor--large,
+.el-range-editor--small {
+  .el-range-input {
+    &::placeholder {
+      position: relative;
+      top: 1px;
+    }
   }
+}
+
+.el-range-editor--small .el-range-input {
+  font-size: $text-size ;
+  line-height: normal;
+
 }
 
 .el-time-panel__content:before {
   top: 19px;
   border: 0;
-  background-color: $color-master-bg-light-2;
+  background-color: $color-neutral-1;
 }
 
 .el-time-panel__content.has-seconds:before {
   margin: -15px 0;
+}
+
+.el-time-panel__btn.confirm {
+  font-weight: normal;
+}
+
+.el-date-table {
+  th {
+    border-bottom: 1px solid $datepicker-border-color;
+  }
+
+  td {
+    height: $date-panel-btn-size + 16;
+    width: $date-panel-btn-size;
+
+    &.start-date div {
+      margin-left: 8px
+    }
+
+    &.end-date div {
+      margin-right: 8px
+    }
+
+    div {
+      padding: 0;
+      height: $date-panel-btn-size;
+    }
+
+    span {
+      height: $date-panel-btn-size;
+      width: $date-panel-btn-size;
+      line-height: $date-panel-btn-size;
+    }
+  }
+}
+
+.el-picker-panel__footer {
+  border-top: 1px solid $datepicker-border-color;
+  background-color: $color-bg-1;
+  padding: $datepicker-footer-padding;
+
+  .el-button--default {
+    &.is-plain {
+
+      background-color: $color-master;
+      color: $datepicker-footer-button-color;
+      border-color: $color-master;
+
+      &:hover {
+        background: $color-master-hover;
+        border-color: $color-master-hover;
+      }
+
+      &.is-disabled,
+      &.is-disabled:hover {
+        background-color: $color-master-disabled;
+        color: $datepicker-footer-button-color;
+        border-color: $color-master-disabled;
+
+      }
+    }
+
+  }
+}
+
+.el-picker-panel__content {
+  padding: 12px 8px 8px 8px;
 }

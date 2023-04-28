@@ -20,6 +20,10 @@ $--border-color-lighter: $border-color-light;
 $--border-color-extra-light: $border-color-light;
 $--background-color-base: $color-bg-3;
 
+/* Border-radius
+-------------------------- */
+$--border-radius-base: $border-radius;
+$--border-radius-small: $border-radius;
 
 /* Box-shadow
 -------------------------- */
@@ -97,7 +101,7 @@ $--table-fixed-box-shadow: $table-fixed-box-shadow;
 
 /* Tree
 -------------------------- */
-$--tree-node-hover-background-color: $color-master-bg-light-2;
+$--tree-node-hover-background-color: $color-neutral-1;
 $--tree-expand-icon-color: $text-color-light;
 
 /* Rate

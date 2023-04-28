@@ -9,13 +9,14 @@
 
 .suffix-box {
   display: flex;
+  align-items: center;
   justify-content: center;
     .suffix-forgot-line {
       height: 12px;
       width: 1px;
       display: inline-block;
-      background-color: $border-color-primary;
-      margin:2px $text-size-primary;
+      background-color: $border-color;
+      margin:2px $text-size;
   }
 
   // .suffix-forgot + .el-link {
@@ -24,7 +25,7 @@
 }
 .icon-money {
   line-height: 32px;
-  // margin-right: $text-size-primary;
+  // margin-right: $text-size;
   font-weight: normal;
 
   &:hover {
@@ -33,5 +34,5 @@
 }
 
 .bt-operation {
-  color: $color-master-1;
+  color: $color-master;
 }

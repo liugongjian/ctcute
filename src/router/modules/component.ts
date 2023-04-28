@@ -2,8 +2,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-13 14:01:46
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-20 09:15:28
  * @Description:
  */
 // import Layout from '@/layout/component.vue'
@@ -200,6 +200,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-form-item',
+        name: 'ElFormItem',
+        component: () => import('@/views/component/Base/ElFormItem/index.vue'),
+        meta: {
+          title: 'ElFormItem',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'el-collapse',
         name: 'ElCollapse',
         component: () => import('@/views/component/Base/ElCollapse/index.vue'),
@@ -267,6 +276,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteScroller/index.vue'),
         meta: {
           title: 'CuteScroller',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-fixed-footer',
+        name: 'CuteFixedFooter',
+        component: () => import('@/views/component/Base/CuteFixedFooter/index.vue'),
+        meta: {
+          title: 'CuteFixedFooter',
           breadcrumb: true,
         },
       },
@@ -704,6 +722,33 @@ const componentRoutes = [
         component: () => import('@/views/component/Test/Card.vue'),
         meta: {
           title: 'Card',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'Layout',
+        name: 'Layout',
+        component: () => import('@/views/component/Test/Layout.vue'),
+        meta: {
+          title: 'Layout',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'Container',
+        name: 'Container',
+        component: () => import('@/views/component/Test/Container.vue'),
+        meta: {
+          title: 'Container',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'PageHeader',
+        name: 'PageHeader',
+        component: () => import('@/views/component/Test/PageHeader.vue'),
+        meta: {
+          title: 'PageHeader',
           breadcrumb: true,
         },
       },

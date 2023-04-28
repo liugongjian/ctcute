@@ -32,8 +32,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Watch } from 'vue-property-decorator'
-import { mixins } from 'vue-class-component'
+import { Component, Prop, Watch, Mixins } from 'vue-property-decorator'
 import Locale from '@cutedesign/ui/mixins/locale'
 import SidebarItem from './SidebarItem.vue'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
@@ -44,7 +43,7 @@ import variables from '@cutedesign/ui/style/themes/default/index.scss'
     SidebarItem,
   },
 })
-export default class extends mixins(Locale) {
+export default class extends Mixins(Locale) {
   $auth: any
 
   @Prop()
@@ -79,7 +78,7 @@ export default class extends mixins(Locale) {
   }
 
   private get routes() {
-    return this.sidebarRoutes || (this.$auth && this.$auth.getRoutes())
+    return this.sidebarRoutes || this.$router.options.routes
   }
 
   @Watch('sidebarRoutes', { immediate: true })
@@ -103,15 +102,30 @@ export default class extends mixins(Locale) {
   private getDrillDownRoute() {
     const matchedRoutes = this.$route.matched
     const matchedDrillDownRoute = matchedRoutes.find(route => !!route.meta.drillDown)
+
+    const findDrillDownRoute = (children: any) => {
+      for (let route of children) {
+        if (route.name === matchedDrillDownRoute.name && !!route.meta.drillDown) {
+          return route
+        }
+        if (route.children && route.children.length) {
+          const result = findDrillDownRoute(route.children)
+          if (result) {
+            return result
+          }
+        }
+      }
+    }
+
     if (matchedDrillDownRoute) {
-      const drillDownRoute = this.routes.find(route => route.path === matchedDrillDownRoute.path)
+      const drillDownRoute = findDrillDownRoute(this.routes)
       if (drillDownRoute) {
         return {
           ...drillDownRoute,
           children: drillDownRoute.children.map(route => {
             return {
               ...route,
-              path: `${drillDownRoute.path}/${route.path}`,
+              path: `${matchedDrillDownRoute.path}/${route.path}`,
             }
           }),
         }
@@ -130,7 +144,7 @@ export default class extends mixins(Locale) {
     ;(this.$el as HTMLElement).style.width = this.isShowMenu ? `${variables.cuteLayoutSidebarWidth}` : '0px'
   }
 
-  public toggleSideBar() {
+  private toggleSideBar() {
     this.isShowMenu = !this.isShowMenu
     this.setSidbarWidth()
   }

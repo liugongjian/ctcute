@@ -1,8 +1,8 @@
 <!--
  * @Author: 刘功坚
  * @Date: 2023-03-17 13:45:09
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-14 09:52:56
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-04-25 14:30:18
  * @Description: DropDown
 -->
 <template>
@@ -17,7 +17,7 @@
           <el-dropdown-item>狮子头</el-dropdown-item>
           <el-dropdown-item>螺蛳粉</el-dropdown-item>
           <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-          <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+          <el-dropdown-item>蚵仔煎</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -77,8 +77,8 @@
     </div>
     <div>
       <h3>不同尺寸</h3>
-      <el-dropdown split-button type="primary">
-        默认尺寸
+      <el-dropdown size="large" split-button type="primary">
+        最大尺寸
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>黄金糕</el-dropdown-item>
           <el-dropdown-item>狮子头</el-dropdown-item>
@@ -182,7 +182,7 @@ export default class extends Vue {}
 <style lang="scss" scoped>
 .el-dropdown-link {
   cursor: pointer;
-  color: #409eff;
+  color: $color-master;
 }
 
 .el-icon-arrow-down {

@@ -15,7 +15,7 @@
         </template>
       </layout-header>
     </slot>
-    <div class="cute-layout__body" :class="{ 'cute-layout--hide-header': !header }">
+    <div class="cute-layout__body">
       <slot name="sidebar">
         <layout-sidebar
           v-if="sidebar"
@@ -47,12 +47,10 @@
             </template>
           </navbar>
         </slot>
-        <div class="cute-layout__main__wrap" :class="[layout]">
-          <section class="cute-layout__main app-main">
-            <transition :name="transition" mode="out-in">
-              <slot />
-            </transition>
-          </section>
+        <div class="cute-layout__main" :class="[layout]">
+          <transition :name="transition" mode="out-in">
+            <slot />
+          </transition>
         </div>
       </div>
     </div>

@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "name": "ProductList.vue",
+      "path": "@/views/page/Order/ProductList.vue"
+    },
+    {
+      "name": "TableComponent.d.ts",
+      "path": "@/types/TableComponent.d.ts"
+    },
+    {
+      "name": "api/tableComponent.ts",
+      "path": "@/api/tableComponent.ts"
+    },
+    {
+      "name": "dics/productList.ts",
+      "path": "@/dics/productList.ts"
+    }
+  ]
+}

@@ -5,8 +5,8 @@
   }
 
   &__btn--active {
-    color: $color-master-3;
-    border-color: $color-master-3;
+    color: $color-master-active;
+    border-color: $color-master-active;
   }
 
   &__page {
@@ -39,12 +39,14 @@
       margin-left: $margin-3x;
     }
 
-    &:hover:not(.is-disabled) {
-      background-color: $color-master-bg-light-2;
-
+    &.is-checked {
       .el-checkbox__label {
-        color: $color-master;
+        font-weight: $text-title-weight;
       }
+    }
+
+    &:hover:not(.is-disabled) {
+      background-color: $color-neutral-1;
     }
   }
 }

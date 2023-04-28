@@ -1,8 +1,8 @@
 <!--
  * @Author: 邱文琦
  * @Date: 2022-10-11 13:30
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-14 16:34:17
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-04-26 14:31:38
  * @Description: 首页
 -->
 <template>
@@ -93,7 +93,7 @@
                 </el-option>
               </el-select>
             </div>
-            <CuteChart :option="option8" :height="'360px'" :width="'100%'" />
+            <VChart :option="option8" style="height: 360px; width: 100%" :theme="theme" />
           </template>
         </cute-card-box>
       </el-col>
@@ -102,12 +102,12 @@
           <cute-card-box content-height="258px">
             <template #content>
               <div class="chart-box-container">
-                <CuteChart :option="option6" :height="'108px'" :width="'100%'" />
+                <VChart :option="option6" style="height: 108px; width: 100%" :theme="theme" />
                 <img src="./Images/icon-hit.svg" alt="" />
               </div>
 
               <div class="chart-box-container">
-                <CuteChart :option="option7" :height="'108px'" :width="'100%'" />
+                <VChart :option="option7" style="height: 108px; width: 100%" :theme="theme" />
                 <img src="./Images/icon-deal.svg" alt="" />
               </div>
             </template>
@@ -116,7 +116,7 @@
         <el-row>
           <cute-card-box>
             <template #content>
-              <CuteChart :option="option5" :height="'86px'" :width="'100%'" />
+              <VChart :option="option5" style="height: 86px; width: 100%" :theme="theme" />
               <div class="visit-data">
                 <h2 class="visits">12,835</h2>
                 <p class="access-rate">
@@ -136,14 +136,14 @@
       <el-col :span="12">
         <cute-card-box title="地区分布概况">
           <template #content>
-            <CuteChart :option="option2" :height="'250px'" :width="'100%'" />
+            <VChart :option="option2" style="height: 250px; width: 100%" :theme="theme" />
           </template>
         </cute-card-box>
       </el-col>
       <el-col :span="12">
         <cute-card-box title="短链数据统计">
           <template #content>
-            <CuteChart :option="option3" :height="'250px'" :width="'100%'" />
+            <VChart :option="option3" style="height: 250px; width: 100%" :theme="theme" />
           </template>
         </cute-card-box>
       </el-col>
@@ -152,7 +152,7 @@
       <el-col :span="6">
         <cute-card-box title="流程状态统计" content-height="364px">
           <template #content>
-            <CuteChart :option="option" :height="'100%'" :width="'100%'" />
+            <VChart :option="option" style="height: 100%; width: 100%" :theme="theme" />
           </template>
         </cute-card-box>
       </el-col>
@@ -187,7 +187,7 @@
                   </el-table>
                 </el-tab-pane>
               </el-tabs>
-              <CuteChart :option="option9" :height="'100%'" :width="'100%'" />
+              <VChart :option="option9" style="height: 100%; width: 100%" :theme="theme" />
             </div>
           </template>
         </cute-card-box>
@@ -198,7 +198,7 @@
         <cute-card-box title="短信渠道用户排行榜">
           <template #content>
             <div class="chart-user">
-              <CuteChart :option="option4" :width="'100%'" height="100%" />
+              <VChart :option="option4" style="height: 100%; width: 100%" :theme="theme" />
             </div>
           </template>
         </cute-card-box>
@@ -255,12 +255,12 @@
 </template>
 <script lang="ts">
 import * as echarts from 'echarts'
+import themeLight from '@cutedesign/ui/echarts-theme/cuted-light.json'
 import china from './json/china.json'
 import { HEALTH } from '@/dics/simpleTable'
 import { formatDatetime } from '@/utils/date'
 import { getTableComponent } from '@/api/tableComponent'
 import * as TableComponent from '@/types/TableComponent'
-import { CuteChart } from '@cutedesign/ui'
 import ChartItem from './ChartItem.vue'
 import { CuteCardBox } from '@cutedesign/ui'
 import { Component, Vue } from 'vue-property-decorator'
@@ -269,15 +269,17 @@ import iconClick from './Images/icon-click.svg'
 import iconStartUp from './Images/icon-startUp.svg'
 import iconInstall from './Images/icon-install.svg'
 
+echarts.registerTheme('cuted-light', themeLight)
+
 @Component({
   name: 'SimpleChart',
   components: {
-    CuteChart,
     ChartItem,
     CuteCardBox,
   },
 })
 export default class extends Vue {
+  private theme = 'cuted-light'
   private iconReach = iconReach
   private iconClick = iconClick
   private iconStartUp = iconStartUp
@@ -742,7 +744,7 @@ export default class extends Vue {
         itemGap: 20,
         textAlign: 'center',
         x: '49%',
-        y: '30%',
+        y: '27%',
         textStyle: {
           fontFamily: 'bahnschrift',
           fontSize: 26,

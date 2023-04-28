@@ -1,3 +1,10 @@
+<!--
+ * @Author: 朱凌浩
+ * @Date: 2023-04-21 10:56:09
+ * @LastEditors: 朱凌浩
+ * @LastEditTime: 2023-04-21 10:56:09
+ * @Description:
+-->
 <template>
   <div>
     <div class="component__container">
@@ -12,10 +19,13 @@
           开启菜单下钻的父节点不会显示展开图标，点击父节点后整个菜单会显示子节点。点击标题可返回上级菜单。
         </p>
         <p>如何开启菜单下钻：</p>
-        <p>1. 在路由对象中设置route.redirect，指明点击一级节点后页面跳转的路径</p>
+        <p>
+          1.
+          在路由对象中设置route.redirect，指明点击一级节点后页面跳转的路径，如果没有设置redirect，则默认取第一个子路由的path
+        </p>
         <p>2. 设置属性route.meta.drillDown: true，将当前节点设为下钻菜单</p>
         <p>3. 设置返回路径：route.meta.drillDownBackPath，指明点击返回链接后返回的位置，默认返回首页</p>
-        <el-alert title="注: 菜单下钻仅支持一级节点" show-icon></el-alert>
+        <el-alert title="注: route的meta属性值具体说明请详见下文Route Meta" show-icon></el-alert>
       </ComponentDemo>
 
       <h2>Layout Attributes</h2>
@@ -28,9 +38,17 @@
       </el-table>
 
       <h2>Layout Slots</h2>
-      <el-table :data="prop" fit border>
+      <el-table :data="slot" fit border>
         <el-table-column prop="name" label="name" />
         <el-table-column prop="desc" label="说明" />
+      </el-table>
+
+      <h2>Route Meta</h2>
+      <el-table :data="routeMeta" fit border>
+        <el-table-column prop="name" label="参数" />
+        <el-table-column prop="desc" label="说明" min-width="200" />
+        <el-table-column prop="type" label="类型" />
+        <el-table-column prop="default" label="默认值" />
       </el-table>
     </div>
   </div>
@@ -91,21 +109,21 @@ export default class extends Vue {
     },
     {
       name: 'headerLogo',
-      desc: '主Logo图片URL',
+      desc: '主Logo图片URL，仅支持使用相对路径的图片地址',
       type: 'string',
       options: '',
       default: '天翼云Logo',
     },
     {
       name: 'headerSubLogo',
-      desc: '二级Logo图片URL',
+      desc: '二级Logo图片URL，仅支持使用相对路径的图片地址',
       type: 'string',
       options: '',
       default: 'CuteDesign Logo',
     },
     {
       name: 'headerSubTitle',
-      desc: '二级标题，设置后二级Logo则不显示',
+      desc: '二级文本标题',
       type: 'string',
       options: '',
       default: '二级标题',
@@ -196,6 +214,45 @@ export default class extends Vue {
     {
       name: 'navbar-bottom',
       desc: '自定义页面导航下方区域',
+    },
+  ]
+
+  private routeMeta = [
+    {
+      name: 'title',
+      type: 'String',
+      default: '',
+      desc: '页面名称，用于显示在侧边栏菜单和面包屑中',
+    },
+    {
+      name: 'alwaysShow',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否始终显示当前层级。默认为false，如果子路由数量只有1个时会隐藏当前层级，直接显示子路由。如果设为true，无论子路由数量多少始终显示当前层级的路由。',
+    },
+    {
+      name: 'hidden',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否隐藏当前路由',
+    },
+    {
+      name: 'breadcrumb',
+      type: 'boolean',
+      default: 'true',
+      desc: '是否在面包屑中显示当前层级的页面名称',
+    },
+    {
+      name: 'drillDown',
+      type: 'boolean',
+      default: 'false',
+      desc: '是否开启菜单下钻功能，开启后用户点击当前层级的菜单后，左侧同级的菜单会隐藏，仅显示当前菜单的子菜单。开启当前设置后建议设置当前route的redirect值，以明确点击当前菜单后跳转哪个页面，如果不设置redirect则默认选取第一个子路由的path',
+    },
+    {
+      name: 'drillDownBackPath',
+      type: 'string',
+      default: '',
+      desc: '下钻菜单返回path。开启后菜单下钻功能后，需要设置返回的路径。',
     },
   ]
 }

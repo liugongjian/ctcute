@@ -367,7 +367,7 @@ export default class extends Vue {
       margin: 0 auto;
       text-align: center;
       font-size: 16px;
-      color: $color-grey-1;
+      color: $color-neutral-10;
       font-weight: 200;
       line-height: 40px;
     }

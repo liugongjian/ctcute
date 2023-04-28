@@ -178,7 +178,7 @@ export default class extends Vue {
           children: [
             {
               value: 'radio',
-              label: 'Radio 单选框',
+              label: 'Radio 单选框 Radio 单选框 Radio 单选框',
             },
             {
               value: 'checkbox',
@@ -388,13 +388,13 @@ export default class extends Vue {
 }
 
 .sub-down {
-  border-bottom: 1px solid $border-color-light-1;
+  border-bottom: 1px solid $border-color-light;
 
   > h3 {
     margin: 24px 0;
     font-family: PingFangSC-Medium;
     font-size: 14px;
-    color: $color-grey-1;
+    color: $color-neutral-10;
     line-height: 20px;
     font-weight: 500;
   }

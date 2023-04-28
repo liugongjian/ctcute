@@ -100,6 +100,7 @@ $select-tag-margin: 2px 0 2px 8px;
   .el-tag.el-tag--info .el-tag__close {
     background-color: unset;
     color: $select-tag-color;
+    font-size: $text-size-md;
 
     &:hover {
       color: $color-master-1;

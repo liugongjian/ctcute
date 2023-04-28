@@ -43,6 +43,23 @@
   background: $color-danger-bg;
 }
 
+
+.el-form-item__custom__error {
+  padding: 9px 16px;
+  line-height: 8px;
+  max-width: 300px;
+  border-radius: 2px;
+  .el-form-item__custom__error__content{
+    display: flex;
+    i{
+      padding-top: 3px;
+      font-size: 14px;
+      margin-right: 8px;
+      color: $color-danger;
+    }
+  }
+
+}
 .el-form--inline .el-form-item {
   margin-right: $margin-5x;
 }

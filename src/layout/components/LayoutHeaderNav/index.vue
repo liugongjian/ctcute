@@ -106,7 +106,7 @@ export default class extends Vue {
     margin-right: $margin-5x;
     display: flex;
     align-items: center;
-    color: $header-text-color;
+    color: $cute-layout-header-text-color;
     position: relative;
     cursor: pointer;
 
@@ -129,7 +129,7 @@ export default class extends Vue {
       top: 39px;
       left: 0;
       background: $header-input-bg;
-      color: $header-text-color;
+      color: $cute-layout-header-text-color;
       margin: 0;
       padding-left: 0;
 
@@ -183,7 +183,7 @@ export default class extends Vue {
 
   &__menu {
     a {
-      color: $header-text-color;
+      color: $cute-layout-header-text-color;
       margin-right: $margin-6x;
       font-size: $text-size-md;
 

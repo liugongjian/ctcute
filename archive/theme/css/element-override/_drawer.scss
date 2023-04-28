@@ -1,0 +1,46 @@
+/* Drawer
+-------------------------- */
+.el-drawer {
+  .el-form {
+    .el-form-item--medium .el-form-item__label {
+      line-height: 30px;
+      font-weight: 400;
+      color: $text-color-primary;
+      font-size: $text-size-primary;
+    }
+  }
+}
+
+.el-drawer.rtl {
+  .el-drawer__header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $border-color-light-1;
+    margin-bottom: 0;
+    background-color: $color-bg-1;
+
+    &:first-child {
+      color: $text-color-primary;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+
+  .el-drawer__body {
+    background-color: $color-bg-2;
+    color: $color-grey-1;
+  }
+}
+
+.el-drawer__close-btn {
+  color: $color-grey-3;
+}
+
+.el-drawer {
+  .el-form--label-top .el-form-item__label {
+    padding: 0 0 8px 0;
+  }
+
+  .el-form-item {
+    margin-bottom: 24px;
+  }
+}

@@ -34,7 +34,7 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .random {
-  color: $text-color-light-1;
+  color: $text-color-light;
   margin-top: 10px;
 
   .el-input {

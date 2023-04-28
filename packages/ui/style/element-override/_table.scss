@@ -11,7 +11,9 @@
 
   // 页眉样式
   th.el-table__cell {
-    &, &.is-leaf {
+
+    &,
+    &.is-leaf {
       border-right: 0;
     }
 
@@ -45,6 +47,7 @@
 
   thead.has-gutter {
     th.el-table__cell {
+
       // 有gutter，最后第二列留白
       &:nth-last-child(2) > .cell {
         padding-right: $padding-5x;
@@ -168,6 +171,7 @@
 
     // 页眉样式
     th.el-table__cell {
+
       &,
       &.is-leaf {
         border-right: 1px solid transparent;
@@ -181,6 +185,7 @@
 
     thead.has-gutter {
       th.el-table__cell {
+
         // 有gutter，最后第二列没有border
         &:nth-last-child(2) > .cell {
           border-right: none;
@@ -227,6 +232,7 @@
 
     // 页眉样式
     th.el-table__cell {
+
       &,
       &.is-leaf {
         border-right: 1px solid $table-border-color;
@@ -250,13 +256,6 @@
   重置表格大小
 */
 @mixin table-size($size, $cell-padding) {
-  $th-cell-padding: $cell-padding + 1;
-
-  th.el-table__cell {
-    padding-top: $th-cell-padding;
-    padding-bottom: $th-cell-padding;
-  }
-
   .el-table#{$size} {
     .el-table__cell {
       padding: $cell-padding 0;
@@ -286,6 +285,7 @@
   background-color: $color-bg-1;
   box-shadow: $shadow-2;
   border-radius: $border-radius;
+
   // 单选的情况
   &__list {
     padding: 0;
@@ -311,7 +311,7 @@
       }
 
       &:hover {
-        background-color: $color-master-bg-light-2;
+        background-color: $color-neutral-1;
 
         &:not(.is-active) {
           color: $text-color;
@@ -345,7 +345,7 @@
       }
 
       &:hover {
-        background-color: $color-master-bg-light-2;
+        background-color: $color-neutral-1;
       }
 
       .el-checkbox__inner {

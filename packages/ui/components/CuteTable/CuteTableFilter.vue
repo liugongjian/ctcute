@@ -1,15 +1,20 @@
 <template>
   <div class="table-filter">
-    <el-tag v-for="(v, i) in data" :key="i" type="info" size="large" closable @close="handleClose(v, i)">
-      {{ v.content }}
-    </el-tag>
+    <el-tag
+      v-for="(v, i) in data"
+      :key="i"
+      type="info"
+      size="large"
+      closable
+      @close="handleClose(v, i)"
+    >{{ v.content }}</el-tag>
     <div class="table-filter-dropdown">
-      <el-tag type="newtag" size="large" @click="visible = true"> + 新增过滤</el-tag>
+      <el-tag type="newtag" size="large" @click="visible = true">+ {{ t('cute.tableFilter.new') }}</el-tag>
       <div v-if="visible" class="table-filter_content">
         <div class="table-filter_top">
           <el-form>
             <el-form-item v-for="(v, i) in formData" :key="i" :label="v.label">
-              <el-select v-model="formSelect[i]" placeholder="请选择">
+              <el-select v-model="formSelect[i]" :placeholder="t('cute.select.placeholder')">
                 <el-option
                   v-for="(item, ind) in v.options"
                   :key="ind"
@@ -17,26 +22,27 @@
                   :value="item.value"
                 />
               </el-select>
-              <el-input v-model="formInput[i]" placeholder="请输入" />
+              <el-input v-model="formInput[i]" :placeholder="t('cute.editInput.placeholder')" />
               <span>{{ v.unit }}</span>
             </el-form-item>
           </el-form>
         </div>
         <div class="table-filter_foot">
-          <el-button @click="visible = false">取 消</el-button>
-          <el-button type="primary" @click="openDropdown">确 定</el-button>
+          <el-button @click="visible = false">{{ t('cute.button.cancel') }}</el-button>
+          <el-button type="primary" @click="openDropdown">{{ t('cute.button.submit') }}</el-button>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Component, Prop, Mixins } from 'vue-property-decorator'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
   name: 'CuteTableFilter',
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   @Prop({ type: Array, default: [] }) formData: [] // 表单数据
   private formInput = {}
   private formSelect = {}

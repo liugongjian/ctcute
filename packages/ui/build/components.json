@@ -2,9 +2,6 @@
   "appendix": [
     "CuteAppendix"
   ],
-  "chart": [
-    "CuteChart"
-  ],
   "sorttable": [
     "CuteSortTable"
   ],
@@ -29,6 +26,7 @@
     "CuteDistributionBar",
     "CuteCardBox",
     "CuteScroller",
+    "CuteFixedFooter",
     "Pagination",
     "Dialog",
     "Autocomplete",
@@ -115,8 +113,8 @@
     "Step",
     "Alert",
     "Collapse",
-    "Rate",
-    "createI18n"
+    "Rate"
   ],
-  "vxetable": "VXETable"
+  "vxetable": "VXETable",
+  "i18n": "createI18n"
 }

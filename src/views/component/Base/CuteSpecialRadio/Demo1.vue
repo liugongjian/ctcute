@@ -1,15 +1,15 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-19 22:03:32
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-13 10:36:12
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-24 14:13:00
  * @Description:
 -->
 <template>
   <div>
-    <h3>中尺寸</h3>
+    <h3>{{ $t('demo.specialRadio.demo1.medium') }}</h3>
     <cute-special-radio v-model="radio" :options="butonData" size="medium" @change="changeFun" />
-    <h3>小尺寸</h3>
+    <h3>{{ $t('demo.specialRadio.demo1.small') }}</h3>
     <cute-special-radio v-model="radio1" :options="butonData" size="small" @change="changeFun1" />
   </div>
 </template>

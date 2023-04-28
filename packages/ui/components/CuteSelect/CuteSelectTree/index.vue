@@ -2,16 +2,17 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-12 19:56:53
+ * @LastEditTime: 2023-04-25 15:50:10
  * @Description: 树选择器
 -->
 <template>
   <el-select
     ref="selector"
     :value="treeData"
-    placeholder="请选择"
+    :placeholder="t('cute.select.placeholder')"
     :size="size"
     :disabled="disabled"
+    :class="{ 'is-disabled': disabled }"
     :multiple="multiple ? true : false"
     popper-class="cute-select-tree"
   >
@@ -41,15 +42,15 @@
         :lazy="lazy"
         :load="load"
         @node-click="handleNodeClick"
-      >
-      </el-tree>
+      ></el-tree>
     </el-option>
   </el-select>
 </template>
 <script lang="ts">
-import { Vue, Component, Ref, Prop, Model, Emit, Watch } from 'vue-property-decorator'
+import { Vue, Component, Ref, Prop, Model, Emit, Watch, Mixins } from 'vue-property-decorator'
 import { Tree } from 'element-ui'
 import SelectedTags from './TreeSelectedTags.vue'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 const defaultNodeProps = { children: 'children', label: 'label', value: 'id', disabled: 'disabled' }
 
@@ -64,7 +65,7 @@ interface NODE_PROPS {
 @Component({
   name: 'CuteSelectTree',
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   @Ref('tree') refTree!: Tree
   @Ref('selector') refSelector!: any
   @Prop({ type: Boolean, default: false }) multiple?: boolean // 是否多选

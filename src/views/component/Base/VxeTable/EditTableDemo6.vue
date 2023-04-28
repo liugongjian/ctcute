@@ -1,8 +1,8 @@
 <!--
  * @Author: fanzhengle
  * @Date: 2022-12-03 11:18:32
- * @LastEditors: 范郑乐
- * @LastEditTime: 2022-12-13 11:18:32
+ * @LastEditors: 朱玉豆
+ * @LastEditTime: 2023-04-21 18:45:36
  * @Description: 可编辑表格 - 禁用编辑单元格
 -->
 
@@ -51,19 +51,14 @@
       </vxe-column>
       <vxe-column field="address" title="地址" :edit-render="{}">
         <template #edit="{ row }">
-          <el-popover
+          <el-tooltip
             content="某某某原因无法修改，无法修改"
             placement="top-start"
             trigger="hover"
             :disabled="!addressDisabled"
           >
-            <el-input
-              slot="reference"
-              v-model="row.address"
-              type="text"
-              :disabled="addressDisabled"
-            ></el-input>
-          </el-popover>
+            <el-input v-model="row.address" type="text" effect="dark" :disabled="addressDisabled"></el-input>
+          </el-tooltip>
         </template>
       </vxe-column>
     </vxe-table>

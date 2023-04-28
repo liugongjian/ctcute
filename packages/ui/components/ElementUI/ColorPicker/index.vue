@@ -4,7 +4,7 @@
     :class="[
       'el-color-picker',
       colorDisabled ? 'is-disabled' : '',
-      colorSize ? `el-color-picker--${colorSize}` : '',
+      colorSize ? 'el-color-picker--' + `${colorSize}` : '',
     ]"
   >
     <div v-if="colorDisabled" class="el-color-picker__mask"></div>

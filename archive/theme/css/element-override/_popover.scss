@@ -1,0 +1,46 @@
+/* Popover
+-------------------------- */
+.el-popover__reference-wrapper {
+  .el-button--medium {
+    padding: 0;
+  }
+}
+
+.el-popover {
+  padding: 20px 24px 20px 16px;
+  border: none;
+  box-shadow: 0 2px 8px 0 $color-bg-3;
+
+  p {
+    margin: 0;
+  }
+
+  .el-popover__title {
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+}
+
+.el-popper {
+  background-color: $color-bg-1;
+  box-shadow: 0 2px 8px 0 $color-bg-3;
+}
+
+.el-popper[x-placement^='top'] .popper__arrow,
+.el-popper[x-placement^='top'] .popper__arrow::after {
+  border-top-color: $color-bg-1;
+}
+
+.el-popper[x-placement^='left'] .popper__arrow,
+.el-popper[x-placement^='left'] .popper__arrow::after {
+  border-left-color: $color-bg-1;
+}
+
+.el-popper[x-placement^='right'] .popper__arrow,
+.el-popper[x-placement^='right'] .popper__arrow::after {
+  border-right-color: $color-bg-1;
+}
+
+.el-popper[x-placement^='bottom'] .popper__arrow {
+  display: none;
+}

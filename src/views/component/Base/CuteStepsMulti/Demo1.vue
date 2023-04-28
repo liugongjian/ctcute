@@ -1,8 +1,8 @@
 <!--
  * @Author: 吴静
  * @Date: 2022-12-05 13:32:32
- * @LastEditors: 吴静
- * @LastEditTime: 2022-12-05 09:02:01
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-23 10:23:53
  * @Description: 
 -->
 <template>
@@ -28,15 +28,15 @@ import { Vue, Component } from 'vue-property-decorator'
 })
 export default class extends Vue {
   private steps = [
-    { title: '步骤1' },
-    { title: '步骤2' },
-    { title: '步骤3' },
-    { title: '步骤4' },
-    { title: '步骤5' },
-    { title: '步骤6' },
-    { title: '不可点击', disabled: true },
-    { title: '错误/失败', status: 'error' },
-    { title: '结束' },
+    { title: `${this.$t('demo.stepsMulti.demo1.step')}1` },
+    { title: `${this.$t('demo.stepsMulti.demo1.step')}2` },
+    { title: `${this.$t('demo.stepsMulti.demo1.step')}3` },
+    { title: `${this.$t('demo.stepsMulti.demo1.step')}4` },
+    { title: `${this.$t('demo.stepsMulti.demo1.step')}5` },
+    { title: `${this.$t('demo.stepsMulti.demo1.step')}6` },
+    { title: this.$t('demo.stepsMulti.demo1.unclickable'), disabled: true },
+    { title: this.$t('demo.stepsMulti.demo1.error'), status: 'error' },
+    { title: this.$t('demo.stepsMulti.demo1.end') },
   ]
   private active = 1
   private clickStep(step: any, index: number) {
@@ -44,7 +44,11 @@ export default class extends Vue {
       this.active = index + 1
     } else {
       this.active = index
-      this.$message.success(`点击 ${step.title}成功`)
+      this.$message.success(
+        `${this.$t('demo.stepsMulti.demo1.clickMessage1')} ${step.title} ${this.$t(
+          'demo.stepsMulti.demo1.clickMessage2'
+        )}`
+      )
     }
   }
   private clickGo(val: number) {

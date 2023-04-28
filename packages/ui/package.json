@@ -1,6 +1,6 @@
 {
   "name": "@cutedesign/ui",
-  "version": "0.0.3",
+  "version": "0.0.8",
   "description": "",
   "cuteMain": "index.ts",
   "module": "dist/index.js",
@@ -22,19 +22,20 @@
     "lib",
     "style",
     "images",
-    "fonts"
+    "fonts",
+    "echarts-theme"
   ],
   "scripts": {
     "patch": "npm version patch",
     "publish": "npm publish",
     "build:appendix": "vue-cli-service build --target lib --dest dist/appendix --formats=commonjs --name index index.appendix.ts",
     "build:base": "vue-cli-service build --target lib --dest dist/base --formats=commonjs --name index index.base.ts",
-    "build:chart": "vue-cli-service build --target lib --dest dist/chart --formats=commonjs --name index index.chart.ts",
     "build:sorttable": "vue-cli-service build --target lib --dest dist/sorttable --formats=commonjs --name index index.sorttable.ts",
     "build:vxetable": "vue-cli-service build --target lib --dest dist/vxetable --formats=commonjs --name index ./packages/vxe-table/index.ts",
+    "build:i18n": "vue-cli-service build --target lib --dest dist/i18n --formats=commonjs --name index ./i18n/index.ts",
     "build:theme": "rimraf lib && gulp build --gulpfile gulpfile.js",
     "build:entry": "node ./build/entry.js",
-    "build": "npm run build:theme && npm run build:base && npm run build:appendix && npm run build:chart && npm run build:vxetable && npm run build:sorttable && npm run build:entry"
+    "build": "npm run build:theme && npm run build:base && npm run build:appendix && npm run build:vxetable && npm run build:sorttable && npm run build:i18n && npm run build:entry"
   },
   "dependencies": {
     "@vue/composition-api": "^1.4.9",
@@ -51,7 +52,9 @@
   },
   "peerDependencies": {
     "element-ui": "^2.15.6",
-    "vue": "2.6.14",
+    "vue": "2.6.14"
+  },
+  "optionalDependencies": {
     "vue-i18n": "^8.0.0"
   },
   "devDependencies": {

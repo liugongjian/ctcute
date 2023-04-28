@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>small-dash</title>
+    <g id="small-dash" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <rect id="矩形" opacity="0" x="0" y="0" width="16" height="16"></rect>
+            <path d="M1.75,7.4375 L2.875,7.4375 L2.875,8.5625 L1.75,8.5625 L1.75,7.4375 Z M4.59375,7.4375 L5.71875,7.4375 L5.71875,8.5625 L4.59375,8.5625 L4.59375,7.4375 Z M10.28125,7.4375 L11.40625,7.4375 L11.40625,8.5625 L10.28125,8.5625 L10.28125,7.4375 Z M13.125,7.4375 L14.25,7.4375 L14.25,8.5625 L13.125,8.5625 L13.125,7.4375 Z M7.4375,7.4375 L8.5625,7.4375 L8.5625,8.5625 L7.4375,8.5625 L7.4375,7.4375 Z" id="形状" fill="#000000"></path>
+        </g>
+    </g>
+</svg>

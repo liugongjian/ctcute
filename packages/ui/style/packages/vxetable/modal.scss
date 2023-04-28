@@ -1,4 +1,4 @@
-/**Variable**/
+/**  Variable  **/
 @import './helpers/mixin.scss';
 
 .vxe-modal--wrapper {
@@ -11,34 +11,40 @@
   height: calc(100% + 18px);
   color: $vxe-font-color;
   font-family: $vxe-font-family;
-  transition: top .4s ease-in-out;
+  transition: top 0.4s ease-in-out;
+
   &.is--active {
     display: block;
   }
+
   &.is--visible {
     &.is--mask {
       &:before {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 50%);
       }
     }
+
     &.type--message {
       .vxe-modal--box {
         opacity: 1;
         transform: translateY(0);
       }
     }
+
     .vxe-modal--box {
       opacity: 1;
       visibility: visible;
     }
   }
+
   &.is--loading {
     .vxe-modal--header,
     .vxe-modal--footer {
       position: relative;
       border-bottom-color: $vxe-loading-background-color;
+
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
@@ -50,21 +56,25 @@
       }
     }
   }
+
   &:not(.lock--view) {
     pointer-events: none;
   }
+
   &:not(.type--message) {
     &.lock--scroll {
       overflow: hidden;
     }
+
     &:not(.lock--scroll) {
       overflow: auto;
     }
   }
+
   &.lock--view,
   &.is--mask {
     &:before {
-      content: "";
+      content: '';
       position: fixed;
       top: 0;
       left: 0;
@@ -74,25 +84,29 @@
       pointer-events: auto;
     }
   }
+
   &.is--mask {
     &:before {
-      background-color: rgba(0, 0, 0, 0);
+      background-color: rgba(0, 0, 0, 0%);
     }
   }
+
   &.is--animat {
     &.is--mask {
       &:before {
-        @include animatTransition(background-color, .2s);
+        @include animatTransition(background-color, 0.2s);
       }
     }
+
     &.type--message {
       .vxe-modal--box {
         &:not(.is--drag) {
-          @include animatTransition(all, .4s, ease-out);
+          @include animatTransition(all, 0.4s, ease-out);
         }
       }
     }
   }
+
   &.type--message,
   &.type--alert,
   &.type--confirm {
@@ -101,16 +115,19 @@
       word-break: break-word;
     }
   }
+
   &.type--message {
     text-align: center;
+
     .vxe-modal--box {
       display: inline-block;
       padding: 2px 0;
       margin-top: 0;
       width: auto;
-      box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 8px 0 rgba(0, 0, 0, 10%);
       opacity: 0;
       transform: translateY(-100%);
+
       .vxe-modal--body {
         &:after {
           content: '';
@@ -121,16 +138,19 @@
           visibility: hidden;
         }
       }
+
       .vxe-modal--content {
         max-width: 800px;
         float: left;
       }
     }
+
     .vxe-modal--status-wrapper {
       font-size: 1.4em;
       padding-left: 10px;
     }
   }
+
   &.type--modal,
   &.type--alert,
   &.type--confirm {
@@ -140,10 +160,12 @@
       position: fixed;
       left: 50%;
       top: 0;
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 20%);
     }
+
     .vxe-modal--body {
       overflow: auto;
+
       .vxe-modal--content {
         overflow: auto;
       }
@@ -157,6 +179,7 @@
       padding-left: 10px;
     }
   }
+
   .vxe-modal--box {
     visibility: hidden;
     width: 420px;
@@ -166,12 +189,14 @@
     text-align: left;
     pointer-events: auto;
     opacity: 0;
+
     &.is--drag {
       cursor: move;
-     .vxe-modal--body,
-     .vxe-modal--footer {
+
+      .vxe-modal--body,
+      .vxe-modal--footer {
         &:after {
-          content: "";
+          content: '';
           position: absolute;
           top: 0;
           left: 0;
@@ -179,74 +204,88 @@
           height: 100%;
         }
       }
+
       .vxe-modal--body {
         overflow: hidden;
+
         .vxe-modal--content {
           overflow: hidden;
         }
       }
     }
   }
+
   &.status--info {
     .vxe-modal--status-wrapper {
       color: $vxe-info-color;
     }
   }
+
   &.status--warning,
   &.status--question {
     .vxe-modal--status-wrapper {
       color: $vxe-warning-color;
     }
   }
+
   &.status--success {
     .vxe-modal--status-wrapper {
       color: $vxe-success-color;
     }
   }
+
   &.status--error {
     .vxe-modal--status-wrapper {
       color: $vxe-danger-color;
     }
   }
+
   &.status--loading {
     .vxe-modal--status-wrapper {
       color: $vxe-disabled-color;
     }
   }
+
   .vxe-modal--status-wrapper {
     flex-shrink: 0;
     display: flex;
     align-items: center;
   }
+
   .vxe-modal--content {
     flex-grow: 1;
     padding: 0.8em 1em;
     white-space: pre-line;
   }
+
   .vxe-modal--header,
   .vxe-modal--body,
   .vxe-modal--footer {
     position: relative;
   }
+
   .vxe-modal--body {
     display: flex;
     flex-grow: 1;
   }
+
   .vxe-modal--header {
     display: flex;
     flex-direction: row;
     flex-shrink: 0;
     font-size: 1.1em;
-    font-weight: 700;
+    font-weight: $text-title-weight;
     border-bottom: 1px solid $vxe-modal-border-color;
     background-color: $vxe-modal-header-background-color;
     border-radius: $vxe-border-radius $vxe-border-radius 0 0;
     user-select: none;
+
     &.is--draggable {
       .vxe-modal--header-title {
         cursor: move;
       }
     }
+
     &.is--ellipsis {
       .vxe-modal--header-title {
         overflow: hidden;
@@ -255,33 +294,40 @@
       }
     }
   }
+
   .vxe-modal--header-title {
     flex-grow: 1;
     padding: 0.6em 0 0.6em 1em;
   }
+
   .vxe-modal--header-right {
     flex-shrink: 0;
     padding: 0.6em 1em 0.6em 0;
   }
+
   .vxe-modal--zoom-btn,
   .vxe-modal--close-btn {
     cursor: pointer;
     margin-left: 0.6em;
+
     &:hover {
       color: $vxe-primary-color;
     }
   }
+
   .vxe-modal--footer {
     flex-shrink: 0;
     text-align: right;
-    padding: 0.4em 1em 0.8em 1em;
+    padding: 0.4em 1em 0.8em;
   }
+
   &.is--maximize {
     .vxe-modal--box {
       .vxe-modal--header {
         cursor: default;
       }
     }
+
     .vxe-modal--resize {
       .wl-resize,
       .wr-resize,
@@ -295,9 +341,11 @@
       }
     }
   }
+
   .vxe-modal--resize {
     $SpaceSize: 8px;
     $SpaceWidth: 5px;
+
     .wl-resize,
     .wr-resize,
     .swst-resize,
@@ -309,6 +357,7 @@
       position: absolute;
       z-index: 100;
     }
+
     .wl-resize,
     .wr-resize {
       width: $SpaceSize;
@@ -316,12 +365,15 @@
       top: 0;
       cursor: w-resize;
     }
+
     .wl-resize {
       left: -$SpaceWidth;
     }
+
     .wr-resize {
       right: -$SpaceWidth;
     }
+
     .swst-resize,
     .sest-resize,
     .swlb-resize,
@@ -330,30 +382,37 @@
       height: $SpaceSize + 2;
       z-index: 101;
     }
+
     .swst-resize,
     .sest-resize {
       top: -$SpaceSize;
     }
+
     .swlb-resize,
     .selb-resize {
       bottom: -$SpaceSize;
     }
+
     .sest-resize,
     .swlb-resize {
       cursor: sw-resize;
     }
+
     .swst-resize,
     .selb-resize {
       cursor: se-resize;
     }
+
     .swst-resize,
     .swlb-resize {
       left: -$SpaceSize;
     }
+
     .sest-resize,
     .selb-resize {
       right: -$SpaceSize;
     }
+
     .st-resize,
     .sb-resize {
       width: 100%;
@@ -361,9 +420,11 @@
       left: 0;
       cursor: s-resize;
     }
+
     .st-resize {
       top: -$SpaceWidth;
     }
+
     .sb-resize {
       bottom: -$SpaceWidth;
     }
@@ -372,12 +433,15 @@
 
 .vxe-modal--wrapper {
   font-size: $vxe-font-size;
+
   &.size--medium {
     font-size: $vxe-font-size-medium;
   }
+
   &.size--small {
     font-size: $vxe-font-size-small;
   }
+
   &.size--mini {
     font-size: $vxe-font-size-mini;
   }

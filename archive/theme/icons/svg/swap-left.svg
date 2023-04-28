@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>swap-left</title>
+    <g id="swap-left" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <rect id="矩形" opacity="0" x="0" y="0" width="16" height="16"></rect>
+            <path d="M13.625,8.9375 L4.16875,8.9375 L6.4234375,6.078125 C6.4875,5.996875 6.4296875,5.875 6.325,5.875 L5.3125,5.875 C5.159375,5.875 5.0140625,5.9453125 4.9203125,6.065625 L2.3578125,9.315625 C2.1,9.64375 2.3328125,10.125 2.75,10.125 L13.625,10.125 C13.69375,10.125 13.75,10.06875 13.75,10 L13.75,9.0625 C13.75,8.99375 13.69375,8.9375 13.625,8.9375 Z" id="路径" fill="#000000"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>single</title>
+    <g id="single" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <rect id="矩形" opacity="0" x="0" y="0" width="16" height="16"></rect>
+            <path d="M13.5,1.925 C13.8175637,1.925 14.075,2.18243627 14.075,2.5 L14.075,2.5 L14.075,13.5 C14.075,13.8175637 13.8175637,14.075 13.5,14.075 L13.5,14.075 L2.5,14.075 C2.18243627,14.075 1.925,13.8175637 1.925,13.5 L1.925,13.5 L1.925,2.5 C1.925,2.18243627 2.18243627,1.925 2.5,1.925 L2.5,1.925 Z M12.925,3.075 L3.075,3.075 L3.075,12.925 L12.925,12.925 L12.925,3.075 Z M8.575,4.925 L8.575,11.075 L7.425,11.075 L7.425,4.925 L8.575,4.925 Z" id="形状结合" fill="#000000"></path>
+        </g>
+    </g>
+</svg>

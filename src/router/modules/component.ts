@@ -200,6 +200,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-form-item',
+        name: 'ElFormItem',
+        component: () => import('@/views/component/Base/ElFormItem/index.vue'),
+        meta: {
+          title: 'ElFormItem',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'el-collapse',
         name: 'ElCollapse',
         component: () => import('@/views/component/Base/ElCollapse/index.vue'),
@@ -267,6 +276,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteScroller/index.vue'),
         meta: {
           title: 'CuteScroller',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-fixed-footer',
+        name: 'CuteFixedFooter',
+        component: () => import('@/views/component/Base/CuteFixedFooter/index.vue'),
+        meta: {
+          title: 'CuteFixedFooter',
           breadcrumb: true,
         },
       },

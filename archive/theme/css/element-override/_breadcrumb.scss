@@ -1,0 +1,40 @@
+/* Breadcrumb
+-------------------------- */
+.el-breadcrumb {
+  font-size: $text-size-primary;
+
+  .el-breadcrumb__inner:hover {
+    color: $color-master-1;
+    cursor: pointer;
+  }
+}
+
+.el-breadcrumb__inner.is-link,
+.el-breadcrumb__inner a,
+.el-breadcrumb__inner {
+  color: $text-color-light-1;
+  font-weight: normal;
+
+  &:hover {
+    color: $text-color-light-1;
+  }
+}
+
+.el-breadcrumb__inner a:hover {
+  color: $color-master-1;
+}
+
+.el-breadcrumb__item:last-child {
+
+  .el-breadcrumb__inner,
+  .el-breadcrumb__inner:hover {
+    color: $text-color-primary;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+.el-breadcrumb__item:last-child .el-breadcrumb__inner {
+  font-weight: 500;
+  color: $text-color-primary;
+}

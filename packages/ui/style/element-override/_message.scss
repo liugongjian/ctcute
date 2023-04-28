@@ -31,14 +31,14 @@ $toast-height: 36px;
     }
 
     .el-message__content {
-      font-size: $text-size-primary;
+      font-size: $text-size;
       color: $text-color-feature;
       line-height: $line-height;
     }
   }
 }
 
-@include toast-page(info, $color-master-bg, $color-status-master);
-@include toast-page(success, $color-success-bg, $color-status-success);
-@include toast-page(warning, $color-warning-bg, $color-status-warning);
-@include toast-page(error, $color-danger-bg, $color-status-danger);
+@include toast-page(info, $color-master-bg, $color-master);
+@include toast-page(success, $color-success-bg, $color-success);
+@include toast-page(warning, $color-warning-bg, $color-warning);
+@include toast-page(error, $color-danger-bg, $color-danger);

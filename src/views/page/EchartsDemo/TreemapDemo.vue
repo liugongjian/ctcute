@@ -2,22 +2,21 @@
  * @Author: 胡佳婷
  * @Date: 2023-02-07 10:41:33
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-02-12 10:08:11
+ * @LastEditTime: 2023-04-26 14:23:53
  * @Description: 矩形树图
 -->
 
 <template>
   <cute-card-box title="矩形树图">
     <template #content>
-      <CuteChart :option="option" :height="'500px'" :width="'100%'" />
+      <VChart :option="option" style="height: 500px; width: 100%" :theme="theme" />
     </template>
   </cute-card-box>
 </template>
 <script lang="ts">
 import * as echarts from 'echarts'
 import { CuteCardBox } from '@cutedesign/ui'
-import { CuteChart } from '@cutedesign/ui'
-import { Component, Vue } from 'vue-property-decorator'
+import { Component,Prop, Vue } from 'vue-property-decorator'
 
 const diskData = [
   {
@@ -21081,10 +21080,10 @@ const formatUtil = echarts.format
   name: 'EchartDemo8',
   components: {
     CuteCardBox,
-    CuteChart,
   },
 })
 export default class extends Vue {
+  @Prop({ default: 'cuted-light', required: false }) private readonly theme: string
   option = {}
   /**
    * 页面Mounted

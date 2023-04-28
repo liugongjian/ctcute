@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex;" :class="[contentAreaTip ? 'is-content-area-tip' : 'is-alert-tip']">
+  <div style="display: flex" :class="[contentAreaTip ? 'is-content-area-tip' : 'is-alert-tip']">
     <transition name="el-alert-fade">
       <div
         v-show="visible"
@@ -93,7 +93,7 @@ export default {
   },
   computed: {
     typeClass() {
-      return `el-alert--${this.type}`
+      return 'el-alert--' + `${this.type}`
     },
 
     iconClass() {

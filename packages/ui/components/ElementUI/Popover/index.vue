@@ -79,7 +79,7 @@ export default {
 
   computed: {
     tooltipId() {
-      return `el-popover-${generateId()}`
+      return 'el-popover-' + `${generateId()}`
     },
   },
   watch: {

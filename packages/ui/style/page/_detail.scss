@@ -54,8 +54,8 @@
     .detail-title {
       font-size: 14px;
       color: $color-grey-1;
-      line-height: 20px;
-      font-weight: 500;
+      line-height: 24px;
+      font-weight: $text-title-weight;
 
       // &:before {
       //   content: '|';

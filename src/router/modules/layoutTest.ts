@@ -86,9 +86,12 @@ const layoutTestRoutes = [
         path: 'page3',
         name: 'Page3',
         component: () => import('@/views/component/Test/CuteLayout/Page3.vue'),
+        redirect: '/component/test/layout2/page3/page3-1',
         meta: {
-          title: '测试页面3',
+          title: '测试页面3(下钻)',
           breadcrumb: true,
+          drillDown: true,
+          drillDownBackPath: '/component/test/layout2/page2',
         },
         children: [
           {
@@ -103,16 +106,36 @@ const layoutTestRoutes = [
           {
             path: 'page3-2',
             name: 'Page3-2',
-            component: () => import('@/views/component/Test/CuteLayout/Page3-1.vue'),
+            component: () => import('@/views/component/Test/CuteLayout/Page3-2.vue'),
             meta: {
               title: '测试页面3-2',
               breadcrumb: true,
             },
+            children: [
+              {
+                path: 'page3-2-1',
+                name: 'Page3-2-1',
+                component: () => import('@/views/component/Test/CuteLayout/Page1-1.vue'),
+                meta: {
+                  title: '测试页面3-2-1',
+                  breadcrumb: true,
+                },
+              },
+              {
+                path: 'page3-2-2',
+                name: 'Page3-2-2',
+                component: () => import('@/views/component/Test/CuteLayout/Page1-2.vue'),
+                meta: {
+                  title: '测试页面3-2-2',
+                  breadcrumb: true,
+                },
+              },
+            ],
           },
           {
             path: 'page3-3',
             name: 'Page3-3',
-            component: () => import('@/views/component/Test/CuteLayout/Page3-1.vue'),
+            component: () => import('@/views/component/Test/CuteLayout/Page3-3.vue'),
             meta: {
               title: '测试页面3-3',
               breadcrumb: true,

@@ -1,7 +1,7 @@
 /* Input
 -------------------------- */
-$input-prefix-padding: $padding-9x;
-$input-suffix-padding: $padding-9x;
+$input-prefix-padding: $padding-8x + 2;
+$input-suffix-padding: $padding-8x + 2;
 
 /*
   重置Input基本样式
@@ -32,18 +32,21 @@ $input-suffix-padding: $padding-9x;
       display: flex;
       align-items: center;
       left: $padding-3x;
+      color: $color-neutral-6;
 
       .el-input__icon {
         width: auto;
+        font-size: $text-size-md;
       }
     }
   }
 
   // 后置元素样式
   .el-input__suffix {
+    color: $color-neutral-6;
     display: flex;
     align-items: center;
-    right: $padding-4x;
+    right: $padding-3x;
 
     .el-input__icon {
       width: auto;
@@ -56,14 +59,16 @@ $input-suffix-padding: $padding-9x;
     // 后置图标样式
     .el-input__suffix-inner {
       .svg-icon {
-        font-size: $text-size-lg;
+        font-size: $text-size-md;
         vertical-align: text-bottom;
       }
 
       // 关闭图标样式
       .el-icon-close {
+        font-size: $text-size-md;
+
         &:hover {
-          color: $color-master;
+          color: $color-master-1;
           cursor: pointer;
         }
       }
@@ -75,6 +80,7 @@ $input-suffix-padding: $padding-9x;
 
     .el-input-group__append,
     .el-input-group__prepend {
+      padding: 0 $common-space-3x;
       color: $text-color;
 
       div.el-select,
@@ -88,10 +94,9 @@ $input-suffix-padding: $padding-9x;
 
       .el-select {
         min-width: 80px;
+        margin: -10px -12px;
 
-        .el-input__inner::placeholder {
-          color: $text-color;
-        }
+
       }
     }
 
@@ -107,7 +112,7 @@ $input-suffix-padding: $padding-9x;
   // 禁用状态样式
   &.is-disabled {
     .el-input__inner {
-      background-color: $color-grey-10;
+      background-color: $color-neutral-1;
       border: 1px solid $disabled-border;
       color: $select-color-disabled;
 
@@ -117,13 +122,15 @@ $input-suffix-padding: $padding-9x;
       }
     }
 
-    .el-input__prefix {
+    .el-input__prefix,
+    .el-input__suffix {
       color: $select-color-disabled;
     }
 
     .prefix-placeholder {
       color: $select-color-disabled;
     }
+
   }
 }
 
@@ -147,6 +154,10 @@ $input-suffix-padding: $padding-9x;
   padding-right: 30px;
 }
 
+.el-textarea__inner {
+  font-family: unset;
+}
+
 @mixin input-size($size, $height, $text-size) {
   .el-input.el-input--#{$size} {
     line-height: $height - 2;
@@ -164,6 +175,22 @@ $input-suffix-padding: $padding-9x;
     .el-input__suffix-inner .el-icon-close {
       line-height: $height;
     }
+
+    .el-select {
+      height: $height - 2;
+      line-height: $height - 2;
+      margin-bottom: 0 !important;
+      margin-top: 0 !important
+    }
+
+    .el-input--suffix {
+      line-height: $height - 2;
+
+      .el-input__inner {
+        height: $height - 2;
+        line-height: $height;
+      }
+    }
   }
 }
 
@@ -171,3 +198,12 @@ $input-suffix-padding: $padding-9x;
 @include input-size(medium, $input-md-height, $text-size);
 @include input-size(small, $input-sm-height, $text-size);
 @include input-size(mini, $input-xs-height, $text-size);
+
+// 占位符 全局覆盖
+.el-input__inner::placeholder {
+  color: $color-neutral-7 !important;
+}
+
+.is-disabled .el-input__inner::placeholder {
+  color: $color-neutral-6 !important;
+}

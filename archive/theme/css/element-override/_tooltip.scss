@@ -1,0 +1,31 @@
+/* Tooltip
+-------------------------- */
+
+.el-tooltip__popper.is-dark {
+  background: $color-other-1;
+  border: none;
+}
+
+.el-tooltip.item {
+  color: $color-grey-1;
+}
+
+.el-tooltip__popper.is-dark[x-placement^='left'] .popper__arrow,
+.el-tooltip__popper.is-dark[x-placement^='left'] .popper__arrow:after {
+  border-left-color: $color-other-1;
+}
+
+.el-tooltip__popper.is-dark[x-placement^='right'] .popper__arrow,
+.el-tooltip__popper.is-dark[x-placement^='right'] .popper__arrow:after {
+  border-right-color: $color-other-1;
+}
+
+.el-tooltip__popper.is-dark[x-placement^='top'] .popper__arrow,
+.el-tooltip__popper.is-dark[x-placement^='top'] .popper__arrow:after {
+  border-top-color: $color-other-1;
+}
+
+.el-tooltip__popper.is-dark[x-placement^='bottom'] .popper__arrow,
+.el-tooltip__popper.is-dark[x-placement^='bottom'] .popper__arrow:after {
+  border-bottom-color: $color-other-1;
+}

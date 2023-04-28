@@ -2077,11 +2077,11 @@ export default class extends Vue {
   }
 
   .name-primary {
-    color: $color-master-1;
+    color: $color-master;
   }
 
   .name-subtext {
-    color: $text-color-light-2;
+    color: $text-color-light;
   }
 
   .name-icon-wrap {
@@ -2090,9 +2090,9 @@ export default class extends Vue {
   }
 
   .name-icon {
-    margin-right: $margin-2x;
+    margin-right: $margin;
     font-size: $text-size-lg;
-    color: $text-color-light-2;
+    color: $color-master;
   }
 
   // 行禁用样式
@@ -2160,7 +2160,7 @@ export default class extends Vue {
   margin: 0 48px; // 按业务调整
   width: calc(100% - 96px);
 
-  &::before {
+  &:before {
     height: 0;
   }
 

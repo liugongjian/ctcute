@@ -59,6 +59,6 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .el-dropdown-link {
   cursor: pointer;
-  color: $color-master-1;
+  color: $color-master;
 }
 </style>

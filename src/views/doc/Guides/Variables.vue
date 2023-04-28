@@ -129,7 +129,7 @@ export default class extends Vue {
         //     { name: '$color-status-info', type: 'color', scene: 'deprecated(弃用)' },
         //     { name: '$color-status-info-1', type: 'color', scene: 'deprecated(弃用)' },
         //     { name: '$color-status-success', type: 'color', scene: 'deprecated(弃用)' },
-        //     { name: '$color-status-success-1', type: 'color', scene: 'deprecated(弃用)' },
+        //     { name: '$color-success;', type: 'color', scene: 'deprecated(弃用)' },
         //     { name: '$color-status-warning', type: 'color', scene: 'deprecated(弃用)' },
         //     { name: '$color-status-warning-1', type: 'color', scene: 'deprecated(弃用)' },
       ],

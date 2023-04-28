@@ -1,0 +1,23 @@
+/* Input-number
+-------------------------- */
+.el-input-number.is-controls-right .el-input__inner {
+  text-align: left;
+}
+
+.el-input-number.is-controls-right[class*=medium] [class*=increase],
+.el-input-number.is-controls-right[class*=medium] [class*=decrease] {
+  line-height: 13px
+}
+
+.el-input-number--medium {
+  line-height: 30px;
+}
+
+.el-input-number--small {
+  line-height: 26px;
+}
+
+.el-input-number__increase,
+.el-input-number__decrease {
+  background-color: $color-bg-1;
+}

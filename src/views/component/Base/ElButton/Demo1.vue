@@ -1,14 +1,14 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2023-03-22 10:01:49
- * @LastEditors: Zhulh
- * @LastEditTime: 2023-03-22 10:17:55
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-04-24 09:47:21
  * @Description: 支持使用Cuted的Icon
 -->
 <template>
   <div class="button-demo-1">
-    <p>支持使用Cuted的Icon</p>
-    <el-button icon="plus-circle">添加按钮</el-button>
+    <p>{{ $t('demo.button.demo1.intro') }}</p>
+    <el-button icon="plus-circle">{{ $t('demo.button.demo1.add') }}</el-button>
     <el-button icon="plus-circle" size="large" square></el-button>
     <el-button icon="plus-circle" size="medium" square></el-button>
     <el-button icon="plus-circle" size="small" square></el-button>

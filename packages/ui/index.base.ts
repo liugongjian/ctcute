@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: yanchengxiang 675036196@qq.com
- * @LastEditTime: 2023-04-06 10:47:36
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-27 12:14:22
  * @Description:
  */
 import ElementUI, {
@@ -124,6 +124,7 @@ import CuteSlider from './components/CuteSlider/index.vue'
 import CuteDistributionBar from './components/CuteDistributionBar/index.vue'
 import CuteCardBox from './components/CuteCardBox/index.vue'
 import CuteScroller from './components/CuteScroller/index.vue'
+import CuteFixedFooter from './components/CuteFixedFooter/index.vue'
 export {
   CuteLayout,
   CuteButtonGroup,
@@ -145,6 +146,7 @@ export {
   CuteDistributionBar,
   CuteCardBox,
   CuteScroller,
+  CuteFixedFooter,
 }
 
 /**
@@ -166,6 +168,7 @@ const componentsList = [
   CuteStepsMulti,
   CuteCardBox,
   CuteScroller,
+  CuteFixedFooter,
 ]
 
 export default {
@@ -269,5 +272,3 @@ export {
   Collapse,
   Rate,
 }
-
-export { default as createI18n } from './i18n'

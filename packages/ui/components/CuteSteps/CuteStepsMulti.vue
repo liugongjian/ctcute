@@ -22,8 +22,7 @@
         :status="s.status"
         :class="{ stepErr: s.disabled }"
         @click.native="!s.disabled && handleStep(s, index)"
-      >
-      </el-step>
+      ></el-step>
     </el-steps>
     <!-- </div> -->
     <div v-if="hasGoButton" class="button-col point-style" @click="goNext">
@@ -32,12 +31,13 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch, Mixins } from 'vue-property-decorator'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
   name: 'CuteStepsMulti',
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   @Prop({ type: String, default: 'medium' }) size?: string // 步骤条大小，medium / small
   @Prop({ type: String, default: '100%' }) maxWidth?: string // 步骤条长度
   @Prop({ type: String }) direction?: string // 步骤条方向
@@ -106,11 +106,11 @@ export default class extends Vue {
 
   getTitle(s: any, index: number) {
     if (index === this.active) {
-      return '正在处理'
+      return this.t('cute.stepsMulti.processing')
     } else if (index === this.active + 1) {
-      return '等待处理'
+      return this.t('cute.stepsMulti.pending')
     } else if (this.steps.length - 1 === this.active) {
-      return '处理完成'
+      return this.t('cute.stepsMulti.completed')
     } else {
       return s.title
     }

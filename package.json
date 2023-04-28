@@ -26,9 +26,10 @@
     "commit-msg": "node ./scripts/verifyCommit.js"
   },
   "dependencies": {
-    "@cutedesign/s3-upload": "^0.1.7",
+    "@cutedesign/chart": "^1.0.1",
     "@cutedesign/ct-log": "^1.1.6",
     "@cutedesign/ct-monaco": "^1.1.6",
+    "@cutedesign/s3-upload": "^0.1.7",
     "@feta/markdown": "^0.1.2",
     "@feta/markdown-book": "^0.1.0",
     "@vss/video-player": "^0.0.4",
@@ -43,6 +44,7 @@
     "element-ui": "^2.15.6",
     "js-cookie": "^3.0.1",
     "mavon-editor": "^2.10.4",
+    "monaco-editor-webpack-plugin": "4.2.0",
     "svg-topology": "1.0.21",
     "vue": "2.6.14",
     "vue-class-component": "^7.2.6",
@@ -53,8 +55,7 @@
     "vue-router": "^3.2.0",
     "vue-svgicon": "^3.2.9",
     "vuex": "^3.4.0",
-    "vuex-module-decorators": "^1.2.0",
-    "monaco-editor-webpack-plugin": "4.2.0"
+    "vuex-module-decorators": "^1.2.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.18.6",

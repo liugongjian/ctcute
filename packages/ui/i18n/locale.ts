@@ -1,11 +1,10 @@
 /* eslint-disable prefer-rest-params */
-import Vue from 'vue'
 import defaultLang from './zh'
 
 const lang = defaultLang
 
 const i18nHandler = function () {
-  const vuei18n = Object.getPrototypeOf(this || Vue).$t
+  const vuei18n = this.$i18n && this.$t
   if (typeof vuei18n === 'function') {
     return vuei18n.apply(this, arguments)
   }

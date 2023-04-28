@@ -1,0 +1,34 @@
+/* Descriptions
+-------------------------- */
+.el-descriptions td {
+  padding: 10px 0;
+}
+
+// .el-descriptions__body .el-descriptions__table .el-descriptions-item__cell {
+//   text-align: right;
+// }
+
+.el-descriptions__body .el-descriptions-item__label.is-bordered-label {
+  background: $color-grey-11;
+  text-align: right;
+  color: $color-grey-2;
+  font-weight: bold;
+  padding-right: 24px;
+  width: 165px;
+}
+
+.el-descriptions .is-bordered .el-descriptions-item__cell {
+  border-color: $border-color-primary;
+  height: 36px;
+}
+
+.el-descriptions-item__cell.el-descriptions-item__content {
+  color: $color-grey-1;
+  border: 1px solid $border-color-primary;
+  width: 525px;
+  background-color: $color-bg-2;
+
+  div {
+    line-height: 22px;
+  }
+}

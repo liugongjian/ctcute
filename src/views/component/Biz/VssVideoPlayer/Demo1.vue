@@ -172,11 +172,11 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .video-player .player__wrap {
   height: 500px;
-  background: $color-grey-0;
+  background: $color-black;
 }
 
 .controls {
-  margin-top: $margin-medium;
-  margin-bottom: $margin-medium;
+  margin-top: $margin-4x;
+  margin-bottom: $margin-4x;
 }
 </style>

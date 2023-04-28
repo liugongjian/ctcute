@@ -1,8 +1,8 @@
 <!--
  * @Author: fanzhengle
  * @Date: 2022-12-03 11:18:32
- * @LastEditors: 范郑乐
- * @LastEditTime: 2022-12-13 11:18:32
+ * @LastEditors: 朱玉豆
+ * @LastEditTime: 2023-04-25 09:43:03
  * @Description:
 -->
 <template>
@@ -23,6 +23,10 @@
         点击高亮当前行或者列,鼠标悬浮时提示当前行(整行)或者列(列表头)
         行数较多需要,查阅时候需要着重强调,或者方便查阅的时候使用
       </p>
+      <h3>复杂列设置</h3>
+      <component-demo path="@/views/component/Base/VxeTable/EditTableDemo7.vue">
+        <demo8></demo8>
+      </component-demo>
       <h3>高亮列</h3>
       <component-demo path="@/views/component/Base/VxeTable/Demo2.vue">
         <demo2></demo2>
@@ -116,6 +120,7 @@ import Demo4 from './Demo4.vue'
 import Demo5 from './Demo5.vue'
 import Demo6 from './Demo6.vue'
 import Demo7 from './Demo7.vue'
+import Demo8 from './Demo8.vue'
 import EditTableDemo1 from './EditTableDemo1.vue'
 import EditTableDemo2 from './EditTableDemo2.vue'
 import EditTableDemo3 from './EditTableDemo3.vue'
@@ -134,6 +139,7 @@ import EditTableDemo7 from './EditTableDemo7.vue'
     EditTableDemo3,
     EditTableDemo2,
     EditTableDemo1,
+    Demo8,
     Demo7,
     Demo6,
     Demo5,

@@ -98,9 +98,16 @@
     /* 筛选表单 */
     &__conditions {
       flex: 1;
-      max-width: 60%;
 
       @include tableToolsConditionForm1();
+
+      .el-form {
+        justify-content: right;
+      }
+
+      .el-form-item {
+        max-width: 25%;
+      }
     }
   }
 
@@ -131,9 +138,16 @@
     /* 筛选表单 */
     &__conditions {
       flex: 1;
-      max-width: 60%;
 
       @include tableToolsConditionForm1();
+
+      .el-form {
+        justify-content: right;
+      }
+
+      .el-form-item {
+        max-width: 25%;
+      }
     }
   }
 
@@ -283,9 +297,16 @@
       /* 筛选表单 */
       &__conditions {
         flex: 1;
-        max-width: 60%;
 
         @include tableToolsConditionForm1();
+
+        .el-form {
+          justify-content: right;
+        }
+
+        .el-form-item {
+          max-width: 25%;
+        }
       }
     }
 

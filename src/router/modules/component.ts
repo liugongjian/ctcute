@@ -279,6 +279,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'cute-fixed-footer',
+        name: 'CuteFixedFooter',
+        component: () => import('@/views/component/Base/CuteFixedFooter/index.vue'),
+        meta: {
+          title: 'CuteFixedFooter',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   {

@@ -96,6 +96,15 @@ $transfer-button-radius: 50%; // Transfer组件圆形按钮
     &.el-input.el-input--prefix .el-input__prefix {
       left: auto;
       right: $common-space-4x;
+      // 叉号规范-不使用带圆圈的叉号
+      .el-icon-circle-close:before {
+        @include iconfont;
+
+        content: '\ea3c';
+      }
+      .el-icon-circle-close:hover{
+        color: $color-master;
+      }
     }
 
     &.el-input.el-input--small .el-input__inner {
@@ -128,6 +137,7 @@ $transfer-button-radius: 50%; // Transfer组件圆形按钮
   font-size: $text-size;
   > span {
     color: $text-color; // 标题统计数字颜色
+    right: $common-space-4x; // 对称
   }
 }
 

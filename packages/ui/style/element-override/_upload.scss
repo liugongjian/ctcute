@@ -58,29 +58,33 @@
 .small-uploader,
 .picture-uploader,
 .file-uploader {
-  .el-button.el-button--default {
-    .svg-icon {
-      color: $color-neutral-6;
-    }
-
-    &:hover {
-      .svg-icon {
-        color: $upload-color;
-      }
-    }
-
-    &.is-disabled {
-      .svg-icon {
-        color: $color-neutral-6;
-      }
-
-      :hover {
-        .svg-icon {
-          color: $color-neutral-6;
-        }
-      }
-    }
+  .svg-icon {
+    font-size: 14px;
   }
+
+  // .el-button.el-button--default {
+  //   .svg-icon {
+  //     color: $color-neutral-6;
+  //   }
+
+  //   &:hover {
+  //     .svg-icon {
+  //       color: $upload-color;
+  //     }
+  //   }
+
+  //   &.is-disabled {
+  //     .svg-icon {
+  //       color: $color-neutral-6;
+  //     }
+
+  //     :hover {
+  //       .svg-icon {
+  //         color: $color-neutral-6;
+  //       }
+  //     }
+  //   }
+  // }
 
   .el-upload-list__item:hover {
     background: $upload-bg-hover;

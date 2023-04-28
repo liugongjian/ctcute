@@ -125,7 +125,7 @@ export default class extends Vue {
     background: $color-neutral-1;
 
     .cancel {
-      margin-left: 20px;
+      margin-left: 16px;
     }
   }
 }

@@ -35,7 +35,9 @@ function extractVariablesScss(path, theme) {
   return (
     src([`./style/themes/${path}/variables.scss`])
       // 替换palette的路径
-      .pipe(replace("@import 'palette'", `@import './themes/${path}/palette'`))
+      .pipe(replace('@import \'palette\'', `@import './themes/${path}/palette'`))
+      // 替换variables-deprecated的路径
+      .pipe(replace('@import \'variables-deprecated\'', `@import './themes/${path}/variables-deprecated'`))
       .pipe(rename(`variables-${theme}.scss`))
       .pipe(dest('./style'))
   )
@@ -104,12 +106,16 @@ function mergeSCSS(path, theme) {
     )
       .pipe(concat(`${theme == 'default' ? 'index.scss' : 'index.' + theme + '.scss'}`))
       // 替换palette的路径
-      .pipe(replace("@import 'palette'", `@import '../style/themes/${path}/palette'`))
+      .pipe(replace('@import \'palette\'', `@import '../style/themes/${path}/palette'`))
+      // 替换variables-deprecated的路径
+      .pipe(
+        replace("@import 'variables-deprecated'", `@import '../style/themes/${path}/variables-deprecated'`)
+      )
       // 替换iconfont.css和bahnschrift.css中的字体路径
-      .pipe(replace("url('bahnschrift", "url('~@cutedesign/ui/lib/bahnschrift"))
-      .pipe(replace("url('iconfont", "url('~@cutedesign/ui/lib/iconfont"))
+      .pipe(replace('url(\'bahnschrift', 'url(\'~@cutedesign/ui/lib/bahnschrift'))
+      .pipe(replace('url(\'iconfont', 'url(\'~@cutedesign/ui/lib/iconfont'))
       // 替换css/index.scss里的相对路径
-      .pipe(replace("@import './", "@import '../style/"))
+      .pipe(replace('@import \'./', '@import \'../style/'))
       .pipe(dest('./lib'))
   )
 }
@@ -125,9 +131,9 @@ function compileElementOverrideScss() {
     ])
       .pipe(concat('./cute-element-override.scss'))
       // element-variables.scss编译需要替换element-ui路径变量，所以需要单独引用
-      .pipe(replace("@import './themes/default/variables.scss';", ''))
-      .pipe(replace("@import './mixins.scss';", ''))
-      .pipe(replace("@import './element-variables.scss';", ''))
+      .pipe(replace('@import \'./themes/default/variables.scss\';', ''))
+      .pipe(replace('@import \'./mixins.scss\';', ''))
+      .pipe(replace('@import \'./element-variables.scss\';', ''))
       // 要把element-variables.scss单独抽取出来做两次replace，才能正确编译
       .pipe(replace('~element-ui/lib/theme-chalk/fonts', 'fonts'))
       // gulp不认识~，替换为项目根目录下node_modules的element-ui

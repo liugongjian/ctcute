@@ -6,27 +6,30 @@
  * @Description:
 -->
 <template>
-  <cute-mavon-editor :content="content"></cute-mavon-editor>
+  <cute-md-preview :content="content" />
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteMavonEditor from '../components/CuteMavonEditor.vue'
+import CuteMdPreview from '../components/CuteMdPreview.vue'
 
 @Component({
-  name: 'CuteRichText',
+  name: 'MenuIcon',
   components: {
-    CuteMavonEditor,
+    CuteMdPreview,
   },
 })
 export default class extends Vue {
   private content = `
+
 ## 菜单Icon
+
 > 菜单栏的一级菜单项支持添加Icon，在路由文件中配置。
 
 菜单Icon使用router文件中meta.icon进行配置， icon字段是svgName，需注册SvgIcon。
 
 **router文件代码示例**
-\`\`\`
+
+\`\`\`json
 {
   path: '/page/chart',
   redirect: '/page/chart/simpleChart',

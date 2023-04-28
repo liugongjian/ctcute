@@ -1,8 +1,8 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-07-15 21:08:21
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-01-06 19:20:00
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-28 12:53:33
  * @Description:
 -->
 <template>
@@ -20,15 +20,11 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { Route } from 'vue-router'
-// import CuteMavonEditor from '@/views/page/Guides/components/CuteMavonEditor.vue'
 import pageDescription from 'scripts/genPageDescription/pageDescription'
 import componentDescription from 'scripts/genComponentDescription/componentDescription'
 
 @Component({
   name: 'CuteDescription',
-  // components: {
-  //   CuteMavonEditor,
-  // },
 })
 export default class extends Vue {
   /**

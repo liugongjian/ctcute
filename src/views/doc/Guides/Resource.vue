@@ -6,21 +6,22 @@
  * @Description:
 -->
 <template>
-  <cute-mavon-editor :content="content"></cute-mavon-editor>
+  <cute-md-preview :content="content" />
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteMavonEditor from '../components/CuteMavonEditor.vue'
+import CuteMdPreview from '../components/CuteMdPreview.vue'
 
 @Component({
   name: 'Resource',
   components: {
-    CuteMavonEditor,
+    CuteMdPreview,
   },
 })
 export default class extends Vue {
   private content = `
 ## 资源
+
 ### [产品原型](https://cloud.ctcdn.cn/s/LPtSGxCiHAcibEe)
 ### [UI规范light-橙](https://cloud.ctcdn.cn/s/fR3YnW3BBXxrcH5)
 ### [UI规范dark-橙](https://cloud.ctcdn.cn/s/ApXTsFTAkTWmjNo)

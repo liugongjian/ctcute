@@ -1,22 +1,22 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-07-08 13:45:09
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-27 14:46:12
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-28 12:18:50
  * @Description: 快速开始
 -->
 <template>
-  <cute-mavon-editor :content="content"></cute-mavon-editor>
+  <cute-md-preview :content="content" />
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteMavonEditor from '../components/CuteMavonEditor.vue'
+import CuteMdPreview from '../components/CuteMdPreview.vue'
 import { ILLUSTRATE } from './constant'
 
 @Component({
-  name: 'QuickStart',
+  name: 'TemplateIntro',
   components: {
-    CuteMavonEditor,
+    CuteMdPreview,
   },
 })
 export default class extends Vue {

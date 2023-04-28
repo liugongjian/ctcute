@@ -6,7 +6,7 @@ $checkbox-padding-small: 5px $padding-2x;
 $checkbox-padding-medium: 9px $padding-4x;
 $checkbox-padding-large: $margin-3x $padding-6x;
 $checkbox-border-radius: $border-radius;
-$checkbox-label-height: $checkbox-label-size + 4;
+$checkbox-label-height: $checkbox-label-size + 3;
 
 // .el-checkbox {
 //   line-height: 18px;
@@ -15,6 +15,10 @@ $checkbox-label-height: $checkbox-label-size + 4;
 .el-checkbox-group {
   .el-checkbox-button {
     margin-right: $margin;
+
+    // .el-checkbox-button__inner {
+    //   overflow: hidden;
+    // }
 
     &.is-checked .el-checkbox-button__inner {
       color: $text-color;
@@ -91,11 +95,9 @@ $checkbox-label-height: $checkbox-label-size + 4;
 }
 
 .el-checkbox__input {
-  // vertical-align: text-bottom;
-  // line-height: $checkbox-label-size;
-  // height: $checkbox-label-height;
-  line-height: unset;
-  height: unset;
+  line-height: 1.5;
+  // 360浏览器高分辨率兼容
+  max-height: $checkbox-label-height;
 
   .el-checkbox__inner {
     width: $checkbox-label-size;

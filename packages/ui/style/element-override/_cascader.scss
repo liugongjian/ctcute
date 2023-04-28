@@ -3,8 +3,15 @@
 $cascader-panel-shadow: $shadow-2;
 $cascader-tags-size: $select-sm-height;
 
+// 兼容性优化
+.el-cascader-menu__wrap {
+  .el-radio__input {
+    line-height: 1;
+  }
+}
 
 .el-cascader {
+
   .el-cascader-node__prefix {
     left: $common-space-2x;
   }
@@ -61,6 +68,27 @@ $cascader-tags-size: $select-sm-height;
         line-height: $cascader-tags-size;
         height: $cascader-tags-size;
       }
+
+      .el-icon-close {
+        color: $cascader-tag-close-bg;
+        background-color: unset;
+        line-height: $cascader-tags-size;
+        height: $cascader-tags-size;
+        top: 0;
+
+        &::before {
+          color: $cascader-tag-close-bg;
+          font-size: $text-size-md;
+        }
+
+        &:hover {
+          color: $color-master-1;
+
+          &::before {
+            color: $color-master-1;
+          }
+        }
+      }
     }
 
     .el-tag>span {
@@ -72,23 +100,7 @@ $cascader-tags-size: $select-sm-height;
     //   border: 0;
     // }
 
-    .el-icon-close {
-      color: $cascader-tag-close-bg;
-      background-color: unset;
 
-      &::before {
-        color: $cascader-tag-close-bg;
-        line-height: $cascader-tags-size;
-      }
-
-      &:hover {
-        color: $color-master-1;
-
-        &::before {
-          color: $color-master-1;
-        }
-      }
-    }
 
     // .el-icon-close:before {
     //   color: $cascader-tag-close-bg;

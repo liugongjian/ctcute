@@ -1,8 +1,8 @@
 <!--
  * @Author: error: 孙善鹏
  * @Date: 2023-04-11 13:49:34
- * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-27 10:24:58
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-04-28 16:17:04
  * @Description: 
 -->
 <template>
@@ -62,10 +62,10 @@
         </el-radio-group>
         <el-radio-group v-model="itemDisabled" size="small">
           <el-radio-button :value="true" :label="true">{{
-            $t('componentTest.common.data.enable')
+            $t('componentTest.common.data.disable')
           }}</el-radio-button>
           <el-radio-button :value="false" :label="false">{{
-            $t('componentTest.common.data.disable')
+            $t('componentTest.common.data.enable')
           }}</el-radio-button>
         </el-radio-group>
       </div>

@@ -1,26 +1,27 @@
 /* Radio
 -------------------------- */
-// .el-radio__label 8px
+
 .el-radio {
-  line-height: 1.5;
+  // line-height: 1.5;
+  font-weight: normal;
+  display: inline-flex;
 
   .el-radio__label {
     padding-left: $padding-2x;
   }
-
-
 }
-
-padding-left: $padding-2x;
 
 .el-radio__inner {
   width: $radio-width;
   height: $radio-width;
   background-color: transparent;
+  box-sizing: content-box;
 
   &:after {
     width: $radio-label-width;
     height: $radio-label-width;
+    border: 1px solid $radio-group-bg;
+    box-sizing: content-box;
     background: $radio-group-bg;
   }
 }
@@ -46,7 +47,7 @@ padding-left: $padding-2x;
   }
 
   &.is-disabled+span.el-radio__label {
-    color: $text-color;
+    color: $text-color-disabled;
   }
 }
 

@@ -2,14 +2,14 @@
  * @Author: 胡佳婷
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: liugj
- * @LastEditTime: 2023-04-28 09:47:16
+ * @LastEditTime: 2023-04-28 17:30:06
  * @Description:简单表单页
 -->
 <template>
   <el-card class="simple-detail">
     <div class="detail-nav">
       <div @click="goBack">
-        <svg-icon name="left" class="back" width="12" height="12"></svg-icon>
+        <svg-icon name="left" class="back" width="16" height="16"></svg-icon>
       </div>
       <div class="detail-title">{{ detail }}</div>
     </div>

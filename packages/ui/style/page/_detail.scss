@@ -8,7 +8,7 @@
       .tags-title {
         font-size: $text-size-md;
         font-weight: 500;
-        margin-right: 16px;
+        margin-right: $margin-2x;
         color: $color-neutral-10;
       }
     }
@@ -39,6 +39,10 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    & div:first-child {
+      display: flex;
+      align-items: center;
+    }
 
     .back {
       margin-right: 13px;

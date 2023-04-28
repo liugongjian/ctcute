@@ -43,6 +43,7 @@ $progress-text-size-lg: 20px;
   font-size: $progress-text-size-lg;
   color: $color-white !important;
   transform: translateX(100%) scale(0.5);
+  font-weight: $text-title-weight;
 }
 
 .el-progress__text {

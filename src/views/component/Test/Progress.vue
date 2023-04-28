@@ -48,11 +48,11 @@
     </div>
     <div>
       <h3>环形进度条</h3>
-      <el-progress class="mr-8" type="circle" :percentage="0" width="112"></el-progress>
-      <el-progress class="mr-8" type="circle" :percentage="25" width="112"></el-progress>
-      <el-progress class="mr-8" type="circle" :percentage="100" status="success" width="112"></el-progress>
-      <el-progress class="mr-8" type="circle" :percentage="70" status="warning" width="112"></el-progress>
-      <el-progress type="circle" :percentage="50" status="exception" width="112"></el-progress>
+      <el-progress class="mr-8" type="circle" :percentage="0" :width="112"></el-progress>
+      <el-progress class="mr-8" type="circle" :percentage="25" :width="112"></el-progress>
+      <el-progress class="mr-8" type="circle" :percentage="100" status="success" :width="112"></el-progress>
+      <el-progress class="mr-8" type="circle" :percentage="70" status="warning" :width="112"></el-progress>
+      <el-progress type="circle" :percentage="50" status="exception" :width="112"></el-progress>
     </div>
     <div>
       <h3>仪表盘形进度条</h3>

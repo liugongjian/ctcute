@@ -143,6 +143,44 @@ const layoutTestRoutes = [
           },
         ],
       },
+      {
+        path: 'page3b',
+        name: 'Page3b',
+        component: () => import('@/views/component/Test/CuteLayout/Page3.vue'),
+        meta: {
+          title: '测试页面3',
+          breadcrumb: true,
+        },
+        children: [
+          {
+            path: 'page3b-1',
+            name: 'Page3b-1',
+            component: () => import('@/views/component/Test/CuteLayout/Page3-1.vue'),
+            meta: {
+              title: '测试页面3-1',
+              breadcrumb: true,
+            },
+          },
+          {
+            path: 'page3b-2',
+            name: 'Page3b-2',
+            component: () => import('@/views/component/Test/CuteLayout/Page3-2.vue'),
+            meta: {
+              title: '测试页面3-2',
+              breadcrumb: true,
+            },
+          },
+          {
+            path: 'page3b-3',
+            name: 'Page3b-3',
+            component: () => import('@/views/component/Test/CuteLayout/Page3-3.vue'),
+            meta: {
+              title: '测试页面3-3',
+              breadcrumb: true,
+            },
+          },
+        ],
+      },
     ],
   },
 ]

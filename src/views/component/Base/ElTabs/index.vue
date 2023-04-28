@@ -85,7 +85,7 @@ export default class extends Vue {
       type: 'string',
       required: '选填',
       options: 'large/medium/small',
-      default: 'medium',
+      default: 'small',
     },
   ]
 

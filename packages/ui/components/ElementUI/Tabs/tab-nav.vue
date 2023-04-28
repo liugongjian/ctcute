@@ -23,7 +23,7 @@ export default {
     panes: Array,
     currentName: String,
     editable: Boolean,
-    
+
     onTabClick: {
       type: Function,
       default: noop,
@@ -65,7 +65,7 @@ export default {
     },
     defaultTabName() {
       return this.t('cute.tabs.new')
-    }
+    },
   },
 
   updated() {
@@ -90,7 +90,7 @@ export default {
   },
 
   methods: {
-    showTabAdd(){
+    showTabAdd() {
       this.newTabEditing = true
       this.newTabName = this.defaultTabName
       this.$nextTick(() => {
@@ -254,7 +254,7 @@ export default {
       showTabAdd,
       newTabName,
       newTabEditing,
-      size
+      size,
     } = this
     const scrollBtn = scrollable
       ? [
@@ -349,29 +349,29 @@ export default {
                 ref="tabAdd"
                 tabindex="0"
               >
-                {
-                  newTabEditing ? 
-                    <el-input
-                      class="el-tabs__add__input"
-                      ref="tabAddInput"
-                      value={newTabName}
-                      nativeOnClick={e => e.stopPropagation()}
-                      on-input={$event => this.newTabName = $event}
-                      on-blur={() => {
+                {newTabEditing ? (
+                  <el-input
+                    class="el-tabs__add__input"
+                    ref="tabAddInput"
+                    value={newTabName}
+                    nativeOnClick={e => e.stopPropagation()}
+                    on-input={$event => (this.newTabName = $event)}
+                    on-blur={() => {
+                      this.newTabEditing = false
+                    }}
+                    on-focus={e => e.currentTarget.select()}
+                    nativeOnKeyup={e => {
+                      e.stopPropagation()
+                      e.preventDefault()
+                      if (e.keyCode === 13) {
                         this.newTabEditing = false
-                      }}
-                      on-focus={e => e.currentTarget.select()}
-                      nativeOnKeyup={e => {
-                        e.stopPropagation()
-                        e.preventDefault()
-                        if (e.keyCode === 13) {
-                          this.newTabEditing = false
-                          handleTabAdd(newTabName)
-                        }
-                      }}
-                    ></el-input>
-                    : `+ ${this.defaultTabName}`
-                }
+                        handleTabAdd(newTabName)
+                      }
+                    }}
+                  ></el-input>
+                ) : (
+                  `+ ${this.defaultTabName}`
+                )}
               </div>
             ) : null}
           </div>

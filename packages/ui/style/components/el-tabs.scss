@@ -27,8 +27,9 @@
 
     .el-tabs__item.el-tabs__add {
       > .el-tabs__add__input{
-        transform: translateY(-1px); // 边框偏移
+        // transform: translateY(-1px); // 边框偏移
         width: 100%;
+        line-height: calc(#{$height} - 2px); // 去掉border
         > .el-input__inner{
           height: $text-size;
         }
@@ -63,7 +64,7 @@
     } 
   }
 }
-@include tabs-size();
+@include tabs-size(medium, $tabs-md-height);
 @include tabs-size(large, $tabs-lg-height);
 @include tabs-size(small, $tabs-sm-height);
 

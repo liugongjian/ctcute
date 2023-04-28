@@ -163,8 +163,8 @@ export default {
   tabs: {
     common: {
       large: '大尺寸',
-      medium: '中尺寸(默认)',
-      small: '小尺寸',
+      medium: '中尺寸',
+      small: '小尺寸(默认)',
       delete: '可删除',
       option1: '选项一',
       option2: '选项二',

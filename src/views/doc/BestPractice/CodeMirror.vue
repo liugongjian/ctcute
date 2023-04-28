@@ -1,42 +1,49 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-10-08 10:43:23
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-01-06 18:29:29
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-04-28 12:54:31
  * @Description:
 -->
 <template>
-  <div class="code-box">
-    <cute-mavon-editor :content="content"></cute-mavon-editor>
-  </div>
+  <cute-md-preview :content="content" />
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import CuteMavonEditor from '../components/CuteMavonEditor.vue'
+import CuteMdPreview from '../components/CuteMdPreview.vue'
 
 @Component({
   name: 'CodeMirror',
   components: {
-    CuteMavonEditor,
+    CuteMdPreview,
   },
 })
 export default class extends Vue {
   private content = `
+[[toc]]
+
 ## 代码编辑器
+
 > 代码块是用于展示或编辑代码的场景
 
 ### 推荐插件
+
+\`\`\`
 "vue-codemirror": "^4.0.6",
+\`\`\`
 
 ### 推荐主题
- base16-light，elegant，base16-dark
+
+base16-light，elegant，base16-dark
+
 ### 代码示例
-需要在vue-codemirror中引入codemirror
-还需要引入codemirror的一些配置
-\`\`\`
+
+需要在 \`vue-codemirror\` 中引入 \`codemirror\`，还需要引入 \`codemirror\` 的一些配置
+
+\`\`\`js
 import { codemirror } from 'vue-codemirror'
 //三种主题颜色
-import 'codemirror/theme/base16-dark.css' 
+import 'codemirror/theme/base16-dark.css'
 import 'codemirror/theme/base16-light.css'
 import 'codemirror/theme/elegant.css'
 //支持的语言
@@ -54,28 +61,29 @@ import 'codemirror/mode/vue/vue.js'
 
 import 'codemirror/addon/selection/active-line' //光标行背景高亮，配置里面也需要styleActiveLine设置为true
 import 'codemirror/mode/css/css' //必须要引入的样式
-
-
-
 \`\`\`
+
 在模板中使用
-\`\`\`
+
+\`\`\`vue
 <codemirror v-model="Code" :options=“options"></codemirror>
 \`\`\`
+
 v-model为绑定的代码块 options为编辑器的配置部分
-\`\`\`
+
+\`\`\`js
   private Code = 'function findSequence(goal) {
-  function find(start, history) {
-    if (start == goal)
-      return history;
-    else if (start > goal)
-      return null;
-    else
-      return find(start + 5, "(" + history + " + 5)") ||
-        find(start * 3, "(" + history + " * 3)");
-  }
-  return find(1, "1");
-}'
+    function find(start, history) {
+      if (start == goal)
+        return history;
+      else if (start > goal)
+        return null;
+      else
+        return find(start + 5, "(" + history + " + 5)") ||
+          find(start * 3, "(" + history + " * 3)");
+    }
+    return find(1, "1");
+  }'
   private options = {
    tabSize: 2, // 缩进格式
     mode: 'text/javascript', //实现JavaScript代码高亮 这里可进行引入的切换
@@ -90,8 +98,10 @@ v-model为绑定的代码块 options为编辑器的配置部分
  }
 
 \`\`\`
+
 整体代码
-\`\`\`
+
+\`\`\`vue
 <template>
   <div class="code-box">
     <p>
@@ -405,7 +415,10 @@ export default class extends Vue {
 }
 </style>
 \`\`\`
+
+
 显示效果
+
 ![](https://s1.ax1x.com/2022/10/19/xsIySe.png)
 `
 }

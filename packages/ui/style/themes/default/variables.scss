@@ -23,7 +23,7 @@ $color-ct-bg: $red-1 !default;
 /* Title: 状态色; Doc: true
 -------------------------- */
 $color-info: $neutral-6 !default; // 信息通知
-$color-info-hover: mix($white, $color-info, 15%) !default;
+$color-info-hover: $neutral-5 !default;
 $color-info-active: mix($black, $color-info, 15%) !default;
 $color-info-disabled: mix($white, $color-info, 20%) !default;
 $color-info-bg: $neutral-1 !default;

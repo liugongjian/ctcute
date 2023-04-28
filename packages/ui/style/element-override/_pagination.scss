@@ -10,7 +10,7 @@ $pagination-button-margin-sm: $margin;
   font-weight: $text-weight;
 
   &__sizes {
-    margin-right: $margin-6x;
+    margin-right: $margin-3x;
 
     .el-select .el-input {
       width: $pagination-select-width;
@@ -94,7 +94,7 @@ $pagination-button-margin-sm: $margin;
   }
 
   &__jump {
-    margin-left: $margin-6x;
+    margin-left: $margin-3x;
   }
 
   &__editor {

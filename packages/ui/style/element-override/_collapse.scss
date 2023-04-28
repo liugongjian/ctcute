@@ -37,9 +37,12 @@ $collapse-seperate-header-height: 32px;
 
   .el-collapse-item__content {
     line-height: $line-height;
-    padding: $padding-10;
     border: 1px solid $collapse-border-color;
     border-top: none;
+  }
+
+  &:not(.el-collapse--seperate) .el-collapse-item__content {
+    padding: $padding-3x $padding-3x $padding-3x $padding-9x;
   }
 
   &:not(.el-collapse--seperate) {
@@ -56,11 +59,11 @@ $collapse-seperate-header-height: 32px;
     background-color: $collapse-seperate-header-bg;
     border: none;
     height: $collapse-seperate-header-height;
-    margin-top: $margin-6x;
+    margin-top: $margin-4x;
   }
 
   .el-collapse-item__content {
-    margin-top: $margin-4x;
+    margin-top: $margin-3x;
     border: none;
     padding: 0;
   }

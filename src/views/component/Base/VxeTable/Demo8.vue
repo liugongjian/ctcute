@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2023-04-22 08:35:39
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-04-25 09:46:46
+ * @LastEditTime: 2023-04-26 16:06:14
  * @Description: 复杂列设置
 -->
 <template>
@@ -101,7 +101,7 @@ export default class extends Vue {
     })
   }
   checkColumnMethod({ column }) {
-    if (column.property === 'role') {
+    if (column.property === 'name') {
       return false
     }
     return true

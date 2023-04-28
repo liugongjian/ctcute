@@ -114,6 +114,7 @@ $checkbox-label-height: $checkbox-label-size + 4;
   color: $text-color;
   font-weight: normal;
   line-height: 1.5;
+  padding-left: $padding-2x;
 }
 
 .el-checkbox__input.is-indeterminate .el-checkbox__inner {

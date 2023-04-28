@@ -3,7 +3,15 @@
 // .el-radio__label 8px
 .el-radio {
   line-height: 1.5;
+
+  .el-radio__label {
+    padding-left: $padding-2x;
+  }
+
+
 }
+
+padding-left: $padding-2x;
 
 .el-radio__inner {
   width: $radio-width;

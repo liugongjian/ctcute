@@ -20,7 +20,7 @@ export default {
     // 新增size属性 large|medium|small
     size: {
       type: String,
-      default: 'medium',
+      default: 'small',
     },
     activeName: String,
     closable: Boolean,

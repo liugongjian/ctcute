@@ -17,17 +17,17 @@
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>中尺寸(默认)</h3>
+    <h3>中尺寸</h3>
     <el-row class="sub-tabs">
-      <el-tabs>
+      <el-tabs size="medium">
         <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
           {{ item.content }}
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>小尺寸</h3>
+    <h3>小尺寸(默认)</h3>
     <el-row class="sub-tabs">
-      <el-tabs size="small">
+      <el-tabs>
         <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
           {{ item.content }}
         </el-tab-pane>
@@ -87,17 +87,17 @@
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>中尺寸(默认)</h3>
+    <h3>中尺寸</h3>
     <el-row class="sub-tabs">
-      <el-tabs type="button">
+      <el-tabs type="button" size="medium">
         <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
           {{ item.content }}
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>小尺寸</h3>
+    <h3>小尺寸(默认)</h3>
     <el-row class="sub-tabs">
-      <el-tabs type="button" size="small">
+      <el-tabs type="button">
         <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
           {{ item.content }}
         </el-tab-pane>
@@ -158,15 +158,15 @@
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>中尺寸(默认)</h3>
+    <h3>中尺寸</h3>
     <el-row class="sub-tabs">
-      <el-tabs type="card">
+      <el-tabs type="card" size="medium">
         <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
           {{ item.content }}
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>小尺寸</h3>
+    <h3>小尺寸(默认)</h3>
     <el-row class="sub-tabs">
       <el-tabs type="card" size="small">
         <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
@@ -229,15 +229,15 @@
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>中尺寸(默认)</h3>
+    <h3>中尺寸</h3>
     <el-row class="sub-tabs">
-      <el-tabs type="border-card">
+      <el-tabs type="border-card" size="medium">
         <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
           {{ item.content }}
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>小尺寸</h3>
+    <h3>小尺寸(默认)</h3>
     <el-row class="sub-tabs">
       <el-tabs type="border-card" size="small">
         <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">

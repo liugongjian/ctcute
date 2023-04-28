@@ -163,8 +163,8 @@ export default {
   tabs: {
     common: {
       large: 'Large size',
-      medium: 'Medium size (Default)',
-      small: 'Small size',
+      medium: 'Medium size',
+      small: 'Small size (Default)',
       delete: 'Deletable',
       option1: 'Item one',
       option2: 'Item two',

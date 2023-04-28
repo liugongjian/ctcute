@@ -133,8 +133,8 @@ $transfer-button-radius: 50%; // Transfer组件圆形按钮
       border-radius: $border-radius;
       height: $transfer-filter-input-height;
       line-height: $transfer-filter-input-height;
-      padding-left: $padding-4x;
-      padding-right: $padding-10x;
+      padding-left: $padding-3x;
+      padding-right: $padding-10x + $padding;
     }
   }
 

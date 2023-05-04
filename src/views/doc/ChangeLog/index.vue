@@ -84,7 +84,7 @@ export default class extends Vue {
               text: '移除了@cutedesign/chart包，在@cutedesign/ui包中提供了echarts的两种主题配色，分别为cuted-light和cuted-dark，后续建议直接使用vue-echarts，注册相应主题使用',
             },
             {
-              text: '移除了@cutedesign/sorttable包，并入@cutedesign/ui中，可按需使用',
+              text: '移除了@cutedesign/sort-table包，并入@cutedesign/ui中，可按需使用',
             },
             {
               text: '移除了@cutedesign/appendix包，并入@cutedesign/ui中，可按需使用',
@@ -111,7 +111,7 @@ export default class extends Vue {
               text: '封装了CuteScroller，提供了表格内部滚动的方案',
             },
             {
-              text: '提供了从1.x到2.x的方案',
+              text: '提供了从1.x到2.x的升级方案',
             },
           ],
         },

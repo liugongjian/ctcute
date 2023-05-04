@@ -375,18 +375,6 @@
 .vxe-table {
   margin: 0 0 11px 0 !important;
   .vxe-table--header-wrapper {
-    height: $vxe-table-row-height-default;
-    &.size--medium {
-      height: $vxe-table-row-height-medium;
-    }
-  
-    &.size--small {
-      height: $vxe-table-row-height-small;
-    }
-  
-    &.size--mini {
-      height: $vxe-table-row-height-mini;
-    }
     color: $vxe-table-header-font-color;
     .vxe-icon-checkbox-indeterminate:before {
       top: 0px;

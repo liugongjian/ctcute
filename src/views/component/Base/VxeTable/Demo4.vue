@@ -2,7 +2,7 @@
  * @Author: fanzhengle
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-04-21 18:52:08
+ * @LastEditTime: 2023-05-04 14:24:10
  * @Description: 单选表格
 -->
 
@@ -137,7 +137,7 @@
       @cell-click="cellClickEvent"
       @radio-change="radioChangeEvent"
     >
-      <vxe-column type="radio" width="80" title="请选择"></vxe-column>
+      <vxe-column type="radio" width="100" title="请选择"></vxe-column>
       <!--<vxe-column field="name" title="主机别名"></vxe-column>-->
       <vxe-column field="status" title="实例状态">
         <template #default="{ row }">

@@ -41,6 +41,209 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
+      version: '2.0.x',
+      date: '2023-05-05',
+      features: [
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '对变量进行了系统化的定义，并提供在线说明文档',
+            },
+            {
+              text: '默认的主题色改成了蓝色',
+            },
+            {
+              text: '提供在线生成主题的小工具',
+            },
+            {
+              text: '将基础组件的样式适配了经客运部评审的部门规范，并经过QA的全面测试',
+            },
+            {
+              text: '抽取了通用的layout，后续使用CuteLayout替换原有的layout',
+            },
+            {
+              text: '根据客运部的规范，将横向滚动的断点设置为1280px，将侧边栏的宽度设置为190px',
+            },
+            {
+              text: '可以使用CuteLayout支持三级菜单',
+            },
+            {
+              text: '可以使用CuteLayout通过替换变量的形式支持深色菜单',
+            },
+            {
+              text: '可以使用CuteLayout支持下钻的菜单',
+            },
+            {
+              text: '合并了@cutedesign/base包和@cutedesign/theme包，统一为@cutedesign/ui包，后续请使用@cutedesign/ui包',
+            },
+            {
+              text: '将@cutedesign/layout包并入@cutedesign/authenticate包',
+            },
+            {
+              text: '移除了@cutedesign/chart包，在@cutedesign/ui包中提供了echarts的两种主题配色，分别为cuted-light和cuted-dark，后续建议直接使用vue-echarts，注册相应主题使用',
+            },
+            {
+              text: '移除了@cutedesign/sorttable包，并入@cutedesign/ui中，可按需使用',
+            },
+            {
+              text: '移除了@cutedesign/appendix包，并入@cutedesign/ui中，可按需使用',
+            },
+            {
+              text: '移除了@cutedesign/vxe-table包，并入@cutedesign/ui中，可按需使用',
+            },
+            {
+              text: '@cutedesign/authenticate和@cutedesign/ui包均实现了编译后发布，后续在ts或js项目均中使用',
+            },
+            {
+              text: '根据IT提供的最新天翼云layout，进行了相应升级',
+            },
+            {
+              text: '在template中集成了IT埋点的选项',
+            },
+            {
+              text: '实现了可扩展的i18n配置，把基础组件的i18n配置抽取到@cutedesign/ui包，业务方可在此基础上进行扩展',
+            },
+            {
+              text: '拓展了ElFormItem的功能，支持两种错误提示的风格',
+            },
+            {
+              text: '封装了CuteScroller，提供了表格内部滚动的方案',
+            },
+            {
+              text: '提供了从1.x到2.x的方案',
+            },
+          ],
+        },
+        {
+          name: 'vxe-table',
+          desc: [
+            {
+              text: '按照最新的规范进行了样式的更新，并提供了可设置列的案例',
+            },
+          ],
+        },
+        {
+          name: 'CuteSelectTree',
+          desc: [
+            {
+              text: ' 支持可配置显示的字段名',
+            },
+            {
+              text: ' 支持可限定符合条件的节点，比如只能选某一些层级的节点',
+            },
+          ],
+        },
+        {
+          name: 'CuteFixedFooter',
+          desc: [
+            {
+              text: '新增吸底Footer组件',
+            },
+          ],
+        },
+        {
+          name: 'Table',
+          desc: [
+            {
+              text: '增加了条目失效的样式',
+            },
+          ],
+        },
+        {
+          name: 'ElTabs',
+          desc: [
+            {
+              text: '增加size属性，可切换组件大小',
+            },
+          ],
+        },
+        {
+          name: 'ElButton',
+          desc: [
+            {
+              text: 'icon增加对cuted图标的支持',
+            },
+            {
+              text: '可通过border属性支持按钮按钮显隐的设置',
+            },
+            {
+              text: '可通过square属性设置是否为方形按钮',
+            },
+          ],
+        },
+        {
+          name: 'ElBreadcrumb',
+          desc: [
+            {
+              text: '增加size属性，可切换组件字体大小',
+            },
+          ],
+        },
+        {
+          name: 'CuteState',
+          desc: [
+            {
+              text: '可通过type属性设置状态的类型',
+            },
+            {
+              text: '可通过color属性设置状态的颜色，优先级高于type',
+            },
+          ],
+        },
+        {
+          name: 'CuteEditInput',
+          desc: [
+            {
+              text: '可通过size属性设置组件的大小，与input的size属性一致',
+            },
+          ],
+        },
+        {
+          name: 'CuteSelectedInput',
+          desc: [
+            {
+              text: '适配i18n，将数字放到最前面显示',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: '退出',
+          desc: [
+            {
+              text: '修复退出的下拉菜单，在点击空白处不消失的问题',
+            },
+          ],
+        },
+        {
+          name: '天翼云登录',
+          desc: [
+            {
+              text: '修复天翼云登录默认拼接workspaceId参数到url中的问题，可以通过开关进行开启或关闭，参数为enableWorkspace，默认值设为了false',
+            },
+          ],
+        },
+        {
+          name: 'Upload组件',
+          desc: [
+            {
+              text: '修复文件名字超过组件宽度时显示不全的问题，使用省略号进行展示',
+            },
+          ],
+        },
+        {
+          name: 'Table',
+          desc: [
+            {
+              text: '修复了操作栏下拉icon的样式问题',
+            },
+          ],
+        },
+      ],
+    },
+    {
       version: '1.1.6',
       date: '2023-02-27',
       features: [

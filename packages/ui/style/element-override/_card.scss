@@ -3,7 +3,7 @@
 .el-card {
   background-color: $card-bg;
   border-radius: $border-radius;
-  border: 1px solid $color-neutral-3;
+  border: none;
 }
 
 .el-card.is-always-shadow {

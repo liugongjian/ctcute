@@ -45,22 +45,30 @@ export default class extends Vue {
       date: '2023-05-05',
       features: [
         {
-          name: '全局',
+          name: '重大变化',
           desc: [
             {
-              text: '对变量进行了系统化的定义，并提供在线说明文档',
-            },
-            {
-              text: '默认的主题色改成了蓝色',
-            },
-            {
-              text: '提供在线生成主题的小工具',
+              text: '默认的主题色由橙色改成了蓝色',
             },
             {
               text: '将基础组件的样式适配了经客运部评审的部门规范，并经过QA的全面测试',
             },
             {
               text: '抽取了通用的layout，后续使用CuteLayout替换原有的layout',
+            },
+            {
+              text: '实现了编译后发布，后续在ts或js项目均可中使用',
+            },
+            {
+              text: '对变量进行了系统化的定义，并提供在线说明文档。当前版本的变量兼容1.x，建议使用新变量',
+            },
+          ],
+        },
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '提供在线生成主题的小工具',
             },
             {
               text: '根据客运部的规范，将横向滚动的断点设置为1280px，将侧边栏的宽度设置为190px',
@@ -91,9 +99,6 @@ export default class extends Vue {
             },
             {
               text: '移除了@cutedesign/vxe-table包，并入@cutedesign/ui中，可按需使用',
-            },
-            {
-              text: '@cutedesign/authenticate和@cutedesign/ui包均实现了编译后发布，后续在ts或js项目均中使用',
             },
             {
               text: '根据IT提供的最新天翼云layout，进行了相应升级',

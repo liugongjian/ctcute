@@ -363,6 +363,15 @@ const componentRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'cuted-guide',
+        name: 'CutedGuide',
+        component: () => import('@/views/component/Biz/CutedGuide/index.vue'),
+        meta: {
+          title: 'CutedGuide',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   {

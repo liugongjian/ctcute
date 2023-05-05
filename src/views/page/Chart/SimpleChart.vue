@@ -520,8 +520,7 @@ export default class extends Vue {
 .chart-card-tabs {
   ::v-deep .el-tabs__header {
     margin: 0;
-    height: 40px;
-    margin-top: $margin-3x;
+    margin-top: $margin-8x;
   }
 
   ::v-deep .el-tabs__nav-wrap:after {

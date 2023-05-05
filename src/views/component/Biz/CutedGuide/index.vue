@@ -103,8 +103,8 @@ export default class extends Vue {
       name: 'opacity',
       desc: '背景不透明度(0表示只有弹出窗口，没有覆盖)',
       type: 'Number',
-      options: '0.5',
-      default: null,
+      options: '',
+      default: '0.2',
     },
     {
       name: 'padding',

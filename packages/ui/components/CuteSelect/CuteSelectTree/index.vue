@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-25 15:50:10
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-05-05 15:38:10
  * @Description: 树选择器
 -->
 <template>
@@ -16,7 +16,7 @@
     :multiple="multiple ? true : false"
     popper-class="cute-select-tree"
   >
-    <el-option :value="value" :label="label" style="height: auto">
+    <el-option :value="value" :label="label" style="height: auto;">
       <el-tree
         v-if="$scopedSlots.node"
         ref="tree"
@@ -115,7 +115,9 @@ export default class extends Mixins(Locale) {
     // 解决tags撑开的高度减少时无法及时resize的问题，需要ResizeObserver支持
     if (ResizeObserver) {
       const ob = new ResizeObserver(() => {
-        this.refSelector.resetInputHeight()
+        if (typeof this.refSelector?.resetInputHeight === 'function') {
+          this.refSelector.resetInputHeight()
+        }
       })
       ob.observe(node.$el.querySelector('.el-select__tags'))
     }

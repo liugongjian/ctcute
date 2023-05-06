@@ -9,84 +9,84 @@ export default [
         'type': 'color',
         'value': '#3d73f5',
         'scssValue': '$blue-base',
-        'scene': '默认'
+        'scene': '主题色，用于主题按钮，链接hover状态等'
       },
       {
         'name': '$color-master-hover',
         'type': 'color',
         'value': '#699bff',
         'scssValue': '$blue-5',
-        'scene': '悬停'
+        'scene': '主题-悬停色，用于主题按钮悬停等'
       },
       {
         'name': '$color-master-active',
         'type': 'color',
         'value': '#2955cf',
         'scssValue': '$blue-7',
-        'scene': '触发'
+        'scene': '主题-触发色，用于选中状态'
       },
       {
         'name': '$color-master-disabled',
         'type': 'color',
         'value': '#bad6ff',
         'scssValue': '$blue-3',
-        'scene': '禁用'
+        'scene': '主题-禁用色，用于禁用状态'
       },
       {
         'name': '$color-master-bg',
         'type': 'color',
         'value': '#bad6ff',
         'scssValue': '$blue-3',
-        'scene': '背景'
+        'scene': '主题-背景色'
       },
       {
         'name': '$color-master-bg-light',
         'type': 'color',
         'value': '#e3efff',
         'scssValue': '$blue-2',
-        'scene': '背景浅色'
+        'scene': '主题-背景浅色'
       },
       {
         'name': '$color-master-bg-light-2',
         'type': 'color',
         'value': '#f0f7ff',
         'scssValue': '$blue-1',
-        'scene': '背景浅色2'
+        'scene': '主题-背景浅色2'
       },
       {
         'name': '$color-ct',
         'type': 'color',
         'value': '#df0629',
         'scssValue': '$red-base',
-        'scene': '默认'
+        'scene': '天翼云-默认色，用于天翼云风格的主题按钮(如订购)、链接hover状态等'
       },
       {
         'name': '$color-ct-hover',
         'type': 'color',
         'value': '#eb2d46',
         'scssValue': '$red-5',
-        'scene': '悬停'
+        'scene': '天翼云-悬停色，用于天翼云风格的题按钮悬停等'
       },
       {
         'name': '$color-ct-active',
         'type': 'color',
         'value': '#b80025',
         'scssValue': '$red-7',
-        'scene': '触发'
+        'scene': '天翼云-触发色，用于天翼云风格的选中状态'
       },
       {
         'name': '$color-ct-disabled',
         'type': 'color',
         'value': '#ff828a',
         'scssValue': '$red-3',
-        'scene': '禁用'
+        'scene': '天翼云-禁用色，用于天翼云风格的禁用状态'
       },
       {
         'name': '$color-ct-bg',
         'type': 'color',
         'value': '#ffe6e6',
         'scssValue': '$red-1',
-        'scene': ''
+        'scene': '天翼云-背景色'
       }
     ]
   },
@@ -99,175 +99,175 @@ export default [
         'type': 'color',
         'value': '#999',
         'scssValue': '$neutral-6',
-        'scene': '信息通知'
+        'scene': '信息通知色，用于信息通知内容'
       },
       {
         'name': '$color-info-hover',
         'type': 'color',
-        'value': '#a8a8a8',
-        'scssValue': 'mix($white, $color-info, 15%)',
-        'scene': ''
+        'value': '#d9d9d9',
+        'scssValue': '$neutral-5',
+        'scene': '信息通知-悬停色，用于信息通知内容的悬停'
       },
       {
         'name': '$color-info-active',
         'type': 'color',
         'value': '#828282',
         'scssValue': 'mix($black, $color-info, 15%)',
-        'scene': ''
+        'scene': '信息通知-触发色，用于信息通知内容的选中状态'
       },
       {
         'name': '$color-info-disabled',
         'type': 'color',
         'value': '#adadad',
         'scssValue': 'mix($white, $color-info, 20%)',
-        'scene': ''
+        'scene': '信息通知-禁用色，用于信息通知内容的触发状态'
       },
       {
         'name': '$color-info-bg',
         'type': 'color',
         'value': '#f7f8fa',
         'scssValue': '$neutral-1',
-        'scene': ''
+        'scene': '信息通知-背景色，用于信息通知内容的背景'
       },
       {
         'name': '$color-success',
         'type': 'color',
         'value': '#27d68f',
         'scssValue': '$green-base',
-        'scene': '成功'
+        'scene': '成功色，用于表示成功状态的内容'
       },
       {
         'name': '$color-success-hover',
         'type': 'color',
         'value': '#4de3a2',
         'scssValue': '$green-5',
-        'scene': ''
+        'scene': '成功-悬停色'
       },
       {
         'name': '$color-success-active',
         'type': 'color',
         'value': '#17b078',
         'scssValue': '$green-7',
-        'scene': ''
+        'scene': '成功-触发色'
       },
       {
         'name': '$color-success-disabled',
         'type': 'color',
         'value': '#a7fcd2',
         'scssValue': '$green-3',
-        'scene': ''
+        'scene': '成功-禁用色'
       },
       {
         'name': '$color-success-bg',
         'type': 'color',
         'value': '#f0fff6',
         'scssValue': '$green-1',
-        'scene': ''
+        'scene': '成功-背景色'
       },
       {
         'name': '$color-warning',
         'type': 'color',
         'value': '#ff8f34',
         'scssValue': '$orange-base',
-        'scene': '警告'
+        'scene': '警告色，用于表示警告状态的内容'
       },
       {
         'name': '$color-warning-hover',
         'type': 'color',
         'value': '#ffab5c',
         'scssValue': '$orange-5',
-        'scene': ''
+        'scene': '警告-悬停色'
       },
       {
         'name': '$color-warning-active',
         'type': 'color',
         'value': '#d96d21',
         'scssValue': '$orange-7',
-        'scene': ''
+        'scene': '警告-触发色'
       },
       {
         'name': '$color-warning-disabled',
         'type': 'color',
         'value': '#ffdaad',
         'scssValue': '$orange-3',
-        'scene': ''
+        'scene': '警告-禁用色'
       },
       {
         'name': '$color-warning-bg',
         'type': 'color',
         'value': '#fff9f0',
         'scssValue': '$orange-1',
-        'scene': ''
+        'scene': '警告-背景色'
       },
       {
         'name': '$color-danger',
         'type': 'color',
         'value': '#ff4545',
         'scssValue': '$ruby-base',
-        'scene': '危险'
+        'scene': '危险色，用于表示危险状态的内容'
       },
       {
         'name': '$color-danger-hover',
         'type': 'color',
         'value': '#ff736e',
         'scssValue': '$ruby-5',
-        'scene': ''
+        'scene': '危险-悬停色'
       },
       {
         'name': '$color-danger-active',
         'type': 'color',
         'value': '#d93035',
         'scssValue': '$ruby-7',
-        'scene': ''
+        'scene': '危险-触发色'
       },
       {
         'name': '$color-danger-disabled',
         'type': 'color',
         'value': '#ffc6bf',
         'scssValue': '$ruby-3',
-        'scene': ''
+        'scene': '危险-禁用色'
       },
       {
         'name': '$color-danger-bg',
         'type': 'color',
         'value': '#fff2f0',
         'scssValue': '$ruby-1',
-        'scene': ''
+        'scene': '危险-背景色'
       },
       {
         'name': '$color-fatal',
         'type': 'color',
         'value': '#8c111d',
         'scssValue': '$ruby-9',
-        'scene': '严重危险'
+        'scene': '严重危险色，用于表示严重危险状态的内容'
       },
       {
         'name': '$color-fatal-hover',
         'type': 'color',
         'value': '#b31e28',
         'scssValue': '$ruby-8',
-        'scene': ''
+        'scene': '严重危险-悬停色'
       },
       {
         'name': '$color-fatal-active',
         'type': 'color',
         'value': '#660b17',
         'scssValue': '$ruby-10',
-        'scene': ''
+        'scene': '严重危险-触发色'
       },
       {
         'name': '$color-fatal-disabled',
         'type': 'color',
         'value': '#ff736e',
         'scssValue': '$ruby-5',
-        'scene': ''
+        'scene': '严重危险-禁用色'
       },
       {
         'name': '$color-fatal-bg',
         'type': 'color',
         'value': '#ffc6bf',
         'scssValue': '$ruby-3',
-        'scene': ''
+        'scene': '严重危险-背景色'
       }
     ]
   },
@@ -280,98 +280,98 @@ export default [
         'type': 'color',
         'value': '#f7f8fa',
         'scssValue': '$neutral-1',
-        'scene': ''
+        'scene': '中性色1'
       },
       {
         'name': '$color-neutral-2',
         'type': 'color',
         'value': '#eff1f4',
         'scssValue': '$neutral-2',
-        'scene': ''
+        'scene': '中性色2'
       },
       {
         'name': '$color-neutral-3',
         'type': 'color',
         'value': '#e2e5ed',
         'scssValue': '$neutral-3',
-        'scene': ''
+        'scene': '中性色3'
       },
       {
         'name': '$color-neutral-4',
         'type': 'color',
         'value': '#e5e6e8',
         'scssValue': '$neutral-4',
-        'scene': ''
+        'scene': '中性色4'
       },
       {
         'name': '$color-neutral-5',
         'type': 'color',
         'value': '#d9d9d9',
         'scssValue': '$neutral-5',
-        'scene': ''
+        'scene': '中性色5'
       },
       {
         'name': '$color-neutral-6',
         'type': 'color',
         'value': '#999',
         'scssValue': '$neutral-6',
-        'scene': ''
+        'scene': '中性色6'
       },
       {
         'name': '$color-neutral-7',
         'type': 'color',
         'value': '#7c818c',
         'scssValue': '$neutral-7',
-        'scene': ''
+        'scene': '中性色7'
       },
       {
         'name': '$color-neutral-8',
         'type': 'color',
         'value': '#353f58',
         'scssValue': '$neutral-8',
-        'scene': ''
+        'scene': '中性色8'
       },
       {
         'name': '$color-neutral-9',
         'type': 'color',
         'value': '#666',
         'scssValue': '$neutral-9',
-        'scene': ''
+        'scene': '中性色9'
       },
       {
         'name': '$color-neutral-10',
         'type': 'color',
         'value': '#333',
         'scssValue': '$neutral-10',
-        'scene': ''
+        'scene': '中性色10'
       },
       {
         'name': '$color-neutral-11',
         'type': 'color',
         'value': '#333',
         'scssValue': '$neutral-10',
-        'scene': ''
+        'scene': '中性色11'
       },
       {
         'name': '$color-white',
         'type': 'color',
         'value': '#fff',
         'scssValue': '$white',
-        'scene': ''
+        'scene': '白色'
       },
       {
         'name': '$color-white-hover',
         'type': 'color',
         'value': '#e2e5ed',
         'scssValue': '$color-neutral-3',
-        'scene': ''
+        'scene': '白色-悬停色'
       },
       {
         'name': '$color-black',
         'type': 'color',
         'value': '#000',
         'scssValue': '$black',
-        'scene': ''
+        'scene': '黑色'
       }
     ]
   },
@@ -405,21 +405,21 @@ export default [
         'type': 'color',
         'value': '#fff',
         'scssValue': '$color-bg-1',
-        'scene': ''
+        'scene': '用于表单组件的背景'
       },
       {
         'name': '$color-content-bg',
         'type': 'color',
         'value': '#fff',
         'scssValue': '$color-bg-2',
-        'scene': ''
+        'scene': '用于内容的背景'
       },
       {
         'name': '$color-body-bg',
         'type': 'color',
         'value': '#f7f8fa',
         'scssValue': '$color-bg-3',
-        'scene': ''
+        'scene': '用于body的背景'
       }
     ]
   },
@@ -432,21 +432,21 @@ export default [
         'type': 'color',
         'value': '#f7f8fa',
         'scssValue': '$color-neutral-1',
-        'scene': ''
+        'scene': '用于表单项禁用状态的背景色'
       },
       {
         'name': '$disabled-border',
         'type': 'color',
         'value': '#d9d9d9',
         'scssValue': '$color-neutral-5',
-        'scene': ''
+        'scene': '用于表单项禁用状态的边框色'
       },
       {
         'name': '$disabled-color',
         'type': 'color',
         'value': '#999',
         'scssValue': '$color-neutral-6',
-        'scene': ''
+        'scene': '用于表单项禁用状态的字体色'
       }
     ]
   },
@@ -466,7 +466,7 @@ export default [
         'type': 'string',
         'value': '\'cute-icons\'',
         'scssValue': '\'cute-icons\'',
-        'scene': ''
+        'scene': 'cute-icons'
       },
       {
         'name': '$text-size',
@@ -570,7 +570,7 @@ export default [
         'type': 'string',
         'value': '1.5',
         'scssValue': '1.5',
-        'scene': ''
+        'scene': '标准行间距'
       }
     ]
   },
@@ -583,42 +583,42 @@ export default [
         'type': 'color',
         'value': '#d9d9d9',
         'scssValue': '$color-neutral-5',
-        'scene': ''
+        'scene': '边框颜色'
       },
       {
         'name': '$border-color-hover',
         'type': 'color',
         'value': '#666',
         'scssValue': '$color-neutral-9',
-        'scene': ''
+        'scene': '悬停状态下的边框颜色'
       },
       {
         'name': '$border-color-light',
         'type': 'color',
         'value': '#f7f8fa',
         'scssValue': '$color-neutral-1',
-        'scene': ''
+        'scene': '边框颜色-light'
       },
       {
         'name': '$border-color-dark',
         'type': 'color',
         'value': '#999',
         'scssValue': '$color-neutral-6',
-        'scene': ''
+        'scene': '边框颜色-dark'
       },
       {
         'name': '$border-radius',
         'type': 'string',
         'value': '3px',
         'scssValue': '3px',
-        'scene': ''
+        'scene': '边框圆角大小'
       },
       {
         'name': '$border-radius-md',
         'type': 'string',
         'value': '5px',
         'scssValue': '5px',
-        'scene': ''
+        'scene': '边框圆角大小medium，用于Card圆角'
       }
     ]
   },
@@ -631,70 +631,70 @@ export default [
         'type': 'string',
         'value': '4px',
         'scssValue': '4px',
-        'scene': ''
+        'scene': '标准间距'
       },
       {
         'name': '$common-space-2x',
         'type': 'string',
         'value': '8px',
         'scssValue': '$common-space * 2',
-        'scene': '8px'
+        'scene': '2倍间距'
       },
       {
         'name': '$common-space-3x',
         'type': 'string',
         'value': '12px',
         'scssValue': '$common-space * 3',
-        'scene': '12px'
+        'scene': '3倍间距'
       },
       {
         'name': '$common-space-4x',
         'type': 'string',
         'value': '16px',
         'scssValue': '$common-space * 4',
-        'scene': '16px'
+        'scene': '4倍间距'
       },
       {
         'name': '$common-space-5x',
         'type': 'string',
         'value': '20px',
         'scssValue': '$common-space * 5',
-        'scene': '20px'
+        'scene': '5倍间距'
       },
       {
         'name': '$common-space-6x',
         'type': 'string',
         'value': '24px',
         'scssValue': '$common-space * 6',
-        'scene': '24px'
+        'scene': '6倍间距'
       },
       {
         'name': '$common-space-7x',
         'type': 'string',
         'value': '28px',
         'scssValue': '$common-space * 7',
-        'scene': '28px'
+        'scene': '7倍间距'
       },
       {
         'name': '$common-space-8x',
         'type': 'string',
         'value': '32px',
         'scssValue': '$common-space * 8',
-        'scene': '32px'
+        'scene': '8倍间距'
       },
       {
         'name': '$common-space-9x',
         'type': 'string',
         'value': '36px',
         'scssValue': '$common-space * 9',
-        'scene': '36px'
+        'scene': '9倍间距'
       },
       {
         'name': '$common-space-10x',
         'type': 'string',
         'value': '40px',
         'scssValue': '$common-space * 10',
-        'scene': '40px'
+        'scene': '10倍间距'
       },
       {
         'name': '$common-space-6',
@@ -715,168 +715,168 @@ export default [
         'type': 'string',
         'value': '4px',
         'scssValue': '$common-space',
-        'scene': ''
+        'scene': '标准padding'
       },
       {
         'name': '$padding-2x',
         'type': 'string',
         'value': '8px',
         'scssValue': '$common-space-2x',
-        'scene': '8px'
+        'scene': '2倍padding'
       },
       {
         'name': '$padding-3x',
         'type': 'string',
         'value': '12px',
         'scssValue': '$common-space-3x',
-        'scene': '12px'
+        'scene': '3倍padding'
       },
       {
         'name': '$padding-4x',
         'type': 'string',
         'value': '16px',
         'scssValue': '$common-space-4x',
-        'scene': '16px'
+        'scene': '4倍padding'
       },
       {
         'name': '$padding-5x',
         'type': 'string',
         'value': '20px',
         'scssValue': '$common-space-5x',
-        'scene': '20px'
+        'scene': '5倍padding'
       },
       {
         'name': '$padding-6x',
         'type': 'string',
         'value': '24px',
         'scssValue': '$common-space-6x',
-        'scene': '24px'
+        'scene': '6倍padding'
       },
       {
         'name': '$padding-7x',
         'type': 'string',
         'value': '28px',
         'scssValue': '$common-space-7x',
-        'scene': '28px'
+        'scene': '7倍padding'
       },
       {
         'name': '$padding-8x',
         'type': 'string',
         'value': '32px',
         'scssValue': '$common-space-8x',
-        'scene': '32px'
+        'scene': '8倍padding'
       },
       {
         'name': '$padding-9x',
         'type': 'string',
         'value': '36px',
         'scssValue': '$common-space-9x',
-        'scene': '36px'
+        'scene': '9倍padding'
       },
       {
         'name': '$padding-10x',
         'type': 'string',
         'value': '40px',
         'scssValue': '$common-space-10x',
-        'scene': '40px'
+        'scene': '10倍padding'
       },
       {
         'name': '$padding-6',
         'type': 'string',
         'value': '6px',
         'scssValue': '$common-space-6',
-        'scene': '特殊场景使用6px'
+        'scene': '特殊场景padding使用6px'
       },
       {
         'name': '$padding-10',
         'type': 'string',
         'value': '10px',
         'scssValue': '$common-space-10',
-        'scene': '特殊场景使用10px'
+        'scene': '特殊场景padding使用10px'
       },
       {
         'name': '$margin',
         'type': 'string',
         'value': '4px',
         'scssValue': '$common-space',
-        'scene': ''
+        'scene': '标准margin'
       },
       {
         'name': '$margin-2x',
         'type': 'string',
         'value': '8px',
         'scssValue': '$common-space-2x',
-        'scene': '8px'
+        'scene': '2倍margin'
       },
       {
         'name': '$margin-3x',
         'type': 'string',
         'value': '12px',
         'scssValue': '$common-space-3x',
-        'scene': '12px'
+        'scene': '3倍margin'
       },
       {
         'name': '$margin-4x',
         'type': 'string',
         'value': '16px',
         'scssValue': '$common-space-4x',
-        'scene': '16px'
+        'scene': '4倍margin'
       },
       {
         'name': '$margin-5x',
         'type': 'string',
         'value': '20px',
         'scssValue': '$common-space-5x',
-        'scene': '20px'
+        'scene': '5倍margin'
       },
       {
         'name': '$margin-6x',
         'type': 'string',
         'value': '24px',
         'scssValue': '$common-space-6x',
-        'scene': '24px'
+        'scene': '6倍margin'
       },
       {
         'name': '$margin-7x',
         'type': 'string',
         'value': '28px',
         'scssValue': '$common-space-7x',
-        'scene': '28px'
+        'scene': '7倍margin'
       },
       {
         'name': '$margin-8x',
         'type': 'string',
         'value': '32px',
         'scssValue': '$common-space-8x',
-        'scene': '32px'
+        'scene': '8倍margin'
       },
       {
         'name': '$margin-9x',
         'type': 'string',
         'value': '36px',
         'scssValue': '$common-space-9x',
-        'scene': '36px'
+        'scene': '9倍margin'
       },
       {
         'name': '$margin-10x',
         'type': 'string',
         'value': '40px',
         'scssValue': '$common-space-10x',
-        'scene': '40px'
+        'scene': '10倍margin'
       },
       {
         'name': '$margin-6',
         'type': 'string',
         'value': '6px',
         'scssValue': '$common-space-6',
-        'scene': '特殊场景使用6px'
+        'scene': '特殊场景margin使用6px'
       },
       {
         'name': '$margin-10',
         'type': 'string',
         'value': '10px',
         'scssValue': '$common-space-10',
-        'scene': '特殊场景使用10px'
+        'scene': '特殊场景margin使用10px'
       }
     ]
   },
@@ -910,7 +910,7 @@ export default [
         'type': 'string',
         'value': '0px 2px 2px rgba(0,0,0,.1)',
         'scssValue': '0px 2px 2px rgba(0, 0, 0, 0.1)',
-        'scene': '组件Focused状态使用 4级'
+        'scene': '表单项阴影，组件Focused状态使用 4级'
       }
     ]
   },
@@ -923,105 +923,105 @@ export default [
         'type': 'string',
         'value': '50px',
         'scssValue': '50px',
-        'scene': ''
+        'scene': 'header高度'
       },
       {
         'name': '$cute-layout-header-logo-height',
         'type': 'string',
         'value': '22px',
         'scssValue': '22px',
-        'scene': ''
+        'scene': 'logo高度'
       },
       {
         'name': '$cute-layout-header-sub-logo-height',
         'type': 'string',
         'value': '15px',
         'scssValue': '15px',
-        'scene': ''
+        'scene': '次logo高度'
       },
       {
         'name': '$cute-layout-header-text-color',
         'type': 'color',
         'value': '#fff',
         'scssValue': '$color-white',
-        'scene': ''
+        'scene': 'header文字颜色'
       },
       {
         'name': '$cute-layout-header-bg',
         'type': 'color',
         'value': '#272b39',
         'scssValue': '#272b39',
-        'scene': ''
+        'scene': 'header背景色'
       },
       {
         'name': '$cute-layout-header-border',
         'type': 'color',
         'value': '#585b62',
         'scssValue': '#585b62',
-        'scene': ''
+        'scene': 'header边框色'
       },
       {
         'name': '$cute-layout-sidebar-width',
         'type': 'string',
         'value': '190px',
         'scssValue': '190px',
-        'scene': ''
+        'scene': '侧边栏宽度'
       },
       {
         'name': '$cute-layout-sidebar-bg',
         'type': 'color',
         'value': '#fff',
         'scssValue': '$color-bg-1',
-        'scene': ''
+        'scene': '侧边栏背景色'
       },
       {
         'name': '$cute-layout-sidebar-border',
         'type': 'color',
         'value': '#e2e5ed',
         'scssValue': '$color-neutral-3',
-        'scene': ''
+        'scene': '侧边栏边框色'
       },
       {
         'name': '$cute-layout-sidebar-item-bg-hover',
         'type': 'color',
         'value': '#f7f8fa',
         'scssValue': '$color-neutral-1',
-        'scene': ''
+        'scene': '侧边栏菜单悬停背景色'
       },
       {
         'name': '$cute-layout-sidebar-color-master',
         'type': 'color',
         'value': '#3d73f5',
         'scssValue': '$color-master',
-        'scene': ''
+        'scene': '侧边栏主题色'
       },
       {
         'name': '$cute-layout-sidebar-text-color',
         'type': 'color',
         'value': '#333',
         'scssValue': '$text-color',
-        'scene': ''
+        'scene': '侧边栏文字色'
       },
       {
         'name': '$cute-layout-sidebar-arrow-color',
         'type': 'color',
         'value': '#666',
         'scssValue': '$text-color-light',
-        'scene': ''
+        'scene': '侧边栏箭头色'
       },
       {
         'name': '$header-input-bg',
         'type': 'color',
         'value': '#353f58',
         'scssValue': '#353f58',
-        'scene': ''
+        'scene': '头部输入框背景色'
       },
       {
         'name': '$header-search-text-color',
         'type': 'color',
         'value': '#999',
         'scssValue': '$text-color-light-2',
-        'scene': ''
+        'scene': '头部搜索栏文字色'
       }
     ]
   },
@@ -1282,15 +1282,15 @@ export default [
       {
         'name': '$radio-width',
         'type': 'string',
-        'value': '14px',
-        'scssValue': '14px',
+        'value': '12px',
+        'scssValue': '12px',
         'scene': '普通按钮外部宽高'
       },
       {
         'name': '$radio-label-width',
         'type': 'string',
-        'value': '8px',
-        'scssValue': '$common-space-2x',
+        'value': '6px',
+        'scssValue': '6px',
         'scene': '普通按钮 中间按钮宽高'
       },
       {
@@ -1862,8 +1862,8 @@ export default [
       {
         'name': '$transfer-filter-input-height',
         'type': 'string',
-        'value': '28px',
-        'scssValue': '28px',
+        'value': '24px',
+        'scssValue': '$input-sm-height',
         'scene': 'Transfer组件搜索框高度'
       },
       {
@@ -1876,7 +1876,7 @@ export default [
       {
         'name': '$transfer-filter-height',
         'type': 'string',
-        'value': '38px',
+        'value': '34px',
         'scssValue': 'calc($transfer-filter-input-height + $transfer-filter-input-margin)',
         'scene': 'Transfer组件filter区域高度'
       }
@@ -2278,7 +2278,7 @@ export default [
         'type': 'color',
         'value': '#999',
         'scssValue': '$color-neutral-6',
-        'scene': ''
+        'scene': 'icon颜色'
       }
     ]
   },
@@ -2463,7 +2463,7 @@ export default [
         'type': 'string',
         'value': '200ms',
         'scssValue': '200ms',
-        'scene': ''
+        'scene': '动画渐变时间'
       }
     ]
   },
@@ -2476,119 +2476,119 @@ export default [
         'type': 'string',
         'value': 'auto',
         'scssValue': 'auto',
-        'scene': ''
+        'scene': 'badge的z-index值'
       },
       {
         'name': '$zindex-normal',
         'type': 'string',
         'value': '1',
         'scssValue': '1',
-        'scene': ''
+        'scene': 'Table固定行列的z-index值'
       },
       {
         'name': '$zindex-table-fixed',
         'type': 'string',
         'value': '2',
         'scssValue': '2',
-        'scene': ''
+        'scene': 'Table固定行列的z-index值'
       },
       {
         'name': '$zindex-affix',
         'type': 'string',
         'value': '10',
         'scssValue': '10',
-        'scene': ''
+        'scene': '吸附内容的z-index值'
       },
       {
         'name': '$zindex-layout-sidebar',
         'type': 'string',
         'value': '10',
         'scssValue': '10',
-        'scene': ''
+        'scene': '侧边栏的z-index值'
       },
       {
         'name': '$zindex-modal',
         'type': 'string',
         'value': '1000',
         'scssValue': '1000',
-        'scene': ''
+        'scene': 'modal的z-index值'
       },
       {
         'name': '$zindex-modal-mask',
         'type': 'string',
         'value': '1000',
         'scssValue': '1000',
-        'scene': ''
+        'scene': 'modal遮罩的z-index值'
       },
       {
         'name': '$zindex-message',
         'type': 'string',
         'value': '1010',
         'scssValue': '1010',
-        'scene': ''
+        'scene': 'message的z-index值'
       },
       {
         'name': '$zindex-notification',
         'type': 'string',
         'value': '1010',
         'scssValue': '1010',
-        'scene': ''
+        'scene': 'notification的z-index值'
       },
       {
         'name': '$zindex-popover',
         'type': 'string',
         'value': '1030',
         'scssValue': '1030',
-        'scene': ''
+        'scene': 'popover的z-index值'
       },
       {
         'name': '$zindex-dropdown',
         'type': 'string',
         'value': '1050',
         'scssValue': '1050',
-        'scene': ''
+        'scene': 'dropdown的z-index值'
       },
       {
         'name': '$zindex-picker',
         'type': 'string',
         'value': '1050',
         'scssValue': '1050',
-        'scene': ''
+        'scene': 'picker的z-index值'
       },
       {
         'name': '$zindex-popoconfirm',
         'type': 'string',
         'value': '1060',
         'scssValue': '1060',
-        'scene': ''
+        'scene': 'popoconfirm的z-index值'
       },
       {
         'name': '$zindex-tooltip',
         'type': 'string',
         'value': '1070',
         'scssValue': '1070',
-        'scene': ''
+        'scene': 'tooltip的z-index值'
       },
       {
         'name': '$zindex-image',
         'type': 'string',
         'value': '1080',
         'scssValue': '1080',
-        'scene': ''
+        'scene': 'image的z-index值'
       },
       {
         'name': '$zindex-layout-header',
         'type': 'string',
         'value': '1999',
         'scssValue': '1999',
-        'scene': ''
+        'scene': 'header的z-index值'
       },
       {
         'name': '$zindex-loading-mask',
         'type': 'string',
         'value': '2000',
         'scssValue': '2000',
-        'scene': ''
+        'scene': 'loading状态遮罩的z-index值'
       }
     ]
   },
@@ -2601,7 +2601,7 @@ export default [
         'type': 'string',
         'value': '1280px',
         'scssValue': '1280px',
-        'scene': ''
+        'scene': '屏幕最小分辨率，用于布局主容器宽度计算'
       }
     ]
   },

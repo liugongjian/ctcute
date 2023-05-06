@@ -1053,6 +1053,10 @@
     word-break: break-all;
     padding-left: $vxe-table-cell-padding-left;
     padding-right: $vxe-table-cell-padding-right;
+    /* 下拉展开旋转小三角 */
+    .top-fill {
+      transform: rotate(180deg);
+    }
   }
 
   // 单元格占位符

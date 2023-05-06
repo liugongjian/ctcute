@@ -9,6 +9,7 @@ export type TableType = {
   tags: Array<string>
   desc: string
   health: number
+  flag?: boolean
 }
 
 /**

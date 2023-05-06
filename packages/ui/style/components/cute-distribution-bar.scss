@@ -30,18 +30,19 @@ $cute-distribution-bar-slider-button-height: 16px;
 
       &__value {
         display: inline-block;
-        margin-left: $margin-2x;
+        margin-left: $margin-6;
         width: $cute-distribution-bar-input-width;
 
         .el-input .el-input__inner {
-          padding-left: $padding-2x;
-          padding-right: $padding-2x;
+          padding-left: $padding-10;
+          padding-right: $padding-10;
+          text-align: left;
         }
       }
 
       &__rate {
         display: inline-block;
-        padding-left: $padding-3x;
+        padding-left: $padding-6;
         cursor: default;
       }
     }

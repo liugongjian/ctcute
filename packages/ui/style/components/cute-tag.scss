@@ -13,6 +13,10 @@
     cursor: pointer;
   }
 
+  .el-tag--newtag:hover {
+    background-color: $color-master-bg-light;
+  }
+
   .el-input {
     margin-right: 10px;
   }

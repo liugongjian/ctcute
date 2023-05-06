@@ -19,12 +19,20 @@
       <cute-tag :dynamic-tags="dynamicTags2" tag-name="+ 新标签" tag-size="large"></cute-tag>
     </div>
 
-    <h3>彩色标签</h3>
+    <h3>彩色Plain标签</h3>
     <div class="color-tags">
       <el-tag type="danger" effect="plain">红色</el-tag>
       <el-tag type="success" effect="plain">绿色</el-tag>
       <el-tag type effect="plain">蓝色</el-tag>
       <el-tag type="warning" effect="plain">黄色</el-tag>
+    </div>
+
+    <h3>主题标签</h3>
+    <div class="color-tags">
+      <el-tag type="danger" effect="light">红色</el-tag>
+      <el-tag type="success" effect="light">绿色</el-tag>
+      <el-tag type effect="light">蓝色</el-tag>
+      <el-tag type="warning" effect="light">黄色</el-tag>
     </div>
   </div>
 </template>

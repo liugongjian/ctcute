@@ -1,8 +1,8 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-25 15:58:42
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-13 14:01:23
+ * @LastEditors: 朱玉豆
+ * @LastEditTime: 2023-05-06 16:20:22
  * @Description:
 -->
 <template>
@@ -45,20 +45,20 @@
       <div>
         <div>
           <cute-appendix
-            :append="true"
+            size="medium"
             :type="'file'"
             title="EDR终端安全加强指引"
-            size="1.3MB"
+            file-size="1.3MB"
             @download="downPdf"
           ></cute-appendix>
         </div>
         <div>
           <cute-appendix
-            :append="true"
+            size="medium"
             :type="'pdf'"
             :show-eye="true"
             title="这是一个PDF文件"
-            size="1.3MB"
+            file-size="1.3MB"
             :svg-name="'file-pdf-fill'"
             svg-color="#FF535A"
             :url="url"

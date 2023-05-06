@@ -1,18 +1,7 @@
 .el-tabs__item.el-tabs__add {
-  color: $color-master;
   width: $tabs-add-item-width;
-  > .el-tabs__add__input{
-    > .el-input__inner{
-      background-color: $color-master-bg;
-      border: none;
-      border-radius: 0px;
-      font-size: $text-size;
-      &:focus{
-        box-shadow: none;
-      }
-    }
-  }
 }
+
 /* $size:大小;
    $height: 高度;
 */
@@ -25,11 +14,18 @@
       line-height: calc(#{$height} - 2px); // 去掉border
     }
 
-    .el-tabs__item.el-tabs__add {
+    &:not(.el-tabs--button) .el-tabs__item.el-tabs__add > .el-tabs__add__input {
+      line-height: calc(#{$height} - 2px); // 去掉border居中
+      > .el-input__inner{
+        max-height: calc(#{$height} - 2px - #{$common-space}); // 小尺寸下el-input最小高度也会撑开，给一个max-height限制
+      }
+    } 
+
+    &.el-tabs--button .el-tabs__item.el-tabs__add {
       > .el-tabs__add__input{
         // transform: translateY(-1px); // 边框偏移
         width: 100%;
-        line-height: calc(#{$height} - 2px); // 去掉border
+        line-height: calc(#{$height} - 2px); // 去掉border居中
         > .el-input__inner{
           height: $text-size;
         }
@@ -75,6 +71,22 @@
 .el-tabs.el-tabs--button {
   .el-tabs__nav-wrap:after {
     display: none;
+  }
+
+  .el-tabs__item.el-tabs__add {
+    color: $color-master;
+    
+    > .el-tabs__add__input{
+      > .el-input__inner{
+        background-color: $color-master-bg;
+        border: none;
+        border-radius: 0px;
+        font-size: $text-size;
+        &:focus{
+          box-shadow: none;
+        }
+      }
+    }
   }
 
   .el-tabs__item {

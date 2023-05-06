@@ -10,7 +10,7 @@ declare module 'vue-router/types/router' {
     activeMenu?: string // 当路由不用于生成菜单时，建议设置该选项，主动配置菜单项亮
     breadcrumb?: boolean // 是否不需要用于生成面包屑
     withoutLogin?: boolean // 对于不需要登录的页面，需要设置
-    perms?: string[] // 参数为一组路由，设置时会校验该路由对应页面的权限
+    perms?: string[] | string // 路由所需权限（任一满足即可），设置时会校验该路由对应页面的权限
   }
 }
 
@@ -120,8 +120,9 @@ export interface AuthInstance {
 
   getToken: () => string | undefined
   removeToken: () => void
-  getPermInfo: (refresh: boolean) => Promise<any>
-
+  getPermInfo: (refresh?: boolean) => Promise<any>
+  getAllMenuPerms: () => string[]
+  getAllButtonPerms: () => string[]
   getRoutes: () => BizAuthConfigOptions.routes
 
   login: (RequestParams) => Promise<any>

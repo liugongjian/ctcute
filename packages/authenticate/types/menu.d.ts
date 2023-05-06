@@ -28,9 +28,9 @@ export type CtyunMenuItem = MenuItem & {
 
 export type CuteItem = {
   // name: string
-  url?: string
-  perms?: string
-  menuType: number
+  // url: string
+  perm: string // 权限字段
+  menuType: number // 类型
 }
 
 export declare const IamMenu: {

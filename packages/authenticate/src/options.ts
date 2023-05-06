@@ -196,7 +196,7 @@ export default <AuthConfigOptions>{
       },
     },
     ctyun: {
-      enableWorkspace: false, // iam 默认不启用 wid
+      enableWorkspace: false, // ctyun 默认不启用 wid
       layout: {
         containerId: 'ctcloud-console', // 注意：该 id 不要重写，会导致 ctyun layout 初始化异常
         bizDomain: '', // 侧边栏高亮配置，按需重写

@@ -11,17 +11,17 @@ export default {
       .map(item => {
         if (item.renderer === 'menu') {
           return {
-            url: item.menuCode,
+            perm: item.menuCode,
             menuType: MENU_TYPE.menu,
           } as CuteItem
         } else if (item.renderer === 'button') {
           return {
-            perms: item.menuCode,
+            perm: item.menuCode,
             menuType: MENU_TYPE.button,
           } as CuteItem
         } else {
           return {
-            url: item.menuCode,
+            perm: item.menuCode,
             menuType: MENU_TYPE.other,
           } as CuteItem
         }

@@ -1,9 +1,9 @@
 <template>
   <el-card class="real-order">
-    <div class="page-header" :style="fixedStyle" @click="openPreview">
-      <svg-icon class="page-header__icon" name="left" />
-      <span class="page-header__content">云硬盘</span>
-    </div>
+    <cute-fixed-footer class="real-order-header" @click="openPreview">
+      <svg-icon class="real-order-header__icon" name="left" />
+      <span class="real-order-header__content">云硬盘</span>
+    </cute-fixed-footer>
 
     <el-form
       ref="orderForm"
@@ -70,7 +70,7 @@
       </el-form-item>
     </el-form>
 
-    <div :style="fixedStyle" class="order-footer">
+    <cute-fixed-footer class="real-order-footer">
       <div>
         <span class="config-cost">配置费用：</span>
         <span class="cost-count">￥{{ form.totalPrice }}</span>
@@ -91,7 +91,7 @@
         <el-button @click="handleCancel"> 取消 </el-button>
         <el-button type="primary" @click="handleSure"> 下一步 </el-button>
       </div>
-    </div>
+    </cute-fixed-footer>
   </el-card>
 </template>
 <script lang="ts">
@@ -99,17 +99,17 @@ import { Component, Vue, Ref } from 'vue-property-decorator'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
 import { CuteSpecialRadio } from '@cutedesign/ui'
 // import { getOptions } from '@/api/orderList'
+import CuteFixedFooter from '@cutedesign/ui/components/CuteFixedFooter/index.vue'
+
 @Component({
   name: 'OrderList',
-  components: { CuteSpecialRadio },
+  components: { CuteSpecialRadio, CuteFixedFooter },
 })
 export default class extends Vue {
   @Ref('orderForm')
   private ruleFormRef
   @Ref('Sliders')
   private RefSlider
-
-  private fixedStyle = {}
 
   private colorVariables = variables
   private areas = [
@@ -274,32 +274,6 @@ export default class extends Vue {
       } else {
         this.RefSlider.values = val
       }
-    }
-  }
-
-  /**
-   * 页面Mounted
-   */
-  private mounted() {
-    this.updateFixed()
-    window.addEventListener('resize', this.updateFixed)
-    window.addEventListener('scroll', this.updateFixed)
-  }
-
-  private beforeDestroy() {
-    window.removeEventListener('resize', this.updateFixed)
-    window.removeEventListener('scroll', this.updateFixed)
-  }
-
-  updateFixed() {
-    const layoutContainer = document.getElementById('layout-container')
-    if (!layoutContainer) return
-
-    const { width, left } = layoutContainer.getBoundingClientRect()
-
-    this.fixedStyle = {
-      width: width + 'px',
-      left: left + 'px',
     }
   }
 

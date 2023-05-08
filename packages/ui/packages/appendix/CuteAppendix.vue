@@ -1,22 +1,28 @@
 <template>
   <div>
-    <div v-if="!append" class="cute-appendix">
-      <svg-icon class="appendix-link-icon" name="attachment" :width="16" :height="16" />
-      <el-link type="primary" class="appendix-link" :underline="false" @click="handleDownload"> {{ value }} </el-link>
-      <svg-icon v-if="showEye" class="appendix-eye-icon" name="preview" :width="16" :height="16" @click="openPreview" />
+    <div v-if="size === 'small'" class="cute-appendix--small">
+      <svg-icon class="cute-appendix--small__link-icon" name="attachment" />
+      <el-link type="primary" class="appendix-link__text" :underline="false" @click="handleDownload">
+        {{ value }}
+      </el-link>
+      <svg-icon v-if="showEye" class="appendix-eye-icon" name="preview" @click="openPreview" />
     </div>
     <div v-else>
-      <div class="appendix-big">
-        <div class="appendix-big-item" @click="handleDownload">
-          <svg-icon class="appendix-link-icon" :name="svgName" :color="svgColor" opacity="70%" :width="24" :height="24" />
-          <div class="appendix-big-item-title">
+      <div class="cute-appendix--medium">
+        <div class="cute-appendix--medium__content" @click="handleDownload">
+          <svg-icon
+            class="cute-appendix--medium__content__link-icon"
+            :name="svgName"
+            :color="svgColor"
+            opacity="70%"
+          />
+          <div class="cute-appendix--medium__content__title">
             <p>{{ title }}</p>
-            <p>{{ size }}</p>
+            <p>{{ fileSize }}</p>
           </div>
         </div>
         <div>
-          <svg-icon v-if="showEye" class="appendix-eye-icon" name="preview" :width="16" :height="16"
-            @click="openPreview" />
+          <svg-icon v-if="showEye" class="appendix-eye-icon" name="preview" @click="openPreview" />
         </div>
       </div>
     </div>
@@ -31,11 +37,11 @@ import * as XLSX from 'xlsx/xlsx.mjs'
   name: 'CuteAppendix',
 })
 export default class extends Vue {
-  @Prop({ default: false }) public append!: boolean
+  @Prop({ default: 'medium' }) public size!: string
   @Prop({ default: '组件' }) public value!: string
   @Prop({ default: false }) public showEye!: boolean
   @Prop({ default: '标题1' }) public title!: string
-  @Prop({ default: '1MB' }) public size!: string
+  @Prop({ default: '1MB' }) public fileSize!: string
   @Prop({ default: 'file-fill' }) public svgName!: string
   @Prop({ default: '' }) public svgColor: string
   @Prop({ required: true }) public type: string

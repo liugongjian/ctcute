@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2023-04-19 17:01:49
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-28 12:18:02
+ * @LastEditTime: 2023-05-04 14:16:24
  * @Description:
 -->
 <template>
@@ -35,7 +35,7 @@ export default class extends Vue {
 11. 如在 Vue 组件中引用过 SASS 变量，需要替换引用路径，将 \`@cutedesign/theme/css/\_variables.scss\` 替换为 \`@cutedesign/ui/style/themes/default/index.scss\`
 12. 替换 \`App.vue\` 代码，使用 cute-layout ，详见下面示例代码
 13. 替换 \`router\` 中的 \`Layout\` 组件为容器组件，详见下面示例代码
-14. 替换 \`i18n\` 中的 index.ts ，使用 ui 包内置的 \`createI18n\` 方法初始化，详见下面示例代码
+14. 替换 \`i18n\` 中的 index.ts ，使用 ui 包内置的 \`createI18n\` 方法初始化，详见下面示例代码（由于 element-ui 的语言包已内置处理，同目录下的 zh.ts 和 en.ts 中 el 相关配置需要清除）
 
 ### 上述步骤4-9的vue.config.js示例代码：
 

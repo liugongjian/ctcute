@@ -82,7 +82,7 @@ $cute-selected-input-width: 140px;
     }
   }
 
-  // .el-select-dropdown__list {
-  //   padding: 0;
-  // }
+  .el-select-dropdown__list {
+    padding: $padding 0;
+  }
 }

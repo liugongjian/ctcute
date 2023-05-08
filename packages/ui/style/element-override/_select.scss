@@ -126,6 +126,12 @@ $select-tag-margin: 2px 0 2px 8px;
   box-shadow: $shadow-2;
   border: none;
 
+  .el-select-dropdown__list {
+    padding-top: $padding;
+    padding-bottom: $padding;
+
+  }
+
   &__item {
     &.hover {
       background-color: unset;

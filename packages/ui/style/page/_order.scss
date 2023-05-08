@@ -1,15 +1,7 @@
-$headerHeight: 40px;
-$footerHeight: 62px;
+$headerHeight: 51px;
 
-@mixin page-header {
-  position: fixed;
-  z-index: $zindex-layout-sidebar;
-  top: $cute-layout-header-height;
-  left: 0;
-  padding: 0 $padding-5x;
-  width: 100%;
-  height: $headerHeight;
-  line-height: $headerHeight;
+.real-order-header {
+  bottom: auto !important;
   background: $color-bg-1;
   cursor: pointer;
 
@@ -24,15 +16,19 @@ $footerHeight: 62px;
   }
 }
 
-@mixin page-footer {
-  position: fixed;
-  z-index: $zindex-layout-header;
-  left: 0;
-  bottom: 0;
-  padding: 0 $padding-5x;
-  width: 100%;
+.real-order-footer {
   background: $color-bg-1;
   box-shadow: $shadow-3;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .cost-count {
+    margin-right: $margin-3x;
+    color: $color-ct;
+    font-size: $text-size-xl;
+  }
 }
 
 .real-order {
@@ -40,36 +36,14 @@ $footerHeight: 62px;
   flex-direction: column;
   width: 100%;
   margin-top: $headerHeight;
-  margin-bottom: $footerHeight;
-
-  .page-header {
-    @include page-header();
-  }
+  margin-bottom: $margin-5x;
 
   .refresh-icon {
     margin-left: $margin-2x;
   }
-
-  .order-footer {
-    @include page-footer();
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: $footerHeight;
-
-    .cost-count {
-      margin-right: $margin-3x;
-      color: $color-ct;
-      font-size: $text-size-xl;
-    }
-  }
 }
 
 .product-detail {
-  .page-header {
-    @include page-header();
-  }
 
   .detail-message {
     display: flex;

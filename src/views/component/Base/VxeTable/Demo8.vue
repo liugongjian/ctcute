@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2023-04-22 08:35:39
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-04-26 16:06:14
+ * @LastEditTime: 2023-05-06 18:47:57
  * @Description: 复杂列设置
 -->
 <template>
@@ -45,16 +45,16 @@
         </template>
       </vxe-column>
       <vxe-column field="actions" title="操作" width="190px" class-name="actions">
-        <template #default="{}">
+        <template #default="{ row, rowIndex }">
           <el-button type="text" size="small" class="bt-operation"> 挂载 </el-button>
           <el-button type="text" size="small" class="bt-operation">卸载</el-button>
           <el-button type="text" size="small" class="bt-operation">扩容</el-button>
           <el-divider direction="vertical"></el-divider>
-          <el-dropdown trigger="click" :append-to-body="false">
+          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(rowIndex)">
             <span class="el-dropdown-link">
               更多<i
                 class="el-icon-arrow-down el-icon--right"
-                :class="flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
+                :class="row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
               ></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -99,6 +99,10 @@ export default class extends Vue {
       // 手动将表格和工具栏进行关联
       ;(this.$refs.xTable1 as any).connect(this.$refs.xToolbar1)
     })
+    this.tableData.map((item: any) => {
+      item.flag = false
+      return item
+    })
   }
   checkColumnMethod({ column }) {
     if (column.property === 'name') {
@@ -118,6 +122,12 @@ export default class extends Vue {
 
   filterNameMethod({ value, row }) {
     return value === row.health
+  }
+  openDropdown(rowIndex) {
+    this.$set(this.tableData, rowIndex, {
+      ...this.tableData[rowIndex],
+      flag: !this.tableData[rowIndex].flag,
+    })
   }
 }
 </script>

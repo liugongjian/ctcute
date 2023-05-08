@@ -5,87 +5,87 @@ $images-path: '~@cutedesign/ui/images' !default;
 
 /* Title: 主题色; Doc: true
 -------------------------- */
-$color-master: $blue-base !default; // 默认
-$color-master-hover: $blue-5 !default; // 悬停
-$color-master-active: $blue-7 !default; // 触发
-$color-master-disabled: $blue-3 !default; // 禁用
-$color-master-bg: $blue-3 !default; // 背景
-$color-master-bg-light: $blue-2 !default; // 背景浅色
-$color-master-bg-light-2: $blue-1 !default; // 背景浅色2
+$color-master: $blue-base !default; // 主题色，用于主题按钮，链接hover状态等
+$color-master-hover: $blue-5 !default; // 主题-悬停色，用于主题按钮悬停等
+$color-master-active: $blue-7 !default; // 主题-触发色，用于选中状态
+$color-master-disabled: $blue-3 !default; // 主题-禁用色，用于禁用状态
+$color-master-bg: $blue-3 !default; // 主题-背景色
+$color-master-bg-light: $blue-2 !default; // 主题-背景浅色
+$color-master-bg-light-2: $blue-1 !default; // 主题-背景浅色2
 
 /* CT特殊色, ct意为ctyun缩写 */
-$color-ct: $red-base !default; // 默认
-$color-ct-hover: $red-5 !default; // 悬停
-$color-ct-active: $red-7 !default; // 触发
-$color-ct-disabled: $red-3 !default; // 禁用
-$color-ct-bg: $red-1 !default;
+$color-ct: $red-base !default; // 天翼云-默认色，用于天翼云风格的主题按钮(如订购)、链接hover状态等
+$color-ct-hover: $red-5 !default; // 天翼云-悬停色，用于天翼云风格的题按钮悬停等
+$color-ct-active: $red-7 !default; // 天翼云-触发色，用于天翼云风格的选中状态
+$color-ct-disabled: $red-3 !default; // 天翼云-禁用色，用于天翼云风格的禁用状态
+$color-ct-bg: $red-1 !default; // 天翼云-背景色
 
 /* Title: 状态色; Doc: true
 -------------------------- */
-$color-info: $neutral-6 !default; // 信息通知
-$color-info-hover: $neutral-5 !default;
-$color-info-active: mix($black, $color-info, 15%) !default;
-$color-info-disabled: mix($white, $color-info, 20%) !default;
-$color-info-bg: $neutral-1 !default;
-$color-success: $green-base !default; // 成功
-$color-success-hover: $green-5 !default;
-$color-success-active: $green-7 !default;
-$color-success-disabled: $green-3 !default;
-$color-success-bg: $green-1 !default;
-$color-warning: $orange-base !default; // 警告
-$color-warning-hover: $orange-5 !default;
-$color-warning-active: $orange-7 !default;
-$color-warning-disabled: $orange-3 !default;
-$color-warning-bg: $orange-1 !default;
-$color-danger: $ruby-base !default; // 危险
-$color-danger-hover: $ruby-5 !default;
-$color-danger-active: $ruby-7 !default;
-$color-danger-disabled: $ruby-3 !default;
-$color-danger-bg: $ruby-1 !default;
-$color-fatal: $ruby-9 !default; // 严重危险
-$color-fatal-hover: $ruby-8 !default;
-$color-fatal-active: $ruby-10 !default;
-$color-fatal-disabled: $ruby-5 !default;
-$color-fatal-bg: $ruby-3 !default;
+$color-info: $neutral-6 !default; // 信息通知色，用于信息通知内容
+$color-info-hover: $neutral-5 !default; // 信息通知-悬停色，用于信息通知内容的悬停
+$color-info-active: mix($black, $color-info, 15%) !default; // 信息通知-触发色，用于信息通知内容的选中状态
+$color-info-disabled: mix($white, $color-info, 20%) !default; // 信息通知-禁用色，用于信息通知内容的触发状态
+$color-info-bg: $neutral-1 !default; // 信息通知-背景色，用于信息通知内容的背景
+$color-success: $green-base !default; // 成功色，用于表示成功状态的内容
+$color-success-hover: $green-5 !default; // 成功-悬停色
+$color-success-active: $green-7 !default; // 成功-触发色
+$color-success-disabled: $green-3 !default;  // 成功-禁用色
+$color-success-bg: $green-1 !default; // 成功-背景色
+$color-warning: $orange-base !default; // 警告色，用于表示警告状态的内容
+$color-warning-hover: $orange-5 !default; // 警告-悬停色
+$color-warning-active: $orange-7 !default; // 警告-触发色
+$color-warning-disabled: $orange-3 !default; // 警告-禁用色
+$color-warning-bg: $orange-1 !default; // 警告-背景色
+$color-danger: $ruby-base !default; // 危险色，用于表示危险状态的内容
+$color-danger-hover: $ruby-5 !default; // 危险-悬停色
+$color-danger-active: $ruby-7 !default; // 危险-触发色
+$color-danger-disabled: $ruby-3 !default; // 危险-禁用色
+$color-danger-bg: $ruby-1 !default; // 危险-背景色
+$color-fatal: $ruby-9 !default; // 严重危险色，用于表示严重危险状态的内容
+$color-fatal-hover: $ruby-8 !default; // 严重危险-悬停色
+$color-fatal-active: $ruby-10 !default; // 严重危险-触发色
+$color-fatal-disabled: $ruby-5 !default; // 严重危险-禁用色
+$color-fatal-bg: $ruby-3 !default; // 严重危险-背景色
 
 /* Title: 中性色; Doc: true
 -------------------------- */
-$color-neutral-1: $neutral-1 !default;
-$color-neutral-2: $neutral-2 !default;
-$color-neutral-3: $neutral-3 !default;
-$color-neutral-4: $neutral-4 !default;
-$color-neutral-5: $neutral-5 !default;
-$color-neutral-6: $neutral-6 !default;
-$color-neutral-7: $neutral-7 !default;
-$color-neutral-8: $neutral-8 !default;
-$color-neutral-9: $neutral-9 !default;
-$color-neutral-10: $neutral-10 !default;
-$color-neutral-11: $neutral-10 !default;
-$color-white: $white !default;
-$color-white-hover: $color-neutral-3 !default;
-$color-black: $black !default;
+$color-neutral-1: $neutral-1 !default; // 中性色1
+$color-neutral-2: $neutral-2 !default; // 中性色2
+$color-neutral-3: $neutral-3 !default; // 中性色3
+$color-neutral-4: $neutral-4 !default; // 中性色4
+$color-neutral-5: $neutral-5 !default; // 中性色5
+$color-neutral-6: $neutral-6 !default; // 中性色6
+$color-neutral-7: $neutral-7 !default; // 中性色7
+$color-neutral-8: $neutral-8 !default; // 中性色8
+$color-neutral-9: $neutral-9 !default; // 中性色9
+$color-neutral-10: $neutral-10 !default; // 中性色10
+$color-neutral-11: $neutral-10 !default; // 中性色11
+$color-white: $white !default; // 白色
+$color-white-hover: $color-neutral-3 !default; // 白色-悬停色
+$color-black: $black !default; // 黑色
 
 /* Title: 背景色; Doc: true
 -------------------------- */
 $color-bg-1: $white !default; // 组件背景色
 $color-bg-2: $white !default; // 背景卡片颜色
 $color-bg-3: $color-neutral-1 !default; // 页面整体背景色
-$color-form-component-bg: $color-bg-1 !default;
-$color-content-bg: $color-bg-2 !default;
-$color-body-bg: $color-bg-3 !default;
+$color-form-component-bg: $color-bg-1 !default; // 用于表单组件的背景
+$color-content-bg: $color-bg-2 !default; // 用于内容的背景
+$color-body-bg: $color-bg-3 !default; // 用于body的背景
 
 /* Title: 禁用色; Doc: true
 由于多个表单组件会用到disabled的状态，因此仍然保留以下变量
 -------------------------- */
-$disabled-bg: $color-neutral-1 !default;
-$disabled-border: $color-neutral-5 !default;
-$disabled-color: $color-neutral-6 !default;
+$disabled-bg: $color-neutral-1 !default; // 用于表单项禁用状态的背景色
+$disabled-border: $color-neutral-5 !default; // 用于表单项禁用状态的边框色
+$disabled-color: $color-neutral-6 !default; // 用于表单项禁用状态的字体色
 
 /* Title: 字体、字号、字体颜色、字重; Doc: true
 -------------------------- */
-$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif,
+$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif, 
   '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
-$font-family-cute-icons: 'cute-icons' !default;
+$font-family-cute-icons: 'cute-icons' !default; // cute-icons
 $text-size: 12px !default; // 标准字体大小
 $text-size-sm: 12px !default; // 字号small
 $text-size-md: 14px !default; // 字号medium
@@ -102,83 +102,83 @@ $text-title-weight: bold; // 标题的字体粗细
 
 /* Title: 行间距; Doc: true
 -------------------------- */
-$line-height: 1.5 !default;
+$line-height: 1.5 !default; // 标准行间距
 
 /* Title: 边框; Doc: true
 -------------------------- */
-$border-color: $color-neutral-5 !default;
-$border-color-hover: $color-neutral-9 !default;
-$border-color-light: $color-neutral-1 !default;
-$border-color-dark: $color-neutral-6 !default;
-$border-radius: 3px !default;
-$border-radius-md: 5px !default;
+$border-color: $color-neutral-5 !default; // 边框颜色
+$border-color-hover: $color-neutral-9 !default; // 悬停状态下的边框颜色
+$border-color-light: $color-neutral-1 !default; // 边框颜色-light
+$border-color-dark: $color-neutral-6 !default; // 边框颜色-dark
+$border-radius: 3px !default; // 边框圆角大小
+$border-radius-md: 5px !default; // 边框圆角大小medium，用于Card圆角
 
 /* Title: 间距; Doc: true
 -------------------------- */
-$common-space: 4px !default;
-$common-space-2x: $common-space * 2 !default; // 8px
-$common-space-3x: $common-space * 3 !default; // 12px
-$common-space-4x: $common-space * 4 !default; // 16px
-$common-space-5x: $common-space * 5 !default; // 20px
-$common-space-6x: $common-space * 6 !default; // 24px
-$common-space-7x: $common-space * 7 !default; // 28px
-$common-space-8x: $common-space * 8 !default; // 32px
-$common-space-9x: $common-space * 9 !default; // 36px
-$common-space-10x: $common-space * 10 !default; // 40px
+$common-space: 4px !default; // 标准间距
+$common-space-2x: $common-space * 2 !default; // 2倍间距
+$common-space-3x: $common-space * 3 !default; // 3倍间距
+$common-space-4x: $common-space * 4 !default; // 4倍间距
+$common-space-5x: $common-space * 5 !default; // 5倍间距
+$common-space-6x: $common-space * 6 !default; // 6倍间距
+$common-space-7x: $common-space * 7 !default; // 7倍间距
+$common-space-8x: $common-space * 8 !default; // 8倍间距
+$common-space-9x: $common-space * 9 !default; // 9倍间距
+$common-space-10x: $common-space * 10 !default; // 10倍间距
 $common-space-6: 6px !default; // 特殊场景使用6px
 $common-space-10: 10px !default; // 特殊场景使用10px
 
-$padding: $common-space !default;
-$padding-2x: $common-space-2x !default; // 8px
-$padding-3x: $common-space-3x !default; // 12px
-$padding-4x: $common-space-4x !default; // 16px
-$padding-5x: $common-space-5x !default; // 20px
-$padding-6x: $common-space-6x !default; // 24px
-$padding-7x: $common-space-7x !default; // 28px
-$padding-8x: $common-space-8x !default; // 32px
-$padding-9x: $common-space-9x !default; // 36px
-$padding-10x: $common-space-10x !default; // 40px
-$padding-6: $common-space-6 !default; // 特殊场景使用6px
-$padding-10: $common-space-10 !default; // 特殊场景使用10px
+$padding: $common-space !default; // 标准padding
+$padding-2x: $common-space-2x !default; // 2倍padding
+$padding-3x: $common-space-3x !default; // 3倍padding
+$padding-4x: $common-space-4x !default; // 4倍padding
+$padding-5x: $common-space-5x !default; // 5倍padding
+$padding-6x: $common-space-6x !default; // 6倍padding
+$padding-7x: $common-space-7x !default; // 7倍padding
+$padding-8x: $common-space-8x !default; // 8倍padding
+$padding-9x: $common-space-9x !default; // 9倍padding
+$padding-10x: $common-space-10x !default; // 10倍padding
+$padding-6: $common-space-6 !default; // 特殊场景padding使用6px
+$padding-10: $common-space-10 !default; // 特殊场景padding使用10px
 
-$margin: $common-space !default;
-$margin-2x: $common-space-2x !default; // 8px
-$margin-3x: $common-space-3x !default; // 12px
-$margin-4x: $common-space-4x !default; // 16px
-$margin-5x: $common-space-5x !default; // 20px
-$margin-6x: $common-space-6x !default; // 24px
-$margin-7x: $common-space-7x !default; // 28px
-$margin-8x: $common-space-8x !default; // 32px
-$margin-9x: $common-space-9x !default; // 36px
-$margin-10x: $common-space-10x !default; // 40px
-$margin-6: $common-space-6 !default; // 特殊场景使用6px
-$margin-10: $common-space-10 !default; // 特殊场景使用10px
+$margin: $common-space !default; // 标准margin
+$margin-2x: $common-space-2x !default; // 2倍margin
+$margin-3x: $common-space-3x !default; // 3倍margin
+$margin-4x: $common-space-4x !default; // 4倍margin
+$margin-5x: $common-space-5x !default; // 5倍margin
+$margin-6x: $common-space-6x !default; // 6倍margin
+$margin-7x: $common-space-7x !default; // 7倍margin
+$margin-8x: $common-space-8x !default; // 8倍margin
+$margin-9x: $common-space-9x !default; // 9倍margin
+$margin-10x: $common-space-10x !default; // 10倍margin
+$margin-6: $common-space-6 !default; // 特殊场景margin使用6px
+$margin-10: $common-space-10 !default; // 特殊场景margin使用10px
 
 /* Title: 阴影; Doc: true
 -------------------------- */
 $shadow-1: 0px 0px 8px rgba(100, 110, 144, 0.1) !default; // 一级阴影: 背景卡片使用
 $shadow-2: 0px 0px 16px rgba(100, 110, 144, 0.2) !default; // 二级阴影: 下拉组件使用，如下拉菜单、下拉选择器、气泡确认框
 $shadow-3: 0px 0px 40px rgba(0, 0, 0, 0.1) !default; // 三级阴影: 最上层投影，对话框、抽屉使用
-$shadow-form-item: 0px 2px 2px rgba(0, 0, 0, 0.1) !default; // 组件Focused状态使用 4级
+$shadow-form-item: 0px 2px 2px rgba(0, 0, 0, 0.1) !default; // 表单项阴影，组件Focused状态使用 4级
 
 /* Title: 页面框架; Doc: true
 -------------------------- */
-$cute-layout-header-height: 50px !default;
-$cute-layout-header-logo-height: 22px !default;
-$cute-layout-header-sub-logo-height: 15px !default;
-$cute-layout-header-text-color: $color-white !default;
-$cute-layout-header-bg: #272b39 !default;
-$cute-layout-header-border: #585b62 !default;
-$cute-layout-sidebar-width: 190px !default;
-$cute-layout-sidebar-bg: $color-bg-1 !default;
-$cute-layout-sidebar-border: $color-neutral-3 !default;
-$cute-layout-sidebar-item-bg-hover: $color-neutral-1 !default;
-$cute-layout-sidebar-color-master: $color-master !default;
-$cute-layout-sidebar-text-color: $text-color !default;
-$cute-layout-sidebar-arrow-color: $text-color-light !default;
+$cute-layout-header-height: 50px !default; // header高度
+$cute-layout-header-logo-height: 22px !default; // logo高度
+$cute-layout-header-sub-logo-height: 15px !default;  // 次logo高度
+$cute-layout-header-text-color: $color-white !default; // header文字颜色
+$cute-layout-header-bg: #272b39 !default; // header背景色
+$cute-layout-header-border: #585b62 !default; // header边框色
+$cute-layout-sidebar-width: 190px !default; // 侧边栏宽度
+$cute-layout-sidebar-bg: $color-bg-1 !default; // 侧边栏背景色
+$cute-layout-sidebar-border: $color-neutral-3 !default; // 侧边栏边框色
+$cute-layout-sidebar-item-bg-hover: $color-neutral-1 !default; // 侧边栏菜单悬停背景色
+$cute-layout-sidebar-color-master: $color-master !default; // 侧边栏主题色
+$cute-layout-sidebar-text-color: $text-color !default; // 侧边栏文字色
+$cute-layout-sidebar-arrow-color: $text-color-light !default; // 侧边栏箭头色
 
-$header-input-bg: #353f58 !default;
-$header-search-text-color: $text-color-light-2 !default;
+$header-input-bg: #353f58 !default; // 头部输入框背景色
+$header-search-text-color: $text-color-light-2 !default; // 头部搜索栏文字色
 
 /* Title: Tag; Doc: false
 -------------------------- */
@@ -186,7 +186,7 @@ $tag-master: $color-master-bg-light-2 !default; // 主题色标签背景
 $tag-master-border: $color-master !default; // 主题色标签边框
 $tag-info: $color-neutral-1 !default; // 信息色标签背景
 $tag-info-dark: $color-neutral-6 !default; // 信息色标签Dark类型背景
-$tag-info-border: $color-neutral-3 !default; // 信息色标签边框
+$tag-info-border: $color-neutral-4 !default; // 信息色标签边框
 $tag-info-text: $text-color !default; // 信息色标签字体颜色
 $tag-success: $color-success-bg !default; // 成功色标签背景
 $tag-success-border: $color-success !default; // 成功色标签边框
@@ -409,7 +409,7 @@ $dialog-footer-bg: $color-neutral-1 !default;
 
 /* Title: Icon; Doc: true
 -------------------------- */
-$icon-color: $color-neutral-6 !default;
+$icon-color: $color-neutral-6 !default; // icon颜色
 
 /* Title: Loading; Doc: false
 -------------------------- */
@@ -444,31 +444,31 @@ $cute-slider-btn-color-disabled: $color-master-disabled !default;
 
 /* Title: Animation; Doc: true
 -------------------------- */
-$transition-time: 200ms !default;
+$transition-time: 200ms !default; // 动画渐变时间
 
 /* Title: Z-Index; Doc: true
 -------------------------- */
-$zindex-badge: auto !default;
-$zindex-normal: 1 !default;
-$zindex-table-fixed: 2 !default;
-$zindex-affix: 10 !default;
-$zindex-layout-sidebar: 10 !default;
-$zindex-modal: 1000 !default;
-$zindex-modal-mask: 1000 !default;
-$zindex-message: 1010 !default;
-$zindex-notification: 1010 !default;
-$zindex-popover: 1030 !default;
-$zindex-dropdown: 1050 !default;
-$zindex-picker: 1050 !default;
-$zindex-popoconfirm: 1060 !default;
-$zindex-tooltip: 1070 !default;
-$zindex-image: 1080 !default;
-$zindex-layout-header: 1999 !default;
-$zindex-loading-mask: 2000 !default;
+$zindex-badge: auto !default; // badge的z-index值
+$zindex-normal: 1 !default; // Table固定行列的z-index值
+$zindex-table-fixed: 2 !default; // Table固定行列的z-index值
+$zindex-affix: 10 !default; // 吸附内容的z-index值
+$zindex-layout-sidebar: 10 !default; // 侧边栏的z-index值
+$zindex-modal: 1000 !default; // modal的z-index值
+$zindex-modal-mask: 1000 !default; // modal遮罩的z-index值
+$zindex-message: 1010 !default; // message的z-index值
+$zindex-notification: 1010 !default; // notification的z-index值
+$zindex-popover: 1030 !default; // popover的z-index值
+$zindex-dropdown: 1050 !default; // dropdown的z-index值
+$zindex-picker: 1050 !default; // picker的z-index值
+$zindex-popoconfirm: 1060 !default; // popoconfirm的z-index值
+$zindex-tooltip: 1070 !default; // tooltip的z-index值
+$zindex-image: 1080 !default; // image的z-index值
+$zindex-layout-header: 1999 !default; // header的z-index值
+$zindex-loading-mask: 2000 !default; // loading状态遮罩的z-index值
 
 /* Title: 响应式断点; Doc: true
 -------------------------- */
-$screen-lg: 1280px !default;
+$screen-lg: 1280px !default; // 屏幕最小分辨率，用于布局主容器宽度计算
 
 /* Title: 图表默认的颜色; Doc: true
 -------------------------- */

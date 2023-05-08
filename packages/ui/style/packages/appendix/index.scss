@@ -1,47 +1,70 @@
-.cute-appendix {
-  margin-top: $margin-3x;
-}
+$cute-appendix-icon-size: 14px;
+$cute-appendix-icon-medium-size: 26px;
+$cute-appendix-medium-content-width: 240px;
+$cute-appendix-medium-content-height: 52px;
+$cute-appendix-medium-content-title-max-width: 184px;
 
-.appendix-link-icon {
-  margin-right: $margin;
-  color: $icon-color;
-  vertical-align: -$margin;
-}
-
-.appendix-eye-icon {
-  margin-left: $margin-2x;
-  color: $icon-color;
-  vertical-align: -$margin;
-
-  &:hover {
-    color: $color-master;
-    cursor: pointer;
-  }
-}
-
-.appendix-big {
+.cute-appendix--medium,
+.cute-appendix--small {
   display: flex;
   align-items: center;
   margin-top: $margin-3x;
 
-  &-item {
-    width: 240px;
-    height: 52px;
-    background-color: $color-neutral-1;
-    display: flex;
-    align-items: center;
-    padding: 0 $padding-2x;
+  .appendix-eye-icon {
+    margin-left: $margin-3x;
+    color: $icon-color;
+    font-size: $cute-appendix-icon-size;
 
     &:hover {
-      background-color: $color-neutral-1;
+      color: $color-master-hover;
       cursor: pointer;
     }
 
-    &-title {
-      margin-left: $margin-2x;
+    &:active {
+      color: $color-master-active;
+    }
+  }
+}
+
+.cute-appendix--small {
+  &__link-icon {
+    font-size: $cute-appendix-icon-size;
+    margin-right: $margin;
+    color: $color-master;
+
+    &:hover {
+      color: $color-master-hover;
+    }
+
+    &:active {
+      color: $color-master-active;
+    }
+  }
+}
+
+.cute-appendix--medium {
+  &__content {
+    width: $cute-appendix-medium-content-width;
+    height: $cute-appendix-medium-content-height;
+    background-color: $color-neutral-1;
+    display: flex;
+    align-items: center;
+    padding: $margin-6 $margin-10;
+
+    &:hover {
+      background-color: $color-master-bg-light-2;
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: $color-master-bg-light;
+    }
+
+    &__title {
+      margin-left: $margin-10;
 
       p:nth-child(1) {
-        max-width: 184px;
+        max-width: $cute-appendix-medium-content-title-max-width;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
@@ -50,7 +73,7 @@
         color: $text-color;
         line-height: $line-height;
         font-weight: $text-title-weight;
-        margin: $margin 0;
+        margin: 0 0 $margin 0;
       }
 
       p:nth-child(2) {
@@ -61,6 +84,11 @@
         font-weight: $text-weight;
         margin: 0;
       }
+    }
+
+    &__link-icon {
+      font-size: $cute-appendix-icon-medium-size;
+      color: $icon-color;
     }
   }
 }

@@ -165,20 +165,25 @@
             class="input-with-select"
           >
             <div slot="prepend">
-              <el-select v-model="select" size="medium" placeholder="城市">
-                <el-option label="上海" value="1"></el-option>
-                <el-option label="北京" value="2"></el-option>
-                <el-option label="深圳" value="3"></el-option>
+              <el-select v-model="select" :size="inputSize" placeholder="城市">
+                <el-option
+                  v-for="(item, index) of citys"
+                  :key="index"
+                  :label="item"
+                  :value="index"
+                ></el-option>
               </el-select>
             </div>
           </el-input>
         </div>
         <div>
-          <el-input v-model="height" :size="inputSize" placeholder="请输入身高" class="input-with-select">
-            <el-select slot="append" v-model="select2" size="medium" placeholder="CM">
-              <el-option label="cm" value="2"></el-option>
-              <el-option label="m" value="1"></el-option>
-            </el-select>
+          <el-input v-model="height" :size="inputSize" placeholder="请输入身高111" class="input-with-select">
+            <div slot="append">
+              <el-select v-model="select2" size="mini" placeholder="CM">
+                <el-option label="cm" value="2"></el-option>
+                <el-option label="m" value="1"></el-option>
+              </el-select>
+            </div>
           </el-input>
         </div>
       </div>
@@ -413,6 +418,7 @@ export default class extends Vue {
   private newPassword = ''
   private inputSize = 'medium'
   private inputDisabled = false
+  private citys = ['北京', '上海', '深圳']
 
   private mounted() {
     this.submit()

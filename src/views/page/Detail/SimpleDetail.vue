@@ -87,7 +87,7 @@
           </el-collapse>
         </template>
       </cute-titled-block>
-      <el-button class="operation" type="text">操作</el-button>　
+      <el-button class="operation" type="text">操作</el-button>
     </div>
     <cute-titled-block title="退货进度">
       <template #content>
@@ -114,16 +114,12 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { CuteTitledBlock } from '@cutedesign/ui'
 import * as SimpleDetail from '@/types/SimpleDetail'
 import { getSimpleDetail } from '@/api/simpleDetail'
 import { STATUS, PROGRESS } from '@/dics/simpleDetail'
 
 @Component({
   name: 'SimpleTable',
-  components: {
-    CuteTitledBlock,
-  },
 })
 export default class extends Vue {
   //跳转携带的name

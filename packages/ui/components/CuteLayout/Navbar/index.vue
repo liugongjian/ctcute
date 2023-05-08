@@ -6,6 +6,7 @@
           <breadcrumb
             :breadcrumb-custom-title="breadcrumbCustomTitle"
             :breadcrumb-show-last="breadcrumbShowLast"
+            :breadcrumb-after-each="breadcrumbAfterEach"
           />
         </slot>
       </div>
@@ -38,5 +39,8 @@ export default class extends Vue {
 
   @Prop({ default: false })
   public breadcrumbShowLast: boolean
+
+  @Prop()
+  private breadcrumbAfterEach
 }
 </script>

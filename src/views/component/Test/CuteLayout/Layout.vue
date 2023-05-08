@@ -9,9 +9,11 @@
       :sidebar-title="sidebarTitle"
       :sidebar-knob="sidebarKnob"
       :sidebar-filter="filterRoutes"
+      :sidebar-routes-after-each="sidebarRoutesAfterEach"
       :navbar="navbar"
       :breadcrumb-custom-title="breadcrumbCustomTitle"
       :breadcrumb-show-last="breadcrumbShowLast"
+      :breadcrumb-after-each="breadcrumbAfterEach"
       :layout="layout"
       :transition="transition"
     >
@@ -156,6 +158,24 @@ export default class extends Vue {
 
   private filterRoutes(routes: Array<any>): Array<any> {
     return routes.filter(route => route.meta.type === 'layoutTest')
+  }
+
+  private sidebarRoutesAfterEach(route) {
+    if (route.path.startsWith('/cluster')) {
+      route.query = {
+        clusterId: '123',
+        clusterName: 'test',
+      }
+      return route
+    }
+    return route
+  }
+
+  private breadcrumbAfterEach(route) {
+    if (route.path === '/cluster') {
+      route.meta.title = '集群管理-集群1'
+    }
+    return route
   }
 }
 </script>

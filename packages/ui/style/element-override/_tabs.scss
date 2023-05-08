@@ -60,6 +60,12 @@ $tabs-lg-height: $input-lg-height;
   }
 }
 
+.el-tabs:not(.el-tabs--button):not(.el-tabs--card):not(.el-tabs--border-card) > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll  {
+  .el-tabs__active-bar + .el-tabs__item{
+     padding-left: 0;
+  }
+}
+
 /*
   card风格
 */

@@ -54,6 +54,7 @@ import ElementUI, {
   Progress,
   Spinner,
   Message,
+  MessageBox,
   Badge,
   Card,
   Carousel,
@@ -87,15 +88,7 @@ import ElementUI, {
   DescriptionsItem,
   Result,
 } from 'element-ui'
-import ElementUIOverride, {
-  Steps,
-  Step,
-  Alert,
-  Collapse,
-  Rate,
-  Button,
-  MessageBox,
-} from './components/ElementUI'
+import ElementUIOverride, { Steps, Step, Alert, Collapse, Rate, Button } from './components/ElementUI'
 // svgIcon
 import './icons/index'
 import SvgIcon from './icons/index.vue'

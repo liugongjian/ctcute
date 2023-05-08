@@ -24,6 +24,7 @@ export default {
     currentName: String,
     editable: Boolean,
     showAddInput: Boolean,
+    addButtonText: String,
     onTabClick: {
       type: Function,
       default: noop,
@@ -64,7 +65,7 @@ export default {
       return ['top', 'bottom'].indexOf(this.rootTabs.tabPosition) !== -1 ? 'width' : 'height'
     },
     defaultTabName() {
-      return this.t('cute.tabs.new')
+      return this.addButtonText || this.t('cute.tabs.new')
     },
   },
 

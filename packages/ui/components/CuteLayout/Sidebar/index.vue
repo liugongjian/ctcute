@@ -52,6 +52,9 @@ export default class extends Mixins(Locale) {
   @Prop()
   private sidebarFilter
 
+  @Prop()
+  private sidebarRoutesAfterEach
+
   @Prop({ default: '' })
   private sidebarTitle: string
 
@@ -86,7 +89,11 @@ export default class extends Mixins(Locale) {
   private onChangeRoutes() {
     const filteredRoutes = this.sidebarFilter ? this.sidebarFilter(this.routes) : this.routes
     this.drillDownRoute = this.getDrillDownRoute()
-    this.routesList = this.drillDownRoute ? this.drillDownRoute.children : filteredRoutes
+    let routesList = this.drillDownRoute ? this.drillDownRoute.children : filteredRoutes
+    if (this.sidebarRoutesAfterEach) {
+      routesList = routesList.map(route => this.sidebarRoutesAfterEach(route))
+    }
+    this.routesList = routesList
     this.$nextTick(() => {
       this.key = new Date().getTime()
     })

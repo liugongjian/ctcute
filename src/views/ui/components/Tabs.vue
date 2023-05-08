@@ -41,6 +41,7 @@
         type="card"
         closable
         addable
+        show-add-input
         @tab-remove="removeTab"
         @tab-add="addTab"
       >

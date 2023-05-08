@@ -23,7 +23,7 @@ export default {
     panes: Array,
     currentName: String,
     editable: Boolean,
-
+    showAddInput: Boolean,
     onTabClick: {
       type: Function,
       default: noop,
@@ -91,11 +91,15 @@ export default {
 
   methods: {
     showTabAdd() {
-      this.newTabEditing = true
-      this.newTabName = this.defaultTabName
-      this.$nextTick(() => {
-        this.$refs.tabAddInput?.focus()
-      })
+      if (this.showAddInput) {
+        this.newTabEditing = true
+        this.newTabName = this.defaultTabName
+        this.$nextTick(() => {
+          this.$refs.tabAddInput?.focus()
+        })
+      } else {
+        this.handleTabAdd()
+      }
     },
     scrollPrev() {
       const containerSize = this.$refs.navScroll[`offset${firstUpperCase(this.sizeName)}`]
@@ -254,7 +258,7 @@ export default {
       showTabAdd,
       newTabName,
       newTabEditing,
-      size,
+      showAddInput,
     } = this
     const scrollBtn = scrollable
       ? [
@@ -349,10 +353,11 @@ export default {
                 ref="tabAdd"
                 tabindex="0"
               >
-                {newTabEditing ? (
+                {showAddInput && newTabEditing ? (
                   <el-input
                     class="el-tabs__add__input"
                     ref="tabAddInput"
+                    size="small"
                     value={newTabName}
                     nativeOnClick={e => e.stopPropagation()}
                     on-input={$event => (this.newTabName = $event)}

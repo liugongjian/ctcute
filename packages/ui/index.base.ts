@@ -96,7 +96,6 @@ import ElementUIOverride, {
   Button,
   MessageBox,
 } from './components/ElementUI'
-import './components/ElementUI/settings'
 // svgIcon
 import './icons/index'
 import SvgIcon from './icons/index.vue'

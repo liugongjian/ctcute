@@ -96,7 +96,6 @@ import ElementUIOverride, {
   Button,
   MessageBox,
 } from './components/ElementUI'
-// import './components/ElementUI/settings'
 // svgIcon
 import './icons/index'
 import SvgIcon from './icons/index.vue'
@@ -116,6 +115,10 @@ export {
  * 组件清单
  */
 import CuteLayout from './components/CuteLayout/index.vue'
+import CuteLayoutSidebar from './components/CuteLayout//Sidebar/index.vue'
+import CuteLayoutNavbar from './components/CuteLayout//Navbar/index.vue'
+import CuteLayoutBreadcrumb from './components/CuteLayout//Breadcrumb/index.vue'
+import CuteLayoutHeader from './components/CuteLayout//Header/index.vue'
 import CuteButtonGroup from './components/CuteCombinationButton/CuteButtonGroup.vue'
 import CuteEditInput from './components/CuteEditInput/index.vue'
 import CuteFormInfo from './components/CuteFormInfo/index.vue'
@@ -137,6 +140,10 @@ import CuteCardBox from './components/CuteCardBox/index.vue'
 import CuteScroller from './components/CuteScroller/index.vue'
 export {
   CuteLayout,
+  CuteLayoutSidebar,
+  CuteLayoutNavbar,
+  CuteLayoutBreadcrumb,
+  CuteLayoutHeader,
   CuteButtonGroup,
   CuteEditInput,
   CuteFormInfo,
@@ -163,6 +170,10 @@ export {
  */
 const componentsList = [
   CuteLayout,
+  CuteLayoutSidebar,
+  CuteLayoutNavbar,
+  CuteLayoutBreadcrumb,
+  CuteLayoutHeader,
   CuteFormInfo,
   CuteEditInput,
   CuteButtonGroup,
@@ -187,24 +198,6 @@ export default {
     Vue.use(ElementUIOverride)
     Vue.use(InfiniteScroll)
     Vue.use(Loading.directive)
-
-    const Pagination = ElementUI.Pagination as any
-    const Table = ElementUI.Table as any
-    Pagination.props.layout = {
-      default: 'total, sizes, prev, pager, next',
-    }
-    Pagination.props.pageSize = {
-      default: 20,
-    }
-    Pagination.props.pageSizes = {
-      default: () => [10, 20, 30, 50, 100],
-    }
-    Pagination.props.popperClass = {
-      default: 'pagination__dropdown',
-    }
-    Table.props.emptyText = {
-      default: '暂无数据',
-    }
 
     Vue.prototype.$loading = Loading.service
     Vue.prototype.$msgbox = MessageBox

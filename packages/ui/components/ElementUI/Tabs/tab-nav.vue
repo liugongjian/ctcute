@@ -348,7 +348,12 @@ export default {
             {tabs}
             {editable || addable ? (
               <div
-                class={['el-tabs__item', `is-${this.rootTabs.tabPosition}`, 'el-tabs__add']}
+                class={[
+                  'el-tabs__item',
+                  `is-${this.rootTabs.tabPosition}`,
+                  'el-tabs__add',
+                  showAddInput ? 'with-input' : '',
+                ]}
                 on-click={showTabAdd}
                 ref="tabAdd"
                 tabindex="0"

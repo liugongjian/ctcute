@@ -49,9 +49,11 @@
   line-height: 8px;
   max-width: 300px;
   border-radius: 2px;
-  .el-form-item__custom__error__content{
+
+  .el-form-item__custom__error__content {
     display: flex;
-    i{
+
+    i {
       padding-top: 3px;
       font-size: 14px;
       margin-right: 8px;
@@ -60,6 +62,7 @@
   }
 
 }
+
 .el-form--inline .el-form-item {
   margin-right: $margin-5x;
 }
@@ -75,6 +78,16 @@
 
       .el-form-item__content {
         line-height: $height;
+      }
+    }
+  }
+
+  .el-form--inline {
+    .el-form-item {
+      &.el-form-item--#{$size} {
+        .el-form-item__content {
+          line-height: 1;
+        }
       }
     }
   }

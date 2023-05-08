@@ -2,7 +2,7 @@
  * @Author: 刘功坚
  * @Date: 2023-03-17 13:45:09
  * @LastEditors: liugj
- * @LastEditTime: 2023-05-08 14:23:03
+ * @LastEditTime: 2023-05-08 15:22:56
  * @Description: Tree
 -->
 <template>
@@ -42,6 +42,26 @@
         @node-drag-end="handleDragEnd"
         @node-drop="handleDrop"
       >
+      </el-tree>
+    </div>
+    <div>
+      <h3>具有操作功能的树</h3>
+      <el-tree :data="data" node-key="id" default-expand-all>
+        <div slot-scope="{ node }" class="node-content">
+          <div class="operator">
+            <span>{{ node.label }}</span>
+            <span>
+              <el-dropdown>
+                <i class="el-icon-more"></i>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item>新建</el-dropdown-item>
+                  <el-dropdown-item>编辑</el-dropdown-item>
+                  <el-dropdown-item>删除</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+            </span>
+          </div>
+        </div>
       </el-tree>
     </div>
   </div>
@@ -186,5 +206,34 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .el-link {
   margin-right: 20px;
+}
+.el-tree {
+  width: 300px;
+  ::v-deep &-node__content {
+    width: 100%;
+    .node-content {
+      flex-grow: 1;
+
+      .operator {
+        .el-icon-more {
+          display: none;
+        }
+      }
+    }
+    &:hover {
+      .operator {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 16px;
+        .el-icon-more {
+          &:hover,
+          &:focus {
+            color: $color-master;
+          }
+          display: block;
+        }
+      }
+    }
+  }
 }
 </style>

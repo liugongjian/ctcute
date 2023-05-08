@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-25 17:54:37
  * @LastEditors: 黄靖
- * @LastEditTime: 2023-03-16 19:03:32
+ * @LastEditTime: 2023-05-08 14:22:03
  * @Description: 
 -->
 <template>
@@ -124,7 +124,7 @@ export default class extends Vue {
   private nodeProps = [
     {
       name: 'value',
-      desc: '指定树节点选择后的取值value为节点对象的某个属性值，也作为每个树节点用来作为唯一标识的属性，整棵树应该是唯一的',
+      desc: '指定树节点选择后的取值value为节点对象的某个属性值，也作为每个树节点的key，整棵树应该是唯一的',
       type: 'string',
       options: null,
       default: '"id"',

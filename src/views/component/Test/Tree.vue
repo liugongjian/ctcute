@@ -2,7 +2,7 @@
  * @Author: 刘功坚
  * @Date: 2023-03-17 13:45:09
  * @LastEditors: liugj
- * @LastEditTime: 2023-05-08 15:22:56
+ * @LastEditTime: 2023-05-08 15:25:00
  * @Description: Tree
 -->
 <template>
@@ -205,7 +205,7 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .el-link {
-  margin-right: 20px;
+  margin-right: $margin-5x;
 }
 .el-tree {
   width: 300px;
@@ -224,7 +224,7 @@ export default class extends Vue {
       .operator {
         display: flex;
         justify-content: space-between;
-        padding-right: 16px;
+        padding-right: $padding-4x;
         .el-icon-more {
           &:hover,
           &:focus {

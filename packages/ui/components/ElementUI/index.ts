@@ -1,3 +1,4 @@
+import ElementUI from 'element-ui'
 import Steps from './Steps/index.vue'
 import Step from './Steps/Step.vue'
 import Alert from './Alert/index.vue'
@@ -32,6 +33,24 @@ export default {
     Vue.prototype.$alert = MessageBox.alert
     Vue.prototype.$confirm = MessageBox.confirm
     Vue.prototype.$prompt = MessageBox.prompt
+
+    const Pagination = ElementUI.Pagination as any
+    const Table = ElementUI.Table as any
+    Pagination.props.layout = {
+      default: 'total, sizes, prev, pager, next',
+    }
+    Pagination.props.pageSize = {
+      default: 20,
+    }
+    Pagination.props.pageSizes = {
+      default: () => [10, 20, 30, 50, 100],
+    }
+    Pagination.props.popperClass = {
+      default: 'pagination__dropdown',
+    }
+    Table.props.emptyText = {
+      default: '暂无数据',
+    }
   },
 }
 export { Steps, Step, Alert, Collapse, Rate, ColorPicker, Button, Popover, MessageBox }

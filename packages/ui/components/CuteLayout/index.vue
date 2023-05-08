@@ -22,6 +22,7 @@
           :class="[sidebarCustomClass]"
           :sidebar-routes="sidebarRoutes"
           :sidebar-filter="sidebarFilter"
+          :sidebar-routes-after-each="sidebarRoutesAfterEach"
           :sidebar-title="sidebarTitle"
           :sidebar-knob="sidebarKnob"
         />
@@ -35,6 +36,7 @@
             :navbar-breadcrumb="navbarBreadcrumb"
             :breadcrumb-custom-title="breadcrumbCustomTitle"
             :breadcrumb-show-last="breadcrumbShowLast"
+            :breadcrumb-after-each="breadcrumbAfterEach"
           >
             <template slot="navbar-breadcrumb">
               <slot name="navbar-breadcrumb" />
@@ -101,6 +103,9 @@ export default class extends Vue {
   private sidebarRoutes
 
   @Prop()
+  private sidebarRoutesAfterEach
+
+  @Prop()
   private sidebarFilter
 
   @Prop({ default: '' })
@@ -120,5 +125,8 @@ export default class extends Vue {
 
   @Prop({ default: false })
   public breadcrumbShowLast: boolean
+
+  @Prop()
+  private breadcrumbAfterEach
 }
 </script>

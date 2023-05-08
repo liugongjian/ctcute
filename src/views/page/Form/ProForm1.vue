@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 胡一苗
- * @LastEditTime: 2023-02-03 13:30:26
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-08 14:52:23
  * @Description: 复杂表单1
 -->
 <template>
@@ -213,16 +213,10 @@
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import * as ProForm1 from '@/types/ProForm1'
-import { CuteTitledBlock } from '@cutedesign/ui'
 import { createProForm1, getAlertTarget } from '@/api/proForm1'
-import CuteFixedFooter from '@cutedesign/ui/components/CuteFixedFooter/index.vue'
 
 @Component({
   name: 'ProForm1',
-  components: {
-    CuteFixedFooter,
-    CuteTitledBlock,
-  },
 })
 export default class extends Vue {
   // 表单Ref对象

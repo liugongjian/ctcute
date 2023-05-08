@@ -165,12 +165,8 @@
 
 <script lang="ts">
 import { Vue, Component, Ref } from 'vue-property-decorator'
-import { CuteTitledBlock } from '@cutedesign/ui'
 @Component({
   name: 'Demo1',
-  components: {
-    CuteTitledBlock,
-  },
 })
 export default class extends Vue {
   @Ref('formRef')

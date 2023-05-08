@@ -20,32 +20,79 @@ import CuteMdPreview from '../components/CuteMdPreview.vue'
 })
 export default class extends Vue {
   private content = `
-## 自定义主题
+## @cutedesign/ui 使用手册
 
-### 官方的配色一般用于上云的场景，若您有特殊的需求，则可以自定义主题。
+#### 安装
 
-1. 在项目目录的 \`src/assets/css\` 目录下创建 \`_variables.scss\` 文件，定义您想覆盖的颜色变量，如 \`$color-master-1\`。全量的颜色变量名可在 \`@cutedesign/theme/css/_variables-cute.scss\` 中查看
-2. 在项目目录的 \`vue.config.js\` 文件中，配置自定义颜色变量解析路径，覆盖原来的定义。具体的，在 \`style-resources-loader\` 的最后一个 \`patterns\` 中，添加 **path.resolve(__dirname, 'src/assets/css/_variables.scss')** ，完整的例子如下:
+\`\`\`
+npm i @cutedesign/ui
+\`\`\`
+
+#### 快速上手
+
+\`\`\`
+import '@cutedesign/ui/lib/index.css'
+import CuteUI from '@cutedesign/ui'
+Vue.use(CuteUI)
+\`\`\`
+    
+#### 自定义主题
+
+1. 新建scss文件修改样式变量，如custom.scss，全部变量见\`@cutedesign/theme/css/_variables-cute.scss\`
+
+\`\`\`
+/* 修改变量，全部变量见@cutedesign/ui/style/themes/default/variables.scss */
+$color-master: #fa8334; // 默认
+$color-master-hover: #ff934c; // 悬停
+$color-master-active: #d46322; // 触发
+$color-master-bg: #ffe1c6; // 背景
+$color-master-bg-light: #ffefe3; // 背景浅色
+$color-master-bg-light-2: #fef2ea; // 背景浅色2
+
+/* 如果不想修改样式变量，删除以上代码，保留下面一行即可 */
+/* 引用ui包scss样式变量，必需 */
+@import "~@cutedesign/ui/lib/index.scss";
+\`\`\`       
+
+2. 项目入口文件引入
+\`\`\`
+import './custom.scss'
+import CuteUI from '@cutedesign/ui'
+Vue.use(CuteUI)
+\`\`\`
+
+
+### 关于项目中使用@cutedisign/ui包里颜色变量的情况
+ 
+分两种情况：
+
+1.如果不修改主题，仅使用ui包的默认颜色变量，可通过style-resource-loader等方式把颜色变量注入，然后在项目中样式可直接引用颜色变量即可
 
 \`\`\`
 pluginOptions: {
   'style-resources-loader': {
     preProcessor: 'scss',
     patterns: [
-      path.resolve(__dirname, 'node_modules/@cutedesign/ui/style/themes/default/index.scss'),
-      path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_mixins.scss'),
+      path.resolve(__dirname, 'node_modules/@cutedesign/ui/style/themes/default/variables.scss'),
+      path.resolve(__dirname, 'node_modules/@cutedesign/ui/style/_mixins.scss')
     ],
-  },
-},
-\`\`\`
+  }
+}
+\`\`\` 
 
-3. 若您在项目中需要以js变量的形式直接使用颜色变量，为了让ts找到的定义，需要在项目目录的 \`src/assets/css\` 目录下创建 \`_variables.scss.d.ts\` 文件，并写入如下内容：
-
-\`\`\`js
-import { IScssVariablesRevised } from '@cutedesign/ui/style/themes/default/index.scss'
-export const variablesRevised: IScssVariablesRevised
-export default variablesRevised
+2.如果要修改主题，如已定义custom.scss修改颜色变量，为保证项目中引用的颜色变量和主题一致，还需要覆盖默认颜色变量，比如在src/assets/css/_variables.scss里添加颜色变量覆盖，同时在在 \`style-resources-loader\` 的最后一个 \`patterns\` 中，添加 **path.resolve(__dirname, 'src/assets/css/_variables.scss')** ，例子如下
 \`\`\`
+pluginOptions: {
+  'style-resources-loader': {
+    preProcessor: 'scss',
+    patterns: [
+      path.resolve(__dirname, 'node_modules/@cutedesign/ui/style/themes/default/variables.scss'),
+      path.resolve(__dirname, 'node_modules/@cutedesign/ui/style/_mixins.scss'),
+      path.resolve(__dirname, 'src/assets/css/_variables.scss'),
+    ],
+  }
+}
+\`\`\` 
 `
 }
 </script>

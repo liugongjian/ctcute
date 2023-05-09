@@ -171,9 +171,18 @@ const componentsList = [
   CuteFixedFooter,
 ]
 
+import { default as createI18n } from './i18n'
+
 export default {
   install(Vue, opts = { size: 'medium' }) {
-    Vue.use(ElementUI, opts)
+    const i18n = createI18n({
+      storageKey: 'cute-lang', // 本地持久化时的 localStorage key
+      defaultLang: 'zh', // 默认展示的语言
+    })
+    Vue.use(ElementUI, {
+      size: opts.size || 'medium',
+      i18n: (key: string, value: any) => i18n.t(key, value)
+    })
     Vue.use(ElementUIOverride)
     Vue.component('SvgIcon', SvgIcon)
 

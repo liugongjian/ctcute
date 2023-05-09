@@ -244,8 +244,7 @@ $button-padding-large: $margin-3x $padding-6x;
   ); // 从第1个字符开始，截取到第一个空格前的字符
 
   .el-button--#{$size} {
-    display: inline-flex;
-    align-items: center;
+    display: inline-block;
     font-size: $font-size;
     padding: $padding;
     border-radius: $border-radius;
@@ -254,13 +253,13 @@ $button-padding-large: $margin-3x $padding-6x;
       position: relative;
       display: inline-block;
       width: $font-size;
-      height: $font-size;
+      height: $font-size - 3;
 
       .svg-icon,
       [class*='el-icon-'] {
         position: absolute;
         left: 0;
-        top: 0;
+        top: -1px;
         font-size: $font-size;
         line-height: 1;
         transform: scale(1.18);

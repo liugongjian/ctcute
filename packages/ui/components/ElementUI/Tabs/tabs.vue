@@ -25,8 +25,13 @@ export default {
     activeName: String,
     closable: Boolean,
     addable: Boolean,
+    addButtonText: {
+      type: String,
+      default: '',
+    },
     value: {},
     editable: Boolean,
+    showAddInput: Boolean,
     tabPosition: {
       type: String,
       default: 'top',
@@ -53,7 +58,6 @@ export default {
       if (this.$refs.nav) {
         this.$nextTick(() => {
           this.$refs.nav.$nextTick(_ => {
-            console.log(_, '----')
             this.$refs.nav.scrollToActiveTab()
           })
         })
@@ -151,6 +155,8 @@ export default {
       addable,
       tabPosition,
       stretch,
+      showAddInput,
+      addButtonText,
     } = this
 
     const navData = {
@@ -165,6 +171,8 @@ export default {
         addable,
         handleTabAdd,
         size,
+        showAddInput,
+        addButtonText,
       },
       ref: 'nav',
     }

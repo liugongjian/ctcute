@@ -22,9 +22,14 @@
           :class="[sidebarCustomClass]"
           :sidebar-routes="sidebarRoutes"
           :sidebar-filter="sidebarFilter"
+          :sidebar-routes-after-each="sidebarRoutesAfterEach"
           :sidebar-title="sidebarTitle"
           :sidebar-knob="sidebarKnob"
-        />
+        >
+          <template slot="sidebar-menu">
+            <slot name="sidebar-menu"></slot>
+          </template>
+        </layout-sidebar>
       </slot>
 
       <!-- id在sidebar中被使用，勿随意删改 -->
@@ -35,6 +40,7 @@
             :navbar-breadcrumb="navbarBreadcrumb"
             :breadcrumb-custom-title="breadcrumbCustomTitle"
             :breadcrumb-show-last="breadcrumbShowLast"
+            :breadcrumb-after-each="breadcrumbAfterEach"
           >
             <template slot="navbar-breadcrumb">
               <slot name="navbar-breadcrumb" />
@@ -101,6 +107,9 @@ export default class extends Vue {
   private sidebarRoutes
 
   @Prop()
+  private sidebarRoutesAfterEach
+
+  @Prop()
   private sidebarFilter
 
   @Prop({ default: '' })
@@ -120,5 +129,8 @@ export default class extends Vue {
 
   @Prop({ default: false })
   public breadcrumbShowLast: boolean
+
+  @Prop()
+  private breadcrumbAfterEach
 }
 </script>

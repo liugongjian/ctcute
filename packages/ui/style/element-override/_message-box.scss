@@ -34,6 +34,8 @@ $messagebox-btns-padding: $padding-3x $padding-8x $padding-5x $padding-8x;
   &__btns {
     padding: $messagebox-btns-padding;
 
+    @include button-size(small, $text-size, $button-padding-medium);
+
     .el-button + .el-button {
       margin-left: $margin-4x;
     }

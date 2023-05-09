@@ -1,8 +1,8 @@
 <!--
  * @Author: 黄靖
  * @Date: 2023-03-27 15:12:09
- * @LastEditors: 黄靖
- * @LastEditTime: 2023-03-27 15:12:09
+ * @LastEditors: hj
+ * @LastEditTime: 2023-05-06 20:40:03
  * @Description: Step
 -->
 <template>
@@ -39,6 +39,7 @@
         v-model="value.default"
         closable
         addable
+        show-add-input
         @tab-add="value => addTab('default', value)"
         @tab-remove="value => removeTab('default', value)"
       >
@@ -110,6 +111,7 @@
         type="button"
         closable
         addable
+        show-add-input
         @tab-add="value => addTab('button', value)"
         @tab-remove="value => removeTab('button', value)"
       >
@@ -181,6 +183,7 @@
         type="card"
         closable
         addable
+        show-add-input
         @tab-add="value => addTab('card', value)"
         @tab-remove="value => removeTab('card', value)"
       >
@@ -252,6 +255,7 @@
         type="border-card"
         closable
         addable
+        show-add-input
         @tab-add="value => addTab('borderCard', value)"
         @tab-remove="value => removeTab('borderCard', value)"
       >

@@ -54,6 +54,7 @@ import ElementUI, {
   Progress,
   Spinner,
   Message,
+  MessageBox,
   Badge,
   Card,
   Carousel,
@@ -94,9 +95,8 @@ import ElementUIOverride, {
   Collapse,
   Rate,
   Button,
-  MessageBox,
+  // MessageBox,
 } from './components/ElementUI'
-import './components/ElementUI/settings'
 // svgIcon
 import './icons/index'
 import SvgIcon from './icons/index.vue'

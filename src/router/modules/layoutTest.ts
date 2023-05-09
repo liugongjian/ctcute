@@ -70,6 +70,7 @@ const layoutTestRoutes = [
     component: Layout,
     meta: {
       title: '布局-2',
+      icon: 'api',
       breadcrumb: false,
     },
     children: [
@@ -79,6 +80,7 @@ const layoutTestRoutes = [
         component: () => import('@/views/component/Test/CuteLayout/Page2.vue'),
         meta: {
           title: '测试页面2',
+          icon: 'api',
           breadcrumb: true,
         },
       },
@@ -86,7 +88,7 @@ const layoutTestRoutes = [
         path: 'page3',
         name: 'Page3',
         component: () => import('@/views/component/Test/CuteLayout/Page3.vue'),
-        redirect: '/component/test/layout2/page3/page3-1',
+        // redirect: '/component/test/layout2/page3/page3-1',
         meta: {
           title: '测试页面3(下钻)',
           breadcrumb: true,
@@ -149,6 +151,8 @@ const layoutTestRoutes = [
         component: () => import('@/views/component/Test/CuteLayout/Page3.vue'),
         meta: {
           title: '测试页面3',
+          icon: 'api',
+          iconType: 'svg',
           breadcrumb: true,
         },
         children: [
@@ -180,6 +184,79 @@ const layoutTestRoutes = [
             },
           },
         ],
+      },
+    ],
+  },
+  {
+    path: '/component/test/layout4',
+    component: Layout,
+    meta: {
+      title: '子菜单全隐藏',
+      breadcrumb: false,
+      hidden: true,
+    },
+    children: [
+      {
+        path: 'page1',
+        name: 'Page1',
+        component: () => import('@/views/component/Test/CuteLayout/Page2.vue'),
+        meta: {
+          title: '子菜单全隐藏1',
+          breadcrumb: true,
+          hidden: true,
+        },
+      },
+      {
+        path: 'page2',
+        name: 'Page2',
+        component: () => import('@/views/component/Test/CuteLayout/Page2.vue'),
+        meta: {
+          title: '子菜单全隐藏2',
+          breadcrumb: true,
+          hidden: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/cluster',
+    name: 'Cluster',
+    component: Layout,
+    meta: {
+      title: '集群管理(下钻)',
+      breadcrumb: true,
+      hidden: true,
+      drillDown: true,
+      drillDownBackPath: '/component/test/layout2/page2',
+    },
+    children: [
+      {
+        path: 'sub-1',
+        name: 'ClusterSub1',
+        component: () => import('@/views/component/Test/CuteLayout/Page3-1.vue'),
+        meta: {
+          title: '节点池',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'sub-2',
+        name: 'ClusterSub2',
+        component: () => import('@/views/component/Test/CuteLayout/Page3-2.vue'),
+        meta: {
+          title: '任务',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'sub-3',
+        name: 'ClusterSub3',
+        component: () => import('@/views/component/Test/CuteLayout/Page3-3.vue'),
+        meta: {
+          title: '服务',
+          breadcrumb: true,
+          customPath: '/component/test/layout2/page3/page3-1',
+        },
       },
     ],
   },

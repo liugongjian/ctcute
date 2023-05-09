@@ -95,11 +95,10 @@
 import { Component, Vue } from 'vue-property-decorator'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
 import { CuteSpecialRadio } from '@cutedesign/ui'
-import { CuteTitledBlock } from '@cutedesign/ui'
 import { STATUS, HEALTH } from '@/dics/productDetails'
 @Component({
   name: 'ProductDetails',
-  components: { CuteSpecialRadio, CuteTitledBlock },
+  components: { CuteSpecialRadio },
 })
 export default class extends Vue {
   private colorVariables = variables

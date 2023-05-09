@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-28 12:41:31
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-05-08 14:48:58
  * @Description:
  */
 import ElementUI, {
@@ -54,6 +54,7 @@ import ElementUI, {
   Progress,
   Spinner,
   Message,
+  MessageBox,
   Badge,
   Card,
   Carousel,
@@ -87,16 +88,7 @@ import ElementUI, {
   DescriptionsItem,
   Result,
 } from 'element-ui'
-import ElementUIOverride, {
-  Steps,
-  Step,
-  Alert,
-  Collapse,
-  Rate,
-  Button,
-  MessageBox,
-} from './components/ElementUI'
-// import './components/ElementUI/settings'
+import ElementUIOverride, { Steps, Step, Alert, Collapse, Rate, Button } from './components/ElementUI'
 // svgIcon
 import './icons/index'
 import SvgIcon from './icons/index.vue'
@@ -116,6 +108,10 @@ export {
  * 组件清单
  */
 import CuteLayout from './components/CuteLayout/index.vue'
+import CuteLayoutSidebar from './components/CuteLayout//Sidebar/index.vue'
+import CuteLayoutNavbar from './components/CuteLayout//Navbar/index.vue'
+import CuteLayoutBreadcrumb from './components/CuteLayout//Breadcrumb/index.vue'
+import CuteLayoutHeader from './components/CuteLayout//Header/index.vue'
 import CuteButtonGroup from './components/CuteCombinationButton/CuteButtonGroup.vue'
 import CuteEditInput from './components/CuteEditInput/index.vue'
 import CuteFormInfo from './components/CuteFormInfo/index.vue'
@@ -135,8 +131,13 @@ import CuteSlider from './components/CuteSlider/index.vue'
 import CuteDistributionBar from './components/CuteDistributionBar/index.vue'
 import CuteCardBox from './components/CuteCardBox/index.vue'
 import CuteScroller from './components/CuteScroller/index.vue'
+import CuteFixedFooter from './components/CuteFixedFooter/index.vue'
 export {
   CuteLayout,
+  CuteLayoutSidebar,
+  CuteLayoutNavbar,
+  CuteLayoutBreadcrumb,
+  CuteLayoutHeader,
   CuteButtonGroup,
   CuteEditInput,
   CuteFormInfo,
@@ -156,6 +157,7 @@ export {
   CuteDistributionBar,
   CuteCardBox,
   CuteScroller,
+  CuteFixedFooter,
 }
 
 /**
@@ -163,6 +165,10 @@ export {
  */
 const componentsList = [
   CuteLayout,
+  CuteLayoutSidebar,
+  CuteLayoutNavbar,
+  CuteLayoutBreadcrumb,
+  CuteLayoutHeader,
   CuteFormInfo,
   CuteEditInput,
   CuteButtonGroup,
@@ -179,6 +185,7 @@ const componentsList = [
   CuteCardBox,
   CuteScroller,
   CuteTitledBlock,
+  CuteFixedFooter,
 ]
 
 export default {
@@ -187,24 +194,6 @@ export default {
     Vue.use(ElementUIOverride)
     Vue.use(InfiniteScroll)
     Vue.use(Loading.directive)
-
-    const Pagination = ElementUI.Pagination as any
-    const Table = ElementUI.Table as any
-    Pagination.props.layout = {
-      default: 'total, sizes, prev, pager, next',
-    }
-    Pagination.props.pageSize = {
-      default: 20,
-    }
-    Pagination.props.pageSizes = {
-      default: () => [10, 20, 30, 50, 100],
-    }
-    Pagination.props.popperClass = {
-      default: 'pagination__dropdown',
-    }
-    Table.props.emptyText = {
-      default: '暂无数据',
-    }
 
     Vue.prototype.$loading = Loading.service
     Vue.prototype.$msgbox = MessageBox

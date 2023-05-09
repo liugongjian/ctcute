@@ -53,10 +53,10 @@ export const t = function (path: string, options?: any) {
     const property = array[i]
     // 尝试读取当前一层内容
     value = current[property]
-    // 最后一层执行解析
-    if (i === j - 1) return format(value, options)
     // 查无数据，则直接终止解析
     if (!value) return path
+    // 最后一层执行解析
+    if (i === j - 1) return format(value, options)
     // 继续向下一层
     current = value
   }

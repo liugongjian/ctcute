@@ -23,7 +23,8 @@ export default {
     panes: Array,
     currentName: String,
     editable: Boolean,
-
+    showAddInput: Boolean,
+    addButtonText: String,
     onTabClick: {
       type: Function,
       default: noop,
@@ -64,7 +65,7 @@ export default {
       return ['top', 'bottom'].indexOf(this.rootTabs.tabPosition) !== -1 ? 'width' : 'height'
     },
     defaultTabName() {
-      return this.t('cute.tabs.new')
+      return this.addButtonText || this.t('cute.tabs.new')
     },
   },
 
@@ -91,11 +92,15 @@ export default {
 
   methods: {
     showTabAdd() {
-      this.newTabEditing = true
-      this.newTabName = this.defaultTabName
-      this.$nextTick(() => {
-        this.$refs.tabAddInput?.focus()
-      })
+      if (this.showAddInput) {
+        this.newTabEditing = true
+        this.newTabName = this.defaultTabName
+        this.$nextTick(() => {
+          this.$refs.tabAddInput?.focus()
+        })
+      } else {
+        this.handleTabAdd()
+      }
     },
     scrollPrev() {
       const containerSize = this.$refs.navScroll[`offset${firstUpperCase(this.sizeName)}`]
@@ -254,7 +259,7 @@ export default {
       showTabAdd,
       newTabName,
       newTabEditing,
-      size,
+      showAddInput,
     } = this
     const scrollBtn = scrollable
       ? [
@@ -344,15 +349,21 @@ export default {
             {tabs}
             {editable || addable ? (
               <div
-                class={['el-tabs__item', `is-${this.rootTabs.tabPosition}`, 'el-tabs__add']}
+                class={[
+                  'el-tabs__item',
+                  `is-${this.rootTabs.tabPosition}`,
+                  'el-tabs__add',
+                  showAddInput ? 'with-input' : '',
+                ]}
                 on-click={showTabAdd}
                 ref="tabAdd"
                 tabindex="0"
               >
-                {newTabEditing ? (
+                {showAddInput && newTabEditing ? (
                   <el-input
                     class="el-tabs__add__input"
                     ref="tabAddInput"
+                    size="small"
                     value={newTabName}
                     nativeOnClick={e => e.stopPropagation()}
                     on-input={$event => (this.newTabName = $event)}

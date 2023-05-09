@@ -199,6 +199,11 @@ $input-suffix-padding: $padding-8x + 2;
 @include input-size(small, $input-sm-height, $text-size);
 @include input-size(mini, $input-xs-height, $text-size);
 
+.el-input__inner {
+  height: $input-md-height;
+  line-height: $input-md-height;
+}
+
 // 占位符 全局覆盖
 .el-input__inner::placeholder {
   color: $color-neutral-7 !important;

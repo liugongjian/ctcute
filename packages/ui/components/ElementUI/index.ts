@@ -9,7 +9,6 @@ import Tabs from './Tabs/tabs.vue'
 import Breadcrumb from './Breadcrumb/Breadcrumb.vue'
 import BreadcrumbItem from './Breadcrumb/BreadcrumbItem.vue'
 import Button from './Button/index.vue'
-import MessageBox from './MessageBox/index.js'
 import Popover from './Popover/index.vue'
 import directive from './Popover/directive.js'
 import FormItem from './FormItem/index.vue'
@@ -29,10 +28,6 @@ export default {
     Vue.directive('popover', directive)
     Vue.component(Popover.name, Popover)
     Vue.component(FormItem.name, FormItem)
-    Vue.prototype.$msgbox = MessageBox
-    Vue.prototype.$alert = MessageBox.alert
-    Vue.prototype.$confirm = MessageBox.confirm
-    Vue.prototype.$prompt = MessageBox.prompt
 
     const Pagination = ElementUI.Pagination as any
     const Table = ElementUI.Table as any
@@ -53,4 +48,4 @@ export default {
     }
   },
 }
-export { Steps, Step, Alert, Collapse, Rate, ColorPicker, Button, Popover, MessageBox }
+export { Steps, Step, Alert, Collapse, Rate, ColorPicker, Button, Popover }

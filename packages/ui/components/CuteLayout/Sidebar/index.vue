@@ -14,15 +14,17 @@
       </div>
       <div v-else-if="sidebarTitle" class="cute-layout-sidebar__title">{{ sidebarTitle }}</div>
 
-      <el-menu
-        :default-active="activeMenu"
-        :unique-opened="false"
-        :collapse-transition="false"
-        mode="vertical"
-        class="layout-sidebar__menu"
-      >
-        <sidebar-item v-for="route in routesList" :key="route.path" :item="route" :base-path="route.path" />
-      </el-menu>
+      <slot name="sidebar-menu">
+        <el-menu
+          :default-active="activeMenu"
+          :unique-opened="false"
+          :collapse-transition="false"
+          mode="vertical"
+          class="layout-sidebar__menu"
+        >
+          <sidebar-item v-for="route in routesList" :key="route.path" :item="route" :base-path="route.path" />
+        </el-menu>
+      </slot>
     </div>
     <!-- 展开与收缩按钮 -->
     <div v-if="sidebarKnob" class="cute-layout-sidebar__knob" @click="toggleSideBar">

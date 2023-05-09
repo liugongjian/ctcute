@@ -27,7 +27,7 @@
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
               <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
             </span>
-            {{ node.label }}
+            <span :class="node.isLeaf ? 'icon-leaf-label' : ''">{{ node.label }}</span>
           </span>
         </el-tree>
       </el-col>
@@ -41,7 +41,7 @@
               <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
               <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
             </span>
-            {{ node.label }}
+            <span :class="node.isLeaf ? 'icon-leaf-label' : ''">{{ node.label }}</span>
           </span>
         </el-tree>
       </el-col>
@@ -54,7 +54,7 @@
               <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
             </span>
             <span class="node-icon">
-              <svg-icon v-if="node.isLeaf" name="tag" width="17" height="17" />
+              <svg-icon v-if="node.isLeaf" name="tag" width="17" height="17" class="leaf" />
             </span>
             {{ node.label }}
           </span>
@@ -285,7 +285,7 @@ export default class extends Vue {
 }
 
 .node-content {
-  margin-left: -0.5em;
+  // margin-left: -0.5em;
   display: flex;
   align-items: center;
   color: $text-color;
@@ -348,6 +348,12 @@ export default class extends Vue {
     .handler-menu {
       display: flex;
     }
+  }
+  .icon-leaf-label {
+    padding-left: 34px;
+  }
+  .leaf {
+    margin-left: 14px;
   }
 }
 

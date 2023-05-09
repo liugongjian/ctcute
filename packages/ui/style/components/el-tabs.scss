@@ -44,6 +44,7 @@
         }
       }
     }
+
      // 其他风格字体为sm -> 12px md/lg -> 14px，间距为sm -> 16px, md/lg -> 20px
     &:not(.el-tabs--button) > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav > .el-tabs__item {
       &, &.is-top.is-active {
@@ -57,7 +58,7 @@
           padding: 0 $padding-5x;
         }
       }
-    } 
+    }
   }
 }
 @include tabs-size(medium, $tabs-md-height);

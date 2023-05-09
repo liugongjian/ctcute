@@ -2,12 +2,12 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-05-09 17:49:50
+ * @LastEditTime: 2023-05-09 18:16:37
  * @Description: 操作已选项
 -->
 <template>
   <div class="cute-selected-input">
-    <el-select ref="select" :value="''" placeholder="" size="medium" @change="handelSelectChange">
+    <el-select ref="select" :value="''" placeholder="" :size="size" @change="handelSelectChange">
       <span slot="prefix" class="text" :class="flag ? 'select-field' : 'select-uncheck'">{{ sele }}</span>
       <el-option
         v-for="(v, i) in options"

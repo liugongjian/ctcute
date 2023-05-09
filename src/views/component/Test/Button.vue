@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2023-03-17 13:45:09
- * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-27 09:54:55
+ * @LastEditors: 孙善鹏
+ * @LastEditTime: 2023-05-09 10:10:24
  * @Description: Button
 -->
 <template>
@@ -11,22 +11,22 @@
     <el-card>
       <h3>{{ $t('componentTest.button.defaultButton') }}</h3>
       <el-form inline>
-        <el-form-item :label="$t('componentTest.button.size')">
+        <el-form-item>
           <el-select v-model="size" :placeholder="$t('componentTest.button.placeohlder')">
             <el-option v-for="size in sizeList" :key="size" :label="size" :value="size"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item :label="$t('componentTest.button.plain')">
-          <el-checkbox v-model="isPlain"></el-checkbox>
+        <el-form-item>
+          <el-checkbox v-model="isPlain" :label="$t('componentTest.button.plain')"></el-checkbox>
         </el-form-item>
-        <el-form-item :label="$t('componentTest.button.disable')">
-          <el-checkbox v-model="isDisabed"></el-checkbox>
+        <el-form-item>
+          <el-checkbox v-model="isDisabed" :label="$t('componentTest.button.disable')"></el-checkbox>
         </el-form-item>
-        <el-form-item :label="$t('componentTest.button.loading')">
-          <el-checkbox v-model="isLoading"></el-checkbox>
+        <el-form-item>
+          <el-checkbox v-model="isLoading" :label="$t('componentTest.button.loading')"></el-checkbox>
         </el-form-item>
-        <el-form-item :label="$t('componentTest.button.icon')">
-          <el-checkbox v-model="hasIcon"></el-checkbox>
+        <el-form-item>
+          <el-checkbox v-model="hasIcon" :label="$t('componentTest.button.icon')"></el-checkbox>
         </el-form-item>
       </el-form>
       <el-button

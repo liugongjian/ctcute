@@ -297,7 +297,6 @@ export default class VueAuthenticate implements AuthInstance {
     if (this.options.enableAuthorize) {
       try {
         const allPerms = JSON.parse(this.permStorage.getItem('allPerms') || '[]')
-        console.log(allPerms)
         return allPerms
           .filter(item => item.menuType === 1)
           .map(item => item.perm || item.url || item.perms || '')

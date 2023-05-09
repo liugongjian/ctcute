@@ -175,6 +175,7 @@ export default {
       optionForbid: 'Item forbidden',
       optionChoosed: 'Item selected',
       optionDisable: 'Item disabled',
+      addButtonText: 'Add(Custom Button Text)',
     },
     demo5: {
       title1: 'Position of tabs is bottom',

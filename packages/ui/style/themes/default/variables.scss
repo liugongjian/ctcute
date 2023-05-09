@@ -83,7 +83,7 @@ $disabled-color: $color-neutral-6 !default; // 用于表单项禁用状态的字
 
 /* Title: 字体、字号、字体颜色、字重; Doc: true
 -------------------------- */
-$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif, 
+$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif,
   '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
 $font-family-cute-icons: 'cute-icons' !default; // cute-icons
 $text-size: 12px !default; // 标准字体大小
@@ -186,7 +186,7 @@ $tag-master: $color-master-bg-light-2 !default; // 主题色标签背景
 $tag-master-border: $color-master !default; // 主题色标签边框
 $tag-info: $color-neutral-1 !default; // 信息色标签背景
 $tag-info-dark: $color-neutral-6 !default; // 信息色标签Dark类型背景
-$tag-info-border: $color-neutral-4 !default; // 信息色标签边框
+$tag-info-border: $color-neutral-3 !default; // 信息色标签边框
 $tag-info-text: $text-color !default; // 信息色标签字体颜色
 $tag-success: $color-success-bg !default; // 成功色标签背景
 $tag-success-border: $color-success !default; // 成功色标签边框

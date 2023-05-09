@@ -25,6 +25,10 @@ export default {
     activeName: String,
     closable: Boolean,
     addable: Boolean,
+    addButtonText: {
+      type: String,
+      default: '',
+    },
     value: {},
     editable: Boolean,
     showAddInput: Boolean,
@@ -152,6 +156,7 @@ export default {
       tabPosition,
       stretch,
       showAddInput,
+      addButtonText,
     } = this
 
     const navData = {
@@ -167,6 +172,7 @@ export default {
         handleTabAdd,
         size,
         showAddInput,
+        addButtonText,
       },
       ref: 'nav',
     }

@@ -112,7 +112,7 @@ export default {
       this.$emit('tab-remove', pane.name)
     },
     handleTabAdd(tabName) {
-      this.$emit('edit', null, 'add')
+      this.$emit('edit', tabName, 'add')
       this.$emit('tab-add', tabName)
     },
     setCurrentName(value) {

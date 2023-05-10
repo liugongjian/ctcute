@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2023-03-17 13:45:09
- * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-28 16:12:50
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-05-09 16:15:04
  * @Description: Link
 -->
 <template>
@@ -25,8 +25,8 @@
     </div>
     <div>
       <h3>{{ $t('componentTest.link.whetherUnderline') }}</h3>
-      <el-link :underline="false">{{ $t('componentTest.link.hasUnderline') }}</el-link>
-      <el-link>{{ $t('componentTest.link.noUnderline') }}</el-link>
+      <el-link>{{ $t('componentTest.link.hasUnderline') }}</el-link>
+      <el-link :underline="false">{{ $t('componentTest.link.noUnderline') }}</el-link>
     </div>
     <div>
       <h3>A tag</h3>

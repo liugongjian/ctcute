@@ -2,12 +2,12 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-20 15:47:10
+ * @LastEditTime: 2023-05-09 18:16:37
  * @Description: 操作已选项
 -->
 <template>
   <div class="cute-selected-input">
-    <el-select ref="select" :value="''" placeholder="" @change="handelSelectChange">
+    <el-select ref="select" :value="''" placeholder="" :size="size" @change="handelSelectChange">
       <span slot="prefix" class="text" :class="flag ? 'select-field' : 'select-uncheck'">{{ sele }}</span>
       <el-option
         v-for="(v, i) in options"
@@ -31,6 +31,7 @@ import Locale from '@cutedesign/ui/mixins/locale'
 export default class extends Mixins(Locale) {
   @Prop({ type: Array, default: [] }) checkedList?: [] //已选中数据
   @Prop({ type: Array, default: [] }) options?: [] //下拉数据
+  @Prop({ type: String, default: 'medium' }) size?: 'medium' //size
 
   private get flag() {
     return this.checkedList.length > 0

@@ -14,7 +14,7 @@ const zh: { [key: string]: any } = {
       cancel: '取 消',
     },
     colorpicker: {
-      clear: '取 消',
+      clear: '清 空',
       confirm: '确 定',
     },
   },

@@ -297,7 +297,10 @@ export default class VueAuthenticate implements AuthInstance {
     if (this.options.enableAuthorize) {
       try {
         const allPerms = JSON.parse(this.permStorage.getItem('allPerms') || '[]')
-        return allPerms.filter(item => item.menuType === 1).map(item => item.perm)
+        return allPerms
+          .filter(item => item.menuType === 1)
+          .map(item => item.perm || item.url || item.perms || '')
+          .filter(item => item)
       } catch (e) {
         console.log('allPerms的JSON格式不正确')
       }
@@ -309,7 +312,10 @@ export default class VueAuthenticate implements AuthInstance {
     if (this.options.enableAuthorize) {
       try {
         const allPerms = JSON.parse(this.permStorage.getItem('allPerms') || '[]')
-        return allPerms.filter(item => item.menuType === 2).map(item => item.perm)
+        return allPerms
+          .filter(item => item.menuType === 2)
+          .map(item => item.perm || item.perms || item.url || '')
+          .filter(item => item)
       } catch (e) {
         console.log('allPerms的JSON格式不正确')
       }

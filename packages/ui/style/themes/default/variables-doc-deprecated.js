@@ -139,14 +139,14 @@ export default [
       {
         'name': '$color-status-success',
         'type': 'color',
-        'value': '#27d68f',
+        'value': '#1ac45d',
         'scssValue': '$green-base',
         'scene': 'deprecated(弃用)'
       },
       {
         'name': '$color-status-success-1',
         'type': 'color',
-        'value': '#27d68f',
+        'value': '#1ac45d',
         'scssValue': '$green-base',
         'scene': 'deprecated(弃用)'
       },
@@ -619,14 +619,14 @@ export default [
       {
         'name': '$color-tag-success-1',
         'type': 'color',
-        'value': '#27d68f',
+        'value': '#1ac45d',
         'scssValue': '$tag-success-border',
         'scene': 'deprecated(弃用)'
       },
       {
         'name': '$color-tag-success-2',
         'type': 'color',
-        'value': '#f0fff6',
+        'value': '#edfff1',
         'scssValue': '$tag-success',
         'scene': 'deprecated(弃用)'
       },

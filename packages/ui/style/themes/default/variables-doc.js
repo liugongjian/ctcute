@@ -132,35 +132,35 @@ export default [
       {
         'name': '$color-success',
         'type': 'color',
-        'value': '#27d68f',
+        'value': '#1ac45d',
         'scssValue': '$green-base',
         'scene': '成功色，用于表示成功状态的内容'
       },
       {
         'name': '$color-success-hover',
         'type': 'color',
-        'value': '#4de3a2',
+        'value': '#3dd173',
         'scssValue': '$green-5',
         'scene': '成功-悬停色'
       },
       {
         'name': '$color-success-active',
         'type': 'color',
-        'value': '#17b078',
+        'value': '#0d9e4c',
         'scssValue': '$green-7',
         'scene': '成功-触发色'
       },
       {
         'name': '$color-success-disabled',
         'type': 'color',
-        'value': '#a7fcd2',
+        'value': '#8febab',
         'scssValue': '$green-3',
         'scene': '成功-禁用色'
       },
       {
         'name': '$color-success-bg',
         'type': 'color',
-        'value': '#f0fff6',
+        'value': '#edfff1',
         'scssValue': '$green-1',
         'scene': '成功-背景色'
       },
@@ -1074,14 +1074,14 @@ export default [
       {
         'name': '$tag-success',
         'type': 'color',
-        'value': '#f0fff6',
+        'value': '#edfff1',
         'scssValue': '$color-success-bg',
         'scene': '成功色标签背景'
       },
       {
         'name': '$tag-success-border',
         'type': 'color',
-        'value': '#27d68f',
+        'value': '#1ac45d',
         'scssValue': '$color-success',
         'scene': '成功色标签边框'
       },
@@ -2323,7 +2323,7 @@ export default [
       {
         'name': '$alert-success-bg',
         'type': 'color',
-        'value': '#f0fff6',
+        'value': '#edfff1',
         'scssValue': '$color-success-bg',
         'scene': ''
       },

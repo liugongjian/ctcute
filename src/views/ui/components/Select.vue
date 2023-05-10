@@ -706,6 +706,7 @@ export default class extends Vue {
   //选中数据
   private change(data) {
     console.log(data)
+    this.$message.success('你点了操作')
   }
   //子组件修改父组件的值
   private changeFun(key) {

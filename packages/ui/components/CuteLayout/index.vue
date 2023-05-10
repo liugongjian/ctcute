@@ -25,7 +25,11 @@
           :sidebar-routes-after-each="sidebarRoutesAfterEach"
           :sidebar-title="sidebarTitle"
           :sidebar-knob="sidebarKnob"
-        />
+        >
+          <template slot="sidebar-menu">
+            <slot name="sidebar-menu"></slot>
+          </template>
+        </layout-sidebar>
       </slot>
 
       <!-- id在sidebar中被使用，勿随意删改 -->

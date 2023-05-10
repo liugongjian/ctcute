@@ -44,7 +44,14 @@
     </el-row>
     <h3>{{ $t('demo.tabs.common.editable') }}</h3>
     <el-row>
-      <el-tabs v-model="editableTabsValue1" closable addable @tab-remove="removeTab1" @tab-add="addTab1">
+      <el-tabs
+        v-model="editableTabsValue1"
+        closable
+        addable
+        :add-button-text="$t('demo.tabs.common.addButtonText')"
+        @tab-remove="removeTab1"
+        @tab-add="addTab1"
+      >
         <el-tab-pane
           v-for="item in editableTabs1"
           :key="item.name"

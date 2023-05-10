@@ -49,6 +49,7 @@
         type="button"
         closable
         addable
+        :add-button-text="$t('demo.tabs.common.addButtonText')"
         @tab-remove="removeTab1"
         @tab-add="addTab1"
       >

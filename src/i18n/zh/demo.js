@@ -175,6 +175,7 @@ export default {
       optionForbid: '禁用项',
       optionChoosed: '选中项',
       optionDisable: '不可用',
+      addButtonText: '新增(自定义文案)',
     },
     demo5: {
       title1: '选项卡位于下方',

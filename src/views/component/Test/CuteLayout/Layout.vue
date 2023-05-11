@@ -161,7 +161,7 @@ export default class extends Vue {
   }
 
   private sidebarRoutesAfterEach(route) {
-    if (route.path.startsWith('/cluster')) {
+    if (route.name && route.name.startsWith('Cluster')) {
       route.query = {
         clusterId: '123',
         clusterName: 'test',

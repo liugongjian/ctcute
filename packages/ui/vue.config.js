@@ -12,6 +12,7 @@ module.exports = {
   chainWebpack: config => {
     config.externals({
       "element-ui": "element-ui",
+      "element-ui/lib/locale": "element-ui/lib/locale",
       vue: "vue",
       'vue-i18n': "vue-i18n",
     })

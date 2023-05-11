@@ -1,10 +1,18 @@
 /*
  * @Author: 胡佳婷
- * @Date: 2023-04-18 20:35:56
+ * @Date: 2023-05-12 07:21:56
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-18 20:36:08
+ * @LastEditTime: 2023-05-12 07:32:03
  * @Description:
  */
 import { CuteComponent } from './component'
 
-export declare class CuteTitledBlock extends CuteComponent { }
+export interface CuteTitledBlockSlots {
+  content: VNode[]
+  extra: VNode[]
+  [key: string]: VNode[]
+}
+export declare class CuteTitledBlock extends CuteComponent {
+  title: string
+  $slots: CuteTitledBlockSlots
+}

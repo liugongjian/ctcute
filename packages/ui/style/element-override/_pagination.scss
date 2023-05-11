@@ -97,21 +97,20 @@ $pagination-button-margin-sm: $margin;
     margin-left: $margin-3x;
   }
 
-  &__editor {
-    &.el-input {
-      width: $pagination-input-width;
+  .el-pagination__editor.el-input {
+    width: $pagination-input-width;
+    height: $input-xs-height;
+    line-height: $input-xs-height - 2;
+
+    .el-input__inner {
       height: $input-xs-height;
       line-height: $input-xs-height - 2;
-
-      .el-input__inner {
-        height: $input-xs-height;
-        line-height: $input-xs-height - 2;
-        padding: 0 $padding;
-      }
+      padding: 0 $padding;
     }
   }
 
   &--small {
+
     span:not([class*=suffix]),
     button,
     .btn-prev,
@@ -150,6 +149,7 @@ $pagination-button-margin-sm: $margin;
   }
 
   &.is-background {
+
     .btn-prev,
     .btn-next,
     .el-pager li {
@@ -193,6 +193,7 @@ $pagination-button-margin-sm: $margin;
     }
 
     &.el-pagination--small {
+
       .btn-prev,
       .btn-next,
       .el-pager li {

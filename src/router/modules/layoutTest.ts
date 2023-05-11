@@ -247,6 +247,26 @@ const layoutTestRoutes = [
           title: '任务',
           breadcrumb: true,
         },
+        children: [
+          {
+            path: 'sub-2-1',
+            name: 'ClusterSub2-1',
+            component: () => import('@/views/component/Test/CuteLayout/Page3-3.vue'),
+            meta: {
+              title: '任务sub1',
+              breadcrumb: true,
+            },
+          },
+          {
+            path: 'sub-2-2',
+            name: 'ClusterSub2-2',
+            component: () => import('@/views/component/Test/CuteLayout/Page3-3.vue'),
+            meta: {
+              title: '任务sub2',
+              breadcrumb: true,
+            },
+          },
+        ],
       },
       {
         path: 'sub-3',

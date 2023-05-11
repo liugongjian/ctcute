@@ -93,7 +93,7 @@ export default class extends Mixins(Locale) {
     this.drillDownRoute = this.getDrillDownRoute()
     let routesList = this.drillDownRoute ? this.drillDownRoute.children : filteredRoutes
     if (this.sidebarRoutesAfterEach) {
-      routesList = routesList.map(route => this.sidebarRoutesAfterEach(route))
+      routesList = this.recursiveRoutes(routesList, this.sidebarRoutesAfterEach)
     }
     this.routesList = routesList
     this.$nextTick(() => {
@@ -102,7 +102,7 @@ export default class extends Mixins(Locale) {
   }
 
   private mounted() {
-    this.setSidbarWidth()
+    this.setSidebarWidth()
   }
 
   /**
@@ -144,18 +144,40 @@ export default class extends Mixins(Locale) {
     }
   }
 
+  /**
+   * 返回上一级
+   */
   private back() {
     const path = this.drillDownRoute.meta.drillDownBackPath || ''
     this.$router.push(path)
   }
 
-  private setSidbarWidth() {
+  /**
+   * 设置宽度
+   */
+  private setSidebarWidth() {
     ;(this.$el as HTMLElement).style.width = this.isShowMenu ? `${variables.cuteLayoutSidebarWidth}` : '0px'
   }
 
+  /**
+   * 收缩/展开侧边栏
+   */
   private toggleSideBar() {
     this.isShowMenu = !this.isShowMenu
-    this.setSidbarWidth()
+    this.setSidebarWidth()
+  }
+
+  /**
+   * 递归遍历路由
+   */
+  private recursiveRoutes(routes, effect) {
+    return routes.map(route => {
+      if (route.children) {
+        const children = this.recursiveRoutes(route.children, effect)
+        route.children = children
+      }
+      return effect(route)
+    })
   }
 }
 </script>

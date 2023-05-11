@@ -38,13 +38,10 @@
     "build": "npm run build:theme && npm run build:base && npm run build:appendix && npm run build:vxetable && npm run build:sorttable && npm run build:i18n && npm run build:entry"
   },
   "dependencies": {
-    "@vue/composition-api": "^1.4.9",
     "axios": "^0.26.1",
-    "echarts": "^5.3.3",
     "element-ui": "^2.15.6",
     "sortablejs": "^1.15.0",
     "vue-class-component": "^7.2.6",
-    "vue-echarts": "^6.0.2",
     "vue-property-decorator": "^9.1.2",
     "vxe-table": "^3.6.6",
     "xe-utils": "^3.5.7",

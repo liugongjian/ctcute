@@ -125,6 +125,7 @@ export default <AuthConfigOptions>{
       const container = document.querySelector($auth.options.containerId)
       const { authenticateType, providers } = $auth.options
       const { containerId, bizDomain } = providers[authenticateType].layout
+      const { logoutUrl } = providers[authenticateType].user
       if (authenticateType === 'iam') {
         if (!window.AlogicLayout) {
           const layout = new IamLayout()
@@ -133,7 +134,7 @@ export default <AuthConfigOptions>{
           container.id = containerId
           const console = await layout.init({ containerId })
           // 侧边栏高亮
-          console.match({ domain: bizDomain })
+          bizDomain && console.match({ domain: bizDomain })
         }
       } else if (authenticateType === 'ctyun') {
         if (!window.CtcloudLayout) {
@@ -142,7 +143,9 @@ export default <AuthConfigOptions>{
           container.id = containerId
           const console = await layout.init()
           // 侧边栏高亮
-          console.matchConsoleMenuCode({ menuCode: bizDomain })
+          bizDomain && console.matchConsoleMenuCode({ menuCode: bizDomain })
+          // 修改登出路由
+          logoutUrl && console.updateConsoleLayoutLogoutUrl(logoutUrl)
         }
       }
     } catch (err) {

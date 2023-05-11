@@ -255,6 +255,7 @@ const layoutTestRoutes = [
             meta: {
               title: '任务sub1',
               breadcrumb: true,
+              history: 'hash',
             },
           },
           {

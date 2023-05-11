@@ -100,6 +100,7 @@ import ElementUIOverride, {
 // svgIcon
 import './icons/index'
 import SvgIcon from './icons/index.vue'
+import { CuteDI18n } from './i18n'
 
 /**
  * 组件清单
@@ -171,17 +172,13 @@ const componentsList = [
   CuteFixedFooter,
 ]
 
-import { default as createI18n } from './i18n'
-
 export default {
-  install(Vue, opts = { size: 'medium' }) {
-    const i18n = createI18n({
-      storageKey: 'cute-lang', // 本地持久化时的 localStorage key
-      defaultLang: 'zh', // 默认展示的语言
-    })
+  install(Vue, opts = { size: 'medium', i18n: CuteDI18n }) {
+    // 注册ElementUI时要使用兜底的CuteDI18n使cuted覆盖element-ui的i18n配置生效
     Vue.use(ElementUI, {
+      ...opts,
       size: opts.size || 'medium',
-      i18n: (key: string, value: any) => i18n.t(key, value)
+      i18n: opts.i18n || CuteDI18n
     })
     Vue.use(ElementUIOverride)
     Vue.component('SvgIcon', SvgIcon)

@@ -64,10 +64,10 @@ $cascader-tags-size: $select-sm-height;
       justify-content: center;
       margin-left: $common-space-2x;
 
-      &.el-tag--small {
-        line-height: $cascader-tags-size;
-        height: $cascader-tags-size;
-      }
+      // &.el-tag--small {
+      //   line-height: $cascader-tags-size;
+      //   height: $cascader-tags-size;
+      // }
 
       .el-icon-close {
         color: $cascader-tag-close-bg;
@@ -197,4 +197,22 @@ $cascader-tags-size: $select-sm-height;
 
 .el-cascader-menu {
   border-right: 1px solid $color-neutral-2;
+}
+
+// small bugfix 
+.el-cascader--small,
+.el-cascader--mini {
+
+  .el-cascader__tags {
+    .el-tag {
+      height: $select-xs-height - 8;
+      margin-top: 1px;
+      margin-bottom: 1px;
+
+      .el-icon-close {
+        height: $select-xs-height - 8;
+        line-height: $select-xs-height - 8;
+      }
+    }
+  }
 }

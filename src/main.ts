@@ -1,8 +1,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-26 18:46:54
- * @LastEditors: huanglulu
- * @LastEditTime: 2022-07-27 13:56:20
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-11 18:50:35
  * @Description:
  */
 import Vue from 'vue'
@@ -20,6 +20,27 @@ import CuteAuthenticate from '@cutedesign/authenticate'
 import SvgTopology from 'svg-topology'
 import 'svg-topology/dist/svg-topology.css'
 import ECharts from 'vue-echarts'
+import { CanvasRenderer } from 'echarts/renderers'
+import { use } from 'echarts/core'
+import { BarChart, PieChart, LineChart } from 'echarts/charts'
+import {
+  GridComponent,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  PolarComponent,
+} from 'echarts/components'
+use([
+  CanvasRenderer,
+  PieChart,
+  GridComponent,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  PolarComponent,
+  BarChart,
+  LineChart,
+])
 Vue.component('VChart', ECharts)
 
 Vue.use(CuteAuthenticate, {

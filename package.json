@@ -26,7 +26,6 @@
     "commit-msg": "node ./scripts/verifyCommit.js"
   },
   "dependencies": {
-    "@cutedesign/chart": "^1.0.1",
     "@cutedesign/ct-log": "^1.1.6",
     "@cutedesign/ct-monaco": "^1.1.6",
     "@cutedesign/s3-upload": "^1.0.1",

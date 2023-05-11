@@ -305,6 +305,13 @@ export default class extends Vue {
       options: '',
       desc: '自定义路径，设置自定义路径后会替换路由path',
     },
+    {
+      name: 'activeMenu',
+      type: 'string',
+      default: '',
+      options: '',
+      desc: '指定选中状态的路由path',
+    },
   ]
 }
 </script>

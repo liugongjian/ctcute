@@ -4,7 +4,7 @@ const { series, src, dest } = require('gulp')
 // tag.scss使用了内置模块@use 'sass:color'，必须使用dart-sass
 const sass = require('gulp-sass')(require('sass'))
 const autoprefixer = require('gulp-autoprefixer')
-const cssmin = require('gulp-cssmin')
+const cleanCSS = require('gulp-clean-css')
 const concat = require('gulp-concat')
 const rename = require('gulp-rename')
 const clean = require('gulp-clean')
@@ -16,11 +16,11 @@ const getThemeChalkPath = () => {
   try {
     fs.statSync(path.join(__dirname, './node_modules/element-ui'))
     return './node_modules/element-ui/packages/theme-chalk'
-  } catch (error) {}
+  } catch (error) { }
   try {
     fs.statSync(path.join(__dirname, '../../node_modules/element-ui'))
     return '../../node_modules/element-ui/packages/theme-chalk'
-  } catch (error) {}
+  } catch (error) { }
   return ''
 }
 
@@ -59,7 +59,7 @@ function compileCutedScss(theme) {
           cascade: false,
         })
       )
-      .pipe(cssmin())
+      .pipe(cleanCSS())
       .pipe(rename(`cuted-${theme}.css`))
       .pipe(dest('./lib'))
   )
@@ -69,7 +69,7 @@ function compileCutedScss(theme) {
 function concatCSS(theme) {
   return src(['./fonts/iconfont.css', './fonts/bahnschrift.css', `./lib/cuted-${theme}.css`])
     .pipe(concat(`${theme == 'default' ? 'index.css' : 'index.' + theme + '.css'}`))
-    .pipe(cssmin())
+    .pipe(cleanCSS())
     .pipe(dest('./lib'))
 }
 
@@ -145,7 +145,7 @@ function compileElementOverrideScss() {
           cascade: false,
         })
       )
-      .pipe(cssmin())
+      .pipe(cleanCSS())
       .pipe(rename('cute-element-override.css'))
       .pipe(dest('./lib'))
   )

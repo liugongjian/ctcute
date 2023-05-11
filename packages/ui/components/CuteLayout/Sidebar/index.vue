@@ -74,10 +74,13 @@ export default class extends Mixins(Locale) {
 
   private get activeMenu(): string {
     const route = this.$route
-    const { meta, path } = route
+    const { meta, path, hash } = route
     // if set path, the sidebar will highlight the path you set
     if (meta?.activeMenu) {
       return meta.activeMenu
+    }
+    if (meta?.history === 'hash') {
+      return path + hash
     }
     return path
   }

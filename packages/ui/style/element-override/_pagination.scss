@@ -97,15 +97,17 @@ $pagination-button-margin-sm: $margin;
     margin-left: $margin-3x;
   }
 
-  .el-pagination__editor.el-input {
-    width: $pagination-input-width;
-    height: $input-xs-height;
-    line-height: $input-xs-height - 2;
-
-    .el-input__inner {
+  &__editor {
+    &.el-input {
+      width: $pagination-input-width;
       height: $input-xs-height;
       line-height: $input-xs-height - 2;
-      padding: 0 $padding;
+
+      .el-input__inner {
+        height: $input-xs-height;
+        line-height: $input-xs-height - 2;
+        padding: 0 $padding;
+      }
     }
   }
 

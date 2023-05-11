@@ -23,10 +23,8 @@
       :on-error="onError"
       :on-change="onChange"
     >
-      <svg-icon name="container" class="el-icon-upload" />
       <div class="el-upload__text">
-        <b>点击或将文件拖拽到这里上传</b>
-        <div>示例关闭了自动上传，请点击按钮手动触发上传</div>
+        <b>点击或将文件拖拽到<span>这里上传</span></b>
       </div>
     </s3-upload>
   </div>

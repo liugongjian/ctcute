@@ -298,6 +298,13 @@ export default class extends Vue {
       options: 'svg | iconfont | element',
       desc: '如果不使用CuteDesign内置图标需要指定iconType',
     },
+    {
+      name: 'customPath',
+      type: 'string',
+      default: '',
+      options: '',
+      desc: '自定义路径，设置自定义路径后会替换路由path',
+    },
   ]
 }
 </script>

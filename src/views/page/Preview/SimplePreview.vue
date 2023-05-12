@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-25 15:58:42
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-06 16:20:22
+ * @LastEditTime: 2023-05-12 16:52:07
  * @Description:
 -->
 <template>
@@ -46,44 +46,23 @@
         <div>
           <cute-appendix
             size="medium"
-            :type="'file'"
             title="EDR终端安全加强指引"
             file-size="1.3MB"
-            @download="downPdf"
+            :url="excelUrl"
+            svg-name="file-excel-fill"
+            :svg-color="excelColor"
           ></cute-appendix>
         </div>
         <div>
           <cute-appendix
             size="medium"
             :type="'pdf'"
-            :show-eye="true"
+            :show-preview="true"
             title="这是一个PDF文件"
             file-size="1.3MB"
-            :svg-name="'file-pdf-fill'"
-            svg-color="#FF535A"
-            :url="url"
-            @preview="downPdf"
-            @download="downPdf"
-          ></cute-appendix>
-        </div>
-        <div>
-          <cute-appendix
-            value="组件123.csv"
-            :textarea="false"
-            :type="'csv'"
-            :url="url"
-            @download="downloadExcel"
-          ></cute-appendix>
-        </div>
-        <div>
-          <cute-appendix
-            value="组件123.jpg"
-            :textarea="false"
-            :show-eye="true"
-            :url="url"
-            :type="'img'"
-            @preview="downloadImg"
-            @download="downloadImg"
+            svg-name="file-pdf-fill"
+            :svg-color="pdfColor"
+            :url="pdfUrl"
           ></cute-appendix>
         </div>
       </div>
@@ -93,14 +72,25 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { CuteAppendix } from '@cutedesign/ui'
-import { createImg, createPdf, createExcel } from '@/api/appendix'
+import { createPdf, createExcel } from '@/api/appendix'
+import Variables from '@cutedesign/ui/style/themes/default/index.scss'
 
 @Component({
   name: 'SimpleDocumentPreview',
   components: { CuteAppendix },
 })
 export default class extends Vue {
-  private url = ''
+  private pdfUrl = ''
+  private excelUrl = ''
+  private pdfSize = ''
+  private excelSize = ''
+  private pdfColor = Variables.colorDangerHover
+  private excelColor = Variables.colorSuccessHover
+
+  private mounted() {
+    this.downPdf()
+    this.downloadExcel()
+  }
 
   /**
    * excel
@@ -108,7 +98,8 @@ export default class extends Vue {
   private async downloadExcel() {
     try {
       const res = await createExcel()
-      this.url = res.data.url
+      this.excelUrl = res.data.url
+      this.excelSize = res.data.size
     } catch (e) {
       this.$message.error(e)
     }
@@ -120,19 +111,8 @@ export default class extends Vue {
   private async downPdf() {
     try {
       const res = await createPdf()
-      this.url = res.data.url
-    } catch (e) {
-      this.$message.error(e)
-    }
-  }
-
-  /**
-   * 图片
-   */
-  private async downloadImg() {
-    try {
-      const res = await createImg()
-      this.url = res.data.url
+      this.pdfUrl = res.data.url
+      this.pdfSize = res.data.size
     } catch (e) {
       this.$message.error(e)
     }

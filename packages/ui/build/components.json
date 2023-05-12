@@ -1,10 +1,6 @@
 {
-  "appendix": [
-    "CuteAppendix"
-  ],
-  "sorttable": [
-    "CuteSortTable"
-  ],
+  "appendix": ["CuteAppendix"],
+  "sorttable": ["CuteSortTable"],
   "base": [
     "CuteLayout",
     "CuteButtonGroup",

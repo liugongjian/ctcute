@@ -2,9 +2,9 @@
 export type Manifest = {
   files: File[]
   package?: {
-    dependencies?: object
-    devDependencies?: object
-    peerDependencies?: object
+    dependencies?: Record<string, unknown>
+    devDependencies?: Record<string, unknown>
+    peerDependencies?: Record<string, unknown>
   }
 }
 

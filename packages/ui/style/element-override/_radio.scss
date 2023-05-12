@@ -32,7 +32,6 @@
   &.is-disabled .el-radio__inner {
     background: $radio-group-disabled-bg;
     border: 1px solid $radio-group-border-color;
-
   }
 
   &.is-checked {
@@ -46,7 +45,7 @@
     border: 1px solid $radio-group-border-color;
   }
 
-  &.is-disabled+span.el-radio__label {
+  &.is-disabled + span.el-radio__label {
     color: $text-color-disabled;
   }
 }

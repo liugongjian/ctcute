@@ -11,7 +11,7 @@
     <div class="table-tools">
       <div class="table-tools__conditions">
         <el-form ref="conditionsRef" :model="conditions" inline @submit.native.prevent>
-          <div class="table-tools__conditions__row" v-show="conditionsOpenFlag">
+          <div v-show="conditionsOpenFlag" class="table-tools__conditions__row">
             <el-form-item prop="name">
               <cute-remind-input v-model="conditions.name" placeholder="请输入主机别名" title="主机别名" />
             </el-form-item>
@@ -32,7 +32,7 @@
               />
             </el-form-item>
           </div>
-          <div class="table-tools__conditions__row" v-show="conditionsOpenFlag">
+          <div v-show="conditionsOpenFlag" class="table-tools__conditions__row">
             <el-form-item prop="name_copy">
               <cute-remind-input
                 v-model="conditions.name_copy"
@@ -125,16 +125,15 @@
       </el-table-column>
       <el-table-column prop="actions" label="操作" fixed="right" class-name="actions" width="200px">
         <template slot-scope="scope">
-          <el-button
-            type="text"
-            size="small"
-            class="bt-operation"
-            @click="gotoMount(scope.row)"
-          >
+          <el-button type="text" size="small" class="bt-operation" @click="gotoMount(scope.row)">
             挂载
           </el-button>
-          <el-button type="text" size="small" class="bt-operation" @click="gotoUninstall(scope.row)">卸载</el-button>
-          <el-button type="text" size="small" class="bt-operation" @click="gotoExpansion(scope.row)">扩容</el-button>
+          <el-button type="text" size="small" class="bt-operation" @click="gotoUninstall(scope.row)"
+            >卸载</el-button
+          >
+          <el-button type="text" size="small" class="bt-operation" @click="gotoExpansion(scope.row)"
+            >扩容</el-button
+          >
           <el-divider direction="vertical"></el-divider>
           <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
             <el-button type="text" size="small" class="bt-operation">

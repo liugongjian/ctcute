@@ -5,7 +5,7 @@ $popover-min-width: 160px;
 .el-popover {
   padding: $padding-4x;
   border: none;
-  box-shadow: $shadow-2  !important; // 用important是为了覆盖el-popper
+  box-shadow: $shadow-2 !important; // 用important是为了覆盖el-popper
   min-width: $popover-min-width;
   color: $text-color-light;
   border-radius: $border-radius;

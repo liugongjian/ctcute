@@ -163,8 +163,8 @@ export default {
   tabs: {
     common: {
       large: '大尺寸',
-      medium: '中尺寸',
-      small: '小尺寸(默认)',
+      medium: '中尺寸(默认)',
+      small: '小尺寸',
       editable: '可删除和新增',
       addWithInput: '新增(带输入框)',
       newTabName: '新选项卡',

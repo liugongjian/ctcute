@@ -2,7 +2,7 @@
  * @Author: 黄靖
  * @Date: 2023-03-31 15:30:49
  * @LastEditors: 黄靖
- * @LastEditTime: 2023-05-08 19:05:23
+ * @LastEditTime: 2023-05-12 21:14:20
  * @Description: 此为直接覆写element-ui的组件，el-steps原有的属性和事件未变，下面只列出新增/有改动的部分
 -->
 <template>
@@ -86,7 +86,7 @@ export default class extends Vue {
         type: 'string',
         required: '选填',
         options: 'large/medium/small',
-        default: 'small',
+        default: 'medium',
       },
       {
         name: 'show-add-input',

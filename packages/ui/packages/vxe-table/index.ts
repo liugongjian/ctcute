@@ -20,5 +20,5 @@ VXETable.setup({
 export default {
   install(Vue) {
     Vue.use(VXETable)
-  }
+  },
 }

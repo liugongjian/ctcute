@@ -2,7 +2,7 @@
  * @Author: 刘功坚
  * @Date: 2023-03-17 13:45:09
  * @LastEditors: liugj
- * @LastEditTime: 2023-05-11 16:21:03
+ * @LastEditTime: 2023-05-12 14:53:50
  * @Description: Tree
 -->
 <template>
@@ -237,6 +237,7 @@ export default class extends Vue {
         .show {
           display: flex;
           justify-content: center;
+          color: $color-master;
         }
       }
     }

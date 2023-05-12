@@ -9,7 +9,7 @@
   text-align: center;
   &.is--animat {
     .vxe-switch--button {
-      transition: border-color .3s, background-color .3s;
+      transition: border-color 0.3s, background-color 0.3s;
     }
     .vxe-switch--icon {
       transition: all 0.3s;

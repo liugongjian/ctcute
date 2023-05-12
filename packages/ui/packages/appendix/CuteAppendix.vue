@@ -115,7 +115,7 @@ export default class extends Vue {
           win.focus() //让原窗口获取焦点
         })
     } catch (e) {
-      (this as any).$message.error(e)
+      ;(this as any).$message.error(e)
     }
   }
   /**

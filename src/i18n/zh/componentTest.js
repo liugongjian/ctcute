@@ -86,7 +86,7 @@ export default {
     noUnderline: '无下划线',
     icon: '图标',
     edit: '编辑',
-    info: '查看'
+    info: '查看',
   },
   radio: {
     title: 'Radio 单选框',

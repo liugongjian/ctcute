@@ -3,40 +3,40 @@
 
 $btnThemeList: (
   (
-    name: "primary",
+    name: 'primary',
     textColor: $vxe-primary-color,
     btnColor: #fff,
-    btnBackground: $vxe-primary-color
+    btnBackground: $vxe-primary-color,
   ),
   (
-    name: "success",
+    name: 'success',
     textColor: $vxe-success-color,
     btnColor: #fff,
-    btnBackground: $vxe-success-color
+    btnBackground: $vxe-success-color,
   ),
   (
-    name: "info",
+    name: 'info',
     textColor: $vxe-info-color,
     btnColor: #fff,
-    btnBackground: $vxe-info-color
+    btnBackground: $vxe-info-color,
   ),
   (
-    name: "warning",
+    name: 'warning',
     textColor: $vxe-warning-color,
     btnColor: #fff,
-    btnBackground: $vxe-warning-color
+    btnBackground: $vxe-warning-color,
   ),
   (
-    name: "danger",
+    name: 'danger',
     textColor: $vxe-danger-color,
     btnColor: #fff,
-    btnBackground: $vxe-danger-color
+    btnBackground: $vxe-danger-color,
   ),
   (
-    name: "perfect",
+    name: 'perfect',
     textColor: $vxe-table-header-background-color,
     btnColor: $vxe-font-color,
-    btnBackground: $vxe-table-header-background-color
+    btnBackground: $vxe-table-header-background-color,
   )
 );
 
@@ -54,7 +54,7 @@ $btnThemeList: (
   white-space: nowrap;
   user-select: none;
   appearance: none;
-  @include animatTransition(border, .2s);
+  @include animatTransition(border, 0.2s);
   &:not(.is--disabled) {
     color: $vxe-font-color;
     cursor: pointer;
@@ -62,14 +62,14 @@ $btnThemeList: (
   &.is--loading {
     cursor: progress;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       left: -1px;
       top: -1px;
       right: -1px;
       bottom: -1px;
       border-radius: inherit;
-      background-color: hsla(0,0%,100%,.35);
+      background-color: hsla(0, 0%, 100%, 0.35);
       pointer-events: none;
     }
   }
@@ -225,15 +225,15 @@ $btnThemeList: (
 }
 .vxe-input,
 .vxe-button {
-  &+.vxe-button,
-  &+.vxe-button--dropdown {
+  & + .vxe-button,
+  & + .vxe-button--dropdown {
     margin-left: 12px;
   }
 }
 .vxe-button--loading-icon,
 .vxe-button--icon {
   min-width: $vxe-font-size;
-  &+.vxe-button--content {
+  & + .vxe-button--content {
     margin-left: 4px;
   }
 }
@@ -243,8 +243,8 @@ $btnThemeList: (
 }
 .vxe-button--dropdown {
   position: relative;
-  &+.vxe-button,
-  &+.vxe-button--dropdown {
+  & + .vxe-button,
+  & + .vxe-button--dropdown {
     margin-left: 12px;
   }
   & > .vxe-button {
@@ -295,7 +295,7 @@ $btnThemeList: (
   display: inline-block;
   font-size: 12px;
   margin-left: 4px;
-  @include animatTransition(transform, .2s);
+  @include animatTransition(transform, 0.2s);
 }
 
 .vxe-button--dropdown-panel {
@@ -307,11 +307,11 @@ $btnThemeList: (
     display: block;
     opacity: 0;
     transform: scaleY(0.5);
-    transition: transform .3s cubic-bezier(.23,1,.32,1), opacity .3s cubic-bezier(.23,1,.32,1);
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     transform-origin: center top;
     backface-visibility: hidden;
     transform-style: preserve-3d;
-    &[placement="top"] {
+    &[placement='top'] {
       transform-origin: center bottom;
     }
   }
@@ -325,7 +325,7 @@ $btnThemeList: (
   background-color: $vxe-button-dropdown-panel-background-color;
   border-radius: $vxe-border-radius;
   border: 1px solid $vxe-input-border-color;
-  box-shadow: 0 1px 6px rgba(0,0,0,.2);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
   & > .vxe-button {
     margin-left: 0;
     margin-top: 0.4em;

@@ -4,7 +4,6 @@
 @import './base/common.scss';
 @import './loading.scss';
 
-
 /*边角，即两个滚动条的交汇处*/
 .vxe-table ::-webkit-scrollbar-corner {
   background-color: $color-bg-2;
@@ -65,7 +64,6 @@
 /*默认的渲染*/
 .vxe-cell,
 .vxe-table--filter-wrapper {
-
   .vxe-default-input,
   .vxe-default-textarea {
     background-color: $vxe-table-body-background-color;
@@ -98,12 +96,12 @@
   }
 
   .vxe-default-input {
-    &[type="date"]::-webkit-inner-spin-button {
+    &[type='date']::-webkit-inner-spin-button {
       margin-top: 4px;
     }
 
-    &[type="date"]::-webkit-inner-spin-button,
-    &[type="number"]::-webkit-inner-spin-button {
+    &[type='date']::-webkit-inner-spin-button,
+    &[type='number']::-webkit-inner-spin-button {
       height: 24px;
     }
 
@@ -124,8 +122,8 @@
     display: block;
   }
 
-  .vxe-input>.vxe-input--inner,
-  .vxe-textarea>.vxe-textarea--inner {
+  .vxe-input > .vxe-input--inner,
+  .vxe-textarea > .vxe-textarea--inner {
     padding: 0 2px;
   }
 
@@ -148,7 +146,6 @@
 
 .vxe-table--fixed-left-wrapper,
 .vxe-table--fixed-right-wrapper {
-
   .vxe-table--checkbox-range,
   .vxe-table--cell-main-area,
   .vxe-table--cell-extend-area,
@@ -159,35 +156,35 @@
 }
 
 .vxe-table--fixed-left-wrapper {
-
   .vxe-table--cell-main-area,
   .vxe-table--cell-extend-area,
   .vxe-table--cell-active-area {
-    &[half="1"] {
+    &[half='1'] {
       border-right: 0;
     }
   }
 
   .vxe-table--cell-copy-area {
-    &[half="1"] {
-      background-size: $vxe-table-cell-copy-area-border-width 12px, 0 12px, 12px $vxe-table-cell-copy-area-border-width, 12px $vxe-table-cell-copy-area-border-width;
+    &[half='1'] {
+      background-size: $vxe-table-cell-copy-area-border-width 12px, 0 12px,
+        12px $vxe-table-cell-copy-area-border-width, 12px $vxe-table-cell-copy-area-border-width;
     }
   }
 }
 
 .vxe-table--fixed-right-wrapper {
-
   .vxe-table--cell-main-area,
   .vxe-table--cell-extend-area,
   .vxe-table--cell-active-area {
-    &[half="1"] {
+    &[half='1'] {
       border-left: 0;
     }
   }
 
   .vxe-table--cell-copy-area {
-    &[half="1"] {
-      background-size: 0 12px, $vxe-table-cell-copy-area-border-width 12px, 12px $vxe-table-cell-copy-area-border-width, 12px $vxe-table-cell-copy-area-border-width;
+    &[half='1'] {
+      background-size: 0 12px, $vxe-table-cell-copy-area-border-width 12px,
+        12px $vxe-table-cell-copy-area-border-width, 12px $vxe-table-cell-copy-area-border-width;
     }
   }
 }
@@ -203,7 +200,7 @@
   font-size: 0;
   display: none;
 
-  &>.vxe-table--cell-main-area {
+  & > .vxe-table--cell-main-area {
     background-color: $vxe-table-cell-area-background-color;
     border: $vxe-table-cell-area-border-width solid $vxe-table-cell-area-border-color;
   }
@@ -229,7 +226,8 @@
 }
 
 @keyframes moveCopyCellBorder {
-  from {}
+  from {
+  }
 
   to {
     background-position: 0 -12px, 100% 12px, 12px 0, -12px 100%;
@@ -241,9 +239,10 @@
     linear-gradient(0deg, transparent 50%, $vxe-table-cell-copy-area-border-color 0) repeat-y,
     linear-gradient(90deg, transparent 50%, $vxe-table-cell-copy-area-border-color 0) repeat-x,
     linear-gradient(90deg, transparent 50%, $vxe-table-cell-copy-area-border-color 0) repeat-x;
-  background-size: $vxe-table-cell-copy-area-border-width 12px, $vxe-table-cell-copy-area-border-width 12px, 12px $vxe-table-cell-copy-area-border-width, 12px $vxe-table-cell-copy-area-border-width;
+  background-size: $vxe-table-cell-copy-area-border-width 12px, $vxe-table-cell-copy-area-border-width 12px,
+    12px $vxe-table-cell-copy-area-border-width, 12px $vxe-table-cell-copy-area-border-width;
   background-position: 0 0, 100% 0, 0 0, 0 100%;
-  animation: moveCopyCellBorder .5s infinite linear;
+  animation: moveCopyCellBorder 0.5s infinite linear;
 }
 
 .vxe-table--cell-active-area {
@@ -251,7 +250,7 @@
 }
 
 .vxe-table--cell-multi-area {
-  &>.vxe-table--cell-main-area {
+  & > .vxe-table--cell-main-area {
     background-color: $vxe-table-cell-area-background-color;
   }
 }
@@ -442,7 +441,7 @@
 
   // user-select: none;
   &.col--ellipsis {
-    &>.vxe-cell {
+    & > .vxe-cell {
       display: flex;
       align-items: center;
 
@@ -452,8 +451,8 @@
         white-space: nowrap;
       }
 
-      &>i,
-      &>span {
+      & > i,
+      & > span {
         &:not(.vxe-cell--title) {
           flex-shrink: 0;
         }
@@ -472,7 +471,7 @@
     position: relative;
 
     &:before {
-      content: "*";
+      content: '*';
       position: absolute;
       left: 0;
       top: 0.2em;
@@ -507,10 +506,9 @@
     cursor: col-resize;
 
     &.is--line {
-
       &:before,
       &:after {
-        content: "";
+        content: '';
         display: inline-block;
         vertical-align: middle;
       }
@@ -673,7 +671,6 @@
   //   }
   // }
   &.drag--resize {
-
     .vxe-table--main-wrapper,
     .vxe-table--fixed-left-wrapper,
     .vxe-table--fixed-right-wrapper {
@@ -685,7 +682,6 @@
 
   &.drag--range,
   &.drag--area {
-
     .vxe-table--main-wrapper,
     .vxe-table--fixed-left-wrapper,
     .vxe-table--fixed-right-wrapper {
@@ -696,7 +692,6 @@
   }
 
   &.drag--extend-range {
-
     .vxe-table--main-wrapper,
     .vxe-table--fixed-left-wrapper,
     .vxe-table--fixed-right-wrapper {
@@ -779,11 +774,11 @@
 
   .vxe-header--column {
     &.col--checkbox {
-        .vxe-cell--radio,
-        .vxe-cell--checkbox {
-          margin-left: -$margin;
-        }
+      .vxe-cell--radio,
+      .vxe-cell--checkbox {
+        margin-left: -$margin;
       }
+    }
   }
 
   .vxe-body--column {
@@ -793,7 +788,7 @@
       user-select: none;
       .vxe-cell--radio,
       .vxe-cell--checkbox {
-        margin-left: -$margin
+        margin-left: -$margin;
       }
     }
   }
@@ -813,9 +808,11 @@
 
   &.border--default,
   &.border--inner {
-
     .vxe-header--column {
-      background-image: linear-gradient($vxe-table-column-header-background-color, $vxe-table-column-header-background-color);
+      background-image: linear-gradient(
+        $vxe-table-column-header-background-color,
+        $vxe-table-column-header-background-color
+      );
       background-repeat: no-repeat;
       background-size: 100% $vxe-table-border-width;
       background-position: right bottom;
@@ -857,14 +854,14 @@
     .vxe-header--column,
     .vxe-body--column,
     .vxe-footer--column {
-      background-image: linear-gradient($vxe-table-border-color, $vxe-table-border-color), linear-gradient($vxe-table-border-color, $vxe-table-border-color);
+      background-image: linear-gradient($vxe-table-border-color, $vxe-table-border-color),
+        linear-gradient($vxe-table-border-color, $vxe-table-border-color);
       background-repeat: no-repeat;
       background-size: $vxe-table-border-width 100%, 100% $vxe-table-border-width;
       background-position: right top, right bottom;
     }
 
     .vxe-table--fixed-left-wrapper {
-
       // border-right: 1px solid $vxe-table-border-color;
       .vxe-body--column {
         border-right-color: $vxe-table-border-color;
@@ -940,9 +937,7 @@
       padding: $vxe-table-body--column-padding-full-medium;
     }
 
-
     .vxe-cell {
-
       .vxe-default-input,
       .vxe-default-textarea,
       .vxe-default-select {
@@ -950,7 +945,7 @@
       }
 
       .vxe-default-input {
-        &[type="date"]::-webkit-inner-spin-button {
+        &[type='date']::-webkit-inner-spin-button {
           margin-top: 3px;
         }
       }
@@ -976,9 +971,7 @@
       }
     }
 
-
     .vxe-cell {
-
       .vxe-default-input,
       .vxe-default-textarea,
       .vxe-default-select {
@@ -986,7 +979,7 @@
       }
 
       .vxe-default-input {
-        &[type="date"]::-webkit-inner-spin-button {
+        &[type='date']::-webkit-inner-spin-button {
           margin-top: 2px;
         }
       }
@@ -1020,9 +1013,7 @@
       }
     }
 
-
     .vxe-cell {
-
       .vxe-default-input,
       .vxe-default-textarea,
       .vxe-default-select {
@@ -1030,7 +1021,7 @@
       }
 
       .vxe-default-input {
-        &[type="date"]::-webkit-inner-spin-button {
+        &[type='date']::-webkit-inner-spin-button {
           margin-top: 1px;
         }
       }
@@ -1100,7 +1091,6 @@
   }
 
   &.is--header {
-
     .vxe-table--fixed-left-wrapper,
     .vxe-table--fixed-right-wrapper {
       .vxe-table--body-wrapper {
@@ -1172,7 +1162,7 @@
     cursor: col-resize;
 
     &:before {
-      content: "";
+      content: '';
       display: block;
       height: 100%;
       background-color: $vxe-table-resizable-drag-line-color;
@@ -1215,7 +1205,7 @@
   }
 
   .vxe-tree--line {
-    content: "";
+    content: '';
     position: absolute;
     bottom: -0.9em;
     width: 0.8em;
@@ -1257,7 +1247,7 @@
 
   .vxe-body--column {
     &.col--ellipsis {
-      &>.vxe-cell {
+      & > .vxe-cell {
         .vxe-tree-cell {
           overflow: hidden;
           text-overflow: ellipsis;
@@ -1284,7 +1274,7 @@
       }
     }
 
-    &+.vxe-table--expand-label {
+    & + .vxe-table--expand-label {
       padding-left: 0.5em;
     }
   }
@@ -1293,7 +1283,7 @@
     border-bottom: $vxe-table-border-width solid $vxe-table-border-color;
 
     &.col--ellipsis {
-      &>.vxe-body--expanded-cell {
+      & > .vxe-body--expanded-cell {
         padding: 9px 10px 0 20px;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -1345,26 +1335,25 @@
       @extend %DefaultColumnHeight;
 
       &:not(.col--actived) {
-        &>.vxe-cell {
+        & > .vxe-cell {
           @extend %TextEllipsis;
         }
       }
 
-      &>.vxe-cell {
+      & > .vxe-cell {
         max-height: $vxe-table-row-height-default;
       }
     }
   }
 
   &.size--medium {
-
     .vxe-header--column,
     .vxe-body--column,
     .vxe-footer--column {
       &.col--ellipsis {
         @extend %MediumColumnHeight;
 
-        &>.vxe-cell {
+        & > .vxe-cell {
           max-height: $vxe-table-row-height-medium;
         }
       }
@@ -1380,14 +1369,13 @@
   }
 
   &.size--small {
-
     .vxe-header--column,
     .vxe-body--column,
     .vxe-footer--column {
       &.col--ellipsis {
         @extend %SmallColumnHeight;
 
-        &>.vxe-cell {
+        & > .vxe-cell {
           max-height: $vxe-table-row-height-small;
         }
       }
@@ -1403,14 +1391,13 @@
   }
 
   &.size--mini {
-
     .vxe-header--column,
     .vxe-body--column,
     .vxe-footer--column {
       &.col--ellipsis {
         @extend %MiniColumnHeight;
 
-        &>.vxe-cell {
+        & > .vxe-cell {
           max-height: $vxe-table-row-height-mini;
         }
       }
@@ -1453,11 +1440,9 @@
     display: block;
     width: 50%;
     pointer-events: auto;
-
   }
 
   &.is--empty {
-
     .vxe-table--empty-block,
     .vxe-table--empty-placeholder {
       display: flex;
@@ -1490,7 +1475,6 @@
 
   /*校验不通过*/
   .vxe-body--column {
-
     &.col--actived,
     &.col--selected {
       position: relative;
@@ -1524,11 +1508,10 @@
       }
 
       .vxe-input {
-        >.vxe-input--inner {
+        > .vxe-input--inner {
           border-color: $vxe-table-validate-error-color;
         }
       }
-
     }
   }
 
@@ -1554,11 +1537,11 @@
   /*单元格编辑状态*/
   .vxe-body--row {
     &.row--new {
-      &>.vxe-body--column {
+      & > .vxe-body--column {
         position: relative;
 
         &:before {
-          content: "";
+          content: '';
           top: -$vxe-table-cell-dirty-width;
           left: -$vxe-table-cell-dirty-width;
           position: absolute;
@@ -1576,7 +1559,7 @@
       position: relative;
 
       &:before {
-        content: "";
+        content: '';
         top: -$vxe-table-cell-dirty-width;
         left: -$vxe-table-cell-dirty-width;
         position: absolute;
@@ -1600,7 +1583,6 @@
           }
 
           .vxe-cell {
-
             .vxe-default-input,
             .vxe-default-textarea {
               border: 0;
@@ -1631,7 +1613,6 @@
     }
 
     .vxe-body--column {
-
       //padding: 0;
       &.col--actived {
         //padding: 0;
@@ -1652,7 +1633,7 @@
 
 .vxe-footer--column {
   &.col--ellipsis {
-    &>.vxe-cell {
+    & > .vxe-cell {
       display: flex;
       align-items: center;
 

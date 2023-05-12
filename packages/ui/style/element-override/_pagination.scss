@@ -112,8 +112,7 @@ $pagination-button-margin-sm: $margin;
   }
 
   &--small {
-
-    span:not([class*=suffix]),
+    span:not([class*='suffix']),
     button,
     .btn-prev,
     .btn-next,
@@ -151,7 +150,6 @@ $pagination-button-margin-sm: $margin;
   }
 
   &.is-background {
-
     .btn-prev,
     .btn-next,
     .el-pager li {
@@ -195,7 +193,6 @@ $pagination-button-margin-sm: $margin;
     }
 
     &.el-pagination--small {
-
       .btn-prev,
       .btn-next,
       .el-pager li {

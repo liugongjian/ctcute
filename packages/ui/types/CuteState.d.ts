@@ -7,4 +7,4 @@
  */
 import { CuteComponent } from './component'
 
-export declare class CuteState extends CuteComponent { }
+export declare class CuteState extends CuteComponent {}

@@ -77,7 +77,7 @@
       }
 
       .el-form-item__content {
-        line-height: $height;
+        line-height: $height - 2;
       }
     }
   }

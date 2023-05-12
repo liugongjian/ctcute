@@ -17,7 +17,6 @@
     }
   }
 
-
   .el-radio-group {
     .el-radio-button.is-disabled .el-radio-button__inner {
       border-radius: $border-radius;
@@ -39,7 +38,7 @@
   .el-radio-group .el-radio-button.is-active &:not(.is-disabled):hover {
     .el-radio-button__inner:hover {
       background: $radio-group-bg;
-      border: 1px solid   $radio-group-bg;
+      border: 1px solid $radio-group-bg;
       border-radius: $cute-special-radio-size;
       color: $radio-group-color;
     }
@@ -48,6 +47,6 @@
   .el-radio-button__orig-radio:checked + .el-radio-button__inner {
     box-shadow: none;
     border-radius: $cute-special-radio-size;
-    border: 1px solid   $radio-group-bg;
+    border: 1px solid $radio-group-bg;
   }
 }

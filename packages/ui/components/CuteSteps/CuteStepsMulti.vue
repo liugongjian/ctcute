@@ -31,7 +31,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Prop, Watch, Mixins } from 'vue-property-decorator'
+import { Component, Prop, Watch, Mixins } from 'vue-property-decorator'
 import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
@@ -66,7 +66,7 @@ export default class extends Mixins(Locale) {
     this.$forceUpdate()
   }
   handleStep(s: any, index: number) {
-    this.$emit('clickStep', s, index)
+    this.$emit('click-step', s, index)
   }
 
   getShow(index: number) {

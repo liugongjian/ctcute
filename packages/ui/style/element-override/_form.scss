@@ -43,7 +43,6 @@
   background: $color-danger-bg;
 }
 
-
 .el-form-item__custom__error {
   padding: 9px 16px;
   line-height: 8px;
@@ -60,7 +59,6 @@
       color: $color-danger;
     }
   }
-
 }
 
 .el-form--inline .el-form-item {
@@ -85,7 +83,7 @@
   .el-form--inline {
     .el-form-item {
       &.el-form-item--#{$size} {
-        display: inline-flex
+        display: inline-flex;
       }
     }
   }

@@ -112,7 +112,7 @@
     align-items: center;
     height: $common-space-8x;
   }
-  
+
   &__breadcrumb {
     flex: 1;
 
@@ -125,11 +125,10 @@
     margin-top: $margin-3x;
   }
 
-  &+.cute-layout__main {
+  & + .cute-layout__main {
     margin-top: $margin-3x; // 存在面包屑时，调整为向面包屑对齐
   }
 }
-
 
 /* Sidebar */
 .cute-layout-sidebar {
@@ -149,12 +148,12 @@
       background-color: transparent;
       flex: 1;
       overflow: auto;
-  
+
       a:hover {
         text-decoration: none;
       }
     }
-  
+
     .el-menu-item,
     .el-submenu__title {
       min-width: auto;
@@ -166,7 +165,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       color: $cute-layout-sidebar-text-color;
-  
+
       &:hover {
         color: $cute-layout-sidebar-color-master;
       }
@@ -203,7 +202,8 @@
 
     /* 层级缩进 */
     .level-1 {
-      .el-submenu__title, .el-menu-item {
+      .el-submenu__title,
+      .el-menu-item {
         padding-left: $padding-6x !important;
 
         &:before {
@@ -213,7 +213,8 @@
     }
 
     .level-2 {
-      .el-submenu__title, .el-menu-item {
+      .el-submenu__title,
+      .el-menu-item {
         padding-left: $padding-10x !important;
 
         &:before {
@@ -234,7 +235,8 @@
     }
 
     .level-3 {
-      .el-submenu__title, .el-menu-item {
+      .el-submenu__title,
+      .el-menu-item {
         padding-left: $padding-10x + $padding-3x !important;
 
         &:before {
@@ -289,7 +291,9 @@
     height: $common-space-10x * 2;
     width: $common-space-3x;
     position: absolute;
-    top: calc(50% - #{$common-space-10x} - #{$cute-layout-header-height} / 2); // $common-space-10x是自身高度的一半
+    top: calc(
+      50% - #{$common-space-10x} - #{$cute-layout-header-height} / 2
+    ); // $common-space-10x是自身高度的一半
     right: -$common-space-3x;
     background: $cute-layout-sidebar-bg;
     border-top-right-radius: 10px;

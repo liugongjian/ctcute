@@ -11,10 +11,16 @@
   >
     <!-- icon & line -->
     <div :class="`is-${currentStatus}`" class="el-step__head">
-      <div class="el-step__line" :style="{ 
-          marginRight: isLast ? $parent.stepOffset + 'px': undefined,
-          marginLeft: !isSimple && !isCenter && !isVertical && $refs.title ? $refs.title.offsetLeft + $refs.title.offsetWidth + 'px' : undefined 
-        }">
+      <div
+        class="el-step__line"
+        :style="{
+          marginRight: isLast ? $parent.stepOffset + 'px' : undefined,
+          marginLeft:
+            !isSimple && !isCenter && !isVertical && $refs.title
+              ? $refs.title.offsetLeft + $refs.title.offsetWidth + 'px'
+              : undefined,
+        }"
+      >
         <i class="el-step__line-inner" :style="lineStyle"></i>
       </div>
 

@@ -1,10 +1,5 @@
-/*
-* @Author: 胡一苗
-* @Date: 2023-03-21 17:06:22
-* @LastEditors: 胡一苗
-* @LastEditTime: 2023-03-24 10:29:36
-* @Description: desc
-*/
+/* * @Author: 胡一苗 * @Date: 2023-03-21 17:06:22 * @LastEditors: 胡一苗 * @LastEditTime: 2023-03-24 10:29:36
+* @Description: desc */
 <template>
   <div>
     <h1>State</h1>
@@ -54,8 +49,7 @@ import StateDemo from '@/views/ui/components/State.vue'
     StateDemo,
   },
 })
-export default class extends Vue {
-}
+export default class extends Vue {}
 </script>
 
 <style lang="scss" scoped>

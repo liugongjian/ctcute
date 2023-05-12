@@ -11,7 +11,6 @@
 
   // 页眉样式
   th.el-table__cell {
-
     &,
     &.is-leaf {
       border-right: 0;
@@ -47,7 +46,6 @@
 
   thead.has-gutter {
     th.el-table__cell {
-
       // 有gutter，最后第二列留白
       &:nth-last-child(2) > .cell {
         padding-right: $padding-5x;
@@ -148,7 +146,7 @@
   }
 
   // 树形表格
-  [class*=el-table__row--level] .el-table__expand-icon {
+  [class*='el-table__row--level'] .el-table__expand-icon {
     margin-right: 0;
   }
 
@@ -171,7 +169,6 @@
 
     // 页眉样式
     th.el-table__cell {
-
       &,
       &.is-leaf {
         border-right: 1px solid transparent;
@@ -185,7 +182,6 @@
 
     thead.has-gutter {
       th.el-table__cell {
-
         // 有gutter，最后第二列没有border
         &:nth-last-child(2) > .cell {
           border-right: none;
@@ -208,7 +204,7 @@
 
         &:hover {
           td.el-table__cell {
-            background: $table-row-hover-background-color
+            background: $table-row-hover-background-color;
           }
         }
       }
@@ -232,7 +228,6 @@
 
     // 页眉样式
     th.el-table__cell {
-
       &,
       &.is-leaf {
         border-right: 1px solid $table-border-color;

@@ -12,13 +12,14 @@
       <h3>{{ $t('componentTest.dialog.basic') }}</h3>
       <el-button @click="dialogVisible1 = true">{{ $t('componentTest.dialog.open') }}</el-button>
       <el-dialog title="提示" :visible.sync="dialogVisible1" width="30%">
-        <span>这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息</span>
+        <span
+          >这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息这是一段信息</span
+        >
         <div slot="footer">
           <el-button @click="dialogVisible1 = false">{{ $t('componentTest.dialog.cancel') }}</el-button>
-          <el-button
-            type="primary"
-            @click="dialogVisible1 = false"
-          >{{ $t('componentTest.dialog.ok') }}</el-button>
+          <el-button type="primary" @click="dialogVisible1 = false">{{
+            $t('componentTest.dialog.ok')
+          }}</el-button>
         </div>
       </el-dialog>
     </el-row>
@@ -37,19 +38,14 @@
         </el-table>
         <div slot="footer">
           <el-button @click="dialogTableVisible = false">{{ $t('componentTest.dialog.cancel') }}</el-button>
-          <el-button
-            type="primary"
-            @click="dialogTableVisible = false"
-          >{{ $t('componentTest.dialog.ok') }}</el-button>
+          <el-button type="primary" @click="dialogTableVisible = false">{{
+            $t('componentTest.dialog.ok')
+          }}</el-button>
         </div>
       </el-dialog>
 
       <!-- Table2 -->
-      <el-dialog
-        title="收货地址"
-        :visible.sync="dialogTableVisible2"
-        custom-class="dialog-fixed-height"
-      >
+      <el-dialog title="收货地址" :visible.sync="dialogTableVisible2" custom-class="dialog-fixed-height">
         <el-table :data="gridData" class="dialog-table">
           <el-table-column property="date" label="日期" width="150"></el-table-column>
           <el-table-column property="name" label="姓名" width="200"></el-table-column>
@@ -57,10 +53,9 @@
         </el-table>
         <div slot="footer">
           <el-button @click="dialogTableVisible2 = false">{{ $t('componentTest.dialog.cancel') }}</el-button>
-          <el-button
-            type="primary"
-            @click="dialogTableVisible2 = false"
-          >{{ $t('componentTest.dialog.ok') }}</el-button>
+          <el-button type="primary" @click="dialogTableVisible2 = false">{{
+            $t('componentTest.dialog.ok')
+          }}</el-button>
         </div>
       </el-dialog>
 
@@ -79,10 +74,9 @@
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="dialogFormVisible = false">{{ $t('componentTest.dialog.cancel') }}</el-button>
-          <el-button
-            type="primary"
-            @click="dialogFormVisible = false"
-          >{{ $t('componentTest.dialog.ok') }}</el-button>
+          <el-button type="primary" @click="dialogFormVisible = false">{{
+            $t('componentTest.dialog.ok')
+          }}</el-button>
         </div>
       </el-dialog>
     </el-row>
@@ -98,13 +92,12 @@
           <el-table-column property="address" label="地址"></el-table-column>
         </el-table>
         <div slot="footer">
-          <el-button
-            @click="dialogFullscreenVisible = false"
-          >{{ $t('componentTest.dialog.cancel') }}</el-button>
-          <el-button
-            type="primary"
-            @click="dialogFullscreenVisible = false"
-          >{{ $t('componentTest.dialog.ok') }}</el-button>
+          <el-button @click="dialogFullscreenVisible = false">{{
+            $t('componentTest.dialog.cancel')
+          }}</el-button>
+          <el-button type="primary" @click="dialogFullscreenVisible = false">{{
+            $t('componentTest.dialog.ok')
+          }}</el-button>
         </div>
       </el-dialog>
     </el-row>

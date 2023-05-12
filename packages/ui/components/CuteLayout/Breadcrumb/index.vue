@@ -69,7 +69,14 @@ export default class extends Mixins(Locale) {
       return item.meta && item.meta.title && item.meta.breadcrumb !== false
     })
     if (this.breadcrumbAfterEach) {
-      breadcrumbs = breadcrumbs.map(breadcrumb => this.breadcrumbAfterEach(breadcrumb))
+      breadcrumbs = breadcrumbs.map(breadcrumb => {
+        return this.breadcrumbAfterEach({
+          ...breadcrumb,
+          meta: {
+            ...breadcrumb.meta,
+          },
+        })
+      })
     }
     this.breadcrumbs = breadcrumbs
   }

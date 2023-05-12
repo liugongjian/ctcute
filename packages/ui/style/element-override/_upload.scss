@@ -22,7 +22,6 @@
         color: $upload-font-active-color;
       }
     }
-
   }
 
   .el-icon-document {
@@ -90,9 +89,7 @@
     background: $upload-bg-hover;
     border-radius: $upload-dragger-border-radius;
   }
-
 }
-
 
 .file-uploader .el-upload-list {
   .is-success.el-upload-list__item :hover {
@@ -138,13 +135,10 @@
   background-color: $upload-bg;
   border: 1px solid $upload-border-color;
   border-radius: $border-radius;
-
 }
-
 
 //图片上传
 .picture-uploader {
-
   display: flex;
   margin-bottom: $margin-10;
 
@@ -178,8 +172,6 @@
         color: $upload-color;
       }
     }
-
-
   }
 
   .el-upload-list__item.is-success {
@@ -249,8 +241,6 @@
     height: $upload-picture-card-progress-circle-size !important;
   }
 
-
-
   .el-progress-circle svg path:nth-child(2) {
     stroke: $upload-color;
   }
@@ -279,7 +269,6 @@
 
 .el-upload-list__item {
   &.is-uploading {
-
     .el-progress-bar__outer {
       height: $upload-progress-bar-height !important;
       border-radius: 0 !important;
@@ -354,7 +343,6 @@
       border-color: $upload-color;
     }
   }
-
 }
 
 .el-upload__text {
@@ -383,7 +371,6 @@
 }
 
 .file-disabled .file-uploader {
-
   .file-uploader_content,
   &.file-uploader_content:hover {
     background-color: $disabled-bg;
@@ -392,12 +379,11 @@
     cursor: not-allowed;
 
     .sub-svg-text {
-
       color: $color-master-disabled;
 
       span,
       svg {
-        color: $color-master-disabled
+        color: $color-master-disabled;
       }
     }
 

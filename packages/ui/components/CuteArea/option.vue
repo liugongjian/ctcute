@@ -17,6 +17,7 @@
   </div>
 </template>
 <script type="text/babel">
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export default {
   name: 'CuteAreaOption',
 

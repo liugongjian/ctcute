@@ -5,10 +5,12 @@
 /* $size:大小;
    $height: 高度;
 */
-@mixin tabs-size($size: medium, $height: $tabs-md-height){
+@mixin tabs-size($size: medium, $height: $tabs-md-height) {
   /* stylelint-disable-next-line */
   .el-tabs.el-tabs--#{$size} {
-    .el-tabs__item, .el-tabs__nav-prev, .el-tabs__nav-next{
+    .el-tabs__item,
+    .el-tabs__nav-prev,
+    .el-tabs__nav-next {
       font-size: $text-size;
       height: $height;
       line-height: calc(#{$height} - 2px); // 去掉border
@@ -16,44 +18,44 @@
 
     &:not(.el-tabs--button) .el-tabs__item.el-tabs__add > .el-tabs__add__input {
       line-height: calc(#{$height} - 2px); // 去掉border居中
-      > .el-input__inner{
-        max-height: calc(#{$height} - 2px - #{$common-space}); // 小尺寸下el-input最小高度也会撑开，给一个max-height限制
+      > .el-input__inner {
+        max-height: calc(
+          #{$height} - 2px - #{$common-space}
+        ); // 小尺寸下el-input最小高度也会撑开，给一个max-height限制
       }
-    } 
+    }
 
     &.el-tabs--button .el-tabs__item.el-tabs__add {
-      > .el-tabs__add__input{
+      > .el-tabs__add__input {
         // transform: translateY(-1px); // 边框偏移
         width: 100%;
         line-height: calc(#{$height} - 2px); // 去掉border居中
-        > .el-input__inner{
+        > .el-input__inner {
           height: $text-size;
         }
       }
-    } 
+    }
     // button风格字体均为12px，间距为sm -> 16px, md/lg -> 24px
     &.el-tabs--button > .el-tabs__header .el-tabs__item {
-      &, &.is-top.is-active {
+      &,
+      &.is-top.is-active {
         font-size: $text-size;
         @if $size == small {
           padding: 0 $padding-4x;
-        }
-  
-        @else {
+        } @else {
           padding: 0 $padding-6x;
         }
       }
     }
 
-     // 其他风格字体为sm -> 12px md/lg -> 14px，间距为sm -> 16px, md/lg -> 20px
+    // 其他风格字体为sm -> 12px md/lg -> 14px，间距为sm -> 16px, md/lg -> 20px
     &:not(.el-tabs--button) > .el-tabs__header .el-tabs__item {
-      &, &.is-top.is-active {
+      &,
+      &.is-top.is-active {
         @if $size == small {
           font-size: $text-size;
           padding: 0 $padding-4x;
-        }
-  
-        @else {
+        } @else {
           font-size: $text-size-md;
           padding: 0 $padding-5x;
         }
@@ -65,7 +67,6 @@
 @include tabs-size(large, $tabs-lg-height);
 @include tabs-size(small, $tabs-sm-height);
 
-
 /*
   button风格
 */
@@ -76,14 +77,14 @@
 
   .el-tabs__item.el-tabs__add {
     color: $color-master;
-    
-    > .el-tabs__add__input{
-      > .el-input__inner{
+
+    > .el-tabs__add__input {
+      > .el-input__inner {
         background-color: $color-master-bg;
         border: none;
         border-radius: 0px;
         font-size: $text-size;
-        &:focus{
+        &:focus {
           box-shadow: none;
         }
       }
@@ -105,9 +106,9 @@
       background-color: $tabs-master;
       border-color: $tabs-master;
       color: $color-white;
-      .el-icon-close{
+      .el-icon-close {
         color: $color-white;
-        &:hover{
+        &:hover {
           color: $color-neutral-3;
         }
       }

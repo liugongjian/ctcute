@@ -11,7 +11,6 @@ $cascader-tags-size: $select-sm-height;
 }
 
 .el-cascader {
-
   .el-cascader-node__prefix {
     left: $common-space-2x;
   }
@@ -46,10 +45,9 @@ $cascader-tags-size: $select-sm-height;
 
     &:before {
       font-family: $font-family-cute-icons;
-      content: "\ea3c";
+      content: '\ea3c';
     }
   }
-
 
   // .el-input--medium .el-input__icon {
   //   line-height: $input-height;
@@ -64,10 +62,10 @@ $cascader-tags-size: $select-sm-height;
       justify-content: center;
       margin-left: $common-space-2x;
 
-      &.el-tag--small {
-        line-height: $cascader-tags-size;
-        height: $cascader-tags-size;
-      }
+      // &.el-tag--small {
+      //   line-height: $cascader-tags-size;
+      //   height: $cascader-tags-size;
+      // }
 
       .el-icon-close {
         color: $cascader-tag-close-bg;
@@ -91,16 +89,13 @@ $cascader-tags-size: $select-sm-height;
       }
     }
 
-    .el-tag>span {
-
+    .el-tag > span {
       color: $color-neutral-10;
     }
 
     // .el-tag:not(.is-hit) {
     //   border: 0;
     // }
-
-
 
     // .el-icon-close:before {
     //   color: $cascader-tag-close-bg;
@@ -118,7 +113,6 @@ $cascader-tags-size: $select-sm-height;
     }
 
     .el-tag.el-tag--light.el-tag--info {
-
       background-color: $color-neutral-1;
       border: 1px solid $color-neutral-3;
 
@@ -132,7 +126,7 @@ $cascader-tags-size: $select-sm-height;
   //   .el-input__inner{
   //     border: 1px solid $color-master;
   //   }
-  // } 
+  // }
 }
 
 .el-popper.el-cascader__dropdown {
@@ -142,7 +136,6 @@ $cascader-tags-size: $select-sm-height;
   box-shadow: $shadow-2;
 
   .el-cascader-node {
-
     // padding: 0 30px 0 2px; // 有选择框不能按设计稿处理，需要重新想办法
     &:hover {
       background-color: $cascader-node-hover;
@@ -178,18 +171,17 @@ $cascader-tags-size: $select-sm-height;
   padding: 0 $padding-2x;
 }
 
-
 @mixin input-size($size, $height, $text-size) {
   .el-cascader.el-cascader--#{$size} {
     line-height: $height;
 
     .el-input.el-input--large .el-input__icon {
-      line-height: unset
+      line-height: unset;
     }
   }
 }
 
-// 组件自己 计算出来的高度比设置高度多1px 需要减掉 
+// 组件自己 计算出来的高度比设置高度多1px 需要减掉
 @include input-size(large, $input-lg-height - 2, $text-size);
 @include input-size(medium, $input-md-height - 2, $text-size);
 @include input-size(small, $input-sm-height - 2, $text-size);
@@ -197,4 +189,21 @@ $cascader-tags-size: $select-sm-height;
 
 .el-cascader-menu {
   border-right: 1px solid $color-neutral-2;
+}
+
+// small bugfix
+.el-cascader--small,
+.el-cascader--mini {
+  .el-cascader__tags {
+    .el-tag {
+      height: $select-xs-height - 8;
+      margin-top: 1px;
+      margin-bottom: 1px;
+
+      .el-icon-close {
+        height: $select-xs-height - 8;
+        line-height: $select-xs-height - 8;
+      }
+    }
+  }
 }

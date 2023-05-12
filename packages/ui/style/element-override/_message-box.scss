@@ -18,7 +18,7 @@ $messagebox-btns-padding: $padding-3x $padding-8x $padding-5x $padding-8x;
 
   &__status {
     font-size: $text-size-lg !important;
-    top: $common-space + 1;
+    top: 1px;
     transform: none;
   }
 
@@ -29,6 +29,12 @@ $messagebox-btns-padding: $padding-3x $padding-8x $padding-5x $padding-8x;
 
   &__content {
     padding: $messagebox-content-padding;
+  }
+
+  &__message {
+    p {
+      line-height: $line-height;
+    }
   }
 
   &__btns {

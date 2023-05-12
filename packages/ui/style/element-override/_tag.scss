@@ -16,7 +16,14 @@
   $color-icon: 图标色，Dark模式复用该颜色;
   $color-icon-hover: 图标悬浮色;
 */
-@mixin tag-color($type, $color-light, $color-light-border, $color-light-text, $color-icon, $color-icon-hover) {
+@mixin tag-color(
+  $type,
+  $color-light,
+  $color-light-border,
+  $color-light-text,
+  $color-icon,
+  $color-icon-hover
+) {
   .el-tag {
     // light
     &.el-tag--light.el-tag#{$type} {
@@ -67,12 +74,39 @@
     }
   }
 }
-@include tag-color(null, $tag-master, $tag-master-border, $tag-master-border, $tag-master-border, $color-master-hover);
+@include tag-color(
+  null,
+  $tag-master,
+  $tag-master-border,
+  $tag-master-border,
+  $tag-master-border,
+  $color-master-hover
+);
 @include tag-color(--info, $tag-info, $tag-info-border, $tag-info-text, $tag-info-dark, $color-info-hover);
-@include tag-color(--success, $tag-success, $tag-success-border, $tag-success-border, $tag-success-border, $color-success-hover);
-@include tag-color(--danger, $tag-danger, $tag-danger-border, $tag-danger-border, $tag-danger-border, $color-danger-hover);
-@include tag-color(--warning, $tag-warning, $tag-warning-border, $tag-warning-border, $tag-warning-border, $color-warning-hover);
-
+@include tag-color(
+  --success,
+  $tag-success,
+  $tag-success-border,
+  $tag-success-border,
+  $tag-success-border,
+  $color-success-hover
+);
+@include tag-color(
+  --danger,
+  $tag-danger,
+  $tag-danger-border,
+  $tag-danger-border,
+  $tag-danger-border,
+  $color-danger-hover
+);
+@include tag-color(
+  --warning,
+  $tag-warning,
+  $tag-warning-border,
+  $tag-warning-border,
+  $tag-warning-border,
+  $color-warning-hover
+);
 
 /*
   重置Tag尺寸

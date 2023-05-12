@@ -112,7 +112,7 @@ $pagination-button-margin-sm: $margin;
   }
 
   &--small {
-    span:not([class*=suffix]),
+    span:not([class*='suffix']),
     button,
     .btn-prev,
     .btn-next,

@@ -1,5 +1,5 @@
 class MemoryStorage {
-  private _storage: object
+  private _storage: Record<string, unknown>
   constructor(private namespace) {
     this.namespace = namespace || null
     this._storage = {}

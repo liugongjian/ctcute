@@ -8,13 +8,13 @@
 }
 
 .el-notification__group {
-  margin-left: $margin-3x;
-  margin-right: $margin-2x;
+  margin: 0;
 }
 
 .el-notification__icon {
   position: relative;
   top: 3px; // (lineHeight-1.5 * fontSize-14 - iconHeight-14) / 2
+  margin-right: $margin-2x;
 }
 
 .el-notification__title {

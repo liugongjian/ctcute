@@ -77,7 +77,6 @@ $input-suffix-padding: $padding-8x + 2;
 
   // 复杂输入框组
   &.el-input-group {
-
     .el-input-group__append,
     .el-input-group__prepend {
       padding: 0 $common-space-3x;
@@ -95,13 +94,10 @@ $input-suffix-padding: $padding-8x + 2;
       .el-select {
         min-width: 80px;
         margin: -10px -12px;
-
-
       }
     }
 
     &.input-with-select {
-
       .el-input-group__append,
       .el-input-group__prepend {
         background-color: transparent;
@@ -130,7 +126,6 @@ $input-suffix-padding: $padding-8x + 2;
     .prefix-placeholder {
       color: $select-color-disabled;
     }
-
   }
 }
 
@@ -180,7 +175,7 @@ $input-suffix-padding: $padding-8x + 2;
       height: $height - 2;
       line-height: $height - 2;
       margin-bottom: 0 !important;
-      margin-top: 0 !important
+      margin-top: 0 !important;
     }
 
     .el-input--suffix {

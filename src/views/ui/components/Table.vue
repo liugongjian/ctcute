@@ -7,38 +7,38 @@
     </p>
     <h3>基础表格</h3>
     <div class="sub-table">
-      <el-table v-loading="loading" :data="table1" fit>
-        <el-table-column prop="name" label="主机别名" width="150px">
+      <el-table v-loading="loading" :data="table1" fit border highlight-current-row>
+        <el-table-column prop="name" label="主机别名" width="150px" align="left">
           <template slot-scope="scope">
             <div>
               <span class="text-ellipsis name-primary" :title="scope.row.name">{{ scope.row.name }}</span>
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="status" label="实例状态"></el-table-column>
-        <el-table-column prop="ip" label="IP地址" width="100px"></el-table-column>
-        <el-table-column prop="time" label="时间" sortable width="150px"></el-table-column>
-        <el-table-column prop="label" label="标签" width="150px">
+        <el-table-column prop="status" label="实例状态" align="left"></el-table-column>
+        <el-table-column prop="ip" label="IP地址" width="100px" align="left"></el-table-column>
+        <el-table-column prop="time" label="时间" sortable width="150px" align="left"></el-table-column>
+        <el-table-column prop="label" label="标签" width="150px" align="left">
           <template slot-scope="scope">
             <el-tag type="info" size="small" style="margin-right: 8px">{{ scope.row.label[0] }}</el-tag>
             <el-tag type="info" size="small">{{ scope.row.label[1] }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="description" label="描述" width="150px">
+        <el-table-column prop="description" label="描述" width="150px" align="left">
           <template slot-scope="scope">
             <el-tooltip class="item" effect="dark" :content="scope.row.description" placement="top">
               <span class="text-ellipsis">{{ scope.row.description }}</span>
             </el-tooltip>
           </template>
         </el-table-column>
-        <el-table-column prop="healthy" label="健康状态">
+        <el-table-column prop="healthy" label="健康状态" align="left">
           <template slot-scope="scope">
             <cute-state :type="HEALTH[scope.row.healthy].colorType">
               {{ HEALTH[scope.row.healthy].text }}
             </cute-state>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="200px">
+        <el-table-column label="操作" width="200px" align="left">
           <template slot-scope="scope">
             <el-button
               type="text"

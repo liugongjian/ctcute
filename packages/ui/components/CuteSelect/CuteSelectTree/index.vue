@@ -16,7 +16,7 @@
     :multiple="multiple ? true : false"
     popper-class="cute-select-tree"
   >
-    <el-option :value="value" :label="label" style="height: auto;">
+    <el-option :value="value" :label="label" style="height: auto">
       <el-tree
         v-if="$scopedSlots.node"
         ref="tree"

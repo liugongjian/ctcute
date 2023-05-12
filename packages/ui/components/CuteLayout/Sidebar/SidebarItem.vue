@@ -135,7 +135,7 @@ export default class extends Mixins(Locale) {
    * @param transform 是否转换Path，如下钻菜单没有设置redirect默认取第一个子菜单的path的操作，和拼接URL参数
    */
   private resolvePath(route: any, shouldTransform = true) {
-    let routePath = route.meta && route.meta.customPath ? route.meta.customPath : route.path
+    let routePath = route.meta?.customPath ? route.meta.customPath : route.path
     if (isExternal(routePath)) {
       return routePath
     }
@@ -143,19 +143,19 @@ export default class extends Mixins(Locale) {
       return this.basePath
     }
     // 如果为下钻菜单，并且没有设置redirect，则默认取第一个子菜单的path
-    if (route && route.meta.drillDown && !route.redirect && shouldTransform) {
+    if (route?.meta.drillDown && !route.redirect && shouldTransform) {
       if (route.children && route.children.length) {
         routePath = route.children[0].path
       }
     }
     // 添加URL参数
-    if (shouldTransform && route && route.query) {
+    if (shouldTransform && route?.query) {
       const query = Object.keys(route.query)
         .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(route.query[key]))
         .join('&')
       return path.resolve(this.basePath, routePath) + '?' + query
     }
-    if (route.meta && route.meta.customPath) {
+    if (route.meta?.customPath) {
       return routePath
     }
     return path.resolve(this.basePath, routePath)

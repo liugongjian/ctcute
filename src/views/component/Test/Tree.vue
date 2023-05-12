@@ -2,7 +2,7 @@
  * @Author: 刘功坚
  * @Date: 2023-03-17 13:45:09
  * @LastEditors: liugj
- * @LastEditTime: 2023-05-08 15:25:00
+ * @LastEditTime: 2023-05-11 16:21:03
  * @Description: Tree
 -->
 <template>
@@ -51,8 +51,10 @@
           <div class="operator">
             <span>{{ node.label }}</span>
             <span>
-              <el-dropdown>
-                <i class="el-icon-more"></i>
+              <el-dropdown @visible-change="val => onDropdownChange(val, node)">
+                <div :ref="'icon' + node.data.id" class="op-icon">
+                  <i class="el-icon-more"></i>
+                </div>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item>新建</el-dropdown-item>
                   <el-dropdown-item>编辑</el-dropdown-item>
@@ -89,6 +91,8 @@ export default class extends Vue {
   }
 
   private filterText = ''
+
+  private opType = 'hide'
 
   private data = [
     {
@@ -201,6 +205,11 @@ export default class extends Vue {
   private allowDrag(draggingNode) {
     return draggingNode.data.label.indexOf('三级 3-2-2') === -1
   }
+
+  private onDropdownChange(val, node) {
+    const opEle: any = this.$refs['icon' + node.data.id]
+    val ? opEle.classList.add('show') : opEle.classList.remove('show')
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -213,24 +222,29 @@ export default class extends Vue {
     width: 100%;
     .node-content {
       flex-grow: 1;
-
       .operator {
-        .el-icon-more {
+        display: flex;
+        justify-content: space-between;
+        padding-right: $padding-4x;
+        .op-icon {
+          width: 48px;
+          &:hover,
+          &:focus {
+            color: $color-master;
+          }
           display: none;
+        }
+        .show {
+          display: flex;
+          justify-content: center;
         }
       }
     }
     &:hover {
       .operator {
-        display: flex;
-        justify-content: space-between;
-        padding-right: $padding-4x;
-        .el-icon-more {
-          &:hover,
-          &:focus {
-            color: $color-master;
-          }
-          display: block;
+        .op-icon {
+          display: flex;
+          justify-content: center;
         }
       }
     }

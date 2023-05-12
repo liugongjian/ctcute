@@ -103,6 +103,8 @@ declare namespace CtcloudLayout {
     matchConsoleMenuCode(args: { menuCode: string; fontColor?: string }): void
     // 隐藏侧边栏
     hideSiderMenu(): void
+    // 更新登出路由
+    updateConsoleLayoutLogoutUrl(logoutUrl: string): void
   }
   // // 右下角客服
   // export interface fixedSidebarAd {

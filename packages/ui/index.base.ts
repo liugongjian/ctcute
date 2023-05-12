@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-27 12:14:22
+ * @LastEditTime: 2023-05-11 12:20:31
  * @Description:
  */
 import ElementUI, {
@@ -100,7 +100,6 @@ import ElementUIOverride, {
 // svgIcon
 import './icons/index'
 import SvgIcon from './icons/index.vue'
-import { CuteDI18n } from './i18n'
 
 /**
  * 组件清单
@@ -173,12 +172,10 @@ const componentsList = [
 ]
 
 export default {
-  install(Vue, opts = { size: 'medium', i18n: CuteDI18n }) {
-    // 注册ElementUI时要使用兜底的CuteDI18n使cuted覆盖element-ui的i18n配置生效
+  install(Vue, opts = { size: 'medium' }) {
     Vue.use(ElementUI, {
       ...opts,
       size: opts.size || 'medium',
-      i18n: opts.i18n || CuteDI18n
     })
     Vue.use(ElementUIOverride)
     Vue.component('SvgIcon', SvgIcon)

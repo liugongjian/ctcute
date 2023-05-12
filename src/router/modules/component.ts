@@ -2,8 +2,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-20 09:15:28
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-11 18:43:54
  * @Description:
  */
 // import Layout from '@/layout/component.vue'
@@ -72,15 +72,6 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteCardBox/index.vue'),
         meta: {
           title: 'CuteCardBox',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'cute-chart',
-        name: 'CuteChart',
-        component: () => import('@/views/component/Base/CuteChart/index.vue'),
-        meta: {
-          title: 'CuteChart',
           breadcrumb: true,
         },
       },

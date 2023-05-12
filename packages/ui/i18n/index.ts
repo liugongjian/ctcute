@@ -15,8 +15,10 @@ const DEFAULT_OPTIONS = {
   defaultLang: 'zh',
 }
 
-export default function createI18nInstance(options?: Partial<typeof DEFAULT_OPTIONS>): VueI18n {
-  const { storageKey, defaultLang } = Object.assign({}, DEFAULT_OPTIONS, options)
+export default function createI18nInstance(
+  options?: Partial<typeof DEFAULT_OPTIONS> & VueI18n.I18nOptions
+): VueI18n {
+  const { storageKey, defaultLang, ..._options } = Object.assign({}, DEFAULT_OPTIONS, options)
 
   const i18n = new VueI18n({
     locale: localStorage.getItem(storageKey) || defaultLang,
@@ -25,7 +27,7 @@ export default function createI18nInstance(options?: Partial<typeof DEFAULT_OPTI
       zh,
       en,
     },
-    silentTranslationWarn: true
+    ..._options,
   })
 
   // element-ui 兼容 i18n 6+ 高版本
@@ -33,6 +35,3 @@ export default function createI18nInstance(options?: Partial<typeof DEFAULT_OPTI
 
   return i18n
 }
-
-// 基于cuted现有配置export一个默认兜底的i18n
-export const CuteDI18n = (key: string, value: any) => createI18nInstance().t(key, value)

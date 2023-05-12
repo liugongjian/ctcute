@@ -43,9 +43,10 @@ export default class extends Vue {
   .el-button--medium {
     border-radius: 0;
 
-    &:hover {
+    &:hover,
+    &:focus {
       position: relative;
-      border-color: $color-master-1 !important;
+      z-index: 2;
     }
   }
 

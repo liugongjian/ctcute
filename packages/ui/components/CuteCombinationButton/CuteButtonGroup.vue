@@ -1,8 +1,8 @@
 <!--
  * @Author: 王亚振
  * @Date: 2023-03-21 14:03:10
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-04-13 15:58:49
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-05-12 14:50:03
  * @Description:
 -->
 <template>
@@ -44,3 +44,12 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.el-button {
+  &:hover,
+  &:focus {
+    position: relative;
+    z-index: 2;
+  }
+}
+</style>

@@ -1,8 +1,8 @@
 <!--
  * @Author: 黄靖
  * @Date: 2023-04-25 17:49:09
- * @LastEditors: 黄靖
- * @LastEditTime: 2023-05-08 15:03:06
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-12 08:16:53
  * @Description:
 -->
 <template>
@@ -43,6 +43,6 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .footer-content {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 </style>

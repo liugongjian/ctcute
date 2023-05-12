@@ -273,7 +273,7 @@ grids.forEach(function (grid, idx) {
   },
 })
 export default class extends Vue {
-@Prop({ default: 'cuted-light', required: false }) private readonly theme: string
+  @Prop({ default: 'cuted-light', required: false }) private readonly theme: string
   option = {}
   /**
    * 页面Mounted

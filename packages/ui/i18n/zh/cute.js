@@ -12,7 +12,7 @@ export default {
     new: '新选项卡',
   },
   tableColumnSet: {
-    checkall: "全选",
+    checkall: '全选',
   },
   tableFilter: {
     new: '新增过滤',
@@ -37,5 +37,5 @@ export default {
     page404Tips: '抱歉，您访问的页面不存在',
     page500Tips: '服务器出错了',
     toHome: '返回首页',
-  }
+  },
 }

@@ -17,16 +17,8 @@
       <!-- 分割线 -->
       <el-divider class="table-column-settings__popover__divider" />
       <!-- 列出全部选项 -->
-      <el-checkbox-group
-        v-model="selectedColumns"
-        class="table-column-settings__popover__label-group"
-      >
-        <el-checkbox
-          v-for="v in tableColumns"
-          :key="v.label"
-          :label="v.label"
-          :disabled="v.isDisabled"
-        />
+      <el-checkbox-group v-model="selectedColumns" class="table-column-settings__popover__label-group">
+        <el-checkbox v-for="v in tableColumns" :key="v.label" :label="v.label" :disabled="v.isDisabled" />
       </el-checkbox-group>
       <!-- 列设置图标 -->
       <div slot="reference" class="table-column-settings__btns">
@@ -39,20 +31,9 @@
       </div>
     </el-popover>
     <!-- 表格 -->
-    <el-table
-      ref="tableRef"
-      v-loading="tableHook.loading"
-      :data="tableHook.tableData"
-      fit
-      v-bind="$attrs"
-    >
+    <el-table ref="tableRef" v-loading="tableHook.loading" :data="tableHook.tableData" fit v-bind="$attrs">
       <template v-for="(item, index) in selectedTableColumns">
-        <el-table-column
-          :key="index + item.prop"
-          :prop="item.prop"
-          :label="item.label"
-          v-bind="item.props"
-        >
+        <el-table-column :key="index + item.prop" :prop="item.prop" :label="item.label" v-bind="item.props">
           <template slot-scope="scope">
             <slot v-if="item.slot" :name="item.slot" :scope="scope" />
             <span v-else>{{ scope.row[item.prop] }}</span>

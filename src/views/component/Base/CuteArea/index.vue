@@ -50,7 +50,7 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
   components: {
     ComponentDemo,
     Demo1,
-    Demo2
+    Demo2,
   },
 })
 export default class extends Vue {
@@ -74,7 +74,7 @@ export default class extends Vue {
       desc: '是否可以清空选项',
       type: 'boolean',
       options: '—',
-      default: "false",
+      default: 'false',
     },
     {
       name: 'popper-width',

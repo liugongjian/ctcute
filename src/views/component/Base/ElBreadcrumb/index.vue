@@ -1,10 +1,5 @@
-/*
-* @Author: 胡一苗
-* @Date: 2023-03-22 15:40:28
-* @LastEditors: 胡一苗
-* @LastEditTime: 2023-03-24 13:52:33
-* @Description: desc
-*/
+/* * @Author: 胡一苗 * @Date: 2023-03-22 15:40:28 * @LastEditors: 胡一苗 * @LastEditTime: 2023-03-24 13:52:33
+* @Description: desc */
 <template>
   <div>
     <!-- 多个DEMO请复制此段 -->

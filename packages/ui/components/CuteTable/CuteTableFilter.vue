@@ -1,13 +1,8 @@
 <template>
   <div class="table-filter">
-    <el-tag
-      v-for="(v, i) in data"
-      :key="i"
-      type="info"
-      size="large"
-      closable
-      @close="handleClose(v, i)"
-    >{{ v.content }}</el-tag>
+    <el-tag v-for="(v, i) in data" :key="i" type="info" size="large" closable @close="handleClose(v, i)">{{
+      v.content
+    }}</el-tag>
     <div class="table-filter-dropdown">
       <el-tag type="newtag" size="large" @click="visible = true">+ {{ t('cute.tableFilter.new') }}</el-tag>
       <div v-if="visible" class="table-filter_content">

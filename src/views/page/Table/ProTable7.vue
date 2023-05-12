@@ -17,7 +17,12 @@
     <el-table v-loading="loading" :data="tableData" fit>
       <el-table-column type="expand" width="32">
         <template slot-scope="scope">
-          <el-table ref="multipleTable" tooltip-effect="dark" :data="scope.row.projectSpaces" class="expand-table">
+          <el-table
+            ref="multipleTable"
+            tooltip-effect="dark"
+            :data="scope.row.projectSpaces"
+            class="expand-table"
+          >
             <el-table-column prop="projectSpace" label="名称">
               <template slot-scope="{ row }">
                 <el-button :disabled="row.projectSpaceState === '1' ? false : true" type="text">
@@ -91,7 +96,6 @@
         <template slot-scope="{ row }"> {{ formatDatetime(row.createTime) }}</template>
       </el-table-column>
     </el-table>
-
   </el-card>
 </template>
 <script lang="ts">

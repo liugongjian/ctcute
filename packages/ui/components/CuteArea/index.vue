@@ -89,6 +89,7 @@
 </template>
 
 <script type="text/babel">
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Emitter from 'element-ui/src/mixins/emitter'
 import Focus from 'element-ui/src/mixins/focus'
 import Locale from 'element-ui/src/mixins/locale'
@@ -139,10 +140,6 @@ export default {
     autoComplete: {
       type: String,
       validator(val) {
-        process.env.NODE_ENV !== 'production' &&
-          console.warn(
-            "[Element Warn][Select]'auto-complete' property will be deprecated in next major version. please use 'autocomplete' instead."
-          )
         return true
       },
     },

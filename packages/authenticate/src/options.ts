@@ -125,6 +125,7 @@ export default <AuthConfigOptions>{
       const container = document.querySelector($auth.options.containerId)
       const { authenticateType, providers } = $auth.options
       const { containerId, bizDomain } = providers[authenticateType].layout
+      const { logoutUrl } = providers[authenticateType].user
       if (authenticateType === 'iam') {
         if (!window.AlogicLayout) {
           const layout = new IamLayout()
@@ -133,7 +134,7 @@ export default <AuthConfigOptions>{
           container.id = containerId
           const console = await layout.init({ containerId })
           // 侧边栏高亮
-          console.match({ domain: bizDomain })
+          bizDomain && console.match({ domain: bizDomain })
         }
       } else if (authenticateType === 'ctyun') {
         if (!window.CtcloudLayout) {
@@ -142,7 +143,9 @@ export default <AuthConfigOptions>{
           container.id = containerId
           const console = await layout.init()
           // 侧边栏高亮
-          console.matchConsoleMenuCode({ menuCode: bizDomain })
+          bizDomain && console.matchConsoleMenuCode({ menuCode: bizDomain })
+          // 修改登出路由
+          logoutUrl && console.updateConsoleLayoutLogoutUrl(logoutUrl)
         }
       }
     } catch (err) {
@@ -196,7 +199,7 @@ export default <AuthConfigOptions>{
       },
     },
     ctyun: {
-      enableWorkspace: false, // iam 默认不启用 wid
+      enableWorkspace: false, // ctyun 默认不启用 wid
       layout: {
         containerId: 'ctcloud-console', // 注意：该 id 不要重写，会导致 ctyun layout 初始化异常
         bizDomain: '', // 侧边栏高亮配置，按需重写

@@ -42,18 +42,32 @@
         }}</el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>{{ $t('demo.tabs.common.delete') }}</h3>
+    <h3>{{ $t('demo.tabs.common.editable') }}</h3>
     <el-row>
       <el-tabs
-        v-model="editableTabsValue"
+        v-model="editableTabsValue1"
         type="button"
         closable
         addable
-        @tab-remove="removeTab"
-        @tab-add="addTab"
+        :add-button-text="$t('demo.tabs.common.addButtonText')"
+        @tab-remove="removeTab1"
+        @tab-add="addTab1"
       >
         <el-tab-pane
-          v-for="item in editableTabs"
+          v-for="item in editableTabs1"
+          :key="item.name"
+          :label="item.title"
+          :name="item.name"
+          :disabled="item.disabled"
+          >{{ item.content }}</el-tab-pane
+        >
+      </el-tabs>
+    </el-row>
+    <h3>{{ $t('demo.tabs.common.addWithInput') }}</h3>
+    <el-row>
+      <el-tabs v-model="editableTabsValue2" type="button" addable show-add-input @tab-add="addTab2">
+        <el-tab-pane
+          v-for="item in editableTabs2"
           :key="item.name"
           :label="item.title"
           :name="item.name"
@@ -74,7 +88,7 @@ export default class extends Vue {
     en: 'Tabs',
   }
 
-  private editableTabs = [
+  private editableTabs1 = [
     {
       title: this.$t('demo.tabs.common.optionDefault'),
       name: '1',
@@ -92,12 +106,16 @@ export default class extends Vue {
       disabled: true,
     },
   ]
+  private editableTabs2 = [...this.editableTabs1]
 
-  private editableTabsValue = '1'
+  private editableTabsValue1 = '1'
+  private editableTabsValue2 = '1'
+
   private tabIndex = 3
-  private removeTab(targetName) {
-    const tabs = this.editableTabs
-    let activeName = this.editableTabsValue
+
+  private removeTab1(targetName) {
+    const tabs = this.editableTabs1
+    let activeName = this.editableTabsValue1
     if (activeName === targetName) {
       tabs.forEach((tab, index) => {
         if (tab.name === targetName) {
@@ -109,18 +127,28 @@ export default class extends Vue {
       })
     }
 
-    this.editableTabsValue = activeName
-    this.editableTabs = tabs.filter(tab => tab.name !== targetName)
+    this.editableTabsValue1 = activeName
+    this.editableTabs1 = tabs.filter(tab => tab.name !== targetName)
   }
 
-  private addTab(tabName: string) {
+  private addTab1() {
     const newTabName = ++this.tabIndex + ''
-    this.editableTabs.push({
+    this.editableTabs1.push({
+      title: this.$t('demo.tabs.common.newTabName'),
+      name: newTabName,
+      content: this.$t('demo.tabs.common.newTabContent'),
+    })
+    this.editableTabsValue1 = newTabName
+  }
+
+  private addTab2(tabName: string) {
+    const newTabName = ++this.tabIndex + ''
+    this.editableTabs2.push({
       title: tabName,
       name: newTabName,
-      content: 'New Tab content',
+      content: this.$t('demo.tabs.common.newTabContent'),
     })
-    this.editableTabsValue = newTabName
+    this.editableTabsValue2 = newTabName
   }
 }
 </script>

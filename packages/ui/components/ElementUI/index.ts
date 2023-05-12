@@ -1,3 +1,4 @@
+import ElementUI from 'element-ui'
 import Steps from './Steps/index.vue'
 import Step from './Steps/Step.vue'
 import Alert from './Alert/index.vue'
@@ -8,7 +9,6 @@ import Tabs from './Tabs/tabs.vue'
 import Breadcrumb from './Breadcrumb/Breadcrumb.vue'
 import BreadcrumbItem from './Breadcrumb/BreadcrumbItem.vue'
 import Button from './Button/index.vue'
-import MessageBox from './MessageBox/index.js'
 import Popover from './Popover/index.vue'
 import directive from './Popover/directive.js'
 import FormItem from './FormItem/index.vue'
@@ -28,10 +28,24 @@ export default {
     Vue.directive('popover', directive)
     Vue.component(Popover.name, Popover)
     Vue.component(FormItem.name, FormItem)
-    Vue.prototype.$msgbox = MessageBox
-    Vue.prototype.$alert = MessageBox.alert
-    Vue.prototype.$confirm = MessageBox.confirm
-    Vue.prototype.$prompt = MessageBox.prompt
+
+    const Pagination = ElementUI.Pagination as any
+    const Table = ElementUI.Table as any
+    Pagination.props.layout = {
+      default: 'total, sizes, prev, pager, next',
+    }
+    Pagination.props.pageSize = {
+      default: 20,
+    }
+    Pagination.props.pageSizes = {
+      default: () => [10, 20, 30, 50, 100],
+    }
+    Pagination.props.popperClass = {
+      default: 'pagination__dropdown',
+    }
+    Table.props.emptyText = {
+      default: '暂无数据',
+    }
   },
 }
-export { Steps, Step, Alert, Collapse, Rate, ColorPicker, Button, Popover, MessageBox }
+export { Steps, Step, Alert, Collapse, Rate, ColorPicker, Button, Popover }

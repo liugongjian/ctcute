@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-27 12:14:22
+ * @LastEditTime: 2023-05-11 12:20:31
  * @Description:
  */
 import ElementUI, {
@@ -54,6 +54,7 @@ import ElementUI, {
   Progress,
   Spinner,
   Message,
+  MessageBox,
   Badge,
   Card,
   Carousel,
@@ -94,9 +95,8 @@ import ElementUIOverride, {
   Collapse,
   Rate,
   Button,
-  MessageBox,
+  // MessageBox,
 } from './components/ElementUI'
-import './components/ElementUI/settings'
 // svgIcon
 import './icons/index'
 import SvgIcon from './icons/index.vue'
@@ -173,7 +173,10 @@ const componentsList = [
 
 export default {
   install(Vue, opts = { size: 'medium' }) {
-    Vue.use(ElementUI, opts)
+    Vue.use(ElementUI, {
+      ...opts,
+      size: opts.size || 'medium',
+    })
     Vue.use(ElementUIOverride)
     Vue.component('SvgIcon', SvgIcon)
 

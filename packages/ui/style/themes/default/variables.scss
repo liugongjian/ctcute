@@ -30,7 +30,7 @@ $color-info-bg: $neutral-1 !default; // 信息通知-背景色，用于信息通
 $color-success: $green-base !default; // 成功色，用于表示成功状态的内容
 $color-success-hover: $green-5 !default; // 成功-悬停色
 $color-success-active: $green-7 !default; // 成功-触发色
-$color-success-disabled: $green-3 !default;  // 成功-禁用色
+$color-success-disabled: $green-3 !default; // 成功-禁用色
 $color-success-bg: $green-1 !default; // 成功-背景色
 $color-warning: $orange-base !default; // 警告色，用于表示警告状态的内容
 $color-warning-hover: $orange-5 !default; // 警告-悬停色
@@ -83,7 +83,7 @@ $disabled-color: $color-neutral-6 !default; // 用于表单项禁用状态的字
 
 /* Title: 字体、字号、字体颜色、字重; Doc: true
 -------------------------- */
-$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif, 
+$font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, STHeiTi, sans-serif,
   '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Hiragino Sans GB' !default; // 标准字体
 $font-family-cute-icons: 'cute-icons' !default; // cute-icons
 $text-size: 12px !default; // 标准字体大小
@@ -165,7 +165,7 @@ $shadow-form-item: 0px 2px 2px rgba(0, 0, 0, 0.1) !default; // 表单项阴影�
 -------------------------- */
 $cute-layout-header-height: 50px !default; // header高度
 $cute-layout-header-logo-height: 22px !default; // logo高度
-$cute-layout-header-sub-logo-height: 15px !default;  // 次logo高度
+$cute-layout-header-sub-logo-height: 15px !default; // 次logo高度
 $cute-layout-header-text-color: $color-white !default; // header文字颜色
 $cute-layout-header-bg: #272b39 !default; // header背景色
 $cute-layout-header-border: #585b62 !default; // header边框色
@@ -324,7 +324,9 @@ $transfer-header-height: 40px !default; // Transfer组件header高度
 $transfer-footer-height: 40px !default; // Transfer组件footer高度
 $transfer-filter-input-height: $input-sm-height !default; // Transfer组件搜索框高度
 $transfer-filter-input-margin: $margin-10 !default; // Transfer组件搜索框高度
-$transfer-filter-height: calc($transfer-filter-input-height + $transfer-filter-input-margin) !default; // Transfer组件filter区域高度
+$transfer-filter-height: calc(
+  $transfer-filter-input-height + $transfer-filter-input-margin
+) !default; // Transfer组件filter区域高度
 
 /* Title: Tabs; Doc: false
 -------------------------- */
@@ -418,7 +420,7 @@ $loading-default-border: $color-neutral-5 !default;
 
 /* Title: Alert; Doc: false
 -------------------------- */
-$alert-text-color: $text-color-light !default;
+$alert-text-color: $text-color-feature !default;
 $alert-info-bg: $color-master-bg-light-2 !default;
 $alert-success-bg: $color-success-bg !default;
 $alert-warning-bg: $color-warning-bg !default;
@@ -499,6 +501,5 @@ $chart-color-h-9: #ff7c80 !default;
 $chart-color-h-10: #a1d5cd !default;
 $chart-color-h-11: #8df0f9 !default;
 $chart-color-h-12: #ff9dc6 !default;
-
 
 @import 'variables-deprecated';

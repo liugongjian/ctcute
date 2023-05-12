@@ -4,3 +4,13 @@
   background-color: $color-bg-2;
   z-index: $zindex-loading-mask;
 }
+
+.el-loading-spinner .el-loading-text {
+  font-size: $text-size;
+  line-height: $line-height;
+  margin: $margin 0 0 0;
+}
+
+.el-loading-spinner .el-icon-loading {
+  font-size: $text-size-md;
+}

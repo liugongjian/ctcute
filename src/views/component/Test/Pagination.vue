@@ -1,10 +1,5 @@
-/*
-* @Author: 胡一苗
-* @Date: 2023-03-23 13:46:05
-* @LastEditors: 胡一苗
-* @LastEditTime: 2023-03-30 09:03:58
-* @Description: desc
-*/
+/* * @Author: 胡一苗 * @Date: 2023-03-23 13:46:05 * @LastEditors: 胡一苗 * @LastEditTime: 2023-03-30 09:03:58
+* @Description: desc */
 <template>
   <div>
     <h1>Pagination</h1>

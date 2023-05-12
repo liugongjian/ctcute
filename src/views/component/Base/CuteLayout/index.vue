@@ -28,6 +28,22 @@
         <el-alert title="注: route的meta属性值具体说明请详见下文Route Meta" show-icon></el-alert>
       </ComponentDemo>
 
+      <h1>CuteLayoutSidebar / 菜单自定义URL参数</h1>
+      <ComponentDemo path="@/views/component/Test/CuteLayout/Layout.vue" mode="text/javascript">
+        <p>
+          可以通过sidebarRoutesAfterEach勾子方法拦截每一个菜单项的数据，对route对象进行修改，比如添加url参数:
+        </p>
+        <p>拦截route对象后，为route对象添加query属性，query类型为Object对象。</p>
+      </ComponentDemo>
+
+      <h1>CuteLayoutBreadcrumb / 自定义面包屑名称</h1>
+      <ComponentDemo path="@/views/component/Test/CuteLayout/Layout.vue" mode="text/javascript">
+        <p>
+          可以通过breadcrumbAfterEach勾子方法拦截每一个面包屑节点的数据，对route对象进行修改，比如修改面包屑名称:
+        </p>
+        <p>拦截route对象后，修改route.meta.title，修改面包屑的名称。</p>
+      </ComponentDemo>
+
       <h2>Layout Attributes</h2>
       <el-table :data="prop" fit border>
         <el-table-column prop="name" label="参数" />
@@ -48,6 +64,7 @@
         <el-table-column prop="name" label="参数" />
         <el-table-column prop="desc" label="说明" min-width="200" />
         <el-table-column prop="type" label="类型" />
+        <el-table-column prop="options" label="可选值" />
         <el-table-column prop="default" label="默认值" />
       </el-table>
     </div>
@@ -136,6 +153,13 @@ export default class extends Vue {
       default: '项目全局路由',
     },
     {
+      name: 'sidebarRoutesAfterEach',
+      desc: '显示菜单数据时的勾子方法，可以对动态对每个菜单项进行修改',
+      type: 'Function(route)',
+      options: '',
+      default: '',
+    },
+    {
       name: 'sidebarFilter',
       desc: '对菜单数据进行过滤',
       type: 'Function(routes)',
@@ -183,6 +207,13 @@ export default class extends Vue {
       type: 'Boolean',
       options: '',
       default: 'false',
+    },
+    {
+      name: 'breadcrumbAfterEach',
+      desc: '显示面包屑时的勾子方法，可以对动态对每个菜单项进行修改',
+      type: 'Function(route)',
+      options: '',
+      default: '',
     },
   ]
 
@@ -253,6 +284,33 @@ export default class extends Vue {
       type: 'string',
       default: '',
       desc: '下钻菜单返回path。开启后菜单下钻功能后，需要设置返回的路径。',
+    },
+    {
+      name: 'icon',
+      type: 'string',
+      default: '',
+      desc: '图标，支持使用CuteDeign内置图标，也可以使用iconfont或者element icon，如果不使用CuteDesign内置图标需要设置iconType',
+    },
+    {
+      name: 'iconType',
+      type: 'string',
+      default: 'svg',
+      options: 'svg | iconfont | element',
+      desc: '如果不使用CuteDesign内置图标需要指定iconType',
+    },
+    {
+      name: 'customPath',
+      type: 'string',
+      default: '',
+      options: '',
+      desc: '自定义路径，设置自定义路径后会替换路由path',
+    },
+    {
+      name: 'activeMenu',
+      type: 'string',
+      default: '',
+      options: '',
+      desc: '指定选中状态的路由path',
     },
   ]
 }

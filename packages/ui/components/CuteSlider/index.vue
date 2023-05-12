@@ -49,7 +49,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue, VModel, Watch, Mixins } from 'vue-property-decorator'
+import { Component, Prop, VModel, Watch, Mixins } from 'vue-property-decorator'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
 import Locale from '@cutedesign/ui/mixins/locale'
 
@@ -74,7 +74,7 @@ export default class extends Mixins(Locale) {
     } else {
       this.values = Number(val)
       this.$nextTick(() => {
-        this.$emit('inputChange', Number(val))
+        this.$emit('input-change', Number(val))
       })
     }
   }
@@ -86,17 +86,16 @@ export default class extends Mixins(Locale) {
 
   private mouseMove(e) {
     if (this.range) {
-      // console.log(e, 'eeeee')
-      this.$emit('moveChange', e)
+      this.$emit('move-change', e)
     } else {
       this.valueInput = e
-      this.$emit('moveChange', e)
+      this.$emit('move-change', e)
     }
   }
   private changeValues(e) {
     this.values = Number(e)
     this.valueInput = Number(e)
-    this.$emit('inputChange', Number(e))
+    this.$emit('input-change', Number(e))
     // if (this.range) {
     //   this.values = [Number(e[0]), Number(e[1])]
     //   this.valueInput = [Number(e[0]), Number(e[1])]
@@ -112,7 +111,7 @@ export default class extends Mixins(Locale) {
     // this.valueInput[0] = Number(e)
     // this.$set(this.valueInput, 0, Number(e))
     // console.log(this.values, 'vallll')
-    this.$emit('inputChange', [Number(e), this.valueInput[1]])
+    this.$emit('input-change', [Number(e), this.valueInput[1]])
   }
   private maxChange(e) {
     // console.log(e, 'e2')
@@ -121,7 +120,7 @@ export default class extends Mixins(Locale) {
     // this.$set(this.values, 1, Number(e))
     // this.$set(this.valueInput, 1, Number(e))
     // console.log(this.values, 'vallll')
-    this.$emit('inputChange', [this.valueInput[0], Number(e)])
+    this.$emit('input-change', [this.valueInput[0], Number(e)])
   }
   private inputChange(e) {
     if (!e.target.value) {
@@ -129,7 +128,7 @@ export default class extends Mixins(Locale) {
         this.valueInput[0] = this.min
         this.valueInput[1] = this.min
       } else {
-        this.$emit('inputChange', Number(this.min))
+        this.$emit('input-change', Number(this.min))
       }
     }
     if (this.range) {
@@ -150,9 +149,9 @@ export default class extends Mixins(Locale) {
         this.values = [Number(this.valueInput[0]), Number(this.valueInput[1])]
       }
       // this.values = [Number(this.valueInput[0]), Number(this.valueInput[1])]
-      this.$emit('inputChange', [Number(this.valueInput[0]), Number(this.valueInput[1])])
+      this.$emit('input-change', [Number(this.valueInput[0]), Number(this.valueInput[1])])
     } else {
-      this.$emit('inputChange', Number(e.target.value))
+      this.$emit('input-change', Number(e.target.value))
       // if (Number(this.inputValue > this.max)) {
       //   this.$message({
       //     message: '输入错误,请重新输入',
@@ -172,7 +171,7 @@ export default class extends Mixins(Locale) {
     for (let i = 0; i < btn.length; i++) {
       btn[i].style.width = variables.cuteSliderBtnWidth // '17px'
       btn[i].style.height = variables.cuteSliderBtnHeight //'22px'
-      btn[i].innerHTML = "<div class='cute-slider-user-button'><span></span><span></span><span></span> </div>"
+      btn[i].innerHTML = '<div class="cute-slider-user-button"><span></span><span></span><span></span> </div>'
       // '|||'
       // btn[i].style.width = '17px'
       // btn[i].style.height = '22px'

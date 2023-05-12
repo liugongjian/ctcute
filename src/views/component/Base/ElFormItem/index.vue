@@ -2,14 +2,14 @@
  * @Description:
  * @Author: 甘雨涛
  * @Date: 2023/4/26 14:50
- * @LastEditors: 甘雨涛
+ * @LastEditors: 黄靖
 -->
 <template>
   <div>
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
       <h1>ElFormItem / tooltip样式的表单错误提示</h1>
-      <component-demo path="@/views/component/Base/CuteRemindInput/Demo1.vue">
+      <component-demo path="@/views/component/Base/ElFormItem/Demo1.vue">
         <demo1 />
       </component-demo>
       <h2>ElFormItem Attributes</h2>

@@ -28,9 +28,11 @@ export type CtyunMenuItem = MenuItem & {
 
 export type CuteItem = {
   // name: string
-  url?: string
-  perms?: string
-  menuType: number
+  // url: string
+  perm?: string // 标准单项权限字段
+  url?: string // 自建权限下单向权限字段，eg：cute-web 中配置的权限路由
+  perms?: string // 支持多个的情况，使用逗号分割，eg：cute-web 中配置的权限按钮
+  menuType: number // 类型
 }
 
 export declare const IamMenu: {

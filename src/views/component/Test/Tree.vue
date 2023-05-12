@@ -1,8 +1,8 @@
 <!--
  * @Author: 刘功坚
  * @Date: 2023-03-17 13:45:09
- * @LastEditors: liugongjian
- * @LastEditTime: 2023-03-21 15:54:49
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-05-11 16:21:03
  * @Description: Tree
 -->
 <template>
@@ -44,6 +44,28 @@
       >
       </el-tree>
     </div>
+    <div>
+      <h3>具有操作功能的树</h3>
+      <el-tree :data="data" node-key="id" default-expand-all>
+        <div slot-scope="{ node }" class="node-content">
+          <div class="operator">
+            <span>{{ node.label }}</span>
+            <span>
+              <el-dropdown @visible-change="val => onDropdownChange(val, node)">
+                <div :ref="'icon' + node.data.id" class="op-icon">
+                  <i class="el-icon-more"></i>
+                </div>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item>新建</el-dropdown-item>
+                  <el-dropdown-item>编辑</el-dropdown-item>
+                  <el-dropdown-item>删除</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+            </span>
+          </div>
+        </div>
+      </el-tree>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -69,6 +91,8 @@ export default class extends Vue {
   }
 
   private filterText = ''
+
+  private opType = 'hide'
 
   private data = [
     {
@@ -181,10 +205,49 @@ export default class extends Vue {
   private allowDrag(draggingNode) {
     return draggingNode.data.label.indexOf('三级 3-2-2') === -1
   }
+
+  private onDropdownChange(val, node) {
+    const opEle: any = this.$refs['icon' + node.data.id]
+    val ? opEle.classList.add('show') : opEle.classList.remove('show')
+  }
 }
 </script>
 <style lang="scss" scoped>
 .el-link {
-  margin-right: 20px;
+  margin-right: $margin-5x;
+}
+.el-tree {
+  width: 300px;
+  ::v-deep &-node__content {
+    width: 100%;
+    .node-content {
+      flex-grow: 1;
+      .operator {
+        display: flex;
+        justify-content: space-between;
+        padding-right: $padding-4x;
+        .op-icon {
+          width: 48px;
+          &:hover,
+          &:focus {
+            color: $color-master;
+          }
+          display: none;
+        }
+        .show {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+    &:hover {
+      .operator {
+        .op-icon {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
 }
 </style>

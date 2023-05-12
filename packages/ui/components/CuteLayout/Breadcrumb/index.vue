@@ -37,6 +37,9 @@ export default class extends Mixins(Locale) {
   @Prop({ default: false })
   public breadcrumbShowLast: boolean
 
+  @Prop()
+  private breadcrumbAfterEach
+
   private breadcrumbs: RouteRecord[] = []
 
   private get lastCrumb() {
@@ -62,9 +65,20 @@ export default class extends Mixins(Locale) {
     if (first && !this.isDashboard(first)) {
       matched = [{ path: '/', meta: { title: 'home.title' } } as unknown as RouteRecord].concat(matched)
     }
-    this.breadcrumbs = matched.filter(item => {
+    let breadcrumbs = matched.filter(item => {
       return item.meta && item.meta.title && item.meta.breadcrumb !== false
     })
+    if (this.breadcrumbAfterEach) {
+      breadcrumbs = breadcrumbs.map(breadcrumb => {
+        return this.breadcrumbAfterEach({
+          ...breadcrumb,
+          meta: {
+            ...breadcrumb.meta,
+          },
+        })
+      })
+    }
+    this.breadcrumbs = breadcrumbs
   }
 
   private isDashboard(route: RouteRecord) {

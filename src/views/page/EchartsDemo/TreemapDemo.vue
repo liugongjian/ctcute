@@ -16,7 +16,7 @@
 <script lang="ts">
 import * as echarts from 'echarts'
 import { CuteCardBox } from '@cutedesign/ui'
-import { Component,Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
 const diskData = [
   {

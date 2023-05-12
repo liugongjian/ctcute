@@ -218,7 +218,7 @@ export default class VueAuthenticate implements AuthInstance {
           // 已登录，需要鉴权
           if (this.options.enableAuthorize) {
             // 通用的鉴权判断
-            if (hasPermission(this.getAllMenus(), to)) {
+            if (hasPermission(this.getAllMenuPerms(), to)) {
               next()
             } else {
               next('/403')
@@ -257,7 +257,7 @@ export default class VueAuthenticate implements AuthInstance {
   }
 
   isAuthorized(permissions) {
-    const allAuth = this.getAllButtons()
+    const allAuth = this.getAllButtonPerms()
     return allAuth.some(auth => permissions.includes(auth))
   }
   /**
@@ -293,11 +293,14 @@ export default class VueAuthenticate implements AuthInstance {
   }
 
   // TODO 优先级排序等，也可后端做
-  getAllMenus() {
+  getAllMenuPerms() {
     if (this.options.enableAuthorize) {
       try {
         const allPerms = JSON.parse(this.permStorage.getItem('allPerms') || '[]')
-        return allPerms.filter(item => item.menuType === 1).map(item => item.url)
+        return allPerms
+          .filter(item => item.menuType === 1)
+          .map(item => item.perm || item.url || item.perms || '')
+          .filter(item => item)
       } catch (e) {
         console.log('allPerms的JSON格式不正确')
       }
@@ -305,11 +308,14 @@ export default class VueAuthenticate implements AuthInstance {
     return []
   }
 
-  getAllButtons() {
+  getAllButtonPerms() {
     if (this.options.enableAuthorize) {
       try {
         const allPerms = JSON.parse(this.permStorage.getItem('allPerms') || '[]')
-        return allPerms.filter(item => item.menuType === 2).map(item => item.perms)
+        return allPerms
+          .filter(item => item.menuType === 2)
+          .map(item => item.perm || item.perms || item.url || '')
+          .filter(item => item)
       } catch (e) {
         console.log('allPerms的JSON格式不正确')
       }
@@ -322,7 +328,7 @@ export default class VueAuthenticate implements AuthInstance {
    */
   getRoutes() {
     if (this.options.enableAuthorize) {
-      const generatedRoutes = filterAsyncRouter(this.options.routes, this.getAllMenus())
+      const generatedRoutes = filterAsyncRouter(this.options.routes, this.getAllMenuPerms())
       return generatedRoutes
     }
     return this.options.routes

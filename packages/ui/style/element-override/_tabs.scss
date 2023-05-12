@@ -9,38 +9,38 @@ $tabs-lg-height: $input-lg-height;
 /**
  通用样式
 */
-.el-tabs__item{
+.el-tabs__item {
   font-weight: $text-weight;
 
   &.is-disabled {
     cursor: not-allowed;
 
-    .el-icon-close{
+    .el-icon-close {
       color: $disabled-color;
       transition: none;
-      &:hover{
+      &:hover {
         background-color: transparent;
       }
     }
   }
-  
-  &:not(.is-disabled) .el-icon-close{
+
+  &:not(.is-disabled) .el-icon-close {
     color: $text-color-light-2;
     transition: none;
     cursor: pointer;
-    
-    &:hover{
+
+    &:hover {
       background-color: transparent;
       color: $tabs-master;
     }
   }
 
-  &:not(.is-disabled).is-active .el-icon-close{
+  &:not(.is-disabled).is-active .el-icon-close {
     color: $tabs-master;
   }
 
   &:not(.is-disabled):not(.is-active):hover {
-    .el-icon-close{
+    .el-icon-close {
       color: $tabs-master;
     }
   }
@@ -50,13 +50,24 @@ $tabs-lg-height: $input-lg-height;
   默认风格
 */
 
-.el-tabs__nav-wrap::after{
+.el-tabs__nav-wrap::after {
   background-color: $tabs-default-line-color;
   height: 1px;
 }
 @each $direction in left, right {
-  .el-tabs.el-tabs--#{$direction} .el-tabs__nav-wrap::after{
-     width: 1px;
+  .el-tabs.el-tabs--#{$direction} .el-tabs__nav-wrap::after {
+    width: 1px;
+  }
+}
+
+.el-tabs:not(.el-tabs--button):not(.el-tabs--card):not(.el-tabs--border-card):not(.el-tabs--left):not(
+    .el-tabs--right
+  )
+  > .el-tabs__header
+  > .el-tabs__nav-wrap
+  > .el-tabs__nav-scroll {
+  .el-tabs__active-bar + .el-tabs__item {
+    padding-left: 0;
   }
 }
 
@@ -81,7 +92,7 @@ $tabs-lg-height: $input-lg-height;
   }
 
   .el-tabs__nav-scroll::after {
-    content: "";
+    content: '';
     position: absolute;
     // left: 100%;
     bottom: 0;
@@ -92,11 +103,8 @@ $tabs-lg-height: $input-lg-height;
 }
 
 @each $direction in top, bottom, left, right {
-
   .el-tabs.el-tabs--card.el-tabs--#{$direction} {
-
     .el-tabs__nav-scroll::after {
-
       @if $direction == bottom {
         top: 0;
         bottom: auto;
@@ -118,75 +126,88 @@ $tabs-lg-height: $input-lg-height;
         width: 1px;
       }
     }
-    .el-tabs__item.is-#{$direction}{
-      border:none;
-
-      @if $direction == bottom {
-        border-top: 1px solid $border-color;
+    .el-tabs__item.is-#{$direction},
+    .el-tabs__item.is-#{$direction}:first-child {
+      border: 1px solid transparent; // 透明border，防止切换active时文字移位
+      &::after {
+        content: '';
+        position: absolute;
+        left: -1px;
+        bottom: 0;
+        width: calc(100% + 2px); // 覆盖左右透明border产生的斜角
+        height: 1px;
+        background-color: $border-color;
       }
 
       @if $direction == top {
-        border-bottom: 1px solid $border-color;
+        border-bottom: none; // 下边框不用border，使用after伪元素覆盖左右透明border产生的斜角
       }
-
-      @if $direction == right {
-        border-left: 1px solid $border-color;
-      }
-      
-      @if $direction == left {
-        border-right: 1px solid $border-color;
-      }
-    }
-
-    .el-tabs__item.is-#{$direction}.is-active {
-      border: 1px solid $border-color;
 
       @if $direction == bottom {
         border-top: none;
-      }
-
-      @if $direction == top {
-        border-bottom: none;
-        transform: translateY(1px);
+        &::after {
+          top: auto;
+          top: 0;
+        }
       }
 
       @if $direction == right {
         border-left: none;
+        &::after {
+          right: auto;
+          left: 0;
+          top: -1px;
+          height: calc(100% + 2px); // 覆盖上下透明border产生的斜角
+          width: 1px;
+        }
       }
-      
+
       @if $direction == left {
         border-right: none;
+        &::after {
+          right: 0;
+          left: auto;
+          top: -1px;
+          height: calc(100% + 2px); // 覆盖上下透明border产生的斜角
+          width: 1px;
+        }
+      }
+    }
+
+    .el-tabs__item.is-#{$direction}.is-active {
+      border-color: $border-color;
+      &::after {
+        background-color: transparent;
       }
     }
   }
 }
 
 // border-card风格dark模式兼容
-.el-tabs--border-card, .el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active{
+.el-tabs--border-card,
+.el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active {
   background-color: $color-bg-2;
 }
 
-.el-tabs--border-card > .el-tabs__header .el-tabs__item{
+.el-tabs--border-card > .el-tabs__header .el-tabs__item {
   color: $text-color;
 }
 
-
 @each $direction in left, right {
-  .el-tabs--#{$direction}.el-tabs--border-card  {
-    .el-tabs__item.is-#{$direction}.is-active{
+  .el-tabs--#{$direction}.el-tabs--border-card {
+    .el-tabs__item.is-#{$direction}.is-active {
       border-top-color: $border-color;
       border-bottom-color: $border-color;
     }
-    
-    .el-tabs__header.is-#{$direction}{
+
+    .el-tabs__header.is-#{$direction} {
       @if $direction == right {
         border-left-color: $border-color;
       }
-      
+
       @if $direction == left {
         border-right-color: $border-color;
       }
     }
   }
 }
-

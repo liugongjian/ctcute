@@ -6,8 +6,12 @@
 
   .card-tools__right {
     margin-left: auto;
-    .el-form--inline .el-form-item { margin: 0 0 $margin-4x; }
-    .card1-input { width: 300px; }
+    .el-form--inline .el-form-item {
+      margin: 0 0 $margin-4x;
+    }
+    .card1-input {
+      width: 300px;
+    }
   }
 
   .card-tools {
@@ -96,7 +100,9 @@
         cursor: pointer;
         font-size: $text-size-lg;
         color: $text-color-feature;
-        &:hover { color: $color-master; }
+        &:hover {
+          color: $color-master;
+        }
       }
     }
 
@@ -107,7 +113,7 @@
       span {
         font-size: $text-size-lg;
         margin-left: $margin-3x;
-        
+
         color: $text-color;
       }
     }
@@ -115,7 +121,6 @@
     &.active {
       .card-box--title svg {
         color: $color-success;
-        
       }
     }
   }
@@ -177,7 +182,6 @@
         font-size: $text-size;
         color: $text-color-light;
         line-height: $line-height;
-        
 
         &__num {
           color: $color-master;
@@ -191,7 +195,7 @@
         color: $text-color-light;
         cursor: pointer;
 
-        & > *:not(:first-of-type){
+        & > *:not(:first-of-type) {
           margin-left: $margin-5x;
         }
       }
@@ -241,7 +245,6 @@
     &.active {
       .card-box__info__avatar svg {
         color: $color-success;
-        
       }
     }
   }
@@ -258,13 +261,12 @@
       display: flex;
 
       .card-box--info {
-     
-        &--label{
+        &--label {
           width: 40px;
         }
         .card-box--input {
           width: calc(100% - 40px);
-          flex:1;
+          flex: 1;
         }
 
         .input-box {
@@ -300,7 +302,9 @@
 
             .svg-icon {
               display: block;
-              &:hover { color: $color-master; }
+              &:hover {
+                color: $color-master;
+              }
             }
           }
         }
@@ -336,7 +340,9 @@
         svg {
           font-size: $text-size-lg;
           color: $text-color-feature;
-          &:hover { color: $color-master; }
+          &:hover {
+            color: $color-master;
+          }
         }
       }
     }
@@ -352,11 +358,22 @@
   .card-box__info__handle {
     svg {
       color: $text-color-feature;
-      &:hover { color: $color-master; }
+      &:hover {
+        color: $color-master;
+      }
     }
   }
-  .card-disabled svg { color: $disabled-border !important; }
-  .card-disabled svg:hover { cursor: not-allowed !important; }
-  .card-big .card-box__info__describe__text { width: 100%; overflow-y: auto; }
-  .card-big .card-box__info__describe__text .card-box--input { height: 100%; }
+  .card-disabled svg {
+    color: $disabled-border !important;
+  }
+  .card-disabled svg:hover {
+    cursor: not-allowed !important;
+  }
+  .card-big .card-box__info__describe__text {
+    width: 100%;
+    overflow-y: auto;
+  }
+  .card-big .card-box__info__describe__text .card-box--input {
+    height: 100%;
+  }
 }

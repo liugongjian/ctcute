@@ -842,12 +842,18 @@ $iconWidth: 1.6em;
   }
 }
 
-@mixin getPanelStyle ($sizeIndex) {
+@mixin getPanelStyle($sizeIndex) {
   $fontSizeList: $vxe-font-size, $vxe-font-size-medium, $vxe-font-size-small, $vxe-font-size-mini;
-  $timeWeekRowHeightList: $vxe-input-date-time-week-row-height-default, $vxe-input-date-time-week-row-height-medium, $vxe-input-date-time-week-row-height-small, $vxe-input-date-time-week-row-height-mini;
-  $monthYearRowHeightList: $vxe-input-date-month-year-row-height-default, $vxe-input-date-month-year-row-height-medium, $vxe-input-date-month-year-row-height-small, $vxe-input-date-month-year-row-height-mini;
-  $quarterRowHeightList: $vxe-input-date-quarter-row-height-default, $vxe-input-date-quarter-row-height-medium, $vxe-input-date-quarter-row-height-small, $vxe-input-date-quarter-row-height-mini;
-  $titleRowHeightList: $vxe-input-date-title-height-default, $vxe-input-date-title-height-medium, $vxe-input-date-title-height-small, $vxe-input-date-title-height-mini;
+  $timeWeekRowHeightList: $vxe-input-date-time-week-row-height-default,
+    $vxe-input-date-time-week-row-height-medium, $vxe-input-date-time-week-row-height-small,
+    $vxe-input-date-time-week-row-height-mini;
+  $monthYearRowHeightList: $vxe-input-date-month-year-row-height-default,
+    $vxe-input-date-month-year-row-height-medium, $vxe-input-date-month-year-row-height-small,
+    $vxe-input-date-month-year-row-height-mini;
+  $quarterRowHeightList: $vxe-input-date-quarter-row-height-default, $vxe-input-date-quarter-row-height-medium,
+    $vxe-input-date-quarter-row-height-small, $vxe-input-date-quarter-row-height-mini;
+  $titleRowHeightList: $vxe-input-date-title-height-default, $vxe-input-date-title-height-medium,
+    $vxe-input-date-title-height-small, $vxe-input-date-title-height-mini;
 
   font-size: nth($fontSizeList, $sizeIndex);
 

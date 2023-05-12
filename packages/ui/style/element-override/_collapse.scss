@@ -1,6 +1,7 @@
 /* Collapse
 -------------------------- */
 $collapse-seperate-header-height: 32px;
+$collapse-icon-size: $text-size-md;
 
 .el-collapse-item__content {
   color: $text-color;
@@ -27,6 +28,7 @@ $collapse-seperate-header-height: 32px;
       position: absolute;
       left: $common-space-4x;
       color: $collapse-header-arrow-color;
+      font-size: $collapse-icon-size;
     }
   }
 
@@ -46,9 +48,20 @@ $collapse-seperate-header-height: 32px;
   }
 
   &:not(.el-collapse--seperate) {
+    
     .el-collapse-item + .el-collapse-item {
       .el-collapse-item__header {
         border-top: none;
+      }
+    }
+    .el-collapse-item:first-of-type{
+      .el-collapse-item__header {
+        border-radius: $border-radius $border-radius 0 0;
+      }
+    }
+    .el-collapse-item:last-of-type{
+      .el-collapse-item__header {
+        border-radius: 0 0 $border-radius $border-radius;
       }
     }
   }
@@ -58,6 +71,7 @@ $collapse-seperate-header-height: 32px;
   .el-collapse-item__header {
     background-color: $collapse-seperate-header-bg;
     border: none;
+    border-radius: $border-radius;
     height: $collapse-seperate-header-height;
     margin-top: $margin-4x;
   }

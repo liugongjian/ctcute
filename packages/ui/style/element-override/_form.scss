@@ -84,6 +84,10 @@
     .el-form-item {
       &.el-form-item--#{$size} {
         display: inline-flex;
+
+        .el-form-item__content {
+          line-height: $height - 2;
+        }
       }
     }
   }

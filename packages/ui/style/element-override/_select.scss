@@ -211,7 +211,7 @@ $select-tag-margin: 2px 0 2px 8px;
         line-height: $height - 2;
 
         .el-input__inner {
-          line-height: $height;
+          line-height: $height - 2;
         }
       }
 

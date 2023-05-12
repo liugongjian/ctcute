@@ -88,3 +88,12 @@
     padding-top: $padding-4x;
   }
 }
+
+/* 修复CtyunLayout最小宽度导致的ElementUi中下拉框宽度的问题 */
+#ctcloud-console {
+  overflow: auto;
+
+  .cute-layout {
+    min-width: auto;
+  }
+}

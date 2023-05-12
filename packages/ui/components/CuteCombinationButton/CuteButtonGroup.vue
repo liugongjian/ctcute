@@ -49,7 +49,7 @@ export default class extends Vue {
   &:hover,
   &:focus {
     position: relative;
-    z-index: 2;
+    z-index: $zindex-table-fixed;
   }
 }
 </style>

@@ -16,7 +16,7 @@
     </el-row>
     <h3>{{ $t('demo.tabs.common.medium') }}</h3>
     <el-row class="sub-tabs">
-      <el-tabs size="medium">
+      <el-tabs>
         <el-tab-pane :label="$t('demo.tabs.common.option1')">{{
           $t('demo.tabs.common.option1')
         }}</el-tab-pane>
@@ -29,7 +29,7 @@
       </el-tabs>
     </el-row>
     <h3>{{ $t('demo.tabs.common.small') }}</h3>
-    <el-row class="sub-tabs">
+    <el-row class="sub-tabs" size="small">
       <el-tabs>
         <el-tab-pane :label="$t('demo.tabs.common.option1')">{{
           $t('demo.tabs.common.option1')

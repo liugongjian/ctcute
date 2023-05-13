@@ -49,10 +49,6 @@ interface ApiConfig extends RequestOptions {
 }
 export interface CommonAuthProvider {
   enableWorkspace?: boolean // 是否启用 wid
-  layout: {
-    containerId: string
-    bizDomain?: string
-  }
   user: {
     loginUrl: string
     logoutUrl?: string

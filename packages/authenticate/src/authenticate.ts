@@ -96,8 +96,6 @@ export default class VueAuthenticate implements AuthInstance {
     })
     this.preCheck()
     this.setupInterceptors()
-    // TODO 如果在未登录时load，菜单不渲染，登录后是否要重新执行渲染菜单的init方法？
-    this.loadLayout()
     this.beforeEach()
   }
 
@@ -145,15 +143,6 @@ export default class VueAuthenticate implements AuthInstance {
       this.options.bindResponseInterceptor.call(this, this)
     } else {
       throw new Error('Resonse interceptor must be functions')
-    }
-  }
-
-  loadLayout() {
-    // 加载资源
-    if (this.options.loadLayout && isFunction(this.options.loadLayout)) {
-      this.options.loadLayout.call(this, this)
-    } else {
-      throw new Error('Load Layout must be functions')
     }
   }
 

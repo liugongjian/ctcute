@@ -130,22 +130,22 @@ export default class extends Vue {
           remark: this.form.remark,
         }
         const res = await editUsers(this.form._id, data)
-        if (res.code === 200) {
+        if ((res as any).code === 200) {
           this.visibleDia = false
           this.$message.success('编辑成功! ')
           this.$emit('confirm')
         } else {
-          this.$message.error(res.msg)
+          this.$message.error((res as any).msg)
         }
       } else {
         //新增
         const res = await addUsers(this.form)
-        if (res.code === 200) {
+        if ((res as any).code === 200) {
           this.$emit('confirm', `密码: ${res.data.password}`)
           this.$message.success('新增成功! ')
           this.visibleDia = false
         } else {
-          this.$message.error(res.msg)
+          this.$message.error((res as any).msg)
         }
       }
     } catch (e) {

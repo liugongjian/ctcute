@@ -2,7 +2,7 @@
  * @Author: 黄璐璐
  * @Date: 2022-07-13 13:41:05
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-16 13:25:45
+ * @LastEditTime: 2023-05-13 10:42:00
  * @Description: 添加用户
 -->
 <template>
@@ -129,7 +129,7 @@ export default class extends Vue {
       const res = await getMenus()
       this.treeLoding = false
 
-      if (res.code === 200) {
+      if ((res as any).code === 200) {
         if (res.data && res.data.result.length > 0) {
           const res_menus = res.data.result
 
@@ -183,22 +183,22 @@ export default class extends Vue {
       if (this.form._id) {
         //编辑
         const res = await editRoles(this.form._id, this.form)
-        if (res.code === 200) {
+        if ((res as any).code === 200) {
           this.visibleDia = false
           this.$message.success('编辑成功! ')
           this.$emit('confirm')
         } else {
-          this.$message.error(res.msg)
+          this.$message.error((res as any).msg)
         }
       } else {
         //新增
         const res = await addRoles(this.form)
-        if (res.code === 200) {
+        if ((res as any).code === 200) {
           this.visibleDia = false
           this.$message.success('添加成功! ')
           this.$emit('confirm')
         } else {
-          this.$message.error(res.msg)
+          this.$message.error((res as any).msg)
         }
       }
     } catch (e) {

@@ -1,5 +1,5 @@
 import { Message } from 'element-ui'
-import { IamUser, CtyunUser, IamMenu, CtyunMenu, IamWorkspace, CtyunWorkspace } from './layout'
+import { IamMenu, CtyunMenu, IamWorkspace } from './layout'
 import { isUndefined } from './utils'
 import { AxiosRequestConfig } from 'axios'
 import { AuthConfigOptions } from '../types'
@@ -67,8 +67,6 @@ export default <AuthConfigOptions>{
       })
     } else if (authenticateType === 'iam' && $auth.currentProvider.enableWorkspace) {
       $auth.$http.interceptors.request.use(IamWorkspace.requestInterceptor)
-    } else if (authenticateType === 'ctyun' && $auth.currentProvider.enableWorkspace) {
-      $auth.$http.interceptors.request.use(CtyunWorkspace.requestInterceptor)
     }
   },
   // bindResponseInterceptor
@@ -137,21 +135,12 @@ export default <AuthConfigOptions>{
       },
     },
     ctyun: {
-      enableWorkspace: false, // ctyun 默认不启用 wid
       ifLogin: {
         loginUrl: `/sign/in?returnUrl=${encodeURIComponent(window.location.href)}`, // 对应业务后端的登录地址
         url: '/gw/auth/Current',
         method: 'GET',
-        afterLogin: ($auth, userId) => {
-          $auth.currentProvider.enableWorkspace && CtyunWorkspace.setWorkspaceId(userId)
-        },
-        loggedRouterBeforeEach: (to, $auth) => {
-          if (!$auth.currentProvider.enableWorkspace) return
-
-          return CtyunWorkspace.routerBeforeEach(to)
-        },
-        unloggedRouterBeforeEach: () => {
-          window.location.href = CtyunUser.loginUrl
+        unloggedRouterBeforeEach(to, $auth) {
+          window.location.href = `${$auth.options.baseUrl}${this.loginUrl}`
         },
       },
       // TODO ctyun 不需要鉴权，这个配置的意义主要在于菜单上下线，存在意义待定
@@ -161,7 +150,6 @@ export default <AuthConfigOptions>{
         method: 'GET',
         responseDataKey: 'data.list', // 可以拿到数据的key
         dataHandler: CtyunMenu.dataFormat, // 数据格式转换，转换成统一的格式
-        setWorkspaceId: CtyunWorkspace.setWorkspaceId,
       },
     },
     local: {

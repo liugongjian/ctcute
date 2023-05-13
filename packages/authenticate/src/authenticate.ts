@@ -110,12 +110,6 @@ export default class VueAuthenticate implements AuthInstance {
       throw Error(`${authenticateType} is required in the providers`)
     }
 
-    if (providers[authenticateType].user) {
-      if (providers[authenticateType].user.setUrl && isFunction(providers[authenticateType].user.setUrl)) {
-        providers[authenticateType].user.setUrl(this.options.baseUrl)
-      }
-    }
-
     // 如果开启了权限
     if (this.options.enableAuthorize) {
       // 检查权限

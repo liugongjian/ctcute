@@ -49,12 +49,8 @@ interface ApiConfig extends RequestOptions {
 }
 export interface CommonAuthProvider {
   enableWorkspace?: boolean // 是否启用 wid
-  user: {
-    loginUrl: string
-    logoutUrl?: string
-    setUrl?: (baseUrl: string) => any
-  }
   ifLogin: ApiConfig & {
+    loginUrl: string
     afterLogin?: ($auth: AuthInstance, userId: string) => any // 已登录后的操作
     loggedRouterBeforeEach?: (to: Route, $auth: AuthInstance) => Route | string | void // 已登录状态下，路由前置操作
     unloggedRouterBeforeEach?: (to: Route, $auth: AuthInstance) => Route | string | void // 未登录状态下，路由前置操作

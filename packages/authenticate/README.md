@@ -193,8 +193,6 @@ export default <AuthConfigOptions>{
       })
     } else if (authenticateType === 'iam' && $auth.currentProvider.enableWorkspace) {
       $auth.$http.interceptors.request.use(IamWorkspace.requestInterceptor)
-    } else if (authenticateType === 'ctyun' && $auth.currentProvider.enableWorkspace) {
-      $auth.$http.interceptors.request.use(CtyunWorkspace.requestInterceptor)
     }
   },
   // bindResponseInterceptor
@@ -214,7 +212,7 @@ export default <AuthConfigOptions>{
           $auth.permStorage.removeItem('isLogin')
           $auth.permStorage.removeItem('allPerms')
           $auth.removeToken()
-          window.location.href = $auth.currentProvider.user.loginUrl
+          window.location.href = $auth.currentProvider.ifLogin.loginUrl
         }
         return Promise.reject(error)
       }
@@ -235,19 +233,9 @@ export default <AuthConfigOptions>{
   providers: {
     iam: {
       enableWorkspace: true, // iam 默认启用 wid
-      user: {
-        loginUrl: IamUser.loginUrl, // 对应业务后端的登录地址
-        logoutUrl: IamUser.logoutUrl, // 对应业务后端的退出地址，按需重写
-        setUrl(baseUrl) {
-          const loginUrl = `${baseUrl}${this.loginUrl}`
-          const logoutUrl = `${baseUrl}${this.logoutUrl}`
-          this.loginUrl = loginUrl
-          this.logoutUrl = logoutUrl
-          IamUser.setConfig({ loginUrl, logoutUrl })
-        },
-      },
       ifLogin: {
-        url: IamUser.fetchUrl, // 检查用户是否登录的线上接口
+        loginUrl: `/sign/in?returnUrl=${encodeURIComponent(window.location.href)}`, // 对应业务后端的登录地址
+        url: '/iam/gw/auth/Current', // 检查用户是否登录的线上接口
         method: 'GET',
         // dataHandler: data => data, // 数据格式转换，转换成统一的格式，按需提供
         // afterLogin: userinfo => {}, // 登录成功后，拿到用户信息执行一些操作
@@ -258,8 +246,8 @@ export default <AuthConfigOptions>{
             return IamWorkspace.routerBeforeEach(to)
           }
         },
-        unloggedRouterBeforeEach: () => {
-          window.location.href = IamUser.loginUrl
+        unloggedRouterBeforeEach(to, $auth) {
+          window.location.href = `${$auth.options.baseUrl}${this.loginUrl}`
         },
       },
       perms: {
@@ -273,31 +261,12 @@ export default <AuthConfigOptions>{
       },
     },
     ctyun: {
-      enableWorkspace: false, // iam 默认不启用 wid
-      user: {
-        loginUrl: CtyunUser.loginUrl,
-        logoutUrl: CtyunUser.logoutUrl,
-        setUrl(baseUrl) {
-          const loginUrl = `${baseUrl}${this.loginUrl}`
-          const logoutUrl = `${baseUrl}${this.logoutUrl}`
-          this.loginUrl = loginUrl
-          this.logoutUrl = logoutUrl
-          CtyunUser.setConfig({ loginUrl, logoutUrl })
-        },
-      },
       ifLogin: {
-        url: CtyunUser.fetchUrl,
+        loginUrl: `/sign/in?returnUrl=${encodeURIComponent(window.location.href)}`, // 对应业务后端的登录地址
+        url: '/gw/auth/Current',
         method: 'GET',
-        afterLogin: ($auth, userId) => {
-          $auth.currentProvider.enableWorkspace && CtyunWorkspace.setWorkspaceId(userId)
-        },
-        loggedRouterBeforeEach: (to, $auth) => {
-          if (!$auth.currentProvider.enableWorkspace) return
-
-          return CtyunWorkspace.routerBeforeEach(to)
-        },
-        unloggedRouterBeforeEach: () => {
-          window.location.href = CtyunUser.loginUrl
+        unloggedRouterBeforeEach(to, $auth) {
+          window.location.href = `${$auth.options.baseUrl}${this.loginUrl}`
         },
       },
       // TODO ctyun 不需要鉴权，这个配置的意义主要在于菜单上下线，存在意义待定
@@ -307,15 +276,12 @@ export default <AuthConfigOptions>{
         method: 'GET',
         responseDataKey: 'data.list', // 可以拿到数据的key
         dataHandler: CtyunMenu.dataFormat, // 数据格式转换，转换成统一的格式
-        setWorkspaceId: CtyunWorkspace.setWorkspaceId,
       },
     },
     local: {
-      user: {
-        loginUrl: `/login?redirect=${encodeURIComponent(window.location.href)}`,
-      },
       ifLogin: {
         url: '/v1/auth/account/ifLogin',
+        loginUrl: `/login?redirect=${encodeURIComponent(window.location.href)}`,
         method: 'GET',
         dataHandler: data => data,
         afterLogin: $auth => $auth.getPermInfo(true),

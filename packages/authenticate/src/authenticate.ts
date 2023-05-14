@@ -4,7 +4,7 @@ import { Route, NavigationGuardNext } from 'vue-router'
 import { objectExtend, isFunction, getObjectProperty, lodashGet } from './utils'
 import defaultOptions from './options'
 import StorageFactory from './storage'
-import { hasPermission, filterAsyncRouter } from './permissions'
+import { hasPermission, hasRoutePermission, filterAsyncRouter } from './permissions'
 import {
   AuthInstance,
   RequestOptions,
@@ -201,7 +201,7 @@ export default class VueAuthenticate implements AuthInstance {
           // 已登录，需要鉴权
           if (this.options.enableAuthorize) {
             // 通用的鉴权判断
-            if (hasPermission(this.getAllMenuPerms(), to)) {
+            if (hasRoutePermission(this.getAllMenuPerms(), to)) {
               next()
             } else {
               next('/403')
@@ -239,9 +239,14 @@ export default class VueAuthenticate implements AuthInstance {
     return isLoggedIn
   }
 
-  isAuthorized(permissions) {
-    const allAuth = this.getAllButtonPerms()
-    return allAuth.some(auth => permissions.includes(auth))
+  /**
+   * 判断按钮权限
+   * @param needPerms 按钮所需的权限数组
+   * @returns {Boolean} 是否拥有所需按钮权限
+   */
+  isAuthorized(needPerms: string[]) {
+    const hasPerms = this.getAllButtonPerms()
+    return hasPermission(hasPerms, needPerms)
   }
   /**
    * Get token if user is authenticated

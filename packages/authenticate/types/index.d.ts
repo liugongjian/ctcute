@@ -108,7 +108,8 @@ export interface AuthInstance {
   userInfo: UserInfo
   isLogin: boolean
 
-  isAuthorized: (permissions: string[]) => boolean
+  // 判断是否有按钮权限
+  isAuthorized: (needPerms: string[]) => boolean
 
   getToken: () => string | undefined
   removeToken: () => void

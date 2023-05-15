@@ -77,6 +77,14 @@ export default class extends Vue {
       options: '',
       default: 'false',
     },
+    {
+      name: 'text-type',
+      desc: '文本按钮的颜色类型	',
+      type: 'String',
+      required: '选填',
+      options: 'primary | success | warning | danger | ct | weak',
+      default: 'primary',
+    },
   ]
 }
 </script>

@@ -778,7 +778,7 @@ export default class extends Vue {
 .auxiliary-message:after {
   content: '辅助信息';
   margin-left: 20px;
-  color: $text-color-light-2;
+  color: $text-color-feature;
   font-weight: normal;
 }
 

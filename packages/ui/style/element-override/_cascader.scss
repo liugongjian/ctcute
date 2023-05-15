@@ -89,7 +89,7 @@ $cascader-tags-size: $select-sm-height;
       }
     }
 
-    .el-tag > span {
+    .el-tag>span {
       color: $color-neutral-10;
     }
 
@@ -136,6 +136,7 @@ $cascader-tags-size: $select-sm-height;
   box-shadow: $shadow-2;
 
   .el-cascader-node {
+
     // padding: 0 30px 0 2px; // 有选择框不能按设计稿处理，需要重新想办法
     &:hover {
       background-color: $cascader-node-hover;
@@ -189,6 +190,10 @@ $cascader-tags-size: $select-sm-height;
 
 .el-cascader-menu {
   border-right: 1px solid $color-neutral-2;
+
+  .el-cascader-node__postfix {
+    color: $color-neutral-6;
+  }
 }
 
 // small bugfix

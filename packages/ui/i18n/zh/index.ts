@@ -28,6 +28,4 @@ ctx.keys().forEach(file => {
   }
 })
 
-console.log(zh)
-
 export default zh

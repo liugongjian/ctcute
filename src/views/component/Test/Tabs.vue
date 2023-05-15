@@ -1,13 +1,14 @@
 <!--
  * @Author: 黄靖
  * @Date: 2023-03-27 15:12:09
- * @LastEditors: hj
- * @LastEditTime: 2023-05-06 20:40:03
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-05-12 21:10:51
  * @Description: Step
 -->
 <template>
   <div>
     <h1>Tabs</h1>
+    <h3>默认为中尺寸</h3>
     <h2>默认样式</h2>
     <h3>大尺寸</h3>
     <el-row class="sub-tabs">
@@ -25,9 +26,9 @@
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>小尺寸(默认)</h3>
+    <h3>小尺寸</h3>
     <el-row class="sub-tabs">
-      <el-tabs>
+      <el-tabs size="small">
         <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
           {{ item.content }}
         </el-tab-pane>
@@ -96,9 +97,9 @@
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>小尺寸(默认)</h3>
+    <h3>小尺寸</h3>
     <el-row class="sub-tabs">
-      <el-tabs type="button">
+      <el-tabs type="button" size="small">
         <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
           {{ item.content }}
         </el-tab-pane>
@@ -168,7 +169,7 @@
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>小尺寸(默认)</h3>
+    <h3>小尺寸</h3>
     <el-row class="sub-tabs">
       <el-tabs type="card" size="small">
         <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">
@@ -240,7 +241,7 @@
         </el-tab-pane>
       </el-tabs>
     </el-row>
-    <h3>小尺寸(默认)</h3>
+    <h3>小尺寸</h3>
     <el-row class="sub-tabs">
       <el-tabs type="border-card" size="small">
         <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :disabled="item.disabled">

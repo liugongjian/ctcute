@@ -12,12 +12,12 @@ $alert-single-height: 36px;
     .el-alert--#{$class}.is-light {
       color: $alert-text-color;
       background-color: $bg-color;
-      .el-alert__closebtn{
+      .el-alert__closebtn {
         color: $master-color; // 关闭按钮默认颜色
         font-size: $text-size-md;
         height: $text-size-md;
         right: $common-space-4x;
-        top: calc((#{$alert-single-height} - #{$text-size-md}) / 2)
+        top: calc((#{$alert-single-height} - #{$text-size-md}) / 2);
       }
 
       .el-alert__icon {
@@ -30,14 +30,18 @@ $alert-single-height: 36px;
     }
   }
 }
-@include global-tips(info, $color-master, $alert-info-bg); // 与element-ui不同的是这里UI规定了info使用蓝色主题色，额外增加了weak类型显示灰色的提示
+@include global-tips(
+  info,
+  $color-master,
+  $alert-info-bg
+); // 与element-ui不同的是这里UI规定了info使用蓝色主题色，额外增加了weak类型显示灰色的提示
 @include global-tips(success, $color-success, $alert-success-bg);
 @include global-tips(warning, $color-warning, $alert-warning-bg);
 @include global-tips(error, $color-danger, $alert-danger-bg);
 @include global-tips(weak, $color-info, $alert-weak-bg);
 
 .el-alert {
-  $paddingTopBottom: calc((#{$alert-single-height} - #{$line-height} * #{$text-size})/2);
+  $paddingTopBottom: calc((#{$alert-single-height} - #{$line-height} * #{$text-size}) / 2);
   padding: $paddingTopBottom $padding-8x $paddingTopBottom $padding-4x;
   align-items: flex-start;
   .el-alert__icon {
@@ -48,7 +52,7 @@ $alert-single-height: 36px;
   }
 }
 
-.el-alert.is-light .el-alert__description{
+.el-alert.is-light .el-alert__description {
   color: $alert-text-color;
 }
 

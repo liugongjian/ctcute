@@ -1,3 +1,10 @@
+/*
+ * @Author: 胡佳婷
+ * @Date: 2023-05-08 17:27:12
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-12 12:25:17
+ * @Description:
+ */
 module.exports = {
   root: true,
   env: {
@@ -7,6 +14,7 @@ module.exports = {
     es6: true, // 支持 es6 语法
   },
   extends: [
+    'plugin:vue/essential',
     'plugin:vue/recommended',
     '@vue/typescript/recommended',
     '@vue/prettier',
@@ -25,6 +33,7 @@ module.exports = {
     'block-spacing': ['error', 'always'],
     'key-spacing': 'error',
     quotes: ['error', 'single'],
+    'prettier/prettier': 'error',
     'vue/array-bracket-spacing': 'error',
     'vue/arrow-spacing': 'error',
     'vue/block-spacing': 'error',
@@ -41,10 +50,13 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'vue/html-self-closing': 'off',
     'keyword-spacing': 'off',
-    '@typescript-eslint/keyword-spacing': ['error', {
-      before: true,
-      after: true
-    }],
+    '@typescript-eslint/keyword-spacing': [
+      'error',
+      {
+        before: true,
+        after: true,
+      },
+    ],
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/type-annotation-spacing': [
@@ -55,25 +67,32 @@ module.exports = {
         overrides: {
           arrow: {
             before: true,
-            after: true
-          }
-        }
+            after: true,
+          },
+        },
       },
     ],
+    '@typescript-eslint/no-var-requires': 'off',
     'space-infix-ops': 'off',
-    '@typescript-eslint/space-infix-ops': ['error', {
-      int32Hint: false
-    }],
+    '@typescript-eslint/space-infix-ops': [
+      'error',
+      {
+        int32Hint: false,
+      },
+    ],
     'comma-spacing': 'off',
-    '@typescript-eslint/comma-spacing': ['error', {
-      before: false,
-      after: true
-    }],
+    '@typescript-eslint/comma-spacing': [
+      'error',
+      {
+        before: false,
+        after: true,
+      },
+    ],
     'object-curly-spacing': ['error', 'always'],
     '@typescript-eslint/object-curly-spacing': ['error', 'always'],
     semi: 'off',
     '@typescript-eslint/semi': ['error', 'never'],
     'no-undef': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off'
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
 }

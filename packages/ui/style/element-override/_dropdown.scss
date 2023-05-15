@@ -61,7 +61,6 @@ $dropdown-item-medium-line-height: 34px;
 @include dropdown-size(large, $text-size-md);
 
 .el-dropdown-menu {
-
   // min-width: $dropdown-min-width;
   &.el-popper {
     box-shadow: $shadow-2;
@@ -100,7 +99,6 @@ $dropdown-item-medium-line-height: 34px;
 }
 
 .el-dropdown {
-
   .el-button:hover,
   .el-button:focus {
     .svg-icon {

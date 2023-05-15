@@ -1,10 +1,5 @@
-/*
-* @Author: 胡一苗
-* @Date: 2023-03-22 12:25:55
-* @LastEditors: 胡一苗
-* @LastEditTime: 2023-03-24 15:02:39
-* @Description: desc
-*/
+/* * @Author: 胡一苗 * @Date: 2023-03-22 12:25:55 * @LastEditors: 胡一苗 * @LastEditTime: 2023-03-24 15:02:39
+* @Description: desc */
 <template>
   <div>
     <h1>Breadcrumb</h1>
@@ -46,13 +41,17 @@ import BreadcrumbDemo from '@/views/ui/components/Breadcrumb.vue'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
 
 // TODO 如何对外提供
-function getTextWidth(text, {
-  fontStyle = 'normal',
-  fontVariant = 'normal',
-  fontWeight = 'normal',
-  fontSize = '12px',
-  fontFamily = variables.fontFamily,
-} = {}, method = 'html') {
+function getTextWidth(
+  text,
+  {
+    fontStyle = 'normal',
+    fontVariant = 'normal',
+    fontWeight = 'normal',
+    fontSize = '12px',
+    fontFamily = variables.fontFamily,
+  } = {},
+  method = 'html'
+) {
   // 通过html
   const div = document.createElement('div')
   div.style.display = 'inline-block'
@@ -106,7 +105,6 @@ export default class extends Vue {
     }
     return false
   }
-
 }
 </script>
 <style lang="scss" scoped>

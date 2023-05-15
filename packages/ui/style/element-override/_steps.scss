@@ -15,22 +15,24 @@ $steps-line-size: 1px; // 线条粗细;
    $color:字体颜色
    $bgColor:背景颜色
 */
-@mixin steps-page($class: is-success,
+@mixin steps-page(
+  $class: is-success,
   $bdColor: $color-master,
   $color: $color-master,
   $descriptionColor: $text-color-disabled,
-  $titleColor: $color) {
+  $titleColor: $color
+) {
   .el-step__head.#{$class} {
     border-color: $bdColor;
     color: $color;
     .el-step__icon.is-status {
       background-color: $color;
     }
-    .el-step__icon.is-text{
+    .el-step__icon.is-text {
       border-color: $bdColor;
     }
   }
-  .el-step__title.#{$class}{
+  .el-step__title.#{$class} {
     color: $titleColor;
   }
   .el-step .el-step__main > .el-step__description.#{$class} {
@@ -50,7 +52,7 @@ $steps-line-size: 1px; // 线条粗细;
     font-weight: normal;
   }
 
-  & > .el-step__head > .el-step__icon{
+  & > .el-step__head > .el-step__icon {
     background-color: transparent;
   }
 
@@ -67,7 +69,7 @@ $steps-line-size: 1px; // 线条粗细;
   }
 
   .el-step__line {
-    background-color: $border-color; 
+    background-color: $border-color;
 
     .el-step__line-inner {
       border-bottom: 0;
@@ -76,7 +78,7 @@ $steps-line-size: 1px; // 线条粗细;
 
   .el-step__icon.is-text {
     border: 1px solid;
-    background-color: $color-bg-2;// 普通序号背景色
+    background-color: $color-bg-2; // 普通序号背景色
   }
 
   .el-step__title.is-process {

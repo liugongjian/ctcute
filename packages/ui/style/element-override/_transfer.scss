@@ -5,7 +5,6 @@ $transfer-button-width: 38px; // Transfer组件圆形按钮
 $transfer-button-radius: 50%; // Transfer组件圆形按钮
 
 .el-transfer {
-
   // checkbox没对齐
   .el-transfer-panel__item .el-checkbox__input {
     top: 2px;
@@ -56,8 +55,8 @@ $transfer-button-radius: 50%; // Transfer组件圆形按钮
   .el-transfer__buttons {
     padding: 0 $padding-4x;
 
-    &>.el-transfer__button,
-    &>.el-transfer__button.is-disabled {
+    & > .el-transfer__button,
+    & > .el-transfer__button.is-disabled {
       display: block;
       margin: 0;
 
@@ -65,7 +64,7 @@ $transfer-button-radius: 50%; // Transfer组件圆形按钮
         margin-top: $margin-8x;
       }
 
-      & [class*='el-icon-']+span {
+      & [class*='el-icon-'] + span {
         margin-left: 0;
       }
 
@@ -76,7 +75,7 @@ $transfer-button-radius: 50%; // Transfer组件圆形按钮
         padding: 0;
       }
 
-      &:is(.is-with-texts)>span {
+      &:is(.is-with-texts) > span {
         display: flex;
         align-items: center;
       }
@@ -86,7 +85,7 @@ $transfer-button-radius: 50%; // Transfer组件圆形按钮
       }
     }
 
-    &>.el-transfer__button.is-disabled {
+    & > .el-transfer__button.is-disabled {
       background-color: $disabled-bg;
       border-color: $disabled-border;
       color: $disabled-border;
@@ -142,16 +141,15 @@ $transfer-button-radius: 50%; // Transfer组件圆形按钮
     background-color: $transfer-item-hover-bg;
   }
 
-  .el-checkbox__input.is-checked+.el-checkbox__label {
+  .el-checkbox__input.is-checked + .el-checkbox__label {
     color: $color-master;
   }
-
 }
 
 .el-transfer-panel .el-transfer-panel__header .el-checkbox .el-checkbox__label {
   font-size: $text-size;
 
-  >span {
+  > span {
     color: $text-color; // 标题统计数字颜色
     right: $common-space-4x; // 对称
   }

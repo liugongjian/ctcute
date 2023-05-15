@@ -1,8 +1,8 @@
 /*
  * @Author: 何晋升
  * @Date: 2022年7月26日 16:03:00
- * @LastEditors: 何晋升
- * @LastEditTime: 2022年7月26日 16:03:00
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-12 15:00:30
  * @Description: 表格分页工具，包含定义分页
  */
 import * as Request from '../types/Request'
@@ -52,7 +52,7 @@ export default class TableHook {
    * @param lazy 是否开启滚动到底部加载 需要定义ref
    */
   constructor(
-    form: object = {},
+    form: Record<string, unknown> = {},
     queryMethod: (param: any) => Promise<void> | VoidFunction = undefined,
     ref: InstanceType<typeof ElTable> | undefined = undefined,
     lazy = false
@@ -106,7 +106,7 @@ export default class TableHook {
       const param = Object.assign(this.queryForm, this.pager)
       await this.queryEvent(param)
     } catch (e) {
-      console.error('表格查询方法错误', e)
+      throw new Error('表格查询方法错误', e)
     }
     this.resetLoading()
   }

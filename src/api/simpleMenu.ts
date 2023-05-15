@@ -8,19 +8,11 @@
 import request from '@/utils/request'
 import { AxiosPromise } from 'axios'
 
-type CommonRes = { code: number | string; msg: string }
-
 /**
  * 获取菜单数据
  * @returns 菜单数据
  */
-export const getMenus = (): Promise<
-  CommonRes & {
-    data?: {
-      result: any[]
-    }
-  }
-> =>
+export const getMenus = (): AxiosPromise<any> =>
   request({
     url: '/v1/auth/menus',
     method: 'get',
@@ -30,7 +22,7 @@ export const getMenus = (): Promise<
  * 删除菜单数据
  * @returns 菜单数据
  */
-export const delMenus = (id): Promise<CommonRes> =>
+export const delMenus = (id): AxiosPromise<any> =>
   request({
     url: `/v1/auth/menus/${id}`,
     method: 'delete',

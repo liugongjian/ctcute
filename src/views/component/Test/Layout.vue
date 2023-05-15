@@ -2,7 +2,7 @@
  * @Author: XinZhao
  * @Date: 2023-04-19 9:59:34
  * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-28 15:04:29
+ * @LastEditTime: 2023-05-15 10:44:20
  * @Description: Layout
 -->
 <template>
@@ -147,7 +147,7 @@ export default class extends Vue {
 
     .grid-content {
       border-radius: $border-radius;
-      min-height: 36px;
+      height: 36px;
     }
 
     .bg-purple {
@@ -159,7 +159,8 @@ export default class extends Vue {
     }
 
     .text-pos {
-      padding: $padding;
+      padding-left: $padding-3x;
+      line-height: 36px;
     }
 
     h3 {

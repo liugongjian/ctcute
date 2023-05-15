@@ -134,6 +134,8 @@
         </el-form-item>
       </el-form>
       <el-button
+        v-for="textButton in textButtonList"
+        :key="textButton.type"
         type="text"
         :size="size"
         :disabled="isDisabed"
@@ -141,6 +143,7 @@
         :plain="isPlain"
         :round="isRound"
         :icon="getIcon()"
+        :text-type="textButton.type"
       >
         {{ $t('componentTest.button.textButton') }}
       </el-button>
@@ -178,6 +181,36 @@ export default class extends Vue {
     {
       type: 'danger',
       label: this.$t('componentTest.button.dangerButton'),
+    },
+  ]
+  private textButtonList = [
+    {
+      type: '',
+      label: this.$t('componentTest.button.textButton'),
+    },
+    {
+      type: 'primary',
+      label: this.$t('componentTest.button.textButton'),
+    },
+    {
+      type: 'ct',
+      label: this.$t('componentTest.button.textButton'),
+    },
+    {
+      type: 'success',
+      label: this.$t('componentTest.button.textButton'),
+    },
+    {
+      type: 'warning',
+      label: this.$t('componentTest.button.textButton'),
+    },
+    {
+      type: 'danger',
+      label: this.$t('componentTest.button.textButton'),
+    },
+    {
+      type: 'weak',
+      label: this.$t('componentTest.button.textButton'),
     },
   ]
   private sizeList = ['large', 'medium', 'small', 'mini']

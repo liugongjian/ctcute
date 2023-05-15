@@ -8,8 +8,10 @@
     "declarations": true
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-eggts",
-    "stop": "egg-scripts stop --title=egg-server-eggts",
+    "start": "egg-scripts start --daemon --title=cutedesign-server-v2 --port=7002",
+    "start-v1": "egg-scripts start --daemon --title=cutedesign-server-v1 --port=7001",
+    "stop": "egg-scripts stop --title=cutedesign-server-v2",
+    "stop-v1": "egg-scripts stop --title=cutedesign-server-v1",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test-local": "egg-bin test",

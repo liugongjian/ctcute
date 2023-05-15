@@ -62,30 +62,6 @@
     font-size: 14px;
   }
 
-  // .el-button.el-button--default {
-  //   .svg-icon {
-  //     color: $color-neutral-6;
-  //   }
-
-  //   &:hover {
-  //     .svg-icon {
-  //       color: $upload-color;
-  //     }
-  //   }
-
-  //   &.is-disabled {
-  //     .svg-icon {
-  //       color: $color-neutral-6;
-  //     }
-
-  //     :hover {
-  //       .svg-icon {
-  //         color: $color-neutral-6;
-  //       }
-  //     }
-  //   }
-  // }
-
   .el-upload-list__item:hover {
     background: $upload-bg-hover;
     border-radius: $upload-dragger-border-radius;
@@ -122,14 +98,6 @@
   }
 }
 
-// .el-upload-list__item-name {
-//   font-size: $text-size;
-
-//   &:hover {
-//     text-decoration: none;
-//     color: $text-color;
-//   }
-// }
 
 //小文件
 .small-uploader {
@@ -156,7 +124,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    // background: $color-neutral-1;
+    background: $color-bg-1;
 
     .el-upload-list__item {
       width: $upload-picture-card-size;
@@ -225,7 +193,16 @@
       vertical-align: middle;
     }
 
+    .el-upload-list__item-actions {
+      opacity: 1;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
     &.is-disabled {
+
       .el-upload-list__item {
         cursor: not-allowed;
       }
@@ -234,14 +211,8 @@
         display: none !important;
       }
 
-      .el-upload-list__item-actions:hover {
-        opacity: 0;
-      }
     }
 
-    // .el-upload-list__item-actions {
-    //   background-color: $color-neutral-2;
-    // }
   }
 
   .el-progress-circle {
@@ -373,9 +344,6 @@
   }
 }
 
-// .el-upload {
-//   .el-button--medium{ padding: $padding-2x $padding-3x ;}
-// }
 .el-upload-out__tip {
   font-size: $text-size;
   color: $upload-tips-font-color;

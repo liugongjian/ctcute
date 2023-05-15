@@ -9,7 +9,7 @@ export default {
     pagination: {
       goto: '前往',
       pagesize: '',
-      total: '2共{total}条',
+      total: '共{total}条',
       pageClassifier: '页',
     },
     messagebox: {

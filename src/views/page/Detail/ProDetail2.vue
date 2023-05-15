@@ -34,7 +34,7 @@
                   <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
                   <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
                 </span>
-                {{ node.label }}
+                <span :class="node.isLeaf ? 'icon-leaf-label' : ''">{{ node.label }}</span>
                 <div class="handler-menu">
                   <el-button slot="reference" type="text">
                     <svg-icon

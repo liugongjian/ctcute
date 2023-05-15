@@ -179,7 +179,7 @@ export default class extends Vue {
       this.loading = true
       const res = await getMenus()
 
-      if (res.code === 200) {
+      if ((res as any).code === 200) {
         const res_menus = res.data.result.map(item => {
           item.label = item.name
           item.id = item._id
@@ -342,7 +342,7 @@ export default class extends Vue {
       })
 
       const res = await delMenus(row._id)
-      if (res.code === 200) {
+      if ((res as any).code === 200) {
         this.$message.success('删除角色成功! ')
         this.getTable()
       }

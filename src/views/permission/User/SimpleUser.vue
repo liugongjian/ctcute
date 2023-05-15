@@ -244,7 +244,7 @@ export default class extends Vue {
   private async getTable(param) {
     try {
       const res = await getUsers(param)
-      if (res.code === 200) {
+      if ((res as any).code === 200) {
         this.tableHook.setResult(
           res.data.result.map(item => ({ ...item, flag: false })),
           res.data.pageInfo.totalItems
@@ -360,7 +360,7 @@ export default class extends Vue {
       })
 
       const res = await resetPWDUsers(row._id)
-      if (res.code === 200) {
+      if ((res as any).code === 200) {
         const msg = `密码: ${res.data.password}`
 
         await this.$confirm(msg, '重置密码成功', {
@@ -388,7 +388,7 @@ export default class extends Vue {
       })
 
       const res = await freezeUsers(row._id)
-      if (res.code === 200) {
+      if ((res as any).code === 200) {
         this.$message.success('冻结成功! ')
         this.tableHook.query()
       }
@@ -407,7 +407,7 @@ export default class extends Vue {
       })
 
       const res = await unfreezeUsers(row._id)
-      if (res.code === 200) {
+      if ((res as any).code === 200) {
         this.$message.success('解冻成功! ')
         this.tableHook.query()
       }
@@ -429,7 +429,7 @@ export default class extends Vue {
         ids: [row._id],
       }
       const res = await delUsers(data)
-      if (res.code === 200) {
+      if ((res as any).code === 200) {
         this.$message.success('删除成功! ')
         this.tableHook.query()
       }

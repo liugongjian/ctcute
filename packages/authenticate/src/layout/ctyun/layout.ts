@@ -10,7 +10,7 @@ export default class CtyunLayout extends BaseLayout {
   }
 
   protected config = {
-    containerId: 'ctcloud-console', // 容器 id 固定使用这个，修改没有意义
+    containerId: 'container', // 容器 id
     urlPrefix: '/ctyun', // url 前缀，可按需调整
     jsUrl: '/layout/ctcloud-layout.min.js',
     cssUrl: '/layout/ctcloud-layout.css',
@@ -18,7 +18,7 @@ export default class CtyunLayout extends BaseLayout {
   }
 
   // 资源加载
-  async load() {
+  async #load() {
     try {
       const { urlPrefix, cssUrl, jsUrl, hookUrl } = this.config
 
@@ -31,11 +31,26 @@ export default class CtyunLayout extends BaseLayout {
   }
 
   // 初始化
-  init({ consoleInitArgs }: CtyunLayoutInitOptions = {}) {
+  async init({ containerId, bizDomain, logoutUrl, consoleInitArgs }: CtyunLayoutInitOptions) {
     try {
+      await this.#load()
+
       const { consoleLayout } = window.CtcloudLayout
 
+      const container = document.getElementById(containerId || this.config.containerId)
+      // ctyun id 固定
+      container.id = 'ctcloud-console'
+
       consoleLayout.init(consoleInitArgs)
+      // TODO 生产环境暂时没有这2个 api ，临时加个能力判断
+      // 侧边栏高亮
+      bizDomain &&
+        consoleLayout.matchConsoleMenuCode &&
+        consoleLayout.matchConsoleMenuCode({ menuCode: bizDomain })
+      // 修改登出路由
+      logoutUrl &&
+        consoleLayout.updateConsoleLayoutLogoutUrl &&
+        consoleLayout.updateConsoleLayoutLogoutUrl(logoutUrl)
 
       return Promise.resolve(consoleLayout)
     } catch (err) {

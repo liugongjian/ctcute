@@ -10,6 +10,14 @@
       <div class="home-header__search">
         <Search />
       </div>
+      <el-select v-model="lang" class="home-header__lang-select" @change="langChangeHandle">
+        <el-option value="zh" :label="$t('language.zh')" />
+        <el-option value="en" :label="$t('language.en')" />
+      </el-select>
+      <el-select v-model="version" class="home-header__lang-select" @change="versionChangeHandle">
+        <el-option value="v1" label="V1" />
+        <el-option value="v2" label="V2" />
+      </el-select>
       <div class="home-header__nav">
         <router-link to="/docs">文档</router-link>
         <router-link to="/ui">UI规范</router-link>
@@ -29,7 +37,21 @@ import Search from '@/layout/components/Search/index.vue'
     Search,
   },
 })
-export default class extends Vue {}
+export default class extends Vue {
+  private lang = this.$i18n.locale
+  private version = 'v2'
+
+  private langChangeHandle(value) {
+    this.$i18n.locale = value
+    localStorage.setItem('cute-lang', value)
+  }
+
+  private versionChangeHandle(value) {
+    if (value === 'v1') {
+      window.location.href = 'http://fed.ctyuncdn.cn/cutev1/'
+    }
+  }
+}
 </script>
 <style lang="scss" scoped>
 .home-header {
@@ -74,7 +96,7 @@ export default class extends Vue {}
   }
 
   &__search {
-    margin-right: 64px;
+    margin-right: $margin-6x;
   }
 
   .layout-header__search--input {
@@ -100,6 +122,11 @@ export default class extends Vue {}
     .svg-icon {
       color: rgba(0, 0, 0, 4%);
     }
+  }
+
+  &__lang-select {
+    margin-right: $margin-6x;
+    max-width: 85px;
   }
 
   &__nav {

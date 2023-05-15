@@ -106,6 +106,10 @@ $select-tag-margin: 2px 0 2px 8px;
       color: $color-master-1;
     }
   }
+
+  .el-input .el-select__caret {
+    color: $text-color-light-2;
+  }
 }
 
 .el-input__suffix .el-input__suffix-inner .suffix-other {

@@ -41,7 +41,7 @@ $datepicker-footer-button-color: $color-white;
     width: 105px;
   }
 
-  .el-picker-panel__sidebar + .el-picker-panel__body {
+  .el-picker-panel__sidebar+.el-picker-panel__body {
     margin-left: 105px;
   }
 }
@@ -208,6 +208,7 @@ $datepicker-footer-button-color: $color-white;
 }
 
 .el-range-editor--medium {
+
   .el-range__icon,
   .el-range__close-icon {
     display: flex;
@@ -431,3 +432,18 @@ $datepicker-footer-button-color: $color-white;
   padding: 0 8px 8px 8px !important;
   margin: 0 !important;
 }
+
+
+// 范围日期选择高度不变问题
+@mixin select-size($size, $height) {
+  .el-date-editor {
+    &.el-range-editor--#{$size} {
+      height: $height;
+    }
+  }
+}
+
+@include select-size(large, $select-lg-height);
+@include select-size(medium, $select-md-height);
+@include select-size(small, $select-sm-height);
+@include select-size(mini, $select-xs-height);

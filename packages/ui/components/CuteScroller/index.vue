@@ -59,7 +59,7 @@ export default class extends Vue {
   // 计算高度
   private calHeight() {
     const scrollPosition = this.$el.getBoundingClientRect()
-    const layoutContainer = document.querySelector('.layout-container')
+    const layoutContainer = document.querySelector('#layout-container')
     // 获取计算样式
     const layoutContainerStyle = window.getComputedStyle(layoutContainer)
     // 获取padding值

@@ -6,6 +6,7 @@
     :type="nativeType"
     :class="[
       type ? 'el-button--' + type : '',
+      type === 'text' && textType ? 'el-button--text--' + textType : '',
       buttonSize ? 'el-button--' + buttonSize : '',
       {
         'is-disabled': buttonDisabled,
@@ -59,6 +60,10 @@ export default {
     nativeType: {
       type: String,
       default: 'button',
+    },
+    textType: {
+      type: String,
+      default: 'default',
     },
     loading: Boolean,
     disabled: Boolean,

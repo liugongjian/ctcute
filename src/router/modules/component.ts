@@ -128,15 +128,6 @@ const componentRoutes = [
         },
       },
       {
-        path: 'cute-special-radio',
-        name: 'CuteSpecialRadio',
-        component: () => import('@/views/component/Base/CuteSpecialRadio/index.vue'),
-        meta: {
-          title: 'CuteSpecialRadio',
-          breadcrumb: true,
-        },
-      },
-      {
         path: 'cute-select-tree',
         name: 'CuteSelectTree',
         component: () => import('@/views/component/Base/CuteSelectTree/index.vue'),
@@ -178,6 +169,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteDistributionBar/index.vue'),
         meta: {
           title: 'CuteDistributionBar',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-form-info',
+        name: 'CuteFormInfo',
+        component: () => import('@/views/component/Base/CuteFormInfo/index.vue'),
+        meta: {
+          title: 'CuteFormInfo',
           breadcrumb: true,
         },
       },

@@ -33,13 +33,25 @@
         <div class="form-item__tip">你还可以使用32768GB硬盘。</div>
       </el-form-item>
       <el-form-item label="磁盘类型" prop="diskType">
-        <cute-special-radio v-model="form.diskType" :options="buutonData" @change="changeFun" />
+        <el-radio-group v-model="form.diskType">
+          <el-radio-button
+            v-for="button in diskTypeData"
+            :key="button.label"
+            :label="button.label"
+          ></el-radio-button>
+        </el-radio-group>
       </el-form-item>
       <el-form-item label="高级配置" prop="AdConfiguration">
         <el-checkbox v-model="form.AdConfiguration" @change="handleCheckChange"> 共享盘 </el-checkbox>
       </el-form-item>
       <el-form-item label="付费方式" prop="payment">
-        <cute-special-radio v-model="form.payment" :options="buutonDatas" @change="changeFuns" />
+        <el-radio-group v-model="form.payment">
+          <el-radio-button
+            v-for="button in paymentData"
+            :key="button.label"
+            :label="button.label"
+          ></el-radio-button>
+        </el-radio-group>
       </el-form-item>
       <el-form-item label="数量" prop="number">
         <el-input-number v-model="form.number" :min="0" :max="200"></el-input-number>
@@ -97,13 +109,12 @@
 <script lang="ts">
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
-import { CuteSpecialRadio } from '@cutedesign/ui'
 // import { getOptions } from '@/api/orderList'
 import CuteFixedFooter from '@cutedesign/ui/components/CuteFixedFooter/index.vue'
 
 @Component({
   name: 'OrderList',
-  components: { CuteSpecialRadio, CuteFixedFooter },
+  components: { CuteFixedFooter },
 })
 export default class extends Vue {
   @Ref('orderForm')
@@ -157,7 +168,7 @@ export default class extends Vue {
       ],
     },
   ]
-  private buutonData = [
+  private diskTypeData = [
     {
       label: '高IO',
     },
@@ -165,7 +176,7 @@ export default class extends Vue {
       label: '普通IO',
     },
   ]
-  private buutonDatas = [
+  private paymentData = [
     {
       label: '包年包月',
     },
@@ -301,13 +312,6 @@ export default class extends Vue {
    */
   private changeFun(key) {
     this.form.diskType = key
-  }
-
-  /**
-   * 切换付费方式
-   */
-  private changeFuns(key) {
-    this.form.payment = key
   }
 
   /**

@@ -7,6 +7,7 @@
 -->
 <template>
   <el-card class="box-card">
+    <el-button ref="elbutton">xxxx</el-button>
     <div slot="header">
       <h2>根组件</h2>
     </div>
@@ -66,6 +67,8 @@ import TypeScriptDemoMixin from './mixin'
 // 引入子组件
 import TypeScriptDemoChild from './TypeScriptDemoChild.vue'
 import TypeScriptDemoRandom from './TypeScriptDemoRandom.vue'
+
+import { Button } from '@cutedesign/ui'
 
 @Component({
   // 组件名称，用于在Vue DevTool Components中显示组件名称
@@ -135,6 +138,9 @@ export default class extends Mixins(TypeScriptDemoMixin) {
     this.algebra.y = 1
     this.sumAlgebra()
     this.multiplyAlgebra()
+
+    const elbutton = this.$refs.elbutton as Button
+    console.log(elbutton.round)
   }
 
   /**

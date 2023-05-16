@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2022-10-05 07:53:38
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-28 12:42:40
+ * @LastEditTime: 2023-05-16 09:08:37
  * @Description: 用户权限
 -->
 
@@ -59,11 +59,7 @@ window.commonConfig = {
     baseUrl: '/cdn',
 
     providers: {
-      ctyun: {
-        layout: {
-          bizDomain: '442212408854089728', // 取值为 GetTree?domain=console.leftbar 中本控制台的 menuId
-        },
-      },
+      ctyun: {},
     },
   },
 }
@@ -71,11 +67,29 @@ window.commonConfig = {
 
 其中，\`authenticateType\` 指定了用户类型，无需改变；\`enableAuthorize\` 指定了是否开启权限，一般对接天翼云的系统不需要权限；\`baseUrl\`为业务前缀，您需要根据自己的后端接口进行调整，这边只是示例，大部分情况不会与您相同。
 
- \`providers\` 可以定义每一种用户权限的自定义字段，对天翼云用户来说，需要在 \`ctyun\` 对象中定义。
-如果您的产品需要上云，并且在云网门户有正式的入口（需要您的产品在上云的时候找IT对接），则需要定义 \`layout->bizDomain\` 字段，这个字段的值可以从 \`GetTree?domain=console.leftbar\` 中确认
-全量的可配置字段，可参考 [@cutedesign/authenticate](http://verdaccio.ctcdn.cn/-/web/detail/@cutedesign/authenticate)
+\`providers\` 可以定义每一种用户权限的自定义字段，对天翼云用户来说，需要在 \`ctyun\` 对象中定义。全量的可配置字段，可参考 [@cutedesign/authenticate](http://verdaccio.ctcdn.cn/-/web/detail/@cutedesign/authenticate)
 
 > 注意：需配置 \`hosts: 127.0.0.1 local.ctyun.cn\` ，并使用 \`npm run serve:ctyun\` 启动
+
+对接天翼云时，需要使用其提供的 CtyunLayout ，\`@cutedesign/authenticate\` 提供了便捷的使用方法，示例如下：
+
+\`\`\`js
+import { CtyunLayout } from '@cutedesign/authenticate'
+
+new CtyunLayout()
+  .init({
+    bizDomain: 'console.cdn', // 侧边栏高亮，取值为 /GetTree?domain=console.leftbar.v2 中本控制台的 menuCode
+    logoutUrl: '/cdn/sign/out', // 按需重写
+  })
+  .then(() => {
+    new Vue({
+      // i18n, // 按需开启
+      router,
+      store,
+      render: h => h(App),
+    }).$mount('#app')
+  })
+\`\`\`
 
 ### 二、IAM
 
@@ -92,9 +106,6 @@ window.commonConfig = {
 
     providers: {
       iam: {
-        layout: {
-          bizDomain: 'cdn', // layout 头部菜单当前服务在 osp 中的 domain 前缀，以 cdn 为例，实际请求的 cdn.header 和 cdn.header.dropdown
-        },
         perms: {
           domain: 'new.cdn.main', // 业务权限列表在 osp 中的菜单代码，按需语义化定义，以 cdn 为例
         },
@@ -108,35 +119,34 @@ window.commonConfig = {
 
 全量的可配置字段，可参考 [@cutedesign/authenticate](http://verdaccio.ctcdn.cn/-/web/detail/@cutedesign/authenticate)
 
+对接 IAM 时，需要使用其提供的 IamLayout ，\`@cutedesign/authenticate\` 提供了便捷的使用方法，示例如下：
+
+\`\`\`js
+import { IamLayout } from '@cutedesign/authenticate'
+
+new IamLayout()
+  .init({
+    bizDomain: 'cdn', // 侧边栏高亮，取值为 /iam/gw/workspace/console/List 中本控制台的 domain
+  })
+  .then(() => {
+    new Vue({
+      // i18n, // 按需开启
+      router,
+      store,
+      render: h => h(App),
+    }).$mount('#app')
+  })
+\`\`\`
+
 \`providers\` 可以定义每一种用户权限的自定义字段，这里常见的有两种场景：
 
 #### 2.1 场景1：只对接IAM本身
 
-定义 \`iam\` 对象，通常来说，您只需要覆盖 \`layout->bizDomain\` 和 \`perms->domain\` 两个字段的值。其中 \`layout->bizDomain\` 是您的业务在 \`iam的osp\` 系统中定义的头部菜单前缀，\`perms->domain\` 是您的业务在 \`iam的osp\` 系统中定义的菜单代码前缀
+定义 \`iam\` 对象，通常来说，您只需要覆盖 \`perms->domain\` 字段的值，该值是您的业务在 \`iam的osp\` 系统中定义的菜单代码。
 
 #### 2.2 场景2：同时对接 IAM、ctyun和bs
 
-ctyun 的配置说明见 \`一、天翼云\`，IAM 的配置说明见 \`二、IAM\` ，不再赘述。
-
-bs与ctyun类似，但不渲染相关的layout，所以请覆盖\`ctyun->layout\`下的\`containerId\`字段，以阻塞layout渲染
-
-\`\`\`js
-window.commonConfig = {
-  authConfig: {
-    authenticateType: 'ctyun',
-    enableAuthorize: false,
-    baseUrl: 'cdn', // 业务前缀，以 cdn 为例
-
-    providers: {
-      ctyun: {
-        layout: {
-          containerId: 'container', // bs 重写该 id 阻塞 layout 渲染
-        },
-      },
-    },
-  },
-}
-\`\`\`
+ctyun 的配置说明见 \`一、天翼云\`，IAM 的配置说明见 \`二、IAM\` ，不再赘述。bs与ctyun类似，但不渲染需要初始化 CtyunLayout。
 
 #### 2.3 一份镜像多份配置的方案
 

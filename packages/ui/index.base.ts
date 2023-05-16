@@ -105,6 +105,10 @@ import SvgIcon from './icons/index.vue'
  * 组件清单
  */
 import CuteLayout from './components/CuteLayout/index.vue'
+import CuteLayoutSidebar from './components/CuteLayout//Sidebar/index.vue'
+import CuteLayoutNavbar from './components/CuteLayout//Navbar/index.vue'
+import CuteLayoutBreadcrumb from './components/CuteLayout//Breadcrumb/index.vue'
+import CuteLayoutHeader from './components/CuteLayout//Header/index.vue'
 import CuteButtonGroup from './components/CuteCombinationButton/CuteButtonGroup.vue'
 import CuteEditInput from './components/CuteEditInput/index.vue'
 import CuteFormInfo from './components/CuteFormInfo/index.vue'
@@ -127,6 +131,10 @@ import CuteScroller from './components/CuteScroller/index.vue'
 import CuteFixedFooter from './components/CuteFixedFooter/index.vue'
 export {
   CuteLayout,
+  CuteLayoutSidebar,
+  CuteLayoutNavbar,
+  CuteLayoutBreadcrumb,
+  CuteLayoutHeader,
   CuteButtonGroup,
   CuteEditInput,
   CuteFormInfo,
@@ -154,6 +162,10 @@ export {
  */
 const componentsList = [
   CuteLayout,
+  CuteLayoutSidebar,
+  CuteLayoutNavbar,
+  CuteLayoutBreadcrumb,
+  CuteLayoutHeader,
   CuteFormInfo,
   CuteEditInput,
   CuteState,

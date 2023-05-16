@@ -8,13 +8,14 @@
   "files": [
     "dist",
     "src",
-    "types"
+    "types",
+    "scripts"
   ],
   "scripts": {
     "patch": "npm version patch",
     "publish": "npm publish",
     "build": "vue-cli-service build --target lib --formats=commonjs --name index src/index.ts",
-    "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\""
+    "postinstall": "node -e \"try{require('./scripts/postinstall')}catch(e){}\""
   },
   "dependencies": {
 

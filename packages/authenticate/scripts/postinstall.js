@@ -1,4 +1,4 @@
-const pkg = require('./package.json')
+const pkg = require('../package.json')
 const version = pkg.version
 
 // 对于需要提醒的版本，在这里进行配置

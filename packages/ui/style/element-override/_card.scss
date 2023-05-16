@@ -3,11 +3,22 @@
 .el-card {
   background-color: $card-bg;
   border-radius: $border-radius;
-  border: none;
+  border-color: $color-neutral-3;
 }
 
 .el-card.is-always-shadow {
-  box-shadow: $shadow-1;
+  box-shadow: $card-shadow;
+  border: none;
+
+  &:hover,
+  &:focus {
+    box-shadow: $shadow-2;
+  }
+}
+
+.el-card.is-hover-shadow:hover,
+.el-card.is-hover-shadow:focus {
+  box-shadow: $shadow-2;
 }
 
 .el-card__header {

@@ -14,7 +14,7 @@
       </el-card>
     </div>
     <div>
-      <h3>简单卡片</h3>
+      <h3>默认简单卡片，悬浮后显示阴影</h3>
       <el-card class="box-card">
         <div v-for="o in 4" :key="o" class="text item">
           {{ '列表内容 ' + o }}
@@ -22,8 +22,40 @@
       </el-card>
     </div>
     <div>
+      <h3>始终显示阴影</h3>
+      <el-card shadow="always" class="box-card">
+        <div v-for="o in 4" :key="o" class="text item">
+          {{ '列表内容 ' + o }}
+        </div>
+      </el-card>
+    </div>
+    <div>
+      <h3>始终不显示阴影</h3>
+      <el-card shadow="never" class="box-card">
+        <div v-for="o in 4" :key="o" class="text item">
+          {{ '列表内容 ' + o }}
+        </div>
+      </el-card>
+    </div>
+    <div>
+      <h3>默认无边框且有浅色阴影，悬浮后显示深色阴影</h3>
+      <el-card shadow="hover-light" class="box-card">
+        <div v-for="o in 4" :key="o" class="text item">
+          {{ '列表内容 ' + o }}
+        </div>
+      </el-card>
+    </div>
+    <div>
+      <h3>始终显示无边框、浅色阴影</h3>
+      <el-card shadow="always-light" class="box-card">
+        <div v-for="o in 4" :key="o" class="text item">
+          {{ '列表内容 ' + o }}
+        </div>
+      </el-card>
+    </div>
+    <div>
       <h3>带图片</h3>
-      <el-row>
+      <el-row style="width: 1000px">
         <el-col v-for="(o, index) in 2" :key="o" :span="8" :offset="index > 0 ? 2 : 0">
           <el-card :body-style="{ padding: '0px' }">
             <img

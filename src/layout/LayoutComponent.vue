@@ -13,7 +13,7 @@
     <template #header-right>
       <header-nav />
     </template>
-    <el-card shadow="always">
+    <el-card shadow="always-light">
       <router-view />
     </el-card>
   </cute-layout>

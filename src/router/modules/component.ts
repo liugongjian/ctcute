@@ -173,6 +173,24 @@ const componentRoutes = [
         },
       },
       {
+        path: 'cute-scroller',
+        name: 'CuteScroller',
+        component: () => import('@/views/component/Base/CuteScroller/index.vue'),
+        meta: {
+          title: 'CuteScroller',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-fixed-footer',
+        name: 'CuteFixedFooter',
+        component: () => import('@/views/component/Base/CuteFixedFooter/index.vue'),
+        meta: {
+          title: 'CuteFixedFooter',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'cute-form-info',
         name: 'CuteFormInfo',
         component: () => import('@/views/component/Base/CuteFormInfo/index.vue'),
@@ -254,29 +272,20 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-card',
+        name: 'ElCard',
+        component: () => import('@/views/component/Base/ElCard/index.vue'),
+        meta: {
+          title: 'ElCard',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'vxe-table',
         name: 'VxeTable',
         component: () => import('@/views/component/Base/VxeTable/index.vue'),
         meta: {
           title: 'VxeTable',
-        },
-      },
-      {
-        path: 'cute-scroller',
-        name: 'CuteScroller',
-        component: () => import('@/views/component/Base/CuteScroller/index.vue'),
-        meta: {
-          title: 'CuteScroller',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'cute-fixed-footer',
-        name: 'CuteFixedFooter',
-        component: () => import('@/views/component/Base/CuteFixedFooter/index.vue'),
-        meta: {
-          title: 'CuteFixedFooter',
-          breadcrumb: true,
         },
       },
     ],

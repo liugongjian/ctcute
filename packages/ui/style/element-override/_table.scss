@@ -245,6 +245,13 @@
   .el-table__empty-block {
     background-color: $color-bg-2;
   }
+
+  // 设置表格内滚动条颜色
+  &--scrollable-y &__body-wrapper {
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-neutral-2;
+    }
+  }
 }
 
 /*

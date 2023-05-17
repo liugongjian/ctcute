@@ -149,6 +149,10 @@
       flex: 1;
       overflow: auto;
 
+      &::-webkit-scrollbar-thumb {
+        background-color: $color-neutral-2;
+      }
+
       a:hover {
         text-decoration: none;
       }

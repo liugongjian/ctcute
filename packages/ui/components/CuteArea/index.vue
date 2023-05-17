@@ -1,7 +1,7 @@
 <template>
   <div
     v-clickoutside="handleClose"
-    class="el-select"
+    class="el-select cute-area"
     :class="[selectSize ? 'el-select--' + selectSize : '']"
     @click.stop="toggleMenu"
   >
@@ -58,7 +58,7 @@
           :class="{ 'is-empty': data.length === 0 }"
           :style="popperHeightStyle"
         >
-          <div class="el-scrollbar__view" style="margin: 12px">
+          <div class="el-scrollbar__view" style="margin: 8px 12px">
             <CuteAreaRecent
               v-if="showRecent && recentData && recentData.length"
               :data="recentData"

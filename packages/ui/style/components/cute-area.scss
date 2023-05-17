@@ -58,7 +58,7 @@ $cute-area-wrap-margin: $margin-10x;
 
 .cute-area-recent {
   padding-bottom: $padding-3x;
-  border-bottom: 1px dashed $color-neutral-5;
+  border-bottom: 1px dashed $color-neutral-3;
 
   .cute-area-recent-head {
     padding: 0 $cute-area-padding;
@@ -101,5 +101,17 @@ $cute-area-wrap-margin: $margin-10x;
         color: $color-master;
       }
     }
+  }
+}
+
+.cute-area-dropdown {
+  &.el-select-dropdown {
+    margin: 8px 0;
+  }
+}
+
+.cute-area {
+  .el-input__suffix .el-input__suffix-inner .suffix-other {
+    margin-right: 8px;
   }
 }

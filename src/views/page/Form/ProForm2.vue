@@ -1,8 +1,8 @@
 <!--
  * @Author: 秦瑞斌
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 胡一苗
- * @LastEditTime: 2023-02-03 13:27:48
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-05-17 16:39:40
  * @Description: 复杂表单2
 -->
 <template>
@@ -82,7 +82,7 @@
         <el-divider></el-divider>
         <cute-titled-block title="告警规则">
           <template #content>
-            <el-form-item label="模板类型" prop="templateType" style="margin: 0 20px 0 40px">
+            <el-form-item label="模板类型" prop="templateType">
               <el-table border style="width: 100%" :data="form.tableData">
                 <el-table-column min-width="180" label="监控指标">
                   <template slot-scope="scope">
@@ -93,7 +93,7 @@
                       <el-select
                         v-model="scope.row.monitorIndicators"
                         placeholder="请选择"
-                        style="width: 160px"
+                        class="pro-form-table-cell-selector"
                       >
                         <el-option
                           v-for="item in monitorOptions"
@@ -111,7 +111,11 @@
                       :prop="'tableData.' + scope.$index + '.timeSection'"
                       :rules="rules.templateType.monitor"
                     >
-                      <el-select v-model="scope.row.timeSection" placeholder="请选择" style="width: 160px">
+                      <el-select
+                        v-model="scope.row.timeSection"
+                        placeholder="请选择"
+                        class="pro-form-table-cell-selector"
+                      >
                         <el-option
                           v-for="item in timeSectOptions"
                           :key="item.value"
@@ -123,16 +127,15 @@
                   </template>
                 </el-table-column>
                 <el-table-column min-width="345" label="计算方法">
-                  <template slot-scope="scope">
+                  <div slot-scope="scope" class="pro-form-table-cell-inline-form">
                     <el-form-item
-                      style="display: inline-block"
                       :prop="'tableData.' + scope.$index + '.computValue'"
                       :rules="rules.templateType.monitor"
                     >
                       <el-select
                         v-model="scope.row.computValue"
                         placeholder="请选择"
-                        style="width: 90px; margin-right: 8px"
+                        class="pro-form-table-cell-selector"
                       >
                         <el-option
                           v-for="item in computOptions"
@@ -143,14 +146,13 @@
                       </el-select>
                     </el-form-item>
                     <el-form-item
-                      style="display: inline-block"
                       :prop="'tableData.' + scope.$index + '.operation'"
                       :rules="rules.templateType.monitor"
                     >
                       <el-select
                         v-model="scope.row.operation"
                         placeholder="请选择"
-                        style="width: 90px; margin-right: 8px"
+                        class="pro-form-table-cell-selector"
                       >
                         <el-option
                           v-for="item in operationOptions"
@@ -161,19 +163,18 @@
                       </el-select>
                     </el-form-item>
                     <el-form-item
-                      style="display: inline-block"
                       :prop="'tableData.' + scope.$index + '.calculate'"
                       :rules="rules.templateType.percentage"
                     >
                       <el-input
                         v-model="scope.row.calculate"
                         placeholder="请输入"
-                        style="width: 90px; margin-right: 8px"
+                        class="pro-form-table-cell-selector"
                       />
                     </el-form-item>
 
                     %
-                  </template>
+                  </div>
                 </el-table-column>
                 <el-table-column prop="templateType" label="出现次数" min-width="170">
                   <template slot-scope="scope">
@@ -181,7 +182,11 @@
                       :prop="'tableData.' + scope.$index + '.occurrences'"
                       :rules="rules.templateType.monitor"
                     >
-                      <el-select v-model="scope.row.occurrences" placeholder="请选择" style="width: 160px">
+                      <el-select
+                        v-model="scope.row.occurrences"
+                        placeholder="请选择"
+                        class="pro-form-table-cell-selector"
+                      >
                         <el-option
                           v-for="item in occurrencesOptions"
                           :key="item.value"
@@ -198,10 +203,8 @@
                   </template>
                 </el-table-column>
                 <template #append>
-                  <div class="el-table__append-row" style="margin-bottom: 24px">
-                    <el-button style="width: 100%; height: 42px" type="text" @click="addCondit">
-                      +添加条件
-                    </el-button>
+                  <div class="el-table__append-row">
+                    <el-button type="text" @click="addCondit"> +添加条件 </el-button>
                   </div>
                 </template>
               </el-table>
@@ -237,10 +240,8 @@
     </el-card>
     <cute-fixed-footer>
       <div class="pro-form-footer-content">
-        <el-button type="primary" :loading="submitting" style="margin-right: 16px" @click="submit"
-          >提 交</el-button
-        >
-        <el-button style="margin-right: 40px" @click="back">取 消</el-button>
+        <el-button type="primary" :loading="submitting" @click="submit">提 交</el-button>
+        <el-button @click="back">取 消</el-button>
       </div>
     </cute-fixed-footer>
   </div>

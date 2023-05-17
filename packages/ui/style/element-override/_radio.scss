@@ -5,6 +5,7 @@
   // line-height: 1.5;
   font-weight: normal;
   display: inline-flex;
+  align-items: center;
 
   .el-radio__label {
     padding-left: $padding-2x;
@@ -16,6 +17,7 @@
   height: $radio-width;
   background-color: transparent;
   box-sizing: content-box;
+  vertical-align: middle;
 
   &:after {
     width: $radio-label-width;
@@ -27,8 +29,6 @@
 }
 
 .el-radio__input {
-  line-height: 1.5;
-
   &.is-disabled .el-radio__inner {
     background: $radio-group-disabled-bg;
     border: 1px solid $radio-group-border-color;

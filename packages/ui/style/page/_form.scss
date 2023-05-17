@@ -59,23 +59,50 @@
   }
 
   .el-button + .el-button {
-    margin-left: $button-margin;
+    margin-left: $margin-4x;
+  }
+
+  .pro-form-table-cell-selector{
+    width:100%;
+  }
+
+  .pro-form-table-cell-inline-form{
+    display: flex;
+    align-items: center;
+    .el-form-item{
+      flex:1;
+    }
+    .pro-form-table-cell-selector{
+      padding-right: $padding-2x;
+    }
+  }
+  
+  .el-table__append-row{
+    height: 50px;
+    .el-button{
+      height: 100%;
+      width: 100%;
+    }
   }
 }
 
-@mixin formTitle {
-  .block__title {
-    line-height: 1;
-    font-family: PingFangSC-Medium;
-    font-size: $text-size-md;
-    color: $color-neutral-10;
-    margin: 0 0 $margin-6x $margin-10x;
-    font-weight: $text-title-weight;
-  }
-}
+// @mixin formTitle {
+//   .block__title {
+//     line-height: 1;
+//     font-family: PingFangSC-Medium;
+//     font-size: $text-size-md;
+//     color: $color-neutral-10;
+//     margin: 0 0 $margin-6x $margin-10x;
+//     font-weight: $text-title-weight;
+//   }
+// }
 
 .pro-form-footer-content {
   float: right;
+  
+  .el-button + .el-button {
+    margin-left: $margin-4x;
+  }
 }
 
 /* 简单表单 */
@@ -85,14 +112,14 @@
 
 /* 复杂表单1 */
 .pro-form1 {
-  @include formTitle();
+  // @include formTitle();
 
   .el-form {
     margin-top: $margin-10;
   }
 
   .el-card__body {
-    padding: $padding-5x $padding-5x 0 0;
+    padding: $padding-5x $padding-5x 0;
   }
 
   .block__content {
@@ -108,7 +135,7 @@
   }
 
   .el-form-item .el-table {
-    margin: $margin-4x 0 0;
+    margin: 0;
   }
 
   @include form();
@@ -118,11 +145,13 @@
   .el-textarea {
     min-width: 0;
   }
+
+
 }
 
 /* 复杂表单2 */
 .pro-form2 {
-  @include formTitle();
+  // @include formTitle();
 
   .el-form {
     margin-top: $margin-10;
@@ -133,16 +162,16 @@
   }
 
   .el-card__body {
-    padding: $padding-5x $padding-5x 0 0;
+    padding: $padding-5x $padding-5x 0;
   }
 
-  .block {
-    margin-bottom: 0 !important;
+  // .block {
+  //   margin-bottom: 0 !important;
 
-    &__title {
-      margin: 0 0 $margin-6x $margin-10x !important;
-    }
-  }
+  //   &__title {
+  //     margin: 0 0 $margin-6x $margin-10x !important;
+  //   }
+  // }
 
   .el-form-item__label {
     line-height: 24px;
@@ -157,14 +186,13 @@
   }
 
   .form-items {
-    margin: 0 $margin-5x 0 $margin-10x;
+    // margin: 0 $margin-5x 0 $margin-10x;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 
     > div {
-      width: 31%;
-
+      width: calc((100% - #{$margin-5x} * 2) / 3);
       .el-select {
         width: 100%;
       }

@@ -157,8 +157,6 @@ $select-tag-margin: 2px 0 2px 8px;
     }
 
     &.is-disabled {
-      color: $select-color-disabled;
-
       .el-input__prefix {
         color: $select-color-disabled;
       }

@@ -15,6 +15,7 @@ $vxe-border-radius: $border-radius !default;
 $vxe-icon-font-family: Verdana, Arial, Tahoma !default;
 $vxe-icon-background-color: $color-bg-1 !default; // TODO
 $vxe-icon-color: $neutral-9 !default;
+$vxe-header-icon-color: $neutral-6 !default;
 
 /*color*/
 $vxe-table-checkbox-color: $color-bg-1 !default;
@@ -151,7 +152,8 @@ $vxe-toolbar-background-color: $color-bg-2 !default;
 $vxe-toolbar-custom-active-background-color: #d9dadb !default;
 $vxe-toolbar-panel-background-color: $color-bg-2 !default;
 $vxe-toolbar-custom-option-hover-color: $color-neutral-1 !default;
-$vxe-toolbar-custom-header-border-color: $color-neutral-2 !default;
+$vxe-toolbar-custom-header-border-color: $color-neutral-3 !default;
+$vxe-toolbar-custom-footer-border-color: $color-neutral-3 !default;
 $vxe-toolbar-custom-option-height: 32px !default;
 $vxe-toolbar-custom-option-line-height: 32px !default;
 $vxe-toolbar-custom-option-top: 42px !default; // 36 + 8

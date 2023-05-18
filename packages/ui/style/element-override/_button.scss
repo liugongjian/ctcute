@@ -21,7 +21,7 @@ $button-padding-large: $margin-3x $padding-6x;
   $color-border-disabled: $color-bg-disabled;
 
   // 针对default特殊处理
-  @if $type ==--default or $type ==null {
+  @if $type == --default or $type ==null {
     $color-text: $button-default-text-color;
     $color-text-hover: $color-bg-hover;
     $color-text-active: $color-bg-active;
@@ -71,13 +71,7 @@ $button-padding-large: $margin-3x $padding-6x;
   }
 }
 
-@include button-color(
-  null,
-  $button-default-color-border,
-  $color-master,
-  $color-master-active,
-  $button-default-color-bg-disabled
-);
+@include button-color(null,$button-default-color-border,$color-master,$color-master-active,$button-default-color-bg-disabled);
 @include button-color(--default, $button-default-color-border, $color-master, $color-master-active, $button-default-color-bg-disabled);
 @include button-color(--primary, $color-master, $color-master-hover, $color-master-active, $color-master-disabled);
 @include button-color(--info, $color-info, $color-info-hover, $color-info-active, $color-info-disabled);
@@ -92,40 +86,46 @@ $button-padding-large: $margin-3x $padding-6x;
   $type: 类名;
   $color-border: 边框颜色;
   $color-bg: 背景颜色;
-  $color-bg-hover: 背景悬浮颜色;
 */
-@mixin button-plain(
-  $type,
-  $color-border,
-  $color-border-hover,
-  $color-border-active,
-  $color-bg-hover,
-  $color-bg-disabled
-) {
+@mixin button-plain($type, $color-border, $color-border-hover, $color-border-active, $color-border-disabled) {
   $color-text: $color-border;
+  $color-text-hover: $color-white;
+  $color-text-active: $color-white;
+  $color-text-disabled: $color-border-disabled;
   $color-bg: $color-bg-1;
+  $color-bg-hover: $color-border-hover;
+  $color-bg-active: $color-border-active;
+  $color-bg-disabled: $color-bg;
+
 
   // 针对default特殊处理
-  @if $type ==default {
+  @if $type == --default or $type ==null {
     $color-text: $text-color-light;
+    $color-text-hover: $color-border-hover;
+    $color-text-active: $color-border-active;
+    $color-text-disabled: $color-neutral-6;
+    $color-border-disabled: $color-neutral-5;
+    $color-bg-hover: $color-bg-1;
+    $color-bg-active: $color-bg-1;
+    $color-bg-disabled: $neutral-1;
   }
 
-  .el-button--#{$type}.is-plain {
+  .el-button#{$type}.is-plain {
     color: $color-text;
     background: $color-bg;
     border-color: $color-border;
 
     &:hover {
+      color: $color-text-hover;
       border-color: $color-border-hover;
-      color: $color-border-hover;
       background: $color-bg-hover;
     }
 
     &:active,
     &:focus {
-      color: $color-border-active;
+      color: $color-text-active;
       border-color: $color-border-active;
-      background: $color-bg-hover;
+      background: $color-bg-active;
     }
 
     &.is-disabled,
@@ -136,21 +136,22 @@ $button-padding-large: $margin-3x $padding-6x;
     &.is-loading:hover,
     &.is-loading:active,
     &.is-loading:focus {
-      color: $color-bg-disabled;
-      background: $color-bg;
-      border-color: $color-bg-disabled;
+      color: $color-text-disabled;
+      background: $color-bg-disabled;
+      border-color: $color-border-disabled;
     }
   }
 }
 
-@include button-plain(default, $color-neutral-5, $color-master-hover, $color-master-active, $tag-master, $color-info-disabled);
-@include button-plain(primary, $color-master, $color-master-hover, $color-master-active, $tag-master, $color-master-disabled);
-@include button-plain(info, $color-info, $color-info-hover, $color-info-active, $tag-info, $color-info-disabled);
-@include button-plain(success, $color-success, $color-success-hover, $color-success-active, $tag-success, $color-success-disabled);
-@include button-plain(warning, $color-warning, $color-warning-hover, $color-warning-active, $tag-warning, $color-warning-disabled);
-@include button-plain(danger, $color-danger, $color-danger-hover, $color-danger-active, $tag-danger, $color-danger-disabled);
-@include button-plain(fatal, $color-fatal,$color-fatal-hover, $color-fatal-active, $tag-fatal, $color-fatal-disabled);
-@include button-plain(ct, $color-ct, $color-ct-hover, $color-ct-active, $tag-ct, $color-ct-disabled);
+@include button-plain(null, $color-neutral-5, $color-master-hover, $color-master-active, $color-neutral-5);
+@include button-plain(--default, $color-neutral-5, $color-master-hover, $color-master-active, $color-neutral-5);
+@include button-plain(--primary, $color-master, $color-master-hover, $color-master-active, $color-master-disabled);
+@include button-plain(--info, $color-info, $color-info-hover, $color-info-active,$color-info-disabled);
+@include button-plain(--success, $color-success, $color-success-hover, $color-success-active, $color-success-disabled);
+@include button-plain(--warning, $color-warning, $color-warning-hover, $color-warning-active, $color-warning-disabled);
+@include button-plain(--danger, $color-danger, $color-danger-hover, $color-danger-active, $color-danger-disabled);
+@include button-plain(--fatal, $color-fatal,$color-fatal-hover, $color-fatal-active, $color-fatal-disabled);
+@include button-plain(--ct, $color-ct, $color-ct-hover, $color-ct-active, $color-ct-disabled);
 
 /*
   重置文本按钮颜色

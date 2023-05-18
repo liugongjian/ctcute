@@ -1,102 +1,88 @@
 /* 基础色盘
 -------------------------- */
 
+/* 天翼橙(主题色) */
+$master-base: #fa8334 !default;
+$master-1: #fff8f0 !default;
+$master-2: #ffedd9 !default;
+$master-3: #ffd7b0 !default;
+$master-4: #ffbf87 !default;
+$master-5: #ffa45e !default;
+$master-6: $master-base !default;
+$master-7: #d46322 !default;
+$master-8: #ad4713 !default;
+$master-9: #872e08 !default;
+$master-10: #611d05 !default;
+
 /* 橙 */
-$orange-base: #fa8334;
-$orange-1: #fef2ea;
-$orange-2: #ffefe3;
-$orange-3: #ffe1c6;
-$orange-4: #fcc199;
-$orange-5: #ff934c;
-$orange-6: $orange-base;
-$orange-7: #d46322;
-$orange-8: #ad4713;
-$orange-9: #872e08;
-$orange-10: #611d05;
+$orange-base: #ff8f34 !default;
+$orange-1: #fff9f0 !default;
+$orange-2: #ffeed6 !default;
+$orange-3: #ffdaad !default;
+$orange-4: #ffc485 !default;
+$orange-5: #ffab5c !default;
+$orange-6: $orange-base !default;
+$orange-7: #d96d21 !default;
+$orange-8: #b34f12 !default;
+$orange-9: #8c3607 !default;
+$orange-10: #662304 !default;
 
 /* 天翼红 */
-$red-base: #df0428;
-$red-1: #ffe6e6;
-$red-2: #ffa8ab;
-$red-3: #ff8088;
-$red-4: #f75464;
-$red-5: #e32948;
-$red-6: $red-base;
-$red-7: #bd0322;
-$red-8: #910022;
-$red-9: #6b001d;
-$red-10: #450015;
+$red-base: #df0629 !default;
+$red-1: #ffe6e6 !default;
+$red-2: #ffabae !default;
+$red-3: #ff828a !default;
+$red-4: #f75767 !default;
+$red-5: #eb2d46 !default;
+$red-6: $red-base !default;
+$red-7: #b80025 !default;
+$red-8: #910022 !default;
+$red-9: #6b001d !default;
+$red-10: #450015 !default;
 
 /* 宝石红 */
-$ruby-base: #f5212d;
-$ruby-1: #ffecec;
-$ruby-2: #ffc9c4;
-$ruby-3: #ffa4a3;
-$ruby-4: #ff7573;
-$ruby-5: #ff4a4d;
-$ruby-6: $ruby-base;
-$ruby-7: #cf1120;
-$ruby-8: #ae050f;
-$ruby-9: #820014;
-$ruby-10: #5c0011;
+$ruby-base: #ff4545 !default;
+$ruby-1: #fff2f0 !default;
+$ruby-2: #ffebe8 !default;
+$ruby-3: #ffc6bf !default;
+$ruby-4: #ff9d96 !default;
+$ruby-5: #ff736e !default;
+$ruby-6: $ruby-base !default;
+$ruby-7: #d93035 !default;
+$ruby-8: #b31e28 !default;
+$ruby-9: #8c111d !default;
+$ruby-10: #660b17 !default;
 
 /* 绿 */
-$green-base: #52c41a;
-$green-1: #edf9e8;
-$green-2: #d9f7be;
-$green-3: #a8e18c;
-$green-4: #95de64;
-$green-5: #73d13d;
-$green-6: $green-base;
-$green-7: #389e0d;
-$green-8: #237804;
-$green-9: #135200;
-$green-10: #092b00;
-
-/* 蓝 */
-$blue-base: #1890ff;
-$blue-1: #f3f9ff;
-$blue-2: #badfff;
-$blue-3: #91caff;
-$blue-4: #69b8fe;
-$blue-5: #40a3ff;
-$blue-6: $blue-base;
-$blue-7: #096dd9;
-$blue-8: #0050b3;
-$blue-9: #003a8c;
-$blue-10: #002766;
-
-/* 金 */
-$gold-base: #faad15;
-$gold-1: #fef6e7;
-$gold-2: #ffe9b7;
-$gold-3: #ffdf9e;
-$gold-4: #fcd68a;
-$gold-5: #ffbb3d;
-$gold-6: $gold-base;
-$gold-7: #d48806;
-$gold-8: #ad6800;
-$gold-9: #874d00;
-$gold-10: #613400;
+$green-base: #1ac45d !default;
+$green-1: #edfff1 !default;
+$green-2: #bef7ce !default;
+$green-3: #8febab !default;
+$green-4: #64de8d !default;
+$green-5: #3dd173 !default;
+$green-6: $green-base !default;
+$green-7: #0d9e4c !default;
+$green-8: #04783a !default;
+$green-9: #005229 !default;
+$green-10: #002b17 !default;
 
 /* 中性色盘
 -------------------------- */
 
 /* 黑色 */
-$black: #000;
+$black: #000 !default;
 
 /* 白色 */
-$white: #fff;
+$white: #fff !default;
 
 /* 灰色 */
-$grey-1: #333;
-$grey-2: #666;
-$grey-3: #777;
-$grey-4: #999;
-$grey-5: #aaa;
-$grey-6: #ddd;
-$grey-7: #f2f2f2;
-$grey-8: #f3f3f3;
-$grey-9: #f5f5f5;
-$grey-10: #f8f8f8;
-$grey-11: #fafafa;
+$neutral-1: #f8f8f8 !default;
+$neutral-2: #f2f2f2 !default;
+$neutral-3: #ebebeb !default;
+$neutral-4: #e1e1e1 !default;
+$neutral-5: #c9c9c9 !default;
+$neutral-6: #a8a8a8 !default;
+$neutral-7: #828282 !default;
+$neutral-8: #656565 !default;
+$neutral-9: #4e4e4e !default;
+$neutral-10: #333 !default;

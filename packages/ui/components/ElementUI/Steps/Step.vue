@@ -136,7 +136,6 @@ export default {
         isSimple,
         $parent: { space },
       } = this
-      console.log(this.isLast, isSimple ? '' : space)
       return isSimple ? '' : space
     },
     //  原始逻辑

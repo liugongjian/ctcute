@@ -472,6 +472,10 @@ $zindex-loading-mask: 2000 !default;
 -------------------------- */
 $screen-lg: 1280px !default;
 
+/* Title: Toast Info类型的关闭图标颜色; Doc: true
+-------------------------- */
+$toast-info-close-color: $color-info  !default;
+
 /* Title: 图表默认的颜色; Doc: true
 -------------------------- */
 $chart-color-1: #91c6f5 !default;

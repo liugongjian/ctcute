@@ -26,5 +26,5 @@ export default abstract class Base {
   }
 
   // 初始化
-  abstract init(options?: { [opt: string]: string | boolean }): any
+  abstract init(options: any): any
 }

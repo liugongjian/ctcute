@@ -140,8 +140,6 @@
         :size="size"
         :disabled="isDisabed"
         :loading="isLoading"
-        :plain="isPlain"
-        :round="isRound"
         :icon="getIcon()"
         :text-type="textButton.type"
       >

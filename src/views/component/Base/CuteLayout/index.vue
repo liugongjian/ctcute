@@ -295,7 +295,7 @@ export default class extends Vue {
       name: 'iconType',
       type: 'string',
       default: 'svg',
-      options: 'svg | iconfont | element',
+      options: 'svg/iconfont/element',
       desc: '如果不使用CuteDesign内置图标需要指定iconType',
     },
     {

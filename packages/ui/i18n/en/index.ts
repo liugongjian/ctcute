@@ -1,6 +1,7 @@
+import VueI18n from 'vue-i18n'
 import enLocale from 'element-ui/lib/locale/lang/en'
 
-const en: { [key: string]: any } = {
+const en: { [key: string]: VueI18n.LocaleMessageObject } = {
   el: {
     ...enLocale.el,
     pagination: {

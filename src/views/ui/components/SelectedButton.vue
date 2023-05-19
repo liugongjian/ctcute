@@ -27,22 +27,18 @@
       </div>
     </div>
 
-    <h2>
-      特殊单选块(用于订购页)-使用了
-      <a href="/component/base/cute-special-radio" target="_blank">CuteSpecialRadio</a>
-      组件
-    </h2>
+    <!-- <h2>特殊单选块(用于订购页)</h2>
     <div class="sub-sample">
-      <cute-special-radio v-model="radio0" :size="inputSize" :options="buutonData" @change="changeFun" />
-    </div>
-    <!-- <h2>
-      小单选块-使用了
-      <a href="/component/base/cute-special-radio" target="_blank">CuteSpecialRadio</a>
-      组件
-    </h2>
-    <div class="sub-sample">
-      <cute-special-radio v-model="radio1" :options="buutonData" :size="size" @change="changeFun" />
+      <el-radio-group v-model="radio0" :size="inputSize">
+        <el-radio-button
+          v-for="button in buutonData"
+          :key="button.label"
+          :label="button.label"
+          :disabled="button.disabled"
+        ></el-radio-button>
+      </el-radio-group>
     </div> -->
+
     <h2>多选块</h2>
     <div class="sub-sample">
       <el-checkbox-group v-model="radio2" :size="inputSize">

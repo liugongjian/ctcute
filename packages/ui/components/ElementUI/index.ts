@@ -1,4 +1,6 @@
 import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale'
+import zhLang from '../../i18n/zh/element-ui'
 import Steps from './Steps/index.vue'
 import Step from './Steps/Step.vue'
 import Alert from './Alert/index.vue'
@@ -31,6 +33,7 @@ export default {
 
     const Pagination = ElementUI.Pagination as any
     const Table = ElementUI.Table as any
+    const Card = ElementUI.Card as any
     Pagination.props.layout = {
       default: 'total, sizes, prev, pager, next',
     }
@@ -46,6 +49,10 @@ export default {
     Table.props.emptyText = {
       default: '暂无数据',
     }
+    Card.props.shadow.default = 'hover'
+
+    // 覆写默认语言包，支持按 cute 设置回退中文
+    locale.use(zhLang)
   },
 }
 export { Steps, Step, Alert, Collapse, Rate, ColorPicker, Button, Popover }

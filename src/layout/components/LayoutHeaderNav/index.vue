@@ -7,6 +7,10 @@
       <el-option value="zh" :label="$t('language.zh')" />
       <el-option value="en" :label="$t('language.en')" />
     </el-select>
+    <el-select v-model="version" class="header-nav__lang-select" @change="versionChangeHandle">
+      <el-option value="v1" label="V1" />
+      <el-option value="v2" label="V2" />
+    </el-select>
     <div class="header-nav__menu">
       <router-link to="/docs" :class="{ active: currentPath.startsWith('/docs') }">文档</router-link>
       <router-link to="/ui" :class="{ active: currentPath.startsWith('/ui') }">UI规范</router-link>
@@ -56,6 +60,7 @@ export default class extends Vue {
   private username = this.$auth.userInfo?.name || ''
 
   private lang = this.$i18n.locale
+  private version = 'v2'
 
   private get currentPath() {
     return this.$route.path
@@ -93,6 +98,12 @@ export default class extends Vue {
   private langChangeHandle(value) {
     this.$i18n.locale = value
     localStorage.setItem('cute-lang', value)
+  }
+
+  private versionChangeHandle(value) {
+    if (value === 'v1') {
+      window.location.href = 'http://fed.ctyuncdn.cn/cutev1/'
+    }
   }
 }
 </script>

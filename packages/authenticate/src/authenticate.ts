@@ -4,7 +4,7 @@ import { Route, NavigationGuardNext } from 'vue-router'
 import { objectExtend, isFunction, getObjectProperty, lodashGet } from './utils'
 import defaultOptions from './options'
 import StorageFactory from './storage'
-import { hasPermission, filterAsyncRouter } from './permissions'
+import { hasPermission, hasRoutePermission, filterAsyncRouter } from './permissions'
 import {
   AuthInstance,
   RequestOptions,
@@ -96,8 +96,6 @@ export default class VueAuthenticate implements AuthInstance {
     })
     this.preCheck()
     this.setupInterceptors()
-    // TODO 如果在未登录时load，菜单不渲染，登录后是否要重新执行渲染菜单的init方法？
-    this.loadLayout()
     this.beforeEach()
   }
 
@@ -110,12 +108,6 @@ export default class VueAuthenticate implements AuthInstance {
 
     if (!providers[authenticateType]) {
       throw Error(`${authenticateType} is required in the providers`)
-    }
-
-    if (providers[authenticateType].user) {
-      if (providers[authenticateType].user.setUrl && isFunction(providers[authenticateType].user.setUrl)) {
-        providers[authenticateType].user.setUrl(this.options.baseUrl)
-      }
     }
 
     // 如果开启了权限
@@ -145,15 +137,6 @@ export default class VueAuthenticate implements AuthInstance {
       this.options.bindResponseInterceptor.call(this, this)
     } else {
       throw new Error('Resonse interceptor must be functions')
-    }
-  }
-
-  loadLayout() {
-    // 加载资源
-    if (this.options.loadLayout && isFunction(this.options.loadLayout)) {
-      this.options.loadLayout.call(this, this)
-    } else {
-      throw new Error('Load Layout must be functions')
     }
   }
 
@@ -218,7 +201,7 @@ export default class VueAuthenticate implements AuthInstance {
           // 已登录，需要鉴权
           if (this.options.enableAuthorize) {
             // 通用的鉴权判断
-            if (hasPermission(this.getAllMenuPerms(), to)) {
+            if (hasRoutePermission(this.getAllMenuPerms(), to)) {
               next()
             } else {
               next('/403')
@@ -256,9 +239,14 @@ export default class VueAuthenticate implements AuthInstance {
     return isLoggedIn
   }
 
-  isAuthorized(permissions) {
-    const allAuth = this.getAllButtonPerms()
-    return allAuth.some(auth => permissions.includes(auth))
+  /**
+   * 判断按钮权限
+   * @param needPerms 按钮所需的权限数组
+   * @returns {Boolean} 是否拥有所需按钮权限
+   */
+  isAuthorized(needPerms: string[]) {
+    const hasPerms = this.getAllButtonPerms()
+    return hasPermission(hasPerms, needPerms)
   }
   /**
    * Get token if user is authenticated

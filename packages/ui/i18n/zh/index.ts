@@ -1,23 +1,8 @@
-import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
+import VueI18n from 'vue-i18n'
+import el from './element-ui'
 
-const zh: { [key: string]: any } = {
-  el: {
-    ...zhLocale.el,
-    pagination: {
-      goto: '前往',
-      pagesize: '',
-      total: '共{total}条',
-      pageClassifier: '页',
-    },
-    messagebox: {
-      confirm: '确 认',
-      cancel: '取 消',
-    },
-    colorpicker: {
-      clear: '清 空',
-      confirm: '确 定',
-    },
-  },
+const zh: { [key: string]: VueI18n.LocaleMessageObject } = {
+  ...el,
   home: {
     title: '首页',
   },
@@ -33,9 +18,9 @@ ctx.keys().forEach(file => {
     // 当前文件不处理
     case getFileName(__filename):
       break
-    // el 采用合并策略
+    // el 不允许自由覆写，仅支持在 element-ui.ts 中设置，以良好支持回退策略
     case 'el':
-      Object.assign(zh['el'], ctx(file).default)
+      // Object.assign(zh['el'], ctx(file).default)
       break
     // 默认直接赋值
     default:

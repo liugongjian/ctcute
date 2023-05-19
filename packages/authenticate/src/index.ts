@@ -21,4 +21,6 @@ function preCheck(options: BizAuthConfigOptions) {
   }
 }
 
+export { IamLayout, CtyunLayout } from './layout'
+
 export default install

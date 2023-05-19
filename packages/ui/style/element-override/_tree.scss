@@ -7,8 +7,8 @@ $tree-checkbox-transform: -0.85px;
 $tree-checkbox-scale: 0.375;
 $tree-checkbox-tick-top: 1px;
 $tree-handler-menu: 30px;
-$tree-node-popover-margin: 0.3em;
-$tree-button-tooltip-content-padding: 0.8em 1.2em;
+// $tree-node-popover-margin: 0.3em;
+// $tree-button-tooltip-content-padding: 0.8em 1.2em;
 $tree-leaf-expand-icon-padding: 2px;
 
 .el-tree {
@@ -19,6 +19,9 @@ $tree-leaf-expand-icon-padding: 2px;
   .el-tree-node__content {
     line-height: 1;
     color: $color-neutral-6;
+    .node-content .node-icon {
+      color: $color-neutral-9;
+    }
   }
 }
 
@@ -151,33 +154,28 @@ $tree-leaf-expand-icon-padding: 2px;
   }
 }
 
-.tree-node-popover {
-  box-shadow: $shadow-1;
-  min-width: 0;
-  padding: 0;
-  margin: $tree-node-popover-margin 0 0 0;
-
-  .tooltip-content {
-    display: flex;
-    flex-direction: column;
-    background: $color-bg-1;
-
-    .el-button {
-      margin: 0;
-      padding: $tree-button-tooltip-content-padding;
-      color: $text-color-light;
-
-      &:hover {
-        background: $color-neutral-1;
-      }
-    }
-  }
-}
-
 .el-tree-node__expand-icon {
   color: $color-neutral-9;
 }
 
 .el-tree-node__expand-icon.is-leaf {
   padding: $tree-leaf-expand-icon-padding; // TODO
+}
+
+.el-tree--highlight-current {
+  .el-tree-node.is-current {
+    & > .el-tree-node__content {
+      background: none;
+      .node-content .node-icon {
+        color: $color-neutral-9;
+      }
+      &:hover {
+        background: $color-neutral-1;
+      }
+      .el-tree-node__label {
+        color: $color-master;
+        font-weight: $text-title-weight;
+      }
+    }
+  }
 }

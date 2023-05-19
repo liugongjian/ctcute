@@ -1,8 +1,8 @@
 <!--
  * @Author: 肖仁
  * @Date: 2022-07-12 16:20:34
- * @LastEditors: 胡一苗
- * @LastEditTime: 2023-03-30 18:00:02
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-05-18 16:54:31
  * @Description: 复杂表格4
 -->
 <template>
@@ -13,10 +13,10 @@
         <el-tree :data="treeData" node-key="key" draggable :default-expanded-keys="[2]" :indent="10">
           <span slot-scope="{ node, data }" class="node-content">
             <span class="node-icon">
-              <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
-              <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
+              <svg-icon v-if="!node.isLeaf" name="folder" width="16" height="16" />
+              <svg-icon v-if="!node.isLeaf" name="folder-open" width="16" height="16" />
             </span>
-            {{ node.label }}
+            <span :class="node.isLeaf ? 'icon-leaf-label' : ''">{{ node.label }}</span>
             <div class="handler-menu">
               <el-button v-if="!node.isLeaf" slot="reference" type="text">
                 <svg-icon name="plus-square" class="handler-icon" @click.stop="() => {}" />
@@ -254,3 +254,33 @@ export default class extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+$tree-node-popover-margin: 0.3em;
+$tree-button-tooltip-content-padding: 0.8em 1.2em;
+.tree-node-popover {
+  box-shadow: $shadow-1;
+  min-width: 0;
+  padding: 0;
+  margin: $tree-node-popover-margin 0 0 0;
+
+  .tooltip-content {
+    display: flex;
+    flex-direction: column;
+    background: $color-bg-1;
+
+    .el-button {
+      margin: 0;
+      padding: $tree-button-tooltip-content-padding;
+      color: $text-color-light;
+
+      &:hover {
+        background: $color-neutral-1;
+      }
+    }
+  }
+}
+.icon-leaf-label {
+  padding-left: 34px;
+}
+</style>

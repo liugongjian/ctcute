@@ -94,15 +94,6 @@ const componentRoutes = [
         },
       },
       {
-        path: 'cute-button-group',
-        name: 'CuteButtonGroup',
-        component: () => import('@/views/component/Base/CuteButtonGroup/index.vue'),
-        meta: {
-          title: 'CuteButtonGroup',
-          breadcrumb: true,
-        },
-      },
-      {
         path: 'cute-state',
         name: 'CuteState',
         component: () => import('@/views/component/Base/CuteState/index.vue'),

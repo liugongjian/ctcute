@@ -11,6 +11,14 @@
     {
       "name": "api/stepForm.ts",
       "path": "@/api/stepForm.ts"
-    }
+    },
+    {
+      "name": "submit-success.svg",
+      "path": "@/views/page/Form/Image/submit-success.svg"
+    },
+    {
+      "name": "submit-fail.svg",
+      "path": "@/views/page/Form/Image/submit-fail.svg"
+    },
   ]
 }

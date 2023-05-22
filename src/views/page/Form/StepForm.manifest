@@ -19,6 +19,6 @@
     {
       "name": "submit-fail.svg",
       "path": "@/views/page/Form/Image/submit-fail.svg"
-    },
+    }
   ]
 }

@@ -223,6 +223,14 @@ export default class extends Vue {
       desc: '页面主体内容',
     },
     {
+      name: 'main-top',
+      desc: '自定义主体内容上方区域',
+    },
+    {
+      name: 'main-bottom',
+      desc: '自定义主体内容下方区域',
+    },
+    {
       name: 'header-logo',
       desc: '自定义页眉Logo区域内容',
     },

@@ -112,6 +112,8 @@
   },
   "workspaces": [
     "packages/ui",
-    "packages/authenticate"
+    "packages/authenticate",
+    "plugins/gulp-smart-css-wrap",
+    "plugins/gulp-smart-css-concat"
   ]
 }

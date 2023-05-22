@@ -48,7 +48,20 @@
     <h2>组合按钮</h2>
     <div class="sub-sample">
       <p>组合按钮常用于复杂详情页</p>
-      <cute-button-group :data="buttonData" :max="2" />
+      <div class="combination-button">
+        <el-button>操作一</el-button>
+        <el-button>操作二</el-button>
+        <el-dropdown size="medium" @command="handleCommand">
+          <el-button size="medium">...</el-button>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>操作四</el-dropdown-item>
+            <el-dropdown-item>操作五</el-dropdown-item>
+            <el-dropdown-item>操作六</el-dropdown-item>
+            <el-dropdown-item>操作七</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <el-button size="medium" type="primary">主操作</el-button>
+      </div>
     </div>
     <h2>按钮布局</h2>
     <div class="sub-sample">
@@ -72,11 +85,11 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { CuteButtonGroup } from '@cutedesign/ui'
+// import { CuteButtonGroup } from '@cutedesign/ui'
 
 @Component({
   name: 'UiButton',
-  components: { CuteButtonGroup },
+  // components: { CuteButtonGroup },
 })
 export default class extends Vue {
   public static title = {

@@ -1,8 +1,8 @@
 <!--
  * @Author: 赵昕
  * @Date: 2022-07-18 13:11:31
- * @LastEditors: 秦瑞斌
- * @LastEditTime: 2022-12-21 14:44:04
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-05-22 10:04:10
  * @Description: 复杂详情1
 -->
 <template>
@@ -13,7 +13,20 @@
         <cute-tag :dynamic-tags.sync="dynamicTags" tag-name="+ 新标签"></cute-tag>
       </div>
       <div class="detail-header__right">
-        <cute-button-group :data="buttonData" :max="2" />
+        <div class="combination-button">
+          <el-button>操作一</el-button>
+          <el-button>操作二</el-button>
+          <el-dropdown size="medium" @command="handleCommand">
+            <el-button size="medium">...</el-button>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>操作四</el-dropdown-item>
+              <el-dropdown-item>操作五</el-dropdown-item>
+              <el-dropdown-item>操作六</el-dropdown-item>
+              <el-dropdown-item>操作七</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+          <el-button size="medium" type="primary">主操作</el-button>
+        </div>
       </div>
     </div>
     <el-tabs v-model="activeName">

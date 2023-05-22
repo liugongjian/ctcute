@@ -16,7 +16,7 @@
         <div class="combination-button">
           <el-button>操作一</el-button>
           <el-button>操作二</el-button>
-          <el-dropdown size="medium" @command="handleCommand">
+          <el-dropdown size="medium">
             <el-button size="medium">...</el-button>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>操作四</el-dropdown-item>

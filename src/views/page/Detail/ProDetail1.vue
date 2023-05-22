@@ -2,7 +2,7 @@
  * @Author: 赵昕
  * @Date: 2022-07-18 13:11:31
  * @LastEditors: liugj
- * @LastEditTime: 2023-05-22 10:04:10
+ * @LastEditTime: 2023-05-22 10:12:58
  * @Description: 复杂详情1
 -->
 <template>
@@ -16,7 +16,7 @@
         <div class="combination-button">
           <el-button>操作一</el-button>
           <el-button>操作二</el-button>
-          <el-dropdown size="medium" @command="handleCommand">
+          <el-dropdown size="medium">
             <el-button size="medium">...</el-button>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>操作四</el-dropdown-item>

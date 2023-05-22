@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 胡一苗
- * @LastEditTime: 2023-03-30 14:54:40
+ * @LastEditTime: 2023-05-18 11:27:38
  * @Description: 基础表格
 -->
 <template>
@@ -27,38 +27,40 @@
             <cute-remind-input v-model="conditions.name" placeholder="请输入主机别名" title="主机别名" />
           </el-form-item>
           <el-form-item class="table-tools__conditions__buttons">
-            <el-button type="primary" @click="search">查 询</el-button>
+            <el-button type="primary" plain @click="search">查 询</el-button>
             <el-button @click="resetConditions">重 置</el-button>
           </el-form-item>
         </el-form>
       </div>
     </div>
     <!--表格-->
-    <el-table v-loading="loading" :data="tableData" fit>
-      <el-table-column prop="name" label="主机别名">
-        <template slot-scope="{ row }">
-          <router-link to="/">{{ row.name }}</router-link>
-        </template>
-      </el-table-column>
-      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"></el-table-column>
-      <el-table-column prop="ip" label="IP地址" />
-      <el-table-column prop="cpu" label="CPU利用率(%)" />
-      <el-table-column prop="memory" label="内存利用率(%)" />
-      <el-table-column prop="disk" label="磁盘利用率(%)" />
-      <el-table-column prop="health" label="健康状态">
-        <template slot-scope="scope">
-          <cute-state :type="HEALTH[scope.row.health].colorType">
-            {{ HEALTH[scope.row.health].text }}
-          </cute-state>
-        </template>
-      </el-table-column>
-      <el-table-column prop="actions" label="操作" width="150" fixed="right" class-name="actions">
-        <template slot-scope="{ row }">
-          <el-button type="text" @click="gotoDetail(row)">详情</el-button>
-          <el-button type="text" @click="gotoDashboard(row)">监控指标</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+    <cute-scroller v-model="tableHeight" :offset="32">
+      <el-table v-loading="loading" :data="tableData" fit :height="tableHeight">
+        <el-table-column prop="name" label="主机别名">
+          <template slot-scope="{ row }">
+            <router-link to="/">{{ row.name }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"></el-table-column>
+        <el-table-column prop="ip" label="IP地址" />
+        <el-table-column prop="cpu" label="CPU利用率(%)" />
+        <el-table-column prop="memory" label="内存利用率(%)" />
+        <el-table-column prop="disk" label="磁盘利用率(%)" />
+        <el-table-column prop="health" label="健康状态">
+          <template slot-scope="scope">
+            <cute-state :type="HEALTH[scope.row.health].colorType">
+              {{ HEALTH[scope.row.health].text }}
+            </cute-state>
+          </template>
+        </el-table-column>
+        <el-table-column prop="actions" label="操作" width="150" fixed="right" class-name="actions">
+          <template slot-scope="{ row }">
+            <el-button type="text" @click="gotoDetail(row)">详情</el-button>
+            <el-button type="text" @click="gotoDashboard(row)">监控指标</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </cute-scroller>
     <!--分页-->
     <el-pagination
       :current-page="pager.page"
@@ -80,6 +82,9 @@ import { STATUS, HEALTH2 } from '@/dics/simpleTable'
   name: 'SimpleTable',
 })
 export default class extends Vue {
+  // 表格的高度，将通过CuteScroller组件动态返回
+  private tableHeight = 'none'
+
   // 健康状态字典
   private HEALTH = HEALTH2
 

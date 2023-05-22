@@ -58,6 +58,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'cute-table-filter',
+        name: 'CuteTableColumnSettings',
+        component: () => import('@/views/component/Base/CuteTableFilter/index.vue'),
+        meta: {
+          title: 'CuteTableFilter',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'cute-titled-block',
         name: 'CuteTitledBlock',
         component: () => import('@/views/component/Base/CuteTitledBlock/index.vue'),

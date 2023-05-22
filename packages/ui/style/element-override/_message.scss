@@ -7,7 +7,7 @@ $toast-height: 36px;
   $class:类名;
   $icon-color:icon颜色;
 */
-@mixin toast-page($class, $bg-color, $icon-color, $close-icon-color) {
+@mixin toast-page($class, $bg-color, $icon-color) {
   .el-message.el-message--#{$class} {
     min-width: $toast-width;
     height: $toast-height;
@@ -21,7 +21,7 @@ $toast-height: 36px;
     }
 
     .el-message__closeBtn {
-      color: $close-icon-color;
+      color: $icon-color;
       font-size: $text-size-md;
       margin-top: 1px; // 更改字体大小后，上下距离有1px的偏移
     }
@@ -38,7 +38,7 @@ $toast-height: 36px;
   }
 }
 
-@include toast-page(info, $color-master-bg-light-2, $color-master, $toast-info-close-color);
-@include toast-page(success, $color-success-bg, $color-success, $color-success);
-@include toast-page(warning, $color-warning-bg, $color-warning, $color-warning);
-@include toast-page(error, $color-danger-bg, $color-danger, $color-danger);
+@include toast-page(info, $color-master-bg-light-2, $color-master);
+@include toast-page(success, $color-success-bg, $color-success);
+@include toast-page(warning, $color-warning-bg, $color-warning);
+@include toast-page(error, $color-danger-bg, $color-danger);

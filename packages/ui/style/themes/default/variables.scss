@@ -470,10 +470,6 @@ $zindex-loading-mask: 2000 !default; // loading状态遮罩的z-index值
 -------------------------- */
 $screen-lg: 1280px !default; // 屏幕最小分辨率，用于布局主容器宽度计算
 
-/* Title: Toast Info类型的关闭图标颜色; Doc: true
--------------------------- */
-$toast-info-close-color: $color-master !default;
-
 /* Title: 图表默认的颜色; Doc: true
 -------------------------- */
 $chart-color-1: #91c6f5 !default;

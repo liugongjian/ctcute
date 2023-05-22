@@ -54,6 +54,12 @@
                 <el-option value="fade"></el-option>
               </el-select>
             </el-form-item>
+            <el-form-item label="内容去上方插槽">
+              <el-checkbox v-model="layoutMainTop" />
+            </el-form-item>
+            <el-form-item label="内容去下方插槽">
+              <el-checkbox v-model="layoutMainBottom" />
+            </el-form-item>
           </el-form>
         </el-card>
         <el-card class="simple-form">
@@ -117,6 +123,16 @@
           </el-form>
         </el-card>
       </div>
+      <template v-if="layoutMainTop" #main-top>
+        <div class="layout-test">
+          <el-card>主内容上方插槽</el-card>
+        </div>
+      </template>
+      <template v-if="layoutMainBottom" #main-bottom>
+        <div class="layout-test">
+          <el-card>主内容下方插槽</el-card>
+        </div>
+      </template>
     </cute-layout>
   </transition>
 </template>
@@ -138,6 +154,8 @@ export default class extends Vue {
   private tabName = 'first'
 
   private layout = ''
+  private layoutMainTop = false
+  private layoutMainBottom = false
   private transition = 'fade-transform'
 
   private header = true

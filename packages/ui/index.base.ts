@@ -180,6 +180,7 @@ const componentsList = [
   CuteStepsMulti,
   CuteCardBox,
   CuteScroller,
+  CuteTitledBlock,
   CuteFixedFooter,
 ]
 

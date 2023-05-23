@@ -55,9 +55,11 @@
             </navbar>
           </slot>
           <div class="cute-layout__main" :class="[layout]">
+            <slot name="main-top" />
             <transition :name="transition" mode="out-in">
               <slot />
             </transition>
+            <slot name="main-bottom" />
           </div>
         </div>
       </div>

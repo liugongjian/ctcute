@@ -2,18 +2,20 @@
  * @Author: 秦瑞斌
  * @Date: 2022-10-21 13:41:25
  * @LastEditors: 胡一苗
- * @LastEditTime: 2023-04-23 14:23:53
+ * @LastEditTime: 2023-05-18 18:25:08
  * @Description: 复杂表格7
 -->
 <template>
-  <el-card class="pro-table-7">
-    <h2 class="table7-title">实时计算管理控制台</h2>
-    <p class="table7-explain">
+  <el-card class="pro-table-7" :body-style="{ minHeight: 'calc(100vh - 126px)' }">
+    <!--标题-->
+    <div class="table7-title">实时计算管理控制台</div>
+    <!--描述-->
+    <div class="table7-explain">
       天翼云实时计算平台是基于开源基于Apache
       FinkK构建的一站全托管的实时计算平台，可在端到端之间实现高效实时数据分析能力，集成企业大规模作业，免运维、高弹性。
       极简化SQL作业，助力企业向实时化方向转化。
-    </p>
-
+    </div>
+    <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit>
       <el-table-column type="expand" width="32">
         <template slot-scope="scope">
@@ -25,7 +27,7 @@
           >
             <el-table-column prop="projectSpace" label="名称">
               <template slot-scope="{ row }">
-                <el-button :disabled="row.projectSpaceState === '1' ? false : true" type="text">
+                <el-button type="text">
                   {{ row.projectSpace }}
                 </el-button>
               </template>
@@ -70,7 +72,7 @@
       </el-table-column>
       <el-table-column label="工作空间/实例ID" prop="workspace">
         <template slot-scope="{ row }">
-          <el-button :disabled="row.workspaceState === '1' ? false : true" type="text">
+          <el-button type="text">
             {{ row.workspace }}
           </el-button>
         </template>
@@ -96,31 +98,46 @@
         <template slot-scope="{ row }"> {{ formatDatetime(row.createTime) }}</template>
       </el-table-column>
     </el-table>
+    <!--分页-->
+    <el-pagination
+      :current-page="pager.page"
+      :page-size="pager.limit"
+      :total="pager.total"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    />
   </el-card>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { formatDatetime } from '@/utils/date'
-import * as SimpleTable from '@/types/ProTable7'
+import * as ProTable7 from '@/types/ProTable7'
 import { getTable } from '@/api/proTable7'
 import { STATUS2, TYPE } from '@/dics/proTable7'
-import variables from '@cutedesign/ui/style/themes/default/index.scss'
 
 @Component({
   name: 'ProTable7',
 })
 export default class extends Vue {
-  // 健康状态字典
+  // 状态字典
   private STATUS = STATUS2
+  // 类型字典
   private TYPE = TYPE
+  // 格式化时间
   private formatDatetime = formatDatetime
-  private colorVariables = variables
+
+  // 分页信息
+  private pager = {
+    page: 1,
+    limit: 20,
+    total: 40,
+  }
 
   // 加载状态
   private loading = false
 
   // 表格数据
-  private tableData: SimpleTable.TableData = null
+  private tableData: ProTable7.TableDataItem[] = null
 
   /**
    * 页面Mounted
@@ -135,13 +152,37 @@ export default class extends Vue {
   private async getTable() {
     try {
       this.loading = true
-      const res = await getTable()
-      this.tableData = res.data
+      // 分页信息
+      const params: ProTable7.TableParams = {
+        page: this.pager.page,
+        limit: this.pager.limit,
+      }
+      const res = await getTable(params)
+      this.pager.total = res.data.total
+      this.tableData = res.data.list
     } catch (e) {
       console.error(e)
     } finally {
       this.loading = false
     }
+  }
+
+  /**
+   * 切换分页数量
+   * @param limit {number} 分页数
+   */
+  private handleSizeChange(limit: number) {
+    this.pager.limit = limit
+    this.getTable()
+  }
+
+  /**
+   * 切换分页页码
+   * @param page {number} 分页码
+   */
+  private handleCurrentChange(page: number) {
+    this.pager.page = page
+    this.getTable()
   }
 
   private handleDistribute(row) {

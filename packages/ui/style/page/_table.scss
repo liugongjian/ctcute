@@ -75,14 +75,14 @@
     justify-content: space-between;
     align-items: center;
     padding-top: $padding-4x;
-    border-top: 1px solid $color-neutral-4;
+    border-top: 1px solid $color-neutral-3;
 
     .table-tools__left {
       display: flex;
 
       // 操作已选项
       .cute-selected-input {
-        margin-right: $margin-5x;
+        margin-right: $margin-3x;
       }
     }
   }
@@ -156,9 +156,10 @@
   /*  过滤条件 */
   .table-filter {
     display: flex;
-    align-items: center;
 
-    .table-filter_text {
+    .table-filter__text {
+      flex-shrink: 0;
+      line-height: $common-space-7x; // same as tag
       color: $text-color;
       margin-right: $margin-3x;
     }
@@ -193,8 +194,8 @@
   }
 
   .table4-left {
-    width: 200px;
-    border-right: 1px solid $border-color-light;
+    width: 220px;
+    border-right: 1px solid $color-neutral-3;
     margin-right: $margin-4x;
   }
 
@@ -205,30 +206,26 @@
 
   /* 树 */
   .tree-wrap {
+    // 标题
     .tree-title {
-      margin-top: 0;
+      font-size: $text-size-md;
+      font-weight: $text-title-weight;
+      line-height: $line-height;
     }
 
-    .el-tree {
-      margin-left: -$common-space-10;
-    }
-
-    .el-tree-node__expand-icon.is-leaf {
-      padding: 6px;
-    }
-
-    .node-content {
+    // 自定义节点内容
+    .custom-tree-node {
       display: flex;
       align-items: center;
-      color: $text-color;
     }
 
-    .node-icon {
-      color: $color-neutral-6;
+    // 自定义节点内容-图标
+    .custom-tree-node__icon {
+      color: $color-neutral-9;
 
       .svg-icon {
         display: none;
-        margin-right: $margin-2x;
+        margin-right: $margin;
 
         &:first-child {
           display: inline;
@@ -236,54 +233,105 @@
       }
     }
 
-    .el-tree-node.is-expanded > .el-tree-node__content {
-      .node-icon {
-        .svg-icon {
-          display: none;
+    .el-tree-node.is-expanded > .el-tree-node__content .custom-tree-node__icon {
+      .svg-icon {
+        display: none;
 
-          &:last-child {
-            display: inline;
-          }
+        &:last-child {
+          display: inline;
         }
       }
     }
 
+    // 自定义节点内容-操作
     .el-tree-node__content {
       position: relative;
 
-      .handler-menu {
+      .custom-tree-node__operations {
+        display: none;
         position: absolute;
         right: $common-space-3x;
-        display: none;
-
-        .el-button:not(.pop-tooltip .el-button) {
-          margin-left: $margin;
-          color: $icon-color;
-        }
       }
 
       &:hover {
-        .handler-menu {
+        .custom-tree-node__operations {
           display: flex;
+          align-items: center;
         }
       }
     }
 
-    .hover-wrapper {
+    // 操作-下拉菜单
+    .custom-tree-node__operations .operation-dropdown {
+      position: relative;
+
+      .dropdown-link {
+        height: $common-space-8x;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: $common-space-7x;
+        right: 0;
+        z-index: $zindex-dropdown;
+        background: $color-bg-1;
+        box-shadow: $shadow-2;
+        border-radius: $border-radius;
+
+        &__item {
+          font-size: $text-size;
+          font-weight: $text-weight;
+          line-height: $line-height;
+          padding: $padding-2x $padding-4x;
+          color: $text-color;
+
+          &:first-child {
+            margin-top: $margin;
+          }
+
+          &:last-child {
+            margin-bottom: $margin;
+          }
+
+          &:hover {
+            background-color: $color-neutral-1;
+          }
+        }
+      }
+
       &:hover {
-        .pop-tooltip {
+        .dropdown-link {
+          color: $color-master;
+        }
+
+        .dropdown-menu {
           display: block;
         }
       }
     }
 
-    .pop-tooltip {
-      display: none;
-      position: absolute;
-      top: $common-space-6x;
-      right: 0;
-      z-index: $zindex-tooltip;
-      background: $color-white;
+    .el-tree-node > .el-tree-node__children {
+      overflow: unset; // 覆盖hidden，为了dropdown正常显示
+    }
+
+    // 自定义节点内容--状态：选中
+    .el-tree-node.is-current > .el-tree-node__content .custom-tree-node {
+      color: $color-master;
+      font-weight: $text-title-weight;
+
+      .custom-tree-node__icon {
+        color: $color-master;
+      }
+    }
+
+    // 覆盖组件错误样式
+    .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
+      background-color: unset;
+
+      &:hover {
+        background-color: $color-neutral-1
+      }
     }
   }
 
@@ -338,6 +386,15 @@
 
 /* 复杂表格 7 */
 .pro-table-7 {
+  .table7-title {
+    font-size: $text-size-lg;
+    font-weight: $text-title-weight;
+    color: $text-color;
+    line-height: $line-height;
+    margin-bottom: $margin-2x;
+  }
+
+  @include table()
 }
 
 /* 暂无数据 */

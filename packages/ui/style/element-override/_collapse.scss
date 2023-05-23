@@ -54,14 +54,19 @@ $collapse-icon-size: $text-size-md;
         border-top: none;
       }
     }
-    .el-collapse-item:first-of-type{
+    .el-collapse-item:first-of-type:not(:last-of-type){
       .el-collapse-item__header {
         border-radius: $border-radius $border-radius 0 0;
       }
     }
-    .el-collapse-item:last-of-type{
+    .el-collapse-item:last-of-type:not(:first-of-type){
       .el-collapse-item__header {
         border-radius: 0 0 $border-radius $border-radius;
+      }
+    }
+     .el-collapse-item:first-of-type:last-of-type{
+      .el-collapse-item__header {
+        border-radius: $border-radius;
       }
     }
   }

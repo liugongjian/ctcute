@@ -5,7 +5,7 @@
   $color:字体颜色;
   $iconColor:icon颜色;
 */
-@mixin contentareatips-page($class: info, $color: $color-neutral-7, $icon-color: $icon-color) {
+@mixin contentareatips-page($class: info, $color: $color-neutral-7, $icon-color: $color-neutral-7) {
   .is-content-area-tip {
     .el-alert--#{$class}.is-light {
       background-color: $color-bg-2;

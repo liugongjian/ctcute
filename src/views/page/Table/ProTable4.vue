@@ -1,8 +1,8 @@
 <!--
  * @Author: 肖仁
  * @Date: 2022-07-12 16:20:34
- * @LastEditors: 胡一苗
- * @LastEditTime: 2023-05-19 09:59:27
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-05-23 10:23:05
  * @Description: 复杂表格4
 -->
 <template>
@@ -23,7 +23,7 @@
               <svg-icon v-if="!node.isLeaf" name="folder" width="16" height="16" />
               <svg-icon v-if="!node.isLeaf" name="folder-open" width="16" height="16" />
             </span>
-            {{ node.label }}
+            <span :class="node.isLeaf ? 'icon-leaf-label' : ''">{{ node.label }}</span>
             <div class="custom-tree-node__operations">
               <el-button v-if="!node.isLeaf" type="text" text-type="weak" @click.stop>
                 <svg-icon name="plus-square" width="16" height="16" />
@@ -39,9 +39,9 @@
                   <svg-icon name="ellipsis-square" width="16" height="16" />
                 </el-button>
                 <div class="dropdown-menu">
-                  <div class="dropdown-menu__item" v-if="!node.isLeaf" @click.stop tabindex="-1">重命名</div>
-                  <div class="dropdown-menu__item" v-if="!node.isLeaf" @click.stop tabindex="-1">删除</div>
-                  <div class="dropdown-menu__item" v-if="node.isLeaf" @click.stop tabindex="-1">移动</div>
+                  <div v-if="!node.isLeaf" class="dropdown-menu__item" tabindex="-1" @click.stop>重命名</div>
+                  <div v-if="!node.isLeaf" class="dropdown-menu__item" tabindex="-1" @click.stop>删除</div>
+                  <div v-if="node.isLeaf" class="dropdown-menu__item" tabindex="-1" @click.stop>移动</div>
                 </div>
               </div>
             </div>
@@ -270,3 +270,33 @@ export default class extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+$tree-node-popover-margin: 0.3em;
+$tree-button-tooltip-content-padding: 0.8em 1.2em;
+.tree-node-popover {
+  box-shadow: $shadow-1;
+  min-width: 0;
+  padding: 0;
+  margin: $tree-node-popover-margin 0 0 0;
+
+  .tooltip-content {
+    display: flex;
+    flex-direction: column;
+    background: $color-bg-1;
+
+    .el-button {
+      margin: 0;
+      padding: $tree-button-tooltip-content-padding;
+      color: $text-color-light;
+
+      &:hover {
+        background: $color-neutral-1;
+      }
+    }
+  }
+}
+.icon-leaf-label {
+  padding-left: 34px;
+}
+</style>

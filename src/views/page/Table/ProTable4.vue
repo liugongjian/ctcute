@@ -2,35 +2,46 @@
  * @Author: 肖仁
  * @Date: 2022-07-12 16:20:34
  * @LastEditors: liugj
- * @LastEditTime: 2023-05-18 16:54:31
+ * @LastEditTime: 2023-05-23 10:23:05
  * @Description: 复杂表格4
 -->
 <template>
   <el-card class="pro-table-4">
     <div class="table4-left">
       <div class="tree-wrap">
-        <h3 class="tree-title">这是一个标题</h3>
-        <el-tree :data="treeData" node-key="key" draggable :default-expanded-keys="[2]" :indent="10">
-          <span slot-scope="{ node, data }" class="node-content">
-            <span class="node-icon">
+        <div class="tree-title">这是一个标题</div>
+        <el-tree
+          :data="treeData"
+          node-key="key"
+          :default-expanded-keys="['2']"
+          :current-node-key="'2'"
+          highlight-current
+          :indent="22"
+        >
+          <span slot-scope="{ node, data }" class="custom-tree-node">
+            <span class="custom-tree-node__icon">
               <svg-icon v-if="!node.isLeaf" name="folder" width="16" height="16" />
               <svg-icon v-if="!node.isLeaf" name="folder-open" width="16" height="16" />
             </span>
             <span :class="node.isLeaf ? 'icon-leaf-label' : ''">{{ node.label }}</span>
-            <div class="handler-menu">
-              <el-button v-if="!node.isLeaf" slot="reference" type="text">
-                <svg-icon name="plus-square" class="handler-icon" @click.stop="() => {}" />
+            <div class="custom-tree-node__operations">
+              <el-button v-if="!node.isLeaf" type="text" text-type="weak" @click.stop>
+                <svg-icon name="plus-square" width="16" height="16" />
               </el-button>
-              <div class="hover-wrapper">
-                <el-button v-if="data.key !== 1" type="text">
-                  <svg-icon name="ellipsis-square" class="handler-icon" @click.stop />
+              <div class="operation-dropdown">
+                <el-button
+                  v-if="data.key !== 1"
+                  class="dropdown-link"
+                  type="text"
+                  text-type="weak"
+                  @click.stop
+                >
+                  <svg-icon name="ellipsis-square" width="16" height="16" />
                 </el-button>
-                <div class="pop-tooltip tree-node-popover el-tooltip__popper">
-                  <div class="tooltip-content">
-                    <el-button v-if="!node.isLeaf" size="mini" type="text" @click.stop>重命名</el-button>
-                    <el-button v-if="!node.isLeaf" size="mini" type="text" @click.stop>删除</el-button>
-                    <el-button v-if="node.isLeaf" size="mini" type="text" @click.stop>移动</el-button>
-                  </div>
+                <div class="dropdown-menu">
+                  <div v-if="!node.isLeaf" class="dropdown-menu__item" tabindex="-1" @click.stop>重命名</div>
+                  <div v-if="!node.isLeaf" class="dropdown-menu__item" tabindex="-1" @click.stop>删除</div>
+                  <div v-if="node.isLeaf" class="dropdown-menu__item" tabindex="-1" @click.stop>移动</div>
                 </div>
               </div>
             </div>
@@ -60,31 +71,33 @@
                 <cute-remind-input v-model="conditions.name" placeholder="请输入IP地址" title="IP地址" />
               </el-form-item>
               <el-form-item class="table-tools__conditions__buttons">
-                <el-button type="primary" @click="search">查 询</el-button>
+                <el-button type="primary" plain @click="search">查 询</el-button>
                 <el-button @click="resetConditions">重 置</el-button>
               </el-form-item>
             </el-form>
           </div>
         </div>
         <!--表格-->
-        <el-table v-loading="loading" :data="tableData" fit>
-          <el-table-column prop="name" label="主机别名">
-            <template slot-scope="{ row }">
-              <router-link to="/">{{ row.name }}</router-link>
-            </template>
-          </el-table-column>
-          <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"></el-table-column>
-          <el-table-column prop="ip" label="IP地址" />
-          <el-table-column prop="cpu" label="CPU利用率(%)" />
-          <el-table-column prop="memory" label="内存利用率(%)" />
-          <el-table-column prop="health" label="健康状态">
-            <template slot-scope="scope">
-              <cute-state :type="HEALTH[scope.row.health].colorType">
-                {{ HEALTH[scope.row.health].text }}
-              </cute-state>
-            </template>
-          </el-table-column>
-        </el-table>
+        <cute-scroller v-model="tableHeight" :offset="32">
+          <el-table v-loading="loading" :data="tableData" fit :height="tableHeight">
+            <el-table-column prop="name" label="主机别名">
+              <template slot-scope="{ row }">
+                <router-link to="/">{{ row.name }}</router-link>
+              </template>
+            </el-table-column>
+            <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"></el-table-column>
+            <el-table-column prop="ip" label="IP地址" />
+            <el-table-column prop="cpu" label="CPU利用率(%)" />
+            <el-table-column prop="memory" label="内存利用率(%)" />
+            <el-table-column prop="health" label="健康状态">
+              <template slot-scope="scope">
+                <cute-state :type="HEALTH[scope.row.health].colorType">
+                  {{ HEALTH[scope.row.health].text }}
+                </cute-state>
+              </template>
+            </el-table-column>
+          </el-table>
+        </cute-scroller>
         <!--分页-->
         <el-pagination
           :current-page="pager.page"
@@ -99,7 +112,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import * as SimpleTable from '@/types/ProTable4'
+import * as ProTable4 from '@/types/ProTable4'
 import { getTable, getHosts, getTrees } from '@/api/proTable4'
 import { STATUS, HEALTH2 } from '@/dics/proTable4'
 
@@ -107,11 +120,14 @@ import { STATUS, HEALTH2 } from '@/dics/proTable4'
   name: 'ProTable4',
 })
 export default class extends Vue {
+  // 表格的高度，将通过CuteScroller组件动态返回
+  private tableHeight = 'none'
+
   // 健康状态字典
   private HEALTH = HEALTH2
 
   // 搜索信息
-  private conditions: SimpleTable.Conditions = {
+  private conditions: ProTable4.Conditions = {
     host: '',
     name: '',
   }
@@ -133,7 +149,7 @@ export default class extends Vue {
   private loading = false
 
   // 表格数据
-  private tableData: SimpleTable.Host[] = null
+  private tableData: ProTable4.Host[] = null
 
   /**
    * 页面Mounted
@@ -166,7 +182,7 @@ export default class extends Vue {
   private async getTrees() {
     try {
       const res = await getTrees()
-      res.data[0].children[0].key = 2
+      res.data[0].children[0].key = '2'
       this.treeData = res.data
       console.log(res.data)
     } catch (e) {
@@ -181,7 +197,7 @@ export default class extends Vue {
     try {
       this.loading = true
       // 分页信息和搜索条件
-      const params: SimpleTable.TableParams = {
+      const params: ProTable4.TableParams = {
         page: this.pager.page,
         limit: this.pager.limit,
         ...this.conditions,
@@ -231,25 +247,25 @@ export default class extends Vue {
 
   /**
    * 查看详情
-   * @param data {SimpleTable.Host} 表格行对象
+   * @param data {ProTable4.Host} 表格行对象
    */
-  private gotoDetail(data: SimpleTable.Host) {
+  private gotoDetail(data: ProTable4.Host) {
     this.$message.success(`前往${data.name}详情页面`)
   }
 
   /**
    * 查看监控指标
-   * @param data {SimpleTable.Host} 表格行对象
+   * @param data {ProTable4.Host} 表格行对象
    */
-  private gotoDashboard(data: SimpleTable.Host) {
+  private gotoDashboard(data: ProTable4.Host) {
     this.$message.info(`前往${data.name}监控指标页面`)
   }
 
   /**
    * 使用字典格式化实例状态
-   * @param data {SimpleTable.Host} 表格行对象
+   * @param data {ProTable4.Host} 表格行对象
    */
-  private statusFormatter(data: SimpleTable.Host) {
+  private statusFormatter(data: ProTable4.Host) {
     return STATUS[data.status]
   }
 }

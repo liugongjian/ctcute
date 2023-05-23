@@ -1,3 +1,10 @@
+<!--
+ * @Author: 黄靖
+ * @Date: 2023-04-10 14:55:09
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-05-19 19:46:04
+ * @Description: 
+-->
 <template>
   <div
     class="el-steps"
@@ -20,7 +27,7 @@ export default {
   mixins: [Migrating],
 
   props: {
-    space: { type: [Number, String], default: 300 },
+    space: { type: [Number, String] },
     active: {
       type: Number,
       default: 0,

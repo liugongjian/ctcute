@@ -88,3 +88,27 @@ $progress-text-size-lg: 20px;
     font-size: $text-size-md;
   }
 }
+
+.el-progress--circle.is-exception {
+  path.el-progress-circle__path {
+    stroke: $color-danger;
+  }
+}
+
+.el-progress--circle.is-warning {
+  path.el-progress-circle__path {
+    stroke: $color-warning;
+  }
+}
+
+.el-progress--circle.is-success {
+  path.el-progress-circle__path {
+    stroke: $color-success;
+  }
+}
+
+.el-progress--circle {
+  path.el-progress-circle__path {
+    stroke: $color-master;
+  }
+}

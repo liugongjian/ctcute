@@ -41,8 +41,124 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class extends Vue {
   private timeline = [
     {
-      version: '2.0.x',
-      date: '2023-05-05',
+      version: '2.0.2',
+      date: '2023-05-22',
+      features: [
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '默认导出CuteTitleBlock组件，无需显式引用',
+            },
+            {
+              text: '增加light orange主题色',
+            },
+          ],
+        },
+        {
+          name: 'CuteLayout',
+          desc: [
+            {
+              text: '增加main-top和main-bottom插槽',
+            },
+          ],
+        },
+        {
+          name: 'Table',
+          desc: [
+            {
+              text: '更新Table相关标准页的样式',
+            },
+          ],
+        },
+        {
+          name: 'Form',
+          desc: [
+            {
+              text: '更新Form相关标准页的样式',
+            },
+          ],
+        },
+      ],
+      bugfix: [
+        {
+          name: 'ElButton',
+          desc: [
+            {
+              text: '修复Plain Button hover&active状态颜色',
+            },
+          ],
+        },
+        {
+          name: 'Progress、Toast',
+          desc: [
+            {
+              text: '修复dark模式下颜色错误',
+            },
+          ],
+        },
+        {
+          name: 'Steps',
+          desc: [
+            {
+              text: '修复宽度自适应问题',
+            },
+          ],
+        },
+        {
+          name: 'Collapse、Tabs',
+          desc: [
+            {
+              text: '修复仅有一个情况下的样式问题',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      version: '2.0.1',
+      date: '2023-05-17',
+      features: [
+        {
+          name: '全局',
+          desc: [
+            {
+              text: '导出CuteLayout子组件',
+            },
+            {
+              text: '滚动条样式修改',
+            },
+          ],
+        },
+        {
+          name: 'CuteSpecialRadio',
+          desc: [
+            {
+              text: '删除说明页，不建议后续使用',
+            },
+          ],
+        },
+        {
+          name: 'CuteFormInfo',
+          desc: [
+            {
+              text: '增加说明页',
+            },
+          ],
+        },
+        {
+          name: 'ElCard',
+          desc: [
+            {
+              text: '为shadow属性增加always-light和hover-light样式',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      version: '2.0.0',
+      date: '2023-05-15',
       features: [
         {
           name: '重大变化',
@@ -61,6 +177,9 @@ export default class extends Vue {
             },
             {
               text: '对变量进行了系统化的定义，并提供在线说明文档。当前版本的变量兼容1.x，建议使用新变量',
+            },
+            {
+              text: '@cutedesign/authenticate包对ctyun和iam的初始化方式不同',
             },
           ],
         },
@@ -117,6 +236,12 @@ export default class extends Vue {
             },
             {
               text: '提供了从1.x到2.x的升级方案',
+            },
+            {
+              text: 'cute-design-tools升级到2.0',
+            },
+            {
+              text: '在线提供V1和V2版本的切换',
             },
           ],
         },

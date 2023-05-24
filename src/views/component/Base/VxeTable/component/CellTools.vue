@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-24 10:18:30
+ * @LastEditTime: 2023-05-24 18:09:28
  * @Description:
 -->
 <template>
@@ -16,7 +16,10 @@
         @click="handleChooseTool(item.type)"
       >
         <el-tooltip effect="dark" :content="item.text" placement="top">
-          <i :class="item.icon"></i>
+          <i v-if="item.type !== 'fontColor'" :class="item.icon"></i>
+          <div v-else class="font-picker">
+            <div :class="item.icon" class="font-icon" :style="{ 'border-bottom-color': color }"></div>
+          </div>
         </el-tooltip>
       </span>
     </div>
@@ -83,7 +86,7 @@ export default class extends Vue {
         type: 'clear',
       },
       {
-        icon: 'cute-icon-pull',
+        icon: 'cute-icon-selected',
         text: '字体色',
         type: 'fontColor',
       },
@@ -109,11 +112,13 @@ export default class extends Vue {
     console.log(value, 'value watch')
     this.showPalette = false
     this.showRemarks = false
+    this.color = this.cellConfig?.config?.fontColor || '#000'
   }
 
   private showPalette = false
   private showRemarks = false
   private remarks = ''
+  private color = this.cellConfig?.config?.fontColor || '#000'
   // 当前操作
   private currentOperate = ''
 
@@ -144,7 +149,7 @@ export default class extends Vue {
         this.showPalette = false
         this.showRemarks = false
         this.cellConfig['config'] = {
-          remarks: this.cellConfig['config']?.remarks || [''],
+          remarks: this.cellConfig['config']?.remarks || [],
           fillColor: '',
           bold: 'normal',
           italic: 'normal',
@@ -188,6 +193,7 @@ export default class extends Vue {
         ...this.cellConfig['config'],
         fontColor: color,
       }
+      this.color = color
     }
     this.$emit('update', this.cellConfig)
   }
@@ -217,6 +223,16 @@ $cell-edit-remarks-width: 244px !default;
       margin-right: 1px;
       &:hover {
         background: $blue-1;
+      }
+      .font-picker {
+        width: 14px;
+        display: inline-block;
+        .font-icon {
+          transform: scale(0.7, 0.7);
+          padding-bottom: 2px;
+          padding-top: 1px;
+          border-bottom: 2px solid red;
+        }
       }
     }
 

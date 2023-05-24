@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2023-05-18 14:27:50
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-24 11:17:28
+ * @LastEditTime: 2023-05-24 18:15:16
  * @Description:
 -->
 <template>
@@ -114,13 +114,13 @@ export default class extends Vue {
   template: HTMLElement
   remarksTemplate: HTMLElement
   defaultData = {
-    value: '11',
+    value: '',
     config: {
       fillColor: 'red',
       bold: true,
       italic: true,
       remarks: ['111', '222'],
-      fontColor: 'yellow',
+      fontColor: '#000',
     },
   }
   selectCell: CellConfig = this.defaultData

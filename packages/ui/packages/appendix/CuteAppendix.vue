@@ -12,8 +12,8 @@
         <div class="cute-appendix--medium__content" @click="handleDownload">
           <svg-icon class="cute-appendix--medium__content__link-icon" :name="svgName" :color="svgColor" />
           <div class="cute-appendix--medium__content__title">
-            <p>{{ title }}</p>
-            <p>{{ fileSize }}</p>
+            <div class="title">{{ title }}</div>
+            <div class="size">{{ fileSize }}</div>
           </div>
         </div>
         <div>
@@ -39,7 +39,7 @@ export default class extends Vue {
   @Prop({ default: '1MB' }) public fileSize!: string
   @Prop({ default: 'file-fill' }) public svgName!: string
   @Prop({ default: '' }) public svgColor: string
-  @Prop({ required: true }) public type: string
+  @Prop({ default: '' }) public type: string
   @Prop({ default: '' }) public url: string
 
   private tableau = null

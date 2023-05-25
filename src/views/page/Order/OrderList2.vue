@@ -14,7 +14,9 @@
     >
     <el-card >
        <el-form-item label="计费模式" prop="payment">
-            <cute-special-radio v-model="form.payment" :options="buutonDatas" @change="changeFuns" />
+            <el-radio-group v-model="form.payment" @input="changeFuns">
+              <el-radio-button :label="item.label" v-for="(item, key) in buutonDatas" :key="key"></el-radio-button>
+            </el-radio-group>
             <div class="form-item__tip">{{ paymentToolTip }}</div>
         </el-form-item>
         <el-form-item  prop="nodeCode">
@@ -30,7 +32,9 @@
           <div class="form-item__tip">{{ areaToolTip }}</div>
         </el-form-item>
          <el-form-item label="可用分区" prop="usableArea">
-            <cute-special-radio v-model="form.usableArea" :options="usableAreaDatas" @change="changeUsableArea" />
+            <el-radio-group v-model="form.usableArea" >
+              <el-radio-button :label="item.label" v-for="(item, key) in usableAreaDatas" :key="key"></el-radio-button>
+            </el-radio-group>
         </el-form-item>
     </el-card>
     <el-card>
@@ -38,37 +42,31 @@
         <el-form-item label="筛选">
           <el-row>
             <el-col :span="4">
-              <el-form-item  label-width="0" label="" prop="series">
-                <el-select class="el-select-small" v-model="form.series" placeholder="请选择" >
-                  <el-option v-for="item in series" :key="item" :value="item"> </el-option>
-                </el-select>
-              </el-form-item>
+              <el-select class="el-select-small" v-model="form.series" placeholder="请选择" >
+                <el-option v-for="item in series" :key="item" :value="item"> </el-option>
+              </el-select>
             </el-col>
             <el-col :span="4">
-              <el-form-item  label-width="0" label="" prop="cpu">
-                <el-select class="el-select-small" v-model="form.cpu" placeholder="请选择">
-                  <el-option v-for="item in cpus" :key="item" :value="item"> </el-option>
-                </el-select>
-              </el-form-item>
+              <el-select class="el-select-small" v-model="form.cpu" placeholder="请选择">
+                <el-option v-for="item in cpus" :key="item" :value="item"> </el-option>
+              </el-select>
             </el-col>
             <el-col :span="4">
-                <el-form-item  label-width="0" label="" prop="memory">
-                  <el-select class="el-select-small" v-model="form.memory" placeholder="请选择">
-                    <el-option v-for="item in memorys" :key="item" :value="item"> </el-option>
-                  </el-select>
-                </el-form-item>
+                <el-select class="el-select-small" v-model="form.memory" placeholder="请选择">
+                  <el-option v-for="item in memorys" :key="item" :value="item"> </el-option>
+                </el-select>
               </el-col>
           </el-row>
         </el-form-item>
         <el-form-item label="类型" prop="type">
-          <cute-special-radio v-model="form.type" :options="typeDatas" @change="changeTypes" />
+          <el-radio-group v-model="form.type" >
+            <el-radio-button :label="item.label" v-for="(item, key) in typeDatas" :key="key"></el-radio-button>
+          </el-radio-group>
         </el-form-item>
         <el-table v-loading="loading" :data="orderTableData" fit border>
           <el-table-column prop="orderId" label="订单号" width="200px">
             <template slot-scope="scope">
-              <!-- <el-form-item  label-width="0" label="" prop="orderId"> -->
-                <el-radio v-model="form.orderId" :label="scope.row.orderId">{{ scope.row.orderId }}</el-radio>
-              <!-- </el-form-item> -->
+              <el-radio v-model="form.orderId" :label="scope.row.orderId">{{ scope.row.orderId }}</el-radio>
             </template>
           </el-table-column>
           <el-table-column  prop="product" label="产品" width="160px"></el-table-column>
@@ -101,25 +99,21 @@
     </el-card>
     <el-card>
       <el-form-item label="镜像">
-        <el-form-item label="" label-width="0px" prop="mirror">
-          <cute-special-radio v-model="form.mirror" :options="mirrorDatas" @change="changeMirrors" />
-        </el-form-item>
+          <el-radio-group v-model="form.mirror" >
+            <el-radio-button :label="item.label" v-for="(item, key) in mirrorDatas" :key="key"></el-radio-button>
+          </el-radio-group>
       </el-form-item>
       <el-form-item label="" label-width="90px">
         <el-row>
-          <el-col :span="3">
-            <el-form-item label="" label-width="0px" prop="series1">
-              <el-select class="el-select-small" v-model="form.series1" placeholder="请选择" >
-                <el-option v-for="item in series" :key="item" :value="item"> </el-option>
-              </el-select>
-            </el-form-item>
+          <el-col :span="4">
+            <el-select class="el-select-small" v-model="form.series1" placeholder="请选择" >
+              <el-option v-for="item in series" :key="item" :value="item"> </el-option>
+            </el-select>
           </el-col>
-          <el-col :span="3">
-            <el-form-item  label-width="0" label="" prop="cpu1">
-              <el-select class="el-select-small" v-model="form.cpu1" placeholder="请选择">
-                <el-option v-for="item in cpus" :key="item" :value="item"> </el-option>
-              </el-select>
-            </el-form-item>
+          <el-col :span="4">
+            <el-select class="el-select-small" v-model="form.cpu1" placeholder="请选择">
+              <el-option v-for="item in cpus" :key="item" :value="item"> </el-option>
+            </el-select>
           </el-col>
         </el-row>
       </el-form-item>
@@ -430,6 +424,15 @@ export default class extends Vue {
     this.loading = false
   }
 
+   /**
+  * 切换付费方式
+  */
+  private changeFuns(key) {
+    this.form.payment = key
+    this.paymentToolTip = `${key}弹性云主机创建后不能删除，如果停止使用，请到用户中心执行退订操作`
+
+  }
+
   private changes(val) {
     console.log(val, 'slider值')
     switch (val) {
@@ -488,32 +491,7 @@ export default class extends Vue {
       }
     }
   }
-  /**
-   * 切换付费方式
-   */
-  private changeFuns(key) {
-    this.form.payment = key
-    this.paymentToolTip = `${key}弹性云主机创建后不能删除，如果停止使用，请到用户中心执行退订操作`
 
-  }
-
-  /**
-   * 切换区域
-   */
-  private changeUsableArea(key) {
-    this.form.usableArea = key
-  }
-
-  /**
-   * 切换区域
-   */
-  private changeTypes(key) {
-    this.form.type = key
-  }
-
-  private changeMirrors(key) {
-    this.form.mirror = key
-  }
 
   /**
    * 选择地域

@@ -31,13 +31,10 @@
   }
 
   .form-item__tip {
-    position: absolute;
-    top: 100%;
-    left: 0;
     color: $text-color-light;
     font-size: $text-size;
-    height: $common-space-6x;
-    line-height: $common-space-6x;
+    line-height: $line-height;
+    margin-top: $margin-2x;
 
     &:before {
       font-family: cute-icons;

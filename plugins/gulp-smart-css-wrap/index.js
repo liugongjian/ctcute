@@ -26,6 +26,10 @@ function cssWrap(string, options) {
   if (options.ignore || !options.selector) {
     return string
   }
+  // 忽略字体icon样式，如.el-icon-eleme:before
+  if (!options.skip) {
+    options.skip = /^.(el|cute)-icon-[a-z0-9-]+:before$/
+  }
   var css_ast = css.parse(string);
   css_ast.stylesheet.rules = processRules(css_ast.stylesheet.rules, options);
   return css.stringify(css_ast);

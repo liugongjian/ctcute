@@ -8,6 +8,11 @@ function getRuleKey(rule) {
   return [rule.selectors.join(), rule.declarations.map(d => d.property + '_' + d.value).join('@')].join('*')
 }
 
+function getFontName(rule) {
+  const font = rule.declarations.find(d => d.property == 'font-family')
+  return font && font.value ? font.value : null
+}
+
 function removeDuplicateRules(list) {
   const filterRules = []
   const cacheRules = {}
@@ -23,6 +28,12 @@ function removeDuplicateRules(list) {
       // 已知cuted-theme.css的@media来自element-ui，所以简单排重
       if (!cacheRules[r.media]) {
         cacheRules[r.media] = true
+        filterRules.push(r)
+      }
+    } else if (r.type === "font-face") {
+      // 字体定义无须重复
+      if (!cacheRules[getFontName(r)]) {
+        cacheRules[getFontName(r)] = true
         filterRules.push(r)
       }
     } else {

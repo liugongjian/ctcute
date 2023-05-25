@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: liugj
- * @LastEditTime: 2023-05-22 10:05:09
+ * @LastEditTime: 2023-05-25 14:58:57
  * @Description: 复杂详情2
 -->
 <template>
@@ -41,13 +41,14 @@
               :default-expanded-keys="['1', '2', '3', '21']"
               :indent="10"
               style="margin-top: 9px"
+              highlight-current
             >
               <span slot-scope="{ node, data }" class="node-content">
                 <span class="node-icon">
                   <svg-icon v-if="!node.isLeaf" name="folder" width="16" height="16" />
                   <svg-icon v-if="!node.isLeaf" name="folder-open" width="16" height="16" />
                 </span>
-                <span :class="node.isLeaf ? 'icon-leaf-label' : ''">{{ node.label }}</span>
+                {{ node.label }}
                 <div class="handler-menu">
                   <el-button slot="reference" type="text">
                     <svg-icon

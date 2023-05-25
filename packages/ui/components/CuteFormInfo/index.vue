@@ -20,12 +20,13 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import { TooltipEffect } from '@cutedesign/ui/types/CuteFormInfo'
 
 @Component({
   name: 'CuteFormInfo',
 })
 export default class extends Vue {
-  @Prop({ default: 'dark' }) private effect: string
+  @Prop({ default: 'dark' }) private effect: TooltipEffect
   @Prop({ default: '' }) private title: string
   @Prop({ default: '' }) private content: string
   @Prop() private width: number

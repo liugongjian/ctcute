@@ -28,7 +28,7 @@ $headerHeight: 51px;
   .config-cost-container{
     display: inline-block;
     text-align: left;
-    margin-left: 20px;
+    margin-left: $margin-5x;
     line-height: 1;
     vertical-align: middle;
   }
@@ -69,9 +69,8 @@ $headerHeight: 51px;
     margin-right: 0px;
     width: 17%;
     height: auto;
-    background: white;
     .real-order-right-title{
-      padding: 10px;
+      padding: $padding-2x;
       height: 37px;
       line-height: 1;
       vertical-align: middle;
@@ -81,12 +80,12 @@ $headerHeight: 51px;
       border-bottom: 2px solid #E2E5ED;
     }
     .real-order-right-content{
-      padding: 10px;
+      padding: $padding-2x;
       box-sizing: border-box;
       border-bottom: 2px solid #E2E5ED;
     }
     .real-order-right-footer{
-      padding: 10px;
+      padding: $padding-2x;
       div{
         margin-bottom: $margin-3x;
       }
@@ -109,19 +108,14 @@ $headerHeight: 51px;
     }
     
   }
-  .el-select-dropdown{
-    // position: relative;
-    max-height: 150px;
-    overflow: scroll;
-  }
   .el-card{
-    margin-bottom: 20px;
+    margin-bottom: $margin-5x;
   }
   .el-form-item .el-form-item{
-    margin-bottom: 14px;
+    margin-bottom: $margin-4x - 2px;
   }
   .el-table .el-radio{
-    padding-top: 6px;
+    padding-top: $padding-2x - 2px;
   } 
 
   .pagination{
@@ -157,13 +151,13 @@ $headerHeight: 51px;
   margin-top: $headerHeight;
   margin-bottom: $margin-5x;
   .el-card{
-    margin-bottom: 20px;
+    margin-bottom: $margin-5x;
   }
   .el-form-item .el-form-item{
-    margin-bottom: 14px;
+    margin-bottom: $margin-4x - 2px;
   }
   .el-table .el-radio{
-    padding-top: 6px;
+    padding-top: $padding-6;
   } 
   .pagination{
     .el-select{

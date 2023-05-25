@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2023-05-18 14:27:50
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-24 18:15:16
+ * @LastEditTime: 2023-05-25 18:35:19
  * @Description:
 -->
 <template>
@@ -86,6 +86,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import Variables from '@cutedesign/ui/style/themes/default/index.scss'
 import CellTools from './component/CellTools.vue'
 import CellRemarksPop from './component/CellRemarksPop.vue'
 import tippy from 'tippy.js'
@@ -96,8 +97,8 @@ interface CellConfig {
   value: string
   config: {
     fillColor: string
-    bold: boolean
-    italic: boolean
+    bold: string
+    italic: string
     remarks: Array<string>
     fontColor: string
   }
@@ -116,11 +117,11 @@ export default class extends Vue {
   defaultData = {
     value: '',
     config: {
-      fillColor: 'red',
-      bold: true,
-      italic: true,
-      remarks: ['111', '222'],
-      fontColor: '#000',
+      fillColor: Variables.colorBg2,
+      bold: 'normal',
+      italic: 'normal',
+      remarks: [''],
+      fontColor: Variables.colorNeutral10,
     },
   }
   selectCell: CellConfig = this.defaultData
@@ -379,8 +380,17 @@ export default class extends Vue {
 }
 </style>
 <!-- 覆盖样式 -->
-<style>
+<style lang="scss">
+$tippy-arrow-border-width: 9px 10px 9px 0;
+$tippy-arrow-left: -10px;
 .tippy-box[data-theme~='tools'] > .tippy-content {
   padding: 0;
+}
+.tippy-box[data-theme~='tools'] > .tippy-arrow {
+  color: $neutral-8;
+  &:before {
+    left: $tippy-arrow-left;
+    border-width: $tippy-arrow-border-width;
+  }
 }
 </style>

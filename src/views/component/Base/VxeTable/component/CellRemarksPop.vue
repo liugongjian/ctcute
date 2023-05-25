@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-24 10:11:19
+ * @LastEditTime: 2023-05-25 18:41:32
  * @Description:
 -->
 <template>
@@ -19,7 +19,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component({
   name: 'CellRemarksPop',
 })
@@ -42,12 +42,14 @@ export default class extends Vue {
 </script>
 <style lang="scss" scoped>
 .cell-remarks__pop {
+  background: $neutral-8;
   padding: $padding-4x;
   &__title {
     font-size: $text-size-md;
   }
   &__content {
     margin-top: $margin-2x;
+    color: $neutral-1;
   }
 }
 </style>

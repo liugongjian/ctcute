@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-24 18:09:28
+ * @LastEditTime: 2023-05-25 18:37:05
  * @Description:
 -->
 <template>
@@ -43,6 +43,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
+import Variables from '@cutedesign/ui/style/themes/default/index.scss'
 import CellRemarks from './CellRemarks.vue'
 @Component({
   name: 'CellTools',
@@ -112,13 +113,13 @@ export default class extends Vue {
     console.log(value, 'value watch')
     this.showPalette = false
     this.showRemarks = false
-    this.color = this.cellConfig?.config?.fontColor || '#000'
+    this.color = this.cellConfig?.config?.fontColor || Variables.colorNeutral10
   }
 
   private showPalette = false
   private showRemarks = false
   private remarks = ''
-  private color = this.cellConfig?.config?.fontColor || '#000'
+  private color = this.cellConfig?.config?.fontColor || Variables.colorNeutral10
   // 当前操作
   private currentOperate = ''
 
@@ -150,10 +151,10 @@ export default class extends Vue {
         this.showRemarks = false
         this.cellConfig['config'] = {
           remarks: this.cellConfig['config']?.remarks || [],
-          fillColor: '',
+          fillColor: Variables.colorBg2,
           bold: 'normal',
           italic: 'normal',
-          fontColor: '#333',
+          fontColor: Variables.colorNeutral10,
         }
         this.$emit('update', this.cellConfig)
         break
@@ -214,6 +215,7 @@ $cell-edit-palette-width: 20px !default;
 $cell-edit-palette-height: 20px !default;
 $cell-edit-remarks-width: 244px !default;
 .cell-edit {
+  background: $color-bg-1;
   &--tools {
     padding: $padding;
     border-radius: $border-radius;
@@ -231,6 +233,7 @@ $cell-edit-remarks-width: 244px !default;
           transform: scale(0.7, 0.7);
           padding-bottom: 2px;
           padding-top: 1px;
+          color: $neutral-9;
           border-bottom: 2px solid red;
         }
       }

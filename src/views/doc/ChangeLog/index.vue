@@ -53,6 +53,9 @@ export default class extends Vue {
             {
               text: '增加light orange主题色',
             },
+            {
+              text: '增加ElementUI组件的types定义，包括cuted对一些组件覆写后的types',
+            },
           ],
         },
         {
@@ -76,6 +79,47 @@ export default class extends Vue {
           desc: [
             {
               text: '更新Form相关标准页的样式',
+            },
+            {
+              text: '更新Form Tips的样式，提示语的空间更宽敞',
+            },
+          ],
+        },
+        {
+          name: '详情页',
+          desc: [
+            {
+              text: '更新原有详情页的样式',
+            },
+            {
+              text: '新增几个详情页',
+            },
+          ],
+        },
+        {
+          name: '订购页',
+          desc: [
+            {
+              text: '更新原有订购页的样式',
+            },
+            {
+              text: '新增几个常用的订购页',
+            },
+          ],
+        },
+        {
+          name: 'CodeMirror',
+          desc: [
+            {
+              text: '根据新的主色更新默认的主题，包括light和dark',
+            },
+          ],
+        },
+        {
+          name: 'VxeTable',
+          desc: [
+            {
+              text: '新增两个场景的复杂表格，可冻结行&可编辑单元格样式',
             },
           ],
         },

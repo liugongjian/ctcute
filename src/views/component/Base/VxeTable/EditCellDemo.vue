@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2023-05-18 14:27:50
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-25 18:35:19
+ * @LastEditTime: 2023-05-26 17:32:53
  * @Description:
 -->
 <template>
@@ -19,8 +19,6 @@
       ref="xTable"
       border
       resizable
-      show-footer
-      height="500"
       align="center"
       :print-config="{}"
       :column-config="{ width: 90 }"
@@ -86,30 +84,20 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import Variables from '@cutedesign/ui/style/themes/default/index.scss'
-import CellTools from './component/CellTools.vue'
-import CellRemarksPop from './component/CellRemarksPop.vue'
 import tippy from 'tippy.js'
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/themes/light.css'
-
-interface CellConfig {
-  value: string
-  config: {
-    fillColor: string
-    bold: string
-    italic: string
-    remarks: Array<string>
-    fontColor: string
-  }
-}
+import Variables from '@cutedesign/ui/style/themes/default/index.scss'
+import CellTools from './component/CellTools.vue'
+import CellRemarksPop from './component/CellRemarksPop.vue'
+import { CellConfig, EditTableCellType } from './types'
 
 @Component({
   components: { CellTools, CellRemarksPop },
   name: 'EditCellDemo',
 })
 export default class extends Vue {
-  tableData: any
+  tableData: Array<EditTableCellType>
   popInstance: any
   remarkPopInstance: any
   template: HTMLElement
@@ -128,7 +116,7 @@ export default class extends Vue {
   hoverCell: CellConfig = this.defaultData
 
   /**
-   * 页面Mounted
+   * 页面created
    */
   private created() {
     this.loadList()
@@ -208,16 +196,19 @@ export default class extends Vue {
       })
     }
     list[2].a.config = {
-      fillColor: 'red',
-      fontColor: 'blue',
+      fillColor: '#3D73F5',
+      fontColor: '#FF736E',
       bold: 'bold',
       italic: 'italic',
-      remarks: ['这里是备注内容这里是备注内容这里是备注内容这里是备注内容', '这里是备注内容这里是备注内容'],
+      remarks: [
+        '这里是备注内容这里是备注内容这里是备注内容这里是备注内容',
+        '这里是备注内容这里是备注内容这里是备注内容这里是备注内容',
+      ],
     }
 
     list[3].e.config = {
-      fillColor: 'blue',
-      fontColor: 'red',
+      fillColor: '#1AC45D',
+      fontColor: '#FF8F34',
       bold: 'bold',
       italic: 'italic',
       remarks: ['aaa2', 'bbb2'],
@@ -245,7 +236,7 @@ export default class extends Vue {
     }
   }
 
-  createTippy(target, template, zindex) {
+  createTippy(target, template) {
     if (this.popInstance) {
       this.hideTippy()
     }
@@ -259,11 +250,11 @@ export default class extends Vue {
       appendTo: document.body,
       // 鼠标放在提示中提示不消失
       interactive: true,
-      zIndex: zindex,
+      zIndex: 200,
     })
     this.popInstance.show()
   }
-  createHoverTippy(target, template, zindex) {
+  createHoverTippy(target, template) {
     if (this.remarkPopInstance) {
       this.hideHoverTippy()
     }
@@ -280,7 +271,7 @@ export default class extends Vue {
       theme: 'tools',
       // 鼠标放在提示中提示不消失
       interactive: true,
-      zIndex: zindex,
+      zIndex: 200,
     })
     this.remarkPopInstance.show()
   }
@@ -301,16 +292,22 @@ export default class extends Vue {
 
   // 单元格点击处理
   handleCellClick({ row, column, $event }) {
+    let target = $event.target
+    // 此处获取到的target是单元格文本内容标签或者单元格标签，这里统一为都是基于单元格内容创建tippy
+    if (target.className !== 'vxe-cell') {
+      // 单元格标签的时候，取其子元素
+      target = $event.target.firstChild
+    }
     this.selectCell = row[column.property]
     const template = document.getElementById('celltools')
     if (template) {
       this.template = template
       template.style.display = 'block'
-      this.createTippy($event.target, template, 200)
+      this.createTippy(target, template)
     } else {
       // 此处是因为template会随着hide的时候销毁掉，所以只存在一次
       let template = this.template
-      this.createTippy($event.target, template, 200)
+      this.createTippy(target, template)
     }
   }
 
@@ -322,11 +319,11 @@ export default class extends Vue {
       if (remarksTemplate) {
         this.remarksTemplate = remarksTemplate
         remarksTemplate.style.display = 'block'
-        this.createHoverTippy($event.target, remarksTemplate, 200)
+        this.createHoverTippy($event.target, remarksTemplate)
       } else {
         // 此处是因为template会随着hide的时候销毁掉，所以只存在一次
         let remarksTemplate = this.remarksTemplate
-        this.createHoverTippy($event.target, remarksTemplate, 200)
+        this.createHoverTippy($event.target, remarksTemplate)
       }
     }
   }
@@ -381,16 +378,20 @@ export default class extends Vue {
 </style>
 <!-- 覆盖样式 -->
 <style lang="scss">
-$tippy-arrow-border-width: 9px 10px 9px 0;
+$tippy-arrow-border-width: 9px 11px 9px 0;
 $tippy-arrow-left: -10px;
-.tippy-box[data-theme~='tools'] > .tippy-content {
-  padding: 0;
-}
-.tippy-box[data-theme~='tools'] > .tippy-arrow {
-  color: $neutral-8;
-  &:before {
-    left: $tippy-arrow-left;
-    border-width: $tippy-arrow-border-width;
+.tippy-box[data-theme~='tools'] {
+  background: $color-bg-1;
+  box-shadow: $shadow-2;
+  > .tippy-content {
+    padding: 0;
+  }
+  > .tippy-arrow {
+    color: $neutral-8;
+    &:before {
+      left: $tippy-arrow-left;
+      border-width: $tippy-arrow-border-width;
+    }
   }
 }
 </style>

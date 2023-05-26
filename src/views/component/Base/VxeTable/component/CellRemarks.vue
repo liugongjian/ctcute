@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-24 10:11:59
+ * @LastEditTime: 2023-05-26 14:50:07
  * @Description:
 -->
 <template>
@@ -18,13 +18,11 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 @Component({
   name: 'CellRemarks',
 })
 export default class extends Vue {
-  @Prop({ default: 'cellId' }) public value!: string
-
   private remark = ''
 
   handleSaveRemarks() {

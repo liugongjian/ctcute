@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-25 18:37:05
+ * @LastEditTime: 2023-05-26 17:24:59
  * @Description:
 -->
 <template>
@@ -44,6 +44,7 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 import Variables from '@cutedesign/ui/style/themes/default/index.scss'
+import { CellConfig } from '../types'
 import CellRemarks from './CellRemarks.vue'
 @Component({
   name: 'CellTools',
@@ -94,23 +95,13 @@ export default class extends Vue {
     ],
   })
   public iconConfig!: Array<string>
-  @Prop({ type: Object, default: () => ({}) }) cellConfig?: {
-    value: ''
-    config: {
-      fillColor: string
-      bold: string // bold normal
-      italic: string // italic normal
-      remarks: Array<string>
-      fontColor: string
-    }
-  }
+  @Prop({ type: Object, default: () => ({}) }) cellConfig?: CellConfig
 
   @Watch('cellConfig', {
     immediate: true,
     deep: true,
   })
-  valueChanged(value) {
-    console.log(value, 'value watch')
+  valueChanged() {
     this.showPalette = false
     this.showRemarks = false
     this.color = this.cellConfig?.config?.fontColor || Variables.colorNeutral10
@@ -124,7 +115,7 @@ export default class extends Vue {
   private currentOperate = ''
 
   /**
-   * 页面Mounted
+   * 页面created
    */
   private created() {
     this.showPalette = false
@@ -151,7 +142,7 @@ export default class extends Vue {
         this.showRemarks = false
         this.cellConfig['config'] = {
           remarks: this.cellConfig['config']?.remarks || [],
-          fillColor: Variables.colorBg2,
+          fillColor: '',
           bold: 'normal',
           italic: 'normal',
           fontColor: Variables.colorNeutral10,
@@ -214,8 +205,16 @@ export default class extends Vue {
 $cell-edit-palette-width: 20px !default;
 $cell-edit-palette-height: 20px !default;
 $cell-edit-remarks-width: 244px !default;
+$font-icon-transform: scale(0.7, 0.7) !default;
+$cell-edit-max-width: 238px;
+$cell-edit-max-height: 238px;
+$cell-edit-font-picker-width: 14px;
 .cell-edit {
   background: $color-bg-1;
+  box-shadow: $shadow-2;
+  max-height: $cell-edit-max-height;
+  max-width: $cell-edit-max-width;
+  overflow-y: scroll;
   &--tools {
     padding: $padding;
     border-radius: $border-radius;
@@ -227,32 +226,32 @@ $cell-edit-remarks-width: 244px !default;
         background: $blue-1;
       }
       .font-picker {
-        width: 14px;
+        width: $cell-edit-font-picker-width;
         display: inline-block;
         .font-icon {
-          transform: scale(0.7, 0.7);
+          transform: $font-icon-transform;
           padding-bottom: 2px;
           padding-top: 1px;
           color: $neutral-9;
-          border-bottom: 2px solid red;
+          border-bottom: 2px solid;
         }
       }
     }
 
     i {
-      font-size: 14px;
+      font-size: $text-size-md;
       color: $neutral-9;
     }
   }
   &--palette {
-    padding: $padding-2x;
+    padding: $padding-2x 0px $padding-2x $padding-2x;
     &__box {
       width: $cell-edit-palette-width;
       height: $cell-edit-palette-height;
       border-radius: $border-radius;
       cursor: pointer;
       display: inline-block;
-      background: #666;
+      background: $neutral-9;
       margin-right: $margin-2x;
     }
   }

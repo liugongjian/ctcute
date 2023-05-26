@@ -26,3 +26,20 @@ export type TableType2 = {
   translate?: string
   address: string
 }
+
+// 可编辑单元格 单元格数据配置
+export interface CellConfig {
+  value: string
+  key?: string
+  config: {
+    fillColor: string
+    bold: string
+    italic: string
+    remarks: Array<string>
+    fontColor: string
+  }
+}
+
+export interface EditTableCellType {
+  [key: string]: CellConfig
+}

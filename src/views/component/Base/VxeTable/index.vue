@@ -2,7 +2,7 @@
  * @Author: fanzhengle
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-04-25 09:43:03
+ * @LastEditTime: 2023-05-16 15:05:31
  * @Description:
 -->
 <template>
@@ -18,15 +18,24 @@
       <h4>何时使用</h4>
       <p>当你的表格需要与服务端进行交互或者需要多种单元格样式时, 复杂表格是不二选择.</p>
 
+      <h3>编辑单元格样式</h3>
+      <p>可以对单元格级别进行样式编辑,以实现标注</p>
+      <h3>交互细节</h3>
+      <p>行的样色、单元格样式，表头的样式、表尾</p>
+      <component-demo path="@/views/component/Base/VxeTable/EditCellDemo.vue">
+        <EditCellDemo></EditCellDemo>
+      </component-demo>
+
+      <h3>复杂列设置</h3>
+      <component-demo path="@/views/component/Base/VxeTable/EditTableDemo7.vue">
+        <demo8></demo8>
+      </component-demo>
+
       <h3>高亮行/列</h3>
       <p>
         点击高亮当前行或者列,鼠标悬浮时提示当前行(整行)或者列(列表头)
         行数较多需要,查阅时候需要着重强调,或者方便查阅的时候使用
       </p>
-      <h3>复杂列设置</h3>
-      <component-demo path="@/views/component/Base/VxeTable/EditTableDemo7.vue">
-        <demo8></demo8>
-      </component-demo>
       <h3>高亮列</h3>
       <component-demo path="@/views/component/Base/VxeTable/Demo2.vue">
         <demo2></demo2>
@@ -121,6 +130,7 @@ import Demo5 from './Demo5.vue'
 import Demo6 from './Demo6.vue'
 import Demo7 from './Demo7.vue'
 import Demo8 from './Demo8.vue'
+import EditCellDemo from './EditCellDemo.vue'
 import EditTableDemo1 from './EditTableDemo1.vue'
 import EditTableDemo2 from './EditTableDemo2.vue'
 import EditTableDemo3 from './EditTableDemo3.vue'
@@ -139,6 +149,7 @@ import EditTableDemo7 from './EditTableDemo7.vue'
     EditTableDemo3,
     EditTableDemo2,
     EditTableDemo1,
+    EditCellDemo,
     Demo8,
     Demo7,
     Demo6,

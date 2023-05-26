@@ -188,6 +188,6 @@ export default class extends Vue {
   }
 }
 .pro-detail4:nth-child(2) {
-  margin-top: 20px;
+  margin-top: $margin-5x;
 }
 </style>

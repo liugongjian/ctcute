@@ -83,13 +83,7 @@
           <el-table-column prop="operatorId" label="操作员id"></el-table-column>
           <el-table-column prop="duration" label="耗时"> </el-table-column>
         </el-table>
-        <el-pagination
-          :current-page="pager.page"
-          :page-size="pager.limit"
-          :total="pager.total"
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-        />
+        <el-pagination :current-page="pager.page" :page-size="pager.limit" :total="pager.total" />
       </template>
     </cute-titled-block>
   </el-card>

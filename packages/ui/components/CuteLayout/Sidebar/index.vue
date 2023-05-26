@@ -35,6 +35,7 @@
 
 <script lang="ts">
 import { Component, Prop, Watch, Mixins } from 'vue-property-decorator'
+import { RouteConfig } from 'vue-router'
 import Locale from '@cutedesign/ui/mixins/locale'
 import SidebarItem from './SidebarItem.vue'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
@@ -49,13 +50,13 @@ export default class extends Mixins(Locale) {
   $auth: any
 
   @Prop()
-  private sidebarRoutes
+  private sidebarRoutes: RouteConfig[]
 
   @Prop()
-  private sidebarFilter
+  private sidebarFilter: (routes: RouteConfig[]) => RouteConfig[]
 
   @Prop()
-  private sidebarRoutesAfterEach
+  private sidebarRoutesAfterEach: (route: RouteConfig) => RouteConfig
 
   @Prop({ default: '' })
   private sidebarTitle: string
@@ -85,7 +86,7 @@ export default class extends Mixins(Locale) {
     return path
   }
 
-  private get routes() {
+  private get routes(): RouteConfig[] {
     return this.sidebarRoutes || this.$router.options.routes
   }
 
@@ -94,7 +95,7 @@ export default class extends Mixins(Locale) {
   private onChangeRoutes() {
     const filteredRoutes = this.sidebarFilter ? this.sidebarFilter(this.routes) : this.routes
     this.drillDownRoute = this.getDrillDownRoute()
-    let routesList = this.drillDownRoute ? this.drillDownRoute.children : filteredRoutes
+    let routesList: RouteConfig[] = this.drillDownRoute ? this.drillDownRoute.children : filteredRoutes
     if (this.sidebarRoutesAfterEach) {
       routesList = this.recursiveRoutes(routesList, this.sidebarRoutesAfterEach)
     }
@@ -173,7 +174,7 @@ export default class extends Mixins(Locale) {
   /**
    * 递归遍历路由
    */
-  private recursiveRoutes(routes, effect) {
+  private recursiveRoutes(routes: RouteConfig[], effect) {
     return routes.map(route => {
       if (route.children) {
         const children = this.recursiveRoutes(route.children, effect)

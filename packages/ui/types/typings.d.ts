@@ -10,9 +10,11 @@ import VueI18n from 'vue-i18n'
 export * from 'element-ui/types/element-ui'
 
 import * as ElementUI from 'element-ui/types/element-ui'
-export * from './cute'
 
 export default ElementUI
+
+export * from './cute'
+export * from './Element'
 
 export * from 'vxe-table'
 export { default as VXETable } from 'vxe-table'

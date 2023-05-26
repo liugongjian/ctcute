@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱玉豆
  * @Date: 2022-07-14 19:41:25
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-08-08 14:25:23
+ * @LastEditors: liugj
+ * @LastEditTime: 2023-05-22 10:05:09
  * @Description: 复杂详情2
 -->
 <template>
@@ -13,7 +13,20 @@
         <cute-tag tag-name="+ 新标签" :dynamic-tags="dynamicTags"></cute-tag>
       </div>
       <div class="detail-header__right">
-        <cute-button-group :data="buttonData" :max="2" />
+        <div class="combination-button">
+          <el-button>操作一</el-button>
+          <el-button>操作二</el-button>
+          <el-dropdown size="medium">
+            <el-button size="medium">...</el-button>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>操作四</el-dropdown-item>
+              <el-dropdown-item>操作五</el-dropdown-item>
+              <el-dropdown-item>操作六</el-dropdown-item>
+              <el-dropdown-item>操作七</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+          <el-button size="medium" type="primary">主操作</el-button>
+        </div>
       </div>
     </div>
     <el-tabs>
@@ -31,8 +44,8 @@
             >
               <span slot-scope="{ node, data }" class="node-content">
                 <span class="node-icon">
-                  <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
-                  <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
+                  <svg-icon v-if="!node.isLeaf" name="folder" width="16" height="16" />
+                  <svg-icon v-if="!node.isLeaf" name="folder-open" width="16" height="16" />
                 </span>
                 <span :class="node.isLeaf ? 'icon-leaf-label' : ''">{{ node.label }}</span>
                 <div class="handler-menu">
@@ -188,3 +201,30 @@ export default class extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+$tree-node-popover-margin: 0.3em;
+$tree-button-tooltip-content-padding: 0.8em 1.2em;
+.tree-node-popover {
+  box-shadow: $shadow-1;
+  min-width: 0;
+  padding: 0;
+  margin: $tree-node-popover-margin 0 0 0;
+
+  .tooltip-content {
+    display: flex;
+    flex-direction: column;
+    background: $color-bg-1;
+
+    .el-button {
+      margin: 0;
+      padding: $tree-button-tooltip-content-padding;
+      color: $text-color-light;
+
+      &:hover {
+        background: $color-neutral-1;
+      }
+    }
+  }
+}
+</style>

@@ -15,6 +15,7 @@
           node-key="key"
           default-expand-all
           :default-checked-keys="[2, 4, 5]"
+          highlight-current
         ></el-tree>
       </div>
     </div>
@@ -24,8 +25,8 @@
         <el-tree :data="threeTree" draggable node-key="key" :default-expanded-keys="[3]" :indent="10">
           <span slot-scope="{ node }" class="node-content">
             <span class="node-icon">
-              <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
-              <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
+              <svg-icon v-if="!node.isLeaf" name="folder" width="16" height="16" />
+              <svg-icon v-if="!node.isLeaf" name="folder-open" width="16" height="16" />
             </span>
             <span :class="node.isLeaf ? 'icon-leaf-label' : ''">{{ node.label }}</span>
           </span>
@@ -38,8 +39,8 @@
         <el-tree :data="twoTree" node-key="key" :default-expanded-keys="[4]" :indent="10">
           <span slot-scope="{ node }" class="node-content">
             <span class="node-icon">
-              <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
-              <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
+              <svg-icon v-if="!node.isLeaf" name="folder" width="16" height="16" />
+              <svg-icon v-if="!node.isLeaf" name="folder-open" width="16" height="16" />
             </span>
             <span :class="node.isLeaf ? 'icon-leaf-label' : ''">{{ node.label }}</span>
           </span>
@@ -50,11 +51,11 @@
         <el-tree :data="threeTree" node-key="key" :default-expanded-keys="[3]" :indent="10">
           <span slot-scope="{ node }" class="node-content">
             <span class="node-icon">
-              <svg-icon v-if="!node.isLeaf" name="folder" width="17" height="17" />
-              <svg-icon v-if="!node.isLeaf" name="folder-open" width="17" height="17" />
+              <svg-icon v-if="!node.isLeaf" name="folder" width="16" height="16" />
+              <svg-icon v-if="!node.isLeaf" name="folder-open" width="16" height="16" />
             </span>
             <span class="node-icon">
-              <svg-icon v-if="node.isLeaf" name="tag" width="17" height="17" class="leaf" />
+              <svg-icon v-if="node.isLeaf" name="tag" width="16" height="16" class="leaf" />
             </span>
             {{ node.label }}
           </span>
@@ -296,7 +297,7 @@ export default class extends Vue {
 
   .svg-icon {
     display: none;
-    margin-right: 0.5em;
+    margin-right: 7px;
 
     &:first-child {
       display: inline;

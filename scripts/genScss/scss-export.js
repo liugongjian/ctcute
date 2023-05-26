@@ -16,6 +16,7 @@ const deprecatedFileData = fs.readFileSync(deprecatedFilePath, 'utf-8')
 const jsExportFilePath = scssLib.generateJsExport(fileData + deprecatedFileData, filePath)
 scssLib.generateTsType(fileData + deprecatedFileData, filePath)
 scssLib.generateDoc(fileData, jsExportFilePath, 'variables-doc')
+scssLib.generateCssVar(fileData, jsExportFilePath, 'css-vars')
 
 
 // console.log(deprecatedFileData)

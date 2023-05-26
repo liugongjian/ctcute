@@ -58,6 +58,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'cute-table-filter',
+        name: 'CuteTableColumnSettings',
+        component: () => import('@/views/component/Base/CuteTableFilter/index.vue'),
+        meta: {
+          title: 'CuteTableFilter',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'cute-titled-block',
         name: 'CuteTitledBlock',
         component: () => import('@/views/component/Base/CuteTitledBlock/index.vue'),
@@ -81,15 +90,6 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteEditInput/index.vue'),
         meta: {
           title: 'CuteEditInput',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'cute-button-group',
-        name: 'CuteButtonGroup',
-        component: () => import('@/views/component/Base/CuteButtonGroup/index.vue'),
-        meta: {
-          title: 'CuteButtonGroup',
           breadcrumb: true,
         },
       },

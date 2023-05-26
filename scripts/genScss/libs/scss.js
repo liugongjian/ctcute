@@ -126,6 +126,46 @@ export default ${JSON.stringify(docList, null, 2).replace(/"/g, '\'')}
   console.log(chalk.green(`${docFileName}生成成功`))
 }
 
+// 生成原生css var变量
+function generateCssVar(data, filePath, docFileName) {
+  // 解析出css值
+  const scssResult = sass.compile(filePath, { style: 'compressed' })
+  const regex = /:export{([^}]+)}/
+  const match = scssResult.css.match(regex)
+  const cssItems = match[1].split(';')
+  const cssMap = new Map()
+  cssItems.forEach(item => {
+    const itemStringList = item.split(':')
+    cssMap[itemStringList[0]] = itemStringList[1]
+  })
+
+  // 解析Variables
+  const exports = []
+  const variables = data.split('\n')
+  variables.forEach(variable => {
+    if (variable.startsWith('$')) {
+      const variableStringList = variable.split(':')
+      const jsKey = toUpperCamelCase(variableStringList[0].replace('$', ''))
+      const key = variableStringList[0].replace('$', '--')
+      const valueStringList = variableStringList[1].split(';')
+      const comment = valueStringList[1] || ''
+      const value = cssMap[jsKey]
+      
+      exports.push(`  ${key}: ${value};`)
+    }
+  })
+  // 将文本写入文件
+  const targetPath = filePath.substring(0, filePath.lastIndexOf('/')) + `/${docFileName}.css`
+  let result = `${exports.join('\n')}`
+  fs.writeFileSync(
+    targetPath,
+`:root {
+${result}
+}`
+  )
+  console.log(chalk.green(`${docFileName}生成成功`))
+}
+
 // 中划线变量转驼峰
 function toUpperCamelCase(str) {
   // 去除所有空格和连字符
@@ -139,4 +179,4 @@ function toUpperCamelCase(str) {
   return str
 }
 
-module.exports = { generateJsExport, generateTsType, generateDoc, toUpperCamelCase }
+module.exports = { generateJsExport, generateTsType, generateDoc, generateCssVar, toUpperCamelCase }

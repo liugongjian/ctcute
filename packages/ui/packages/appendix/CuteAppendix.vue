@@ -12,8 +12,8 @@
         <div class="cute-appendix--medium__content" @click="handleDownload">
           <svg-icon class="cute-appendix--medium__content__link-icon" :name="svgName" :color="svgColor" />
           <div class="cute-appendix--medium__content__title">
-            <div class="title">{{ title }}</div>
-            <div class="size">{{ fileSize }}</div>
+            <div>{{ title }}</div>
+            <div>{{ fileSize }}</div>
           </div>
         </div>
         <div>
@@ -28,6 +28,8 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import axios from 'axios'
 import * as XLSX from 'xlsx/xlsx.mjs'
+import Variables from '@cutedesign/ui/style/themes/default/index.scss'
+
 @Component({
   name: 'CuteAppendix',
 })
@@ -38,7 +40,7 @@ export default class extends Vue {
   @Prop({ default: '标题1' }) public title!: string
   @Prop({ default: '1MB' }) public fileSize!: string
   @Prop({ default: 'file-fill' }) public svgName!: string
-  @Prop({ default: '' }) public svgColor: string
+  @Prop({ default: Variables.colorNeutral6 }) public svgColor: string
   @Prop({ default: '' }) public type: string
   @Prop({ default: '' }) public url: string
 

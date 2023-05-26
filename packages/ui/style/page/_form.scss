@@ -31,18 +31,21 @@
   }
 
   .form-item__tip {
+    position: relative;
     color: $text-color-light;
     font-size: $text-size;
     line-height: $line-height;
     margin-top: $margin-2x;
+    padding-left: $padding-5x;
 
     &:before {
+      position: absolute;
+      top: -2px;
+      left: 0;
       font-family: cute-icons;
       content: '\eb5b';
       color: $icon-color;
       font-size: $text-size-md;
-      vertical-align: top;
-      margin-right: $margin;
     }
   }
 

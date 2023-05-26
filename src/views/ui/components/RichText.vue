@@ -10,8 +10,8 @@
             <Toolbar class="tool-bar-content" :editor="editor" :default-config="toolbarConfig" />
             <!-- 编辑器 -->
             <Editor
-              class="editor-content"
               v-model="html"
+              class="editor-content"
               :default-config="editorConfig"
               @onChange="onChange"
               @onCreated="onCreated"

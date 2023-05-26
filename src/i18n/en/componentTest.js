@@ -79,7 +79,7 @@ export default {
     noUnderline: 'Without Underline',
     icon: 'Link with icon',
     edit: 'Edit',
-    info: 'Check'
+    info: 'Check',
   },
   radio: {
     title: 'Radio',

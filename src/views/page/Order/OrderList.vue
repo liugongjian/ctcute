@@ -75,7 +75,7 @@
         <span class="config-cost">购买量:</span>
         <el-input-number v-model="form.buyNumber" :min="0"></el-input-number>
         <span class="config-cost">购买时长:</span>
-        <el-select class="el-select-small" v-model="form.buyDuration" placeholder="请选择" >
+        <el-select v-model="form.buyDuration" class="el-select-small" placeholder="请选择">
           <el-option v-for="item in marks" :key="item" :value="item"> </el-option>
         </el-select>
         <span class="config-cost">配置费用：</span>
@@ -202,7 +202,7 @@ export default class extends Vue {
     totalPrice: 54.0,
     createTime: 1,
     buyNumber: 0,
-    buyDuration: '1个月'
+    buyDuration: '1个月',
   }
   private mouthValue = 1
   private options = ['workSpace', 'teamSpace', 'default']

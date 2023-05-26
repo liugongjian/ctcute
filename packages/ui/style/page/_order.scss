@@ -74,15 +74,15 @@ $headerHeight: 51px;
       height: 37px;
       line-height: 1;
       vertical-align: middle;
-      color: #333333;
+      color: $color-grey-1;
       font-size: $text-size-xl - 4px;
       box-sizing: border-box;
-      border-bottom: 2px solid #E2E5ED;
+      border-bottom: 1px solid $border-color;
     }
     .real-order-right-content{
       padding: $padding-2x;
       box-sizing: border-box;
-      border-bottom: 2px solid #E2E5ED;
+      border-bottom: 1px solid $border-color;
     }
     .real-order-right-footer{
       padding: $padding-2x;
@@ -103,7 +103,7 @@ $headerHeight: 51px;
       margin-bottom: 0px;
       &__label{
         font-size: $text-size-sm;
-        color: #666666;
+        color: $color-grey-2;
       }
     }
     
@@ -218,19 +218,19 @@ $headerHeight: 51px;
     vertical-align: middle;
     .content-success{
       font-size: $text-size-md;
-      color: #333333;
-      font-weight: 600;
+      color: $color-grey-1;
+      font-weight: $text-title-weight;
       margin-top: $margin-5x;
       margin-bottom: $margin-2x;
     }
     .content-count-down{
       font-size: $text-size-sm;
-      color: #333333;
-      font-weight: 400;
+      color: $color-grey-1;
+      font-weight: $text-weight;
       
     }
     .timer{
-      color: #3D73F5;
+      color: $color-status-info-1;
     }
     .operation{
       margin-top: $margin-5x;

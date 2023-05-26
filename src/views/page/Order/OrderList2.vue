@@ -5,22 +5,28 @@
       <span class="real-order-header__content">物理机服务</span>
     </cute-fixed-footer>
 
-    <el-form
-      ref="orderForm"
-      label-position="left"
-      :model="form"
-      label-width="90px"
-      class="simple-form"
-    >
-    <el-card >
-       <el-form-item label="计费模式" prop="payment">
-            <el-radio-group v-model="form.payment" @input="changeFuns">
-              <el-radio-button :label="item.label" v-for="(item, key) in buutonDatas" :key="key"></el-radio-button>
-            </el-radio-group>
-            <div class="form-item__tip">{{ paymentToolTip }}</div>
+    <el-form ref="orderForm" label-position="left" :model="form" label-width="90px" class="simple-form">
+      <el-card>
+        <el-form-item label="计费模式" prop="payment">
+          <el-radio-group v-model="form.payment" @input="changeFuns">
+            <el-radio-button
+              v-for="(item, key) in buutonDatas"
+              :key="key"
+              :label="item.label"
+            ></el-radio-button>
+          </el-radio-group>
+          <div class="form-item__tip">{{ paymentToolTip }}</div>
         </el-form-item>
-        <el-form-item  prop="nodeCode">
-          <span slot="label">区域 <svg-icon name="question-circle" :color="colorVariables.colorGrey3" :width="15" :height="15" ></svg-icon></span>
+        <el-form-item prop="nodeCode">
+          <span slot="label"
+            >区域
+            <svg-icon
+              name="question-circle"
+              :color="colorVariables.colorGrey3"
+              :width="15"
+              :height="15"
+            ></svg-icon
+          ></span>
           <cute-area
             v-model="form.nodeCode"
             placeholder="请选择"
@@ -31,95 +37,110 @@
           />
           <div class="form-item__tip">{{ areaToolTip }}</div>
         </el-form-item>
-         <el-form-item label="可用分区" prop="usableArea">
-            <el-radio-group v-model="form.usableArea" >
-              <el-radio-button :label="item.label" v-for="(item, key) in usableAreaDatas" :key="key"></el-radio-button>
-            </el-radio-group>
+        <el-form-item label="可用分区" prop="usableArea">
+          <el-radio-group v-model="form.usableArea">
+            <el-radio-button
+              v-for="(item, key) in usableAreaDatas"
+              :key="key"
+              :label="item.label"
+            ></el-radio-button>
+          </el-radio-group>
         </el-form-item>
-    </el-card>
-    <el-card>
-      <el-form-item class="real-order-specification" label="规格">
-        <el-form-item label="筛选">
+      </el-card>
+      <el-card>
+        <el-form-item class="real-order-specification" label="规格">
+          <el-form-item label="筛选">
+            <el-row>
+              <el-col :span="4">
+                <el-select v-model="form.series" class="el-select-small" placeholder="请选择">
+                  <el-option v-for="item in series" :key="item" :value="item"> </el-option>
+                </el-select>
+              </el-col>
+              <el-col :span="4">
+                <el-select v-model="form.cpu" class="el-select-small" placeholder="请选择">
+                  <el-option v-for="item in cpus" :key="item" :value="item"> </el-option>
+                </el-select>
+              </el-col>
+              <el-col :span="4">
+                <el-select v-model="form.memory" class="el-select-small" placeholder="请选择">
+                  <el-option v-for="item in memorys" :key="item" :value="item"> </el-option>
+                </el-select>
+              </el-col>
+            </el-row>
+          </el-form-item>
+          <el-form-item label="类型" prop="type">
+            <el-radio-group v-model="form.type">
+              <el-radio-button
+                v-for="(item, key) in typeDatas"
+                :key="key"
+                :label="item.label"
+              ></el-radio-button>
+            </el-radio-group>
+          </el-form-item>
+          <el-table v-loading="loading" :data="orderTableData" fit border>
+            <el-table-column prop="orderId" label="订单号" width="200px">
+              <template slot-scope="scope">
+                <el-radio v-model="form.orderId" :label="scope.row.orderId">{{ scope.row.orderId }}</el-radio>
+              </template>
+            </el-table-column>
+            <el-table-column prop="product" label="产品" width="160px"></el-table-column>
+            <el-table-column prop="project" label="项目" width="160px"></el-table-column>
+            <el-table-column
+              prop="orderType"
+              label="类型"
+              width="160px"
+              :filters="[
+                { text: '完成', value: '1' },
+                { text: '续订', value: '2' },
+                { text: '取消', value: '3' },
+              ]"
+              :filter-multiple="false"
+            >
+            </el-table-column>
+            <el-table-column sortable prop="createTime" label="创建时间" width="160px">
+              <template slot-scope="{ row }">
+                {{ formatDatetime(row.createTime) }}
+              </template>
+            </el-table-column>
+          </el-table>
+          <el-pagination
+            class="pagination"
+            :current-page="pager.page"
+            :page-size="pager.limit"
+            :total="pager.total"
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+          >
+          </el-pagination>
+        </el-form-item>
+      </el-card>
+      <el-card>
+        <el-form-item label="镜像">
+          <el-radio-group v-model="form.mirror">
+            <el-radio-button
+              v-for="(item, key) in mirrorDatas"
+              :key="key"
+              :label="item.label"
+            ></el-radio-button>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="" label-width="90px">
           <el-row>
             <el-col :span="4">
-              <el-select class="el-select-small" v-model="form.series" placeholder="请选择" >
+              <el-select v-model="form.series1" class="el-select-small" placeholder="请选择">
                 <el-option v-for="item in series" :key="item" :value="item"> </el-option>
               </el-select>
             </el-col>
             <el-col :span="4">
-              <el-select class="el-select-small" v-model="form.cpu" placeholder="请选择">
+              <el-select v-model="form.cpu1" class="el-select-small" placeholder="请选择">
                 <el-option v-for="item in cpus" :key="item" :value="item"> </el-option>
               </el-select>
             </el-col>
-            <el-col :span="4">
-                <el-select class="el-select-small" v-model="form.memory" placeholder="请选择">
-                  <el-option v-for="item in memorys" :key="item" :value="item"> </el-option>
-                </el-select>
-              </el-col>
           </el-row>
         </el-form-item>
-        <el-form-item label="类型" prop="type">
-          <el-radio-group v-model="form.type" >
-            <el-radio-button :label="item.label" v-for="(item, key) in typeDatas" :key="key"></el-radio-button>
-          </el-radio-group>
-        </el-form-item>
-        <el-table v-loading="loading" :data="orderTableData" fit border>
-          <el-table-column prop="orderId" label="订单号" width="200px">
-            <template slot-scope="scope">
-              <el-radio v-model="form.orderId" :label="scope.row.orderId">{{ scope.row.orderId }}</el-radio>
-            </template>
-          </el-table-column>
-          <el-table-column  prop="product" label="产品" width="160px"></el-table-column>
-          <el-table-column  prop="project" label="项目" width="160px"></el-table-column>
-          <el-table-column  prop="orderType" label="类型" width="160px"  
-          :filters="[
-            { text: '完成', value: '1' },
-            { text: '续订', value: '2' },
-            { text: '取消', value: '3' }
-          ]"
-            :filter-multiple="false">
-          </el-table-column>
-          <el-table-column sortable prop="createTime" label="创建时间" width="160px">
-             <template slot-scope="{ row }">
-              {{ formatDatetime(row.createTime) }}
-            </template>
-          </el-table-column>
-
-        </el-table>
-        <el-pagination
-          class="pagination"
-          :current-page="pager.page"
-          :page-size="pager.limit"
-          :total="pager.total"
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-        >
-        </el-pagination>
-      </el-form-item>
-    </el-card>
-    <el-card>
-      <el-form-item label="镜像">
-          <el-radio-group v-model="form.mirror" >
-            <el-radio-button :label="item.label" v-for="(item, key) in mirrorDatas" :key="key"></el-radio-button>
-          </el-radio-group>
-      </el-form-item>
-      <el-form-item label="" label-width="90px">
-        <el-row>
-          <el-col :span="4">
-            <el-select class="el-select-small" v-model="form.series1" placeholder="请选择" >
-              <el-option v-for="item in series" :key="item" :value="item"> </el-option>
-            </el-select>
-          </el-col>
-          <el-col :span="4">
-            <el-select class="el-select-small" v-model="form.cpu1" placeholder="请选择">
-              <el-option v-for="item in cpus" :key="item" :value="item"> </el-option>
-            </el-select>
-          </el-col>
-        </el-row>
-      </el-form-item>
-    </el-card>
-    <el-card>
-       <el-form-item label="购买时长" prop="buyDuration">
+      </el-card>
+      <el-card>
+        <el-form-item label="购买时长" prop="buyDuration">
           <cute-slider
             ref="Sliders"
             v-model="form.buyDuration"
@@ -133,7 +154,7 @@
             @inputChange="inputChanges"
           />
         </el-form-item>
-    </el-card>
+      </el-card>
     </el-form>
     <el-card class="real-order-right">
       <div class="real-order-right-title">当前配置</div>
@@ -142,8 +163,8 @@
           <el-form-item label="计费方式" prop="payment">
             <span>{{ form.payment || '-' }}</span>
           </el-form-item>
-           <el-form-item label="区域" prop="nodeCode">
-            <span>{{ getAreaLabel(form.nodeCode) || '-'  }}</span>
+          <el-form-item label="区域" prop="nodeCode">
+            <span>{{ getAreaLabel(form.nodeCode) || '-' }}</span>
           </el-form-item>
           <el-form-item label="可用区" prop="usableArea">
             <span>{{ form.usableArea || '-' }}</span>
@@ -173,31 +194,31 @@
             <span>{{ form.keys || '-' }}</span>
           </el-form-item>
           <el-form-item label="购买时长" prop="buyDuration">
-            <span>{{ form.buyDuration+'个月' || '-' }}</span>
+            <span>{{ form.buyDuration + '个月' || '-' }}</span>
           </el-form-item>
-           <el-form-item label="创建数量" prop="createNumber">
-            <span>{{  form.createNumber || '-' }}</span>
+          <el-form-item label="创建数量" prop="createNumber">
+            <span>{{ form.createNumber || '-' }}</span>
           </el-form-item>
         </el-form>
       </div>
       <div class="real-order-right-footer">
-        <div >
+        <div>
           <span class="config-cost">配置费用：</span>
           <span class="cost-count">￥{{ form.totalPrice }}</span>
           <svg-icon name="question-circle" :color="colorVariables.colorGrey3" :width="15" :height="15" />
         </div>
-        <div >参考价格，具体扣费请以账单为准。</div>
-        <div >
+        <div>参考价格，具体扣费请以账单为准。</div>
+        <div>
           <a
-              href="https://www.ctyun.cn/document/10026753/10027021"
-              target="_blank"
-              style="color: #3D73F5; cursor: pointer; text-decoration: none"
-            >
-              了解计费详情
+            href="https://www.ctyun.cn/document/10026753/10027021"
+            target="_blank"
+            style="color: #3d73f5; cursor: pointer; text-decoration: none"
+          >
+            了解计费详情
           </a>
         </div>
         <div>
-           <el-button type="ct">立即订购</el-button>
+          <el-button type="ct">立即订购</el-button>
         </div>
       </div>
     </el-card>
@@ -278,16 +299,17 @@ export default class extends Vue {
   ]
   private typeDatas = [
     {
-      label:'通用型'
+      label: '通用型',
     },
     {
-      label:'通过计算型'
+      label: '通过计算型',
     },
     {
-      label:'内存优化型'
-    }, {
-      label:'CPU加速型'
-    }
+      label: '内存优化型',
+    },
+    {
+      label: 'CPU加速型',
+    },
   ]
   private usableAreaDatas = [
     {
@@ -297,16 +319,14 @@ export default class extends Vue {
       label: '可用区B',
     },
   ]
-  private mirrorDatas = [
-    { label: '公共镜像' },
-    { label: '私有镜像' },
-    { label: '共享镜像' }]
+  private mirrorDatas = [{ label: '公共镜像' }, { label: '私有镜像' }, { label: '共享镜像' }]
   private rules = {
     nodeCode: [{ required: true, message: '请选择区域', trigger: 'change' }],
     payment: [{ required: true, message: '请选择计费模式', trigger: 'change' }],
   }
   private paymentToolTip = '包年包月弹性云主机创建后不能删除，如果停止使用，请到用户中心执行退订操作'
-  private areaToolTip = '不同区域的云服务产品之间内网不相通，请就近选择靠近您业务的区域，可减少网络延迟，提高访问速度'
+  private areaToolTip =
+    '不同区域的云服务产品之间内网不相通，请就近选择靠近您业务的区域，可减少网络延迟，提高访问速度'
   // 分页信息
   private pager = {
     page: 1,
@@ -319,15 +339,15 @@ export default class extends Vue {
     AdConfiguration: false,
     number: 0,
     payment: '包年包月',
-    usableArea: '可用区A',//可用分区
+    usableArea: '可用区A', //可用分区
     series: '全新系列',
-    series1:'全新系列',
+    series1: '全新系列',
     cpu: '全部CPU',
     cpu1: '全部CPU',
     memory: '全部内存',
-    orderId:'',
+    orderId: '',
     type: '通用型',
-    mirror: "公共镜像",
+    mirror: '公共镜像',
     buyNumber: 0,
     buyDuration: 1,
     totalPrice: 2892.56,
@@ -338,15 +358,51 @@ export default class extends Vue {
     networkCard: 'test',
     elasticityIp: '主网卡未绑定弹性IP',
     keys: '',
-    createNumber:1
-    
+    createNumber: 1,
   }
   private loading = false
   private mouthValue = 1
   private options = ['workSpace', 'teamSpace', 'default']
   private series = ['全新系列', '最新系列']
-  private cpus = ['全部CPU', '1vCPUs', '2vCPUs', '4vCPUs', '8vCPUs', '12vCPUs', '16vCPUs', '24vCPUs', '32vCPUs', '36vCPUs', '48vCPUs', '72vCPUs', '96vCPUs']
-  private memorys = ['全部内存', '1GB', '2GB', '4GB', '8GB', '16GB', '24GB', '32GB', '48GB', '64GB', '96GB', '128GB', '192GB', '252GB', '256GB', '288GB', '384GB', '504GB', '512GB', '768GB', '960GB', '1920GB']
+  private cpus = [
+    '全部CPU',
+    '1vCPUs',
+    '2vCPUs',
+    '4vCPUs',
+    '8vCPUs',
+    '12vCPUs',
+    '16vCPUs',
+    '24vCPUs',
+    '32vCPUs',
+    '36vCPUs',
+    '48vCPUs',
+    '72vCPUs',
+    '96vCPUs',
+  ]
+  private memorys = [
+    '全部内存',
+    '1GB',
+    '2GB',
+    '4GB',
+    '8GB',
+    '16GB',
+    '24GB',
+    '32GB',
+    '48GB',
+    '64GB',
+    '96GB',
+    '128GB',
+    '192GB',
+    '252GB',
+    '256GB',
+    '288GB',
+    '384GB',
+    '504GB',
+    '512GB',
+    '768GB',
+    '960GB',
+    '1920GB',
+  ]
   private marks = {
     1: '1个月',
     2: '2个月',
@@ -366,7 +422,7 @@ export default class extends Vue {
     16: '4年',
     17: '5年',
   }
- 
+
   private conditions: OrderTable.Conditions = {
     orderType: '',
   }
@@ -378,15 +434,15 @@ export default class extends Vue {
         if (city.value === areaValue) {
           areaLabel = city.label
         }
-      });
+      })
     })
     return areaLabel
   }
 
   /**
-  * 切换分页数量
-  * @param limit {number} 分页数
-  */
+   * 切换分页数量
+   * @param limit {number} 分页数
+   */
   private handleSizeChange(limit: number) {
     this.pager.limit = limit
     this.getOrderTableData()
@@ -406,31 +462,30 @@ export default class extends Vue {
 
   private async getOrderTableData() {
     this.loading = true
-     // 接口
+    // 接口
     const params: OrderTable.TableParams = {
       limit: this.pager.limit,
       page: this.pager.page,
-      ...this.conditions
-     }
+      ...this.conditions,
+    }
     const res = await getOrderTableList(params)
     // 小三角旋转开关
     const tableData = res.data.list.map(item => {
-      ; (item as any).flag = false
+      ;(item as any).flag = false
       return item
     })
     this.pager.total = res.data.total
     this.pager.page = res.data.page
-    this.orderTableData =  tableData 
+    this.orderTableData = tableData
     this.loading = false
   }
 
-   /**
-  * 切换付费方式
-  */
+  /**
+   * 切换付费方式
+   */
   private changeFuns(key) {
     this.form.payment = key
     this.paymentToolTip = `${key}弹性云主机创建后不能删除，如果停止使用，请到用户中心执行退订操作`
-
   }
 
   private changes(val) {
@@ -491,7 +546,6 @@ export default class extends Vue {
       }
     }
   }
-
 
   /**
    * 选择地域

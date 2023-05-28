@@ -1,9 +1,9 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-19 16:32:05
- * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-05-09 18:08:39
- * @Description: 
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-28 08:51:27
+ * @Description:
 -->
 <template>
   <div class="upload-demo">
@@ -153,9 +153,9 @@ export default class extends Vue {
     en: 'Upload',
   }
   public static description = {
-    maintainer: '马妍',
-    version: 'v1.0',
-    updateTime: '2022.07.12',
+    maintainer: '孙善鹏',
+    version: 'v2.0',
+    updateTime: '2023.05.05',
   }
   private uploadSingleName = ''
   private dialogImageUrl = ''

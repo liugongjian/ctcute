@@ -115,9 +115,9 @@ export default class extends Vue {
     en: 'Steps',
   }
   public static description = {
-    maintainer: '吴静',
-    version: 'v1.0',
-    updateTime: '2022.07.12',
+    maintainer: '黄靖',
+    version: 'v2.0',
+    updateTime: '2023.05.05',
   }
 
   private normalsteps = [{ title: '步骤1' }, { title: '步骤2' }, { title: '步骤3' }]

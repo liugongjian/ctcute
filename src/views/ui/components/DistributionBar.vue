@@ -4,7 +4,7 @@
  * @Date: 2023-01-09 16:48:27
  * @LastEditors: wujingcheng
  * @LastEditTime: 2023-01-09 16:51:09
- * @Description: 
+ * @Description:
 -->
 <template>
   <div class="distribution-bar-ui">
@@ -42,9 +42,9 @@ export default class extends Vue {
     en: 'DistributionBar',
   }
   public static description = {
-    maintainer: '吴景城',
-    version: 'v1.0',
-    updateTime: '2023.01.09',
+    maintainer: '朱玉豆',
+    version: 'v2.0',
+    updateTime: '2023.05.05',
   }
   barList1 = [
     {

@@ -1,10 +1,10 @@
 <!--
- * @Description:
  * @Author: 甘雨涛
- * @Date: 2023/1/11 15:52
+ * @Date: 2023-01-11 15:52:27
  * @LastEditors: 甘雨涛
+ * @LastEditTime: 2023-01-11 15:52:27
+ * @Description:  Monaco代码编辑器
 -->
-
 <template>
   <div>
     <div class="component__container">

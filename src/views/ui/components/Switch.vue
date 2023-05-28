@@ -3,7 +3,7 @@
  * @Date: 2022-10-19 10:59:22
  * @LastEditors: 孙善鹏
  * @LastEditTime: 2023-04-23 14:26:55
- * @Description: 
+ * @Description:
 -->
 <template>
   <div>
@@ -41,9 +41,9 @@ export default class extends Vue {
   private inputSize = 'medium'
   private inputDisabled = false
   public static description = {
-    maintainer: '马妍',
-    version: 'v1.0',
-    updateTime: '2022.07.12',
+    maintainer: '孙善鹏',
+    version: 'v2.0',
+    updateTime: '2023.05.05',
   }
 
   private value = true

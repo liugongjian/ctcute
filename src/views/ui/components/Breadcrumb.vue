@@ -31,9 +31,9 @@ export default class extends Vue {
     en: 'Breadcrumb',
   }
   public static description = {
-    maintainer: '马妍',
-    version: 'v1.0',
-    updateTime: '2022.07.12',
+    maintainer: '胡一苗',
+    version: 'v2.0',
+    updateTime: '2023.05.05',
   }
 }
 </script>

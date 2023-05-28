@@ -51,10 +51,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              @visible-change="openDropdown(scope.$index, 1)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 1)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -137,10 +134,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              @visible-change="openDropdown(scope.$index, 2)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 2)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -229,10 +223,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              @visible-change="openDropdown(scope.$index, 3)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 3)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -308,10 +299,7 @@
               <el-button type="text" size="small" class="bt-operation">卸载</el-button>
               <el-button type="text" size="small" class="bt-operation">扩容</el-button>
               <el-divider direction="vertical"></el-divider>
-              <el-dropdown
-                trigger="click"
-                @visible-change="openDropdown(scope.$index, 3)"
-              >
+              <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 3)">
                 <el-button type="text" size="small" class="bt-operation">
                   更多
                   <i
@@ -382,10 +370,7 @@
               <el-button type="text" size="small" class="bt-operation">卸载</el-button>
               <el-button type="text" size="small" class="bt-operation">扩容</el-button>
               <el-divider direction="vertical"></el-divider>
-              <el-dropdown
-                trigger="click"
-                @visible-change="openDropdown(scope.$index, 4)"
-              >
+              <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 4)">
                 <el-button type="text" size="small" class="bt-operation">
                   更多
                   <i
@@ -467,10 +452,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              @visible-change="openDropdown(scope.$index, 5)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 5)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -546,10 +528,7 @@
               <el-button type="text" size="small" class="bt-operation">卸载</el-button>
               <el-button type="text" size="small" class="bt-operation">扩容</el-button>
               <el-divider direction="vertical"></el-divider>
-              <el-dropdown
-                trigger="click"
-                @visible-change="openDropdown(scope.$index)"
-              >
+              <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index)">
                 <el-button type="text" size="small" class="bt-operation">
                   更多
                   <i
@@ -647,10 +626,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              @visible-change="openDropdown(scope.$index, 6)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 6)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -818,10 +794,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              @visible-change="openDropdown(scope.$index, 5)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 5)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -1348,10 +1321,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              @visible-change="openDropdown(scope.$index, 1)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 1)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -1426,10 +1396,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              @visible-change="openDropdown(scope.$index, 1)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 1)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -1503,10 +1470,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              @visible-change="openDropdown(scope.$index, 1)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 1)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -1580,10 +1544,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              @visible-change="openDropdown(scope.$index, 1)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 1)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -1657,10 +1618,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              @visible-change="openDropdown(scope.$index, 1)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 1)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -1999,9 +1957,9 @@ export default class extends Vue {
     en: 'Table',
   }
   public static description = {
-    maintainer: '朱玉豆',
-    version: 'v1.0',
-    updateTime: '2022.07.12',
+    maintainer: '胡一苗',
+    version: 'v2.0',
+    updateTime: '2023.05.05',
   }
   private pageSize = 20
 

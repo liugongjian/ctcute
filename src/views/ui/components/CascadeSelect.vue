@@ -88,9 +88,9 @@ export default class extends Vue {
     en: 'CascadeSelect',
   }
   public static description = {
-    maintainer: '秦瑞斌',
-    version: 'v1.0',
-    updateTime: '2022.09.02',
+    maintainer: '孙善鹏',
+    version: 'v2.0',
+    updateTime: '2023.05.05',
   }
 
   private value1 = []

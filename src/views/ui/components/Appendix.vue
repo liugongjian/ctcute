@@ -55,9 +55,9 @@ export default class extends Vue {
     en: 'Appendix',
   }
   public static description = {
-    maintainer: '秦瑞斌',
-    version: 'v1.0',
-    updateTime: '2022.07.29',
+    maintainer: '朱玉豆',
+    version: 'v2.0',
+    updateTime: '2023.05.29',
   }
   private smallTitle1 = '小附件1'
   private smallTitle2 = '小附件2'

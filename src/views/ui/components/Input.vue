@@ -381,9 +381,9 @@ export default class extends Vue {
     en: 'Input',
   }
   public static description = {
-    maintainer: '马妍',
-    version: 'v1.0',
-    updateTime: '2022.07.12',
+    maintainer: '孙善鹏',
+    version: 'v2.0',
+    updateTime: '2023.05.05',
   }
 
   private flag = true

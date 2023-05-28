@@ -70,9 +70,9 @@ export default class extends Vue {
     en: 'Tabs',
   }
   public static description = {
-    maintainer: '马妍',
-    version: 'v1.0',
-    updateTime: '2022.07.12',
+    maintainer: '黄靖',
+    version: 'v2.0',
+    updateTime: '2023.05.05',
   }
 
   private editableTabs = [

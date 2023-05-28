@@ -1,9 +1,9 @@
 <!--
- * @Author: fanzhengle
- * @Date: 2022-12-03 11:18:32
- * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-16 15:05:31
- * @Description:
+ * @Author: 朱玉豆
+ * @Date: 2023-04-25 09:43:03
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-28 11:14:09
+ * @Description: 使用vxe-table实现复杂表格的功能
 -->
 <template>
   <div>

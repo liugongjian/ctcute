@@ -4,6 +4,13 @@
  * @Date: 2023/4/26 14:50
  * @LastEditors: 黄靖
 -->
+<!--
+ * @Author: 甘雨涛
+ * @Date: 2023-04-26 14:50:32
+ * @LastEditors: 甘雨涛
+ * @LastEditTime: 2023-04-26 14:50:32
+ * @Description: 支持不同类型的表单错误提示
+-->
 <template>
   <div>
     <!-- 多个DEMO请复制此段 -->

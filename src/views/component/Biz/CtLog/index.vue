@@ -1,9 +1,9 @@
 <!--
- * @Description:
  * @Author: 甘雨涛
  * @Date: 2022-12-28 13:41:27
- * @LastEditTime: 2022-12-28 20:03:27
  * @LastEditors: 甘雨涛
+ * @LastEditTime: 2022-12-28 20:03:27
+ * @Description: sse日志组件
 -->
 <template>
   <div>

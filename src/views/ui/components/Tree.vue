@@ -78,9 +78,9 @@ export default class extends Vue {
     en: 'Tree',
   }
   public static description = {
-    maintainer: '肖仁',
-    version: 'v1.0',
-    updateTime: '2022.07.12',
+    maintainer: '刘功坚',
+    version: 'v2.0',
+    updateTime: '2023.05.29',
   }
   private fourTree = []
   private threeTree = []

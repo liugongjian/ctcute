@@ -20,6 +20,9 @@ $tree-leaf-expand-icon-padding: 2px;
     line-height: 1;
     color: $color-neutral-6;
     .node-content .node-icon {
+      & > svg {
+        color: $color-neutral-9;
+      }
       color: $color-neutral-9;
     }
   }
@@ -176,6 +179,8 @@ $tree-leaf-expand-icon-padding: 2px;
         color: $color-master;
         font-weight: $text-title-weight;
       }
+      color: $color-master;
+      font-weight: $text-title-weight;
     }
   }
 }

@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "name": "ProDetail4.vue",
+      "path": "@/views/page/Detail/ProDetail4.vue"
+    },
+    {
+      "name": "ProDetail4.d.ts",
+      "path": "@/types/ProDetail4.d.ts"
+    },
+    {
+      "name": "api/proDetail4.ts",
+      "path": "@/api/proDetail4.ts"
+    }
+  ]
+}
+

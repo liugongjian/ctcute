@@ -27,7 +27,7 @@
             <cute-remind-input v-model="conditions.name" placeholder="请输入主机别名" title="主机别名" />
           </el-form-item>
           <el-form-item class="table-tools__conditions__buttons">
-            <el-button type="primary" @click="tableHook.query()">查 询</el-button>
+            <el-button type="primary" plain @click="tableHook.query()">查 询</el-button>
             <el-button @click="resetConditions">重 置</el-button>
           </el-form-item>
         </el-form>

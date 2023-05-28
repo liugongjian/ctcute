@@ -232,7 +232,7 @@ export default class extends Mixins(TypeScriptDemoMixin) {
   padding: 10px;
   font-size: 18px;
   background: $color-bg-2;
-  border: 1px solid $border-color; // 颜色变量请从@cutedesign/theme/_variables.scss查找
+  border: 1px solid $border-color; // 颜色变量请从@cutedesign/ui/style/themes/default/index.scss查找
 
   &__child {
     font-size: 12px;

@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2023-04-22 08:35:39
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-06 18:47:57
+ * @LastEditTime: 2023-05-15 10:02:24
  * @Description: 复杂列设置
 -->
 <template>
@@ -27,7 +27,7 @@
         </template>
       </vxe-column>
       <vxe-column field="ip" title="IP地址"></vxe-column>
-      <vxe-column field="time" title="时间" sortable></vxe-column>
+      <vxe-column field="time" title="时间" :visible="false" sortable></vxe-column>
       <vxe-column
         field="health"
         title="健康状态"

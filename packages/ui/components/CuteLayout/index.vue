@@ -55,9 +55,11 @@
             </navbar>
           </slot>
           <div class="cute-layout__main" :class="[layout]">
+            <slot name="main-top" />
             <transition :name="transition" mode="out-in">
               <slot />
             </transition>
+            <slot name="main-bottom" />
           </div>
         </div>
       </div>
@@ -66,9 +68,11 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import { RouteConfig, RouteRecord } from 'vue-router'
 import LayoutHeader from './Header/index.vue'
 import LayoutSidebar from './Sidebar/index.vue'
 import Navbar from './Navbar/index.vue'
+
 @Component({
   name: 'CuteLayout',
   components: {
@@ -106,13 +110,13 @@ export default class extends Vue {
   private headerSubTitle?: string
 
   @Prop()
-  private sidebarRoutes
+  private sidebarRoutes: RouteConfig[]
 
   @Prop()
-  private sidebarRoutesAfterEach
+  private sidebarRoutesAfterEach: (route: RouteConfig) => RouteConfig
 
   @Prop()
-  private sidebarFilter
+  private sidebarFilter: (routes: RouteConfig[]) => RouteConfig[]
 
   @Prop({ default: '' })
   private sidebarTitle: string
@@ -133,6 +137,6 @@ export default class extends Vue {
   public breadcrumbShowLast: boolean
 
   @Prop()
-  private breadcrumbAfterEach
+  private breadcrumbAfterEach: (route: RouteRecord) => RouteRecord
 }
 </script>

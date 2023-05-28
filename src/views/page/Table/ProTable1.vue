@@ -2,7 +2,7 @@
  * @Author: 胡一苗
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 胡一苗
- * @LastEditTime: 2023-04-07 21:34:26
+ * @LastEditTime: 2023-05-19 09:59:27
  * @Description: 复杂表格1
 -->
 <template>
@@ -27,15 +27,42 @@
             <cute-remind-input v-model="conditions.name" placeholder="请输入主机别名" title="主机别名" />
           </el-form-item>
           <el-form-item class="table-tools__conditions__buttons">
-            <el-button type="primary" @click="search">查 询</el-button>
+            <el-button type="primary" plain @click="search">查 询</el-button>
             <el-button @click="resetConditions">重 置</el-button>
           </el-form-item>
         </el-form>
       </div>
     </div>
     <div class="table-filter">
-      <div class="table-filter_text">指标条件</div>
-      <cute-table-filter :form-data="formData" />
+      <div class="table-filter__text">指标条件</div>
+      <cute-table-filter @submit="submitTableFilter">
+        <el-tag
+          v-for="item in tableFilterData"
+          :key="item.key"
+          type="info"
+          size="large"
+          closable
+          @close="closeTableFilterItem(item.key)"
+        >
+          {{ item.value }}
+        </el-tag>
+        <template #filter-form>
+          <el-form class="table-filter__form" label-width="84px">
+            <el-form-item v-for="formItem in tableFilterForm" :key="formItem.key" :label="formItem.label">
+              <el-select v-model="formItem.operator.value" :placeholder="t('cute.select.placeholder')">
+                <el-option
+                  v-for="(item, index) in formItem.operator.options"
+                  :key="index"
+                  :label="item.label"
+                  :value="item.value"
+                />
+              </el-select>
+              <el-input v-model="formItem.value" :placeholder="t('cute.editInput.placeholder')" />
+              <span>{{ formItem.unit }}</span>
+            </el-form-item>
+          </el-form>
+        </template>
+      </cute-table-filter>
     </div>
     <!--表格-->
     <el-table v-loading="loading" :data="tableData" fit>
@@ -61,20 +88,15 @@
           <el-button type="text" size="small" class="bt-operation" @click="gotoMount(scope.row)">
             挂载
           </el-button>
-          <el-button type="text" size="small" class="bt-operation" @click="gotoUninstall(scope.row)"
-            >卸载</el-button
-          >
-          <el-button type="text" size="small" class="bt-operation" @click="gotoExpansion(scope.row)"
-            >扩容</el-button
-          >
-          <el-divider direction="vertical"></el-divider>
-          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
+          <el-button type="text" size="small" class="bt-operation" @click="gotoUninstall(scope.row)">
+            卸载
+          </el-button>
+          <el-button type="text" size="small" class="bt-operation" @click="gotoExpansion(scope.row)">
+            扩容
+          </el-button>
+          <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index)">
             <el-button type="text" size="small" class="bt-operation">
-              更多
-              <i
-                class="el-icon-arrow-down el-icon--right"
-                :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
-              />
+              更多<i :class="['el-icon-arrow-down', 'el-icon--right', scope.row.flag ? 'top-fill' : '']" />
             </el-button>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>退订</el-dropdown-item>
@@ -97,17 +119,18 @@
   </el-card>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Mixins } from 'vue-property-decorator'
 import * as ProTable1 from '@/types/ProTable1'
 import { getTable, getHosts } from '@/api/proTable1'
 import { STATUS, HEALTH2 } from '@/dics/proTable1'
 import { CuteTableFilter } from '@cutedesign/ui'
+import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
-  name: 'SimpleTable',
+  name: 'ProTable1',
   components: { CuteTableFilter },
 })
-export default class extends Vue {
+export default class extends Mixins(Locale) {
   // 健康状态字典
   private HEALTH = HEALTH2
 
@@ -243,7 +266,7 @@ export default class extends Vue {
 
   /**
    * 使用字典格式化实例状态
-   * @param data {SimpleTable.Host} 表格行对象
+   * @param data {ProTable1.Host} 表格行对象
    */
   private statusFormatter(data: ProTable1.Host) {
     return STATUS[data.status]
@@ -254,72 +277,209 @@ export default class extends Vue {
     this.tableData[index].flag = !this.tableData[index].flag
   }
 
-  /** * 新增过滤表单对象 */
-  private formData = [
+  /** 新增过滤条件的表单对象 **/
+  private tableFilterForm = [
     {
+      key: 'cpu',
       label: 'CPU使用量',
-      options: [
-        {
-          label: '> =',
-          value: '> =',
-        },
-        {
-          label: '<=',
-          value: '<=',
-        },
-      ],
+      operator: {
+        options: [
+          {
+            label: '>=',
+            value: '>=',
+          },
+          {
+            label: '<=',
+            value: '<=',
+          },
+        ],
+        value: '',
+      },
+      value: '',
       unit: '%',
     },
     {
+      key: 'ram',
       label: 'RAM使用量',
-      options: [
-        {
-          label: '> =',
-          value: '> =',
-        },
-        {
-          label: '<=',
-          value: '<=',
-        },
-      ],
+      operator: {
+        options: [
+          {
+            label: '>=',
+            value: '>=',
+          },
+          {
+            label: '<=',
+            value: '<=',
+          },
+        ],
+        value: '',
+      },
+      value: '',
       unit: 'GB',
     },
     {
+      key: 'disk',
       label: '磁盘剩余量',
-      options: [
-        {
-          label: '> =',
-          value: '> =',
-        },
-        {
-          label: '<=',
-          value: '<=',
-        },
-      ],
+      operator: {
+        options: [
+          {
+            label: '>=',
+            value: '>=',
+          },
+          {
+            label: '<=',
+            value: '<=',
+          },
+        ],
+        value: '',
+      },
+      value: '',
       unit: 'GB',
     },
-
     {
+      key: 'network',
       label: '网络平均负数',
-      options: [
-        {
-          label: '> =',
-          value: '> =',
-        },
-        {
-          label: '<=',
-          value: '<=',
-        },
-      ],
+      operator: {
+        options: [
+          {
+            label: '>=',
+            value: '>=',
+          },
+          {
+            label: '<=',
+            value: '<=',
+          },
+        ],
+        value: '',
+      },
+      value: '',
+      unit: 'kbs',
+    },
+    {
+      key: 'else2',
+      label: '其他参数2',
+      operator: {
+        options: [
+          {
+            label: '>=',
+            value: '>=',
+          },
+          {
+            label: '<=',
+            value: '<=',
+          },
+        ],
+        value: '',
+      },
+      value: '',
+      unit: 'kbs',
+    },
+    {
+      key: 'else3',
+      label: '其他参数3',
+      operator: {
+        options: [
+          {
+            label: '>=',
+            value: '>=',
+          },
+          {
+            label: '<=',
+            value: '<=',
+          },
+        ],
+        value: '',
+      },
+      value: '',
+      unit: 'kbs',
+    },
+    {
+      key: 'else4',
+      label: '其他参数4',
+      operator: {
+        options: [
+          {
+            label: '>=',
+            value: '>=',
+          },
+          {
+            label: '<=',
+            value: '<=',
+          },
+        ],
+        value: '',
+      },
+      value: '',
+      unit: 'kbs',
+    },
+    {
+      key: 'else5',
+      label: '其他参数5',
+      operator: {
+        options: [
+          {
+            label: '>=',
+            value: '>=',
+          },
+          {
+            label: '<=',
+            value: '<=',
+          },
+        ],
+        value: '',
+      },
+      value: '',
       unit: 'kbs',
     },
   ]
+
+  /** 过滤条件 **/
+  private tableFilterData = []
+
+  /** 生成过滤条件 **/
+  private getTableFilterData() {
+    const data = []
+    this.tableFilterForm.forEach(item => {
+      const {
+        label,
+        operator: { value: operatorValue },
+        value,
+        unit,
+      } = item
+      if (operatorValue && value) {
+        data.push({
+          key: item.key,
+          value: `${label}${operatorValue}${value}${unit}`,
+        })
+      }
+    })
+    return data
+  }
+
+  /** 提交过滤条件 **/
+  private submitTableFilter() {
+    this.tableFilterData = this.getTableFilterData()
+    this.pager.page = 1
+    this.getTable()
+  }
+
+  /** 删除过滤条件 **/
+  private closeTableFilterItem(key: string) {
+    const formItem = this.tableFilterForm.find(item => item.key === key)
+    formItem.operator.value = ''
+    formItem.value = ''
+    this.submitTableFilter()
+  }
 }
 </script>
 <style lang="scss" scoped>
-::v-deep {
-  .table-filter .table-filter-dropdown .table-filter_content {
-    z-index: 9999; // 按业务调整
+.table-filter__form {
+  .el-form-item {
+    .el-select,
+    .el-input {
+      width: 90px;
+      margin-right: $margin-2x;
+    }
   }
 }
 </style>

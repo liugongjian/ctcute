@@ -51,11 +51,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              :append-to-body="false"
-              @visible-change="openDropdown(scope.$index, 1)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 1)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -138,11 +134,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              :append-to-body="false"
-              @visible-change="openDropdown(scope.$index, 2)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 2)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -231,11 +223,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              :append-to-body="false"
-              @visible-change="openDropdown(scope.$index, 3)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 3)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -311,11 +299,7 @@
               <el-button type="text" size="small" class="bt-operation">卸载</el-button>
               <el-button type="text" size="small" class="bt-operation">扩容</el-button>
               <el-divider direction="vertical"></el-divider>
-              <el-dropdown
-                trigger="click"
-                :append-to-body="false"
-                @visible-change="openDropdown(scope.$index, 3)"
-              >
+              <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 3)">
                 <el-button type="text" size="small" class="bt-operation">
                   更多
                   <i
@@ -386,11 +370,7 @@
               <el-button type="text" size="small" class="bt-operation">卸载</el-button>
               <el-button type="text" size="small" class="bt-operation">扩容</el-button>
               <el-divider direction="vertical"></el-divider>
-              <el-dropdown
-                trigger="click"
-                :append-to-body="false"
-                @visible-change="openDropdown(scope.$index, 4)"
-              >
+              <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 4)">
                 <el-button type="text" size="small" class="bt-operation">
                   更多
                   <i
@@ -472,11 +452,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              :append-to-body="false"
-              @visible-change="openDropdown(scope.$index, 5)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 5)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -552,11 +528,7 @@
               <el-button type="text" size="small" class="bt-operation">卸载</el-button>
               <el-button type="text" size="small" class="bt-operation">扩容</el-button>
               <el-divider direction="vertical"></el-divider>
-              <el-dropdown
-                trigger="click"
-                :append-to-body="false"
-                @visible-change="openDropdown(scope.$index)"
-              >
+              <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index)">
                 <el-button type="text" size="small" class="bt-operation">
                   更多
                   <i
@@ -654,11 +626,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              :append-to-body="false"
-              @visible-change="openDropdown(scope.$index, 6)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 6)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -676,6 +644,14 @@
           </template>
         </el-table-column>
       </el-table>
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="153"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
     </div>
 
     <h3>可展开的表格</h3>
@@ -687,6 +663,7 @@
         row-key="_id"
         default-expand-all
         :tree-props="{ children: 'children' }"
+        :indent="20"
       >
         <el-table-column prop="name" label="名称" width="180"></el-table-column>
         <el-table-column prop="menuType" label="其他状态" width="180">
@@ -707,6 +684,7 @@
           </template>
         </el-table-column>
       </el-table>
+
       <el-table v-loading="loading" :data="table9">
         <el-table-column type="expand" width="32">
           <template slot-scope="scope">
@@ -816,11 +794,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              :append-to-body="false"
-              @visible-change="openDropdown(scope.$index, 5)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 5)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -838,6 +812,14 @@
           </template>
         </el-table-column>
       </el-table>
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="153"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
     </div>
 
     <h3>嵌套表格</h3>
@@ -924,6 +906,15 @@
           <template slot-scope="{ row }"> {{ formatDatetime(row.createTime) }}</template>
         </el-table-column>
       </el-table>
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="153"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
+
       <el-table v-loading="nestedTableLoading" :data="nestedTableData" fit>
         <el-table-column type="expand" width="32">
           <template slot-scope="scope">
@@ -1008,6 +999,14 @@
           <template slot-scope="{ row }"> {{ formatDatetime(row.createTime) }}</template>
         </el-table-column>
       </el-table>
+      <el-pagination
+        class="pagination"
+        :current-page="currentPage4"
+        :total="153"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
     </div>
 
     <h3>横向展示列表</h3>
@@ -1322,11 +1321,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              :append-to-body="false"
-              @visible-change="openDropdown(scope.$index, 1)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 1)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -1401,11 +1396,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              :append-to-body="false"
-              @visible-change="openDropdown(scope.$index, 1)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 1)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -1479,11 +1470,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              :append-to-body="false"
-              @visible-change="openDropdown(scope.$index, 1)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 1)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -1557,11 +1544,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              :append-to-body="false"
-              @visible-change="openDropdown(scope.$index, 1)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 1)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -1635,11 +1618,7 @@
             <el-button type="text" size="small" class="bt-operation">卸载</el-button>
             <el-button type="text" size="small" class="bt-operation">扩容</el-button>
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown
-              trigger="click"
-              :append-to-body="false"
-              @visible-change="openDropdown(scope.$index, 1)"
-            >
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index, 1)">
               <el-button type="text" size="small" class="bt-operation">
                 更多
                 <i
@@ -1888,6 +1867,12 @@ export default class extends Vue {
         })
         if (res_menus && res_menus.length > 0) {
           this.expandTableData = genData(res_menus, '')
+          // 模拟data
+          try {
+            this.expandTableData[0].children[1].children = null
+          } catch (e) {
+            console.error(e)
+          }
         } else {
           this.expandTableData = []
         }
@@ -1905,8 +1890,11 @@ export default class extends Vue {
   private async getNestedTableData() {
     try {
       this.nestedTableLoading = true
-      const res = await getNestedTable()
-      this.nestedTableData = (res as any).data
+      const res = await getNestedTable({
+        page: 1,
+        limit: 20,
+      })
+      this.nestedTableData = (res as any).data.list
     } catch (e) {
       console.error(e)
     } finally {

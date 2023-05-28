@@ -392,6 +392,24 @@ const restPageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'pro-detail3',
+        component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/ProDetail3.vue'),
+        name: 'ProDetail3',
+        meta: {
+          title: 'ProDetail3 复杂详情3',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-detail4',
+        component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/ProDetail4.vue'),
+        name: 'ProDetail4',
+        meta: {
+          title: 'ProDetail4 复杂详情4',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 状态页

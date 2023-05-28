@@ -2,7 +2,7 @@
  * @Author: 胡一苗
  * @Date: 2023-01-10 16:45:36
  * @LastEditors: 胡一苗
- * @LastEditTime: 2023-04-23 16:39:11
+ * @LastEditTime: 2023-05-19 09:59:27
  * @Description: 复杂表格5
 -->
 <template>
@@ -26,7 +26,7 @@
             <el-input v-model="conditions.name" placeholder="请输入主机别名" />
           </el-form-item>
           <el-form-item class="table-tools__conditions__buttons">
-            <el-button type="primary" @click="search">查 询</el-button>
+            <el-button type="primary" plain @click="search">查 询</el-button>
             <el-button @click="resetConditions">重 置</el-button>
           </el-form-item>
         </el-form>
@@ -38,11 +38,11 @@
           <el-button>次按钮</el-button>
         </div>
         <div class="table-tools__right">
-          <el-button type="text" plain @click="download">
+          <el-button type="text" text-type="weak" @click="download">
             <svg-icon name="download" />
             <span>下载</span>
           </el-button>
-          <el-button type="text" plain @click="exportFile">
+          <el-button type="text" text-type="weak" @click="exportFile">
             <svg-icon name="export" />
             <span>导出</span>
           </el-button>
@@ -80,14 +80,9 @@
           <el-button type="text" size="small" class="bt-operation" @click="gotoExpansion(scope.row)">
             扩容
           </el-button>
-          <el-divider direction="vertical"></el-divider>
-          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
+          <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index)">
             <el-button type="text" size="small" class="bt-operation">
-              更多
-              <i
-                class="el-icon-arrow-down el-icon--right"
-                :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
-              />
+              更多<i :class="['el-icon-arrow-down', 'el-icon--right', scope.row.flag ? 'top-fill' : '']" />
             </el-button>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>退订</el-dropdown-item>
@@ -286,7 +281,7 @@ export default class extends Vue {
 
   /**
    * 使用字典格式化实例状态
-   * @param data {SimpleTable.Host} 表格行对象
+   * @param data {ProTable5.Host} 表格行对象
    */
   private statusFormatter(data: ProTable5.Host) {
     return STATUS[data.status]

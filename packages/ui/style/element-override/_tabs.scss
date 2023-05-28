@@ -69,6 +69,10 @@ $tabs-lg-height: $input-lg-height;
   .el-tabs__active-bar + .el-tabs__item {
     padding-left: 0;
   }
+
+  .el-tabs__item:last-child {
+      padding-right: 0;
+  }
 }
 
 /*
@@ -127,7 +131,8 @@ $tabs-lg-height: $input-lg-height;
       }
     }
     .el-tabs__item.is-#{$direction},
-    .el-tabs__item.is-#{$direction}:first-child {
+    .el-tabs__item.is-#{$direction}:first-child,
+    .el-tabs__item.is-#{$direction}:last-child {
       border: 1px solid transparent; // 透明border，防止切换active时文字移位
       &::after {
         content: '';

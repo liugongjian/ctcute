@@ -2,7 +2,7 @@
  * @Author: 李志伟
  * @Date: 2023-03-27 16:31:09
  * @LastEditors: 李志伟
- * @LastEditTime: 2023-03-30 18:06:53
+ * @LastEditTime: 2023-05-19 10:04:39
  * @Description: Popover 气泡提示
 -->
 <template>
@@ -23,8 +23,8 @@
       <el-popover placement="top" trigger="hover" title="标题" popper-class="popover-operate">
         这里显示内容这里显示内容这里显示内容这里显示内容
         <div class="btns">
-          <el-button size="small">取消</el-button>
-          <el-button type="primary" size="small">确认</el-button>
+          <el-button size="small">取 消</el-button>
+          <el-button type="primary" size="small">确 认</el-button>
         </div>
         <el-button slot="reference" class="reference">包含按钮</el-button>
       </el-popover>

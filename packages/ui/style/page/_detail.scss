@@ -196,7 +196,7 @@
         margin-left: -0.5em;
         display: flex;
         align-items: center;
-        color: $text-color;
+        // color: $text-color;
         .icon-leaf-label {
           padding-left: 34px;
         }
@@ -300,5 +300,20 @@
       width: calc(100% - 216px);
       padding-left: 16px;
     }
+  }
+}
+
+/* 复杂详情页3、4*/
+.pro-detail3,
+.pro-detail4 {
+  @include detail();
+
+  .content--alert {
+    color: $ruby-6;
+  }
+
+  .el-pagination {
+    text-align: right;
+    margin-top: 2px;
   }
 }

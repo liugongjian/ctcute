@@ -2,7 +2,7 @@
  * @Author: 胡一苗
  * @Date: 2022-07-10 13:13:36
  * @LastEditors: 胡一苗
- * @LastEditTime: 2023-04-23 12:33:07
+ * @LastEditTime: 2023-05-19 09:59:27
  * @Description: 复杂表格3
 -->
 <template>
@@ -75,11 +75,13 @@
               />
             </el-form-item>
             <el-form-item class="table-tools__conditions__buttons">
-              <el-button type="primary" @click="search">查 询</el-button>
+              <el-button type="primary" plain @click="search">查 询</el-button>
               <el-button @click="resetConditions">重 置</el-button>
-              <el-button type="text" plain @click="openConditions">
+              <el-button type="text" @click="openConditions">
                 <span>{{ conditionsOpenFlag ? '收起' : '展开' }}</span>
-                <svg-icon :name="conditionsOpenFlag ? 'up' : 'down'" />
+                <i
+                  :class="['el-icon--right', conditionsOpenFlag ? 'el-icon-arrow-up' : 'el-icon-arrow-down']"
+                />
               </el-button>
             </el-form-item>
           </div>
@@ -90,59 +92,8 @@
           <cute-selected-input :checked-list="selectedData" :options="optionData" />
           <el-button type="primary">+ 新增按钮</el-button>
           <el-button>次按钮</el-button>
-        </div>
-        <div class="table-tools__right">
-          <el-button type="text" plain @click="download">
-            <svg-icon name="download" />
-            <span>下载</span>
-          </el-button>
-          <el-button type="text" plain @click="exportFile">
-            <svg-icon name="export" />
-            <span>导出</span>
-          </el-button>
-        </div>
-      </div>
-    </div>
-    <!--表格-->
-    <el-table v-loading="loading" :data="tableData" fit @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="32" />
-      <el-table-column prop="name" label="主机别名">
-        <template slot-scope="{ row }">
-          <router-link to="/">{{ row.name }}</router-link>
-        </template>
-      </el-table-column>
-      <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"></el-table-column>
-      <el-table-column prop="ip" label="IP地址" />
-      <el-table-column prop="cpu" label="CPU利用率(%)" />
-      <el-table-column prop="memory" label="内存利用率(%)" />
-      <el-table-column prop="disk" label="磁盘利用率(%)" />
-      <el-table-column prop="health" label="健康状态">
-        <template slot-scope="scope">
-          <cute-state :type="HEALTH[scope.row.health].colorType">
-            {{ HEALTH[scope.row.health].text }}
-          </cute-state>
-        </template>
-      </el-table-column>
-      <el-table-column prop="actions" label="操作" fixed="right" class-name="actions" width="200px">
-        <template slot-scope="scope">
-          <el-button type="text" size="small" class="bt-operation" @click="gotoMount(scope.row)">
-            挂载
-          </el-button>
-          <el-button type="text" size="small" class="bt-operation" @click="gotoUninstall(scope.row)"
-            >卸载</el-button
-          >
-          <el-button type="text" size="small" class="bt-operation" @click="gotoExpansion(scope.row)"
-            >扩容</el-button
-          >
-          <el-divider direction="vertical"></el-divider>
-          <el-dropdown trigger="click" :append-to-body="false" @visible-change="openDropdown(scope.$index)">
-            <el-button type="text" size="small" class="bt-operation">
-              更多
-              <i
-                class="el-icon-arrow-down el-icon--right"
-                :class="scope.row.flag ? 'top-fill' : 'el-icon-arrow-down el-icon--right'"
-              />
-            </el-button>
+          <el-dropdown trigger="click">
+            <el-button square icon="ellipsis" />
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>退订</el-dropdown-item>
               <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
@@ -150,9 +101,73 @@
               <el-dropdown-item disabled>Disabled</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-        </template>
-      </el-table-column>
-    </el-table>
+        </div>
+        <div class="table-tools__right">
+          <el-button type="text" text-type="weak" @click="download">
+            <svg-icon name="download" />
+            <span>下载</span>
+          </el-button>
+          <el-button type="text" text-type="weak" @click="exportFile">
+            <svg-icon name="export" />
+            <span>导出</span>
+          </el-button>
+        </div>
+      </div>
+    </div>
+    <!--表格-->
+    <cute-scroller ref="tableScroller" v-model="tableHeight" offset="32">
+      <el-table
+        v-loading="loading"
+        :data="tableData"
+        fit
+        @selection-change="handleSelectionChange"
+        :row-class-name="getRowClassName"
+        :height="tableHeight"
+      >
+        <el-table-column type="selection" width="32" :selectable="getRowSelectable" />
+        <el-table-column prop="name" label="主机别名">
+          <template slot-scope="{ row }">
+            <router-link to="/">{{ row.name }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="status" label="实例状态" :formatter="statusFormatter"></el-table-column>
+        <el-table-column prop="ip" label="IP地址" />
+        <el-table-column prop="cpu" label="CPU利用率(%)" />
+        <el-table-column prop="memory" label="内存利用率(%)" />
+        <el-table-column prop="disk" label="磁盘利用率(%)" />
+        <el-table-column prop="health" label="健康状态">
+          <template slot-scope="scope">
+            <cute-state :type="HEALTH[scope.row.health].colorType">
+              {{ HEALTH[scope.row.health].text }}
+            </cute-state>
+          </template>
+        </el-table-column>
+        <el-table-column prop="actions" label="操作" fixed="right" class-name="actions" width="200px">
+          <template slot-scope="scope">
+            <el-button type="text" size="small" class="bt-operation" @click="gotoMount(scope.row)">
+              挂载
+            </el-button>
+            <el-button type="text" size="small" class="bt-operation" @click="gotoUninstall(scope.row)">
+              卸载
+            </el-button>
+            <el-button type="text" size="small" class="bt-operation" @click="gotoExpansion(scope.row)">
+              扩容
+            </el-button>
+            <el-dropdown trigger="click" @visible-change="openDropdown(scope.$index)">
+              <el-button type="text" size="small" class="bt-operation">
+                更多<i :class="['el-icon-arrow-down', 'el-icon--right', scope.row.flag ? 'top-fill' : '']" />
+              </el-button>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>退订</el-dropdown-item>
+                <el-dropdown-item>创建云硬盘备份</el-dropdown-item>
+                <el-dropdown-item>创建</el-dropdown-item>
+                <el-dropdown-item disabled>Disabled</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </template>
+        </el-table-column>
+      </el-table>
+    </cute-scroller>
     <!--分页-->
     <el-pagination
       :current-page="pager.page"
@@ -174,6 +189,9 @@ import { ElForm } from 'element-ui/types/form'
   name: 'ProTable3',
 })
 export default class extends Vue {
+  // 表格的高度，将通过CuteScroller组件动态返回
+  private tableHeight = 'none'
+
   // 展开搜索状态
   private conditionsOpenFlag = true
 
@@ -299,8 +317,14 @@ export default class extends Vue {
       }
       const res = await getTable(params)
       this.pager.total = res.data.total
-      this.tableData = res.data.list.map((item: any) => {
+      this.tableData = res.data.list.map((item: any, index: number) => {
         item.flag = false
+        // 是否整行禁用，这里仅为演示行禁用的效果，实际使用时可按需调整
+        item.disabled = false
+        // 第二行整行禁用（演示）
+        if (index === 1) {
+          item.disabled = true
+        }
         return item
       })
     } catch (e) {
@@ -369,7 +393,7 @@ export default class extends Vue {
 
   /**
    * 使用字典格式化实例状态
-   * @param data {SimpleTable.Host} 表格行对象
+   * @param data {ProTable3.Host} 表格行对象
    */
   private statusFormatter(data: ProTable3.Host) {
     return STATUS[data.status]
@@ -383,6 +407,10 @@ export default class extends Vue {
   // 是否展开搜索条件
   private openConditions() {
     this.conditionsOpenFlag = !this.conditionsOpenFlag
+    this.$nextTick(() => {
+      ;(this.$refs.tableScroller as any).calHeight()
+      console.log('tableHeight', this.tableHeight)
+    })
   }
 
   // 下载
@@ -394,5 +422,33 @@ export default class extends Vue {
   private exportFile() {
     console.log('exportFile')
   }
+
+  // 自定义行className，为了演示整行禁用
+  private getRowClassName({ row }) {
+    if (row.disabled) {
+      return 'row--disabled'
+    }
+  }
+
+  // 行是否可选择，为了演示整行禁用
+  private getRowSelectable(row) {
+    return !row.disabled
+  }
 }
 </script>
+<style lang="scss" scoped>
+.el-table {
+  // 行禁用样式，可按需调整className以及需要置灰的CSS属性
+  ::v-deep .el-table__row.row--disabled {
+    cursor: not-allowed;
+
+    .cell {
+      &,
+      * {
+        pointer-events: none;
+        color: $disabled-color;
+      }
+    }
+  }
+}
+</style>

@@ -2,7 +2,7 @@
  * @Author: 胡一苗
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 胡一苗
- * @LastEditTime: 2023-05-19 09:59:27
+ * @LastEditTime: 2023-05-29 18:37:04
  * @Description: 复杂表格1
 -->
 <template>
@@ -35,18 +35,12 @@
     </div>
     <div class="table-filter">
       <div class="table-filter__text">指标条件</div>
-      <cute-table-filter @submit="submitTableFilter">
-        <el-tag
-          v-for="item in tableFilterData"
-          :key="item.key"
-          type="info"
-          size="large"
-          closable
-          @close="closeTableFilterItem(item.key)"
-        >
-          {{ item.value }}
-        </el-tag>
-        <template #filter-form>
+      <cute-table-filter
+        :filters="tableFilterData"
+        @remove-filter="item => removeTableFilterItem(item.key)"
+        @submit="submitTableFilter"
+      >
+        <template #popover-content>
           <el-form class="table-filter__form" label-width="84px">
             <el-form-item v-for="formItem in tableFilterForm" :key="formItem.key" :label="formItem.label">
               <el-select v-model="formItem.operator.value" :placeholder="t('cute.select.placeholder')">
@@ -464,7 +458,7 @@ export default class extends Mixins(Locale) {
   }
 
   /** 删除过滤条件 **/
-  private closeTableFilterItem(key: string) {
+  private removeTableFilterItem(key: string) {
     const formItem = this.tableFilterForm.find(item => item.key === key)
     formItem.operator.value = ''
     formItem.value = ''

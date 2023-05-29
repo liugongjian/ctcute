@@ -11,7 +11,7 @@ import { CuteComponent } from './component'
 export type StateType = 'info' | 'success' | 'warning' | 'danger' | 'fatal' | 'master'
 
 export declare class CuteState extends CuteComponent {
-  type: StateType
+  type?: StateType
   color?: string
   icon?: string
   loading?: boolean

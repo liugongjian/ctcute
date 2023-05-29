@@ -1,11 +1,21 @@
-/* * @Author: 胡一苗 * @Date: 2023-03-23 13:46:05 * @LastEditors: 胡一苗 * @LastEditTime: 2023-03-30 09:03:58
-* @Description: desc */
+/*
+* @Author: 胡一苗
+* @Date: 2023-05-29 11:15:19
+* @LastEditors: 胡一苗
+* @LastEditTime: 2023-05-29 11:15:36
+* @Description: desc
+*/
 <template>
   <div>
     <h1>Pagination</h1>
     <PaginationDemo />
     <div class="sub-sample">
       <h4>默认尺寸</h4>
+      <el-pagination
+        :total="0"
+        :current-page="currentPage1"
+        layout="total, sizes, prev, pager, next, jumper"
+      />
       <el-pagination
         :total="total"
         :current-page="currentPage1"

@@ -1,6 +1,9 @@
 .el-tabs__item.el-tabs__add.with-input {
   width: $tabs-add-item-width;
 }
+.el-tabs > .el-tabs__header .el-tabs__item.el-tabs__add {
+  color: $color-master;
+}
 
 /* $size:大小;
    $height: 高度;
@@ -14,6 +17,14 @@
       font-size: $text-size;
       height: $height;
       line-height: calc(#{$height} - 2px); // 去掉border
+    }
+
+    &.el-tabs--border-card {
+      .el-tabs__item,
+      .el-tabs__nav-prev,
+      .el-tabs__nav-next{
+        line-height: $height; 
+      }
     }
 
     &:not(.el-tabs--button) .el-tabs__item.el-tabs__add > .el-tabs__add__input {

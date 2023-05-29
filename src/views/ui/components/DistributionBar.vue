@@ -2,8 +2,8 @@
  * @Author: wujingcheng
  * @LastModifiedBy: 吴景城
  * @Date: 2023-01-09 16:48:27
- * @LastEditors: wujingcheng
- * @LastEditTime: 2023-01-09 16:51:09
+ * @LastEditors: 朱玉豆
+ * @LastEditTime: 2023-05-29 10:25:27
  * @Description:
 -->
 <template>
@@ -18,7 +18,7 @@
       <cute-distribution-bar :data="barList1" :max="2000"> </cute-distribution-bar>
       <p>2.只展示百分比</p>
       <cute-distribution-bar :data="barList2" :show-value="false"> </cute-distribution-bar>
-      <p>3.可根据需要把选项分为2行</p>
+      <p>3.通过配置每行的个数为3，可根把选项分为2行</p>
       <cute-distribution-bar :data="barList3" :show-value="false" :row-number="3"> </cute-distribution-bar>
     </div>
     <div>

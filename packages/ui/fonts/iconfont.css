@@ -35,6 +35,10 @@
   content: '\eba1';
 }
 
+.cute-icon-font-colors:before {
+  content: "\eba1";
+}
+
 .cute-icon-italic:before {
   content: '\eba2';
 }

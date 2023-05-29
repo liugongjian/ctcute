@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2023-05-18 14:27:50
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-26 17:32:53
+ * @LastEditTime: 2023-05-29 17:35:48
  * @Description:
 -->
 <template>
@@ -196,19 +196,19 @@ export default class extends Vue {
       })
     }
     list[2].a.config = {
-      fillColor: '#3D73F5',
-      fontColor: '#FF736E',
+      fillColor: '#DF0428',
+      fontColor: '#FFF',
       bold: 'bold',
       italic: 'italic',
       remarks: [
-        '这里是备注内容这里是备注内容这里是备注内容这里是备注内容',
-        '这里是备注内容这里是备注内容这里是备注内容这里是备注内容',
+        '这里是备注内容这里是备注内容这里是备注内容这里是备注1',
+        '这里是备注内容这里是备注内容这里是备注内容这里是备注2',
       ],
     }
 
     list[3].e.config = {
-      fillColor: '#1AC45D',
-      fontColor: '#FF8F34',
+      fillColor: '#91BAFF',
+      fontColor: '#000',
       bold: 'bold',
       italic: 'italic',
       remarks: ['aaa2', 'bbb2'],
@@ -354,6 +354,9 @@ export default class extends Vue {
   ::v-deep {
     .vxe-table--render-default .vxe-body--row.row--hover {
       background-color: $color-bg-1; // 去掉row的hover颜色
+    }
+    .vxe-table--render-default .vxe-body--row > :hover {
+      background: $neutral-2;
     }
   }
   ::v-deep {

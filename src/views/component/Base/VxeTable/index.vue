@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱玉豆
  * @Date: 2023-04-25 09:43:03
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-05-28 11:14:09
+ * @LastEditors: 朱玉豆
+ * @LastEditTime: 2023-05-29 18:39:00
  * @Description: 使用vxe-table实现复杂表格的功能
 -->
 <template>
@@ -21,7 +21,11 @@
       <h3>编辑单元格样式</h3>
       <p>可以对单元格级别进行样式编辑,以实现标注</p>
       <h3>交互细节</h3>
-      <p>行的样色、单元格样式，表头的样式、表尾</p>
+      <p>
+        行的样色可以自定义，hover之后，背景变成浅灰色，点击单元格，整个单元格可编辑，并同时出现工具栏，点击工具栏icon，可进行相应操作。
+      </p>
+      <p>点击备注icon，使用备注功能，有备注的情况下，hover出现备注</p>
+      <p>可以使用的样式编辑icon，背景填充，字体填充，粗体，斜体以及清除样式，点击调整单元格的样式</p>
       <component-demo path="@/views/component/Base/VxeTable/EditCellDemo.vue">
         <EditCellDemo></EditCellDemo>
       </component-demo>

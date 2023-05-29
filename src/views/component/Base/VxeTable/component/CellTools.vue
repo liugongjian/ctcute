@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-26 17:24:59
+ * @LastEditTime: 2023-05-29 18:31:35
  * @Description:
 -->
 <template>
@@ -35,7 +35,7 @@
     <div v-show="showRemarks" class="cell-edit--remarks">
       <cell-remarks @updateremarks="handleUpdateRemarks">
         <template v-if="cellConfig.config && cellConfig.config.remarks">
-          {{ cellConfig.config.remarks[0] || 'slot' }}
+          <!-- {{ cellConfig.config.remarks[0] || 'slot' }} -->
         </template>
       </cell-remarks>
     </div>
@@ -88,7 +88,7 @@ export default class extends Vue {
         type: 'clear',
       },
       {
-        icon: 'cute-icon-selected',
+        icon: 'cute-icon-font-colors',
         text: '字体色',
         type: 'fontColor',
       },
@@ -249,6 +249,7 @@ $cell-edit-font-picker-width: 14px;
       width: $cell-edit-palette-width;
       height: $cell-edit-palette-height;
       border-radius: $border-radius;
+      // border: 1px solid $border-color;
       cursor: pointer;
       display: inline-block;
       background: $neutral-9;

@@ -143,9 +143,9 @@ $button-padding-large: $margin-3x $padding-6x;
   }
 }
 
-@include button-plain(null, $color-neutral-5, $color-master-hover, $color-master-active, $color-neutral-5);
-@include button-plain(--default, $color-neutral-5, $color-master-hover, $color-master-active, $color-neutral-5);
-@include button-plain(--primary, $color-master, $color-master-hover, $color-master-active, $color-master-disabled);
+@include button-plain(null, $color-neutral-5, $color-master, $color-master-active, $color-neutral-5);
+@include button-plain(--default, $color-neutral-5, $color-master, $color-master-active, $color-neutral-5);
+@include button-plain(--primary, $color-master, $color-master, $color-master-active, $color-master-disabled);
 @include button-plain(--info, $color-info, $color-info-hover, $color-info-active,$color-info-disabled);
 @include button-plain(--success, $color-success, $color-success-hover, $color-success-active, $color-success-disabled);
 @include button-plain(--warning, $color-warning, $color-warning-hover, $color-warning-active, $color-warning-disabled);

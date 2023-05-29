@@ -1,3 +1,10 @@
+/*
+ * @Author: 胡佳婷
+ * @Date: 2022-10-04 17:01:49
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-12 08:14:44
+ * @Description:
+ */
 import * as Request from './Request'
 import * as Response from './Response'
 
@@ -17,7 +24,7 @@ export type Host = {
 }
 
 export type Option = {
-  option: object
+  option: Record<string, unknown>
 }
 
 /* 过滤条件 */

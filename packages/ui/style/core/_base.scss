@@ -69,8 +69,8 @@ h5 {
 }
 
 *::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  background-color: $color-neutral-5;
+  border-radius: $border-radius;
+  background-color: $color-neutral-3;
 }
 
 *::-webkit-scrollbar-track-piece {
@@ -82,8 +82,8 @@ h5 {
 }
 
 *::-webkit-scrollbar {
-  width: 8px !important;
-  height: 8px !important;
+  width: 6px !important;
+  height: 6px !important;
 }
 
 // ::-webkit-resizer {

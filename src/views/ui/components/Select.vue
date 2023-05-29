@@ -706,6 +706,7 @@ export default class extends Vue {
   //选中数据
   private change(data) {
     console.log(data)
+    this.$message.success('你点了操作')
   }
   //子组件修改父组件的值
   private changeFun(key) {
@@ -777,7 +778,7 @@ export default class extends Vue {
 .auxiliary-message:after {
   content: '辅助信息';
   margin-left: 20px;
-  color: $text-color-light-2;
+  color: $text-color-feature;
   font-weight: normal;
 }
 

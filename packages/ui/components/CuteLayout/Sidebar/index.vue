@@ -14,15 +14,17 @@
       </div>
       <div v-else-if="sidebarTitle" class="cute-layout-sidebar__title">{{ sidebarTitle }}</div>
 
-      <el-menu
-        :default-active="activeMenu"
-        :unique-opened="false"
-        :collapse-transition="false"
-        mode="vertical"
-        class="layout-sidebar__menu"
-      >
-        <sidebar-item v-for="route in routesList" :key="route.path" :item="route" :base-path="route.path" />
-      </el-menu>
+      <slot name="sidebar-menu">
+        <el-menu
+          :default-active="activeMenu"
+          :unique-opened="false"
+          :collapse-transition="false"
+          mode="vertical"
+          class="layout-sidebar__menu"
+        >
+          <sidebar-item v-for="route in routesList" :key="route.path" :item="route" :base-path="route.path" />
+        </el-menu>
+      </slot>
     </div>
     <!-- 展开与收缩按钮 -->
     <div v-if="sidebarKnob" class="cute-layout-sidebar__knob" @click="toggleSideBar">
@@ -33,6 +35,7 @@
 
 <script lang="ts">
 import { Component, Prop, Watch, Mixins } from 'vue-property-decorator'
+import { RouteConfig } from 'vue-router'
 import Locale from '@cutedesign/ui/mixins/locale'
 import SidebarItem from './SidebarItem.vue'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
@@ -47,13 +50,13 @@ export default class extends Mixins(Locale) {
   $auth: any
 
   @Prop()
-  private sidebarRoutes
+  private sidebarRoutes: RouteConfig[]
 
   @Prop()
-  private sidebarFilter
+  private sidebarFilter: (routes: RouteConfig[]) => RouteConfig[]
 
   @Prop()
-  private sidebarRoutesAfterEach
+  private sidebarRoutesAfterEach: (route: RouteConfig) => RouteConfig
 
   @Prop({ default: '' })
   private sidebarTitle: string
@@ -72,15 +75,18 @@ export default class extends Mixins(Locale) {
 
   private get activeMenu(): string {
     const route = this.$route
-    const { meta, path } = route
+    const { meta, path, hash } = route
     // if set path, the sidebar will highlight the path you set
     if (meta?.activeMenu) {
       return meta.activeMenu
     }
+    if (meta?.history === 'hash') {
+      return path + hash
+    }
     return path
   }
 
-  private get routes() {
+  private get routes(): RouteConfig[] {
     return this.sidebarRoutes || this.$router.options.routes
   }
 
@@ -89,9 +95,9 @@ export default class extends Mixins(Locale) {
   private onChangeRoutes() {
     const filteredRoutes = this.sidebarFilter ? this.sidebarFilter(this.routes) : this.routes
     this.drillDownRoute = this.getDrillDownRoute()
-    let routesList = this.drillDownRoute ? this.drillDownRoute.children : filteredRoutes
+    let routesList: RouteConfig[] = this.drillDownRoute ? this.drillDownRoute.children : filteredRoutes
     if (this.sidebarRoutesAfterEach) {
-      routesList = routesList.map(route => this.sidebarRoutesAfterEach(route))
+      routesList = this.recursiveRoutes(routesList, this.sidebarRoutesAfterEach)
     }
     this.routesList = routesList
     this.$nextTick(() => {
@@ -100,7 +106,7 @@ export default class extends Mixins(Locale) {
   }
 
   private mounted() {
-    this.setSidbarWidth()
+    this.setSidebarWidth()
   }
 
   /**
@@ -142,18 +148,40 @@ export default class extends Mixins(Locale) {
     }
   }
 
+  /**
+   * 返回上一级
+   */
   private back() {
     const path = this.drillDownRoute.meta.drillDownBackPath || ''
     this.$router.push(path)
   }
 
-  private setSidbarWidth() {
+  /**
+   * 设置宽度
+   */
+  private setSidebarWidth() {
     ;(this.$el as HTMLElement).style.width = this.isShowMenu ? `${variables.cuteLayoutSidebarWidth}` : '0px'
   }
 
+  /**
+   * 收缩/展开侧边栏
+   */
   private toggleSideBar() {
     this.isShowMenu = !this.isShowMenu
-    this.setSidbarWidth()
+    this.setSidebarWidth()
+  }
+
+  /**
+   * 递归遍历路由
+   */
+  private recursiveRoutes(routes: RouteConfig[], effect) {
+    return routes.map(route => {
+      if (route.children) {
+        const children = this.recursiveRoutes(route.children, effect)
+        route.children = children
+      }
+      return effect(route)
+    })
   }
 }
 </script>

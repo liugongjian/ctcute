@@ -20,22 +20,22 @@ declare class BaseLayout {
 }
 
 export interface IamLayoutInitOptions {
-  containerId?: string
+  containerId?: string // 容器id
+  bizDomain?: string // 侧边栏高亮
 }
 export declare class IamLayout extends BaseLayout {
-  // 加载资源
-  load(): Promise<null>
   // 初始化
-  init(options?: IamLayoutInitOptions): Promise<AlogicLayout.consoleContainer>
+  init(options: IamLayoutInitOptions): Promise<AlogicLayout.consoleContainer>
 }
 export interface CtyunLayoutInitOptions {
+  containerId?: string // 容器id
+  bizDomain?: string // 侧边栏高亮
+  logoutUrl?: string // 登出路由，默认路由无法满足业务侧需求
   consoleInitArgs?: CtcloudLayout.consoleInitArgs
 }
 export declare class CtyunLayout extends BaseLayout {
-  // 加载资源
-  load(): Promise<null>
   // 初始化
-  init(options?: CtyunLayoutInitOptions): Promise<CtcloudLayout.consoleLayout>
+  init(options: CtyunLayoutInitOptions): Promise<CtcloudLayout.consoleLayout>
 }
 
 // layout 中的 mvvm
@@ -103,6 +103,8 @@ declare namespace CtcloudLayout {
     matchConsoleMenuCode(args: { menuCode: string; fontColor?: string }): void
     // 隐藏侧边栏
     hideSiderMenu(): void
+    // 更新登出路由
+    updateConsoleLayoutLogoutUrl(logoutUrl: string): void
   }
   // // 右下角客服
   // export interface fixedSidebarAd {

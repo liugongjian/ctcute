@@ -17,37 +17,23 @@
       <el-button type="primary" @click="handleClick">中弹窗2</el-button>
     </div>
     <el-dialog width="600px" :title="title" :visible="visible" :close-on-click-modal="false" @close="close">
-      <el-form ref="ruleForm" :rules="rules" :model="form" label-width="104px">
-        <el-form-item label="类型" prop="type">
-          <el-radio-group v-model="form.type">
-            <el-radio-button label="default">默认选项</el-radio-button>
-            <el-radio-button label="active">选中选项</el-radio-button>
-          </el-radio-group>
+      <el-form ref="ruleForm" :rules="rules" :model="form" label-width="87px">
+        <el-form-item label="非自研折扣" prop="discount1">
+          <el-input v-model="form.name" value="" placeholder="请输入"></el-input>
         </el-form-item>
 
-        <el-form-item label="名称" prop="name">
-          <el-input v-model="form.name" value="" placeholder="请输入名称"></el-input>
+        <el-form-item label="自研折扣" prop="discount2">
+          <el-input v-model="form.name" value="" placeholder="请输入"></el-input>
         </el-form-item>
 
-        <el-form-item label="上级菜单" prop="menu">
-          <el-select v-model="form.menu" placeholder="请选择上级菜单">
-            <el-option label="菜单一" value="shanghai"></el-option>
-            <el-option label="菜单二" value="beijing"></el-option>
-          </el-select>
+        <el-form-item label="其他折扣" prop="discount3">
+          <el-input v-model="form.name" value="" placeholder="请输入"></el-input>
         </el-form-item>
 
-        <el-form-item label="排序" prop="sort">
-          <el-input v-model="form.sort" value="" placeholder="请输入排序"></el-input>
-        </el-form-item>
-
-        <el-alert
-          :closable="false"
-          type="info"
-          show-icon
-          title="权限标识与别名说明"
-          description="标识，别名属同一个权限，主要用于前后分离,前后权限标识不一致,且前后两端皆需判定权限的项目。一般情况别名置空即可,如有多个别名可逗号分隔。"
-        />
-
+        <el-alert class="form-tips" title="权限标识与别名说明" :closable="false" content-area-tip>
+          <span slot="icon-custom"><svg-icon class="el-alert__icon" name="info-circle" /></span>
+          标识，别名属同一个权限，主要用于前后分离，前后权限标识不一致，且前后两端皆须判定权限的项目，一般情况别名指控即可，如有多个别名可逗号分隔。
+        </el-alert>
         <el-form-item label="标识" prop="permissionTag">
           <el-input v-model="form.permissionTag" value="" placeholder="请输入权限标识"></el-input>
         </el-form-item>
@@ -85,10 +71,9 @@ export default class extends Vue {
   private submitting = false
   //表单对象
   private form: MediumDialog2.Form = {
-    type: 'active',
-    name: null,
-    menu: null,
-    sort: null,
+    discount1: null,
+    discount2: null,
+    discount3: null,
     permissionTag: null,
     alias: null,
   }
@@ -112,11 +97,10 @@ export default class extends Vue {
   }
   //校验规则
   private rules = {
-    type: [{ required: true, message: '请选择类型', trigger: 'blur' }],
-    name: [{ required: true, message: '请输入名称', trigger: 'blur' }],
-    // menu: [{ required: true, message: '请选择上级菜单', trigger: 'blur' }],
-    sort: [{ required: true, message: '请输入排序', trigger: 'blur' }],
-    permissionTag: [{ required: true, message: '请输入权限标识', trigger: 'blur' }],
+    discount1: [{ required: true, message: '请选择非自研折扣', trigger: 'blur' }],
+    discount2: [{ required: true, message: '请输入自研折扣', trigger: 'blur' }],
+    permissionTag: [{ required: true, message: '请输入标识', trigger: 'blur' }],
+    alias: [{ required: true, message: '请输入别名', trigger: 'blur' }],
   }
   private close() {
     this.ruleFormRef.resetFields()
@@ -137,7 +121,10 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-::v-deep .el-alert {
-  margin-bottom: $form-item-margin-bottom;
+.form-tips {
+  padding-top: $margin-2x;
+  padding-left: 70px;
+  margin-bottom: $margin-4x;
+  border-top: 1px solid $color-neutral-3;
 }
 </style>

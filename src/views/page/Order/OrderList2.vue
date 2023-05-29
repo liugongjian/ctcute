@@ -1,3 +1,10 @@
+<!--
+ * @Author: 魏勋
+ * @Date: 2023-05-23 16:17:28
+ * @LastEditors: 魏勋
+ * @LastEditTime: 2023-05-29 09:52:28
+ * @Description: 订购页
+-->
 <template>
   <div class="real-order-row">
     <cute-fixed-footer class="real-order-header" @click="openPreview">

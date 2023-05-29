@@ -6,10 +6,9 @@
  * @Description:
  */
 export interface Form {
-  type: string
-  name: string
-  menu: string
-  sort: string
+  discount1: string
+  discount2: string
+  discount3: string
   permissionTag: string
   alias: string
 }

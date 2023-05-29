@@ -1,8 +1,8 @@
 <!--
  * @Author: 朱凌浩
  * @Date: 2022-07-26 15:13:36
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-23 12:37:50
+ * @LastEditors: 胡一苗
+ * @LastEditTime: 2023-05-15 19:12:08
  * @Description: 基础表格 - 滚动底部加载
 -->
 <template>
@@ -27,7 +27,7 @@
             <cute-remind-input v-model="conditions.name" placeholder="请输入主机别名" title="主机别名" />
           </el-form-item>
           <el-form-item class="table-tools__conditions__buttons">
-            <el-button type="primary" @click="tableHook.query()">查 询</el-button>
+            <el-button type="primary" plain @click="tableHook.query()">查 询</el-button>
             <el-button @click="resetConditions">重 置</el-button>
           </el-form-item>
         </el-form>

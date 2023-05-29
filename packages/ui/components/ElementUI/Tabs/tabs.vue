@@ -20,11 +20,15 @@ export default {
     // 新增size属性 large|medium|small
     size: {
       type: String,
-      default: 'small',
+      default: 'medium',
     },
     activeName: String,
     closable: Boolean,
     addable: Boolean,
+    addButtonText: {
+      type: String,
+      default: '',
+    },
     value: {},
     editable: Boolean,
     showAddInput: Boolean,
@@ -108,7 +112,7 @@ export default {
       this.$emit('tab-remove', pane.name)
     },
     handleTabAdd(tabName) {
-      this.$emit('edit', null, 'add')
+      this.$emit('edit', tabName, 'add')
       this.$emit('tab-add', tabName)
     },
     setCurrentName(value) {
@@ -152,6 +156,7 @@ export default {
       tabPosition,
       stretch,
       showAddInput,
+      addButtonText,
     } = this
 
     const navData = {
@@ -167,6 +172,7 @@ export default {
         handleTabAdd,
         size,
         showAddInput,
+        addButtonText,
       },
       ref: 'nav',
     }

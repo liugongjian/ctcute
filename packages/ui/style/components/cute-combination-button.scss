@@ -1,8 +1,16 @@
 $cute-button-group-margin: -1px;
 $cute-button-group-zindex: 1;
-$cute-button-group-border: 2px;
+$cute-button-group-border: 3px;
 
 .combination-button {
+  .el-button {
+    &:hover,
+    &:focus {
+      position: relative;
+      z-index: $zindex-table-fixed;
+    }
+  }
+
   .el-button + .el-button {
     margin-left: $cute-button-group-margin;
     z-index: $cute-button-group-zindex;

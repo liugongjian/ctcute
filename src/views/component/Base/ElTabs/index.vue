@@ -1,8 +1,8 @@
 <!--
  * @Author: 黄靖
  * @Date: 2023-03-31 15:30:49
- * @LastEditors: hj
- * @LastEditTime: 2023-05-06 20:44:06
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-05-12 21:14:20
  * @Description: 此为直接覆写element-ui的组件，el-steps原有的属性和事件未变，下面只列出新增/有改动的部分
 -->
 <template>
@@ -70,32 +70,42 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
   },
 })
 export default class extends Vue {
-  private prop = [
-    {
-      name: 'type',
-      desc: '风格类型，不填为默认风格。在el-tabs原有type属性基础上增加了button风格',
-      type: 'string',
-      required: '选填',
-      options: 'button/card/border-card',
-      default: '-',
-    },
-    {
-      name: 'size',
-      desc: '尺寸',
-      type: 'string',
-      required: '选填',
-      options: 'large/medium/small',
-      default: 'small',
-    },
-    {
-      name: 'show-add-input',
-      desc: 'addable属性设置为true时生效，是否显示新tab名称输入框',
-      type: 'boolean',
-      required: '选填',
-      options: '-',
-      default: 'false',
-    },
-  ]
+  get prop() {
+    return [
+      {
+        name: 'type',
+        desc: '风格类型，不填为默认风格。在el-tabs原有type属性基础上增加了button风格',
+        type: 'string',
+        required: '选填',
+        options: 'button/card/border-card',
+        default: '-',
+      },
+      {
+        name: 'size',
+        desc: '尺寸',
+        type: 'string',
+        required: '选填',
+        options: 'large/medium/small',
+        default: 'medium',
+      },
+      {
+        name: 'show-add-input',
+        desc: 'addable属性设置为true时生效，是否显示新tab名称输入框',
+        type: 'boolean',
+        required: '选填',
+        options: '-',
+        default: 'false',
+      },
+      {
+        name: 'add-button-text',
+        desc: 'addable属性设置为true时生效，新增按钮的文案',
+        type: 'string',
+        required: '选填',
+        options: '-',
+        default: this.$t('cute.tabs.new'),
+      },
+    ]
+  }
 
   private event = [
     {

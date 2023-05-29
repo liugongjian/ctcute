@@ -3,13 +3,49 @@
 .el-card {
   background-color: $card-bg;
   border-radius: $border-radius;
-  border: none;
+  border-color: $color-neutral-3;
+
+  &__header {
+    border-bottom: 1px solid $color-neutral-3;
+  }
 }
 
+/* 默认always */
 .el-card.is-always-shadow {
-  box-shadow: $shadow-1;
+  box-shadow: $shadow-2;
+
+  &:hover,
+  &:focus {
+    box-shadow: $shadow-2;
+  }
 }
 
-.el-card__header {
-  border-bottom: 1px solid $color-neutral-3;
+/* 默认always-light, 阴影使用更浅的shadow1 */
+.el-card.is-always-light-shadow {
+  box-shadow: $shadow-1;
+  border: none;
+
+  &:hover,
+  &:focus {
+    box-shadow: $shadow-1;
+  }
+}
+
+/* 悬浮后显示阴影 */
+.el-card.is-hover-shadow {
+  &:hover,
+  &:focus {
+    box-shadow: $shadow-2;
+  }
+}
+
+/* 默认无边框且有浅色阴影，悬浮后显示深色阴影 */
+.el-card.is-hover-light-shadow {
+  box-shadow: $shadow-1;
+  border: none;
+
+  &:hover,
+  &:focus {
+    box-shadow: $shadow-2;
+  }
 }

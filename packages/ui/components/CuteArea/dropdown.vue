@@ -1,12 +1,15 @@
 <template>
-  <div class="el-select-dropdown el-popper" :class="[{ 'is-multiple': $parent.multiple }, popperClass]"
-    :style="{ minWidth: minWidth }">
+  <div
+    class="el-select-dropdown el-popper cute-area-dropdown"
+    :class="[{ 'is-multiple': $parent.multiple }, popperClass]"
+    :style="{ minWidth: minWidth }"
+  >
     <slot></slot>
   </div>
 </template>
 
 <script type="text/babel">
-import Popper from 'element-ui/src/utils/vue-popper';
+import Popper from 'element-ui/src/utils/vue-popper'
 
 export default {
   name: 'CuteAreaDropdown',
@@ -17,56 +20,60 @@ export default {
 
   props: {
     placement: {
-      default: 'bottom-start'
+      type: String,
+      default: 'bottom-start',
     },
 
     boundariesPadding: {
-      default: 0
+      type: Number,
+      default: 0,
     },
 
     popperOptions: {
+      type: Object,
       default() {
         return {
-          gpuAcceleration: false
-        };
-      }
+          gpuAcceleration: false,
+        }
+      },
     },
 
     visibleArrow: {
-      default: true
+      type: Boolean,
+      default: true,
     },
 
     appendToBody: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
 
   data() {
     return {
-      minWidth: ''
-    };
+      minWidth: '',
+    }
   },
 
   computed: {
     popperClass() {
-      return this.$parent.popperClass;
-    }
+      return this.$parent.popperClass
+    },
   },
 
   watch: {
     '$parent.inputWidth'() {
-      this.minWidth = this.$parent.$el.getBoundingClientRect().width + 'px';
-    }
+      this.minWidth = this.$parent.$el.getBoundingClientRect().width + 'px'
+    },
   },
 
   mounted() {
-    this.referenceElm = this.$parent.$refs.reference.$el;
-    this.$parent.popperElm = this.popperElm = this.$el;
+    this.referenceElm = this.$parent.$refs.reference.$el
+    this.$parent.popperElm = this.popperElm = this.$el
     this.$on('updatePopper', () => {
-      if (this.$parent.visible) this.updatePopper();
-    });
-    this.$on('destroyPopper', this.destroyPopper);
-  }
-};
+      if (this.$parent.visible) this.updatePopper()
+    })
+    this.$on('destroyPopper', this.destroyPopper)
+  },
+}
 </script>

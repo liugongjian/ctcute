@@ -1,3 +1,10 @@
+<!--
+ * @Author: 魏勋
+ * @Date: 2023-05-24 15:20:22
+ * @LastEditors: 魏勋
+ * @LastEditTime: 2023-05-29 09:54:28
+ * @Description: 订购成功
+-->
 <template>
   <el-card class="real-order-success">
     <cute-fixed-footer class="real-order-header" @click="openPreview">

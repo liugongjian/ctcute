@@ -2,61 +2,48 @@
  * @Author: 秦瑞斌
  * @Date: 2022-07-20 10:14:50
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-06 16:48:40
+ * @LastEditTime: 2023-05-12 16:50:52
  * @Description:
 -->
 <template>
   <div>
-    <p>点击附件即可下载，点击小眼睛可在新的标签页进行预览</p>
+    <p>点击附件即可下载，点击右侧icon可在新的标签页进行预览</p>
     <h3>附件-小</h3>
+    <cute-appendix :title="smallTitle1" size="small" :url="imageUrl"></cute-appendix>
     <cute-appendix
-      :value="value1"
+      :title="smallTitle2"
+      :url="imageUrl"
       size="small"
-      :url="url"
-      :type="'csv'"
-      @download="downloadExcel"
-    ></cute-appendix>
-    <cute-appendix
-      :value="value2"
-      :url="url"
-      size="small"
-      :show-eye="true"
+      :show-preview="true"
       :type="'img'"
-      @preview="downloadImg"
-      @download="downloadImg"
     ></cute-appendix>
     <h3>附件-大</h3>
     <cute-appendix
-      :url="url"
+      :url="pdfUrl"
       :type="'file'"
       :title="title1"
       :svg-color="color1"
       :file-size="size1"
-      @download="downPdf"
     ></cute-appendix>
     <cute-appendix
       size="medium"
-      :url="url"
+      :url="pdfUrl"
       :type="'pdf'"
-      :show-eye="true"
+      :show-preview="true"
       :svg-color="color2"
       :title="title2"
       :file-size="size2"
-      :svg-name="'file-pdf-fill'"
-      @preview="downPdf"
-      @download="downPdf"
+      svg-name="file-pdf-fill"
     ></cute-appendix>
     <cute-appendix
       size="medium"
-      :url="url"
+      :url="excelUrl"
       :type="'xlsx'"
-      :show-eye="true"
+      :show-preview="true"
       :svg-color="color3"
       :title="title3"
       :file-size="size3"
-      :svg-name="'file-excel-fill'"
-      @preview="downloadExcel"
-      @download="downloadExcel"
+      svg-name="file-excel-fill"
     ></cute-appendix>
   </div>
 </template>
@@ -80,25 +67,33 @@ export default class extends Vue {
     version: 'v1.0',
     updateTime: '2022.07.29',
   }
-  private value1 = '组件123.csv'
-  private value2 = '组件123.jpg'
+  private smallTitle1 = '小附件1'
+  private smallTitle2 = '小附件2'
   private title1 = '非常规文件，不能预览'
   private title2 = '这是一个PDF文件'
   private title3 = '这是一个超凡脱俗的EXCEL文件11111'
-  private size1 = '1.3MB'
-  private size2 = '1.3MB'
-  private size3 = '1.3MB'
   private color1 = Variables.colorNeutral6
   private color2 = Variables.colorDangerHover
   private color3 = Variables.colorSuccessHover
-  private url = ''
+  private pdfSize = ''
+  private excelSize = ''
+  private pdfUrl = ''
+  private excelUrl = ''
+  private imageUrl = ''
+
+  mounted() {
+    this.getExcel()
+    this.getImg()
+    this.getPdf()
+  }
   /**
    * excel
    */
-  private async downloadExcel() {
+  private async getExcel() {
     try {
       const res = await createExcel()
-      this.url = res.data.url
+      this.excelUrl = res.data.url
+      this.excelSize = res.data.size
     } catch (e) {
       this.$message.error(e)
     }
@@ -106,10 +101,10 @@ export default class extends Vue {
   /**
    * 图片
    */
-  private async downloadImg() {
+  private async getImg() {
     try {
       const res = await createImg()
-      this.url = res.data.url
+      this.imageUrl = res.data.url
     } catch (e) {
       this.$message.error(e)
     }
@@ -117,10 +112,11 @@ export default class extends Vue {
   /**
    * pdf下载
    */
-  private async downPdf() {
+  private async getPdf() {
     try {
       const res = await createPdf()
-      this.url = res.data.url
+      this.pdfUrl = res.data.url
+      this.pdfSize = res.data.size
     } catch (e) {
       this.$message.error(e)
     }

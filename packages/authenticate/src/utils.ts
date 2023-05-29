@@ -130,7 +130,12 @@ export function parseCookies(str = '') {
   str.split(pattern).forEach(i => {
     const [encodedKey, encodedValue] = i.split('=')
     const key = decodeURIComponent(encodedKey)
-    const value = decodeURIComponent(encodedValue)
+    // 将 %uXXXX 转换为对应字符
+    const unicodeRegex = /%u([\dA-F]{4})/gi
+    const decodedString = encodedValue.replace(unicodeRegex, (_, hex) =>
+      String.fromCharCode(parseInt(hex, 16))
+    )
+    const value = decodeURIComponent(decodedString)
     parsed[key] = value
   })
   return parsed

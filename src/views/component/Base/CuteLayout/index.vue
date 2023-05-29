@@ -223,6 +223,14 @@ export default class extends Vue {
       desc: '页面主体内容',
     },
     {
+      name: 'main-top',
+      desc: '自定义主体内容上方区域',
+    },
+    {
+      name: 'main-bottom',
+      desc: '自定义主体内容下方区域',
+    },
+    {
       name: 'header-logo',
       desc: '自定义页眉Logo区域内容',
     },
@@ -295,8 +303,22 @@ export default class extends Vue {
       name: 'iconType',
       type: 'string',
       default: 'svg',
-      options: 'svg | iconfont | element',
+      options: 'svg/iconfont/element',
       desc: '如果不使用CuteDesign内置图标需要指定iconType',
+    },
+    {
+      name: 'customPath',
+      type: 'string',
+      default: '',
+      options: '',
+      desc: '自定义路径，设置自定义路径后会替换路由path',
+    },
+    {
+      name: 'activeMenu',
+      type: 'string',
+      default: '',
+      options: '',
+      desc: '指定选中状态的路由path',
     },
   ]
 }

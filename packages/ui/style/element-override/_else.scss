@@ -11,12 +11,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-    .suffix-forgot-line {
-      height: 12px;
-      width: 1px;
-      display: inline-block;
-      background-color: $border-color;
-      margin:2px $text-size;
+  .suffix-forgot-line {
+    height: 12px;
+    width: 1px;
+    display: inline-block;
+    background-color: $border-color;
+    margin: 2px $text-size;
   }
 
   // .suffix-forgot + .el-link {

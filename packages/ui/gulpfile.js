@@ -1,10 +1,11 @@
+/* eslint-disable prettier/prettier */
 'use strict'
 
 const { series, src, dest } = require('gulp')
 // tag.scss使用了内置模块@use 'sass:color'，必须使用dart-sass
 const sass = require('gulp-sass')(require('sass'))
 const autoprefixer = require('gulp-autoprefixer')
-const cssmin = require('gulp-cssmin')
+const cleanCSS = require('gulp-clean-css')
 const concat = require('gulp-concat')
 const rename = require('gulp-rename')
 const clean = require('gulp-clean')
@@ -59,7 +60,7 @@ function compileCutedScss(theme) {
           cascade: false,
         })
       )
-      .pipe(cssmin())
+      .pipe(cleanCSS())
       .pipe(rename(`cuted-${theme}.css`))
       .pipe(dest('./lib'))
   )
@@ -69,7 +70,7 @@ function compileCutedScss(theme) {
 function concatCSS(theme) {
   return src(['./fonts/iconfont.css', './fonts/bahnschrift.css', `./lib/cuted-${theme}.css`])
     .pipe(concat(`${theme == 'default' ? 'index.css' : 'index.' + theme + '.css'}`))
-    .pipe(cssmin())
+    .pipe(cleanCSS())
     .pipe(dest('./lib'))
 }
 
@@ -109,7 +110,7 @@ function mergeSCSS(path, theme) {
       .pipe(replace('@import \'palette\'', `@import '../style/themes/${path}/palette'`))
       // 替换variables-deprecated的路径
       .pipe(
-        replace("@import 'variables-deprecated'", `@import '../style/themes/${path}/variables-deprecated'`)
+        replace('@import \'variables-deprecated\'', `@import '../style/themes/${path}/variables-deprecated'`)
       )
       // 替换iconfont.css和bahnschrift.css中的字体路径
       .pipe(replace('url(\'bahnschrift', 'url(\'~@cutedesign/ui/lib/bahnschrift'))
@@ -145,7 +146,7 @@ function compileElementOverrideScss() {
           cascade: false,
         })
       )
-      .pipe(cssmin())
+      .pipe(cleanCSS())
       .pipe(rename('cute-element-override.css'))
       .pipe(dest('./lib'))
   )
@@ -163,22 +164,31 @@ const buildDarkBlueCss = series(
   () => compileCutedScss('dark_blue'),
   () => concatCSS('dark_blue')
 )
+const buildLightOrangeCss = series(
+  () => extractVariablesScss('light/orange', 'light_orange'),
+  () => compileCutedScss('light_orange'),
+  () => concatCSS('light_orange')
+)
 
 const mergeDefaultScss = series(() => mergeSCSS('default', 'default'))
 const mergeDarkBlueScss = series(() => mergeSCSS('dark/blue', 'dark_blue'))
+const mergeLightOrangeScss = series(() => mergeSCSS('light/orange', 'light_orange'))
 
 const cleanFiles = series(
   () => cleanup('default'),
-  () => cleanup('dark_blue')
+  () => cleanup('dark_blue'),
+  () => cleanup('light_orange')
 )
 
 exports.build = series(
   buildDefaultCss,
   buildDarkBlueCss,
+  buildLightOrangeCss,
   copyfontElementUI,
   copyfontLocal,
   mergeDefaultScss,
   mergeDarkBlueScss,
+  mergeLightOrangeScss,
   compileElementOverrideScss,
   cleanFiles
 )

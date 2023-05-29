@@ -106,12 +106,15 @@ $select-tag-margin: 2px 0 2px 8px;
       color: $color-master-1;
     }
   }
+
+  .el-input .el-select__caret {
+    color: $text-color-light-2;
+  }
 }
 
 .el-input__suffix .el-input__suffix-inner .suffix-other {
   margin-right: 16px;
 }
-
 
 /*
   重置Select Dropdown样式
@@ -129,7 +132,6 @@ $select-tag-margin: 2px 0 2px 8px;
   .el-select-dropdown__list {
     padding-top: $padding;
     padding-bottom: $padding;
-
   }
 
   &__item {
@@ -155,6 +157,8 @@ $select-tag-margin: 2px 0 2px 8px;
     }
 
     &.is-disabled {
+      color: $select-color-disabled;
+
       .el-input__prefix {
         color: $select-color-disabled;
       }
@@ -169,7 +173,6 @@ $select-tag-margin: 2px 0 2px 8px;
   &.is-multiple &__item.selected {
     background-color: unset;
     color: $select-color;
-
   }
 
   &__empty {
@@ -185,7 +188,6 @@ $select-tag-margin: 2px 0 2px 8px;
 
   &.el-popper[x-placement^='bottom'] {
     margin-top: $margin-2x;
-
   }
 
   &el-popper[x-placement^='top'] {
@@ -206,7 +208,6 @@ $select-tag-margin: 2px 0 2px 8px;
   }
 }
 
-
 @mixin select-size($size, $height, $left) {
   .el-select {
     &.el-select--#{$size} {
@@ -216,7 +217,7 @@ $select-tag-margin: 2px 0 2px 8px;
         line-height: $height - 2;
 
         .el-input__inner {
-          line-height: $height;
+          line-height: $height - 2;
         }
       }
 

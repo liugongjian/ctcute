@@ -2,7 +2,7 @@
  * @Author: huanglulu
  * @Date: 2022-07-18 15:05:01
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-27 12:14:22
+ * @LastEditTime: 2023-05-11 12:20:31
  * @Description:
  */
 import ElementUI, {
@@ -54,6 +54,7 @@ import ElementUI, {
   Progress,
   Spinner,
   Message,
+  MessageBox,
   Badge,
   Card,
   Carousel,
@@ -94,7 +95,7 @@ import ElementUIOverride, {
   Collapse,
   Rate,
   Button,
-  MessageBox,
+  // MessageBox,
 } from './components/ElementUI'
 // svgIcon
 import './icons/index'
@@ -104,6 +105,10 @@ import SvgIcon from './icons/index.vue'
  * 组件清单
  */
 import CuteLayout from './components/CuteLayout/index.vue'
+import CuteLayoutSidebar from './components/CuteLayout//Sidebar/index.vue'
+import CuteLayoutNavbar from './components/CuteLayout//Navbar/index.vue'
+import CuteLayoutBreadcrumb from './components/CuteLayout//Breadcrumb/index.vue'
+import CuteLayoutHeader from './components/CuteLayout//Header/index.vue'
 import CuteButtonGroup from './components/CuteCombinationButton/CuteButtonGroup.vue'
 import CuteEditInput from './components/CuteEditInput/index.vue'
 import CuteFormInfo from './components/CuteFormInfo/index.vue'
@@ -126,6 +131,10 @@ import CuteScroller from './components/CuteScroller/index.vue'
 import CuteFixedFooter from './components/CuteFixedFooter/index.vue'
 export {
   CuteLayout,
+  CuteLayoutSidebar,
+  CuteLayoutNavbar,
+  CuteLayoutBreadcrumb,
+  CuteLayoutHeader,
   CuteButtonGroup,
   CuteEditInput,
   CuteFormInfo,
@@ -153,6 +162,10 @@ export {
  */
 const componentsList = [
   CuteLayout,
+  CuteLayoutSidebar,
+  CuteLayoutNavbar,
+  CuteLayoutBreadcrumb,
+  CuteLayoutHeader,
   CuteFormInfo,
   CuteEditInput,
   CuteState,
@@ -167,12 +180,16 @@ const componentsList = [
   CuteStepsMulti,
   CuteCardBox,
   CuteScroller,
+  CuteTitledBlock,
   CuteFixedFooter,
 ]
 
 export default {
   install(Vue, opts = { size: 'medium' }) {
-    Vue.use(ElementUI, opts)
+    Vue.use(ElementUI, {
+      ...opts,
+      size: opts.size || 'medium',
+    })
     Vue.use(ElementUIOverride)
     Vue.component('SvgIcon', SvgIcon)
 

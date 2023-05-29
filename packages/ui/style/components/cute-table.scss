@@ -51,68 +51,56 @@
   }
 }
 
-.table-filter {
+.cute-table-filter {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: -$margin-2x; // 抵消子元素的margin-bottom
 
-  .el-tag {
+  > * {
     margin-right: $margin-3x;
+    margin-bottom: $margin-2x;
+  }
+}
+
+.el-popover.cute-table-filter__popover {
+  margin-top: $margin-2x;
+  padding: 0;
+  min-width: 340px;
+
+  .popover__content {
+    padding: $padding-4x;
+    max-height: 300px;
+    overflow: auto;
+
+    .el-form-item {
+      margin-bottom: $margin-4x;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &__label {
+        padding-right: $padding-3x;
+      }
+
+      &__content {
+        font-size: $text-size;
+        color: $text-color;
+      }
+    }
   }
 
-  .table-filter-dropdown {
-    position: relative;
+  .popover__footer {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 50px;
+    padding: 0 $padding-4x;
+    background: $color-neutral-1;
 
-    .table-filter_content {
-      position: absolute;
-      top: $common-space-8x;
-      left: 0;
-      min-width: 335px;
-      background: $color-bg-1;
-      box-shadow: $shadow-2;
-      z-index: $zindex-dropdown;
-
-      .table-filter_top {
-        padding: $padding-4x;
-
-        .el-form-item {
-          margin-bottom: $margin-4x;
-
-          &:last-child {
-            margin-bottom: 0;
-          }
-
-          display: flex;
-
-          .el-form-item__label {
-            min-width: 84px;
-            padding-right: $padding-3x;
-          }
-
-          .el-select,
-          .el-input {
-            width: 90px;
-            margin-right: $margin-2x;
-          }
-
-          span {
-            font-size: $text-size;
-            color: $text-color-light;
-          }
-        }
-      }
-
-      .table-filter_foot {
-        background: $color-neutral-2;
-        display: flex;
-        justify-content: right;
-        align-items: center;
-        height: 50px;
-        padding: 0 $padding-4x;
-
-        .el-button + .el-button {
-          margin-left: $margin-4x;
-        }
-      }
+    .el-button + .el-button {
+      margin-left: $margin-4x;
     }
   }
 }

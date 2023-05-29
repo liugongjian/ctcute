@@ -13,6 +13,7 @@
         position: absolute;
         left: $icon-height;
         top: 0;
+        white-space: nowrap;
       }
 
       .el-step__description {
@@ -24,9 +25,7 @@
       .el-step__description {
         @if $size == small {
           padding: 0 $padding-2x 0 $padding;
-        }
-
-        @else {
+        } @else {
           padding: 0 $padding-2x;
         }
       }
@@ -63,7 +62,7 @@
         }
       }
 
-      .el-step__icon.is-icon{
+      .el-step__icon.is-icon {
         height: $icon-height;
       }
 

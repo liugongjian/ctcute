@@ -2,11 +2,11 @@
  * @Author: 马妍
  * @Date: 2022-07-19 16:32:05
  * @LastEditors: 孙善鹏
- * @LastEditTime: 2023-04-26 13:55:18
+ * @LastEditTime: 2023-05-09 18:08:39
  * @Description: 
 -->
 <template>
-  <div>
+  <div class="upload-demo">
     <h3>文件上传-基础按钮</h3>
     <div style="width: 320px">
       <el-upload
@@ -15,14 +15,30 @@
         :on-remove="handleRemove"
         :on-success="handleSuccess"
       >
-        <el-button><svg-icon name="upload" /> 上传文件</el-button>
+        <el-button icon="upload">上传文件</el-button>
         <div slot="tip" class="el-upload__tip">支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
+      </el-upload>
+    </div>
+    <h3>文件上传-输入框</h3>
+    <div style="width: 320px">
+      <el-upload
+        :show-file-list="false"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        :on-preview="handlePreview"
+        :on-remove="handleRemove"
+        :on-success="handleSuccess"
+      >
+        <div class="upload-input-box">
+          <el-input v-model="uploadSingleName" placeholder="还未选择文件" class="upload-input"></el-input>
+          <el-button icon="upload">上传</el-button>
+        </div>
+        <div slot="tip" class="el-upload__tip">提示语，文案过多时折行显示</div>
       </el-upload>
     </div>
     <h3>文件上传-禁用</h3>
     <div style="width: 320px">
       <el-upload disabled>
-        <el-button disabled><svg-icon name="upload" /> 上传文件</el-button>
+        <el-button icon="upload">上传文件</el-button>
       </el-upload>
     </div>
     <div>
@@ -89,7 +105,7 @@
       :on-success="handleSuccess"
       class="small-uploader"
     >
-      <el-button><svg-icon name="upload" /> 上传文件</el-button>
+      <el-button icon="upload">上传文件</el-button>
       <div slot="tip" class="el-upload__tip">支持扩展名：.rar .zip .doc .docx .pdf .jpg...</div>
     </el-upload>
     <h3>文件上传</h3>
@@ -141,6 +157,7 @@ export default class extends Vue {
     version: 'v1.0',
     updateTime: '2022.07.12',
   }
+  private uploadSingleName = ''
   private dialogImageUrl = ''
   private dialogVisible = false
   private fileList1 = [
@@ -174,7 +191,8 @@ export default class extends Vue {
     console.log(file, fileList)
   }
 
-  private handleSuccess() {
+  private handleSuccess(id, file) {
+    this.uploadSingleName = file.name
     console.log('文件上传成功')
   }
   //图片上传
@@ -199,5 +217,15 @@ export default class extends Vue {
 .drag-uploader,
 .file-uploader {
   width: 320px;
+}
+.upload-input-box {
+  display: flex;
+  .upload-input {
+    margin-right: 16px;
+    width: 182px;
+  }
+}
+.upload-demo h3 {
+  margin-top: 24px;
 }
 </style>

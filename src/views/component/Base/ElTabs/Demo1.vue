@@ -16,7 +16,7 @@
     </el-row>
     <h3>{{ $t('demo.tabs.common.medium') }}</h3>
     <el-row class="sub-tabs">
-      <el-tabs size="medium">
+      <el-tabs>
         <el-tab-pane :label="$t('demo.tabs.common.option1')">{{
           $t('demo.tabs.common.option1')
         }}</el-tab-pane>
@@ -29,7 +29,7 @@
       </el-tabs>
     </el-row>
     <h3>{{ $t('demo.tabs.common.small') }}</h3>
-    <el-row class="sub-tabs">
+    <el-row class="sub-tabs" size="small">
       <el-tabs>
         <el-tab-pane :label="$t('demo.tabs.common.option1')">{{
           $t('demo.tabs.common.option1')
@@ -44,7 +44,14 @@
     </el-row>
     <h3>{{ $t('demo.tabs.common.editable') }}</h3>
     <el-row>
-      <el-tabs v-model="editableTabsValue1" closable addable @tab-remove="removeTab1" @tab-add="addTab1">
+      <el-tabs
+        v-model="editableTabsValue1"
+        closable
+        addable
+        :add-button-text="$t('demo.tabs.common.addButtonText')"
+        @tab-remove="removeTab1"
+        @tab-add="addTab1"
+      >
         <el-tab-pane
           v-for="item in editableTabs1"
           :key="item.name"

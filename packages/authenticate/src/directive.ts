@@ -1,3 +1,10 @@
+/*
+ * @Author: 胡佳婷
+ * @Date: 2023-05-12 13:44:39
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-12 14:04:23
+ * @Description:
+ */
 export default {
   bind(el, bindings, vnode) {
     el.style.display = 'none'
@@ -26,6 +33,6 @@ function compileAuthorize(el, bindings, vnode) {
       el.style.display = null
     }
   } else {
-    throw new Error('need roles! Like v-permission="[\'admin\',\'editor\']"')
+    throw new Error('need roles! Like v-permission=\'["admin","editor"]\'')
   }
 }

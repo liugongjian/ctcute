@@ -12,7 +12,7 @@
   font-family: $vxe-font-family;
   background-color: $vxe-toolbar-background-color;
   &:after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
     height: 0;
@@ -26,7 +26,7 @@
   }
   &.is--loading {
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -39,9 +39,9 @@
   }
   .vxe-buttons--wrapper {
     flex-grow: 1;
-    & > .vxe-button+.vxe-button--item,
-    & > .vxe-button--item+.vxe-button,
-    & > .vxe-button--item+.vxe-button--item {
+    & > .vxe-button + .vxe-button--item,
+    & > .vxe-button--item + .vxe-button,
+    & > .vxe-button--item + .vxe-button--item {
       margin-left: 0.8em;
     }
     & > .vxe-button--item {
@@ -49,9 +49,9 @@
     }
   }
   .vxe-tools--wrapper {
-    & > .vxe-button+.vxe-tool--item,
-    & > .vxe-tool--item+.vxe-button,
-    & > .vxe-tool--item+.vxe-tool--item {
+    & > .vxe-button + .vxe-tool--item,
+    & > .vxe-tool--item + .vxe-button,
+    & > .vxe-tool--item + .vxe-tool--item {
       margin-left: 0.8em;
     }
     & > .vxe-tool--item {
@@ -79,7 +79,6 @@
     flex-shrink: 0;
   }
   .vxe-custom--wrapper {
-
     position: relative;
     background-color: $vxe-toolbar-panel-background-color;
     &.is--active {
@@ -115,7 +114,7 @@
         width: $vxe-toolbar-custom-button-line-height;
         color: $vxe-icon-color;
         &:hover {
-          color: $vxe-primary-color
+          color: $vxe-primary-color;
         }
 
         &:before {
@@ -124,7 +123,6 @@
         }
       }
     }
-
   }
 
   .vxe-custom--option-wrapper {
@@ -177,19 +175,19 @@
       }
     }
     .vxe-custom--header {
-      &>li {
-          margin-top: $margin;
-          margin-bottom: $margin;
-          margin-bottom: $margin;
-          max-width: $vxe-toolbar-custom-option-max-width;
-          min-width: $vxe-toolbar-custom-option-min-width;
-          padding: 0px $padding-3x;
-          height: $vxe-toolbar-custom-option-height;
-          line-height: $vxe-toolbar-custom-option-height;
-        }
+      & > li {
+        margin-top: $margin;
+        margin-bottom: $margin;
+        margin-bottom: $margin;
+        max-width: $vxe-toolbar-custom-option-max-width;
+        min-width: $vxe-toolbar-custom-option-min-width;
+        padding: 0px $padding-3x;
+        height: $vxe-toolbar-custom-option-height;
+        line-height: $vxe-toolbar-custom-option-height;
+      }
     }
     .vxe-custom--body {
-      &>li {
+      & > li {
         margin-top: $margin;
         max-width: $vxe-toolbar-custom-option-max-width;
         min-width: $vxe-toolbar-custom-option-min-width;
@@ -201,7 +199,7 @@
     }
 
     .vxe-custom--body {
-      &>li {
+      & > li {
         margin-top: $margin;
         max-width: $vxe-toolbar-custom-option-max-width;
         min-width: $vxe-toolbar-custom-option-min-width;
@@ -214,7 +212,7 @@
     }
 
     .vxe-custom--footer {
-      border-top: 1px solid $vxe-table-popup-border-color;
+      border-top: 1px solid $vxe-toolbar-custom-footer-border-color;
       text-align: left;
       height: calc($vxe-toolbar-custom-option-height + 4px);
       line-height: calc($vxe-toolbar-custom-option-line-height + 4px);
@@ -247,7 +245,7 @@
   padding: 0;
   user-select: none;
 
-  &>li {
+  & > li {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

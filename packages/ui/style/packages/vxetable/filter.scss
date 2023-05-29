@@ -15,7 +15,7 @@
   }
 
   .vxe-filter--btn {
-    color: $vxe-icon-color;
+    color: $vxe-header-icon-color;
     cursor: pointer;
 
     &:hover {
@@ -53,10 +53,9 @@
   border: 1px solid $vxe-table-popup-border-color;
   box-shadow: $shadow-2;
   z-index: $vxe-table-filter-wrapper-zindex;
-  
+
   // 重写checkbox样式
   @extend %XECheckboxIconNature;
-  
 
   &:not(.is--multiple) {
     text-align: center;
@@ -83,7 +82,7 @@
       }
 
       &:hover {
-        background-color: $vxe-table-filter-item-hover-color; 
+        background-color: $vxe-table-filter-item-hover-color;
       }
     }
   }

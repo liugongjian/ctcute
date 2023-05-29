@@ -16,7 +16,7 @@
     </el-row>
     <h3>{{ $t('demo.tabs.common.medium') }}</h3>
     <el-row class="sub-tabs">
-      <el-tabs type="border-card" size="medium">
+      <el-tabs type="border-card">
         <el-tab-pane :label="$t('demo.tabs.common.option1')">{{
           $t('demo.tabs.common.option1')
         }}</el-tab-pane>
@@ -30,7 +30,7 @@
     </el-row>
     <h3>{{ $t('demo.tabs.common.small') }}</h3>
     <el-row class="sub-tabs">
-      <el-tabs type="border-card">
+      <el-tabs type="border-card" size="small">
         <el-tab-pane :label="$t('demo.tabs.common.option1')">{{
           $t('demo.tabs.common.option1')
         }}</el-tab-pane>
@@ -49,6 +49,7 @@
         type="border-card"
         closable
         addable
+        :add-button-text="$t('demo.tabs.common.addButtonText')"
         @tab-remove="removeTab1"
         @tab-add="addTab1"
       >

@@ -206,7 +206,7 @@ export default class extends Vue {
         isPaging: 0,
         ...this.roleListQuery,
       })
-      if (res.code === 200) {
+      if ((res as any).code === 200) {
         const data = res.data.result
         this.roleData = []
         data.forEach(item => {
@@ -227,7 +227,7 @@ export default class extends Vue {
     this.roleValue = []
     try {
       const res = await getRoleUser(this.setRoleUserRow)
-      if (res.code === 200) {
+      if ((res as any).code === 200) {
         const arr = res.data
         arr.forEach(item => {
           this.roleValue.push(item._id)
@@ -301,7 +301,7 @@ export default class extends Vue {
       })
 
       const res = await copyRoles(row._id)
-      if (res.code === 200) {
+      if ((res as any).code === 200) {
         this.$message.success('复制角色成功! ')
         this.tableHook.query()
       }
@@ -322,7 +322,7 @@ export default class extends Vue {
       })
 
       const res = await delRoles(row._id)
-      if (res.code === 200) {
+      if ((res as any).code === 200) {
         this.$message.success('删除角色成功! ')
         this.tableHook.query()
       }

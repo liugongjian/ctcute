@@ -163,8 +163,8 @@ export default {
   tabs: {
     common: {
       large: 'Large size',
-      medium: 'Medium size',
-      small: 'Small size (Default)',
+      medium: 'Medium size(Default)',
+      small: 'Small size',
       editable: 'Remove and Add',
       addWithInput: 'Add(With Input)',
       newTabName: 'New Tab',
@@ -175,6 +175,7 @@ export default {
       optionForbid: 'Item forbidden',
       optionChoosed: 'Item selected',
       optionDisable: 'Item disabled',
+      addButtonText: 'Add(Custom Button Text)',
     },
     demo5: {
       title1: 'Position of tabs is bottom',

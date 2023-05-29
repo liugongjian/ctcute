@@ -10,14 +10,14 @@ export default class IamLayout extends BaseLayout {
   }
 
   protected config = {
-    containerId: 'alogic-console', // 容器id使用这个，或 iam-console-container
+    containerId: 'container',
     urlPrefix: '/iam', // url 前缀，可按需调整
     jsUrl: '/layout/alogic-layout.js',
     cssUrl: '/layout/alogic-layout.css',
   }
 
   // 资源加载
-  async load() {
+  async #load() {
     try {
       const { urlPrefix, cssUrl, jsUrl } = this.config
 
@@ -29,13 +29,20 @@ export default class IamLayout extends BaseLayout {
   }
 
   // 初始化
-  init({ containerId }: IamLayoutInitOptions = {}) {
+  async init(options: IamLayoutInitOptions) {
     try {
+      await this.#load()
+
       const { consoleContainer } = window.AlogicLayout
+      const { containerId, bizDomain } = options
 
       consoleContainer.init({
         baseNode: document.getElementById(containerId || this.config.containerId),
       })
+
+      // 侧边栏高亮
+      bizDomain && consoleContainer.match({ domain: bizDomain })
+      // 如需定制菜单，参考文档
 
       return Promise.resolve(consoleContainer)
     } catch (err) {

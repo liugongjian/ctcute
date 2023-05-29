@@ -5,14 +5,12 @@ $datepicker-footer-padding: $common-space-2x 16px;
 $datepicker-border-color: $color-neutral-3;
 $datepicker-footer-button-color: $color-white;
 
-
 .el-picker-panel.el-date-picker.el-popper.has-sidebar // .el-picker-panel__body-wrapper {
 //   min-width: 640px;
 // }
 
 
 .el-date-range-picker {
-
   .el-picker-panel__body {
     min-width: 600px;
   }
@@ -101,8 +99,6 @@ $datepicker-footer-button-color: $color-white;
     }
   }
 
-
-
   .el-date-range-picker__time-header {
     border-bottom: 1px solid $datepicker-border-color;
   }
@@ -146,8 +142,6 @@ $datepicker-footer-button-color: $color-white;
     border-bottom: 1px solid $datepicker-border-color;
   }
 
-
-
   .el-time-spinner__list:after {
     height: 160px;
   }
@@ -162,8 +156,6 @@ $datepicker-footer-button-color: $color-white;
     border-right: 1px solid $datepicker-border-color;
   }
 
-
-
   .el-date-picker__time-header {
     border-bottom: 1px solid $datepicker-border-color;
     padding-bottom: 6px;
@@ -175,7 +167,6 @@ $datepicker-footer-button-color: $color-white;
 }
 
 .el-picker-panel.el-date-picker.el-popper.has-sidebar {
-
   .el-picker-panel__content {
     width: 345px;
   }
@@ -261,7 +252,6 @@ $datepicker-footer-button-color: $color-white;
     }
   }
 
-
   .el-range-separator {
     width: 40px;
     color: $color-grey-4;
@@ -296,10 +286,7 @@ $datepicker-footer-button-color: $color-white;
   .el-range-input {
     font-size: $text-size;
     line-height: normal;
-
   }
-
-
 
   &.el-input .el-input__suffix {
     right: $common-space-3x !important;
@@ -331,14 +318,12 @@ $datepicker-footer-button-color: $color-white;
 }
 
 .el-range-editor--small .el-range-input {
-  font-size: $text-size ;
+  font-size: $text-size;
   line-height: normal;
-
 }
 
 .el-time-panel {
   width: 160px;
-
 }
 
 .el-time-panel__content:before {
@@ -375,11 +360,11 @@ $datepicker-footer-button-color: $color-white;
     width: $date-panel-btn-size;
 
     &.start-date div {
-      margin-left: 8px
+      margin-left: 8px;
     }
 
     &.end-date div {
-      margin-right: 8px
+      margin-right: 8px;
     }
 
     div {
@@ -403,7 +388,6 @@ $datepicker-footer-button-color: $color-white;
 
   .el-button--default {
     &.is-plain {
-
       background-color: $color-master;
       color: $datepicker-footer-button-color;
       border-color: $color-master;
@@ -418,10 +402,8 @@ $datepicker-footer-button-color: $color-white;
         background-color: $color-master-disabled;
         color: $datepicker-footer-button-color;
         border-color: $color-master-disabled;
-
       }
     }
-
   }
 
   .el-button--text {
@@ -434,7 +416,6 @@ $datepicker-footer-button-color: $color-white;
 .el-date-picker__header,
 .el-date-range-picker__header {
   margin: 12px 16px 8px 16px !important;
-
 }
 
 .el-date-range-picker__time-header {
@@ -451,3 +432,18 @@ $datepicker-footer-button-color: $color-white;
   padding: 0 8px 8px 8px !important;
   margin: 0 !important;
 }
+
+
+// 范围日期选择高度不变问题
+@mixin select-size($size, $height) {
+  .el-date-editor {
+    &.el-range-editor--#{$size} {
+      height: $height;
+    }
+  }
+}
+
+@include select-size(large, $select-lg-height);
+@include select-size(medium, $select-md-height);
+@include select-size(small, $select-sm-height);
+@include select-size(mini, $select-xs-height);

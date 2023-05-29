@@ -11,7 +11,6 @@
 
   // 页眉样式
   th.el-table__cell {
-
     &,
     &.is-leaf {
       border-right: 0;
@@ -47,7 +46,6 @@
 
   thead.has-gutter {
     th.el-table__cell {
-
       // 有gutter，最后第二列留白
       &:nth-last-child(2) > .cell {
         padding-right: $padding-5x;
@@ -148,12 +146,21 @@
   }
 
   // 树形表格
-  [class*=el-table__row--level] .el-table__expand-icon {
-    margin-right: 0;
+  [class*='el-table__row--level'] .el-table__expand-icon {
+    font-size: $text-size-md;
+    width: $common-space-4x;
+    height: $common-space-4x;
+    line-height: $common-space-4x;
+    margin-right: $margin;
+    margin-left: -$margin-5x; // 为了同级文字对齐
   }
 
-  .el-table__row:not(.el-table__row--level-0) .el-table__placeholder {
-    width: 4px;
+  [class*='el-table__row--level'] td:first-child .cell {
+    padding-left: $padding-5x + $padding-5x; // 首列留白 + 弥补图标的负margin
+  }
+
+  .el-table__placeholder {
+    width: 0;
   }
 
   // 覆盖border表格样式
@@ -171,7 +178,6 @@
 
     // 页眉样式
     th.el-table__cell {
-
       &,
       &.is-leaf {
         border-right: 1px solid transparent;
@@ -185,7 +191,6 @@
 
     thead.has-gutter {
       th.el-table__cell {
-
         // 有gutter，最后第二列没有border
         &:nth-last-child(2) > .cell {
           border-right: none;
@@ -208,7 +213,7 @@
 
         &:hover {
           td.el-table__cell {
-            background: $table-row-hover-background-color
+            background: $table-row-hover-background-color;
           }
         }
       }
@@ -232,7 +237,6 @@
 
     // 页眉样式
     th.el-table__cell {
-
       &,
       &.is-leaf {
         border-right: 1px solid $table-border-color;
@@ -249,6 +253,13 @@
   // 无内容提示
   .el-table__empty-block {
     background-color: $color-bg-2;
+  }
+
+  // 设置表格内滚动条颜色
+  &--scrollable-y &__body-wrapper {
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-neutral-2;
+    }
   }
 }
 

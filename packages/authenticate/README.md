@@ -82,6 +82,70 @@ this.$auth.isLogin
 ></el-tab-pane>
 ```
 
+7. 当时对接 iam 或 ctyun 时，需要使用其 layout ，这里提供了快捷的使用方式，示例如下：
+
+```js
+import { IamLayout } from '@cutedesign/authenticate'
+
+new IamLayout().init({
+  bizDomain: 'cdn'
+}).then(() => {
+  new Vue({
+    // i18n, // 按需开启
+    router,
+    store,
+    render: h => h(App),
+  }).$mount('#app')
+})
+```
+
+```js
+import { CtyunLayout } from '@cutedesign/authenticate'
+
+new CtyunLayout().init({
+  bizDomain: 'console.cdn',
+  logoutUrl: '/cdn/sign/out',
+}).then(() => {
+  new Vue({
+    // i18n, // 按需开启
+    router,
+    store,
+    render: h => h(App),
+  }).$mount('#app')
+})
+```
+
+需要配置 nginx 示例如下（注意：静态资源可以直接转发，接口的转发需要考虑鉴权问题）：
+```nginx
+location /iam/layout {
+  proxy_set_header Host vip.ctcdn.cn;
+  proxy_pass https://vip.ctcdn.cn/layout;
+}
+location /iam {
+  proxy_set_header Host vip.ctcdn.cn;
+  proxy_pass https://vip.ctcdn.cn;
+}
+
+location /ctyun/layout {
+  proxy_set_header Host www.ctyun.cn;
+  proxy_pass https://www.ctyun.cn/console/layout;
+}
+location /ctyun {
+  proxy_set_header Host www.ctyun.cn;
+  proxy_pass https://www.ctyun.cn;
+}
+location /gw {
+  proxy_set_header Host www.ctyun.cn;
+  proxy_pass https://www.ctyun.cn/gw;
+}
+location /v1/bcc {
+  proxy_set_header Host www.ctyun.cn;
+  proxy_pass https://www.ctyun.cn;
+}
+```
+
+补充：[ctyun layout 文档](https://wwwgray.ctyun.cn/devdocs/consoleLayout/)
+
 ## 配置项
 
 ```javascript
@@ -129,8 +193,6 @@ export default <AuthConfigOptions>{
       })
     } else if (authenticateType === 'iam' && $auth.currentProvider.enableWorkspace) {
       $auth.$http.interceptors.request.use(IamWorkspace.requestInterceptor)
-    } else if (authenticateType === 'ctyun' && $auth.currentProvider.enableWorkspace) {
-      $auth.$http.interceptors.request.use(CtyunWorkspace.requestInterceptor)
     }
   },
   // bindResponseInterceptor
@@ -150,7 +212,7 @@ export default <AuthConfigOptions>{
           $auth.permStorage.removeItem('isLogin')
           $auth.permStorage.removeItem('allPerms')
           $auth.removeToken()
-          window.location.href = $auth.currentProvider.user.loginUrl
+          window.location.href = $auth.currentProvider.ifLogin.loginUrl
         }
         return Promise.reject(error)
       }
@@ -167,63 +229,13 @@ export default <AuthConfigOptions>{
     return void 0
   },
 
-  // 加载静态资源，使用惰性单例，避免二次执行
-  loadLayout: (function (fn) {
-    let result
-    return function ($auth) {
-      return result || (result = fn($auth))
-    }
-  })(async function ($auth) {
-    try {
-      const container = document.querySelector($auth.options.containerId)
-      const { authenticateType, providers, responseDataKey } = $auth.options
-      const { containerId, bizDomain } = providers[authenticateType].layout
-      if (authenticateType === 'iam') {
-        if (!window.AlogicLayout) {
-          const layout = new IamLayout()
-          await layout.load()
-          // 由于 layout 加载完后会立即执行一次初始化，因此容器 id 的赋予要滞后到按需资源加载之后、初始化之前
-          container.id = containerId
-          const console = await layout.init({ containerId })
-          // 侧边栏高亮
-          console.match({ domain: bizDomain })
-        }
-      } else if (authenticateType === 'ctyun') {
-        if (!window.CtcloudLayout) {
-          const layout = new CtyunLayout()
-          await layout.load()
-          container.id = containerId
-          const console = await layout.init()
-          // 侧边栏高亮
-          console.match({ domain: bizDomain })
-        }
-      }
-    } catch (err) {
-      console.error(err)
-    }
-  }),
-
   // 三种用户权限相关的配置
   providers: {
     iam: {
       enableWorkspace: true, // iam 默认启用 wid
-      layout: {
-        containerId: 'iam-console-container',
-        bizDomain: '', // 侧边栏高亮配置，按需重写
-      },
-      user: {
-        loginUrl: IamUser.loginUrl, // 对应业务后端的登录地址
-        logoutUrl: IamUser.logoutUrl, // 对应业务后端的退出地址，按需重写
-        setUrl(baseUrl) {
-          const loginUrl = `${baseUrl}${this.loginUrl}`
-          const logoutUrl = `${baseUrl}${this.logoutUrl}`
-          this.loginUrl = loginUrl
-          this.logoutUrl = logoutUrl
-          IamUser.setConfig({ loginUrl, logoutUrl })
-        },
-      },
       ifLogin: {
-        url: IamUser.fetchUrl, // 检查用户是否登录的线上接口
+        loginUrl: `/sign/in?returnUrl=${encodeURIComponent(window.location.href)}`, // 对应业务后端的登录地址
+        url: '/iam/gw/auth/Current', // 检查用户是否登录的线上接口
         method: 'GET',
         // dataHandler: data => data, // 数据格式转换，转换成统一的格式，按需提供
         // afterLogin: userinfo => {}, // 登录成功后，拿到用户信息执行一些操作
@@ -234,8 +246,8 @@ export default <AuthConfigOptions>{
             return IamWorkspace.routerBeforeEach(to)
           }
         },
-        unloggedRouterBeforeEach: () => {
-          window.location.href = IamUser.loginUrl
+        unloggedRouterBeforeEach(to, $auth) {
+          window.location.href = `${$auth.options.baseUrl}${this.loginUrl}`
         },
       },
       perms: {
@@ -249,35 +261,12 @@ export default <AuthConfigOptions>{
       },
     },
     ctyun: {
-      enableWorkspace: false, // iam 默认不启用 wid
-      layout: {
-        containerId: 'ctcloud-console', // 注意：该 id 不要重写，会导致 ctyun layout 初始化异常
-        bizDomain: '', // 侧边栏高亮配置，按需重写
-      },
-      user: {
-        loginUrl: CtyunUser.loginUrl,
-        logoutUrl: CtyunUser.logoutUrl,
-        setUrl(baseUrl) {
-          const loginUrl = `${baseUrl}${this.loginUrl}`
-          const logoutUrl = `${baseUrl}${this.logoutUrl}`
-          this.loginUrl = loginUrl
-          this.logoutUrl = logoutUrl
-          CtyunUser.setConfig({ loginUrl, logoutUrl })
-        },
-      },
       ifLogin: {
-        url: CtyunUser.fetchUrl,
+        loginUrl: `/sign/in?returnUrl=${encodeURIComponent(window.location.href)}`, // 对应业务后端的登录地址
+        url: '/gw/auth/Current',
         method: 'GET',
-        afterLogin: ($auth, userId) => {
-          $auth.currentProvider.enableWorkspace && CtyunWorkspace.setWorkspaceId(userId)
-        },
-        loggedRouterBeforeEach: (to, $auth) => {
-          if (!$auth.currentProvider.enableWorkspace) return
-
-          return CtyunWorkspace.routerBeforeEach(to)
-        },
-        unloggedRouterBeforeEach: () => {
-          window.location.href = CtyunUser.loginUrl
+        unloggedRouterBeforeEach(to, $auth) {
+          window.location.href = `${$auth.options.baseUrl}${this.loginUrl}`
         },
       },
       // TODO ctyun 不需要鉴权，这个配置的意义主要在于菜单上下线，存在意义待定
@@ -287,18 +276,12 @@ export default <AuthConfigOptions>{
         method: 'GET',
         responseDataKey: 'data.list', // 可以拿到数据的key
         dataHandler: CtyunMenu.dataFormat, // 数据格式转换，转换成统一的格式
-        setWorkspaceId: CtyunWorkspace.setWorkspaceId,
       },
     },
     local: {
-      layout: {
-        containerId: 'container',
-      },
-      user: {
-        loginUrl: `/login?redirect=${encodeURIComponent(window.location.href)}`,
-      },
       ifLogin: {
         url: '/v1/auth/account/ifLogin',
+        loginUrl: `/login?redirect=${encodeURIComponent(window.location.href)}`,
         method: 'GET',
         dataHandler: data => data,
         afterLogin: $auth => $auth.getPermInfo(true),

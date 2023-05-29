@@ -2,8 +2,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-20 09:15:28
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-11 18:43:54
  * @Description:
  */
 // import Layout from '@/layout/component.vue'
@@ -58,6 +58,15 @@ const componentRoutes = [
         },
       },
       {
+        path: 'cute-table-filter',
+        name: 'CuteTableColumnSettings',
+        component: () => import('@/views/component/Base/CuteTableFilter/index.vue'),
+        meta: {
+          title: 'CuteTableFilter',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'cute-titled-block',
         name: 'CuteTitledBlock',
         component: () => import('@/views/component/Base/CuteTitledBlock/index.vue'),
@@ -76,29 +85,11 @@ const componentRoutes = [
         },
       },
       {
-        path: 'cute-chart',
-        name: 'CuteChart',
-        component: () => import('@/views/component/Base/CuteChart/index.vue'),
-        meta: {
-          title: 'CuteChart',
-          breadcrumb: true,
-        },
-      },
-      {
         path: 'cute-edit-input',
         name: 'CuteEditInput',
         component: () => import('@/views/component/Base/CuteEditInput/index.vue'),
         meta: {
           title: 'CuteEditInput',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'cute-button-group',
-        name: 'CuteButtonGroup',
-        component: () => import('@/views/component/Base/CuteButtonGroup/index.vue'),
-        meta: {
-          title: 'CuteButtonGroup',
           breadcrumb: true,
         },
       },
@@ -133,15 +124,6 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteRemindInput/index.vue'),
         meta: {
           title: 'CuteRemindInput',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'cute-special-radio',
-        name: 'CuteSpecialRadio',
-        component: () => import('@/views/component/Base/CuteSpecialRadio/index.vue'),
-        meta: {
-          title: 'CuteSpecialRadio',
           breadcrumb: true,
         },
       },
@@ -187,6 +169,33 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteDistributionBar/index.vue'),
         meta: {
           title: 'CuteDistributionBar',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-scroller',
+        name: 'CuteScroller',
+        component: () => import('@/views/component/Base/CuteScroller/index.vue'),
+        meta: {
+          title: 'CuteScroller',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-fixed-footer',
+        name: 'CuteFixedFooter',
+        component: () => import('@/views/component/Base/CuteFixedFooter/index.vue'),
+        meta: {
+          title: 'CuteFixedFooter',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-form-info',
+        name: 'CuteFormInfo',
+        component: () => import('@/views/component/Base/CuteFormInfo/index.vue'),
+        meta: {
+          title: 'CuteFormInfo',
           breadcrumb: true,
         },
       },
@@ -263,29 +272,20 @@ const componentRoutes = [
         },
       },
       {
+        path: 'el-card',
+        name: 'ElCard',
+        component: () => import('@/views/component/Base/ElCard/index.vue'),
+        meta: {
+          title: 'ElCard',
+          breadcrumb: true,
+        },
+      },
+      {
         path: 'vxe-table',
         name: 'VxeTable',
         component: () => import('@/views/component/Base/VxeTable/index.vue'),
         meta: {
           title: 'VxeTable',
-        },
-      },
-      {
-        path: 'cute-scroller',
-        name: 'CuteScroller',
-        component: () => import('@/views/component/Base/CuteScroller/index.vue'),
-        meta: {
-          title: 'CuteScroller',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'cute-fixed-footer',
-        name: 'CuteFixedFooter',
-        component: () => import('@/views/component/Base/CuteFixedFooter/index.vue'),
-        meta: {
-          title: 'CuteFixedFooter',
-          breadcrumb: true,
         },
       },
     ],

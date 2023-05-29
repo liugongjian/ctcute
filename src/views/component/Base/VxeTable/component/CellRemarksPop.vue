@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-26 17:23:11
+ * @LastEditTime: 2023-05-29 17:23:28
  * @Description:
 -->
 <template>
@@ -33,11 +33,14 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-$cell-edit-max-width: 238px;
-$cell-edit-max-height: 238px;
+$cell-edit-remark-pop-max-width: 238px;
+$cell-edit-remark-pop-min-width: 128px;
+$cell-edit-remark-pop-max-height: 500px;
 .cell-remarks__pop {
-  max-width: $cell-edit-max-width;
-  max-height: $cell-edit-max-height;
+  border-radius: $border-radius;
+  max-width: $cell-edit-remark-pop-max-width;
+  max-height: $cell-edit-remark-pop-max-height;
+  min-width: $cell-edit-remark-pop-min-width;
   overflow-y: scroll;
   background: $neutral-8;
   padding: $padding-4x;
@@ -49,6 +52,9 @@ $cell-edit-max-height: 238px;
   &__content {
     margin-top: $margin-2x;
     color: $neutral-1;
+    &__item {
+      font-size: $text-size-small;
+    }
   }
 }
 </style>

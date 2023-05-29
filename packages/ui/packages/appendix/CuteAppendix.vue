@@ -12,7 +12,7 @@
         <div class="cute-appendix--medium__content" @click="handleDownload">
           <svg-icon class="cute-appendix--medium__content__link-icon" :name="svgName" :color="svgColor" />
           <div class="cute-appendix--medium__content__title">
-            <div>{{ title }}</div>
+            <div :title="title">{{ title }}</div>
             <div>{{ fileSize }}</div>
           </div>
         </div>

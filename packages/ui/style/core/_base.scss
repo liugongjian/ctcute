@@ -93,3 +93,11 @@ h5 {
 //   background-position: 3px 3px;
 //   background-position: 6px 6px;
 // }
+
+.notransition * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
+}

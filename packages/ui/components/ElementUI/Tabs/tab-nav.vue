@@ -381,7 +381,7 @@ export default {
                     }}
                   ></el-input>
                 ) : (
-                  `+ ${this.defaultTabName}`
+                  <span class="el-tabs__add__text"> <i class="cute-icon-plus" />{` ${this.defaultTabName}`}</span>
                 )}
               </div>
             ) : null}

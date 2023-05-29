@@ -7,7 +7,7 @@ import { codemirror } from 'vue-codemirror'
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/mode/vue/vue.js'
 import 'codemirror/lib/codemirror.css'
-import 'codemirror/theme/base16-light.css'
+import 'codemirror/theme/material-darker.css'
 
 @Component({
   name: 'VueCodeMirror',
@@ -18,13 +18,21 @@ import 'codemirror/theme/base16-light.css'
 export default class extends Vue {
   @Prop() private code: string
   @Prop() private mode: string
+  @Prop({
+    default: 'default',
+  })
+  private theme: string
 
   private cmOptions = {
     value: '',
     mode: 'text/javascript',
-    theme: 'base16-light',
+    theme: 'default',
     lineNumbers: true,
     readOnly: true,
+  }
+
+  private created() {
+    this.cmOptions.theme = this.theme
   }
 
   @Watch('mode', {

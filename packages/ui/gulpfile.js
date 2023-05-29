@@ -10,6 +10,8 @@ const concat = require('gulp-concat')
 const rename = require('gulp-rename')
 const clean = require('gulp-clean')
 const replace = require('gulp-replace')
+const smartCssWrap = require('gulp-smart-css-wrap');
+const smartCssConcat = require('gulp-smart-css-concat');
 const fs = require('fs')
 const path = require('path')
 
@@ -17,11 +19,11 @@ const getThemeChalkPath = () => {
   try {
     fs.statSync(path.join(__dirname, './node_modules/element-ui'))
     return './node_modules/element-ui/packages/theme-chalk'
-  } catch (error) {}
+  } catch (error) { }
   try {
     fs.statSync(path.join(__dirname, '../../node_modules/element-ui'))
     return '../../node_modules/element-ui/packages/theme-chalk'
-  } catch (error) {}
+  } catch (error) { }
   return ''
 }
 
@@ -74,6 +76,40 @@ function concatCSS(theme) {
     .pipe(dest('./lib'))
 }
 
+// 给主题css加namespace
+function wrapThemeCSS(theme) {
+  return src([`./lib/cuted-${theme}.css`])
+    .pipe(smartCssWrap({ selector: `.${theme}`, ignore: theme == 'default' ? true : false }))
+    .pipe(cleanCSS())
+    .pipe(rename(`${theme == 'default' ? 'index.wraped.css' : 'index.' + theme + '.wraped.css'}`))
+    .pipe(dest('./lib'))
+}
+
+// 合并多种主题的css
+function concatThemeCSS(themes) {
+  return src(themes.map(theme => theme == 'default' ? './lib/index.wraped.css' : `./lib/index.${theme}.wraped.css`))
+    .pipe(concat('./cuted.multiple_theme.css'))
+    .pipe(smartCssConcat())
+    .pipe(cleanCSS())
+    .pipe(dest('./lib'))
+}
+
+// 把多主题css和iconfont.css和bahnschrift.css合并
+function genarateThemeCSS() {
+  return src(['./fonts/iconfont.css', './fonts/bahnschrift.css', `./lib/cuted.multiple_theme.css`])
+    .pipe(concat('index.multiple_theme.css'))
+    .pipe(cleanCSS())
+    .pipe(dest('./lib'))
+}
+
+// 合并各个主题下的css vars
+function concatVarCSS(themes) {
+  return src(themes.map(theme => `./style/themes/${theme.replace('_', '/')}/css-vars.css`))
+    .pipe(concat('./index.vars.css'))
+    .pipe(cleanCSS())
+    .pipe(dest('./lib'))
+}
+
 // copy elementui font到lib目录
 function copyfontElementUI() {
   return src(`${getThemeChalkPath()}/src/fonts/**`).pipe(dest('./lib/fonts'))
@@ -92,7 +128,13 @@ function copyfontLocal() {
 }
 
 function cleanup(theme) {
-  return src([`./lib/cuted-${theme}.css`, `./style/variables-${theme}.scss`], { read: false }).pipe(
+  return src([`./lib/cuted-${theme}.css`, './lib/index.wraped.css', `./style/variables-${theme}.scss`], { read: false, allowEmpty: true }).pipe(
+    clean({ force: true })
+  )
+}
+
+function cleanupMultiTheme() {
+  return src([`./lib/cuted.multiple_theme.css`], { read: false }).pipe(
     clean({ force: true })
   )
 }
@@ -170,6 +212,15 @@ const buildLightOrangeCss = series(
   () => concatCSS('light_orange')
 )
 
+// 构建多主题样式，dark和light样式合到一起
+const buildMultipleThemeCSS = series(
+  () => wrapThemeCSS('default'),
+  () => wrapThemeCSS('dark_blue'),
+  () => concatThemeCSS(['default', 'dark_blue']),
+  () => genarateThemeCSS(),
+  () => concatVarCSS(['default', 'dark_blue'])
+)
+
 const mergeDefaultScss = series(() => mergeSCSS('default', 'default'))
 const mergeDarkBlueScss = series(() => mergeSCSS('dark/blue', 'dark_blue'))
 const mergeLightOrangeScss = series(() => mergeSCSS('light/orange', 'light_orange'))
@@ -184,11 +235,13 @@ exports.build = series(
   buildDefaultCss,
   buildDarkBlueCss,
   buildLightOrangeCss,
+  buildMultipleThemeCSS,
   copyfontElementUI,
   copyfontLocal,
   mergeDefaultScss,
   mergeDarkBlueScss,
   mergeLightOrangeScss,
   compileElementOverrideScss,
-  cleanFiles
+  cleanFiles,
+  cleanupMultiTheme
 )

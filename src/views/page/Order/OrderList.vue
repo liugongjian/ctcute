@@ -1,3 +1,10 @@
+<!--
+ * @Author: 魏勋
+ * @Date: 2023-05-22 16:34:26
+ * @LastEditors: 魏勋
+ * @LastEditTime: 2023-05-29 09:52:46
+ * @Description: 订购页
+-->
 <template>
   <el-card class="real-order">
     <cute-fixed-footer class="real-order-header" @click="openPreview">
@@ -84,6 +91,12 @@
 
     <cute-fixed-footer class="real-order-footer">
       <div>
+        <span class="config-cost">购买量:</span>
+        <el-input-number v-model="form.buyNumber" :min="0"></el-input-number>
+        <span class="config-cost">购买时长:</span>
+        <el-select v-model="form.buyDuration" class="el-select-small" placeholder="请选择">
+          <el-option v-for="item in marks" :key="item" :value="item"> </el-option>
+        </el-select>
         <span class="config-cost">配置费用：</span>
         <span class="cost-count">￥{{ form.totalPrice }}</span>
         <el-tooltip effect="dark" placement="top">
@@ -101,7 +114,7 @@
       </div>
       <div>
         <el-button @click="handleCancel"> 取消 </el-button>
-        <el-button type="primary" @click="handleSure"> 下一步 </el-button>
+        <el-button type="primary" @click="handleSure"> 下一步:网络配置 </el-button>
       </div>
     </cute-fixed-footer>
   </el-card>
@@ -206,6 +219,8 @@ export default class extends Vue {
     payType: 1,
     totalPrice: 54.0,
     createTime: 1,
+    buyNumber: 0,
+    buyDuration: '1个月',
   }
   private mouthValue = 1
   private options = ['workSpace', 'teamSpace', 'default']

@@ -547,6 +547,34 @@ const restPageRoutes = [
         },
       },
       {
+        path: 'order-list1',
+        component: () => import('@/views/page/Order/OrderList1.vue'),
+        name: 'OrderList1',
+        meta: {
+          title: 'OrderList1 订购标准页',
+          fullScreen: true,
+        },
+      },
+      {
+        path: 'order-list2',
+        component: () => import('@/views/page/Order/OrderList2.vue'),
+        name: 'OrderList2',
+        meta: {
+          title: 'OrderList2 订购标准页',
+          fullScreen: true,
+        },
+      },
+      {
+        path: 'order-success',
+        component: () => import('@/views/page/Order/OrderSuccess.vue'),
+        name: 'OrderSuccess',
+        meta: {
+          title: 'OrderSuccess 订购成功',
+          fullScreen: true,
+        },
+      },
+
+      {
         path: 'product-details',
         component: () => import('@/views/page/Order/ProductDetails.vue'),
         name: 'ProductDetails',

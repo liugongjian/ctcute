@@ -82,6 +82,10 @@ $tabs-lg-height: $input-lg-height;
 .el-tabs--card > .el-tabs__header {
   border: none;
 
+  .el-tabs__nav.is-top, .el-tabs__nav.is-bottom{
+    display: flex;
+  } 
+
   .el-tabs__item.is-active.is-closable {
     padding: 0 $padding-10 0 $padding-3x;
   }
@@ -196,6 +200,16 @@ $tabs-lg-height: $input-lg-height;
 
 .el-tabs--border-card > .el-tabs__header .el-tabs__item {
   color: $text-color;
+}
+
+
+@each $direction in top, bottom, left, right {
+  .el-tabs--#{$direction}.el-tabs--border-card .el-tabs__header.is-#{$direction} {
+     border: none;
+      .el-tabs__item{
+        border: none;
+      }
+  }
 }
 
 @each $direction in left, right {

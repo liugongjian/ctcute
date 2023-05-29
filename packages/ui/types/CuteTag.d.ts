@@ -7,4 +7,10 @@
  */
 import { CuteComponent } from './component'
 
-export declare class CuteTag extends CuteComponent {}
+export declare class CuteTag extends CuteComponent {
+  tagName: string
+  tagSize: string
+  tagClass: string
+  inputClass: string
+  syncedDynamicTags?: string[]
+}

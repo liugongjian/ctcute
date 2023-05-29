@@ -38,7 +38,7 @@ export default class extends Vue {
   @Prop({ type: Boolean, default: false }) collapseTags?: false
   @Model('change', { default: '' }) value: Array<any> | string
   @Prop({ type: String, default: 'medium' }) size?: 'medium' //option 值
-  @Prop({ type: Boolean, default: false }) disabled!: boolean //禁用状态
+  @Prop({ type: Boolean, default: false }) disabled!: Boolean //禁用状态
   @Emit('change')
   myChange(key) {
     this.multiple &&

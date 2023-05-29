@@ -1,0 +1,19 @@
+{
+  "name": "gulp-smart-css-concat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wanap",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "dependencies": {
+    "css": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "through2": "^4.0.2"
+  }
+}

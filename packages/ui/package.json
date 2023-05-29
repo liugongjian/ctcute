@@ -33,7 +33,8 @@
     "build:sorttable": "vue-cli-service build --target lib --dest dist/sorttable --formats=commonjs --name index index.sorttable.ts",
     "build:vxetable": "vue-cli-service build --target lib --dest dist/vxetable --formats=commonjs --name index ./packages/vxe-table/index.ts",
     "build:i18n": "vue-cli-service build --target lib --dest dist/i18n --formats=commonjs --name index ./i18n/index.ts",
-    "build:theme": "rimraf lib && gulp build --gulpfile gulpfile.js",
+    "build:theme": "npm run build:vars && rimraf lib && gulp build --gulpfile gulpfile.js",
+    "build:vars": "node ../../scripts/buildVars.js",
     "build:entry": "node ./build/entry.js",
     "build": "npm run build:theme && npm run build:base && npm run build:appendix && npm run build:vxetable && npm run build:sorttable && npm run build:i18n && npm run build:entry"
   },

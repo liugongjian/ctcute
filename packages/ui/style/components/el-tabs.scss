@@ -1,6 +1,9 @@
 .el-tabs__item.el-tabs__add.with-input {
   width: $tabs-add-item-width;
 }
+.el-tabs > .el-tabs__header .el-tabs__item.el-tabs__add {
+  color: $color-master;
+}
 
 /* $size:大小;
    $height: 高度;

@@ -1,12 +1,22 @@
-/* * @Author: 胡一苗 * @Date: 2023-05-16 17:19:04 * @LastEditors: 胡一苗 * @LastEditTime: 2023-05-16 17:32:24
-* @Description: desc */
+/*
+* @Author: 胡一苗
+* @Date: 2023-05-29 16:24:24
+* @LastEditors: 胡一苗
+* @LastEditTime: 2023-05-29 19:09:50
+* @Description: desc
+*/
 <template>
   <div>
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
-      <h1>CuteTableFilter / 表格过滤</h1>
+      <h1>CuteTableFilter / 默认按 Tag 展示过滤条件</h1>
       <component-demo path="@/views/component/Base/CuteTableFilter/Demo1.vue">
         <demo1 />
+      </component-demo>
+
+      <h1>CuteTableFilter / 通过 slot 自定义展示过滤条件</h1>
+      <component-demo path="@/views/component/Base/CuteTableFilter/Demo2.vue">
+        <demo2 />
       </component-demo>
 
       <h2>CuteTableFilter Attributes</h2>
@@ -43,6 +53,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Demo1 from './Demo1.vue'
+import Demo2 from './Demo2.vue'
 import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 
 @Component({
@@ -50,10 +61,49 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
   components: {
     ComponentDemo,
     Demo1,
+    Demo2,
   },
 })
 export default class extends Vue {
-  private prop = []
+  private prop = [
+    {
+      name: 'btnIcon',
+      desc: '按钮图标',
+      type: 'string',
+      options: '选填',
+      default: 'plus',
+    },
+    {
+      name: 'btnText',
+      desc: '按钮文本',
+      type: 'string',
+      options: '选填',
+      default: '新增过滤',
+    },
+    {
+      name: 'filters',
+      desc: '过滤条件',
+      type: 'CuteTableFilterItem[]',
+      options: '选填',
+      default: null,
+      children: [
+        {
+          name: 'key',
+          desc: '过滤条件的key',
+          type: 'string',
+          options: '选填',
+          default: null,
+        },
+        {
+          name: 'value',
+          desc: '过滤条件的值',
+          type: 'string',
+          options: '必填',
+          default: null,
+        },
+      ],
+    },
+  ]
   private event = [
     {
       name: 'submit',
@@ -65,6 +115,11 @@ export default class extends Vue {
       desc: '新增/编辑过滤条件，点击取消时触发',
       callback: '-',
     },
+    {
+      name: 'remove-filter',
+      desc: '删除过滤条件时触发，如有自定义展示，则不会触发',
+      callback: '(filter: CuteTableFilterItem)',
+    },
   ]
   private slot = [
     {
@@ -72,8 +127,8 @@ export default class extends Vue {
       desc: '展示过滤条件',
     },
     {
-      name: 'filter-form',
-      desc: '新增/编辑过滤条件的表单',
+      name: 'popover-content',
+      desc: 'Popover 中的内容区域，用于新增/编辑过滤条件',
     },
   ]
 }

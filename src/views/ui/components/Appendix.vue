@@ -2,7 +2,7 @@
  * @Author: 秦瑞斌
  * @Date: 2022-07-20 10:14:50
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-12 16:50:52
+ * @LastEditTime: 2023-05-25 11:24:09
  * @Description:
 -->
 <template>
@@ -18,13 +18,7 @@
       :type="'img'"
     ></cute-appendix>
     <h3>附件-大</h3>
-    <cute-appendix
-      :url="pdfUrl"
-      :type="'file'"
-      :title="title1"
-      :svg-color="color1"
-      :file-size="size1"
-    ></cute-appendix>
+    <cute-appendix :url="pdfUrl" :type="'file'" :title="title1" :svg-color="color1"></cute-appendix>
     <cute-appendix
       size="medium"
       :url="pdfUrl"
@@ -32,7 +26,6 @@
       :show-preview="true"
       :svg-color="color2"
       :title="title2"
-      :file-size="size2"
       svg-name="file-pdf-fill"
     ></cute-appendix>
     <cute-appendix
@@ -42,7 +35,6 @@
       :show-preview="true"
       :svg-color="color3"
       :title="title3"
-      :file-size="size3"
       svg-name="file-excel-fill"
     ></cute-appendix>
   </div>
@@ -63,9 +55,9 @@ export default class extends Vue {
     en: 'Appendix',
   }
   public static description = {
-    maintainer: '秦瑞斌',
-    version: 'v1.0',
-    updateTime: '2022.07.29',
+    maintainer: '朱玉豆',
+    version: 'v2.0',
+    updateTime: '2023.05.29',
   }
   private smallTitle1 = '小附件1'
   private smallTitle2 = '小附件2'

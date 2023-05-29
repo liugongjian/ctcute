@@ -1,8 +1,8 @@
 <!--
- * @Author: 朱凌浩
+ * @Author: 胡一苗
  * @Date: 2022-06-18 13:13:36
  * @LastEditors: 胡一苗
- * @LastEditTime: 2023-03-30 15:20:07
+ * @LastEditTime: 2023-05-19 09:59:27
  * @Description: 基础表格
 -->
 <template>
@@ -31,7 +31,7 @@
             <cute-remind-input v-model="conditions.name" placeholder="请输入主机别名" title="主机别名" />
           </el-form-item>
           <el-form-item class="table-tools__conditions__buttons">
-            <el-button type="primary" @click="search">查 询</el-button>
+            <el-button type="primary" plain @click="search">查 询</el-button>
             <el-button @click="resetConditions">重 置</el-button>
           </el-form-item>
         </el-form>
@@ -81,7 +81,7 @@ import { getTable, getHosts } from '@/api/simpleTable2'
 import { STATUS, HEALTH2 } from '@/dics/simpleTable2'
 
 @Component({
-  name: 'SimpleTable',
+  name: 'SimpleTable2',
 })
 export default class extends Vue {
   // 健康状态字典
@@ -196,7 +196,7 @@ export default class extends Vue {
 
   /**
    * 查看详情
-   * @param data {SimpleTable.Host} 表格行对象
+   * @param data {SimpleTable2.Host} 表格行对象
    */
   private gotoDetail(data: SimpleTable2.Host) {
     this.$message.success(`前往${data.name}详情页面`)
@@ -204,7 +204,7 @@ export default class extends Vue {
 
   /**
    * 查看监控指标
-   * @param data {SimpleTable.Host} 表格行对象
+   * @param data {SimpleTable2.Host} 表格行对象
    */
   private gotoDashboard(data: SimpleTable2.Host) {
     this.$message.info(`前往${data.name}监控指标页面`)
@@ -212,7 +212,7 @@ export default class extends Vue {
 
   /**
    * 使用字典格式化实例状态
-   * @param data {SimpleTable.Host} 表格行对象
+   * @param data {SimpleTable2.Host} 表格行对象
    */
   private statusFormatter(data: SimpleTable2.Host) {
     return STATUS[data.status]

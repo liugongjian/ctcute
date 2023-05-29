@@ -19,8 +19,8 @@ export default class extends Vue {
   }
   public static description = {
     maintainer: '朱凌浩',
-    version: 'v1.0',
-    updateTime: '2023.01.09',
+    version: 'v2.0',
+    updateTime: '2023.05.05',
   }
 
   public colorVal = '#7AC4FA'

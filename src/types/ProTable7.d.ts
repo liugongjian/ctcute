@@ -1,8 +1,15 @@
-/**
- * 表格数据
- * 示例为服务器主机
- */
-export interface TableData {
+import * as Request from '@/types/Request'
+import * as Response from '@/types/Response'
+
+/* 获取表格请求类型 */
+export type TableParams = Request.Pager
+
+/* 返回列表 */
+export type TableData = {
+  list: TableDataItem[]
+} & Response.Pager
+
+export type TableDataItem = {
   result?: any
   createTime?: number
   cuNum?: number
@@ -16,7 +23,7 @@ export interface TableData {
   workspaceState?: string
 }
 
-export interface SpaceWork {
+export type SpaceWork = {
   createTime?: number
   cuNum?: number
   cuUsedNum?: number

@@ -34,7 +34,7 @@ export default class extends Vue {
 
 ### 推荐主题
 
-base16-light，elegant，base16-dark
+light主题使用default主题, dark主题使用material-darker主题
 
 ### 代码示例
 
@@ -42,10 +42,8 @@ base16-light，elegant，base16-dark
 
 \`\`\`js
 import { codemirror } from 'vue-codemirror'
-//三种主题颜色
-import 'codemirror/theme/base16-dark.css'
-import 'codemirror/theme/base16-light.css'
-import 'codemirror/theme/elegant.css'
+//主题颜色样式，default样式无需额外引入
+import 'codemirror/theme/material-darker.css'
 //支持的语言
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/mode/css/css.js'
@@ -87,7 +85,7 @@ v-model为绑定的代码块 options为编辑器的配置部分
   private options = {
    tabSize: 2, // 缩进格式
     mode: 'text/javascript', //实现JavaScript代码高亮 这里可进行引入的切换
-    theme: 'base16-light', // 主题，对应主题库 JS 需要提前引入
+    theme: 'material-darker', // 主题，对应主题库 JS 需要提前引入
     lineNumbers: true, // 显示行号
     viewportMargin: Infinity, //处理高度自适应时搭配使用
     line: true, // 开启语法检查
@@ -109,7 +107,7 @@ v-model为绑定的代码块 options为编辑器的配置部分
       Consolas, Liberation Mono, Menlo, monospace
     </p>
     <div class="sub-down">
-      <h3>代码主题：base16-light</h3>
+      <h3>代码主题：default</h3>
 
       <div class="line">
         <div class="pB_Container">
@@ -129,7 +127,7 @@ v-model为绑定的代码块 options为编辑器的配置部分
       </div>
     </div>
     <div class="sub-down">
-      <h3>代码主题：elegant</h3>
+      <h3>代码主题：material-darker</h3>
       <div class="line">
         <div class="pB_Container">
           <div
@@ -147,21 +145,6 @@ v-model为绑定的代码块 options为编辑器的配置部分
         </div>
       </div>
     </div>
-    <div class="sub-down">
-      <h3>代码主题：base16-dark</h3>
-      <div class="line last-line">
-        <div class="pB_Container">
-          <div
-            v-for="(item, index) in processArray3"
-            :key="index"
-            :style="{ width: '14%', backgroundColor: item.color, paddingLeft: 10 + 'px' }"
-          ></div>
-        </div>
-        <div class="line__code">
-          <codemirror v-model="curCode3" :options="cmOptions3"></codemirror>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 <script lang="ts">
@@ -171,9 +154,7 @@ import { codemirror } from 'vue-codemirror'
 import 'codemirror/lib/codemirror.css'
 
 //主题
-import 'codemirror/theme/base16-dark.css'
-import 'codemirror/theme/base16-light.css'
-import 'codemirror/theme/elegant.css'
+import 'codemirror/theme/material-darker.css'
 
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/mode/css/css.js'
@@ -232,22 +213,24 @@ export default class extends Vue {
       color: '#F5F5F5',
     },
   ]
-  private curCode1 = 'function findSequence(goal) {
-  function find(start, history) {
-    if (start == goal)
-      return history;
-    else if (start > goal)
-      return null;
-    else
-      return find(start + 5, "(" + history + " + 5)") ||
-             find(start * 3, "(" + history + " * 3)");
-  }
-  return find(1, "1");
-}'
+
+  private curCode1 = \`function findSequence(goal) {
+    function find(start, history) {
+      if (start == goal)
+        return history;
+      else if (start > goal)
+        return null;
+      else
+        return find(start + 5, "(" + history + " + 5)") ||
+              find(start * 3, "(" + history + " * 3)");
+    }
+    return find(1, "1");
+  }\`
+
   private cmOptions1 = {
     tabSize: 2, // 缩进格式
     mode: 'text/javascript',
-    theme: 'base16-light', // 主题，对应主题库 JS 需要提前引入
+    theme: 'default', // 主题，对应主题库 JS 需要提前引入
     lineNumbers: true, // 显示行号
     viewportMargin: Infinity, //处理高度自适应时搭配使用
     highlightDifferences: true,
@@ -257,6 +240,7 @@ export default class extends Vue {
       completeSingle: true, // 当匹配只有一项的时候是否自动补全
     },
   }
+
   private processArray2 = [
     {
       color: '#773300',
@@ -271,71 +255,24 @@ export default class extends Vue {
       color: '#202020',
     },
   ]
-  private curCode2 = 'function findSequence(goal) {
-  function find(start, history) {
-    if (start == goal)
-      return history;
-    else if (start > goal)
-      return null;
-    else
-      return find(start + 5, "(" + history + " + 5)") ||
-             find(start * 3, "(" + history + " * 3)");
-  }
-  return find(1, "1");
-}'
+
+  private curCode2 = \`function findSequence(goal) {
+    function find(start, history) {
+      if (start == goal)
+        return history;
+      else if (start > goal)
+        return null;
+      else
+        return find(start + 5, "(" + history + " + 5)") ||
+              find(start * 3, "(" + history + " * 3)");
+    }
+    return find(1, "1");
+  }\`
+
   private cmOptions2 = {
     tabSize: 2, // 缩进格式
     mode: 'text/javascript',
-    theme: 'elegant', // 主题，对应主题库 JS 需要提前引入
-    lineNumbers: true, // 显示行号
-    line: true,
-    styleActiveLine: true, // 高亮选中行
-    hintOptions: {
-      completeSingle: true, // 当匹配只有一项的时候是否自动补全
-    },
-  }
-  private processArray3 = [
-    {
-      color: '#AC4142',
-    },
-    {
-      color: '#D28445',
-    },
-    {
-      color: '#F4BF75',
-    },
-    {
-      color: '#AA759F',
-    },
-    {
-      color: '#6A9FB5',
-    },
-    {
-      color: '#E0E0E0',
-    },
-    {
-      color: '#505050',
-    },
-    {
-      color: '#151515',
-    },
-  ]
-  private curCode3 = 'function findSequence(goal) {
-  function find(start, history) {
-    if (start == goal)
-      return history;
-    else if (start > goal)
-      return null;
-    else
-      return find(start + 5, "(" + history + " + 5)") ||
-             find(start * 3, "(" + history + " * 3)");
-  }
-  return find(1, "1");
-}'
-  private cmOptions3 = {
-    tabSize: 2, // 缩进格式
-    mode: 'text/javascript',
-    theme: 'base16-dark', // 主题，对应主题库 JS 需要提前引入
+    theme: 'material-darker', // 主题，对应主题库 JS 需要提前引入
     lineNumbers: true, // 显示行号
     line: true,
     styleActiveLine: true, // 高亮选中行
@@ -344,74 +281,71 @@ export default class extends Vue {
     },
   }
 }
-<script>
+<\/script>
 
 <style lang="scss" scoped>
-.code-box{
-::v-deep .CodeMirror-line {
-  line-height: 150% !important;
-}
-
-.line {
-  // display: flex;
-  // align-items: center;
-  width: 597px;
-  margin-bottom: 24px;
-
-  .pB_Container {
-    width: 100%;
-    background-color: $color-neutral-2;
-    height: 4px;
-    display: inline-flex;
-    line-height: 10px;
-    overflow: hidden;
-    color: $color-white;
-    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1);
+.code-box {
+  ::v-deep .CodeMirror-line {
+    line-height: 150% !important;
   }
 
-  &__code {
-    width: 100%;
-    margin-top: 24px;
-    // margin-right: 47px;
+  .line {
+    width: 597px;
+    margin-bottom: 24px;
+
+    .pB_Container {
+      width: 100%;
+      background-color: $color-neutral-2;
+      height: 4px;
+      display: inline-flex;
+      line-height: 10px;
+      overflow: hidden;
+      color: $color-white;
+      box-shadow: inset 0 2px 2px rgba(0, 0, 0, 10%);
+    }
+
+    &__code {
+      width: 100%;
+      margin-top: 24px;
+    }
+
+    &__border {
+      border: 1px solid $color-neutral-5;
+    }
+
+    .el-cascader {
+      width: 100%;
+    }
   }
 
-  &__border {
-    border: 1px solid $color-neutral-5;
-  }
-
-  .el-cascader {
-    width: 100%;
-  }
-}
-
-.last-line {
-  margin-bottom: 0;
-}
-
-.sub-down {
-  border-bottom: 1px solid $border-color-light;
-
-  >h3 {
+  .last-line {
     margin-bottom: 0;
-    font-family: PingFangSC-Medium;
-    font-size: 14px;
-    color: $color-neutral-10;
-    line-height: 20px;
-    font-weight: 500;
   }
 
-  .el-row {
-    margin: 24px 0;
-  }
-}
+  .sub-down {
+    border-bottom: 1px solid $border-color-light;
 
-.sub-down:last-child {
-  border-bottom: none;
+    >h3 {
+      margin-bottom: 0;
+      font-family: PingFangSC-Medium;
+      font-size: 14px;
+      color: $color-neutral-10;
+      line-height: 20px;
+      font-weight: 500;
+    }
 
-  .el-row {
-    margin-top: 24px;
+    .el-row {
+      margin: 24px 0;
+    }
   }
-}
+
+  .sub-down:last-child {
+    border-bottom: none;
+
+    .el-row {
+      margin-top: 24px;
+    }
+  }
 }
 </style>
 \`\`\`
@@ -419,7 +353,7 @@ export default class extends Vue {
 
 显示效果
 
-![](https://s1.ax1x.com/2022/10/19/xsIySe.png)
+![](https://s1.ax1x.com/2023/05/29/p9OXj1I.png)
 `
 }
 </script>

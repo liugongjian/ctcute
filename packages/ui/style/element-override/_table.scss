@@ -147,11 +147,20 @@
 
   // 树形表格
   [class*='el-table__row--level'] .el-table__expand-icon {
-    margin-right: 0;
+    font-size: $text-size-md;
+    width: $common-space-4x;
+    height: $common-space-4x;
+    line-height: $common-space-4x;
+    margin-right: $margin;
+    margin-left: -$margin-5x; // 为了同级文字对齐
   }
 
-  .el-table__row:not(.el-table__row--level-0) .el-table__placeholder {
-    width: 4px;
+  [class*='el-table__row--level'] td:first-child .cell {
+    padding-left: $padding-5x + $padding-5x; // 首列留白 + 弥补图标的负margin
+  }
+
+  .el-table__placeholder {
+    width: 0;
   }
 
   // 覆盖border表格样式

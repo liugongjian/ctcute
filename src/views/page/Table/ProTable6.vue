@@ -1,8 +1,8 @@
 <!--
- * @Author: 秦瑞斌
+ * @Author: 胡一苗
  * @Date: 2022-11-11 13:41:25
  * @LastEditors: 胡一苗
- * @LastEditTime: 2023-03-30 20:19:08
+ * @LastEditTime: 2023-05-19 10:30:15
  * @Description: 复杂表格6
 -->
 <template>
@@ -20,6 +20,7 @@
       row-key="_id"
       default-expand-all
       :tree-props="{ children: 'children' }"
+      :indent="20"
     >
       <el-table-column prop="name" label="名称" width="180"></el-table-column>
       <el-table-column prop="menuType" label="其他状态" width="180">

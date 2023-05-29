@@ -66,7 +66,7 @@ export default class extends Vue {
   }
   public static description = {
     maintainer: '马妍、王亚振',
-    version: 'v1.0',
+    version: 'v2.0',
     updateTime: '2022.07.12',
   }
   private size = 'small'

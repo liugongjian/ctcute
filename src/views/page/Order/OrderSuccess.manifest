@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "name": "OrderSuccess.vue",
+      "path": "@/views/page/Order/OrderSuccess.vue"
+    },
+    {
+      "name": "OrderList.d.ts",
+      "path": "@/types/OrderList.d.ts"
+    },
+    {
+      "name": "api/orderList.ts",
+      "path": "@/api/orderList.ts"
+    }
+  ]
+}

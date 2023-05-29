@@ -47,9 +47,9 @@ export default class extends Vue {
     en: 'Tag',
   }
   public static description = {
-    maintainer: '赵昕',
-    version: 'v1.0',
-    updateTime: '2022.07.12',
+    maintainer: '张晨曦',
+    version: 'v2.0',
+    updateTime: '2023.05.05',
   }
   private dynamicTags1 = ['标签']
   private dynamicTags2 = ['CPU使用量>=3']

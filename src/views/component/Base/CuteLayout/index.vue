@@ -36,6 +36,12 @@
         <p>拦截route对象后，为route对象添加query属性，query类型为Object对象。</p>
       </ComponentDemo>
 
+      <h1>CuteLayoutSidebar / 动态高亮菜单</h1>
+      <ComponentDemo path="@/views/component/Test/CuteLayout/Page3Create.vue" mode="text/javascript">
+        <p>首先需要在动态高亮菜单的页面路由中添加route.meta.activceMenu属性,并设为null</p>
+        <p>然后在页面中修改当前路由的$route.meta.activeMenu值，指定相应需要高亮的菜单路由path</p>
+      </ComponentDemo>
+
       <h1>CuteLayoutBreadcrumb / 自定义面包屑名称</h1>
       <ComponentDemo path="@/views/component/Test/CuteLayout/Layout.vue" mode="text/javascript">
         <p>
@@ -221,6 +227,14 @@ export default class extends Vue {
     {
       name: '-',
       desc: '页面主体内容',
+    },
+    {
+      name: 'main-top',
+      desc: '自定义主体内容上方区域',
+    },
+    {
+      name: 'main-bottom',
+      desc: '自定义主体内容下方区域',
     },
     {
       name: 'header-logo',

@@ -392,6 +392,24 @@ const restPageRoutes = [
           breadcrumb: true,
         },
       },
+      {
+        path: 'pro-detail3',
+        component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/ProDetail3.vue'),
+        name: 'ProDetail3',
+        meta: {
+          title: 'ProDetail3 复杂详情3',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'pro-detail4',
+        component: () => import(/* webpackChunkName: "detail" */ '@/views/page/Detail/ProDetail4.vue'),
+        name: 'ProDetail4',
+        meta: {
+          title: 'ProDetail4 复杂详情4',
+          breadcrumb: true,
+        },
+      },
     ],
   },
   // 状态页
@@ -528,6 +546,34 @@ const restPageRoutes = [
           fullScreen: true,
         },
       },
+      {
+        path: 'order-list1',
+        component: () => import('@/views/page/Order/OrderList1.vue'),
+        name: 'OrderList1',
+        meta: {
+          title: 'OrderList1 订购标准页',
+          fullScreen: true,
+        },
+      },
+      {
+        path: 'order-list2',
+        component: () => import('@/views/page/Order/OrderList2.vue'),
+        name: 'OrderList2',
+        meta: {
+          title: 'OrderList2 订购标准页',
+          fullScreen: true,
+        },
+      },
+      {
+        path: 'order-success',
+        component: () => import('@/views/page/Order/OrderSuccess.vue'),
+        name: 'OrderSuccess',
+        meta: {
+          title: 'OrderSuccess 订购成功',
+          fullScreen: true,
+        },
+      },
+
       {
         path: 'product-details',
         component: () => import('@/views/page/Order/ProductDetails.vue'),

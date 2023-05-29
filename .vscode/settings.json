@@ -7,8 +7,15 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
-  "stylelint.validate": ["vue", "css", "less", "scss"],
-  "colorize.colorized_variables": ["SASS"],
+  "stylelint.validate": [
+    "vue",
+    "css",
+    "less",
+    "scss"
+  ],
+  "colorize.colorized_variables": [
+    "SASS"
+  ],
   "[yaml]": {
     "editor.formatOnSave": false,
     "editor.formatOnPaste": false,
@@ -23,5 +30,31 @@
     "LastEditTime": "Do not edit",
     "Description": ""
   },
-  "i18n-ally.localesPaths": ["src/i18n"]
+  "i18n-ally.localesPaths": [
+    "src/i18n"
+  ],
+  "autoHeader": {
+    "format": {
+      "startWith": "/**",
+      "middleWith": "*",
+      "endWith": "*/",
+      "headerPrefix": "@",
+    },
+    "header": {
+      "Author": "wx",
+      "Date": {
+        "type": "createTime",
+        "format": "YYYY-MM-DD HH:mm:ss",
+      },
+      "LastEditors": {
+        "type": "modifier",
+        "value": "wx",
+      },
+      "LastEditTime": {
+        "type": "modifyTime",
+        "format": "YYYY-MM-DD HH:mm:ss"
+      },
+      "Description": "",
+    }
+  }
 }

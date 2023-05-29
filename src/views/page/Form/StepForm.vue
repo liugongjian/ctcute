@@ -1,14 +1,14 @@
 <!--
- * @Author: 何晋升
+ * @Author: 黄靖
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 黄靖
- * @LastEditTime: 2023-05-17 17:16:50
+ * @LastEditTime: 2023-05-19 20:07:11
  * @Description: 分步表单
 -->
 <template>
   <el-card>
     <div class="step-form">
-      <el-steps :active="active" class="steps" finish-status="success" space="30%">
+      <el-steps :active="active" class="steps" finish-status="success">
         <el-step
           v-for="(s, index) in steps"
           :key="index"
@@ -72,6 +72,16 @@
           <el-form-item>
             <div v-if="active < steps.length - 1">
               <el-button
+                v-if="active > 0"
+                @click="
+                  () => {
+                    active--
+                  }
+                "
+              >
+                上一步
+              </el-button>
+              <el-button
                 class="btn-style"
                 type="primary"
                 @click="
@@ -81,16 +91,6 @@
                 "
               >
                 下一步
-              </el-button>
-              <el-button
-                v-if="active > 0"
-                @click="
-                  () => {
-                    active--
-                  }
-                "
-              >
-                上一步
               </el-button>
             </div>
           </el-form-item>
@@ -153,6 +153,16 @@
           <el-form-item>
             <div v-if="active < steps.length - 1">
               <el-button
+                v-if="active > 0"
+                @click="
+                  () => {
+                    active--
+                  }
+                "
+              >
+                上一步
+              </el-button>
+              <el-button
                 class="btn-style"
                 type="primary"
                 @click="
@@ -162,16 +172,6 @@
                 "
               >
                 下一步
-              </el-button>
-              <el-button
-                v-if="active > 0"
-                @click="
-                  () => {
-                    active--
-                  }
-                "
-              >
-                上一步
               </el-button>
             </div>
           </el-form-item>
@@ -201,9 +201,6 @@
             </el-descriptions-item>
           </el-descriptions>
           <div class="footer">
-            <el-button class="btn-style" type="primary" :loading="submitting" @click="create">
-              提交信息
-            </el-button>
             <el-button
               :loading="submitting"
               @click="
@@ -214,14 +211,27 @@
             >
               上一步
             </el-button>
+            <el-button class="btn-style" type="primary" :loading="submitting" @click="create">
+              提交信息
+            </el-button>
           </div>
         </div>
 
         <div v-show="active > 2">
-          <el-result icon="success" sub-title="恭喜你提交成功" style="width: 350px"> </el-result>
+          <!-- <el-result icon="success" sub-title="恭喜你提交成功" style="width: 350px"> </el-result> -->
+          <el-result v-if="success" sub-title="提交成功！">
+            <template slot="icon">
+              <el-image :src="SuccessImg" fit="cover"></el-image>
+            </template>
+          </el-result>
+          <el-result v-else sub-title="提交失败！">
+            <template slot="icon">
+              <el-image :src="FailImg" fit="cover"></el-image>
+            </template>
+          </el-result>
           <div class="footer--center">
-            <el-button class="btn-style" type="primary" @click="resetForm"> 再来一次 </el-button>
             <el-button @click="handleClick">查看结构表</el-button>
+            <el-button class="btn-style" type="primary" @click="resetForm"> 再来一次 </el-button>
           </div>
         </div>
       </div>
@@ -280,6 +290,8 @@ import { ElForm } from 'element-ui/types/form'
   name: 'StepForm',
 })
 export default class extends Vue {
+  private SuccessImg = require('./Image/submit-success.svg')
+  private FailImg = require('./Image/submit-fail.svg')
   // 表单Ref对象
   @Ref('firstForm')
   private first: ElForm
@@ -297,6 +309,8 @@ export default class extends Vue {
 
   private inputVisible = false
   private inputValue = ''
+
+  private success = false
 
   // 表单对象
   private firstForm: StepForm.Form = {
@@ -369,10 +383,17 @@ export default class extends Vue {
       }
       const res = await createStepForm(params)
       const data = res.data
+      // 模拟失败效果
+      if (Math.random() > 0.5) {
+        throw new Error()
+      }
+      this.success = true
       this.$message.success(`创建成功！ID: ${data.id}`)
       this.active++
     } catch (e) {
+      this.success = false
       this.$message.error('创建失败！')
+      this.active++
     } finally {
       this.submitting = false
     }

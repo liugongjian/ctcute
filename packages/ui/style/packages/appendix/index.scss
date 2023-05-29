@@ -12,11 +12,11 @@ $cute-appendix-medium-content-title-max-width: 184px;
 
   .appendix-eye-icon {
     margin-left: $margin-3x;
-    color: $icon-color;
+    color: $neutral-9;
     font-size: $cute-appendix-icon-size;
 
     &:hover {
-      color: $color-master-hover;
+      color: $blue-6;
       cursor: pointer;
     }
 
@@ -63,7 +63,7 @@ $cute-appendix-medium-content-title-max-width: 184px;
     &__title {
       margin-left: $margin-10;
 
-      p:nth-child(1) {
+      div:nth-child(1) {
         max-width: $cute-appendix-medium-content-title-max-width;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -76,14 +76,15 @@ $cute-appendix-medium-content-title-max-width: 184px;
         margin: 0 0 $margin 0;
       }
 
-      p:nth-child(2) {
+      div:nth-child(2) {
         font-family: $font-family;
         font-size: $text-size;
-        color: $text-color-light;
         line-height: $line-height;
         font-weight: $text-weight;
         margin: 0;
+        color: $neutral-9;
       }
+      
     }
 
     &__link-icon {

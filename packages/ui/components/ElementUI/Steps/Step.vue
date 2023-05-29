@@ -10,7 +10,11 @@
     class="el-step"
   >
     <!-- icon & line -->
-    <div :class="`is-${currentStatus}`" class="el-step__head">
+    <div :class="`is-${currentStatus}`" class="el-step__head" :style="{
+          minWidth: !isSimple && !isCenter && !isVertical && $refs.title
+            ? $refs.title.offsetLeft + $refs.title.offsetWidth + 'px' : undefined
+        }"
+      >
       <div
         class="el-step__line"
         :style="{
@@ -134,6 +138,27 @@ export default {
       } = this
       return isSimple ? '' : space
     },
+    //  原始逻辑
+    //   style: function() {
+    //   const style = {};
+    //   const parent = this.$parent;
+    //   const len = parent.steps.length;
+
+    //   const space = (typeof this.space === 'number'
+    //     ? this.space + 'px'
+    //     : this.space
+    //       ? this.space
+    //       : 100 / (len - (this.isCenter ? 0 : 1)) + '%');
+    //   style.flexBasis = space;
+    //   if (this.isVertical) return style;
+    //   if (this.isLast) {
+    //     style.maxWidth = 100 / this.stepsCount + '%';
+    //   } else {
+    //     style.marginRight = -this.$parent.stepOffset + 'px';
+    //   }
+
+    //   return style;
+    // }
 
     style() {
       const style = {}

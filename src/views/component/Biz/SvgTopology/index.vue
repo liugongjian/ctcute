@@ -1,3 +1,10 @@
+<!--
+ * @Author: 徐忠勇
+ * @Date: 2023-02-07 14:28:24
+ * @LastEditors: 徐忠勇
+ * @LastEditTime: 2023-02-07 15:35:00
+ * @Description: 自研的svg拓扑图组件
+-->
 <template>
   <div>
     <!-- 多个DEMO请复制此段 -->

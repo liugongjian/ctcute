@@ -38,7 +38,7 @@ export default class extends Mixins(Locale) {
   public breadcrumbShowLast: boolean
 
   @Prop()
-  private breadcrumbAfterEach
+  private breadcrumbAfterEach: (route: RouteRecord) => RouteRecord
 
   private breadcrumbs: RouteRecord[] = []
 

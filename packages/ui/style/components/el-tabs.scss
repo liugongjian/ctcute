@@ -19,6 +19,14 @@
       line-height: calc(#{$height} - 2px); // 去掉border
     }
 
+    &.el-tabs--border-card {
+      .el-tabs__item,
+      .el-tabs__nav-prev,
+      .el-tabs__nav-next{
+        line-height: $height; 
+      }
+    }
+
     &:not(.el-tabs--button) .el-tabs__item.el-tabs__add > .el-tabs__add__input {
       line-height: calc(#{$height} - 2px); // 去掉border居中
       > .el-input__inner {

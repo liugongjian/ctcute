@@ -5,6 +5,7 @@
  * last modified: 2023-02-28
  */
 const fs = require('fs')
+const path = require('path')
 const sass = require('sass')
 const chalk = require('chalk')
 
@@ -34,7 +35,7 @@ ${exports.join('\n')}
 `
 
   // 将文本写入文件
-  const targetPath = filePath.substring(0, filePath.lastIndexOf('/')) + '/index.scss'
+  const targetPath = filePath.substring(0, filePath.lastIndexOf(path.sep)) + path.sep + 'index.scss'
   fs.writeFileSync(targetPath, result)
   console.log(chalk.green(':export导出变量生成成功'))
   return targetPath
@@ -65,7 +66,7 @@ export const variablesRevised: IScssVariablesRevised
 export default variablesRevised
 `
   // 将文本写入文件
-  const targetPath = filePath.substring(0, filePath.lastIndexOf('/')) + '/index.scss.d.ts'
+  const targetPath = filePath.substring(0, filePath.lastIndexOf(path.sep)) + path.sep + 'index.scss.d.ts'
   fs.writeFileSync(targetPath, result)
   console.log(chalk.green('TS Type生成成功'))
 }
@@ -104,7 +105,7 @@ function generateDoc(data, filePath, docFileName) {
       const comment = valueStringList[1] || ''
       const value = cssMap[jsKey]
       const type = value.startsWith('#') ? 'color' : 'string'
-      
+
       docList.length &&
         docList[docList.length - 1].list.push({
           name: key,
@@ -116,12 +117,55 @@ function generateDoc(data, filePath, docFileName) {
     }
   })
   // 将文本写入文件
-  const targetPath = filePath.substring(0, filePath.lastIndexOf('/')) + `/${docFileName}.js`
+  const targetPath = filePath.substring(0, filePath.lastIndexOf(path.sep)) + `${path.sep}${docFileName}.js`
   fs.writeFileSync(
     targetPath,
-`/* eslint-disable prettier/prettier */
+    `/* eslint-disable prettier/prettier */
 export default ${JSON.stringify(docList, null, 2).replace(/"/g, '\'')}
 `
+  )
+  console.log(chalk.green(`${docFileName}生成成功`))
+}
+
+// 生成原生css var变量
+function generateCssVar(data, filePath, docFileName) {
+  // 解析出css值
+  const scssResult = sass.compile(filePath, { style: 'compressed' })
+  const regex = /:export{([^}]+)}/
+  const match = scssResult.css.match(regex)
+  const cssItems = match[1].split(';')
+  const cssMap = new Map()
+  cssItems.forEach(item => {
+    const itemStringList = item.split(':')
+    cssMap[itemStringList[0]] = itemStringList[1]
+  })
+
+  // 解析Variables
+  const exports = []
+  const variables = data.split('\n')
+  variables.forEach(variable => {
+    if (variable.startsWith('$')) {
+      const variableStringList = variable.split(':')
+      const jsKey = toUpperCamelCase(variableStringList[0].replace('$', ''))
+      const key = variableStringList[0].replace('$', '--')
+      const valueStringList = variableStringList[1].split(';')
+      const comment = valueStringList[1] || ''
+      const value = cssMap[jsKey]
+
+      exports.push(`  ${key}: ${value};`)
+    }
+  })
+  // 将文本写入文件
+  const targetPath = filePath.substring(0, filePath.lastIndexOf(path.sep)) + `${path.sep}${docFileName}.css`
+  const res = filePath.match(/themes([a-z\\\/]+)index.scss/)
+  const theme = res && res[1] ? res[1].split(path.sep).filter(e => /[a-z]+/.test(e)).join('_') : ''
+  const prefix = theme == 'default' ? ':root' : `.${theme}`
+  let result = `${exports.join('\n')}`
+  fs.writeFileSync(
+    targetPath,
+    `${prefix} {
+${result}
+}`
   )
   console.log(chalk.green(`${docFileName}生成成功`))
 }
@@ -139,4 +183,4 @@ function toUpperCamelCase(str) {
   return str
 }
 
-module.exports = { generateJsExport, generateTsType, generateDoc, toUpperCamelCase }
+module.exports = { generateJsExport, generateTsType, generateDoc, generateCssVar, toUpperCamelCase }

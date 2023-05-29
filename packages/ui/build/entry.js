@@ -25,6 +25,14 @@ sentence.push(`export {
 }`)
 // export default
 sentence.push(`export { default } from './base/${BUILD_FILE}'`)
+// export changeTheme function
+sentence.push(`export function changeTheme() {
+  window.document.documentElement.classList.add('notransition');
+  window.document.documentElement.classList.toggle('dark_blue');
+  setTimeout(() => {
+    window.document.documentElement.classList.remove('notransition');
+  }, 1000);
+}`)
 
 fs.writeFileSync(OUTPUT_PATH, sentence.join(endOfLine))
 console.log('[build entry DONE]')

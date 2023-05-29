@@ -22,6 +22,7 @@ const deprecatedFileData = fs.readFileSync(deprecatedFilePath, 'utf-8')
 const jsExportFilePath = scssLib.generateJsExport(fileData + deprecatedFileData, targetPath)
 scssLib.generateTsType(fileData + deprecatedFileData, targetPath)
 scssLib.generateDoc(fileData, jsExportFilePath, 'variables-doc')
+scssLib.generateCssVar(fileData, jsExportFilePath, 'css-vars')
 
 // 读取新主题变量
 function parseThemeVariables() {

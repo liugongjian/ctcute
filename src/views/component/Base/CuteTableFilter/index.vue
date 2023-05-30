@@ -1,8 +1,8 @@
 /*
 * @Author: 胡一苗
-* @Date: 2023-05-29 16:24:24
+* @Date: 2023-05-30 14:56:42
 * @LastEditors: 胡一苗
-* @LastEditTime: 2023-05-29 19:09:50
+* @LastEditTime: 2023-05-30 15:37:03
 * @Description: desc
 */
 <template>
@@ -117,8 +117,8 @@ export default class extends Vue {
     },
     {
       name: 'remove-filter',
-      desc: '删除过滤条件时触发，如有自定义展示，则不会触发',
-      callback: '(filter: CuteTableFilterItem)',
+      desc: '删除过滤条件时触发，如通过 slot 自定义展示过滤条件，则不会触发',
+      callback: '(filter: CuteTableFilterItem, index: number)',
     },
   ]
   private slot = [

@@ -7,26 +7,16 @@
         type="info"
         size="medium"
         closable
-        @close="removeFilter(item)"
+        @close="removeFilter(item, index)"
       >
         {{ item.value }}
       </el-tag>
     </slot>
-    <el-popover
-      trigger="manual"
-      v-model="visible"
-      placement="bottom-start"
-      popper-class="cute-table-filter__popover"
-    >
+    <el-popover v-model="visible" placement="bottom-start" popper-class="cute-table-filter__popover">
       <template #reference>
-        <el-button
-          type="primary"
-          size="small"
-          plain
-          :icon="btnIcon"
-          @click="visible = true"
-        >{{ btnText || t('cute.tableFilter.new') }}
-        </el-button>
+        <el-button type="primary" size="small" plain :icon="btnIcon" @mouseleave.native="btnBlur">{{
+          btnText
+        }}</el-button>
       </template>
       <div class="popover__content">
         <slot name="popover-content"></slot>
@@ -41,6 +31,7 @@
 <script lang="ts">
 import { Component, Mixins, Prop } from 'vue-property-decorator'
 import Locale from '@cutedesign/ui/mixins/locale'
+import { t } from '@cutedesign/ui/i18n/locale'
 import { CuteTableFilterItem } from '@cutedesign/ui/types/CuteTableFilter'
 
 @Component({
@@ -48,8 +39,13 @@ import { CuteTableFilterItem } from '@cutedesign/ui/types/CuteTableFilter'
 })
 export default class extends Mixins(Locale) {
   @Prop({ default: 'plus' }) private readonly btnIcon: string
-  @Prop({ default: '' }) private readonly btnText: string
-  @Prop({ type: Array, default: [] }) private readonly filters: CuteTableFilterItem[]
+  @Prop({
+    default: function () {
+      return t.call(this, 'cute.tableFilter.new')
+    },
+  })
+  private readonly btnText: string
+  @Prop({ type: Array, default: () => [] }) private readonly filters: CuteTableFilterItem[]
 
   private visible = false
 
@@ -63,8 +59,13 @@ export default class extends Mixins(Locale) {
     this.visible = false
   }
 
-  private removeFilter(filter: CuteTableFilterItem) {
-    this.$emit('remove-filter', filter)
+  private removeFilter(filter: CuteTableFilterItem, index: number) {
+    this.$emit('remove-filter', filter, index)
+  }
+
+  /** 使按钮失焦 **/
+  private btnBlur(ev) {
+    ev.target.blur()
   }
 }
 </script>

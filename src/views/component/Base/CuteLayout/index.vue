@@ -42,6 +42,11 @@
         <p>然后在页面中修改当前路由的$route.meta.activeMenu值，指定相应需要高亮的菜单路由path</p>
       </ComponentDemo>
 
+      <h1>CuteLayoutSidebar / 外部链接</h1>
+      <ComponentDemo path="@/views/component/Base/CuteLayout/Demo5.ts" mode="text/javascript">
+        <p>如需配置外部链接菜单，只需将路由的path设置为以http、https、mailto或tel开头的地址即可。</p>
+      </ComponentDemo>
+
       <h1>CuteLayoutBreadcrumb / 自定义面包屑名称</h1>
       <ComponentDemo path="@/views/component/Test/CuteLayout/Layout.vue" mode="text/javascript">
         <p>

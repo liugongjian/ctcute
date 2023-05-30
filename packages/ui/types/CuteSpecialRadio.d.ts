@@ -2,13 +2,13 @@
  * @Author: 胡佳婷
  * @Date: 2023-04-18 20:33:37
  * @LastEditors: liugj
- * @LastEditTime: 2023-05-29 14:58:27
+ * @LastEditTime: 2023-05-30 09:15:46
  * @Description:
  */
 import { CuteComponent } from './component'
 
 interface CuteRadio {
-  label: String
+  label: string
   disabled?: boolean
 }
 
@@ -17,14 +17,14 @@ export declare class CuteSpecialRadio extends CuteComponent {
   options: CuteRadio[]
 
   /* 该组件是否禁用 */
-  disabled: Boolean
+  disabled: boolean
 
   /* 该组件尺寸 */
-  size: String
+  size: string
 
   /* 该组件绑定的展示值 */
-  value: String
+  value: string
 
   /* 组件change的回调函数 */
-  myChange: Function
+  myChange: function
 }

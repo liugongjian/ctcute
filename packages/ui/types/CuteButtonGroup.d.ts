@@ -2,14 +2,14 @@
  * @Author: 胡佳婷
  * @Date: 2023-04-18 20:31:50
  * @LastEditors: liugj
- * @LastEditTime: 2023-05-29 14:23:09
+ * @LastEditTime: 2023-05-30 09:13:53
  * @Description:
  */
 import { CuteComponent } from './component'
 
 interface CuteButton {
-  label: String
-  name: String
+  label: string
+  name: string
 }
 
 export declare class CuteButtonGroup extends CuteComponent {
@@ -17,10 +17,10 @@ export declare class CuteButtonGroup extends CuteComponent {
   data: CuteButton[]
 
   /* 展示按钮的最大个数 */
-  max: Number
+  max: number
 
   /* 按钮大小 */
-  size: String
+  size: string
 
   /* 主按钮数据 */
   main: CuteButton

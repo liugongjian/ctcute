@@ -199,7 +199,7 @@ $button-padding-large: $margin-3x $padding-6x;
   $size: 大小名称;
   $font-size: 字体大小;
 */
-@mixin button-size($size, $font-size, $padding) {
+@mixin button-size($size, $font-size, $icon-size, $padding, $iconMargin) {
   $top-padding: str-slice(
     inspect($padding),
     1,
@@ -218,12 +218,17 @@ $button-padding-large: $margin-3x $padding-6x;
       width: $font-size;
       height: $font-size - 3;
 
+      /* 重置按钮图标样式 */
+      & + span {
+        margin-left: $iconMargin;
+      }
+
       .svg-icon,
       [class*='el-icon-'] {
         position: absolute;
         left: 0;
         top: -1px;
-        font-size: $font-size;
+        font-size: $icon-size;
         line-height: 1;
         transform: scale(1.18);
       }
@@ -239,22 +244,15 @@ $button-padding-large: $margin-3x $padding-6x;
   }
 }
 
-@include button-size(mini, $text-size, $button-padding-mini);
-@include button-size(small, $text-size, $button-padding-small);
-@include button-size(medium, $text-size, $button-padding-medium);
-@include button-size(large, $text-size-md, $button-padding-large);
+@include button-size(mini, $text-size, 10.18px, $button-padding-mini, 2px);
+@include button-size(small, $text-size, 10.18px, $button-padding-small, 2px);
+@include button-size(medium, $text-size, $text-size, $button-padding-medium, $margin);
+@include button-size(large, $text-size-md, $text-size-md, $button-padding-large, $margin);
 
 /*
   重置按钮其他样式
 */
 .el-button {
-  /*
-    重置按钮图标样式
-  */
-  &__icon + span {
-    margin-left: $margin;
-  }
-
   /*
     无边框按钮
   */

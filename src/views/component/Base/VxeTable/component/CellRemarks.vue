@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-26 14:50:07
+ * @LastEditTime: 2023-05-29 11:15:35
  * @Description:
 -->
 <template>
@@ -35,12 +35,12 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-$cell-edit-remarks-width: 244px !default;
+$cell-edit-remarks-width: 238px !default;
 .remark {
   .operate-bar {
     text-align: right;
     margin-top: $padding-2x;
-    width: $cell-edit-remarks-width;
+    max-width: $cell-edit-remarks-width;
     .clear {
       margin-right: $margin-4x;
     }

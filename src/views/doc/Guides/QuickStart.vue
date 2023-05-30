@@ -1,8 +1,8 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2022-07-08 13:45:09
- * @LastEditors: 王月功
- * @LastEditTime: 2023-04-28 12:12:16
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-29 20:05:22
  * @Description: 快速开始
 -->
 <template>
@@ -28,7 +28,7 @@ export default class extends Vue {
 2. 全局安装脚手架 \`npm install -g fe-cli\` 和命令行工具 \`npm install -g cute-design-tools\` [cute-design-tools若原先已安装，请卸载后升级到最新版]
 3. 执行 \`fe-cli create <projectName>\`，选择 \`cute-design-template\` 模板的 \`master\` 分支创建项目
 4. **[optional 输入项目名称]**，默认的项目名称为 '天翼云前端脚手架'
-5. 根据自身项目需求，选择是否需要集成用户权限体系，目前支持的包括不集成用户权限体系(none)，IAM用户(iam)，天翼云用户(ctyun)，cuted内置用户(local)si种，具体配置请参考[用户权限](/docs/userperm)
+5. 根据自身项目需求，选择是否需要集成用户权限体系，目前支持的包括不集成用户权限体系(none)，IAM用户(iam)，天翼云用户(ctyun)，cuted内置用户(local)四种，具体配置请参考[用户权限](/docs/userperm)
     - 如果用户类型是天翼云用户，可以选择是否集成IT埋点，默认是集成
     - 如果是IAM用户，可以输入项目代码Domain，默认是'cdn'，可后续修改
 6. 选择主题色，目前默认为**白-蓝(default)**，已支持黑-蓝(dark-blue)

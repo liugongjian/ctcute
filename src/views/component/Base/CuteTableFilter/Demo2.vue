@@ -1,18 +1,22 @@
 /*
 * @Author: 胡一苗
-* @Date: 2023-05-29 16:46:44
+* @Date: 2023-05-29 16:47:10
 * @LastEditors: 胡一苗
-* @LastEditTime: 2023-05-29 18:38:15
+* @LastEditTime: 2023-05-29 18:31:13
 * @Description: desc
 */
 <template>
-  <cute-table-filter
-    btn-icon="plus-circle"
-    btn-text="按钮文本"
-    :filters="tableFilterData"
-    @remove-filter="item => removeTableFilterItem(item.key)"
-    @submit="submitTableFilter"
-  >
+  <cute-table-filter @submit="submitTableFilter">
+    <el-tag
+      v-for="item in tableFilterData"
+      :key="item.key"
+      type="primary"
+      size="medium"
+      closable
+      @close="removeTableFilterItem(item.key)"
+    >
+      {{ item.value }}
+    </el-tag>
     <template #popover-content>
       <el-form class="table-filter__form" label-width="84px">
         <el-form-item v-for="formItem in tableFilterForm" :key="formItem.key" :label="formItem.label">
@@ -37,7 +41,7 @@ import { CuteTableFilter } from '@cutedesign/ui'
 import Locale from '@cutedesign/ui/mixins/locale'
 
 @Component({
-  name: 'Demo1',
+  name: 'Demo2',
   components: { CuteTableFilter },
 })
 export default class extends Mixins(Locale) {

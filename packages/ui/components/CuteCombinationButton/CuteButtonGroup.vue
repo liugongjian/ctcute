@@ -29,7 +29,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ type: Array, default: [] }) data?: []
   @Prop({ type: Number, default: 0 }) max?: number
-  @Prop({ type: String, default: 'medium' }) size?: String
+  @Prop({ type: String, default: 'medium' }) size?: string
   private main = null
   private newData = []
   private created() {

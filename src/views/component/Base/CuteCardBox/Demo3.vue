@@ -1,8 +1,8 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2023-02-09 08:30:39
- * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-23 15:16:19
+ * @LastEditors: 胡佳婷
+ * @LastEditTime: 2023-05-31 06:14:03
  * @Description:
 -->
 
@@ -105,7 +105,7 @@ export default class extends Vue {
 .chart-card-tabs {
   ::v-deep .el-tabs__header {
     margin: 0;
-    margin-top: $margin-8x;
+    margin-top: 22px;
   }
 
   ::v-deep .el-tabs__nav-wrap:after {

@@ -17,7 +17,7 @@
       <router-link to="/component" :class="{ active: currentPath.startsWith('/component') }"
         >组件</router-link
       >
-      <router-link to="/page/chart" :class="{ active: currentPath.startsWith('/page') }">页面</router-link>
+      <router-link to="/page" :class="{ active: currentPath.startsWith('/page') }">页面</router-link>
     </div>
     <!-- 用户信息 -->
     <div v-if="isLogin" v-click-outside="hideDropdown" class="header-nav__login-info" @click="flag = !flag">

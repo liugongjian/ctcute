@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2023-04-18 20:32:09
  * @LastEditors: liugj
- * @LastEditTime: 2023-05-30 09:12:42
+ * @LastEditTime: 2023-05-30 13:46:06
  * @Description:
  */
 import { CuteComponent } from './component'
@@ -27,8 +27,8 @@ export declare class CuteEditInput extends CuteComponent {
   editValue: string
 
   /* 确认回调函数 */
-  onOk: function
+  onOk: any
 
   /* 开始编辑回调函数 */
-  startEdit: function
+  startEdit: any
 }

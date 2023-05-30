@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2023-04-18 20:33:59
  * @LastEditors: liugj
- * @LastEditTime: 2023-05-30 09:14:26
+ * @LastEditTime: 2023-05-30 13:47:04
  * @Description:
  */
 import { CuteComponent } from './component'
@@ -34,5 +34,5 @@ export declare class CuteRemindSelect extends CuteComponent {
   disabled: boolean
 
   /* 下拉框change的回调函数 */
-  myChange: function
+  myChange: any
 }

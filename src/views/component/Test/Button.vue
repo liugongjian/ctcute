@@ -38,9 +38,8 @@
         :loading="isLoading"
         :plain="isPlain"
         :icon="getIcon()"
+        >{{ button.label }}</el-button
       >
-        {{ button.label }}
-      </el-button>
     </el-card>
 
     <el-card>

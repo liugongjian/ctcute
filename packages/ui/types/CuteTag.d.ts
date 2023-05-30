@@ -12,5 +12,6 @@ export declare class CuteTag extends CuteComponent {
   tagSize: string
   tagClass: string
   inputClass: string
+  buttonClass: string
   syncedDynamicTags?: string[]
 }

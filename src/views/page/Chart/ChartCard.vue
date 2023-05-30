@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-10-19 10:59:22
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-10 08:52:26
+ * @LastEditTime: 2023-05-31 06:26:16
  * @Description:
 -->
 <template>
@@ -21,7 +21,6 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-
 @Component({
   name: 'ChartCard',
 })

@@ -493,47 +493,6 @@ const restPageRoutes = [
       },
     ],
   },
-  // 其他
-  {
-    path: '/page/other',
-    redirect: '/page/other/icon',
-    component: Layout,
-    name: 'Other',
-    meta: {
-      title: 'Other 其他',
-      alwaysShow: true,
-      breadcrumb: true,
-    },
-    children: [
-      {
-        path: 'icon',
-        component: () => import(/* webpackChunkName: "icon" */ '@/views/page/Icon/index.vue'),
-        name: 'Icon',
-        meta: {
-          title: 'Icon 图标',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'ts-demo',
-        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/TsDemo/index.vue'),
-        name: 'TypeScriptDemo',
-        meta: {
-          title: 'TypeScript Demo',
-          breadcrumb: true,
-        },
-      },
-      {
-        path: 'echarts-demo',
-        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/EchartsDemo/index.vue'),
-        name: 'EchartsDemo',
-        meta: {
-          title: 'Echarts Demo',
-          breadcrumb: true,
-        },
-      },
-    ],
-  },
   // 订购页
   {
     path: '/page/order',
@@ -598,6 +557,47 @@ const restPageRoutes = [
         name: 'ProductList',
         meta: {
           title: 'ProductList 产品列表',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  // 其他
+  {
+    path: '/page/other',
+    redirect: '/page/other/icon',
+    component: Layout,
+    name: 'Other',
+    meta: {
+      title: 'Other 其他',
+      alwaysShow: true,
+      breadcrumb: true,
+    },
+    children: [
+      {
+        path: 'icon',
+        component: () => import(/* webpackChunkName: "icon" */ '@/views/page/Icon/index.vue'),
+        name: 'Icon',
+        meta: {
+          title: 'Icon 图标',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'ts-demo',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/TsDemo/index.vue'),
+        name: 'TypeScriptDemo',
+        meta: {
+          title: 'TypeScript Demo',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'echarts-demo',
+        component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/EchartsDemo/index.vue'),
+        name: 'EchartsDemo',
+        meta: {
+          title: 'Echarts Demo',
           breadcrumb: true,
         },
       },

@@ -2,7 +2,7 @@
  * @Author: 孙善鹏
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-26 14:29:34
+ * @LastEditTime: 2023-05-31 06:27:00
  * @Description: 基础图表
 -->
 <template>
@@ -132,14 +132,36 @@ import { Component, Vue } from 'vue-property-decorator'
 import * as echarts from 'echarts'
 import themeLight from '@cutedesign/ui/echarts-theme/cuted-light.json'
 import ChartCard from './ChartCard.vue'
-
 echarts.registerTheme('cuted-light', themeLight)
-
+/** 有多个页面时，建议在入口处全局注册VChart */
+import ECharts from 'vue-echarts'
+import { CanvasRenderer } from 'echarts/renderers'
+import { use } from 'echarts/core'
+import { BarChart, PieChart, LineChart } from 'echarts/charts'
+import {
+  GridComponent,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  PolarComponent,
+} from 'echarts/components'
+use([
+  CanvasRenderer,
+  PieChart,
+  GridComponent,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  PolarComponent,
+  BarChart,
+  LineChart,
+])
 @Component({
   name: 'SimpleChart',
   components: {
     ChartCard,
     CuteCardBox,
+    VChart: ECharts,
   },
 })
 export default class extends Vue {
@@ -520,7 +542,7 @@ export default class extends Vue {
 .chart-card-tabs {
   ::v-deep .el-tabs__header {
     margin: 0;
-    margin-top: $margin-8x;
+    margin-top: 22px;
   }
 
   ::v-deep .el-tabs__nav-wrap:after {

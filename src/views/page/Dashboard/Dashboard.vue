@@ -2,7 +2,7 @@
  * @Author: 邱文琦
  * @Date: 2022-10-11 13:30
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-05-04 19:50:23
+ * @LastEditTime: 2023-05-31 06:27:53
  * @Description: 首页
 -->
 <template>
@@ -268,7 +268,29 @@ import iconReach from './Images/icon-reach.svg'
 import iconClick from './Images/icon-click.svg'
 import iconStartUp from './Images/icon-startUp.svg'
 import iconInstall from './Images/icon-install.svg'
-
+/** 有多个页面时，建议在入口处全局注册VChart */
+import ECharts from 'vue-echarts'
+import { CanvasRenderer } from 'echarts/renderers'
+import { use } from 'echarts/core'
+import { BarChart, PieChart, LineChart } from 'echarts/charts'
+import {
+  GridComponent,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  PolarComponent,
+} from 'echarts/components'
+use([
+  CanvasRenderer,
+  PieChart,
+  GridComponent,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  PolarComponent,
+  BarChart,
+  LineChart,
+])
 echarts.registerTheme('cuted-light', themeLight)
 
 @Component({
@@ -276,6 +298,7 @@ echarts.registerTheme('cuted-light', themeLight)
   components: {
     ChartItem,
     CuteCardBox,
+    VChart: ECharts,
   },
 })
 export default class extends Vue {

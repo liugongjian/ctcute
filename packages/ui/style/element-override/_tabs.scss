@@ -9,6 +9,10 @@ $tabs-lg-height: $input-lg-height;
 /**
  通用样式
 */
+.el-tabs__header{
+  margin: 0 0 $margin-4x;
+}
+
 .el-tabs__item {
   font-weight: $text-weight;
 

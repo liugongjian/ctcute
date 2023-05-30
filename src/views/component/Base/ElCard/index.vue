@@ -9,7 +9,12 @@
   <div>
     <!-- 多个DEMO请复制此段 -->
     <div class="component__container">
-      <h1>ElCard / 默认简单卡片，悬浮后显示阴影</h1>
+      <h1>ElCard / 默认总是显示无边框浅色阴影</h1>
+      <p>通常作为页面容器使用</p>
+      <component-demo path="@/views/component/Base/ElTabs/Demo5.vue">
+        <demo5 />
+      </component-demo>
+      <h1>悬浮后显示阴影</h1>
       <component-demo path="@/views/component/Base/ElCard/Demo1.vue">
         <demo1 />
       </component-demo>
@@ -24,11 +29,6 @@
       <h1>默认无边框且有浅色阴影，悬浮后显示深色阴影</h1>
       <component-demo path="@/views/component/Base/ElTabs/Demo4.vue">
         <demo4 />
-      </component-demo>
-      <h1>总是显示无边框浅色阴影</h1>
-      <p>通常作为页面容器使用</p>
-      <component-demo path="@/views/component/Base/ElTabs/Demo5.vue">
-        <demo5 />
       </component-demo>
       <h2>ElCard 说明</h2>
       <p>此为直接覆写element-ui的组件，el-card原有的属性和事件未变，下面只列出新增/有改动的部分</p>
@@ -73,7 +73,7 @@ export default class extends Vue {
         type: 'string',
         required: '选填',
         options: 'always/always-light/hover/hover-light/never',
-        default: 'hover',
+        default: 'always-light',
       },
     ]
   }

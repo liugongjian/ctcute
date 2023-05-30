@@ -49,7 +49,7 @@ export default {
     Table.props.emptyText = {
       default: '暂无数据',
     }
-    Card.props.shadow.default = 'hover'
+    Card.props.shadow.default = 'always-light'
 
     // 覆写默认语言包，支持按 cute 设置回退中文
     locale.use(zhLang)

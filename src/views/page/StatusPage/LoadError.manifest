@@ -1,0 +1,12 @@
+{
+  "files": [
+    {
+      "name": "LoadError.vue",
+      "path": "@/views/page/StatusPage/LoadError.vue"
+    },
+    {
+      "name": "load-error.svg",
+      "path": "@/views/page/StatusPage/Image/load-error.svg"
+    }
+  ]
+}

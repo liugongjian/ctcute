@@ -184,6 +184,12 @@ const layoutTestRoutes = [
             },
           },
           {
+            path: 'http://www.baidu.com',
+            meta: {
+              title: '外部链接',
+            },
+          },
+          {
             path: 'page3b-create/:type',
             name: 'Page3bCreate',
             component: () => import('@/views/component/Test/CuteLayout/Page3Create.vue'),

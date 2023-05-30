@@ -463,7 +463,7 @@ const restPageRoutes = [
         component: () => import(/* webpackChunkName: "ts-demo" */ '@/views/page/StatusPage/LoadError.vue'),
         name: 'LoadError',
         meta: {
-          title: '加载失败页面',
+          title: 'LoadError 加载失败',
           breadcrumb: true,
         },
       },

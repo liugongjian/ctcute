@@ -42,7 +42,7 @@ export default class extends Vue {
   @Prop({ type: String, default: '139, 178, 249' }) background?: '139, 178, 249' // 背景颜色 如果是rgb(139, 178, 249) 只取中间的 139, 178, 249
   @Prop({ type: String, default: '#FFF' }) svgColor?: '#FFF' // 图标颜色
   @Prop({ type: Boolean, default: false }) loading?: false // 加载状态
-  @Prop({ type: String, default: 'never' }) shadow?: 'never' // 卡片是否有阴影
+  @Prop({ type: String, default: 'hover' }) shadow?: 'hover' // 卡片是否有阴影
 }
 </script>
 <style lang="scss" scoped>

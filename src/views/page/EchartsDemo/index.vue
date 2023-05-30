@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2023-02-07 08:08:18
  * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-04-26 14:28:18
+ * @LastEditTime: 2023-05-31 07:35:47
  * @Description: echarts的demo页，用于展示自定义的echarts主题效果
 -->
 
@@ -10,7 +10,7 @@
   <div class="echarts-demo">
     <el-card class="simple-form">
       <el-form>
-        <el-form-item label="布局方式">
+        <el-form-item label="主题">
           <el-select v-model="theme">
             <el-option value="cuted-light" label="cuted-light"></el-option>
             <el-option value="cuted-dark" label="cuted-dark"></el-option>

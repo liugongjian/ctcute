@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <el-card class="cute-card">
+  <el-card class="cute-card" shadow="hover">
     <div v-if="title" slot="header" class="cute-card__header">
       <span class="cute-card__header__title">{{ title }}</span>
       <div v-if="$slots.extra" class="cute-card__header__extra">

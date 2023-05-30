@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-29 18:31:35
+ * @LastEditTime: 2023-05-30 16:56:42
  * @Description:
 -->
 <template>
@@ -205,7 +205,7 @@ export default class extends Vue {
 $cell-edit-palette-width: 20px !default;
 $cell-edit-palette-height: 20px !default;
 $cell-edit-remarks-width: 244px !default;
-$font-icon-transform: scale(0.7, 0.7) !default;
+$font-icon-transform: scale(0.9, 0.9) !default;
 $cell-edit-max-width: 238px;
 $cell-edit-max-height: 238px;
 $cell-edit-font-picker-width: 14px;
@@ -230,7 +230,6 @@ $cell-edit-font-picker-width: 14px;
         display: inline-block;
         .font-icon {
           transform: $font-icon-transform;
-          padding-bottom: 2px;
           padding-top: 1px;
           color: $neutral-9;
           border-bottom: 2px solid;

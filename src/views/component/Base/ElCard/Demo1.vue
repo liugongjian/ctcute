@@ -1,5 +1,5 @@
 <template>
-  <el-card>
+  <el-card shadow="hover">
     <div v-for="o in 4" :key="o" class="item">
       {{ '列表内容 ' + o }}
     </div>

@@ -20,14 +20,14 @@
       @keyup.enter.native="handleInputConfirm"
       @blur="handleInputConfirm"
     ></el-input>
-    <el-tag
+    <el-button
       v-else
-      type="newtag"
-      :disable-transitions="true"
+      :class="[typeButtonClass, buttonClass]"
       :size="tagSize"
-      :class="tagClass"
       @click="showInput"
-      >{{ tagName }}</el-tag
+      type="primary"
+      plain
+      >{{ tagName }}</el-button
     >
   </div>
 </template>
@@ -36,6 +36,9 @@
 import { Component, Vue, Prop, PropSync } from 'vue-property-decorator'
 const TYPE_CLASSES_MAP = {
   large: 'input-large-tag',
+}
+const TYPE_BUTTON_CLASSES_MAP = {
+  large: 'button-large-tag',
 }
 @Component({
   name: 'CuteTag',
@@ -49,6 +52,8 @@ export default class extends Vue {
   @Prop({ default: '', required: false }) private readonly tagClass: string
   /** input的自定义class 选填 */
   @Prop({ default: '', required: false }) private readonly inputClass: string
+  /** button的自定义class 选填 */
+  @Prop({ default: '', required: false }) private readonly buttonClass: string
   /** tag 默认显示的数组 */
   @PropSync('dynamicTags', { type: Array, default: [] }) private syncedDynamicTags!: string[]
   // 新增标签input框是否可见
@@ -58,6 +63,10 @@ export default class extends Vue {
 
   get typeClass() {
     return TYPE_CLASSES_MAP[this.tagSize] || 'input-new-tag'
+  }
+
+  get typeButtonClass() {
+    return TYPE_BUTTON_CLASSES_MAP[this.tagSize] || 'button-new-tag'
   }
   /* 输入确认后添加标签 */
   private handleInputConfirm() {

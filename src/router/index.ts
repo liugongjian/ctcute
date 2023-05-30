@@ -66,6 +66,11 @@ const _statusRoutes = [
     component: () => import('@/views/page/StatusPage/Page500.vue'),
     meta: { hidden: true },
   },
+  {
+    path: '/LoadError',
+    component: () => import('@/views/page/StatusPage/LoadError.vue'),
+    meta: { hidden: true },
+  },
   { path: '*', redirect: '/404', meta: { hidden: true } },
 ]
 const base = [

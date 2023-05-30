@@ -20,15 +20,9 @@
       @keyup.enter.native="handleInputConfirm"
       @blur="handleInputConfirm"
     ></el-input>
-    <el-button
-      v-else
-      :class="[typeButtonClass, buttonClass]"
-      :size="tagSize"
-      @click="showInput"
-      type="primary"
-      plain
-      >{{ tagName }}</el-button
-    >
+    <el-button v-else :class="buttonClass" :size="buttonSize" @click="showInput" type="primary" plain>{{
+      tagName
+    }}</el-button>
   </div>
 </template>
 
@@ -37,8 +31,8 @@ import { Component, Vue, Prop, PropSync } from 'vue-property-decorator'
 const TYPE_CLASSES_MAP = {
   large: 'input-large-tag',
 }
-const TYPE_BUTTON_CLASSES_MAP = {
-  large: 'button-large-tag',
+const BUTTON_SIZE_MAP = {
+  large: 'medium',
 }
 @Component({
   name: 'CuteTag',
@@ -65,8 +59,8 @@ export default class extends Vue {
     return TYPE_CLASSES_MAP[this.tagSize] || 'input-new-tag'
   }
 
-  get typeButtonClass() {
-    return TYPE_BUTTON_CLASSES_MAP[this.tagSize] || 'button-new-tag'
+  get buttonSize() {
+    return BUTTON_SIZE_MAP[this.tagSize] || 'small'
   }
   /* 输入确认后添加标签 */
   private handleInputConfirm() {

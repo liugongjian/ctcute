@@ -21,7 +21,7 @@
 
   },
   "peerDependencies": {
-    "element-ui": "^2.15.6",
+    "@cutedesign/ui": "^2.0.0",
     "vue": "2.6.14"
   },
   "devDependencies": {

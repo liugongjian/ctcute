@@ -1,3 +1,10 @@
+/*
+ * @Author: 朱玉豆
+ * @Date: 2023-05-26 17:58:24
+ * @LastEditors: 朱玉豆
+ * @LastEditTime: 2023-05-31 11:50:25
+ * @Description:
+ */
 /**
  * 表格数据1
  */
@@ -37,6 +44,8 @@ export interface CellConfig {
     italic: string
     remarks: Array<string>
     fontColor: string
+    borderBottom?: string
+    borderRight?: string
   }
 }
 

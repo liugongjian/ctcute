@@ -12,11 +12,11 @@ $cute-appendix-medium-content-title-max-width: 184px;
 
   .appendix-eye-icon {
     margin-left: $margin-3x;
-    color: $neutral-9;
+    color: $color-neutral-9;
     font-size: $cute-appendix-icon-size;
 
     &:hover {
-      color: $blue-6;
+      color: $color-master;
       cursor: pointer;
     }
 
@@ -82,7 +82,7 @@ $cute-appendix-medium-content-title-max-width: 184px;
         line-height: $line-height;
         font-weight: $text-weight;
         margin: 0;
-        color: $neutral-9;
+        color: $color-neutral-9;
       }
       
     }

@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-31 11:57:45
+ * @LastEditTime: 2023-05-31 13:14:24
  * @Description:
 -->
 <template>
@@ -229,6 +229,7 @@ $font-icon-transform: scale(0.9, 0.9) !default;
 $cell-edit-max-width: 238px;
 $cell-edit-max-height: 238px;
 $cell-edit-font-picker-width: 14px;
+$cell-edit-tools-box-hover: $color-master-bg-light-2;
 .cell-edit {
   background: $color-bg-1;
   box-shadow: $shadow-2;
@@ -243,7 +244,7 @@ $cell-edit-font-picker-width: 14px;
       padding: 1px $padding-6;
       margin-right: 1px;
       &:hover {
-        background: $blue-1;
+        background: $cell-edit-tools-box-hover;
       }
       .font-picker {
         width: $cell-edit-font-picker-width;
@@ -251,7 +252,7 @@ $cell-edit-font-picker-width: 14px;
         .font-icon {
           transform: $font-icon-transform;
           padding-top: 1px;
-          color: $neutral-9;
+          color: $color-neutral-9;
           border-bottom: 2px solid;
         }
       }
@@ -259,7 +260,7 @@ $cell-edit-font-picker-width: 14px;
 
     i {
       font-size: $text-size-md;
-      color: $neutral-9;
+      color: $color-neutral-9;
     }
   }
   &--palette {
@@ -271,7 +272,7 @@ $cell-edit-font-picker-width: 14px;
       border: 1px solid $border-color;
       cursor: pointer;
       display: inline-block;
-      background: $neutral-9;
+      background: $color-neutral-9;
       margin-right: $margin-2x;
     }
   }

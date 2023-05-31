@@ -34,9 +34,13 @@
   }
 }
 
-.el-form-item.is-error .el-input__inner {
-  border: 1px solid $color-danger;
-  background: $color-danger-bg;
+.el-form-item.is-error {
+
+  .el-textarea .el-textarea__inner,
+  .el-input__inner {
+    border: 1px solid $color-status-danger-1;
+    background: $color-status-danger-2;
+  }
 }
 
 .el-form-item__custom__error {

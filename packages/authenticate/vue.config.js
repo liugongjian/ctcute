@@ -7,4 +7,7 @@ module.exports = {
       'element-ui': 'element-ui',
     })
   },
+  css: {
+    extract: false,
+  },
 }

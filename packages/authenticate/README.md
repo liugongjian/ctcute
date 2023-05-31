@@ -85,7 +85,7 @@ this.$auth.isLogin
 7. 当时对接 iam 或 ctyun 时，需要使用其 layout ，这里提供了快捷的使用方式，示例如下：
 
 ```js
-import { IamLayout } from '@cutedesign/authenticate'
+import { IamLayout, showLoadFailPage } from '@cutedesign/authenticate'
 
 new IamLayout().init({
   bizDomain: 'cdn'
@@ -96,7 +96,7 @@ new IamLayout().init({
     store,
     render: h => h(App),
   }).$mount('#app')
-})
+}).catch(() => showLoadFailPage())
 ```
 
 ```js
@@ -112,7 +112,7 @@ new CtyunLayout().init({
     store,
     render: h => h(App),
   }).$mount('#app')
-})
+}).catch(() => showLoadFailPage())
 ```
 
 需要配置 nginx 示例如下（注意：静态资源可以直接转发，接口的转发需要考虑鉴权问题）：

@@ -116,7 +116,7 @@ export interface AuthInstance {
   getPermInfo: (refresh?: boolean) => Promise<any>
   getAllMenuPerms: () => string[]
   getAllButtonPerms: () => string[]
-  getRoutes: () => BizAuthConfigOptions.routes
+  getRoutes: () => RouteConfig[]
 
   login: (RequestParams) => Promise<any>
   logout: (RequestParams) => Promise<any>

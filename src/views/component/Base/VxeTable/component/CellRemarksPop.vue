@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-29 17:23:28
+ * @LastEditTime: 2023-05-31 13:16:06
  * @Description:
 -->
 <template>
@@ -42,16 +42,16 @@ $cell-edit-remark-pop-max-height: 500px;
   max-height: $cell-edit-remark-pop-max-height;
   min-width: $cell-edit-remark-pop-min-width;
   overflow-y: scroll;
-  background: $neutral-8;
+  background: $color-neutral-8;
   padding: $padding-4x;
   &__title {
-    color: $neutral-1;
+    color: $color-neutral-1;
     font-size: $text-size-md;
     font-weight: $text-title-weight;
   }
   &__content {
     margin-top: $margin-2x;
-    color: $neutral-1;
+    color: $color-neutral-1;
     &__item {
       font-size: $text-size-small;
     }

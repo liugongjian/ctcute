@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2023-05-18 14:27:50
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-31 11:55:07
+ * @LastEditTime: 2023-05-31 13:14:42
  * @Description:
 -->
 <template>
@@ -358,7 +358,7 @@ export default class extends Vue {
       background-color: $color-bg-1; // 去掉row的hover颜色
     }
     .vxe-table--render-default .vxe-body--row > :hover {
-      background: $neutral-2;
+      background: $color-neutral-2;
     }
   }
   ::v-deep {
@@ -392,7 +392,7 @@ $tippy-arrow-left: -10px;
     padding: 0;
   }
   > .tippy-arrow {
-    color: $neutral-8;
+    color: $color-neutral-8;
     &:before {
       left: $tippy-arrow-left;
       border-width: $tippy-arrow-border-width;

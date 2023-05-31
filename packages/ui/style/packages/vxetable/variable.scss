@@ -14,8 +14,8 @@ $vxe-border-radius: $border-radius !default;
 /*icon*/
 $vxe-icon-font-family: Verdana, Arial, Tahoma !default;
 $vxe-icon-background-color: $color-bg-1 !default; // TODO
-$vxe-icon-color: $neutral-9 !default;
-$vxe-header-icon-color: $neutral-6 !default;
+$vxe-icon-color: $color-neutral-9 !default;
+$vxe-header-icon-color: $color-neutral-6 !default;
 
 /*color*/
 $vxe-table-checkbox-color: $color-bg-1 !default;
@@ -124,7 +124,7 @@ $vxe-table-fixed-right-scrolling-box-shadow: $shadow-2 !default;
 $vxe-table-filter-panel-background-color: $color-bg-2 !default;
 $vxe-table-filter-footer-border-color: $color-neutral-3 !default;
 $vxe-table-filter-footer-border-color: $color-neutral-3 !default;
-$vxe-table-filter-item-hover-color: $neutral-1 !default;
+$vxe-table-filter-item-hover-color: $color-neutral-1 !default;
 $vxe-table-filter-wrapper-min-width: 120px !default;
 $vxe-table-filter-wrapper-max-width: 360px !default;
 $vxe-table-filter-body-max-height: 200px !default;
@@ -197,10 +197,10 @@ $vxe-checkbox-indeterminate-icon-background-color: $color-bg-1 !default;
 
 $vxe-checkbox-checked-color: $vxe-primary-color;
 $vxe-checkbox-checked-border-color: $vxe-primary-color;
-$vxe-checkbox-disabled-checked-icon-color: $neutral-5;
-$vxe-checkbox-disabled-checked-icon-background-color: $neutral-1;
+$vxe-checkbox-disabled-checked-icon-color: $color-neutral-5;
+$vxe-checkbox-disabled-checked-icon-background-color: $color-neutral-1;
 $vxe-checkbox-icon-font-size: 14px !default;
-$vxe-checkbox-icon-border-color: $neutral-5 !default;
+$vxe-checkbox-icon-border-color: $color-neutral-5 !default;
 
 /*radio*/
 $vxe-radio-font-size-default: $vxe-checkbox-font-size-default !default;

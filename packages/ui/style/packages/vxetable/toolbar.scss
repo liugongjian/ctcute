@@ -104,7 +104,7 @@
       }
       .vxe-button--icon {
         background: $color-bg-2;
-        border: 1px solid $neutral-5;
+        border: 1px solid $color-neutral-5;
         border-radius: $vxe-border-radius;
         font-family: $font-family-cute-icons !important;
         margin-left: $margin-3x;
@@ -169,7 +169,7 @@
         }
 
         .vxe-checkbox--label {
-          color: $neutral-10;
+          color: $color-neutral-10;
           font-weight: $text-weight;
         }
       }
@@ -281,7 +281,7 @@
     cursor: not-allowed;
 
     .vxe-checkbox--icon {
-      color: $neutral-1;
+      color: $color-neutral-1;
       border: 1px solid $vxe-checkbox-disabled-checked-icon-color;
     }
   }

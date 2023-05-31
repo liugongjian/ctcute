@@ -330,11 +330,17 @@
     <h3>表单报错</h3>
     <div class="sub-input">
       <el-form ref="simpleForm" :model="form" :rules="rules" label-width="90px" class="simple-form">
-        <el-form-item label="输入查询" prop="name" :size="inputSize">
-          <el-input v-model="form.name" placeholder="请输入策略名称" />
+        <el-form-item label="名称1" prop="name" :size="inputSize">
+          <el-input v-model="form.name" placeholder="请输入" maxlength="30" show-word-limit />
         </el-form-item>
-        <el-form-item label="输入查询" prop="name2" :size="inputSize">
-          <el-input v-model="form.name2" type="textarea" placeholder="请输入策略名称" />
+        <el-form-item label="名称2" prop="name2" :size="inputSize">
+          <el-input
+            v-model="form.name2"
+            type="textarea"
+            placeholder="请输入"
+            maxlength="30"
+            show-word-limit
+          />
         </el-form-item>
         <el-form-item label="" :size="inputSize">
           <el-button type="primary" @click="submit">确 定</el-button>

@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2023-05-18 14:27:50
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-29 17:35:48
+ * @LastEditTime: 2023-05-31 11:55:07
  * @Description:
 -->
 <template>
@@ -219,12 +219,14 @@ export default class extends Vue {
   setCellStyle({ column, row }) {
     const cellData = row[column.property]
     if (cellData.config) {
-      const { fillColor, fontColor, bold, italic } = cellData.config
+      const { fillColor, fontColor, bold, italic, borderRight, borderBottom } = cellData.config
       return {
         color: fontColor,
         background: fillColor,
         'font-weight': bold,
         'font-style': italic,
+        'border-right': borderRight,
+        'border-bottom': borderBottom,
       }
     }
   }

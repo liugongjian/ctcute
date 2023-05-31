@@ -36,6 +36,7 @@ import Transfer from './Transfer.vue'
 import Collapse from './Collapse.vue'
 import TimeLine from './TimeLine.vue'
 import DistributionBar from './DistributionBar.vue'
+import VxeTable from './VxeTable.vue'
 /**
  * 在此数组中添加新增的组件
  */
@@ -78,6 +79,7 @@ const componentsList = [
   Collapse,
   TimeLine,
   DistributionBar,
+  VxeTable,
 ]
 
 const _components = {}

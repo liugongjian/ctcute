@@ -2,7 +2,7 @@
  * @Author: 朱玉豆
  * @Date: 2022-12-03 11:18:32
  * @LastEditors: 朱玉豆
- * @LastEditTime: 2023-05-30 16:56:42
+ * @LastEditTime: 2023-05-31 11:57:45
  * @Description:
 -->
 <template>
@@ -57,7 +57,18 @@ export default class extends Vue {
    * palettes: 字体色和背景色 色盘
    */
   @Prop({
-    default: () => ['#DF0428', '#FF4545', '#3D73F5', '#1AC45D', '#64DE8D', '#91BAFF', '#FF736E', '#FF8F34'],
+    default: () => [
+      '#DF0428',
+      '#FF4545',
+      '#3D73F5',
+      '#1AC45D',
+      '#64DE8D',
+      '#91BAFF',
+      '#FF736E',
+      '#FF8F34',
+      '#FFF',
+      '#000',
+    ],
   })
   public palettes!: Array<string>
   @Prop({
@@ -176,9 +187,18 @@ export default class extends Vue {
   handleChoosePalette(color) {
     // 根据操作 看是改变bg-color 还是color
     if (this.currentOperate === 'fillColor') {
-      this.cellConfig['config'] = {
-        ...this.cellConfig['config'],
-        fillColor: color,
+      if (color.toLowerCase() === Variables.colorBg1.toLowerCase()) {
+        this.cellConfig['config'] = {
+          ...this.cellConfig['config'],
+          borderRight: `1px solid ${Variables.colorNeutral3}`,
+          borderBottom: `1px solid ${Variables.colorNeutral3}`,
+          fillColor: color,
+        }
+      } else {
+        this.cellConfig['config'] = {
+          ...this.cellConfig['config'],
+          fillColor: color,
+        }
       }
     } else {
       this.cellConfig['config'] = {
@@ -248,7 +268,7 @@ $cell-edit-font-picker-width: 14px;
       width: $cell-edit-palette-width;
       height: $cell-edit-palette-height;
       border-radius: $border-radius;
-      // border: 1px solid $border-color;
+      border: 1px solid $border-color;
       cursor: pointer;
       display: inline-block;
       background: $neutral-9;

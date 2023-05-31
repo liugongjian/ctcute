@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2023-04-19 17:01:49
  * @LastEditors: 王月功
- * @LastEditTime: 2023-05-14 17:50:09
+ * @LastEditTime: 2023-05-31 14:05:03
  * @Description:
 -->
 <template>
@@ -141,7 +141,7 @@ module.exports = {
 更多使用参数详见 \`@cutedesign/authenticate\` README。
 
 \`\`\`js
-import { IamLayout, CtyunLayout } from '@cutedesign/authenticate'
+import { IamLayout, CtyunLayout, showLoadFailPage } from '@cutedesign/authenticate'
 
 new IamLayout()
   .init({
@@ -155,6 +155,7 @@ new IamLayout()
       render: h => h(App),
     }).$mount('#app')
   })
+  .catch(() => showLoadFailPage())
 
 new CtyunLayout()
   .init({
@@ -169,6 +170,7 @@ new CtyunLayout()
       render: h => h(App),
     }).$mount('#app')
   })
+  .catch(() => showLoadFailPage())
 \`\`\`
 
 ### 上述步骤13的 App.vue 代码：

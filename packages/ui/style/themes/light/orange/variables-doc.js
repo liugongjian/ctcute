@@ -1877,8 +1877,8 @@ export default [
         'name': '$transfer-filter-height',
         'type': 'string',
         'value': '34px',
-        'scssValue': 'calc(',
-        'scene': ''
+        'scssValue': 'calc($transfer-filter-input-height + $transfer-filter-input-margin)',
+        'scene': 'Transfer组件filter区域高度'
       }
     ]
   },

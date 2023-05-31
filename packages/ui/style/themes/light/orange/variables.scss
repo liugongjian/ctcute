@@ -324,9 +324,7 @@ $transfer-header-height: 40px !default; // Transfer组件header高度
 $transfer-footer-height: 40px !default; // Transfer组件footer高度
 $transfer-filter-input-height: $input-sm-height !default; // Transfer组件搜索框高度
 $transfer-filter-input-margin: $margin-10 !default; // Transfer组件搜索框高度
-$transfer-filter-height: calc(
-  $transfer-filter-input-height + $transfer-filter-input-margin
-) !default; // Transfer组件filter区域高度
+$transfer-filter-height: calc($transfer-filter-input-height + $transfer-filter-input-margin) !default; // Transfer组件filter区域高度
 
 /* Title: Tabs; Doc: false
 -------------------------- */

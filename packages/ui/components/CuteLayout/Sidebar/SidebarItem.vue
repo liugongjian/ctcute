@@ -20,6 +20,12 @@
               :icon-type="theOnlyOneChild.meta.iconType"
             />
             <span v-if="theOnlyOneChild.meta.title" slot="title">{{ t(theOnlyOneChild.meta.title) }}</span>
+            <!-- TODO: 换成iconfont图标 -->
+            <svg-icon
+              v-if="isExternal(resolvePath(theOnlyOneChild))"
+              class="el-submenu__icon-link el-submenu__icon-arrow"
+              name="link"
+            />
           </template>
         </el-menu-item>
       </sidebar-item-link>
@@ -70,6 +76,8 @@ export default class extends Mixins(Locale) {
   @Prop({ required: true }) public item!: RouteConfig
   @Prop({ default: 1 }) public level!: number
   @Prop({ default: '' }) private basePath!: string
+
+  private isExternal = isExternal
 
   /**
    * 是否总是显示根菜单

@@ -12,11 +12,12 @@
 
   .el-input__count {
     color: $color-neutral-7;
-    background-color: $color-bg-1;
+    background-color: transparent;
   }
 }
 
 .el-textarea .el-input__count {
+  background-color: transparent;
   color: $text-color-light;
   line-height: 150%;
 }

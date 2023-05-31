@@ -330,8 +330,17 @@
     <h3>表单报错</h3>
     <div class="sub-input">
       <el-form ref="simpleForm" :model="form" :rules="rules" label-width="90px" class="simple-form">
-        <el-form-item label="输入查询" prop="name" :size="inputSize">
-          <el-input v-model="form.name" placeholder="请输入策略名称" />
+        <el-form-item label="名称1" prop="name" :size="inputSize">
+          <el-input v-model="form.name" placeholder="请输入" maxlength="30" show-word-limit />
+        </el-form-item>
+        <el-form-item label="名称2" prop="name2" :size="inputSize">
+          <el-input
+            v-model="form.name2"
+            type="textarea"
+            placeholder="请输入"
+            maxlength="30"
+            show-word-limit
+          />
         </el-form-item>
         <el-form-item label="" :size="inputSize">
           <el-button type="primary" @click="submit">确 定</el-button>
@@ -353,6 +362,7 @@ export default class extends Vue {
   // 表单校验规则
   private rules = {
     name: [{ required: true, message: '请输入名称', trigger: 'blur' }],
+    name2: [{ required: true, message: '请输入名称', trigger: 'blur' }],
   }
   // 表单Ref对象
   @Ref('simpleForm')
@@ -361,6 +371,7 @@ export default class extends Vue {
   // 表单对象
   private form = {
     name: '',
+    name2: '',
   }
   /**
    * 提交表单

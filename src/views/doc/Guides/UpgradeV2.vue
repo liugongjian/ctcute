@@ -2,7 +2,7 @@
  * @Author: 朱凌浩
  * @Date: 2023-04-19 17:01:49
  * @LastEditors: 王月功
- * @LastEditTime: 2023-05-31 14:05:03
+ * @LastEditTime: 2023-06-01 10:42:05
  * @Description:
 -->
 <template>
@@ -143,7 +143,9 @@ module.exports = {
 \`\`\`js
 import { IamLayout, CtyunLayout, showLoadFailPage } from '@cutedesign/authenticate'
 
-new IamLayout()
+new IamLayout({
+  // containerId: 'container', // 默认容器 id ，可按需调整
+})
   .init({
     bizDomain: 'cdn', // 侧边栏高亮，取值为 /iam/gw/workspace/console/List 中本控制台的 domain
   })
@@ -157,7 +159,9 @@ new IamLayout()
   })
   .catch(() => showLoadFailPage())
 
-new CtyunLayout()
+new CtyunLayout({
+  // containerId: 'container', // 默认容器 id ，可按需调整
+})
   .init({
     bizDomain: 'console.cdn', // 侧边栏高亮，取值为 /GetTree?domain=console.leftbar.v2 中本控制台的 menuCode
     logoutUrl: '/cdn/sign/out', // 按需重写
@@ -171,6 +175,16 @@ new CtyunLayout()
     }).$mount('#app')
   })
   .catch(() => showLoadFailPage())
+\`\`\`
+
+ps：使用上述默认配置时，public/index.html 中需如下定义
+
+\`\`\`html
+<body>
+  <div id="container">
+    <div id="app"></div>
+  </div>
+</body>
 \`\`\`
 
 ### 上述步骤13的 App.vue 代码：

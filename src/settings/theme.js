@@ -12,6 +12,10 @@ const theme = {
   multiThemes: ['default', 'dark/blue'],
   // 布局方式，可选类型: default(页面导航栏随滚动条滚动) / fixed-navbar(固定页面导航栏)
   layout: 'default',
+  // Loading式样
+  loading: '',
+  // 水印
+  watermark: '',
 }
 
 module.exports = theme

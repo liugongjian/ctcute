@@ -9,6 +9,8 @@ const base = {
   keepAlive: false,
   //缓存路由的最大数量
   keepAliveMaxNum: 99,
+  // 路由模式，可选值为 history 或 hash
+  routerMode: 'history',
   // i18n默认语言
   i18nDefaultLang: 'zh',
   // i18n本地持久化时的 localStorage key

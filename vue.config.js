@@ -1,8 +1,10 @@
 const path = require('path')
-const { publicPath, devPort, theme } = require('./src/settings')
+const { publicPath, devPort, title, theme } = require('./src/settings')
 const isHttps = process.argv[process.argv.length - 1] === '--https'
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 console.info('是否开启https:', isHttps)
+
+process.env.VUE_APP_TITLE = title
 
 module.exports = {
   publicPath,

@@ -2,7 +2,7 @@
   <cute-layout
     :header-sub-logo="logoIcon"
     :sidebar-filter="filterRoutes"
-    :sidebar-title="sidebarTitle"
+    :sidebar-title="$t('menu.doc')"
     :sidebar-routes="routes"
   >
     <template #header-right>
@@ -25,7 +25,6 @@ import settings from '@/settings'
   },
 })
 export default class extends Vue {
-  private sidebarTitle = '文档'
   private type = 'doc'
   private logoIcon = settings.logoIcon
   private routes = this.$auth && this.$auth.getRoutes()

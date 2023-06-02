@@ -19,10 +19,10 @@
         <el-option value="v2" label="V2" />
       </el-select>
       <div class="home-header__nav">
-        <router-link to="/docs">文档</router-link>
-        <router-link to="/ui">UI规范</router-link>
-        <router-link to="/component">组件</router-link>
-        <router-link to="/page">页面</router-link>
+        <router-link to="/docs">{{ $t('menu.doc') }}</router-link>
+        <router-link to="/ui">{{ $t('menu.ui') }}</router-link>
+        <router-link to="/component">{{ $t('menu.component') }}</router-link>
+        <router-link to="/page">{{ $t('menu.page') }}</router-link>
       </div>
     </div>
   </header>

@@ -5,7 +5,7 @@
     v-model="keyword"
     class="header-nav__search__input"
     popper-class="header-nav__search__popper"
-    placeholder="搜索..."
+    :placeholder="$t('menu.search')"
     :fetch-suggestions="search"
     :trigger-on-focus="false"
     @select="handleSelect"

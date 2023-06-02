@@ -1,7 +1,7 @@
 <template>
   <div class="cute-layout-sidebar">
     <div ref="wrapper" class="cute-layout-sidebar__wrapper">
-      <div class="cute-layout-sidebar__title">UI 规范</div>
+      <div class="cute-layout-sidebar__title">{{ $t('menu.ui') }}</div>
       <el-menu
         :default-active="currentId"
         :unique-opened="false"

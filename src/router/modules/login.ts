@@ -4,7 +4,7 @@ const pageRoutes = [
     name: 'Login',
     component: () => import('@/views/login/index.vue'),
     meta: {
-      title: '登录',
+      title: 'route.login.title',
       breadcrumb: false,
     },
   },

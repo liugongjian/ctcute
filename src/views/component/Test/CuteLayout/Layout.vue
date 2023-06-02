@@ -191,7 +191,7 @@ export default class extends Vue {
 
   private breadcrumbAfterEach(route) {
     if (route.path === '/cluster') {
-      route.meta.title = '集群管理-集群1'
+      route.meta.title = 'route.layoutTest.cluster.cluster1'
     }
     return route
   }

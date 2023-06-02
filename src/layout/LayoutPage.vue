@@ -2,7 +2,7 @@
  * @Author: 胡佳婷
  * @Date: 2023-04-18 17:17:41
  * @LastEditors: 王月功
- * @LastEditTime: 2023-04-24 12:25:16
+ * @LastEditTime: 2023-06-02 11:15:21
  * @Description:
 -->
 <template>
@@ -22,7 +22,7 @@
     <template #header-right>
       <header-nav />
     </template>
-    <template #navbar-right>
+    <template #main-top>
       <code-viewer />
     </template>
     <router-view />

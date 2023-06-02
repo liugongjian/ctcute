@@ -1,5 +1,11 @@
 <template>
-  <cute-layout :header-sub-logo="logoIcon" custom-class="layout-ui-wrap" :sidebar="false" :navbar="false">
+  <cute-layout
+    :header-logo="logoIcon"
+    :header-sub-logo="subLogoIcon"
+    custom-class="layout-ui-wrap"
+    :sidebar="false"
+    :navbar="false"
+  >
     <template #header-right>
       <header-nav />
     </template>
@@ -27,6 +33,7 @@ import settings from '@/settings'
 })
 export default class extends Vue {
   private logoIcon = settings.logoIcon
+  private subLogoIcon = settings.subLogoIcon
   private componentList = list
   private titles = null
   private currentId = null

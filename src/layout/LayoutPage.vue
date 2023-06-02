@@ -7,12 +7,14 @@
 -->
 <template>
   <cute-layout
-    :header-sub-logo="logoIcon"
+    :header-logo="logoIcon"
+    :header-sub-logo="subLogoIcon"
     :sidebar-filter="filterRoutes"
     :sidebar-title="sidebarTitle"
     :sidebar-routes="routes"
     :navbar="!fullScreen"
     :sidebar="!fullScreen"
+    :layout="layout"
     class="layout-page"
   >
     <template #navbar-breadcrumb>
@@ -51,6 +53,8 @@ export default class extends Vue {
   private sidebarTitle = '页面'
   private type = 'page'
   private logoIcon = settings.logoIcon
+  private subLogoIcon = settings.subLogoIcon
+  private layout = settings.layout
   private routes = this.$auth && this.$auth.getRoutes()
 
   private get fullScreen() {

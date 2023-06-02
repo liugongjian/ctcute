@@ -1,14 +1,16 @@
 const path = require('path')
+const { publicPath, devPort, theme } = require('./src/settings')
 const isHttps = process.argv[process.argv.length - 1] === '--https'
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 console.info('是否开启https:', isHttps)
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
+  publicPath,
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {
     open: true,
+    port: devPort,
     overlay: {
       warnings: false,
       errors: true,
@@ -40,21 +42,11 @@ module.exports = {
     historyApiFallback: true,
     disableHostCheck: true,
   },
-  // pluginOptions: {
-  //   'style-resources-loader': {
-  //     preProcessor: 'scss',
-  //     patterns: [
-  //       path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_variables.scss'),
-  //       path.resolve(__dirname, 'node_modules/@cutedesign/theme/css/_mixins.scss'),
-  //     ],
-  //   },
-  // },
   css: {
     loaderOptions: {
       sass: {
         sassOptions: { outputStyle: 'expanded', quietDeps: true },
-        // additionalData: `@import "node_modules/@cutedesign/ui/style/themes/dark/blue/variables.scss";
-        additionalData: `@import "node_modules/@cutedesign/ui/style/themes/default/variables.scss";
+        additionalData: `@import "node_modules/@cutedesign/ui/style/themes/${theme}/variables.scss";
                           @import "node_modules/@cutedesign/ui/style/_mixins.scss";`,
       },
     },

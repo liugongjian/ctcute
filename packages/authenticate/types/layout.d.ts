@@ -1,7 +1,7 @@
 import { CurrentInfo } from './user'
 import { IamMenuItem, CtyunMenuItem } from './menu'
 
-export type showLoadFailPage = () => void
+export function showLoadFailPage(): void
 
 export interface LayoutConfig {
   containerId: string // 容器 id

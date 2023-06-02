@@ -87,32 +87,52 @@ this.$auth.isLogin
 ```js
 import { IamLayout, showLoadFailPage } from '@cutedesign/authenticate'
 
-new IamLayout().init({
-  bizDomain: 'cdn'
-}).then(() => {
-  new Vue({
-    // i18n, // 按需开启
-    router,
-    store,
-    render: h => h(App),
-  }).$mount('#app')
-}).catch(() => showLoadFailPage())
+new IamLayout({
+  // containerId: 'container', // 默认容器 id ，可按需调整
+})
+  .init({
+    bizDomain: 'cdn', //
+  })
+  .then(() => {
+    new Vue({
+      // i18n, // 按需开启
+      router,
+      store,
+      render: h => h(App),
+    }).$mount('#app')
+  })
+  .catch(() => showLoadFailPage())
 ```
 
 ```js
-import { CtyunLayout } from '@cutedesign/authenticate'
+import { CtyunLayout, showLoadFailPage } from '@cutedesign/authenticate'
 
-new CtyunLayout().init({
-  bizDomain: 'console.cdn',
-  logoutUrl: '/cdn/sign/out',
-}).then(() => {
-  new Vue({
-    // i18n, // 按需开启
-    router,
-    store,
-    render: h => h(App),
-  }).$mount('#app')
-}).catch(() => showLoadFailPage())
+new CtyunLayout({
+  // containerId: 'container', // 默认容器 id ，可按需调整
+})
+  .init({
+    bizDomain: 'console.cdn',
+    logoutUrl: '/cdn/sign/out',
+  })
+  .then(() => {
+    new Vue({
+      // i18n, // 按需开启
+      router,
+      store,
+      render: h => h(App),
+    }).$mount('#app')
+  })
+  .catch(() => showLoadFailPage())
+```
+
+ps：使用上述默认配置时，public/index.html 中需如下定义
+
+```html
+<body>
+  <div id="container">
+    <div id="app"></div>
+  </div>
+</body>
 ```
 
 需要配置 nginx 示例如下（注意：静态资源可以直接转发，接口的转发需要考虑鉴权问题）：
@@ -130,9 +150,9 @@ location /ctyun/layout {
   proxy_set_header Host www.ctyun.cn;
   proxy_pass https://www.ctyun.cn/console/layout;
 }
-location /ctyun {
+location /ctyun/portal {
   proxy_set_header Host www.ctyun.cn;
-  proxy_pass https://www.ctyun.cn;
+  proxy_pass https://www.ctyun.cn/portal;
 }
 location /gw {
   proxy_set_header Host www.ctyun.cn;

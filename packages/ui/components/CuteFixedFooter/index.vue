@@ -23,7 +23,7 @@ export default class extends Vue {
   private footerNode: Element | null
   private sizeObserver: ResizeObserver
   private offsetLeft = '0'
-  private footerWidth = '0'
+  private footerWidth = '100%'
   private layoutOffsetBottom: string
 
   private initObserver(target: Element) {
@@ -37,10 +37,10 @@ export default class extends Vue {
     }
   }
 
-  private handleScroll() {
-    const layout = document.querySelector('#layout-container')
-    this.setOffset(layout)
-  }
+  // private handleScroll() {
+  //   const layout = document.querySelector('#layout-container')
+  //   this.setOffset(layout)
+  // }
 
   private setOffset(ele: Element) {
     const offsetX = ele.getBoundingClientRect().x + 'px'
@@ -51,14 +51,15 @@ export default class extends Vue {
 
   private mounted() {
     this.footerNode = this.$el
+    const parent = document.querySelector('.cute-layout')
     const target = document.querySelector('#layout-container')
     // 需在使用了CuteLayout的情况下使用
-    if (target) {
-      target.appendChild(this.footerNode)
+    if (parent && target) {
+      parent.appendChild(this.footerNode)
       this.initObserver(target)
       this.setOffset(target)
       this.footerWidth = target.clientWidth + 'px'
-      window.addEventListener('scroll', this.handleScroll)
+      // window.addEventListener('scroll', this.handleScroll, true)
 
       this.$nextTick(() => {
         this.layoutOffsetBottom = (target as any).style.paddingBottom

@@ -1,4 +1,4 @@
-const net = {
+const settings = {
   // 网络请求地址前缀
   apiBaseUrl: '/',
   // 最长请求时间
@@ -7,4 +7,4 @@ const net = {
   messageDuration: 5 * 1000,
 }
 
-module.exports = net
+module.exports = settings

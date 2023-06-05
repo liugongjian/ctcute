@@ -1,4 +1,4 @@
-const base = {
+const settings = {
   // 开发以及部署时的URL
   publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
   // 开发环境端口号
@@ -7,14 +7,14 @@ const base = {
   title: '天翼云前端脚手架',
   // TODO: 是否开启缓存路由，建议配合CuteTab使用
   keepAlive: false,
-  //缓存路由的最大数量
+  // 缓存路由的最大数量
   keepAliveMaxNum: 99,
-  // 路由模式，可选值为 history 或 hash
+  // 路由模式，可选值为history或hash
   routerMode: 'history',
   // i18n默认语言
   i18nDefaultLang: 'zh',
-  // i18n本地持久化时的 localStorage key
+  // i18n本地持久化时的localStorage key
   i18nStorageKey: 'cute-lang',
 }
 
-module.exports = base
+module.exports = settings

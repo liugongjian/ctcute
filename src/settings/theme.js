@@ -1,7 +1,7 @@
 const { publicPath } = require('./base')
 const path = require('path')
 
-const theme = {
+const settings = {
   // Logo地址
   logoIcon: path.resolve(publicPath, '/images/ct-logo.svg'),
   // 子Logo地址
@@ -14,8 +14,8 @@ const theme = {
   layout: 'default',
   // Loading式样
   loading: '',
-  // 水印
+  // 背景水印
   watermark: '',
 }
 
-module.exports = theme
+module.exports = settings

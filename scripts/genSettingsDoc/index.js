@@ -3,26 +3,10 @@ const fs = require('fs')
 const path = require('path')
 const { parseSettings } = require('./libs/parse')
 
-const baseArray = parseSettings(path.join(__dirname, '../../src/settings/base.js'))
-const themeArray = parseSettings(path.join(__dirname, '../../src/settings/theme.js'))
-const netArray = parseSettings(path.join(__dirname, '../../src/settings/net.js'))
-
-const data = [{
-  title: 'Base',
-  path: 'settings/base.js',
-  list: baseArray
-}, {
-  title: 'Theme',
-  path: 'settings/theme.js',
-  list: themeArray
-}, {
-  title: 'Net',
-  path: 'settings/net.js',
-  list: netArray
-}]
+const data = parseSettings(path.join(__dirname, '../../src/settings/settings.default.js'))
 
 // 将文本写入文件
-const targetPath = path.join(__dirname, '../../src/settings/settings.doc.js')
+const targetPath = path.join(__dirname, '../../src/settings/doc.js')
 fs.writeFileSync(
   targetPath,
 `/* eslint-disable prettier/prettier */

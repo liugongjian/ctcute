@@ -8,29 +8,26 @@
 
 <template>
   <div class="doc-scss-wrapper">
-    <h1>SASS变量</h1>
+    <h1>全局配置</h1>
     <el-divider></el-divider>
-    <div v-for="(v, idx) in settings" :key="idx">
-      <h3>{{ v.title }} ({{ v.path }})</h3>
-      <el-table :data="v.list" fit border>
-        <el-table-column prop="name" label="名称">
-          <template slot-scope="{ row }">
-            <span class="variables-name" @click="copyCode(row.name)">{{ row.name }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column prop="value" label="默认值">
-          <template slot-scope="{ row }">
-            <span class="variables-value">{{ row.value }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column prop="comment" label="使用说明"></el-table-column>
-      </el-table>
-    </div>
+    <el-table :data="settings" fit border>
+      <el-table-column prop="name" label="名称">
+        <template slot-scope="{ row }">
+          <span class="variables-name" @click="copyCode(row.name)">{{ row.name }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="value" label="默认值">
+        <template slot-scope="{ row }">
+          <span class="variables-value">{{ row.value }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="comment" label="使用说明"></el-table-column>
+    </el-table>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import json from '@/settings/settings.doc'
+import json from '@/settings/doc'
 import copy from 'copy-to-clipboard'
 
 @Component({

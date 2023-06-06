@@ -1,3 +1,3 @@
 module.exports = {
-  title: '开发环境',
+  devPort: 8080,
 }

@@ -1,38 +1,28 @@
 /*
  * @Author: 胡佳婷
  * @Date: 2023-05-12 13:44:39
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-05-12 14:04:23
+ * @LastEditors: 王月功
+ * @LastEditTime: 2023-06-06 09:41:30
  * @Description:
  */
 export default {
-  bind(el, bindings, vnode) {
-    el.style.display = 'none'
-    compileAuthorize(el, bindings, vnode)
-  },
-  update: function (el, bindings, vnode) {
-    compileAuthorize(el, bindings, vnode)
-  },
+  inserted(el, binding, vnode) {
+    const { value, modifiers } = binding
+    // 权限数据支持字符串、数组字符串
+    const needPerms = value instanceof Array ? value : [value]
+    const strict = !!modifiers.strict
 
-  componentUpdated: function (el, bindings, vnode) {
-    compileAuthorize(el, bindings, vnode)
-  },
+    // 修饰符 strict ：严格模式默认无权限，松散模式默认有权限
+    let hasAuth = strict ? false : true
 
-  unbind: function (el) {
-    el.style.display = null
-  },
-}
-
-function compileAuthorize(el, bindings, vnode) {
-  const { value } = bindings
-  if (value && value instanceof Array && value.length > 0) {
-    const hasAuth = vnode.context.$auth.isAuthorized(value)
-    if (!hasAuth) {
-      el.style.display = 'none'
+    if (value && needPerms.length > 0) {
+      hasAuth = vnode.context.$auth.isAuthorized(needPerms)
     } else {
-      el.style.display = null
+      console.warn('[@cutedesign/authenticate] need roles! Like v-permission=\'["admin","editor"]\'')
     }
-  } else {
-    throw new Error('need roles! Like v-permission=\'["admin","editor"]\'')
-  }
+
+    if (!hasAuth) {
+      el.parentNode && el.parentNode.removeChild(el)
+    }
+  },
 }

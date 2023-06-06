@@ -1,7 +1,7 @@
 /**
  * 配置文件根据.env.[mode]中设置的NODE_ENV的值匹配对应的配置文件settings.[environment].js，[mode]则是根据vue-cli-service serve命令--mode参数所指定。
  * 默认情况下，mode有三种模式development、test、production
- * 详细解释请参考Vue CLI 模式与环境变量：https://cli.vuejs.org/zh/guide/mode-and-env.html
+ * 关于Vue CLI 模式与环境变量说明详见：https://cli.vuejs.org/zh/guide/mode-and-env.html
  * 如果您不想通过环境来区分配置文件，比如在某些场景下想根据不同的业务类型来区分配置文件，那么需要对当前/settings/index.js进行一些改造：
  * 1）首先在环境变量中新增一个变量，建议以VUE_APP_开头，变量将通过 webpack.DefinePlugin 静态地嵌入到客户端侧的代码中，例如在.env.ctyun下设置VUE_APP_TYPE='ctyun'，在.env.iam下设置VUE_APP_TYPE='iam'
  * 2) 将const env = process.env.NODE_ENV改为const env = process.env.VUE_APP_TYPE

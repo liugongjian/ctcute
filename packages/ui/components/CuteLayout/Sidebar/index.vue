@@ -114,11 +114,11 @@ export default class extends Mixins(Locale) {
    */
   private getDrillDownRoute() {
     const matchedRoutes = this.$route.matched
-    const matchedDrillDownRoute = matchedRoutes.find(route => !!route.meta.drillDown)
+    const matchedDrillDownRoute = matchedRoutes.find(route => !!route.meta?.drillDown)
 
     const findDrillDownRoute = (children: any) => {
       for (let route of children) {
-        if (route.name === matchedDrillDownRoute.name && !!route.meta.drillDown) {
+        if (route.name === matchedDrillDownRoute.name && !!route.meta?.drillDown) {
           return route
         }
         if (route.children && route.children.length) {
@@ -152,7 +152,7 @@ export default class extends Mixins(Locale) {
    * 返回上一级
    */
   private back() {
-    const path = this.drillDownRoute.meta.drillDownBackPath || ''
+    const path = this.drillDownRoute.meta?.drillDownBackPath || ''
     this.$router.push(path)
   }
 

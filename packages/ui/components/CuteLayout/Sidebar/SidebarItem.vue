@@ -151,7 +151,7 @@ export default class extends Mixins(Locale) {
       return this.basePath
     }
     // 如果为下钻菜单，并且没有设置redirect，则默认取第一个子菜单的path
-    if (route?.meta.drillDown && !route.redirect && shouldTransform) {
+    if (route?.meta?.drillDown && !route.redirect && shouldTransform) {
       if (route.children && route.children.length) {
         routePath = route.children[0].path
       }

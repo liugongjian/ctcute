@@ -2,29 +2,38 @@
  * @Author: 黄靖
  * @Date: 2023-04-25 14:32:49
  * @LastEditors: 黄靖
- * @LastEditTime: 2023-04-25 14:32:49
+ * @LastEditTime: 2023-06-06 19:15:50
  * @Description:
 -->
 
 <template>
-  <div class="cute-fixed-footer" :style="{ left: offsetLeft, width: footerWidth }">
+  <div
+    class="cute-fixed-component"
+    :style="{
+      left: offsetLeft,
+      width: footerWidth,
+      top: type === 'header' ? offsetTop : 'auto',
+      bottom: type === 'footer' ? '0px' : 'auto',
+    }"
+  >
     <slot></slot>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({
-  // 组件名称，可以获得更有语义信息的组件树。用于在Vue DevTool Components中显示组件名称。
-  name: 'CuteFixedFooter',
+  name: 'CuteFixedComponent',
 })
 export default class extends Vue {
+  @Prop({ type: String, default: 'footer' }) type!: string
   private footerNode: Element | null
   private sizeObserver: ResizeObserver
   private offsetLeft = '0'
+  private offsetTop = '0'
   private footerWidth = '100%'
-  private layoutOffsetBottom: string
+  private layoutOffset: string
 
   private initObserver(target: Element) {
     if (ResizeObserver) {
@@ -44,8 +53,10 @@ export default class extends Vue {
 
   private setOffset(ele: Element) {
     const offsetX = ele.getBoundingClientRect().x + 'px'
+    const offsetY = ele.getBoundingClientRect().y + 'px'
     if (offsetX !== this.offsetLeft) {
       this.offsetLeft = offsetX
+      this.offsetTop = offsetY
     }
   }
 
@@ -62,8 +73,18 @@ export default class extends Vue {
       // window.addEventListener('scroll', this.handleScroll, true)
 
       this.$nextTick(() => {
-        this.layoutOffsetBottom = (target as any).style.paddingBottom
-        ;(target as any).style.paddingBottom = this.footerNode.clientHeight + 'px'
+        switch (this.type) {
+          case 'footer':
+            this.layoutOffset = (target as any).style.paddingBottom
+            ;(target as any).style.paddingBottom = this.footerNode.clientHeight + 'px'
+            break
+          case 'header':
+            this.layoutOffset = (target as any).style.paddingTop
+            ;(target as any).style.paddingTop = this.footerNode.clientHeight + 'px'
+            break
+          default:
+            break
+        }
       })
     }
   }
@@ -75,7 +96,16 @@ export default class extends Vue {
       if (this.sizeObserver) {
         this.sizeObserver.unobserve(layout)
       }
-      ;(layout as any).style.paddingBottom = this.layoutOffsetBottom
+      switch (this.type) {
+        case 'footer':
+          ;(layout as any).style.paddingBottom = this.layoutOffset
+          break
+        case 'header':
+          ;(layout as any).style.paddingTop = this.layoutOffset
+          break
+        default:
+          break
+      }
     }
   }
 }

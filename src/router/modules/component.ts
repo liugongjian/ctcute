@@ -2,8 +2,8 @@
 /*
  * @Author: huanglulu
  * @Date: 2022-07-20 10:15:03
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2023-05-11 18:43:54
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-06-06 18:59:07
  * @Description:
  */
 // import Layout from '@/layout/component.vue'
@@ -178,6 +178,15 @@ const componentRoutes = [
         component: () => import('@/views/component/Base/CuteScroller/index.vue'),
         meta: {
           title: 'CuteScroller',
+          breadcrumb: true,
+        },
+      },
+      {
+        path: 'cute-fixed-header',
+        name: 'CuteFixedHeader',
+        component: () => import('@/views/component/Base/CuteFixedHeader/index.vue'),
+        meta: {
+          title: 'CuteFixedHeader',
           breadcrumb: true,
         },
       },

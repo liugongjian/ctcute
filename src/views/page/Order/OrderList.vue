@@ -1,8 +1,8 @@
 <!--
  * @Author: 魏勋
  * @Date: 2023-05-22 16:34:26
- * @LastEditors: 魏勋
- * @LastEditTime: 2023-05-29 09:52:46
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-06-06 19:16:30
  * @Description: 订购页
 -->
 <template>
@@ -123,11 +123,9 @@
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
 // import { getOptions } from '@/api/orderList'
-import CuteFixedFooter from '@cutedesign/ui/components/CuteFixedFooter/index.vue'
 
 @Component({
   name: 'OrderList',
-  components: { CuteFixedFooter },
 })
 export default class extends Vue {
   @Ref('orderForm')

@@ -1,16 +1,16 @@
 <!--
  * @Author: 魏勋
  * @Date: 2023-05-24 15:20:22
- * @LastEditors: 魏勋
- * @LastEditTime: 2023-05-29 09:54:28
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-06-06 19:18:16
  * @Description: 订购成功
 -->
 <template>
   <el-card class="real-order-success">
-    <cute-fixed-footer class="real-order-header" @click="openPreview">
+    <cute-fixed-header class="real-order-header" @click="openPreview">
       <svg-icon class="real-order-header__icon" name="left" />
       <span class="real-order-header__content">服务管理</span>
-    </cute-fixed-footer>
+    </cute-fixed-header>
     <div class="success-content-container">
       <div>
         <img src="./images/success.svg" alt="" />
@@ -32,11 +32,10 @@ import { Component, Vue } from 'vue-property-decorator'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
 import { CuteSpecialRadio } from '@cutedesign/ui'
 // import { getOptions } from '@/api/orderList'
-import CuteFixedFooter from '@cutedesign/ui/components/CuteFixedFooter/index.vue'
 
 @Component({
   name: 'OrderSuccess',
-  components: { CuteSpecialRadio, CuteFixedFooter },
+  components: { CuteSpecialRadio },
 })
 export default class extends Vue {
   private colorVariables = variables

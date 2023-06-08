@@ -49,7 +49,14 @@ this.$auth.isLogin
 4. 按钮权限通过`v-permission`指令实现，举例如下：
 
 ```javascript
+// 权属数据支持多个（数组）
 <el-button v-permission="['/permission/user/:add']">+ 新增按钮</el-button>
+// 权属数据支持单个
+<el-button v-permission="'/permission/user/:add'">+ 新增按钮</el-button>
+// 权属数据支持为空，默认显示
+<el-button v-permission="">+ 新增按钮</el-button>
+// 权属数据支持为空，严格模式不显示
+<el-button v-permission.strict="">+ 新增按钮</el-button>
 ```
 
 其中`'/permission/user/:add'`是配置的权限 code

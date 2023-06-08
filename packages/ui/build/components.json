@@ -27,6 +27,7 @@
     "CuteCardBox",
     "CuteScroller",
     "CuteFixedFooter",
+    "CuteFixedHeader",
     "Pagination",
     "Dialog",
     "Autocomplete",

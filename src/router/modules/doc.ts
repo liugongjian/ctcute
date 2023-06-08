@@ -219,6 +219,24 @@ const docRoutes = [
     ],
   },
   {
+    path: '/docs/settings',
+    component: Layout,
+    meta: {
+      breadcrumb: false,
+    },
+    children: [
+      {
+        path: '',
+        name: 'Settings',
+        component: () => import('@/views/doc/Guides/Settings.vue'),
+        meta: {
+          title: '全局配置',
+          breadcrumb: true,
+        },
+      },
+    ],
+  },
+  {
     path: '/docs/upgrade-v2',
     component: Layout,
     meta: {

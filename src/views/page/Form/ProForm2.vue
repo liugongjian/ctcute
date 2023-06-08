@@ -252,13 +252,11 @@ import { CuteTitledBlock } from '@cutedesign/ui'
 import * as ProForm2 from '@/types/ProForm2'
 import { getAlertTarget } from '@/api/simpleForm'
 import { createProForm2 } from '@/api/proForm2'
-import CuteFixedFooter from '@cutedesign/ui/components/CuteFixedFooter/index.vue'
 
 @Component({
   name: 'ProForm2',
   components: {
     CuteTitledBlock,
-    CuteFixedFooter,
   },
 })
 export default class extends Vue {

@@ -1,0 +1,7 @@
+.cute-fixed-component {
+  position: absolute;
+  z-index: $zindex-fixed-component;
+  padding: $padding-4x;
+  background: $color-bg-2;
+  box-shadow: $shadow-2;
+}

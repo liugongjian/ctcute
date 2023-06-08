@@ -180,7 +180,7 @@ export const routes: RouteConfig[] = addRouteMetaProp(originConstantRoutes, { wi
 // export const routes: RouteConfig[] = [...constantRoutes, ...asyncRoutes]
 
 const router = new Router({
-  mode: 'history',
+  mode: settings.routerMode,
   base: process.env.BASE_URL,
   routes: routes,
 })

@@ -40,7 +40,8 @@ $tree-leaf-expand-icon-padding: 2px;
     & > .el-tree-node__expand-icon {
       padding: $tree-node-icon-padding;
       &.is-leaf {
-        padding: $tree-node-icon-leaf-padding;
+        // padding: $tree-node-icon-leaf-padding;
+        padding: $tree-node-icon-padding;
       }
     }
 

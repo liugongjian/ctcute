@@ -177,6 +177,9 @@ export default class extends Vue {
         },
       ],
     },
+    {
+      label: 'test3',
+    },
   ]
   private treeData1 = [
     {
@@ -194,6 +197,9 @@ export default class extends Vue {
               key: '2',
             },
           ],
+        },
+        {
+          label: 'test1-2',
         },
       ],
     },

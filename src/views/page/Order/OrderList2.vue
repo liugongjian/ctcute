@@ -1,16 +1,16 @@
 <!--
  * @Author: 魏勋
  * @Date: 2023-05-23 16:17:28
- * @LastEditors: 魏勋
- * @LastEditTime: 2023-05-29 09:52:28
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-06-06 19:16:39
  * @Description: 订购页
 -->
 <template>
   <div class="real-order-row">
-    <cute-fixed-footer class="real-order-header" @click="openPreview">
+    <cute-fixed-header class="real-order-header" @click="openPreview">
       <svg-icon class="real-order-header__icon" name="left" />
       <span class="real-order-header__content">物理机服务</span>
-    </cute-fixed-footer>
+    </cute-fixed-header>
 
     <el-form ref="orderForm" label-position="left" :model="form" label-width="90px" class="simple-form">
       <el-card>
@@ -236,13 +236,12 @@ import { Component, Vue, Ref } from 'vue-property-decorator'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
 import { CuteSpecialRadio } from '@cutedesign/ui'
 import { getOrderTableList } from '@/api/orderList2'
-import CuteFixedFooter from '@cutedesign/ui/components/CuteFixedFooter/index.vue'
 import * as OrderTable from '@/types/OrderTable2'
 import { formatDatetime } from '@/utils/date'
 
 @Component({
   name: 'OrderList2',
-  components: { CuteSpecialRadio, CuteFixedFooter },
+  components: { CuteSpecialRadio },
 })
 export default class extends Vue {
   @Ref('orderForm')

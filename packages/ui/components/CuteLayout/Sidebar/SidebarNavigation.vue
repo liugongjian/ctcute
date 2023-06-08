@@ -17,7 +17,7 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { SidebarNavigation } from '@cutedesign/ui/types/CuteLayout'
+import { SidebarNavigationLink } from '@cutedesign/ui/types/CuteLayout'
 import SidebarItemLink from './SidebarItemLink.vue'
 import SidebarItemIcon from './SidebarItemIcon.vue'
 
@@ -30,6 +30,6 @@ import SidebarItemIcon from './SidebarItemIcon.vue'
 })
 export default class extends Vue {
   @Prop()
-  private sidebarNavigation?: SidebarNavigation
+  private sidebarNavigation?: SidebarNavigationLink[]
 }
 </script>

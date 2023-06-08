@@ -60,7 +60,7 @@ import { RouteConfig } from 'vue-router'
 import Locale from '@cutedesign/ui/mixins/locale'
 import SidebarItem from './SidebarItem.vue'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
-import { SidebarNavigation as SidebarNavigationType } from '@cutedesign/ui/types/CuteLayout'
+import { SidebarNavigationLink } from '@cutedesign/ui/types/CuteLayout'
 import SidebarItemIcon from './SidebarItemIcon.vue'
 import SidebarNavigation from './SidebarNavigation.vue'
 
@@ -94,7 +94,7 @@ export default class extends Mixins(Locale) {
   private sidebarTitleIconType: string
 
   @Prop()
-  private sidebarNavigation?: SidebarNavigationType
+  private sidebarNavigation?: SidebarNavigationLink[]
 
   @Prop({ default: true })
   private sidebarKnob: boolean

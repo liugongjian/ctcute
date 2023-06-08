@@ -9,7 +9,7 @@ import { CuteComponent } from './component'
 import { RouteConfig } from 'vue-router'
 
 export type LayoutType = 'default' | 'fixed-navbar'
-export type SidebarNavigation = {
+export type SidebarNavigationLink = {
   path: string
   title: string
   icon: string
@@ -59,7 +59,7 @@ export declare class CuteLayout extends CuteComponent {
   sidebarTitleIcon: string
 
   /* 侧边栏标题导航 */
-  sidebarNavigation: SidebarNavigation
+  sidebarNavigation: SidebarNavigationLink[]
 
   /* 是否显示菜单收起开关 */
   sidebarKnob: boolean

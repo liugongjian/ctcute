@@ -76,7 +76,7 @@ import { RouteConfig, RouteRecord } from 'vue-router'
 import LayoutHeader from './Header/index.vue'
 import LayoutSidebar from './Sidebar/index.vue'
 import Navbar from './Navbar/index.vue'
-import { LayoutType, SidebarNavigation } from '@cutedesign/ui/types/CuteLayout'
+import { LayoutType, SidebarNavigationLink } from '@cutedesign/ui/types/CuteLayout'
 
 @Component({
   name: 'CuteLayout',
@@ -133,7 +133,7 @@ export default class extends Vue {
   private sidebarTitleIconType: string
 
   @Prop()
-  private sidebarNavigation?: SidebarNavigation
+  private sidebarNavigation?: SidebarNavigationLink[]
 
   @Prop({ default: true })
   private sidebarKnob: boolean

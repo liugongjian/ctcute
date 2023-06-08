@@ -47,6 +47,13 @@
         <p>如需配置外部链接菜单，只需将路由的path设置为以http、https、mailto或tel开头的地址即可。</p>
       </ComponentDemo>
 
+      <h1>CuteLayoutSidebar / 多产品切换导航</h1>
+      <ComponentDemo path="@/views/component/Base/CuteLayout/Demo6.ts" mode="text/javascript">
+        <p>
+          通过sidebar-navigation属性传入SidebarNavigationLink[]数组。鼠标经过在SidebarTitle时会出现悬浮框列出多产品链接。
+        </p>
+      </ComponentDemo>
+
       <h1>CuteLayoutBreadcrumb / 自定义面包屑名称</h1>
       <ComponentDemo path="@/views/component/Test/CuteLayout/Layout.vue" mode="text/javascript">
         <p>
@@ -79,6 +86,15 @@
 
       <h2>Route Meta</h2>
       <el-table :data="routeMeta" fit border>
+        <el-table-column prop="name" label="参数" />
+        <el-table-column prop="desc" label="说明" min-width="200" />
+        <el-table-column prop="type" label="类型" />
+        <el-table-column prop="options" label="可选值" />
+        <el-table-column prop="default" label="默认值" />
+      </el-table>
+
+      <h2>Sidebar Navigation Link</h2>
+      <el-table :data="sidebarNavigationLink" fit border>
         <el-table-column prop="name" label="参数" />
         <el-table-column prop="desc" label="说明" min-width="200" />
         <el-table-column prop="type" label="类型" />
@@ -207,10 +223,10 @@ export default class extends Vue {
     },
     {
       name: 'sidebar-navigation',
-      desc: '如果不使用CuteDesign内置图标需要指定iconType',
-      type: 'string',
-      options: 'svg/iconfont/element',
-      default: 'svg',
+      desc: '多产品切换导航，数据结构详见下方Sidebar Navigation Link',
+      type: 'SidebarNavigationLink[]',
+      options: '',
+      default: '',
     },
     {
       name: 'sidebar-knob',
@@ -366,6 +382,44 @@ export default class extends Vue {
       default: '',
       options: '',
       desc: '指定选中状态的路由path',
+    },
+  ]
+
+  private sidebarNavigationLink = [
+    {
+      name: 'title',
+      type: 'string',
+      default: '',
+      options: '',
+      desc: '产品名称',
+    },
+    {
+      name: 'path',
+      type: 'string',
+      default: '',
+      options: '',
+      desc: '链接路由path或外链url',
+    },
+    {
+      name: 'active',
+      type: 'boolean',
+      default: 'false',
+      options: '',
+      desc: '是否高亮当前产品',
+    },
+    {
+      name: 'icon',
+      type: 'string',
+      default: '',
+      options: '',
+      desc: '产品图标，支持使用CuteDeign内置图标，也可以使用iconfont或者element icon，如果不使用CuteDesign内置图标需要设置iconType',
+    },
+    {
+      name: 'iconType',
+      type: 'string',
+      default: 'svg',
+      options: 'svg/iconfont/element',
+      desc: '如果不使用CuteDesign内置图标需要指定iconType',
     },
   ]
 }

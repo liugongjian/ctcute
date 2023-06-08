@@ -231,7 +231,7 @@ export default class extends Vue {
   }
 
   private toggleSidebar(isShowMenu) {
-    console.log('toggleSidebar', isShowMenu)
+    this.$message.info(`左侧菜单收起状态: ${isShowMenu}`)
   }
 }
 </script>

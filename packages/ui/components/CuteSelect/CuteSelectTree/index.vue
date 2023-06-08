@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 黄靖
- * @LastEditTime: 2023-05-05 15:38:10
+ * @LastEditTime: 2023-06-08 16:38:16
  * @Description: 树选择器
 -->
 <template>
@@ -14,6 +14,8 @@
     :disabled="disabled"
     :class="{ 'is-disabled': disabled }"
     :multiple="multiple ? true : false"
+    :filterable="filterable ? true : false"
+    :filter-method="handleFilter"
     popper-class="cute-select-tree"
   >
     <el-option :value="value" :label="label" style="height: auto">
@@ -26,6 +28,7 @@
         :props="treeNodeProps"
         :lazy="lazy"
         :load="load"
+        :filter-node-method="filterNodeMethod"
         @node-click="handleNodeClick"
       >
         <template slot-scope="{ node, data }">
@@ -41,6 +44,7 @@
         :props="treeNodeProps"
         :lazy="lazy"
         :load="load"
+        :filter-node-method="filterNodeMethod"
         @node-click="handleNodeClick"
       ></el-tree>
     </el-option>
@@ -51,16 +55,9 @@ import { Vue, Component, Ref, Prop, Model, Emit, Watch, Mixins } from 'vue-prope
 import { Tree } from 'element-ui'
 import SelectedTags from './TreeSelectedTags.vue'
 import Locale from '@cutedesign/ui/mixins/locale'
+import { CuteSelectTreeProps } from '@cutedesign/ui/types/CuteSelectTree'
 
 const defaultNodeProps = { children: 'children', label: 'label', value: 'id', disabled: 'disabled' }
-
-interface NODE_PROPS {
-  children?: string
-  label?: string | ((data: any, node: any) => string)
-  value?: string
-  disabled?: string | ((data: any, node: any) => boolean)
-  isLeaf?: string | ((data: any, node: any) => boolean)
-}
 
 @Component({
   name: 'CuteSelectTree',
@@ -72,10 +69,16 @@ export default class extends Mixins(Locale) {
   @Prop({ type: Array, default: '' }) options?: [] //option 值
   @Prop({ type: String, default: 'medium' }) size?: 'medium' //option 值
 
-  @Prop({ type: Object, default: () => ({}) }) nodeProps!: NODE_PROPS //el-tree的props属性
+  @Prop({ type: Object, default: () => ({}) }) nodeProps!: CuteSelectTreeProps //el-tree的props属性
   @Prop({ type: Boolean, default: false }) defaultExpandAll!: boolean //el-tree的default-expand-all属性
   @Prop({ type: Boolean, default: false }) lazy!: boolean //el-tree的lazy属性
   @Prop({ type: Boolean, default: false }) disabled!: boolean //禁用状态
+  @Prop({ type: Boolean, default: false }) filterable!: boolean //是否可搜索
+  @Prop({ type: Function, required: false }) filterNodeMethod?: (
+    value: string,
+    data: any,
+    node: any
+  ) => boolean // 搜索方法
 
   @Prop({ type: Boolean, default: false }) collapseTags!: boolean //el-tree的collapse-tags属性
   @Prop({ type: Function }) load?: any //el-tree的load属性
@@ -86,7 +89,7 @@ export default class extends Mixins(Locale) {
   // 多选时选中的tags数据，由于Vue.extend创建的构造函数New出的实例propsData不支持响应式，需要使用数组的push/splice方法才能响应式控制tags数据
   private selectedTags: any[] = []
 
-  get treeNodeProps(): NODE_PROPS {
+  get treeNodeProps(): CuteSelectTreeProps {
     return {
       ...defaultNodeProps,
       ...this.nodeProps,
@@ -202,6 +205,10 @@ export default class extends Mixins(Locale) {
         this.selectedTags.splice(i, 1)
       }
     }
+  }
+
+  handleFilter(val: any) {
+    this.refTree.filter(val)
   }
 
   created() {

@@ -2,7 +2,7 @@
  * @Author: 黄靖
  * @Date: 2022-07-25 17:54:37
  * @LastEditors: 黄靖
- * @LastEditTime: 2023-05-08 14:22:03
+ * @LastEditTime: 2023-06-08 16:18:34
  * @Description: 
 -->
 <template>
@@ -21,6 +21,10 @@
       <h1>自定义树节点内容</h1>
       <component-demo path="@/views/component/Base/CuteSelectTree/Demo3.vue">
         <demo3 />
+      </component-demo>
+      <h1>可搜索</h1>
+      <component-demo path="@/views/component/Base/CuteSelectTree/Demo4.vue">
+        <demo4 />
       </component-demo>
       <h2>CuteSelectTree Attributes</h2>
       <el-table :data="prop" fit border>
@@ -57,6 +61,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import Demo1 from './Demo1.vue'
 import Demo2 from './Demo2.vue'
 import Demo3 from './Demo3.vue'
+import Demo4 from './Demo4.vue'
 import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
 
 @Component({
@@ -66,6 +71,7 @@ import ComponentDemo from '@/layout/components/ComponentDemo/index.vue'
     Demo1,
     Demo2,
     Demo3,
+    Demo4,
   },
 })
 export default class extends Vue {
@@ -109,6 +115,20 @@ export default class extends Vue {
       name: 'load',
       desc: '加载子树数据的方法，仅当 lazy 属性为true 时生效',
       type: 'function(node, resolve)',
+      options: null,
+      default: null,
+    },
+    {
+      name: 'filterable',
+      desc: '是否可搜索',
+      type: 'boolean',
+      options: null,
+      default: 'false',
+    },
+    {
+      name: 'filter-node-method',
+      desc: '对树节点进行筛选时执行的方法，返回 true 表示这个节点可以显示，返回 false 则表示这个节点会被隐藏',
+      type: 'Function(value, data, node)',
       options: null,
       default: null,
     },

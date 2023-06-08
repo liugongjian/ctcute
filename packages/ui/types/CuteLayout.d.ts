@@ -8,7 +8,13 @@
 import { CuteComponent } from './component'
 import { RouteConfig } from 'vue-router'
 
-type LayoutType = 'default' | 'fixed-navbar'
+export type LayoutType = 'default' | 'fixed-navbar'
+export type SidebarNavigation = {
+  path: string
+  title: string
+  icon: string
+  iconType: string
+}
 export declare class CuteLayout extends CuteComponent {
   /* 是否显示页眉 */
   header: boolean
@@ -48,6 +54,12 @@ export declare class CuteLayout extends CuteComponent {
 
   /* 侧边栏标题 */
   sidebarTitle: string
+
+  /* 侧边栏标题图标 */
+  sidebarTitleIcon: string
+
+  /* 侧边栏标题导航 */
+  sidebarNavigation: SidebarNavigation
 
   /* 是否显示菜单收起开关 */
   sidebarKnob: boolean

@@ -12,7 +12,28 @@
         <div class="cute-layout-sidebar__title__back__icon"><svg-icon name="left" /></div>
         {{ t(drillDownRoute.meta.title) }}
       </div>
-      <div v-else-if="sidebarTitle" class="cute-layout-sidebar__title">{{ sidebarTitle }}</div>
+      <el-popover
+        v-else-if="sidebarTitle"
+        placement="bottom-start"
+        trigger="click"
+        popper-class="cute-layout-sidebar__navigation__popover"
+        :disabled="!(sidebarNavigation && sidebarNavigation.length)"
+      >
+        <!-- 产品导航浮层 -->
+        <sidebar-navigation :sidebar-navigation="sidebarNavigation" />
+        <div
+          slot="reference"
+          class="cute-layout-sidebar__title"
+          :class="{ 'cute-layout-sidebar__title--has-navigation': sidebarNavigation }"
+        >
+          <sidebar-item-icon
+            v-if="sidebarTitleIcon"
+            :name="sidebarTitleIcon"
+            :icon-type="sidebarTitleIconType"
+          />
+          {{ sidebarTitle }}
+        </div>
+      </el-popover>
 
       <slot name="sidebar-menu">
         <el-menu
@@ -27,7 +48,7 @@
       </slot>
     </div>
     <!-- 展开与收缩按钮 -->
-    <div v-if="sidebarKnob" class="cute-layout-sidebar__knob" @click="toggleSideBar">
+    <div v-if="sidebarKnob" class="cute-layout-sidebar__knob" @click="toggleSidebar">
       <svg-icon :name="`${isShowMenu ? 'caret-left' : 'caret-right'}`" />
     </div>
   </div>
@@ -39,11 +60,16 @@ import { RouteConfig } from 'vue-router'
 import Locale from '@cutedesign/ui/mixins/locale'
 import SidebarItem from './SidebarItem.vue'
 import variables from '@cutedesign/ui/style/themes/default/index.scss'
+import { SidebarNavigation as SidebarNavigationType } from '@cutedesign/ui/types/CuteLayout'
+import SidebarItemIcon from './SidebarItemIcon.vue'
+import SidebarNavigation from './SidebarNavigation.vue'
 
 @Component({
   name: 'CuteLayoutSidebar',
   components: {
     SidebarItem,
+    SidebarItemIcon,
+    SidebarNavigation,
   },
 })
 export default class extends Mixins(Locale) {
@@ -60,6 +86,15 @@ export default class extends Mixins(Locale) {
 
   @Prop({ default: '' })
   private sidebarTitle: string
+
+  @Prop({ default: '' })
+  private sidebarTitleIcon: string
+
+  @Prop({ default: '' })
+  private sidebarTitleIconType: string
+
+  @Prop()
+  private sidebarNavigation?: SidebarNavigationType
 
   @Prop({ default: true })
   private sidebarKnob: boolean
@@ -166,9 +201,10 @@ export default class extends Mixins(Locale) {
   /**
    * 收缩/展开侧边栏
    */
-  private toggleSideBar() {
+  private toggleSidebar() {
     this.isShowMenu = !this.isShowMenu
     this.setSidebarWidth()
+    this.$emit('toggle-sidebar', this.isShowMenu)
   }
 
   /**

@@ -25,7 +25,11 @@
             :sidebar-filter="sidebarFilter"
             :sidebar-routes-after-each="sidebarRoutesAfterEach"
             :sidebar-title="sidebarTitle"
+            :sidebar-title-icon="sidebarTitleIcon"
+            :sidebar-title-icon-type="sidebarTitleIconType"
+            :sidebar-navigation="sidebarNavigation"
             :sidebar-knob="sidebarKnob"
+            @toggle-sidebar="toggleSidebar"
           >
             <template slot="sidebar-menu">
               <slot name="sidebar-menu"></slot>
@@ -72,6 +76,7 @@ import { RouteConfig, RouteRecord } from 'vue-router'
 import LayoutHeader from './Header/index.vue'
 import LayoutSidebar from './Sidebar/index.vue'
 import Navbar from './Navbar/index.vue'
+import { LayoutType, SidebarNavigation } from '@cutedesign/ui/types/CuteLayout'
 
 @Component({
   name: 'CuteLayout',
@@ -92,7 +97,7 @@ export default class extends Vue {
   private navbar?: boolean
 
   @Prop({ default: '' })
-  private layout?: string
+  private layout?: LayoutType
 
   @Prop({ default: 'fade-transform' })
   private transition?: string
@@ -121,6 +126,15 @@ export default class extends Vue {
   @Prop({ default: '' })
   private sidebarTitle: string
 
+  @Prop({ default: '' })
+  private sidebarTitleIcon: string
+
+  @Prop({ default: '' })
+  private sidebarTitleIconType: string
+
+  @Prop()
+  private sidebarNavigation?: SidebarNavigation
+
   @Prop({ default: true })
   private sidebarKnob: boolean
 
@@ -138,5 +152,12 @@ export default class extends Vue {
 
   @Prop()
   private breadcrumbAfterEach: (route: RouteRecord) => RouteRecord
+
+  /**
+   * 收缩/展开侧边栏
+   */
+  private toggleSidebar(isShowMenu) {
+    this.$emit('toggle-sidebar', isShowMenu)
+  }
 }
 </script>

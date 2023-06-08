@@ -70,6 +70,13 @@
         <el-table-column prop="desc" label="说明" />
       </el-table>
 
+      <h2>Layout Event</h2>
+      <el-table :data="event" fit border>
+        <el-table-column prop="name" label="事件名称" />
+        <el-table-column prop="desc" label="说明" />
+        <el-table-column prop="params" label="参数" />
+      </el-table>
+
       <h2>Route Meta</h2>
       <el-table :data="routeMeta" fit border>
         <el-table-column prop="name" label="参数" />
@@ -129,98 +136,119 @@ export default class extends Vue {
       default: 'fade-transform',
     },
     {
-      name: 'customClass',
+      name: 'custom-class',
       desc: '自定义Class',
       type: 'string',
       options: '',
       default: '',
     },
     {
-      name: 'headerLogo',
+      name: 'header-logo',
       desc: '主Logo图片URL，仅支持使用相对路径的图片地址',
       type: 'string',
       options: '',
       default: '天翼云Logo',
     },
     {
-      name: 'headerSubLogo',
+      name: 'header-sub-logo',
       desc: '二级Logo图片URL，仅支持使用相对路径的图片地址',
       type: 'string',
       options: '',
       default: 'CuteDesign Logo',
     },
     {
-      name: 'headerSubTitle',
+      name: 'header-sub-title',
       desc: '二级文本标题',
       type: 'string',
       options: '',
       default: '二级标题',
     },
     {
-      name: 'sidebarRoutes',
+      name: 'sidebar-routes',
       desc: '侧边栏菜单数据，格式同vue routes，默认获取项目全局路由',
       type: 'Route[]',
       options: '',
       default: '项目全局路由',
     },
     {
-      name: 'sidebarRoutesAfterEach',
+      name: 'sidebar-routes-after-each',
       desc: '显示菜单数据时的勾子方法，可以对动态对每个菜单项进行修改',
       type: 'Function(route)',
       options: '',
       default: '',
     },
     {
-      name: 'sidebarFilter',
+      name: 'sidebar-filter',
       desc: '对菜单数据进行过滤',
       type: 'Function(routes)',
       options: '',
       default: '',
     },
     {
-      name: 'sidebarTitle',
+      name: 'sidebar-title',
       desc: '侧边栏标题',
-      type: 'String',
+      type: 'string',
       options: '',
       default: '',
     },
     {
-      name: 'sidebarKnob',
+      name: 'sidebar-title-icon',
+      desc: '侧边栏标题图标，支持使用CuteDeign内置图标，也可以使用iconfont或者element icon，如果不使用CuteDesign内置图标需要设置iconType',
+      type: 'string',
+      options: '',
+      default: '',
+    },
+    {
+      name: 'sidebar-title-icon-type',
+      desc: '如果不使用CuteDesign内置图标需要指定iconType',
+      type: 'string',
+      options: 'svg/iconfont/element',
+      default: 'svg',
+    },
+    {
+      name: 'sidebar-navigation',
+      desc: '如果不使用CuteDesign内置图标需要指定iconType',
+      type: 'string',
+      options: 'svg/iconfont/element',
+      default: 'svg',
+    },
+    {
+      name: 'sidebar-knob',
       desc: '是否显示菜单收起开关',
-      type: 'Boolean',
+      type: 'boolean',
       options: '',
       default: 'true',
     },
     {
-      name: 'sidebarCustomClass',
+      name: 'sidebar-custom-class',
       desc: '侧边栏自定义Class',
-      type: 'String',
+      type: 'string',
       options: '',
       default: '',
     },
     {
-      name: 'navbarBreadcrumb',
+      name: 'navbar-breadcrumb',
       desc: '是否显示面包屑',
-      type: 'Boolean',
+      type: 'boolean',
       options: '',
       default: 'true',
     },
     {
-      name: 'breadcrumbCustomTitle',
+      name: 'breadcrumb-custom-title',
       desc: '面包屑自定义标题',
-      type: 'String',
+      type: 'string',
       options: '',
       default: '',
     },
     {
-      name: 'breadcrumbShowLast',
+      name: 'breadcrumb-show-last',
       desc: '仅显示面包屑最后一级',
-      type: 'Boolean',
+      type: 'boolean',
       options: '',
       default: 'false',
     },
     {
-      name: 'breadcrumbAfterEach',
+      name: 'breadcrumb-after-each',
       desc: '显示面包屑时的勾子方法，可以对动态对每个菜单项进行修改',
       type: 'Function(route)',
       options: '',
@@ -267,10 +295,18 @@ export default class extends Vue {
     },
   ]
 
+  private event = [
+    {
+      name: 'toggle-sidebar',
+      desc: '收起侧边栏时触发',
+      params: 'isShowMenu',
+    },
+  ]
+
   private routeMeta = [
     {
       name: 'title',
-      type: 'String',
+      type: 'string',
       default: '',
       desc: '页面名称，用于显示在侧边栏菜单和面包屑中',
     },

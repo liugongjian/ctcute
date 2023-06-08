@@ -288,6 +288,10 @@
         }
       }
     }
+
+    &--has-navigation {
+      cursor: default;
+    }
   }
 
   /* 侧边栏关闭按钮 */
@@ -309,6 +313,57 @@
     .svg-icon {
       font-size: $text-size;
       color: $cute-layout-sidebar-arrow-color;
+    }
+  }
+
+  /* 产品导航 */
+  &__navigation {
+    padding: $margin-2x;
+
+    &__item {
+      margin-bottom: $margin-5x;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: $border-radius;
+        box-shadow: $shadow-2;
+        margin-right: $margin-3x;
+
+        .svg-icon {
+          width: 17px;
+          height: 17px;
+        }
+      }
+
+      a {
+        color: $text-color;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+
+      &:hover, &--active {
+        a {
+          color: $color-master;
+        }
+
+        &__icon {
+          background: $color-master;
+          color: $color-white;
+        }
+      }
+    }
+
+    &__popover.el-popper[x-placement^=bottom] {
+      margin-top: 0;
     }
   }
 }

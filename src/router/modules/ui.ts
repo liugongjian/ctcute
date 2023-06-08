@@ -16,7 +16,7 @@ const uiRoutes = [
         component: () => import(/* webpackChunkName: "component" */ '@/views/ui/index.vue'),
         name: 'Component',
         meta: {
-          title: 'Component 组件',
+          title: 'route.ui.component',
           breadcrumb: true,
         },
       },

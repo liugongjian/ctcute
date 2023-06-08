@@ -1,8 +1,8 @@
 <!--
  * @Author: 胡佳婷
  * @Date: 2023-04-18 17:17:41
- * @LastEditors: 王月功
- * @LastEditTime: 2023-06-02 11:15:21
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-06-02 14:01:35
  * @Description:
 -->
 <template>
@@ -10,7 +10,7 @@
     :header-logo="logoIcon"
     :header-sub-logo="subLogoIcon"
     :sidebar-filter="filterRoutes"
-    :sidebar-title="sidebarTitle"
+    :sidebar-title="$t('menu.page')"
     :sidebar-routes="routes"
     :navbar="!fullScreen"
     :sidebar="!fullScreen"
@@ -50,7 +50,6 @@ import settings from '@/settings'
   },
 })
 export default class extends Vue {
-  private sidebarTitle = '页面'
   private type = 'page'
   private logoIcon = settings.logoIcon
   private subLogoIcon = settings.subLogoIcon

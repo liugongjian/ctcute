@@ -12,12 +12,18 @@
       <el-option value="v2" label="V2" />
     </el-select>
     <div class="header-nav__menu">
-      <router-link to="/docs" :class="{ active: currentPath.startsWith('/docs') }">文档</router-link>
-      <router-link to="/ui" :class="{ active: currentPath.startsWith('/ui') }">UI规范</router-link>
-      <router-link to="/component" :class="{ active: currentPath.startsWith('/component') }"
-        >组件</router-link
-      >
-      <router-link to="/page" :class="{ active: currentPath.startsWith('/page') }">页面</router-link>
+      <router-link to="/docs" :class="{ active: currentPath.startsWith('/docs') }">{{
+        $t('menu.doc')
+      }}</router-link>
+      <router-link to="/ui" :class="{ active: currentPath.startsWith('/ui') }">{{
+        $t('menu.ui')
+      }}</router-link>
+      <router-link to="/component" :class="{ active: currentPath.startsWith('/component') }">{{
+        $t('menu.component')
+      }}</router-link>
+      <router-link to="/page" :class="{ active: currentPath.startsWith('/page') }">{{
+        $t('menu.page')
+      }}</router-link>
     </div>
     <!-- 用户信息 -->
     <div v-if="isLogin" v-click-outside="hideDropdown" class="header-nav__login-info" @click="flag = !flag">
@@ -26,15 +32,15 @@
       <svg-icon :name="!flag ? 'caret-down' : 'caret-up'" />
 
       <ul v-if="flag" :class="flag ? 'down' : 'ul'">
-        <li>文字</li>
-        <li>文字</li>
-        <li>文字</li>
-        <li>文字</li>
-        <li @click="outLogin">退出登录</li>
+        <li>{{ $t('menu.text') }}</li>
+        <li>{{ $t('menu.text') }}</li>
+        <li>{{ $t('menu.text') }}</li>
+        <li>{{ $t('menu.text') }}</li>
+        <li @click="outLogin">{{ $t('menu.signout') }}</li>
       </ul>
     </div>
     <div v-else class="header-nav__login-info">
-      <el-button type="primary" @click="toLogin">登 录</el-button>
+      <el-button type="primary" @click="toLogin">{{ $t('menu.signin') }}</el-button>
     </div>
   </div>
 </template>

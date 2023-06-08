@@ -3,7 +3,7 @@
     :header-logo="logoIcon"
     :header-sub-logo="subLogoIcon"
     :sidebar-filter="filterRoutes"
-    :sidebar-title="sidebarTitle"
+    :sidebar-title="$t('menu.component')"
     :layout="layout"
     :sidebar-routes="routes"
     class="layout-page"
@@ -38,7 +38,6 @@ import settings from '@/settings'
   },
 })
 export default class extends Vue {
-  private sidebarTitle = '组件'
   private type = 'component'
   private logoIcon = settings.logoIcon
   private subLogoIcon = settings.subLogoIcon

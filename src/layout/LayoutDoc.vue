@@ -3,7 +3,7 @@
     :header-logo="logoIcon"
     :header-sub-logo="subLogoIcon"
     :sidebar-filter="filterRoutes"
-    :sidebar-title="sidebarTitle"
+    :sidebar-title="$t('menu.doc')"
     :layout="layout"
     :sidebar-routes="routes"
   >
@@ -27,7 +27,6 @@ import settings from '@/settings'
   },
 })
 export default class extends Vue {
-  private sidebarTitle = '文档'
   private type = 'doc'
   private logoIcon = settings.logoIcon
   private subLogoIcon = settings.subLogoIcon

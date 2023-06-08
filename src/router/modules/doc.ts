@@ -1,8 +1,8 @@
 /*
  * @Author: 胡佳婷
  * @Date: 2022-10-04 17:01:49
- * @LastEditors: 胡佳婷
- * @LastEditTime: 2022-11-19 07:41:39
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-06-01 18:01:13
  * @Description:
  */
 import Layout from '@/layout/LayoutDoc.vue'
@@ -21,7 +21,7 @@ const docRoutes = [
         name: 'ChangeLog',
         component: () => import('@/views/doc/ChangeLog/index.vue'),
         meta: {
-          title: '更新日志',
+          title: 'route.doc.log',
           breadcrumb: true,
         },
       },
@@ -40,7 +40,7 @@ const docRoutes = [
         name: 'DesignTarget',
         component: () => import('@/views/doc/Guides/DesignTarget.vue'),
         meta: {
-          title: '设计目标',
+          title: 'route.doc.target',
           breadcrumb: true,
         },
       },
@@ -59,7 +59,7 @@ const docRoutes = [
         name: 'QuickStart',
         component: () => import('@/views/doc/Guides/QuickStart.vue'),
         meta: {
-          title: '快速上手',
+          title: 'route.doc.start',
           breadcrumb: true,
         },
       },
@@ -78,7 +78,7 @@ const docRoutes = [
         name: 'UserPerm',
         component: () => import('@/views/doc/Guides/UserPerm.vue'),
         meta: {
-          title: '用户权限',
+          title: 'route.doc.userperm',
           breadcrumb: true,
         },
       },
@@ -90,7 +90,7 @@ const docRoutes = [
     component: Layout,
     meta: {
       breadcrumb: false,
-      title: '主题',
+      title: 'route.doc.theme.default',
     },
     children: [
       {
@@ -98,7 +98,7 @@ const docRoutes = [
         name: 'Theme',
         component: () => import('@/views/doc/Theme/Change.vue'),
         meta: {
-          title: '一键换肤',
+          title: 'route.doc.theme.change',
           breadcrumb: true,
         },
       },
@@ -107,7 +107,7 @@ const docRoutes = [
         name: 'Theme',
         component: () => import('@/views/doc/Theme/Custom.vue'),
         meta: {
-          title: '更换主题',
+          title: 'route.doc.theme.custom',
           breadcrumb: true,
         },
       },
@@ -116,7 +116,7 @@ const docRoutes = [
         name: 'Tool',
         component: () => import('@/views/doc/Theme/Tool.vue'),
         meta: {
-          title: '主题生成工具',
+          title: 'route.doc.theme.tool',
           breadcrumb: true,
         },
       },
@@ -125,7 +125,7 @@ const docRoutes = [
         name: 'Echarts-Theme',
         component: () => import('@/views/doc/Theme/EchartsTheme.vue'),
         meta: {
-          title: '内置的Echarts主题',
+          title: 'route.doc.theme.echarts',
           breadcrumb: true,
         },
       },
@@ -138,7 +138,7 @@ const docRoutes = [
     component: Layout,
     name: 'BestPractice',
     meta: {
-      title: '最佳实践',
+      title: 'route.doc.best.default',
       alwaysShow: true,
       breadcrumb: true,
     },
@@ -148,7 +148,7 @@ const docRoutes = [
         component: () => import('@/views/doc/BestPractice/RichText.vue'),
         name: 'RichText',
         meta: {
-          title: 'RichText 富文本',
+          title: 'route.doc.best.richText',
           breadcrumb: true,
         },
       },
@@ -157,7 +157,7 @@ const docRoutes = [
         component: () => import('@/views/doc/BestPractice/CodeMirror.vue'),
         name: 'CodeMirror',
         meta: {
-          title: 'CodeMirror 代码编辑器',
+          title: 'route.doc.best.codeMirror',
           breadcrumb: true,
         },
       },
@@ -166,7 +166,7 @@ const docRoutes = [
         component: () => import('@/views/doc/BestPractice/HeaderLogo.vue'),
         name: 'HeaderLogo',
         meta: {
-          title: 'HeaderLogo 头部Logo',
+          title: 'route.doc.best.headerLogo',
           breadcrumb: true,
         },
       },
@@ -175,7 +175,7 @@ const docRoutes = [
         component: () => import('@/views/doc/BestPractice/MenuIcon.vue'),
         name: 'MenuIcon',
         meta: {
-          title: 'MenuIcon 菜单Icon',
+          title: 'route.doc.best.menuIcon',
           breadcrumb: true,
         },
       },
@@ -194,7 +194,7 @@ const docRoutes = [
         name: 'Resource',
         component: () => import('@/views/doc/Guides/Resource.vue'),
         meta: {
-          title: '资源',
+          title: 'route.doc.resource',
           breadcrumb: true,
         },
       },
@@ -212,7 +212,7 @@ const docRoutes = [
         name: 'Variables',
         component: () => import('@/views/doc/Guides/Variables.vue'),
         meta: {
-          title: 'SASS变量',
+          title: 'route.doc.variables',
           breadcrumb: true,
         },
       },
@@ -248,7 +248,7 @@ const docRoutes = [
         name: 'UpgradeV2',
         component: () => import('@/views/doc/Guides/UpgradeV2.vue'),
         meta: {
-          title: '升级到V2',
+          title: 'route.doc.upgrade',
           breadcrumb: true,
         },
       },
@@ -266,7 +266,7 @@ const docRoutes = [
         name: 'TemplateIntro',
         component: () => import('@/views/doc/Guides/TemplateIntro.vue'),
         meta: {
-          title: '各template介绍',
+          title: 'route.doc.template',
           breadcrumb: true,
         },
       },

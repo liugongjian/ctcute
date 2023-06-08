@@ -26,7 +26,7 @@ const componentRoutes = [
         name: 'CuteLayout',
         component: () => import('@/views/component/Base/CuteLayout/index.vue'),
         meta: {
-          title: 'CuteLayout',
+          title: 'component.base.cuteLayout',
           breadcrumb: true,
         },
       },
@@ -35,7 +35,7 @@ const componentRoutes = [
         name: 'CuteRemindSelect',
         component: () => import('@/views/component/Base/CuteRemindSelect/index.vue'),
         meta: {
-          title: 'CuteRemindSelect',
+          title: 'component.base.cuteRemindSelect',
           breadcrumb: true,
         },
       },
@@ -44,7 +44,7 @@ const componentRoutes = [
         name: 'CuteSelectedInput',
         component: () => import('@/views/component/Base/CuteSelectedInput/index.vue'),
         meta: {
-          title: 'CuteSelectedInput',
+          title: 'component.base.cuteSelectedInput',
           breadcrumb: true,
         },
       },
@@ -53,7 +53,7 @@ const componentRoutes = [
         name: 'CuteTableColumnSettings',
         component: () => import('@/views/component/Base/CuteTableColumnSettings/index.vue'),
         meta: {
-          title: 'CuteTableColumnSettings',
+          title: 'component.base.cuteTableColumnSettings',
           breadcrumb: true,
         },
       },
@@ -62,7 +62,7 @@ const componentRoutes = [
         name: 'CuteTableColumnSettings',
         component: () => import('@/views/component/Base/CuteTableFilter/index.vue'),
         meta: {
-          title: 'CuteTableFilter',
+          title: 'component.base.cuteTableFilter',
           breadcrumb: true,
         },
       },
@@ -71,7 +71,7 @@ const componentRoutes = [
         name: 'CuteTitledBlock',
         component: () => import('@/views/component/Base/CuteTitledBlock/index.vue'),
         meta: {
-          title: 'CuteTitledBlock',
+          title: 'component.base.cuteTitledBlock',
           breadcrumb: true,
         },
       },
@@ -80,7 +80,7 @@ const componentRoutes = [
         name: 'CuteCardBox',
         component: () => import('@/views/component/Base/CuteCardBox/index.vue'),
         meta: {
-          title: 'CuteCardBox',
+          title: 'component.base.cuteCardBox',
           breadcrumb: true,
         },
       },
@@ -89,7 +89,7 @@ const componentRoutes = [
         name: 'CuteEditInput',
         component: () => import('@/views/component/Base/CuteEditInput/index.vue'),
         meta: {
-          title: 'CuteEditInput',
+          title: 'component.base.cuteEditInput',
           breadcrumb: true,
         },
       },
@@ -98,7 +98,7 @@ const componentRoutes = [
         name: 'CuteState',
         component: () => import('@/views/component/Base/CuteState/index.vue'),
         meta: {
-          title: 'CuteState',
+          title: 'component.base.cuteState',
           breadcrumb: true,
         },
       },
@@ -107,7 +107,7 @@ const componentRoutes = [
         name: 'CuteTag',
         component: () => import('@/views/component/Base/CuteTag/index.vue'),
         meta: {
-          title: 'CuteTag',
+          title: 'component.base.cuteTag',
         },
       },
       {
@@ -115,7 +115,7 @@ const componentRoutes = [
         name: 'CuteSortTable',
         component: () => import('@/views/component/Base/CuteSortTable/index.vue'),
         meta: {
-          title: 'CuteSortTable',
+          title: 'component.base.cuteSortTable',
         },
       },
       {
@@ -123,7 +123,7 @@ const componentRoutes = [
         name: 'CuteRemindInput',
         component: () => import('@/views/component/Base/CuteRemindInput/index.vue'),
         meta: {
-          title: 'CuteRemindInput',
+          title: 'component.base.cuteRemindInput',
           breadcrumb: true,
         },
       },
@@ -132,7 +132,7 @@ const componentRoutes = [
         name: 'CuteSelectTree',
         component: () => import('@/views/component/Base/CuteSelectTree/index.vue'),
         meta: {
-          title: 'CuteSelectTree',
+          title: 'component.base.cuteSelectTree',
           breadcrumb: true,
         },
       },
@@ -141,7 +141,7 @@ const componentRoutes = [
         name: 'CuteArea',
         component: () => import('@/views/component/Base/CuteArea/index.vue'),
         meta: {
-          title: 'CuteArea',
+          title: 'component.base.cuteArea',
           breadcrumb: true,
         },
       },
@@ -150,7 +150,7 @@ const componentRoutes = [
         name: 'CuteSlider',
         component: () => import('@/views/component/Base/CuteSlider/index.vue'),
         meta: {
-          title: 'CuteSlider',
+          title: 'component.base.cuteSlider',
           breadcrumb: true,
         },
       },
@@ -159,7 +159,7 @@ const componentRoutes = [
         name: 'CuteSteps',
         component: () => import('@/views/component/Base/CuteStepsMulti/index.vue'),
         meta: {
-          title: 'CuteStepsMulti',
+          title: 'component.base.cuteStepsMulti',
           breadcrumb: true,
         },
       },
@@ -168,7 +168,7 @@ const componentRoutes = [
         name: 'CuteDistributionBar',
         component: () => import('@/views/component/Base/CuteDistributionBar/index.vue'),
         meta: {
-          title: 'CuteDistributionBar',
+          title: 'component.base.cuteDistributionBar',
           breadcrumb: true,
         },
       },
@@ -177,7 +177,7 @@ const componentRoutes = [
         name: 'CuteScroller',
         component: () => import('@/views/component/Base/CuteScroller/index.vue'),
         meta: {
-          title: 'CuteScroller',
+          title: 'component.base.cuteScroller',
           breadcrumb: true,
         },
       },
@@ -195,7 +195,7 @@ const componentRoutes = [
         name: 'CuteFixedFooter',
         component: () => import('@/views/component/Base/CuteFixedFooter/index.vue'),
         meta: {
-          title: 'CuteFixedFooter',
+          title: 'component.base.cuteFixedFooter',
           breadcrumb: true,
         },
       },
@@ -204,7 +204,7 @@ const componentRoutes = [
         name: 'CuteFormInfo',
         component: () => import('@/views/component/Base/CuteFormInfo/index.vue'),
         meta: {
-          title: 'CuteFormInfo',
+          title: 'component.base.cuteFormInfo',
           breadcrumb: true,
         },
       },
@@ -213,7 +213,7 @@ const componentRoutes = [
         name: 'ElAlert',
         component: () => import('@/views/component/Base/ElAlert/index.vue'),
         meta: {
-          title: 'ElAlert',
+          title: 'component.base.elAlert',
           breadcrumb: true,
         },
       },
@@ -222,7 +222,7 @@ const componentRoutes = [
         name: 'ElFormItem',
         component: () => import('@/views/component/Base/ElFormItem/index.vue'),
         meta: {
-          title: 'ElFormItem',
+          title: 'component.base.elFormItem',
           breadcrumb: true,
         },
       },
@@ -231,7 +231,7 @@ const componentRoutes = [
         name: 'ElCollapse',
         component: () => import('@/views/component/Base/ElCollapse/index.vue'),
         meta: {
-          title: 'ElCollapse',
+          title: 'component.base.elCollapse',
           breadcrumb: true,
         },
       },
@@ -240,7 +240,7 @@ const componentRoutes = [
         name: 'ElColorPicker',
         component: () => import('@/views/component/Base/ElColorPicker/index.vue'),
         meta: {
-          title: 'ElColorPicker',
+          title: 'component.base.elColorPicker',
           breadcrumb: true,
         },
       },
@@ -249,7 +249,7 @@ const componentRoutes = [
         name: 'ElButton',
         component: () => import('@/views/component/Base/ElButton/index.vue'),
         meta: {
-          title: 'ElButton',
+          title: 'component.base.elButton',
           breadcrumb: true,
         },
       },
@@ -258,7 +258,7 @@ const componentRoutes = [
         name: 'ElBreadcrumb',
         component: () => import('@/views/component/Base/ElBreadcrumb/index.vue'),
         meta: {
-          title: 'ElBreadcrumb',
+          title: 'component.base.elBreadcrumb',
           breadcrumb: true,
         },
       },
@@ -267,7 +267,7 @@ const componentRoutes = [
         name: 'ElSteps',
         component: () => import('@/views/component/Base/ElSteps/index.vue'),
         meta: {
-          title: 'ElSteps',
+          title: 'component.base.elSteps',
           breadcrumb: true,
         },
       },
@@ -276,7 +276,7 @@ const componentRoutes = [
         name: 'ElTabs',
         component: () => import('@/views/component/Base/ElTabs/index.vue'),
         meta: {
-          title: 'ElTabs',
+          title: 'component.base.elTabs',
           breadcrumb: true,
         },
       },
@@ -285,7 +285,7 @@ const componentRoutes = [
         name: 'ElCard',
         component: () => import('@/views/component/Base/ElCard/index.vue'),
         meta: {
-          title: 'ElCard',
+          title: 'component.base.elCard',
           breadcrumb: true,
         },
       },
@@ -294,7 +294,7 @@ const componentRoutes = [
         name: 'VxeTable',
         component: () => import('@/views/component/Base/VxeTable/index.vue'),
         meta: {
-          title: 'VxeTable',
+          title: 'component.base.vxeTable',
         },
       },
     ],
@@ -314,7 +314,7 @@ const componentRoutes = [
         name: 'VssVideoPlayer',
         component: () => import('@/views/component/Biz/VssVideoPlayer/index.vue'),
         meta: {
-          title: 'VssVideoPlayer',
+          title: 'component.biz.vssVideoPlayer',
           breadcrumb: true,
         },
       },
@@ -323,7 +323,7 @@ const componentRoutes = [
         name: 'S3Upload',
         component: () => import('@/views/component/Biz/S3Upload/index.vue'),
         meta: {
-          title: 'S3Upload',
+          title: 'component.biz.s3Upload',
           breadcrumb: true,
         },
       },
@@ -332,7 +332,7 @@ const componentRoutes = [
         name: 'SvgTopology',
         component: () => import('@/views/component/Biz/SvgTopology/index.vue'),
         meta: {
-          title: 'SvgTopology',
+          title: 'component.biz.svgTopology',
           breadcrumb: true,
         },
       },
@@ -341,7 +341,7 @@ const componentRoutes = [
         name: 'Markdown',
         component: () => import('@/views/component/Biz/Markdown/index.vue'),
         meta: {
-          title: 'Markdown',
+          title: 'component.biz.markdown',
           breadcrumb: true,
         },
       },
@@ -350,7 +350,7 @@ const componentRoutes = [
         name: 'MarkdownBook',
         component: () => import('@/views/component/Biz/MarkdownBook/index.vue'),
         meta: {
-          title: 'MarkdownBook',
+          title: 'component.biz.markdownBook',
           breadcrumb: true,
         },
       },
@@ -359,7 +359,7 @@ const componentRoutes = [
         name: 'CtLog',
         component: () => import('@/views/component/Biz/CtLog/index.vue'),
         meta: {
-          title: 'CtLog',
+          title: 'component.biz.ctLog',
           breadcrumb: true,
         },
       },
@@ -368,7 +368,7 @@ const componentRoutes = [
         name: 'CtMonaco',
         component: () => import('@/views/component/Biz/CtMonaco/index.vue'),
         meta: {
-          title: 'CtMonaco',
+          title: 'component.biz.ctMonaco',
           breadcrumb: true,
         },
       },
@@ -377,7 +377,7 @@ const componentRoutes = [
         name: 'CutedGuide',
         component: () => import('@/views/component/Biz/CutedGuide/index.vue'),
         meta: {
-          title: 'CutedGuide',
+          title: 'component.biz.cutedGuide',
           breadcrumb: true,
         },
       },
@@ -387,7 +387,7 @@ const componentRoutes = [
     path: '/component/test',
     component: Layout,
     meta: {
-      title: '组件测试',
+      title: 'component.test.title',
       alwaysShow: true,
       breadcrumb: true,
     },
@@ -397,7 +397,7 @@ const componentRoutes = [
         name: 'CuteLayout',
         component: () => import('@/views/component/Test/CuteLayout/index.vue'),
         meta: {
-          title: 'CuteLayout',
+          title: 'component.test.cuteLayout',
           breadcrumb: true,
         },
       },
@@ -406,7 +406,7 @@ const componentRoutes = [
         name: 'Button',
         component: () => import('@/views/component/Test/Button.vue'),
         meta: {
-          title: 'Button',
+          title: 'component.test.button',
           breadcrumb: true,
         },
       },
@@ -415,7 +415,7 @@ const componentRoutes = [
         name: 'Radio',
         component: () => import('@/views/component/Test/Radio.vue'),
         meta: {
-          title: 'Radio',
+          title: 'component.test.radio',
           breadcrumb: true,
         },
       },
@@ -424,7 +424,7 @@ const componentRoutes = [
         name: 'Checkbox',
         component: () => import('@/views/component/Test/Checkbox.vue'),
         meta: {
-          title: 'Checkbox',
+          title: 'component.test.checkbox',
           breadcrumb: true,
         },
       },
@@ -433,7 +433,7 @@ const componentRoutes = [
         name: 'CascadeSelect',
         component: () => import('@/views/component/Test/CascadeSelect.vue'),
         meta: {
-          title: 'CascadeSelect',
+          title: 'component.test.cascadeSelect',
           breadcrumb: true,
         },
       },
@@ -442,7 +442,7 @@ const componentRoutes = [
         name: 'ColorPicker',
         component: () => import('@/views/component/Test/ColorPicker.vue'),
         meta: {
-          title: 'ColorPicker',
+          title: 'component.test.colorPicker',
           breadcrumb: true,
         },
       },
@@ -451,7 +451,7 @@ const componentRoutes = [
         name: 'Collapse',
         component: () => import('@/views/component/Test/Collapse.vue'),
         meta: {
-          title: 'Collapse',
+          title: 'component.test.collapse',
           breadcrumb: true,
         },
       },
@@ -460,7 +460,7 @@ const componentRoutes = [
         name: 'Dialog',
         component: () => import('@/views/component/Test/Dialog.vue'),
         meta: {
-          title: 'Dialog',
+          title: 'component.test.dialog',
           breadcrumb: true,
         },
       },
@@ -469,7 +469,7 @@ const componentRoutes = [
         name: 'Input',
         component: () => import('@/views/component/Test/Input.vue'),
         meta: {
-          title: 'Input',
+          title: 'component.test.input',
           breadcrumb: true,
         },
       },
@@ -478,7 +478,7 @@ const componentRoutes = [
         name: 'Link',
         component: () => import('@/views/component/Test/Link.vue'),
         meta: {
-          title: 'Link',
+          title: 'component.test.link',
           breadcrumb: true,
         },
       },
@@ -487,7 +487,7 @@ const componentRoutes = [
         name: 'MessageBox',
         component: () => import('@/views/component/Test/MessageBox.vue'),
         meta: {
-          title: 'MessageBox',
+          title: 'component.test.messageBox',
           breadcrumb: true,
         },
       },
@@ -496,7 +496,7 @@ const componentRoutes = [
         name: 'Notification',
         component: () => import('@/views/component/Test/Notification.vue'),
         meta: {
-          title: 'Notification',
+          title: 'component.test.notification',
           breadcrumb: true,
         },
       },
@@ -505,7 +505,7 @@ const componentRoutes = [
         name: 'Select',
         component: () => import('@/views/component/Test/Select.vue'),
         meta: {
-          title: 'Select',
+          title: 'component.test.select',
           breadcrumb: true,
         },
       },
@@ -514,7 +514,7 @@ const componentRoutes = [
         name: 'Switch',
         component: () => import('@/views/component/Test/Switch.vue'),
         meta: {
-          title: 'Switch',
+          title: 'component.test.switch',
           breadcrumb: true,
         },
       },
@@ -523,7 +523,7 @@ const componentRoutes = [
         name: 'Drawer',
         component: () => import('@/views/component/Test/Drawer.vue'),
         meta: {
-          title: 'Drawer',
+          title: 'component.test.drawer',
           breadcrumb: true,
         },
       },
@@ -532,7 +532,7 @@ const componentRoutes = [
         name: 'Upload',
         component: () => import('@/views/component/Test/Upload.vue'),
         meta: {
-          title: 'Upload',
+          title: 'component.test.upload',
           breadcrumb: true,
         },
       },
@@ -541,7 +541,7 @@ const componentRoutes = [
         name: 'Slider',
         component: () => import('@/views/component/Test/Slider.vue'),
         meta: {
-          title: 'Slider',
+          title: 'component.test.slider',
           breadcrumb: true,
         },
       },
@@ -550,7 +550,7 @@ const componentRoutes = [
         name: 'Table',
         component: () => import('@/views/component/Test/Table.vue'),
         meta: {
-          title: 'Table',
+          title: 'component.test.table',
           breadcrumb: true,
         },
       },
@@ -559,7 +559,7 @@ const componentRoutes = [
         name: 'Tag',
         component: () => import('@/views/component/Test/Tag.vue'),
         meta: {
-          title: 'Tag',
+          title: 'component.test.tag',
           breadcrumb: true,
         },
       },
@@ -568,7 +568,7 @@ const componentRoutes = [
         name: 'Tree',
         component: () => import('@/views/component/Test/Tree.vue'),
         meta: {
-          title: 'Tree',
+          title: 'component.test.tree',
           breadcrumb: true,
         },
       },
@@ -577,7 +577,7 @@ const componentRoutes = [
         name: 'State',
         component: () => import('@/views/component/Test/State.vue'),
         meta: {
-          title: 'State',
+          title: 'component.test.state',
           breadcrumb: true,
         },
       },
@@ -586,7 +586,7 @@ const componentRoutes = [
         name: 'Descriptions',
         component: () => import('@/views/component/Test/Descriptions.vue'),
         meta: {
-          title: 'Descriptions',
+          title: 'component.test.descriptions',
           breadcrumb: true,
         },
       },
@@ -595,7 +595,7 @@ const componentRoutes = [
         name: 'Breadcrumb',
         component: () => import('@/views/component/Test/Breadcrumb.vue'),
         meta: {
-          title: 'Breadcrumb',
+          title: 'component.test.breadcrumb',
           breadcrumb: true,
         },
       },
@@ -604,7 +604,7 @@ const componentRoutes = [
         name: 'Transfer',
         component: () => import('@/views/component/Test/Transfer.vue'),
         meta: {
-          title: 'Transfer',
+          title: 'component.test.transfer',
           breadcrumb: true,
         },
       },
@@ -613,7 +613,7 @@ const componentRoutes = [
         name: 'DropDown',
         component: () => import('@/views/component/Test/DropDown.vue'),
         meta: {
-          title: 'DropDown',
+          title: 'component.test.dropDown',
           breadcrumb: true,
         },
       },
@@ -622,7 +622,7 @@ const componentRoutes = [
         name: 'Rate',
         component: () => import('@/views/component/Test/Rate.vue'),
         meta: {
-          title: 'Rate',
+          title: 'component.test.rate',
           breadcrumb: true,
         },
       },
@@ -631,7 +631,7 @@ const componentRoutes = [
         name: 'Alert',
         component: () => import('@/views/component/Test/Alert.vue'),
         meta: {
-          title: 'Alert',
+          title: 'component.test.alert',
           breadcrumb: true,
         },
       },
@@ -640,7 +640,7 @@ const componentRoutes = [
         name: 'Pagination',
         component: () => import('@/views/component/Test/Pagination.vue'),
         meta: {
-          title: 'Pagination',
+          title: 'component.test.pagination',
           breadcrumb: true,
         },
       },
@@ -649,7 +649,7 @@ const componentRoutes = [
         name: 'Steps',
         component: () => import('@/views/component/Test/Steps.vue'),
         meta: {
-          title: 'Steps',
+          title: 'component.test.steps',
           breadcrumb: true,
         },
       },
@@ -658,7 +658,7 @@ const componentRoutes = [
         name: 'ContentAreaTips',
         component: () => import('@/views/component/Test/ContentAreaTips.vue'),
         meta: {
-          title: 'ContentAreaTips',
+          title: 'component.test.contentAreaTips',
           breadcrumb: true,
         },
       },
@@ -667,7 +667,7 @@ const componentRoutes = [
         name: 'Loading',
         component: () => import('@/views/component/Test/Loading.vue'),
         meta: {
-          title: 'Loading',
+          title: 'component.test.loading',
           breadcrumb: true,
         },
       },
@@ -676,7 +676,7 @@ const componentRoutes = [
         name: 'Popover',
         component: () => import('@/views/component/Test/Popover.vue'),
         meta: {
-          title: 'Popover',
+          title: 'component.test.popover',
           breadcrumb: true,
         },
       },
@@ -685,7 +685,7 @@ const componentRoutes = [
         name: 'Toast',
         component: () => import('@/views/component/Test/Toast.vue'),
         meta: {
-          title: 'Toast',
+          title: 'component.test.toast',
           breadcrumb: true,
         },
       },
@@ -694,7 +694,7 @@ const componentRoutes = [
         name: 'Tooltip',
         component: () => import('@/views/component/Test/Tooltip.vue'),
         meta: {
-          title: 'Tooltip',
+          title: 'component.test.tooltip',
           breadcrumb: true,
         },
       },
@@ -703,7 +703,7 @@ const componentRoutes = [
         name: 'Tabs',
         component: () => import('@/views/component/Test/Tabs.vue'),
         meta: {
-          title: 'Tabs',
+          title: 'component.test.tabs',
           breadcrumb: true,
         },
       },
@@ -712,7 +712,7 @@ const componentRoutes = [
         name: 'Badge',
         component: () => import('@/views/component/Test/Badge.vue'),
         meta: {
-          title: 'Badge',
+          title: 'component.test.badge',
           breadcrumb: true,
         },
       },
@@ -721,7 +721,7 @@ const componentRoutes = [
         name: 'Progress',
         component: () => import('@/views/component/Test/Progress.vue'),
         meta: {
-          title: 'Progress',
+          title: 'component.test.progress',
           breadcrumb: true,
         },
       },
@@ -730,7 +730,7 @@ const componentRoutes = [
         name: 'Timeline',
         component: () => import('@/views/component/Test/Timeline.vue'),
         meta: {
-          title: 'Timeline',
+          title: 'component.test.timeline',
           breadcrumb: true,
         },
       },
@@ -739,7 +739,7 @@ const componentRoutes = [
         name: 'Card',
         component: () => import('@/views/component/Test/Card.vue'),
         meta: {
-          title: 'Card',
+          title: 'component.test.card',
           breadcrumb: true,
         },
       },
@@ -748,7 +748,7 @@ const componentRoutes = [
         name: 'Layout',
         component: () => import('@/views/component/Test/Layout.vue'),
         meta: {
-          title: 'Layout',
+          title: 'component.test.layout',
           breadcrumb: true,
         },
       },
@@ -757,7 +757,7 @@ const componentRoutes = [
         name: 'Container',
         component: () => import('@/views/component/Test/Container.vue'),
         meta: {
-          title: 'Container',
+          title: 'component.test.container',
           breadcrumb: true,
         },
       },
@@ -766,7 +766,7 @@ const componentRoutes = [
         name: 'PageHeader',
         component: () => import('@/views/component/Test/PageHeader.vue'),
         meta: {
-          title: 'PageHeader',
+          title: 'component.test.pageHeader',
           breadcrumb: true,
         },
       },

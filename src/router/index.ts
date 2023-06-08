@@ -1,8 +1,8 @@
 /*
  * @Author: 马妍
  * @Date: 2022-07-29 10:25:03
- * @LastEditors: 王月功
- * @LastEditTime: 2023-04-23 15:19:47
+ * @LastEditors: XinZhao
+ * @LastEditTime: 2023-06-01 17:15:16
  * @Description:
  */
 import Vue from 'vue'
@@ -101,7 +101,7 @@ export const asyncRoutes: RouteConfig[] = [
     component: LayoutPage,
     name: 'Permission',
     meta: {
-      title: 'Permission 权限',
+      title: 'route.permission.default',
       alwaysShow: true,
       breadcrumb: true,
       perms: ['/permission'],
@@ -114,7 +114,7 @@ export const asyncRoutes: RouteConfig[] = [
           import(/* webpackChunkName: "simplemenu" */ '@/views/permission/User/SimpleUser.vue'),
         name: 'User',
         meta: {
-          title: 'SimpleUser 用户管理',
+          title: 'route.permission.user',
           breadcrumb: true,
           perms: ['/permission/user'],
         },
@@ -125,7 +125,7 @@ export const asyncRoutes: RouteConfig[] = [
           import(/* webpackChunkName: "simpleuser" */ '@/views/permission/Role/SimpleRole.vue'),
         name: 'Role',
         meta: {
-          title: 'SimpleRole 角色管理',
+          title: 'route.permission.role',
           breadcrumb: true,
           perms: ['/permission/role'],
         },
@@ -136,7 +136,7 @@ export const asyncRoutes: RouteConfig[] = [
           import(/* webpackChunkName: "simpleprole" */ '@/views/permission/Menu/SimpleMenu.vue'),
         name: 'Menu',
         meta: {
-          title: 'SimpleMenu 菜单管理',
+          title: 'route.permission.menu',
           breadcrumb: true,
           perms: ['/permission/menu'],
         },

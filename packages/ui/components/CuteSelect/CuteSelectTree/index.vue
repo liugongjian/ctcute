@@ -2,7 +2,7 @@
  * @Author: 马妍
  * @Date: 2022-07-14 19:41:25
  * @LastEditors: 黄靖
- * @LastEditTime: 2023-06-08 16:38:16
+ * @LastEditTime: 2023-06-08 21:11:22
  * @Description: 树选择器
 -->
 <template>
@@ -22,6 +22,8 @@
       <el-tree
         v-if="$scopedSlots.node"
         ref="tree"
+        :current-node-key="current"
+        :highlight-current="true"
         :default-expand-all="defaultExpandAll"
         :data="options"
         :node-key="treeNodeProps.value"
@@ -38,6 +40,8 @@
       <el-tree
         v-else
         ref="tree"
+        :current-node-key="current"
+        :highlight-current="true"
         :default-expand-all="defaultExpandAll"
         :data="options"
         :node-key="treeNodeProps.value"
@@ -88,6 +92,14 @@ export default class extends Mixins(Locale) {
   private initialInputHeight = 0
   // 多选时选中的tags数据，由于Vue.extend创建的构造函数New出的实例propsData不支持响应式，需要使用数组的push/splice方法才能响应式控制tags数据
   private selectedTags: any[] = []
+
+  get current(): string {
+    if (this.multiple) {
+      return this.treeData.length ? this.treeData[this.treeData.length - 1] : ''
+    } else {
+      return this.treeData as string
+    }
+  }
 
   get treeNodeProps(): CuteSelectTreeProps {
     return {
@@ -145,6 +157,9 @@ export default class extends Mixins(Locale) {
   @Emit('change')
   private handleNodeClick(checkedTreeData) {
     if (this.getDisabled(checkedTreeData, checkedTreeData)) {
+      this.$nextTick(() => {
+        this.refTree.setCurrentKey(this.current || '')
+      })
       return this.treeData
     }
     if (this.multiple) {

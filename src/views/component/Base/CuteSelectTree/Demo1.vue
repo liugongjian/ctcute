@@ -1,17 +1,17 @@
 <!--
  * @Author: 马妍
  * @Date: 2022-07-19 22:03:32
- * @LastEditors: XinZhao
- * @LastEditTime: 2023-04-24 14:16:52
+ * @LastEditors: 黄靖
+ * @LastEditTime: 2023-06-08 20:18:20
  * @Description: 
 -->
 <template>
   <div>
     <h3>{{ $t('demo.selectTree.demo1.single') }}</h3>
-    <cute-select-tree v-model="treeData" :options="treeOptions" />
+    <cute-select-tree v-model="treeData" default-expand-all :options="treeOptions" />
 
     <h3>{{ $t('demo.selectTree.demo1.multiple') }}</h3>
-    <cute-select-tree v-model="multiTreeData" :options="treeOptions" multiple />
+    <cute-select-tree v-model="multiTreeData" default-expand-all :options="treeOptions" multiple />
   </div>
 </template>
 <script lang="ts">

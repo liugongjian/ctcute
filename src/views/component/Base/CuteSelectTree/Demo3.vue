@@ -2,12 +2,12 @@
  * @Author: 黄靖
  * @Date: 2023-03-16 19:03:32
  * @LastEditors: 黄靖
- * @LastEditTime: 2023-03-16 19:03:32
+ * @LastEditTime: 2023-06-08 20:12:54
  * @Description: 
 -->
 <template>
   <div>
-    <cute-select-tree v-model="treeData" :value="treeDataValue" :options="treeOptions">
+    <cute-select-tree v-model="treeData" :value="treeDataValue" default-expand-all :options="treeOptions">
       <div slot="node" slot-scope="{ node, data }" class="custom-node">
         {{ node.label }}
         <span class="custom-info">{{ data.desc }}</span>

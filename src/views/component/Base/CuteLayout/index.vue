@@ -47,6 +47,13 @@
         <p>如需配置外部链接菜单，只需将路由的path设置为以http、https、mailto或tel开头的地址即可。</p>
       </ComponentDemo>
 
+      <h1>CuteLayoutSidebar / 多产品切换导航</h1>
+      <ComponentDemo path="@/views/component/Base/CuteLayout/Demo6.ts" mode="text/javascript">
+        <p>
+          通过sidebar-navigation属性传入SidebarNavigationLink[]数组。鼠标经过在SidebarTitle时会出现悬浮框列出多产品链接。
+        </p>
+      </ComponentDemo>
+
       <h1>CuteLayoutBreadcrumb / 自定义面包屑名称</h1>
       <ComponentDemo path="@/views/component/Test/CuteLayout/Layout.vue" mode="text/javascript">
         <p>
@@ -70,8 +77,24 @@
         <el-table-column prop="desc" label="说明" />
       </el-table>
 
+      <h2>Layout Event</h2>
+      <el-table :data="event" fit border>
+        <el-table-column prop="name" label="事件名称" />
+        <el-table-column prop="desc" label="说明" />
+        <el-table-column prop="params" label="参数" />
+      </el-table>
+
       <h2>Route Meta</h2>
       <el-table :data="routeMeta" fit border>
+        <el-table-column prop="name" label="参数" />
+        <el-table-column prop="desc" label="说明" min-width="200" />
+        <el-table-column prop="type" label="类型" />
+        <el-table-column prop="options" label="可选值" />
+        <el-table-column prop="default" label="默认值" />
+      </el-table>
+
+      <h2>Sidebar Navigation Link</h2>
+      <el-table :data="sidebarNavigationLink" fit border>
         <el-table-column prop="name" label="参数" />
         <el-table-column prop="desc" label="说明" min-width="200" />
         <el-table-column prop="type" label="类型" />
@@ -129,98 +152,126 @@ export default class extends Vue {
       default: 'fade-transform',
     },
     {
-      name: 'customClass',
+      name: 'custom-class',
       desc: '自定义Class',
       type: 'string',
       options: '',
       default: '',
     },
     {
-      name: 'headerLogo',
+      name: 'header-logo',
       desc: '主Logo图片URL，仅支持使用相对路径的图片地址',
       type: 'string',
       options: '',
       default: '天翼云Logo',
     },
     {
-      name: 'headerSubLogo',
+      name: 'header-sub-logo',
       desc: '二级Logo图片URL，仅支持使用相对路径的图片地址',
       type: 'string',
       options: '',
       default: 'CuteDesign Logo',
     },
     {
-      name: 'headerSubTitle',
+      name: 'header-sub-title',
       desc: '二级文本标题',
       type: 'string',
       options: '',
       default: '二级标题',
     },
     {
-      name: 'sidebarRoutes',
+      name: 'sidebar-routes',
       desc: '侧边栏菜单数据，格式同vue routes，默认获取项目全局路由',
       type: 'Route[]',
       options: '',
       default: '项目全局路由',
     },
     {
-      name: 'sidebarRoutesAfterEach',
+      name: 'sidebar-routes-after-each',
       desc: '显示菜单数据时的勾子方法，可以对动态对每个菜单项进行修改',
       type: 'Function(route)',
       options: '',
       default: '',
     },
     {
-      name: 'sidebarFilter',
+      name: 'sidebar-filter',
       desc: '对菜单数据进行过滤',
       type: 'Function(routes)',
       options: '',
       default: '',
     },
     {
-      name: 'sidebarTitle',
+      name: 'sidebar-title',
       desc: '侧边栏标题',
-      type: 'String',
+      type: 'string',
       options: '',
       default: '',
     },
     {
-      name: 'sidebarKnob',
+      name: 'sidebar-title-icon',
+      desc: '侧边栏标题图标，支持使用CuteDeign内置图标，也可以使用iconfont或者element icon，如果不使用CuteDesign内置图标需要设置iconType',
+      type: 'string',
+      options: '',
+      default: '',
+    },
+    {
+      name: 'sidebar-title-icon-type',
+      desc: '如果不使用CuteDesign内置图标需要指定iconType',
+      type: 'string',
+      options: 'svg/iconfont/element',
+      default: 'svg',
+    },
+    {
+      name: 'sidebar-navigation',
+      desc: '多产品切换导航，数据结构详见下方Sidebar Navigation Link',
+      type: 'SidebarNavigationLink[]',
+      options: '',
+      default: '',
+    },
+    {
+      name: 'sidebar-knob',
       desc: '是否显示菜单收起开关',
-      type: 'Boolean',
+      type: 'boolean',
       options: '',
       default: 'true',
     },
     {
-      name: 'sidebarCustomClass',
+      name: 'sidebar-custom-class',
       desc: '侧边栏自定义Class',
-      type: 'String',
+      type: 'string',
       options: '',
       default: '',
     },
     {
-      name: 'navbarBreadcrumb',
+      name: 'navbar-breadcrumb',
       desc: '是否显示面包屑',
-      type: 'Boolean',
+      type: 'boolean',
       options: '',
       default: 'true',
     },
     {
-      name: 'breadcrumbCustomTitle',
+      name: 'breadcrumb-custom-title',
       desc: '面包屑自定义标题',
-      type: 'String',
+      type: 'string',
       options: '',
       default: '',
     },
     {
-      name: 'breadcrumbShowLast',
+      name: 'breadcrumb-show-last',
       desc: '仅显示面包屑最后一级',
-      type: 'Boolean',
+      type: 'boolean',
       options: '',
       default: 'false',
     },
     {
-      name: 'breadcrumbAfterEach',
+      name: 'breadcrumb-show-home',
+      desc: '是否显示面包屑首页',
+      type: 'boolean',
+      options: '',
+      default: 'true',
+    },
+    {
+      name: 'breadcrumb-after-each',
       desc: '显示面包屑时的勾子方法，可以对动态对每个菜单项进行修改',
       type: 'Function(route)',
       options: '',
@@ -267,10 +318,18 @@ export default class extends Vue {
     },
   ]
 
+  private event = [
+    {
+      name: 'toggle-sidebar',
+      desc: '收起侧边栏时触发',
+      params: 'isShowMenu',
+    },
+  ]
+
   private routeMeta = [
     {
       name: 'title',
-      type: 'String',
+      type: 'string',
       default: '',
       desc: '页面名称，用于显示在侧边栏菜单和面包屑中',
     },
@@ -330,6 +389,44 @@ export default class extends Vue {
       default: '',
       options: '',
       desc: '指定选中状态的路由path',
+    },
+  ]
+
+  private sidebarNavigationLink = [
+    {
+      name: 'title',
+      type: 'string',
+      default: '',
+      options: '',
+      desc: '产品名称',
+    },
+    {
+      name: 'path',
+      type: 'string',
+      default: '',
+      options: '',
+      desc: '链接路由path或外链url',
+    },
+    {
+      name: 'active',
+      type: 'boolean',
+      default: 'false',
+      options: '',
+      desc: '是否高亮当前产品',
+    },
+    {
+      name: 'icon',
+      type: 'string',
+      default: '',
+      options: '',
+      desc: '产品图标，支持使用CuteDeign内置图标，也可以使用iconfont或者element icon，如果不使用CuteDesign内置图标需要设置iconType',
+    },
+    {
+      name: 'iconType',
+      type: 'string',
+      default: 'svg',
+      options: 'svg/iconfont/element',
+      desc: '如果不使用CuteDesign内置图标需要指定iconType',
     },
   ]
 }

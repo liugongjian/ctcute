@@ -8,7 +8,13 @@
 import { CuteComponent } from './component'
 import { RouteConfig } from 'vue-router'
 
-type LayoutType = 'default' | 'fixed-navbar'
+export type LayoutType = 'default' | 'fixed-navbar'
+export type SidebarNavigationLink = {
+  path: string
+  title: string
+  icon: string
+  iconType: string
+}
 export declare class CuteLayout extends CuteComponent {
   /* 是否显示页眉 */
   header: boolean
@@ -49,6 +55,12 @@ export declare class CuteLayout extends CuteComponent {
   /* 侧边栏标题 */
   sidebarTitle: string
 
+  /* 侧边栏标题图标 */
+  sidebarTitleIcon: string
+
+  /* 侧边栏标题导航 */
+  sidebarNavigation: SidebarNavigationLink[]
+
   /* 是否显示菜单收起开关 */
   sidebarKnob: boolean
 
@@ -63,6 +75,9 @@ export declare class CuteLayout extends CuteComponent {
 
   /* 仅显示面包屑最后一级 */
   breadcrumbShowLast: boolean
+
+  /* 是否显示面包屑首页 */
+  breadcrumbShowHome: boolean
 
   /* 显示面包屑时的勾子方法，可以对动态对每个菜单项进行修改 */
   breadcrumbAfterEach: (route: RouteRecord) => RouteRecord

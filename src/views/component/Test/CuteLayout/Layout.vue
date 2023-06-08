@@ -7,15 +7,19 @@
       :header-sub-title="headerSubTitle"
       :sidebar="sidebar"
       :sidebar-title="sidebarTitle"
+      :sidebar-title-icon="sidebarTitleIcon"
+      :sidebar-navigation="sidebarNavigation"
       :sidebar-knob="sidebarKnob"
       :sidebar-filter="filterRoutes"
       :sidebar-routes-after-each="sidebarRoutesAfterEach"
       :navbar="navbar"
       :breadcrumb-custom-title="breadcrumbCustomTitle"
       :breadcrumb-show-last="breadcrumbShowLast"
+      :breadcrumb-show-home="breadcrumbShowHome"
       :breadcrumb-after-each="breadcrumbAfterEach"
       :layout="layout"
       :transition="transition"
+      @toggle-sidebar="toggleSidebar"
     >
       <template #header-right>
         <header-nav />
@@ -165,7 +169,36 @@ export default class extends Vue {
 
   private sidebar = true
   private sidebarTitle = '布局框架'
+  private sidebarTitleIcon = 'contacts-fill'
   private sidebarKnob = true
+  private sidebarNavigation = [
+    {
+      path: '/page/detail/pro-detail1',
+      title: '边缘容器集群',
+      icon: 'pie-chart-circle-fill',
+    },
+    {
+      path: '/page/detail/pro-detail2',
+      title: '算力调度引擎',
+      icon: 'guide',
+    },
+    {
+      path: '/page/detail/pro-detail3',
+      title: '容器镜像服务',
+      icon: 'compass-fill',
+      active: true,
+    },
+    {
+      path: 'http://www.ctyun.cn',
+      title: 'Serverless边缘容器',
+      icon: 'data-analysis-fill',
+    },
+    {
+      path: 'https://www.ctyun.cn/products/htap',
+      title: '性能测试PTS',
+      icon: 'monitor-fill',
+    },
+  ]
 
   private navbar = true
   private navbarRight = 0
@@ -173,6 +206,7 @@ export default class extends Vue {
 
   private breadcrumbCustomTitle = ''
   private breadcrumbShowLast = false
+  private breadcrumbShowHome = true
 
   private filterRoutes(routes: Array<any>): Array<any> {
     return routes.filter(route => route.meta.type === 'layoutTest')
@@ -194,6 +228,10 @@ export default class extends Vue {
       route.meta.title = '集群管理-集群1'
     }
     return route
+  }
+
+  private toggleSidebar(isShowMenu) {
+    this.$message.info(`左侧菜单收起状态: ${isShowMenu}`)
   }
 }
 </script>

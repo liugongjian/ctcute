@@ -12,7 +12,7 @@ import { Message } from '@cutedesign/ui'
 /** 创建axios实例 */
 const service = axios.create({
   baseURL: settings.apiBaseUrl,
-  timeout: 5 * 3600 * 1000,
+  timeout: settings.requestTimeout,
 })
 
 /** 请求拦截器 */
@@ -47,13 +47,13 @@ service.interceptors.response.use(
       Message({
         message: '服务器开小差了，请稍后重试! ',
         type: 'error',
-        duration: 5 * 1000,
+        duration: settings.messageDuration,
       })
     } else {
       Message({
         message: error.response.data.msg,
         type: 'error',
-        duration: 5 * 1000,
+        duration: settings.messageDuration,
       })
     }
     return Promise.reject(error)

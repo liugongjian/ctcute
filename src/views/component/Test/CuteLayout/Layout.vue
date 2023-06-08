@@ -15,6 +15,7 @@
       :navbar="navbar"
       :breadcrumb-custom-title="breadcrumbCustomTitle"
       :breadcrumb-show-last="breadcrumbShowLast"
+      :breadcrumb-show-home="breadcrumbShowHome"
       :breadcrumb-after-each="breadcrumbAfterEach"
       :layout="layout"
       :transition="transition"
@@ -205,6 +206,7 @@ export default class extends Vue {
 
   private breadcrumbCustomTitle = ''
   private breadcrumbShowLast = false
+  private breadcrumbShowHome = true
 
   private filterRoutes(routes: Array<any>): Array<any> {
     return routes.filter(route => route.meta.type === 'layoutTest')

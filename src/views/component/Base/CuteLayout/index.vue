@@ -264,6 +264,13 @@ export default class extends Vue {
       default: 'false',
     },
     {
+      name: 'breadcrumb-show-home',
+      desc: '是否显示面包屑首页',
+      type: 'boolean',
+      options: '',
+      default: 'true',
+    },
+    {
       name: 'breadcrumb-after-each',
       desc: '显示面包屑时的勾子方法，可以对动态对每个菜单项进行修改',
       type: 'Function(route)',

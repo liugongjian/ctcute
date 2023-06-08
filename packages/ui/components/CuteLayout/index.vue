@@ -45,6 +45,7 @@
               :navbar-breadcrumb="navbarBreadcrumb"
               :breadcrumb-custom-title="breadcrumbCustomTitle"
               :breadcrumb-show-last="breadcrumbShowLast"
+              :breadcrumb-show-home="breadcrumbShowHome"
               :breadcrumb-after-each="breadcrumbAfterEach"
             >
               <template slot="navbar-breadcrumb">
@@ -149,6 +150,9 @@ export default class extends Vue {
 
   @Prop({ default: false })
   public breadcrumbShowLast: boolean
+
+  @Prop({ default: true })
+  public breadcrumbShowHome: boolean
 
   @Prop()
   private breadcrumbAfterEach: (route: RouteRecord) => RouteRecord

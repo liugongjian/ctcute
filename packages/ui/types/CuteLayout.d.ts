@@ -76,6 +76,9 @@ export declare class CuteLayout extends CuteComponent {
   /* 仅显示面包屑最后一级 */
   breadcrumbShowLast: boolean
 
+  /* 是否显示面包屑首页 */
+  breadcrumbShowHome: boolean
+
   /* 显示面包屑时的勾子方法，可以对动态对每个菜单项进行修改 */
   breadcrumbAfterEach: (route: RouteRecord) => RouteRecord
 }

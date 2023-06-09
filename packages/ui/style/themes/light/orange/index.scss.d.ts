@@ -324,6 +324,7 @@ export interface IScssVariablesRevised {
   zindexNormal: string;
   zindexTableFixed: string;
   zindexAffix: string;
+  zindexFixedComponent: string;
   zindexLayoutSidebar: string;
   zindexModal: string;
   zindexModalMask: string;

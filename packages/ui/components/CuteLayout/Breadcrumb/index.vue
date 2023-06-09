@@ -1,12 +1,12 @@
 <template>
   <el-breadcrumb v-if="breadcrumbCustomTitle">
     <el-breadcrumb-item>
-      <span>{{ breadcrumbCustomTitle }}</span>
+      <strong>{{ breadcrumbCustomTitle }}</strong>
     </el-breadcrumb-item>
   </el-breadcrumb>
   <el-breadcrumb v-else-if="breadcrumbShowLast">
     <el-breadcrumb-item>
-      <span>{{ t(lastCrumb.meta.title) }}</span>
+      <strong>{{ t(lastCrumb.meta.title) }}</strong>
     </el-breadcrumb-item>
   </el-breadcrumb>
   <el-breadcrumb v-else separator="/">
@@ -46,7 +46,7 @@ export default class extends Mixins(Locale) {
   private breadcrumbs: RouteRecord[] = []
 
   private get lastCrumb() {
-    return this.breadcrumbs[this.breadcrumbs.length - 1]
+    return this.breadcrumbs.length && this.breadcrumbs[this.breadcrumbs.length - 1]
   }
 
   @Watch('$route')
@@ -55,6 +55,11 @@ export default class extends Mixins(Locale) {
     if (route.path.startsWith('/redirect/')) {
       return
     }
+    this.getBreadcrumb()
+  }
+
+  @Watch('breadcrumbShowHome')
+  private onBreadcrumbShowHomeChange() {
     this.getBreadcrumb()
   }
 

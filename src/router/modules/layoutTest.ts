@@ -149,6 +149,7 @@ const layoutTestRoutes = [
         path: 'page3b',
         name: 'Page3b',
         component: () => import('@/views/component/Test/CuteLayout/Page3.vue'),
+        redirect: '/component/test/layout2/page3b/page3b-1',
         meta: {
           title: 'route.layoutTest.page3b.default',
           icon: 'api',

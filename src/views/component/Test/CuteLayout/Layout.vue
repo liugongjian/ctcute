@@ -58,10 +58,10 @@
                 <el-option value="fade"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="内容去上方插槽">
+            <el-form-item label="内容上方插槽">
               <el-checkbox v-model="layoutMainTop" />
             </el-form-item>
-            <el-form-item label="内容去下方插槽">
+            <el-form-item label="内容下方插槽">
               <el-checkbox v-model="layoutMainBottom" />
             </el-form-item>
           </el-form>
@@ -123,6 +123,9 @@
             </el-form-item>
             <el-form-item label="仅显示最后一级">
               <el-checkbox v-model="breadcrumbShowLast" />
+            </el-form-item>
+            <el-form-item label="是否显示面包屑首页">
+              <el-checkbox v-model="breadcrumbShowHome" />
             </el-form-item>
           </el-form>
         </el-card>

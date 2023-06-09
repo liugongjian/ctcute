@@ -323,6 +323,7 @@
   --zindex-normal: 1;
   --zindex-table-fixed: 2;
   --zindex-affix: 10;
+  --zindex-fixed-component: 9;
   --zindex-layout-sidebar: 10;
   --zindex-modal: 1000;
   --zindex-modal-mask: 1000;

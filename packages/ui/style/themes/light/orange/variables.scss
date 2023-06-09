@@ -452,6 +452,7 @@ $zindex-badge: auto !default; // badge的z-index值
 $zindex-normal: 1 !default; // Table固定行列的z-index值
 $zindex-table-fixed: 2 !default; // Table固定行列的z-index值
 $zindex-affix: 10 !default; // 吸附内容的z-index值
+$zindex-fixed-component: 9 !default; // 吸顶/吸底组件的z-index值
 $zindex-layout-sidebar: 10 !default; // 侧边栏的z-index值
 $zindex-modal: 1000 !default; // modal的z-index值
 $zindex-modal-mask: 1000 !default; // modal遮罩的z-index值

@@ -2500,6 +2500,13 @@ export default [
         'scene': '吸附内容的z-index值'
       },
       {
+        'name': '$zindex-fixed-component',
+        'type': 'string',
+        'value': '9',
+        'scssValue': '9',
+        'scene': '吸顶/吸底组件的z-index值'
+      },
+      {
         'name': '$zindex-layout-sidebar',
         'type': 'string',
         'value': '10',

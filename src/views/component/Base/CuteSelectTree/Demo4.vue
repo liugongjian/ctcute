@@ -2,12 +2,18 @@
  * @Author: 黄靖
  * @Date: 2022-07-19 22:03:32
  * @LastEditors: 黄靖
- * @LastEditTime: 2023-06-08 16:11:28
+ * @LastEditTime: 2023-06-08 20:12:45
  * @Description: 
 -->
 <template>
   <div>
-    <cute-select-tree v-model="treeData" :options="treeOptions" filterable :filter-node-method="filterNode" />
+    <cute-select-tree
+      v-model="treeData"
+      :options="treeOptions"
+      filterable
+      :filter-node-method="filterNode"
+      default-expand-all
+    />
   </div>
 </template>
 <script lang="ts">

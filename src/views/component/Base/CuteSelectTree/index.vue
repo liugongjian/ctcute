@@ -2,7 +2,7 @@
  * @Author: 黄靖
  * @Date: 2022-07-25 17:54:37
  * @LastEditors: 黄靖
- * @LastEditTime: 2023-06-08 16:18:34
+ * @LastEditTime: 2023-06-08 21:13:30
  * @Description: 
 -->
 <template>
@@ -22,7 +22,7 @@
       <component-demo path="@/views/component/Base/CuteSelectTree/Demo3.vue">
         <demo3 />
       </component-demo>
-      <h1>可搜索</h1>
+      <h1>可筛选</h1>
       <component-demo path="@/views/component/Base/CuteSelectTree/Demo4.vue">
         <demo4 />
       </component-demo>

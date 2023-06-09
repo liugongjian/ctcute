@@ -2,12 +2,12 @@
  * @Author: 黄靖
  * @Date: 2023-03-16 19:03:32
  * @LastEditors: 黄靖
- * @LastEditTime: 2023-03-16 19:03:32
+ * @LastEditTime: 2023-06-08 21:14:57
  * @Description: 
 -->
 <template>
   <div>
-    <cute-select-tree v-model="treeData" :options="treeOptions" :node-props="nodeProps" default-expand-all />
+    <cute-select-tree v-model="treeData" default-expand-all :options="treeOptions" :node-props="nodeProps" />
   </div>
 </template>
 <script lang="ts">
